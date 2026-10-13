@@ -1,10 +1,13 @@
 #ifndef SCN_STEP_CARRYITEM_CARRYITEM_H
 #define SCN_STEP_CARRYITEM_CARRYITEM_H
 
+#include "hel/common/PointerWrapper.h"
 #include "hel/math/Vector2.h"
+#include "hel/math/Vector3.h"
 #include "mem/ExplicitScopedPtr.h"
 #include "mem/HeapExpArrayUser.h"
 #include "scn/step/carryitem/Param.h"
+#include "scn/step/carryitem/ReleaseType.h"
 #include "scn/step/map/BinCarryItemKind.h"
 #include "types.h"
 #include "util/ObjRefHandle.h"
@@ -99,6 +102,72 @@ public:
     void deadProcReleaseEffect();
     bool isDisableReputItem() const;
 
+    void dead();
+    void deadWithEffect();
+    void vanishObjGenerator();
+    void clearUser();
+    hel::common::PointerWrapper<User> getUser();
+    void setCollideInterval(u32 interval);
+    void clearCheckRadiusPrevOwner();
+    bool isEnableCarry() const;
+    void setIsEnableCarry(bool isEnableCarry);
+    void setNextStateDefaultExt();
+    void setNextStateSpaceJump();
+    void reput();
+    void setReputStart(bool isReputStart);
+    void incUseCount();
+    void setUseCount(u32 useCount);
+    void resetUseCount();
+    bool canGather() const;
+    void setCanGather(bool canGather);
+    void setGatherOwnerUid(u64 uid);
+    u64 getGatherOwnerUid() const;
+    void setCanOpenDoor(bool canOpenDoor);
+    void setIsGathered(bool isGathered);
+    bool isStageItem() const;
+    bool isFastReputItem() const;
+    void onStepOver();
+    void onSpaceJumpEnd();
+    u32 subKind() const;
+    hel::math::Vector3 centerPos() const;
+    bool isCatched() const;
+    bool canShowDarknessLight() const;
+    u32 getThrowPower() const;
+    void setThrowPower(u32 throwPower);
+    bool isDead() const;
+    bool isGathering() const;
+    void setIsGathering(bool isGathering);
+    bool isReputed() const;
+    u32 useCount() const;
+    ReleaseType getReleaseType() const;
+    void setReleaseType(ReleaseType type);
+    void resetReleaseType();
+
+    Component& comp();
+    const Param& param() const;
+    gobj::Target& target();
+    gobj::FootState& footState();
+    gobj::Location& location();
+    gobj::Move& move();
+    chara::Model& model();
+    chara::Effect& effect();
+    chara::Effect& effectBack();
+    chara::Effect& effectWarp();
+    chara::SoundSE& soundSE();
+    ObjStop& objStop();
+    chara::LandConstraint& landConstraint();
+    chara::Lifetime& lifetime();
+    MapColl& mapColl();
+    chara::ObjCollLite& objColl();
+    VacuumReceiver& vacuumReceiver();
+    chara::Water& water();
+    Flash& flash();
+    chara::Shadow& shadow();
+    chara::WorldCage& worldCage();
+    chara::GroundChecker& groundChecker();
+    sfx::DarknessLight& darknessLight();
+    util::StateChanger<IState, 256>& stateChanger();
+
 private:
     // TODO: name. Only seen inlined.
     bool hasObjGenerator() const { return mObjGenerator != 0; }
@@ -125,7 +194,7 @@ private:
     u32 _54;
     bool _58;
     bool mIsReputed;
-    User* mUser;
+    hel::common::PointerWrapper<User> mUser;
     Param mParam;
     ogen::Generator* mObjGenerator;
     mem::ExplicitScopedPtr<gobj::Target> mTarget;

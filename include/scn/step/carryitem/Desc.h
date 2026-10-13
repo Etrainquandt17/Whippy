@@ -11,6 +11,8 @@ namespace carryitem {
 
 class Desc {
 public:
+    Desc(map::BinCarryItemKind kind, u32 _4, bool _8, const hel::math::Vector2& _C, u32 useCount);
+
     map::BinCarryItemKind kind;
     u32 _4;
     bool _8;

@@ -23,7 +23,9 @@ class Manager {
 public:
     bool isExistObj(map::BinCarryItemKind kind, u32);
     util::ObjRefHandle<CarryItem> chkCollideSwitch(const hel::math::Vector2& pos);
+    util::ObjRefHandle<CarryItem> chkCollide(const hel::math::Vector2& pos, u64 uid);
     u32 countExistObjInRect(const hel::geo::Rect& rect);
+    void killAllObj();
 };
 
 }}}  // namespace scn::step::carryitem
