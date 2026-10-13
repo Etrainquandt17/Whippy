@@ -6,7 +6,7 @@ Whippy is a WIP decompilation of Kirby's Return to Dream Land (known as Kirby's 
 AI may or may not be used in some parts of this project to accelerate workflows. Any AI contributions are checked by our eyes to minimalize mistakes.
 
 ## Status
-About 39% of the code is decompiled and matching right now. That's 28.2% of the game's own code and about 80% of the libraries it's linked with. The build gives you a `main.dol` that's byte for byte the same as the original for both supported versions. 2,489 of about 4,930 objects are compiled from source and linked in (37.7% of the code), about 85 more have some of their functions written, and 17,275 of the 45,656 functions match.
+The build gives you a `main.dol` that's byte for byte the same as the original for both supported versions. How much of the code is decompiled and matching changes with every commit, so we let [decomp.dev](https://decomp.dev/Etrainquandt17/Whippy) do the counting, and the badges further down show the current numbers.
 
 Each DOL is split into about 4,930 objects following the link map that shipped on the disc, so the symbol names and the file boundaries are the original ones. The first functions we decompiled were the 149 whose anti-tamper check changes what the game does instead of just stopping it, and all of them match. Most of Mint (the game's scripting system) is done too, meaning the virtual machine, the engine around it and the script bindings of every enemy and boss. The library code (Revolution SDK, NintendoWare, MSL, MetroTRK and the HOME Menu library) is taken from other decompilation projects wherever their sources compile to this game's code. Kirby's Dream Collection runs on the same engine, so its decompilation gave us 85 units of engine code as well (`hel`, `mem`, `gfx`, `hid`, `util` and so on).
 
@@ -26,7 +26,7 @@ These are the docs that are specific to this game. The ones that came with the [
 ### Decompiling
 [docs/decompiling.md](docs/decompiling.md). How to write a function and check it against the original, one file at a time.
 ### Object Classes
-[docs/object_classes.md](docs/object_classes.md). What the enemy, boss, weapon and hero classes look like in source, and what order to write a directory of them in.
+[docs/object_classes.md](docs/object_classes.md). What the enemy, boss, weapon, hero, gimmick, item and subgame classes look like in source, and what order to write a directory of them in.
 ### Libraries
 [docs/libraries.md](docs/libraries.md). Which projects the library code came from, with what flags, and what nobody has decompiled yet.
 ### Engine Code From Dream Collection
