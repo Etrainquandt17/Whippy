@@ -52,6 +52,12 @@ public:
     Gear& hat() { return _378; }
     Gear& weapon() { return _CF0; }
     Gear& body() { return _1668; }
+    // TODO: name. The ninja's left hand (the sheath).
+    Gear& weaponL() { return _11AC; }
+    // TODO: name. The water ability's plume.
+    Gear& hat2() { return _834; }
+    // TODO: name. Landia's model.
+    Gear& landia() { return _1B24; }
     gobj::Model& model() { return *reinterpret_cast<gobj::Model*>(reinterpret_cast<u8*>(this) + 0xC); }
 
     u8 _0[0x1F8];
@@ -74,6 +80,8 @@ public:
     f32 getSign() const;
     void setAttackNoRenew();
     hel::math::Direction3 getDirection3() const;
+    void procFixPos();
+    void unsetCustomMtx();
 };
 
 }

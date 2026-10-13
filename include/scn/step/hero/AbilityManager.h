@@ -28,16 +28,31 @@ class Custom;
 namespace spark {
 class Custom;
 }
+namespace ninja {
+class Custom;
+}
+namespace fighter {
+class Custom;
+}
+namespace spear {
+class Custom;
+}
+namespace dee {
+class Custom;
+}
 
 class AbilityManager {
 public:
     bool chkDiscardAbility();
+    void onGimmickReactChangeState();
     bool tryToChangeState();
     void initAbility(int kind);
     void startAbilitySilent();
     bool tryToChangeStateOnDamage();
     void setFuel(u32 fuel);
     bool isSuper() const;
+    bool isSuperActionTime() const;
+    void superStopRelease();
     bool haveAbility() const;
     bool isStarted() const;
     AbilityKind abilityKind() const;
@@ -67,6 +82,10 @@ public:
     void setChainRespite(u32 respite);
     spark::Custom& customSpark();
     bool isFixedAbility() const;
+    ninja::Custom& customNinja();
+    fighter::Custom& customFighter();
+    spear::Custom& customSpear();
+    dee::Custom& customDee();
 
 private:
     void initAbilityCore(int kind);

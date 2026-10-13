@@ -12,6 +12,8 @@ public:
     f32 getFrontViewOffsTarget() const;
     void setZeroIntpRate();
     void setDependSpeed(bool isDepend);
+    void setValid(bool isValid);
+    void setPause(bool isPause);
 };
 
 }

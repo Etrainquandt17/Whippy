@@ -19,6 +19,7 @@ public:
     void setForbidEffect(bool isForbid);
     bool isOnSurface() const;
     hel::math::Vector3 getSurfaceUpVec(const hel::math::Vector2& pos) const;
+    void requestBubble(const hel::math::Vector2& pos);
 };
 
 }

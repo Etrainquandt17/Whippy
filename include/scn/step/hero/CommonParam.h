@@ -21,11 +21,22 @@ struct CommonParamWater {
     u32 _44[3];
 };
 
+// TODO: name; spear::StateFlight keeps one reference to it and reaches the three members from there.
+struct CommonParamGround {
+    gobj::MoveParamDecel _0;
+    gobj::MoveParamAccel _4;
+    gobj::MoveParamAccel _10;
+};
+
 // TODO: members.
 struct CommonParam {
     // TODO: the members that a state reads, with padding between them, until the whole layout is known.
     union {
         u32 _0[0x137];
+        struct {
+            u32 _padG0[0x74 / 4];
+            CommonParamGround _74g;
+        };
         struct {
             u32 _padW0[0xA8 / 4];
             CommonParamWater _A8;
@@ -35,7 +46,9 @@ struct CommonParam {
             u32 _18;
             u32 _padY1C[(0x2C - 0x1C) / 4];
             gobj::MoveParamDecel _2C;
-            u32 _padY30[(0xF4 - 0x30) / 4];
+            u32 _padY30[(0x3C - 0x30) / 4];
+            gobj::MoveParamAccel _3C;
+            u32 _padY48[(0xF4 - 0x48) / 4];
             f32 _F4;
             u32 _padYF8[(0x158 - 0xF8) / 4];
             f32 _158;
@@ -96,10 +109,33 @@ struct CommonParam {
             f32 _1BC;
             gobj::MoveParamDecel _1C0;
         };
+        struct {
+            u32 _padR0[0x15C / 4];
+            f32 _15C;
+            u32 _padR160[(0x354 - 0x160) / 4];
+            f32 _354;
+            f32 _358;
+            f32 _35C;
+            u32 _360;
+            f32 _364;
+            u32 _padR368[(0x370 - 0x368) / 4];
+            f32 _370;
+            u32 _padR374[(0x3B0 - 0x374) / 4];
+            f32 _3B0;
+            u32 _padR3B4;
+            f32 _3B8;
+            f32 _3BC;
+            f32 _3C0;
+            u32 _3C4;
+        };
     };
     f32 _4DC;
     f32 _4E0;
     f32 _4E4;
+    f32 _4E8;
+    f32 _4EC;
+    f32 _4F0;
+    f32 _4F4;
 };
 
 }

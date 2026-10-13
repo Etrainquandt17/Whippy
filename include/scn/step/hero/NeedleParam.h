@@ -20,11 +20,24 @@ struct NeedleParamBurnAttack {
     u32 _4;
 };
 
+struct NeedleParamDash {
+    f32 _0;
+    f32 _4;
+    f32 _8;
+    f32 _C;
+    f32 _10;
+    f32 _14;
+    f32 _18;
+    u32 _1C;
+};
+
 struct NeedleParam {
     u32 _0[0xC];
     NeedleParamAttackUp _30;
     NeedleParamBurnAttack _38;
-    u32 _40[0xA];
+    f32 _40;
+    f32 _44;
+    NeedleParamDash _48;
     gobj::MoveParamFall _68;
 };
 

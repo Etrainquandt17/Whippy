@@ -10,6 +10,8 @@ namespace hero {
 
 class SoundSE {
 public:
+    snd::SERequestor& get_4() { return _4; }
+
     u32 _0;
     snd::SERequestor _4;
     snd::SERequestor _78;

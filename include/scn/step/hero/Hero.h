@@ -13,6 +13,8 @@ namespace util {
 class IState;
 template <typename T, int N>
 class StateChanger;
+template <typename T>
+class ObjRefHandle;
 }
 
 namespace gobj {
@@ -34,6 +36,7 @@ class Knockback;
 class HitStop;
 class LandConstraint;
 class WorldCage;
+class Shadow;
 }
 
 namespace carryitem {
@@ -51,6 +54,7 @@ class Attacker;
 namespace hero {
 
 class AbilityCrashCtrl;
+class FinalBattleShadow;
 class CaptureAttacker;
 class ItemCatcher;
 class InertialMove;
@@ -58,10 +62,12 @@ class CarryItemRide;
 class IState;
 class AdditionalMove;
 class Dead;
+class Door;
 class Flash;
 class Hat;
 class LogoutController;
 class Nururi;
+class ZNururi;
 class ObjStop;
 class VacuumReceiver;
 class Stepping;
@@ -83,12 +89,15 @@ class Model;
 class ObjColl;
 class SoundSE;
 class Squash;
+class WeaponCtrl;
+class RotCtrl;
 class StagingCtrl;
 class StateChecker;
 class Water;
 class WearBack;
 class InvisibleControl;
 class MapColl;
+class MapCollProducer;
 class Param;
 class Piggyback;
 class Pinch;
@@ -98,6 +107,7 @@ class Landing;
 class ItemCollReact;
 class ChargeFlash;
 class DamageFlash;
+class DamageFieldReact;
 
 class Hero {
 public:
@@ -118,6 +128,7 @@ public:
     Hid& hid() const;
     info::HeroPanel& infoHeroPanel();
     bool isVisible() const;
+    void procMapColl();
     Model& model();
     u32 padChan() const;
     SoundSE& soundSE();
@@ -129,10 +140,14 @@ public:
     Invincible& invincible();
     ObjColl& objColl();
     Squash& squash();
+    WeaponCtrl& weaponCtrl();
+    RotCtrl& rotCtrl();
     StagingCtrl& stagingCtrl();
     Effect& effect();
     bool isMainPlayer() const;
     Kind kind() const;
+    util::ObjRefHandle<Hero> handle();
+    bool isDedede() const;
     const chara::Location& location() const;
     gobj::Target& target();
     MapColl& mapColl();
@@ -153,11 +168,14 @@ public:
     gobj::Move& move();
     chara::Location& location();
     DamageFlash& damageFlash();
+    DamageFieldReact& damageFieldReact();
     LogoutController& logoutController();
     chara::HitStop& hitStop();
     Dead& dead();
+    Door& door();
     Flash& flash();
     Nururi& nururi();
+    ZNururi& zNururi();
     chara::WorldCage& worldCage();
     VacuumReceiver& vacuumReceiver();
     Hat& hat();
@@ -175,6 +193,11 @@ public:
     ChargeFlash& chargeFlash();
     chara::HitPoint& hitPoint();
     CaptureAttacker& captureAttacker();
+    FinalBattleShadow& finalBattleShadow();
+    void setDamageDirect(u32 damage, bool flag);
+    void setDamageDirect(u32 damage, bool flag, bool flag2);
+    chara::Shadow& shadow();
+    MapCollProducer& mapCollProducer();
 };
 
 }

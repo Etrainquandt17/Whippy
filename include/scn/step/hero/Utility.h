@@ -42,6 +42,7 @@ public:
     static void ReqNakigoe(Hero& hero);
     static void ReqKakegoe(Hero& hero);
     static bool IsPressHDirKey(Hero& hero);
+    static bool IsRidingItem(Hero& hero);
     static util::ObjRefHandle<weapon::Weapon> CreateEffectLocator(Hero& hero);
     static void ChangeStateWaitOrFall(Hero& hero);
     static void MoveDefault(Hero& hero);
@@ -74,6 +75,8 @@ public:
     static void MoveDefaultBrakeNoOnIce(Hero& hero);
     static void RequestBubbleRollAction(Hero& hero, u32 frame);
     static bool IsSearchCollideNoStarEffect(Hero& hero);
+    static void CorrectPosToInnerWorldCage(Hero& hero);
+    static bool IsCollideCapturedEnemy(Hero& hero);
 };
 
 }

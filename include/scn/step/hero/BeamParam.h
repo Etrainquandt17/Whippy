@@ -24,6 +24,10 @@ struct BeamParam {
     f32 _34;
     gobj::MoveParamDecel _38;
     gobj::MoveParamFall _3C;
+    u32 _48;
+    u32 _4C;
+    f32 _50;
+    f32 _54;
 };
 
 }

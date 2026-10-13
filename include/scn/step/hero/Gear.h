@@ -40,7 +40,10 @@ public:
     void clear();
     void setVisibility(bool visible);
     void setNodeVisibility(u32 node, bool visible);
+    void setSubAnim(u32 slot, u32 index, u32);
+    void startSubAnim(u32 slot, bool loop);
     bool isValid() const;
+    bool isVisible();
     bool isAnimExist() const;
     gobj::GearAnim& anim();
     chara::Effect& effect();

@@ -10,6 +10,15 @@ namespace hero {
 
 namespace parasol {
 
+struct ParamSwingAttack {
+    u32 _0;
+    f32 _4;
+    f32 _8;
+    f32 _C;
+    f32 _10;
+    f32 _14;
+};
+
 struct ParamBarrier {
     f32 _0;
     f32 _4;
@@ -34,17 +43,27 @@ struct ParasolParam {
     gobj::MoveParamFall _14;
     gobj::MoveParamDecel _20;
     gobj::MoveParamFall _24;
-    u32 _30[(0x48 - 0x30) / 4];
+    u32 _30;
+    f32 _34;
+    gobj::MoveParamDecel _38;
+    gobj::MoveParamFall _3C;
     f32 _48;
     f32 _4C;
     u32 _50;
     gobj::MoveParamAccel _54;
     gobj::MoveParamDecel _60;
     gobj::MoveParamFall _64;
-    u32 _70[(0xA0 - 0x70) / 4];
+    f32 _70;
+    f32 _74;
+    u32 _78;
+    gobj::MoveParamAccel _7C;
+    gobj::MoveParamDecel _88;
+    gobj::MoveParamFall _8C;
+    f32 _98;
+    f32 _9C;
     parasol::ParamBarrier _A0;
     parasol::ParamBarrier _C4;
-    u32 _E8[(0x160 - 0xE8) / 4];
+    parasol::ParamSwingAttack _E8[5];
     f32 _160;
     f32 _164;
     gobj::MoveParamAccel _168;

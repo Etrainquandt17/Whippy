@@ -12,6 +12,7 @@ public:
     ~AbilityCrashCtrl();
 
     void update();
+    void request();
     bool isRequested() const;
     void clearRequested();
 };

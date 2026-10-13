@@ -20,8 +20,6 @@ namespace step {
 namespace hero {
 namespace hammer {
 
-// TODO: the original's stack frame is 16 bytes larger (0x700), above the DetectResult; every instruction is
-// otherwise the same.
 bool Utility::IsHitFrontFloor(Hero& hero) {
     f32 sign = hero.target().getSign();
     hel::math::Vector2 pos =

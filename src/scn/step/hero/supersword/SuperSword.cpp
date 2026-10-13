@@ -114,8 +114,10 @@ void SuperSword::setup() {
     mIsSetup = true;
 }
 
-// TODO: the original carries six MetaFortress checks whose mixing steps tools/metafortress_c.py leaves as
-// instructions; this is the game's own code only.
+// TODO: the original has six fetches ahead of this (docs/metafortress.md, hidden objects): three times it decodes
+// the address of dcpl_0xd33c62e7 and of another object (dcpl_0x3ab94be8, dcpl_0x69682d64, dcpl_0x1e71bd18), mixes
+// the word read from that one and combines it into dcpl_0xd33c62e7 with +=, |= and ^=. This is the game's own
+// code only.
 bool SuperSword::tryToChangeState() {
     if (StateAttack::TryToChangeState(&mHero)) {
         return true;
@@ -145,3 +147,10 @@ bool SuperSword::isDepleted() const {
 }
 }
 }
+
+// One of the hidden objects of the copy protection (docs/metafortress.md). Functions of other units reach it
+// through an address they decode from inline data, so the linker would drop it as unused.
+#pragma push
+#pragma force_active on
+u32 dcpl_0x57ee31f2_dcpl0_mfort6317_[4] = { 0x1635EECB, 0x4EE095AC, 0x350845E4, 0xFDDFBE85 };
+#pragma pop

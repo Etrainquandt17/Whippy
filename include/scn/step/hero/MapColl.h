@@ -28,9 +28,15 @@ public:
     void resetTriggerPassThroughLand();
     bool is_86() const { return reinterpret_cast<const u8*>(this)[0x86]; }
     void setThroughOneSpace(bool isThrough);
+    void setIgnoreFire(bool isIgnore);
     bool is_8E() const { return reinterpret_cast<const u8*>(this)[0x8E]; }
     bool is_8F() const { return reinterpret_cast<const u8*>(this)[0x8F]; }
     void setIgnoreInvisibleRoof(bool isIgnore);
+    bool isValid() const;
+    void setHitSlopeRoof(bool isHit);
+    f32 actorHeight() const;
+    void setIgnoreInvisibleWall(bool isIgnore);
+    hel::math::Vector2 floorNormal() const { return _74; }
 };
 
 }

@@ -35,6 +35,26 @@ struct StoneParam;
 struct HammerParam;
 struct ParasolParam;
 struct WhipParam;
+struct CapturedWhispyParam;
+struct CapturedGrandLowperParam;
+struct CapturedFattyBufferParam;
+struct CapturedDoubterParam;
+struct CapturedWaterGalborosParam;
+struct CapturedHRD3Param;
+struct CapturedGalactaKnightParam;
+struct MetaParam;
+struct FighterParam;
+struct SpearParam;
+struct DeeParam;
+struct IceParam;
+struct WaterParam;
+struct LandiaParam;
+struct DededeParam;
+
+// TODO: the enumerators; ice::Ice passes 3.
+enum ParamReplKind {
+    PARAM_REPL_KIND_ICE = 3
+};
 
 // TODO: members and the other functions.
 class Param {
@@ -71,6 +91,23 @@ public:
     const HammerParam& hammer() const;
     const ParasolParam& parasol() const;
     const WhipParam& whip() const;
+    const CapturedWhispyParam& capturedWhispy() const;
+    const CapturedGrandLowperParam& capturedGrandLowper() const;
+    const CapturedFattyBufferParam& capturedFattyBuffer() const;
+    const CapturedDoubterParam& capturedDoubter() const;
+    const CapturedWaterGalborosParam& capturedWaterGalboros() const;
+    const CapturedHRD3Param& capturedHRD3() const;
+    const CapturedGalactaKnightParam& capturedGalactaKnight() const;
+    const MetaParam& meta() const;
+    const FighterParam& fighter() const;
+    const SpearParam& spear() const;
+    const DeeParam& dee() const;
+    const IceParam& ice() const;
+    const WaterParam& water() const;
+    const LandiaParam& landia() const;
+    const DededeParam& dedede() const;
+    void replaceCommonParam(ParamReplKind kind);
+    void restoreCommonParam(ParamReplKind kind);
 };
 
 }

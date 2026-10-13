@@ -10,7 +10,8 @@ class Hero;
 class InitiativeUtil {
 public:
     static bool IsMine(Hero& hero);
-    static void TryTake(Hero& hero);
+    static bool TryTake(Hero& hero);
+    static bool IsSomebody(Hero& hero);
 };
 
 }

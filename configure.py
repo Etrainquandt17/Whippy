@@ -4843,7 +4843,7 @@ config.libs = [
             Object(Matching, "scn/step/hero/hammer/StateTripleAttack.cpp"),
             Object(Matching, "scn/step/hero/hammer/StateUnderAttack.cpp"),
             Object(Matching, "scn/step/hero/hammer/StateWaterSpin.cpp"),
-            Object(NonMatching, "scn/step/hero/hammer/Utility.cpp"),
+            Object(Matching, "scn/step/hero/hammer/Utility.cpp"),
             Object(NonMatching, "scn/step/hero/ice/Ice.cpp"),
             Object(NonMatching, "scn/step/hero/ice/StateBlizzard.cpp"),
             Object(NonMatching, "scn/step/hero/ice/StateBlizzardEnd.cpp"),

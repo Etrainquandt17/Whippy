@@ -11,6 +11,7 @@ class Hero;
 class InfoUtil {
 public:
     static void PlayerNumAppearIfNotLonely(Hero& hero);
+    static void PlayerNumAppearAll(Hero& hero);
 };
 
 }

@@ -17,6 +17,8 @@ public:
         NEXT_STATE_0
     };
 
+    static bool TryToChangeState(Hero* hero);
+
     StateSpaceJump(Hero* hero, NextState next);
     StateSpaceJump(Hero* hero, NextState next, hel::math::Vector3 pos);
 };

@@ -18,6 +18,7 @@ public:
 
     void setSignal(BossDemoSignalKind kind);
     bool isSilent() const;
+    void setIsSilent(bool isSilent);
     void startBossDemoMode(f32, f32, DemoKind kind);
     void endBossDemoMode();
 };

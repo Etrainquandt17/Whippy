@@ -11,6 +11,7 @@ namespace hero {
 class Squash {
 public:
     hel::math::Vector3 getCurrentScale() const;
+    void setTarget(const hel::math::Vector3& scale, f32 rate);
 };
 
 }
