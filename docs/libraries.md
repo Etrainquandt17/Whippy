@@ -81,7 +81,7 @@ All of this is in `configure.py`. This is what each library turned out to need:
 - Xenoblade's `nw4r/math` header has a live assertion in `FSqrt` that emits a call. `nw4r/math` units that use it include the plain `"nw4r/math.h"`.
 - `OSExec.c` wants Twilight Princess's `CheckDVDLowIntType`, a `static` function with a `switch` that the compiler expands at all 7 places, where the other donors repeat an `if` block. Line numbers in its messages are this build's (1037, 1046, 1055, 1071).
 - A C unit keeps the strings of functions the link dropped, and they have to be there for the strings behind them to sit right. `OSExec.c` has 3 dropped functions (`__OSLaunchDisk`, `OSExecv`, `__OSLaunchPartition`) whose strings are known and whose bodies aren't.
-- Small C forms decided 3 SDK units that had every instruction but one or two. Those were a `u8` counter advanced by `i += (u8)7`, a `const char` parameter, and `*(path + len - 1)` in place of `path[len - 1]` ([Decompiling](decompiling.md) has them).
+- Small C forms decided 3 SDK units that had every instruction but one or two. Those were a `u8` counter advanced by `i += (u8)7`, a `const char` parameter, and `*(path + len - 1)` in place of `path[len - 1]`.
 - An optimization level resets the function alignment. `-func_align 4` has to come after `-O4,s` on the command line, or the object's code section is aligned to 16 and everything behind it in the link moves.
 - A function-by-function comparison doesn't see a wrong alignment. The link does.
 
@@ -114,7 +114,7 @@ Unverified bodies stand in for functions the link dropped, each with a TODO. Tho
 
 ## Known Issues
 ### `nw4r/ef` is at 21 of 30 units linked
-`ef_drawfreestrategy` has one function left. The original has every `switch` as a compare tree, which this compiler only writes with optimization off, and `ef_drawdirectionalstrategy` has one function of the same kind. What we tried is under "Switches" in [Decompiling](decompiling.md). `ef_particlemanager`'s `Calc` is the older library's body, 474 instructions for 1,364. `ef_util` has 7 functions that are paired-single assembly in the original. There's no source at all for `ef_animcurve`, `ef_postfield`, and the billboard, directional, stripe and smooth-stripe strategies.
+`ef_drawfreestrategy` has one function left. The original has every `switch` as a compare tree, which this compiler only writes with optimization off, and `ef_drawdirectionalstrategy` has one function of the same kind. With optimization on it makes a jump table of any `switch` with 8 cases or more. `ef_particlemanager`'s `Calc` is the older library's body, 474 instructions for 1,364. `ef_util` has 7 functions that are paired-single assembly in the original. There's no source at all for `ef_animcurve`, `ef_postfield`, and the billboard, directional, stripe and smooth-stripe strategies.
 ### `kpad` is partly done
 `KPAD.c` is linked. `KMPLS.c` (12 of 17 functions, 4 not written) and `KZMplsTestSub.c` (4 of 6) are open, and what's left is float register allocation and 4 large functions.
 ### `FExp` and `FLog` in `nw4r/math/math_arithmetic` use other registers

@@ -66,4 +66,4 @@ It's an ordinary function of `Direction3.cpp` by its place in the unit, however 
 ### `g3d::StdModelContext` has assumed constructor arguments
 It derives from `g3d::ModelContext` now, with constructor arguments that are assumed, and `ModelContext.h` still has the conversion operator from before.
 ### Some functions sit behind opt-in macros
-Functions that the original expands in one unit and calls in another sit behind opt-in macros (`mem::MemBlock`'s assignment, the `Matrix34` constructor, `nw4r::g3d::ResFile`'s constructor). [Decompiling](decompiling.md) lists them.
+Functions that the original expands in one unit and calls in another sit behind opt-in macros (`mem::MemBlock`'s assignment, the `Matrix34` constructor, `nw4r::g3d::ResFile`'s constructor). [Decompiling](decompiling.md) explains how they work.

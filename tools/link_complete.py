@@ -266,6 +266,17 @@ def main() -> None:
         # and that alone can make a good unit differ. Try what failed again, one by one, on a split that has
         # only the names of the units known to be good.
         left = [unit for unit in survivors if unit not in stub_good]
+        if len(left) > RETRY_ALONE:
+            # Too many to try one by one: a directory at a time first, since its units mostly share their look-alikes.
+            groups: Dict[str, List[str]] = {}
+            for unit in left:
+                groups.setdefault(unit.rsplit("/", 1)[0], []).append(unit)
+            for directory, units in groups.items():
+                names = set().union(*(survivors[each] for each in stub_good + units))
+                if run.scratch(good + stub_good + units, split_with(version, names))[0]:
+                    print("   ", directory, "links without the other candidates' look-alikes un-exported", flush=True)
+                    stub_good += units
+            left = [unit for unit in survivors if unit not in stub_good]
         if 0 < len(left) <= RETRY_ALONE:
             for unit in left:
                 names = set().union(*(survivors[each] for each in stub_good + [unit]))

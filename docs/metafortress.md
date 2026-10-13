@@ -93,7 +93,7 @@ python tools/metafortress.py SUKE01 --yaml
 For the same reason `config.yml` sets `quick_analysis` (a run in the Korean build decodes as a branch into another function, which derails the search for function boundaries), and the `dcpl_` objects are marked `noreloc` in `symbols.txt`. Nothing refers to the response function or its pointer object by name, so `config.yml` lists both under `force_active`. Without that the linker drops them.
 
 ### Matching
-Protected functions can be matched like any other, and you don't have to write their checks by hand anymore. `tools/metafortress_c.py <ID> SYMBOL` prints a function's check as C in the one form that the compiler turns back into the original's instructions and registers, with the game's own instructions as comments around it ([Decompiling](decompiling.md), "The Canonical Form"). `tools/metafortress.py <ID> --source SYMBOL` prints the whole function as inline assembly.
+Protected functions can be matched like any other, and you don't have to write their checks by hand anymore. `tools/metafortress_c.py <ID> SYMBOL` prints a function's check as C in the one form that the compiler turns back into the original's instructions and registers, with the game's own instructions as comments around it ([Decompiling](decompiling.md), "Protected Functions"). `tools/metafortress.py <ID> --source SYMBOL` prints the whole function as inline assembly.
 
 Symbols in unnamed namespaces show that the compiled file was the rewritten copy, as they carry `X_prt_cpp` where a build of `X.cpp` produces `X_cpp`. A unit with symbols like that will need them renamed in `symbols.txt` before it can be linked from source.
 

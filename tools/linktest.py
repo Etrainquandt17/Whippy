@@ -11,6 +11,7 @@ Nothing in config/ or configure.py is touched.
 import argparse
 import bisect
 import hashlib
+import os
 import re
 import struct
 import subprocess
@@ -24,6 +25,10 @@ import compare  # noqa: E402
 
 SCRATCH = ROOT / "build" / "linktest"
 EXTENSIONS = (".cpp", ".c", ".cp")
+# mwldeppc.exe can end in an access violation for no reason but the size of the environment it was started with.
+# The same link passes with a variable more or less, so a link that ends this way is run again with one added.
+LINKER_FAULT = 0xC0000005
+PADDING = ("", "x" * 24, "x" * 40)
 
 
 def source_of(unit: str) -> Optional[Path]:
@@ -153,6 +158,41 @@ def first_shift(version: str, scratch_map: Path, limit: int = 6) -> List[str]:
     return lines
 
 
+FOLD_LINE = re.compile(r"^--> (?:duplicated code: symbol (\S+) is duplicated by (\S+),|the function (\S+) will be replaced by a branch to (\S+))")
+
+
+def folds(path: Path) -> Dict[str, str]:
+    """Returns the look-alike each folded function of a link map was folded into."""
+    found: Dict[str, str] = {}
+    with open(path, encoding="utf-8", errors="replace") as map_file:
+        for line in map_file:
+            m = FOLD_LINE.match(line)
+            if m:
+                found[m.group(1) or m.group(3)] = m.group(2) or m.group(4)
+    return found
+
+
+def fold_differences(version: str, scratch_map: Path, units: List[str], limit: int = 12) -> List[str]:
+    """Names the functions of the compiled units that a scratch link folded otherwise than the original link did."""
+    original = folds(ROOT / "orig" / version / "files" / "iuk.MAP")
+    scratch = folds(scratch_map)
+    # The split objects no longer hold what the original folded away, so only the compiled units can be compared.
+    compiled = {unit.replace("/", "_") + ".o" for unit in units}
+    placed = {name for _, _, name, obj in map_symbols(scratch_map) if obj in compiled}
+    lines: List[str] = []
+    for name in sorted(set(scratch) | (placed & set(original)), key=lambda n: (n not in placed, n)):
+        was, now = original.get(name), scratch.get(name)
+        if was == now or now == name:
+            continue
+        if was is None:
+            lines.append(f"{name}: folded into {now} here, kept whole by the original")
+        elif now is None:
+            lines.append(f"{name}: kept whole here, folded into {was} by the original")
+        else:
+            lines.append(f"{name}: folded into {now} here, into {was} by the original")
+    return lines[:limit] + ([f"... and {len(lines) - limit} more"] if len(lines) > limit else [])
+
+
 def link(
     version: str,
     units: List[str],
@@ -199,7 +239,11 @@ def link(
     elf, dol = out / "main.elf", out / "main.dol"
     script = lcf or f"build\\{version}\\ldscript.lcf"
     command = f'{linker} {flags} {ldflags} -lcf "{script}" -o "{elf}" @"{rsp}"'
-    result = subprocess.run(command, capture_output=True, text=True, cwd=ROOT)
+    for padding in PADDING:
+        env = dict(os.environ, MWLD_PADDING=padding) if padding else None
+        result = subprocess.run(command, capture_output=True, text=True, cwd=ROOT, env=env)
+        if result.returncode != LINKER_FAULT:
+            break
     text = (result.stdout + result.stderr).strip()
     if result.returncode:
         return False, text + "\nlink failed", []
@@ -245,6 +289,8 @@ def main() -> None:
         if args.map:
             print("first symbols placed elsewhere:")
             print("\n".join(first_shift(args.version, scratch_map)) or "none: the layout is the original's")
+            print("functions folded otherwise than in the original:")
+            print("\n".join(fold_differences(args.version, scratch_map, units)) or "none")
     sys.exit(1)
 
 
