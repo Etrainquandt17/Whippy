@@ -1,0 +1,32 @@
+#ifndef SCN_STEP_BOSS_COMMON_STATEMOVEFORWARD_H
+#define SCN_STEP_BOSS_COMMON_STATEMOVEFORWARD_H
+
+#include "scn/step/boss/StateBase.h"
+#include "scn/step/boss/common/StateMoveDesc.h"
+
+namespace scn {
+namespace step {
+namespace boss {
+
+class Boss;
+
+namespace common {
+
+class StateMoveForward : public StateBase {
+public:
+    StateMoveForward(Boss* boss, StateMoveDesc desc, unsigned long scriptKind);
+    virtual ~StateMoveForward();
+    virtual void procAnim();
+    virtual void procMove();
+    virtual void procFixPos();
+
+private:
+    StateMoveDesc mDesc;
+};
+
+}
+}
+}
+}
+
+#endif

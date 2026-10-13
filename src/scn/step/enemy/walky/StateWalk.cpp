@@ -1,0 +1,68 @@
+#include "scn/step/enemy/walky/StateWalk.h"
+
+#include "gobj/Anim.h"
+#include "gobj/FootState.h"
+#include "gobj/Move.h"
+#include "gobj/MoveParam.h"
+#include "gobj/Target.h"
+#include "hel/common/RuntimeTypeInfoInline.h"
+#include "hel/math/Math.h"
+#include "hel/math/Vector2.h"
+#include "hel/math/Vector3.h"
+#include "scn/step/chara/Effect.h"
+#include "scn/step/chara/Location.h"
+#include "scn/step/chara/Model.h"
+#include "scn/step/chara/ModelRotCtrl.h"
+#include "scn/step/chara/ObjColl.h"
+#include "scn/step/effect/Kind.h"
+#include "scn/step/enemy/BrainCtrl.h"
+#include "scn/step/enemy/Effect.h"
+#include "scn/step/enemy/Enemy.h"
+#include "scn/step/enemy/MapColl.h"
+#include "scn/step/enemy/Param.h"
+#include "scn/step/enemy/Utility.h"
+#include "scn/step/enemy/common/StateFall.h"
+#include "scn/step/enemy/walky/Custom.h"
+#include "snd/SERequestor.h"
+
+namespace scn {
+namespace step {
+namespace enemy {
+namespace walky {
+
+StateWalk::StateWalk(Enemy* enemy) : StateBase(enemy) {
+    obj().footState().setGround();
+    if (obj().model().anim().currentG3DAnimIndex() != 3) {
+        obj().model().reqScript(3);
+    }
+    obj().model().setFrameRate(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getAnimRate());
+    obj().brainCtrl().toValid();
+}
+
+StateWalk::~StateWalk() {
+    obj().model().setFrameRate(1.0f);
+}
+
+void StateWalk::procAnim() {}
+
+void StateWalk::procMove() {
+    gobj::MoveParamAccel accel = gobj::MoveParamAccel::Create(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed(), 0.003f, 0.001f);
+    obj().move().groundAccel(obj().target().isRightDir(), accel);
+}
+
+void StateWalk::procFixPos() {
+    if (obj().mapColl().result()._2) {
+        obj().move().resetSpeedH();
+        obj().target().setIsRightDir(!obj().target().isRightDir());
+    }
+    if (obj().mapColl().result().mIsHitFloor) {
+        obj().move().resetSpeedV();
+    } else {
+        obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());
+    }
+}
+
+}
+}
+}
+}

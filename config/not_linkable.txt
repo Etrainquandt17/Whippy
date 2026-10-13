@@ -1,0 +1,12 @@
+scn/step/boss/lowper/StateSparkAttack.cpp
+scn/step/enemy/metalgeneralmissile/Custom.cpp
+scn/step/enemy/stareffect/StatePuff.cpp
+scn/step/hero/cutter/StateCutterDrop.cpp
+scn/step/hero/parasol/StateParasolDive.cpp
+scn/step/hero/parasol/StateParasolParachuteFall.cpp
+scn/step/hero/superbeam/SuperBeam.cpp
+scn/step/hero/superfire/SuperFire.cpp
+scn/step/hero/superhammer/SuperHammer.cpp
+scn/step/hero/superice/SuperIce.cpp
+scn/step/weapon/StateCallback.cpp
+scn/wmap/hero/InactiveHero.cpp

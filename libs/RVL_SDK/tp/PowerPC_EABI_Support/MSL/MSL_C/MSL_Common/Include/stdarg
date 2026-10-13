@@ -1,0 +1,18 @@
+#ifndef _MSL_STDARG_H_
+#define _MSL_STDARG_H_
+
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/cstdarg>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+namespace std {
+    using ::va_list;
+}
+
+#ifdef __cplusplus
+};
+#endif
+
+#endif

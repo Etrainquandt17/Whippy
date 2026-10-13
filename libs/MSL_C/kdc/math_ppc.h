@@ -1,0 +1,14 @@
+//Note: File ends up unused
+#ifndef MSL_MATH_PPC_H
+#define MSL_MATH_PPC_H
+#include <kdc/types.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+double nan(const char* arg);
+
+#ifdef __cplusplus
+}
+#endif
+#endif

@@ -1,0 +1,25 @@
+#ifndef SCN_STEP_WEAPON_LANDIASINGLEFIREBALL_STATEMOVE_H
+#define SCN_STEP_WEAPON_LANDIASINGLEFIREBALL_STATEMOVE_H
+
+#include "scn/step/weapon/StateBase.h"
+#include "types.h"
+
+namespace scn {
+namespace step {
+namespace weapon {
+namespace landiasinglefireball {
+
+class StateMove : public StateBase {
+public:
+    StateMove(Weapon* weapon);
+    virtual void procAnim();
+    virtual void procMove();
+    virtual void procFixPos();
+};
+
+}
+}
+}
+}
+
+#endif

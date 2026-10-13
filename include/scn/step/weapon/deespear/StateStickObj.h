@@ -1,0 +1,23 @@
+#ifndef SCN_STEP_WEAPON_DEESPEAR_STATESTICKOBJ_H
+#define SCN_STEP_WEAPON_DEESPEAR_STATESTICKOBJ_H
+
+#include "scn/step/weapon/StateBase.h"
+#include "types.h"
+
+namespace scn {
+namespace step {
+namespace weapon {
+namespace deespear {
+
+// TODO: members and overrides; the unit is not written yet.
+class StateStickObj : public StateBase {
+public:
+    StateStickObj(Weapon* weapon, f32 rot);
+};
+
+}
+}
+}
+}
+
+#endif

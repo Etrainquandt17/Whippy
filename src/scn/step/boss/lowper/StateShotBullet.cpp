@@ -1,0 +1,109 @@
+#include "scn/step/boss/lowper/StateShotBullet.h"
+
+#include "app/Random.h"
+#include "g3d/NodeAccessor.h"
+#include "g3d/NodeLocalMtxAccessor.h"
+#include "gobj/Anim.h"
+#include "gobj/FootState.h"
+#include "gobj/GearModel.h"
+#include "gobj/Move.h"
+#include "gobj/Target.h"
+#include "hel/common/RuntimeTypeInfoInline.h"
+#include "hel/math/Math.h"
+#include "hel/math/Matrix34.h"
+#include "hel/math/Vector2.h"
+#include "hel/math/Vector3.h"
+#include "scn/step/Component.h"
+#include "scn/step/boss/Boss.h"
+#include "scn/step/boss/BrainCtrl.h"
+#include "scn/step/boss/Effect.h"
+#include "scn/step/boss/Guard.h"
+#include "scn/step/boss/GuardType.h"
+#include "scn/step/boss/HateCtrl.h"
+#include "scn/step/boss/Invincible.h"
+#include "scn/step/boss/MapColl.h"
+#include "scn/step/boss/Param.h"
+#include "scn/step/boss/SoundSE.h"
+#include "scn/step/boss/StateBase.h"
+#include "scn/step/boss/Utility.h"
+#include "scn/step/boss/lowper/CollisionCtrl.h"
+#include "scn/step/boss/lowper/Custom.h"
+#include "scn/step/boss/lowper/DataBuff.h"
+#include "scn/step/boss/lowper/EnemyCtrl.h"
+#include "scn/step/boss/lowper/GearCtrl.h"
+#include "scn/step/boss/lowper/ItemCtrl.h"
+#include "scn/step/boss/lowper/MiniBlackHoleCtrl.h"
+#include "scn/step/boss/lowper/Param.h"
+#include "scn/step/boss/lowper/StateWait.h"
+#include "scn/step/boss/lowper/WaftMoveCtrl.h"
+#include "scn/step/camera/CameraController.h"
+#include "scn/step/camera/MainCamera.h"
+#include "scn/step/camera/QuakeKind.h"
+#include "scn/step/chara/BodyColl.h"
+#include "scn/step/chara/Effect.h"
+#include "scn/step/chara/HitPoint.h"
+#include "scn/step/chara/Location.h"
+#include "scn/step/chara/MapCollResult.h"
+#include "scn/step/chara/Model.h"
+#include "scn/step/chara/ModelRotCtrl.h"
+#include "scn/step/chara/ObjColl.h"
+#include "scn/step/chara/ScriptTrigger.h"
+#include "scn/step/chara/Shadow.h"
+#include "scn/step/chara/WorldCage.h"
+#include "scn/step/enemy/Desc.h"
+#include "scn/step/enemy/Enemy.h"
+#include "scn/step/enemy/Manager.h"
+#include "util/ObjRefHandle.h"
+
+namespace scn {
+namespace step {
+namespace boss {
+namespace lowper {
+
+StateShotBullet::StateShotBullet(Boss* boss, ScriptKind kind, f32 angle, enemy::lowperbullet::VariationKind variation, u32 _5)
+    : StateBase(boss), mAngle(angle), mVariation(variation), _10(_5) {
+    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    obj().model().reqScript(kind);
+    custom.waftMoveCtrl().setMoveIntpRate(0.5f);
+    custom.waftMoveCtrl().setWaveWidth(0.0f);
+}
+
+StateShotBullet::~StateShotBullet() {}
+
+void StateShotBullet::procAnim() {
+    if (obj().scriptTrigger().get(0)) {
+        reqShotBullet();
+    }
+    if (obj().model().isAllEnd()) {
+        obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
+    }
+}
+
+void StateShotBullet::procMove() {}
+
+void StateShotBullet::procFixPos() {
+    f32 baseX = obj().basePos().x;
+    bool isRight = obj().location().pos().x < baseX;
+    obj().target().setIsRightDir(isRight);
+}
+
+void StateShotBullet::reqShotBullet() {
+    const Param& param = obj().param().lowper();
+    hel::math::Vector3 pos = obj().location().pos();
+    f32 speed = param._50;
+    if (mVariation == enemy::lowperbullet::VariationKind_Homing) {
+        speed = 0.2f;
+    }
+    hel::math::Vector3 dir(0.0f, -1.0f, 0.0f);
+    dir.rotate(hel::math::Vector3::BASIS_Z, 0.017453292f * mAngle);
+    dir.x *= obj().target().getSign();
+    dir *= speed;
+    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    custom.enemyCtrl().request(mVariation, pos, dir, _10);
+}
+
+}
+}
+}
+}

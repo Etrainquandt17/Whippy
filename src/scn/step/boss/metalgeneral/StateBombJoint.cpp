@@ -1,0 +1,93 @@
+#include "scn/step/boss/metalgeneral/StateBombJoint.h"
+
+#include "g3d/NodeAccessor.h"
+#include "g3d/NodeLocalMtxAccessor.h"
+#include "gobj/Anim.h"
+#include "gobj/FootState.h"
+#include "gobj/GearModel.h"
+#include "gobj/Move.h"
+#include "gobj/Target.h"
+#include "hel/common/RuntimeTypeInfoInline.h"
+#include "hel/math/Math.h"
+#include "hel/math/Matrix34.h"
+#include "hel/math/Vector2.h"
+#include "hel/math/Vector3.h"
+#include "scn/step/Component.h"
+#include "scn/step/boss/Boss.h"
+#include "scn/step/boss/BrainCtrl.h"
+#include "scn/step/boss/Effect.h"
+#include "scn/step/boss/Guard.h"
+#include "scn/step/boss/GuardType.h"
+#include "scn/step/boss/HateCtrl.h"
+#include "scn/step/boss/Invincible.h"
+#include "scn/step/boss/MapColl.h"
+#include "scn/step/boss/Param.h"
+#include "scn/step/boss/SoundSE.h"
+#include "scn/step/boss/StateBase.h"
+#include "scn/step/boss/Utility.h"
+#include "scn/step/boss/metalgeneral/Custom.h"
+#include "scn/step/boss/metalgeneral/Param.h"
+#include "scn/step/boss/metalgeneral/ScriptKind.h"
+#include "scn/step/boss/metalgeneral/StateWait.h"
+#include "scn/step/camera/CameraController.h"
+#include "scn/step/camera/MainCamera.h"
+#include "scn/step/chara/BodyColl.h"
+#include "scn/step/chara/Effect.h"
+#include "scn/step/chara/HitPoint.h"
+#include "scn/step/chara/Location.h"
+#include "scn/step/chara/MapCollResult.h"
+#include "scn/step/chara/Model.h"
+#include "scn/step/chara/ModelRotCtrl.h"
+#include "scn/step/chara/ObjColl.h"
+#include "scn/step/chara/ScriptTrigger.h"
+#include "scn/step/chara/Shadow.h"
+#include "scn/step/chara/WorldCage.h"
+#include "scn/step/enemy/Desc.h"
+#include "scn/step/enemy/Enemy.h"
+#include "scn/step/enemy/Manager.h"
+#include "util/ObjRefHandle.h"
+
+namespace scn {
+namespace step {
+namespace boss {
+namespace metalgeneral {
+
+StateBombJoint::StateBombJoint(Boss* boss, JointKind kind) : StateBase(boss), mKind(kind) {
+    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    obj().footState().setGround();
+    switch (mKind) {
+    case JOINT_KIND_0:
+        obj().model().reqScript(0x1F);
+        Utility::ControlHateOnAction(obj());
+        break;
+    case JOINT_KIND_1:
+        obj().model().reqScript(0x21);
+        break;
+    }
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    obj().move().resetVelocity();
+}
+
+StateBombJoint::~StateBombJoint() {}
+
+void StateBombJoint::procAnim() {
+    if (obj().model().isAllEnd()) {
+        switch (mKind) {
+        case JOINT_KIND_0:
+            obj().brainCtrl().toValid();
+            break;
+        case JOINT_KIND_1:
+            obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
+            break;
+        }
+    }
+}
+
+void StateBombJoint::procMove() {}
+
+void StateBombJoint::procFixPos() {}
+
+}
+}
+}
+}

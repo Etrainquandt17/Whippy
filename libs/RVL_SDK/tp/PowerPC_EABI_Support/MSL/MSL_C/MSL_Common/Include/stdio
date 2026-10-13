@@ -1,0 +1,30 @@
+#ifndef MSL_STDIO_H_
+#define MSL_STDIO_H_
+
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/cstdio>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/stddef>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/stdarg>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+namespace std {
+    using ::fputs;
+    using ::fflush;
+    using ::fclose;
+    using ::fprintf;
+    using ::printf;
+    using ::sprintf;
+    using ::snprintf;
+    using ::vsnprintf;
+    using ::vprintf;
+    using ::vswprintf;
+    using ::sscanf;
+}
+
+#ifdef __cplusplus
+};
+#endif
+
+#endif

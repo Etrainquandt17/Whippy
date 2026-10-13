@@ -1,0 +1,66 @@
+#include "scn/step/enemy/knucklejoe/StateHadou.h"
+
+#include "gobj/Anim.h"
+#include "gobj/FootState.h"
+#include "gobj/Move.h"
+#include "gobj/MoveParam.h"
+#include "gobj/Target.h"
+#include "hel/math/Math.h"
+#include "hel/math/Vector2.h"
+#include "hel/math/Vector3.h"
+#include "scn/step/chara/Effect.h"
+#include "scn/step/chara/Location.h"
+#include "scn/step/chara/Model.h"
+#include "scn/step/chara/ModelRotCtrl.h"
+#include "scn/step/chara/ObjColl.h"
+#include "scn/step/effect/Kind.h"
+#include "scn/step/enemy/BrainCtrl.h"
+#include "scn/step/enemy/Effect.h"
+#include "scn/step/enemy/Enemy.h"
+#include "scn/step/enemy/MapColl.h"
+#include "scn/step/enemy/Param.h"
+#include "scn/step/enemy/Utility.h"
+#include "scn/step/enemy/common/StateFall.h"
+#include "scn/step/enemy/knucklejoe/ParamData.h"
+#include "snd/SERequestor.h"
+
+namespace scn {
+namespace step {
+namespace enemy {
+namespace knucklejoe {
+
+StateHadou::StateHadou(Enemy* enemy) : StateBase(enemy), mFrame(0) {
+    obj().footState().setGround();
+    obj().model().reqScript(0xa);
+    obj().model().anim().setFrameRate(0.0f);
+    obj().move().resetSpeedV();
+    obj().move().resetSpeedH();
+    obj().model().rotCtrl().setRotHTarget(90.0f);
+    obj().model().rotCtrl().setRotHIntpRate(0.25f);
+}
+
+StateHadou::~StateHadou() {
+    obj().model().rotCtrl().resetRotTarget();
+    obj().model().rotCtrl().setRotHIntpRate(0.1f);
+    obj().effect().state().releaseAndVanish();
+}
+
+void StateHadou::procAnim() {
+    if (mFrame++ == obj().param().knucklejoe().mHadouFrame) {
+        obj().model().anim().setFrameRate(1.0f);
+    }
+    if (obj().model().isAllEnd()) {
+        obj().brainCtrl().toValid();
+    }
+}
+
+void StateHadou::procFixPos() {
+    if (!obj().mapColl().result().mIsHitFloor) {
+        obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());
+    }
+}
+
+}
+}
+}
+}

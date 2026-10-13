@@ -1,0 +1,36 @@
+#ifndef MSL_CSTDIO_H_
+#define MSL_CSTDIO_H_
+
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/char_io.h>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/file_io.h>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/printf.h>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/extras.h>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/scanf.h>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/va_list>
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/cstddef>
+
+#define stdin (&__files._stdin)
+#define stdout (&__files._stdout)
+#define stderr (&__files._stderr)
+
+#ifdef __cplusplus
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/stdarg>
+
+extern "C" {
+namespace std {
+    using ::fputs;
+    using ::fflush;
+    using ::fclose;
+    using ::fprintf;
+    using ::printf;
+    using ::sprintf;
+    using ::snprintf;
+    using ::vsnprintf;
+    using ::vprintf;
+    using ::vswprintf;
+    using ::sscanf;
+}
+};
+#endif
+
+#endif

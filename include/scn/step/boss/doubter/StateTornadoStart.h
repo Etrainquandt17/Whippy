@@ -1,0 +1,26 @@
+#ifndef SCN_STEP_BOSS_DOUBTER_STATETORNADOSTART_H
+#define SCN_STEP_BOSS_DOUBTER_STATETORNADOSTART_H
+
+#include "scn/step/boss/StateBase.h"
+#include "types.h"
+
+namespace scn {
+namespace step {
+namespace boss {
+namespace doubter {
+
+class StateTornadoStart : public StateBase {
+public:
+    StateTornadoStart(Boss* boss);
+    virtual ~StateTornadoStart();
+    virtual void procAnim();
+    virtual void procMove();
+    virtual void procFixPos();
+};
+
+}
+}
+}
+}
+
+#endif

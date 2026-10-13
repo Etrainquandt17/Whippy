@@ -1,0 +1,6 @@
+#ifndef _MSL_CSTDARG_H_
+#define _MSL_CSTDARG_H_
+
+#include <tp/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include/va_list>
+
+#endif
