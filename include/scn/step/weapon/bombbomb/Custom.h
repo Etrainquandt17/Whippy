@@ -31,6 +31,9 @@ namespace bombbomb {
 class Custom : public CustomBase {
 public:
     Custom(Weapon& weapon);
+    bool isExplode() const;
+    void setCanUpdateAttack(bool canUpdate);
+    void explode();
 
 private:
     u32 _8[15];

@@ -19,9 +19,9 @@ struct Param {
     gobj::MoveParamFall _14;
     u32 _20;
     u32 _24;
-    u32 _28;
-    u32 _2C;
-    u32 _30;
+    f32 _28;
+    f32 _2C;
+    f32 _30;
     f32 _34;
     f32 _38;
     f32 _3C;

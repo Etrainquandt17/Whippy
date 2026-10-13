@@ -30,6 +30,7 @@ public:
     chara::MapCollResult result() const;
     hel::math::Vector2 normal() const;
     hel::math::Vector2 intersectPos() const;
+    void setActorOffset(hel::math::Vector2 offset);
 };
 
 }}}  // namespace scn::step::weapon

@@ -26,10 +26,11 @@ namespace step {
 namespace weapon {
 namespace metalgeneralpatriotfire {
 
-// TODO: stub
 class Custom : public CustomBase {
 public:
     Custom(Weapon& weapon);
+    virtual const hel::common::RuntimeTypeInfo& GetRuntimeTypeInfo() const;
+    virtual bool onInit();
 };
 
 }}}}  // namespace scn::step::weapon::metalgeneralpatriotfire

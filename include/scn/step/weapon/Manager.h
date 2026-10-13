@@ -18,6 +18,7 @@ public:
     util::ObjRefHandle<Weapon> request(const Desc& desc);
     void reqDeadByTeamNo(ocoll::TeamNo teamNo);
     void reqDeadByTeamNoForBoss(ocoll::TeamNo teamNo);
+    void unsetObjStopSpecialByOCollOwnerUID(u64 uid);
 };
 
 }}}  // namespace scn::step::weapon

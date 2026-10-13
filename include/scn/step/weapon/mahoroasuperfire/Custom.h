@@ -1,6 +1,7 @@
 #ifndef SCN_STEP_WEAPON_MAHOROASUPERFIRE_CUSTOM_H
 #define SCN_STEP_WEAPON_MAHOROASUPERFIRE_CUSTOM_H
 
+#include "hel/geo/Rect.h"
 #include "scn/step/weapon/CustomBase.h"
 #include "types.h"
 
@@ -27,13 +28,19 @@ namespace step {
 namespace weapon {
 namespace mahoroasuperfire {
 
-// TODO: stub
 class Custom : public CustomBase {
 public:
     Custom(Weapon& weapon);
+    virtual const hel::common::RuntimeTypeInfo& GetRuntimeTypeInfo() const;
+    virtual bool onInit();
+
+    void setMoveLimitRect(const hel::geo::Rect& rect);
+    bool isMoveLimitRectValid() const;
+    hel::geo::Rect getMoveLimitRect() const;
 
 private:
-    u32 _8[5];
+    bool mIsMoveLimitRectValid;
+    hel::geo::Rect mMoveLimitRect;
 };
 
 }}}}  // namespace scn::step::weapon::mahoroasuperfire
