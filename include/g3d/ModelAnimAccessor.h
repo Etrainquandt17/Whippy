@@ -20,6 +20,7 @@ public:
 
     void start(bool doLoop) const;
     void stop() const;
+    bool isValid() const;
     bool isAnimating() const;
     bool isAnimEnd() const;
     f32 frame() const;

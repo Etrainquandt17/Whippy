@@ -7,6 +7,7 @@
 namespace hel {
 namespace math {
 class Matrix34;
+class Vector3;
 }
 }
 
@@ -24,6 +25,7 @@ public:
 
     ModelAccessor model();
     void setModelRTMtx(const hel::math::Matrix34& mtx);
+    hel::math::Matrix34 modelRTMtx() const;
     void registerToRoot(Root& root);
     void setAnim(const ResFileAccessor& resFile, const char* name);
     bool tryToSetAnim(const ResFileAccessor& resFile, const char* name);
@@ -37,6 +39,12 @@ public:
     void updateFrameNoReflectToAnim();
     void reflectFrameToAnim();
     bool isAnimEnd() const;
+    void updateWorldMtx();
+    void setModelScale(const hel::math::Vector3& scale);
+    void setIsAutoUpdateWorldMtx(bool isAutoUpdate);
+    void stop();
+    f32 frame() const;
+    void setFrameToTail();
 
 private:
     u8 _0[0x1AC];

@@ -20,6 +20,8 @@ public:
     static u32 DefaultNumView();
     static ModelBufferOption DefaultModelBufferOption();
     static u32 DefaultOneAnimSlotWorkMemSize();
+    static u32 DefaultMaxNumChildren();
+    static u32 DefaultAnimSlotNum();
 
 private:
     ResModelContext mResModel;

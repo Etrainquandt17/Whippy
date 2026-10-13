@@ -113,9 +113,37 @@ struct Param;
 
 }
 
+namespace grandlowper {
+
+struct Param;
+
+}
+
+namespace goliath {
+
+struct Param;
+
+}
+
+namespace mahoroabattle1 {
+
+struct Param;
+
+}
+
+namespace mahoroabattle2 {
+
+struct Param;
+
+}
+
 // TODO: members and the accessors of the other bosses.
 class Param {
 public:
+    Param();
+    // TODO: the destructor is a function of Boss.o in the map; whether it is declared is not known.
+    ~Param();
+
     const roah::Param& roah() const;
     const landia::Param& landia() const;
     const bonkers::Param& bonkers() const;
@@ -134,6 +162,14 @@ public:
     const hrd3::Param& hrd3() const;
     const galactaknight::Param& galactaknight() const;
     const lowper::Param& lowper() const;
+    const grandlowper::Param& grandlowper() const;
+    const goliath::Param& goliath() const;
+    const mahoroabattle1::Param& mahoroabattle1() const;
+    const mahoroabattle2::Param& mahoroabattle2() const;
+
+private:
+    // TODO: a bool at 0x0, then 23 file handles of 0x10 bytes, one per parameter file.
+    u32 _0[0x174 / 4];
 };
 
 }

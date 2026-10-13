@@ -25,6 +25,7 @@ public:
     void addBodyColl(u32 id, f32 radius);
     void addBodyColl(u32 id, f32 radius, const hel::math::Vector2& offset);
     void addBodyColl(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2);
+    void addBodyColl(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2, bool flag);
     void clearBodyColl();
 
     void addAttack(u32 id, u32 attack, f32 radius);

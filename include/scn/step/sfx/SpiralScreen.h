@@ -34,6 +34,7 @@ public:
     void draw() const;
     void startAnim(ostop::Flag flag);
     void startAnim(ostop::Flag flag, u32, f32, f32);
+    void endAnim();
     void setCenter(const hel::math::Vector2& center);
     const Param& param() const;
 

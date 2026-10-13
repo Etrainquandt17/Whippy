@@ -37,6 +37,8 @@ public:
         mPtr = ptr;
     }
     void reset(T* ptr = 0) { ScopedPtr(ptr).swap(*this); }
+    // TODO: name. scn::subgame::common::rumble::Manager::managerRef reads the pointer without the check.
+    T* get() const { return mPtr; }
 
 private:
     T* mPtr;

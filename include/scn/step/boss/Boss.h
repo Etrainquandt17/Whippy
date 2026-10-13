@@ -28,6 +28,13 @@ class IAllocator;
 
 }
 
+namespace util {
+
+template <typename T>
+class ObjRefHandle;
+
+}
+
 namespace scn {
 namespace step {
 
@@ -56,6 +63,8 @@ namespace boss {
 
 class Effect;
 class Angry;
+class BarrierInvincible;
+class DamageInvincible;
 class BGMCtrl;
 class InfoHitPointCtrl;
 class BrainCtrl;
@@ -77,6 +86,7 @@ class VacuumReceiver;
 
 class Boss {
 public:
+    util::ObjRefHandle<Boss> handle();
     Effect& effect();
     info::BossPanel& infoBossPanel();
     util::StateChanger<IState, 256>& stateChanger();
@@ -121,6 +131,8 @@ public:
     bool isDead() const;
     bool isGeneratorExist() const;
     void dead();
+    BarrierInvincible& barrierInvincible();
+    DamageInvincible& damageInvincible();
 };
 
 }

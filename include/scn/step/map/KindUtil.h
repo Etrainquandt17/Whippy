@@ -17,6 +17,7 @@ namespace map {
 
 class KindUtil {
 public:
+    static bool IsShipMapIn(Kind kind);
     static bool IsStageMap(Kind kind);
     static bool IsFinalStageMap(Kind kind);
     static bool IsLevelMap(Kind kind);
@@ -28,6 +29,11 @@ public:
     static Kind ToKind(LevelKind level, u32 index);
     static u32 ToLevelIndex(Kind kind);
     static bool IsFinalBattle(Kind kind);
+    static bool IsArenaStage(Kind kind);
+    static bool IsArenaBossMap(Kind kind);
+    static bool IsArenaRoomMap(Kind kind);
+    static bool IsShootingMap(Kind kind);
+    static bool IsChallengeStage(Kind kind);
 };
 
 }

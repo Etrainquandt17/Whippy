@@ -87,6 +87,18 @@ public:
             mCount--;
         }
     }
+    // Emitted as a function by scn/step/gimmick/Stop.cpp, which uses it twice.
+    void remove(const T& value) { erase(find(value)); }
+    // TODO: name and form. Only seen inlined, in scn::step::hero::whip::Whip::procAnim, where the count is
+    // loaded once for both tests.
+    void removeAtIndexIfFull(u32 index) {
+        if (isFull() && count() > index) {
+            for (u32 i = index + 1; i < count(); i++) {
+                mArray[i - 1] = mArray[i];
+            }
+            mCount--;
+        }
+    }
 
     // TODO: names. All four are only seen inlined, in info::sequence::Sequence. The functor is copied once
     // more than std::for_each alone would copy it.

@@ -3,6 +3,7 @@
 
 #include "gobj/Model.h"
 #include "hel/math/Vector3.h"
+#include "scn/step/chara/ModelDesc.h"
 #include "scn/step/core/DrawLayerKind.h"
 
 namespace gobj {
@@ -42,6 +43,7 @@ public:
     void resetScale();
     void setDynamicsDisable();
     void setDynamicsEnable();
+    void changeDynamics(const ModelDesc::DynamicsDesc& desc);
     void procFixPos();
     void registerScriptCallback(gobj::IScriptCallback& callback);
     void unregisterScriptCallback(gobj::IScriptCallback& callback);

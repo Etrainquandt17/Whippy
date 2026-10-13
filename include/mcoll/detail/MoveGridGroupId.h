@@ -14,6 +14,8 @@ public:
     MoveGridGroupId(u32 no)
         : _0(no) {}
 
+    static MoveGridGroupId CreateWithNo(u32 no);
+
     bool isValid() const;
     u32 no() const;
     u32 index() const;

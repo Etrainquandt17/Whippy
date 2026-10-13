@@ -14,6 +14,7 @@ public:
     void stop();
     bool isPlaying() const;
     bool isPause() const;
+    void pause();
     void unpause();
     void pauseInc();
     void pauseDec();

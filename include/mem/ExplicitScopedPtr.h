@@ -71,6 +71,11 @@ public:
         mPtr = new (*reinterpret_cast<IAllocator*>(_0)) T(a1, a2, a3);
     }
 
+    template <typename U>
+    void constructE() {
+        constructIN(new (*reinterpret_cast<IAllocator*>(_0)) U());
+    }
+
     template <typename U, typename A1>
     void constructE(A1 a1) {
         constructIN(new (*reinterpret_cast<IAllocator*>(_0)) U(a1));
@@ -87,6 +92,9 @@ public:
     }
 
     void constructIN(T* ptr) { mPtr = ptr; }
+
+    // TODO: name. The gimmick managers test the pointer in place where isConstruct() would be a call.
+    T* get() const { return mPtr; }
 
 private:
     u32 _0;

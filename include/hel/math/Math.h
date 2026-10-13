@@ -97,6 +97,12 @@ public:
         return rate * (target - value) + value;
     }
 
+    // TODO: the name is a guess: the function is expanded wherever it is used, so the link map does not have it.
+    template <typename T>
+    static const T Square(const T& value) {
+        return value * value;
+    }
+
     static f32 InterpolationParamMinToMax(f32 t) { return 1.5f * (t * t) - 0.5f * t * (t * t); }
     static f32 InterpolationParamMinToMin(f32 t) { return 3.0f * (t * t) - 2.0f * t * (t * t); }
 

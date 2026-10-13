@@ -21,6 +21,7 @@ public:
     void reqDeadAllEnemyForMBoss();
     void reqDeadAllEnemyWithNormalProcess();
     util::ObjRefHandle<Enemy> getEnemyByOCollOwnerUID(u64 uid);
+    util::ObjRefHandle<Enemy> getEnemyByID(u32 id);
 };
 
 }

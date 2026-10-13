@@ -4,10 +4,13 @@
 #include "hel/geo/Rect.h"
 #include "hel/math/Vector3.h"
 #include "types.h"
+#include "util/ObjRefHandle.h"
 
 namespace scn {
 namespace step {
-namespace boss {
+namespace item {
+
+class Item;
 
 }
 class Component;
@@ -19,7 +22,7 @@ public:
     EnergySphereCtrl(Component& comp);
     ~EnergySphereCtrl();
     void setup(const hel::geo::Rect& rect);
-    void pick();
+    util::ObjRefHandle<item::Item> pick();
     void setConstraintPos(const hel::math::Vector3& pos);
 };
 

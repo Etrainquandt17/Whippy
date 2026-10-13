@@ -1,6 +1,7 @@
 #ifndef SCN_STEP_ARENA_MANAGER_H
 #define SCN_STEP_ARENA_MANAGER_H
 
+#include "scn/arena/ArenaData.h"
 #include "types.h"
 
 namespace scn {
@@ -27,6 +28,9 @@ class Manager {
 public:
     void timeStopEntry(EntryManager::EntryId& id);
     void timeStopRelease(EntryManager::EntryId& id);
+    void timeHide();
+    bool isArena() const;
+    void setBoxState(scn::arena::ArenaData::BoxState state);
 };
 
 }

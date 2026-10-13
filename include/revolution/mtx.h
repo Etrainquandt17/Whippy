@@ -28,8 +28,10 @@ u32 PSMTXInverse(const Mtx src, Mtx inv);
 void PSMTXMultVec(const Mtx m, const Vec* src, Vec* dst);
 void PSMTXTrans(Mtx m, f32 x, f32 y, f32 z);
 void PSMTXTransApply(const Mtx src, Mtx dst, f32 x, f32 y, f32 z);
+void PSMTXScale(Mtx m, f32 x, f32 y, f32 z);
 void PSMTXScaleApply(const Mtx src, Mtx dst, f32 x, f32 y, f32 z);
 void C_MTXLookAt(Mtx m, const Vec* pos, const Vec* up, const Vec* target);
+f32 PSVECSquareDistance(const Vec* a, const Vec* b);
 
 void C_MTXFrustum(Mtx44 m, f32 top, f32 bottom, f32 left, f32 right, f32 near, f32 far);
 void C_MTXOrtho(Mtx44 m, f32 top, f32 bottom, f32 left, f32 right, f32 near, f32 far);

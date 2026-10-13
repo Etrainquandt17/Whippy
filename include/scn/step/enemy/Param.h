@@ -611,6 +611,42 @@ struct ParamData;
 
 }
 
+namespace galbo {
+
+struct ParamData;
+
+}
+
+namespace watergalbo {
+
+struct ParamData;
+
+}
+
+namespace volcanorock {
+
+struct ParamData;
+
+}
+
+namespace cerulean {
+
+struct ParamData;
+
+}
+
+namespace sandbag {
+
+struct ParamData;
+
+}
+
+namespace mbossdead {
+
+struct ParamData;
+
+}
+
 // TODO: members and the accessors of the other enemies.
 class Param {
 public:
@@ -718,6 +754,12 @@ public:
     const lowperbullet::ParamData& lowperbullet() const;
     const landiasingle::ParamData& landiasingle() const;
     const mahoroamagicball::ParamData& mahoroamagicball() const;
+    const galbo::ParamData& galbo() const;
+    const watergalbo::ParamData& watergalbo() const;
+    const volcanorock::ParamData& volcanorock() const;
+    const cerulean::ParamData& cerulean() const;
+    const sandbag::ParamData& sandbag() const;
+    const mbossdead::ParamData& mbossdead() const;
 };
 
 }

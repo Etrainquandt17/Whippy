@@ -21,6 +21,7 @@ public:
     void request(BGMCategory category, u32 id, bool flag);
     void unrequest(BGMCategory category);
     void pause(BGMCategory category);
+    void pause(BGMCategory category, u32 frame);
     void unpause(BGMCategory category);
     void unpause(BGMCategory category, u32);
 

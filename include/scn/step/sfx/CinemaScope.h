@@ -10,6 +10,8 @@ namespace sfx {
 class CinemaScope {
 public:
     void start(CinemaScopeKind kind);
+    void startNoAnim(CinemaScopeKind kind);
+    void end();
 };
 
 }

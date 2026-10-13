@@ -5,6 +5,10 @@
 #include "hel/math/Vector3.h"
 #include "types.h"
 
+namespace dynamics {
+class Desc;
+}
+
 namespace scn {
 namespace step {
 namespace chara {
@@ -12,6 +16,12 @@ namespace chara {
 // TODO: members.
 class ModelDesc {
 public:
+    // TODO: the pointer at 0x7C is to one of these; mDescs is a hel::common::Array<dynamics::Desc, N>.
+    struct DynamicsDesc {
+        u32 mNum;
+        dynamics::Desc* mDescs;
+    };
+
     ModelDesc();
 
     u32 _0;

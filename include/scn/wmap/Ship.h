@@ -15,6 +15,8 @@ class Ship {
 public:
     Ship(Component& component);
 
+    void procFixPos();
+
 private:
     Component& mComponent;
     g3d::ResFileAccessor mResFile;

@@ -2,15 +2,21 @@
 #define HID_SIMPLEWRHID_H
 
 #include "hid/Button.h"
+#include "hid/DPD.h"
 #include "types.h"
 
 namespace hid {
+
+class Accel;
 
 class SimpleWRHID {
 public:
     Button button() const;
     Button buttonClassic() const;
     bool isConnected() const;
+    bool isDPDValid() const;
+    DPD dpd() const;
+    Accel accel() const;
 
 private:
     // TODO: names and types. The sizes are what the implicit copy constructor shows.

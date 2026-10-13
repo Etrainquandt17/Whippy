@@ -1,6 +1,7 @@
 #ifndef SCN_STEP_CHARA_MOVEALGORITHMVACUUMRECEIVE_H
 #define SCN_STEP_CHARA_MOVEALGORITHMVACUUMRECEIVE_H
 
+#include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
 #include "types.h"
 
@@ -18,6 +19,7 @@ public:
     bool isEnd() const;
     f32 getScale() const;
     hel::math::Vector2 getNextOffs() const;
+    hel::math::Matrix34 getRotMtx() const;
 
 private:
     u32 _0[0x1D];

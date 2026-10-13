@@ -14,6 +14,8 @@ namespace mcoll {
 namespace detail {
 class DetectArg;
 class DetectResult;
+class MoveGridGroupId;
+class MoveGridManager;
 }
 
 class LandManager {
@@ -32,6 +34,11 @@ public:
     void setIsExistStoneBlockLand(u32 x, u32 y, bool isExist);
     void setIsExistWoodBlockLand(u32 x, u32 y, bool isExist);
     u32 gridWidth() const;
+    void mgSetOffset(const detail::MoveGridGroupId& id, const hel::math::Vector2& offset);
+    void mgSetDelta(const detail::MoveGridGroupId& id, const hel::math::Vector2& delta);
+    void mgInvalidGroup(const detail::MoveGridGroupId& id);
+    detail::MoveGridManager& moveGridManagerRef();
+    void setIsExistCrystalWallBlock(u32 x, u32 y, bool isExist);
 };
 
 }

@@ -4,6 +4,11 @@
 #include "lyt/PaneAccessor.h"
 #include "types.h"
 
+namespace util {
+template <typename T>
+class ObjRefHandle;
+}
+
 namespace lyt {
 
 class LayoutContext;
@@ -36,6 +41,7 @@ public:
     void stop();
     bool isAnimating() const;
     bool isAnimEnd() const;
+    bool isLooped() const;
     void changeDoLoop(bool doLoop);
     bool wasSetParent() const;
     void setParent(const PaneAccessor& parent);
@@ -43,6 +49,7 @@ public:
     PaneAccessor parent() const;
     void updateMatrix();
     void draw() const;
+    util::ObjRefHandle<Layout> handle();
 
 private:
     u32 _0[0x64];

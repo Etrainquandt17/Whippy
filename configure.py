@@ -5879,7 +5879,7 @@ config.libs = [
             Object(Matching, "scn/wmap/MapModelRouteEffect.cpp"),
             Object(NonMatching, "scn/wmap/RouteTrans.cpp"),
             Object(NonMatching, "scn/wmap/SceneWMap.cpp"),
-            Object(NonMatching, "scn/wmap/Ship.cpp"),
+            Object(Matching, "scn/wmap/Ship.cpp"),
             Object(NonMatching, "scn/wmap/UnlockKindUtil.cpp"),
             Object(NonMatching, "scn/wmap/UnlockManager.cpp"),
             Object(NonMatching, "scn/wmap/Util.cpp"),

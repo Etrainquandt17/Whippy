@@ -20,6 +20,7 @@ public:
     u64 rootUid() const;
     void setParentInterim(Owner& parent);
     void unsetParentInterim();
+    u32 teamNo() const;
 
 private:
     u8 _0[0x30];

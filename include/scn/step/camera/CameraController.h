@@ -31,16 +31,27 @@ public:
     void unsetZoom(u32 handle);
     void changeZoomIntpRate(u32 handle, f32 rate);
     void resetIntpRate();
+    void resetIntpRateZoom();
     hel::geo::Rect getLockRectTarget() const;
+    hel::geo::Rect getLockRect() const;
     hel::geo::Rect getZoomTargetRect(const hel::math::Vector2& center, f32);
     void setLock(const hel::geo::Rect& rect);
     void unsetLock();
+    // TODO: the enumerators are not known; boss/mahoroabattle2/StateAppearShort passes 0.
+    enum FirstZoomKind {
+        FIRST_ZOOM_KIND_0,
+        FIRST_ZOOM_KIND_1,
+    };
+    void setupFirstZoom(FirstZoomKind kind);
     void reqQuake(QuakeKind kind);
     void reqZoomQuake(ZoomQuakeKind kind);
     void addCameraTarget(const hel::math::Vector2& pos);
     void clearCameraTarget();
+    bool isLocked() const;
     u32 setRotDegX(f32, f32, bool);
     void unsetRotDegX(u32 handle);
+    u32 setRotDegY(f32, f32, bool);
+    void unsetRotDegY(u32 handle);
     void setRotRateBGX(f32 rate);
     f32 getCullingMarginHeight() const;
     void setMainTargetOnlyMode();
@@ -48,6 +59,8 @@ public:
     void resetIntpRateLockMode();
     void setCameraHeightMin(f32 height);
     void setCameraHeightMax(f32 height);
+    bool isSetMainTarget() const;
+    void setMainTarget(const hel::math::Vector2& pos);
 
 private:
     Component& mComponent;

@@ -24,11 +24,13 @@ public:
         KIND_2,
     };
 
-    struct Entry {
+    // TODO: _0 is the hero kind as a signed value (7 for nobody) and _8 a bool.
+    struct Player {
         u32 _0;
         u32 _4;
         u32 _8;
     };
+    typedef Player Entry;
 
     static Context Create();
     static const char* MenuDN(Kind kind);

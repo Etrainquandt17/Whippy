@@ -3,6 +3,10 @@
 
 #include "types.h"
 
+namespace g3d {
+class ModelAnimAccessor;
+}
+
 namespace gobj {
 
 class MintGearAnim;
@@ -22,6 +26,9 @@ public:
     void start(u32 index, bool loop);
     void start(u32 index, bool loop, u32 arg);
     bool isAnimEnd() const;
+    g3d::ModelAnimAccessor subAnimAccessor(u32 slot);
+    void subAnimClear(u32 slot);
+    void subAnimSet(u32 slot, u32 index, u32 kind);
     bool isLooped() const;
     f32 frame() const;
     int totalFrame() const;

@@ -62,6 +62,11 @@ public:
 
     // TODO: name. Only seen inlined, in util::IntervalTimer::update.
     bool isValid() const { return mFunction; }
+    // The original's conversion (scn/subgame/common/event/Listener.cpp emits it). Opt-in, so that no unit written
+    // without it converts where it did not before.
+#ifdef UTIL_DELEGATE_OPERATOR_BOOL
+    operator bool() const { return mFunction; }
+#endif
 
     typename detail::DelegateResult<F>::Type operator()() const { return mFunction(); }
 

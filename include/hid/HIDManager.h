@@ -11,6 +11,8 @@ class HIDManager {
 public:
     const SimpleWRHID& gameWR(u32 index) const;
     const SimpleGCHID& debugGC(u32 index) const;
+    bool isDPDEnable() const;
+    void setIsDPDEnable(bool enable);
 };
 
 }

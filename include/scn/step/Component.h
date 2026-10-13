@@ -36,10 +36,13 @@ class AreaOperation;
 class BGMController;
 class G3DRootSet;
 class MintManager;
+class MoveLimit;
 class PermEffect;
 class PauseTrigger;
+class SphereAccessor;
 class PermSoundSE;
 class SceneChanger;
+class PreLoadReq;
 }
 namespace item {
 class Manager;
@@ -48,10 +51,16 @@ namespace debug {
 class GeneralDrawer;
 class ObjInfoRepos;
 }
+namespace effect {
+class Manager;
+}
 namespace enemy {
 class Manager;
 }
 namespace gimmick {
+class Manager;
+}
+namespace challenge {
 class Manager;
 }
 namespace hero {
@@ -72,6 +81,7 @@ namespace ostop {
 class Manager;
 }
 namespace sfx {
+class DarknessRoot;
 class BGFade;
 class CinemaScope;
 class Manager;
@@ -99,6 +109,7 @@ public:
     g3d::ResFileRepository& resFileRepos();
     core::MintManager& mintManager();
     hero::Manager& heroManager();
+    challenge::Manager& challengeManager();
     item::Manager& itemManager();
     core::PermEffect& permEffect();
     spstop::Manager& superStopManager();
@@ -117,13 +128,18 @@ public:
     sfx::Manager& sfxManager();
     debug::ObjInfoRepos& debugObjInfoRepos();
     core::PauseTrigger& pauseTrigger();
+    core::SphereAccessor& sphereAccessor();
     core::SceneChanger& sceneChanger();
+    core::PreLoadReq& preLoadReq();
     arena::Manager& arenaManager();
     weapon::Manager& weaponManager();
     core::AreaOperation& areaOperation();
     sfx::Wipe& wipe();
     sfx::SuperBackPicture& superBackPicture();
     core::G3DRootSet& g3dRootSet();
+    core::MoveLimit& moveLimit();
+    effect::Manager& effectManager();
+    sfx::DarknessRoot& darknessRoot();
 };
 
 }

@@ -14,6 +14,7 @@ class WarpStarPanel;
 class InfoGameStatus {
 public:
     void startAnimOut();
+    void startAnimIn();
     void startAnimOutS();
     void startAnimInS();
     BossPanel* bossPanel();

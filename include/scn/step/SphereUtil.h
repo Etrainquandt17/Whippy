@@ -7,9 +7,12 @@
 namespace scn {
 namespace step {
 
+class Component;
+
 class SphereUtil {
 public:
     static u32 GetNeedSphere(SphereUnlockKind kind);
+    static bool SphereUnlockUpdate(Component& component);
 };
 
 }

@@ -12,6 +12,7 @@ class Manager {
 public:
     bool isNotStopped(Flag flag) const;
     bool isStopped(Flag flag) const;
+    bool canRequestStopNormal() const;
     void requestStopNormal(Flag flag);
     void requestStopPowerful(u32 frame);
 };

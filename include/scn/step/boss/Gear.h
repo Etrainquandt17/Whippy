@@ -5,6 +5,7 @@ namespace gobj {
 
 class GearAnim;
 struct GearAnimDesc;
+class GearModel;
 class GearModelDesc;
 class NodeRepos;
 
@@ -12,6 +13,11 @@ class NodeRepos;
 
 namespace scn {
 namespace step {
+namespace chara {
+
+class Effect;
+
+}
 namespace boss {
 
 class Gear {
@@ -21,6 +27,8 @@ public:
     const gobj::NodeRepos& nodes() const;
     void set(const char* name, const gobj::GearModelDesc& desc);
     void setAnim(const char* name, const gobj::GearAnimDesc& desc);
+    gobj::GearModel& model();
+    chara::Effect& effect();
 };
 
 }

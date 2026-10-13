@@ -13,6 +13,8 @@ public:
     u32 vacuumCount() const;
     void resetVacuumCount();
     void resetVacuumHold();
+    void setHoldCannonBlowWait(u32 index);
+    void setHoldCannonWait(u32 index);
     void resetVacuumReserve();
     u32 abilityCount(AbilityType type) const;
     int ability(AbilityType type, u32 index) const;

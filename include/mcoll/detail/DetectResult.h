@@ -17,7 +17,7 @@ public:
     CollidedLog collidedLog(u32 index) const;
 
 private:
-    u32 _0[0x598 / 4];
+    u32 _0[0x5A0 / 4];
 };
 
 }

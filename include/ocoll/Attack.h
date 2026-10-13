@@ -6,6 +6,7 @@
 
 namespace ocoll {
 
+class AttackResult;
 class Manager;
 class NodeDesc;
 class Owner;
@@ -25,6 +26,10 @@ public:
     u32 getCollidedHitStopFrame() const;
     void setPause(bool isPause);
     void setValid(bool valid);
+    // TODO: a member at 0x30.
+    const AttackResult& result() const {
+        return *reinterpret_cast<const AttackResult*>(reinterpret_cast<const u8*>(this) + 0x30);
+    }
 
 private:
     // TODO: the members. The size is from hero::parasol::Custom, which holds one.

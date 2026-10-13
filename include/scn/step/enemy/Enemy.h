@@ -3,11 +3,19 @@
 
 #include "hel/math/Vector2.h"
 #include "scn/step/enemy/IState.h"
+#include "scn/step/hero/AbilityKind.h"
 #include "scn/step/map/BinEnemyDirType.h"
 #include "scn/step/map/BinEnemyKind.h"
 #include "scn/step/map/BinEnemySize.h"
 #include "scn/step/map/BinEnemyVariation.h"
 #include "util/StateChanger.h"
+
+namespace util {
+
+template <typename T>
+class ObjRefHandle;
+
+}
 
 namespace gobj {
 
@@ -108,11 +116,13 @@ public:
     map::BinEnemyDirType dirType() const;
     ObjCollReact& objCollReact();
     map::BinEnemyKind kind() const;
+    util::ObjRefHandle<Enemy> handle();
     const CharaParam& charaParam() const;
     map::BinEnemyVariation variation() const;
     map::BinEnemySize size() const;
     void setPotentialCount(u32 count);
     void setVacuumedCount(u32 count);
+    void setAbilityKind(hero::AbilityKind kind);
     ogen::Generator* objGenerator();
     void setObjGenerator(ogen::Generator& generator);
     void deleteObjGenerator();

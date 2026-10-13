@@ -29,6 +29,7 @@ public:
     void setRotVTarget(f32 rot);
     void setRotVIntpRate(f32 rate);
     void setRotVIntoTarget();
+    void setRotVTargetDefault(f32 rot);
 
     f32 getRotD() const;
     void initRotD(f32 rot);

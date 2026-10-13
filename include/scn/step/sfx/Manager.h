@@ -8,6 +8,7 @@ namespace step {
 namespace sfx {
 
 class ReverseWorld;
+class SpiralScreen;
 
 // TODO: members.
 class Manager {
@@ -16,6 +17,8 @@ public:
     void endDrawWarpImage();
     ReverseWorld& reverseWorld();
     bool isForbiddenDrawWarp() const;
+    void setFlagForbidDrawWarp(bool flag);
+    SpiralScreen& spiralScreen();
 };
 
 }

@@ -12,6 +12,8 @@ public:
     void spGaugeSetRate(f32 rate);
     void spGaugeFadeIn();
     void spGaugeFadeOut();
+    void sphereCompleteLockPos();
+    void sphereCompleteStart();
 };
 
 }

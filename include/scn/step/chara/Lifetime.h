@@ -17,6 +17,7 @@ public:
     bool isDead() const;
     void setAgeless();
     void unsetAgeless();
+    bool isAgeless() const;
 
 private:
     bool mIsAgeless;

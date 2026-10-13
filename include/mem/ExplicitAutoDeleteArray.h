@@ -32,6 +32,12 @@ public:
         }
     }
 
+    template <typename A1>
+    void add(A1 a1) {
+        mArray[mCount] = new (*mAllocator) T(a1);
+        mCount++;
+    }
+
     template <typename A1, typename A2>
     void add(A1 a1, A2 a2) {
         mArray[mCount] = new (*mAllocator) T(a1, a2);

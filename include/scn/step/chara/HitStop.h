@@ -17,6 +17,7 @@ public:
     void set(u32 frame);
     void setArmor();
     void unsetArmor();
+    u32 get() const;
 };
 
 }

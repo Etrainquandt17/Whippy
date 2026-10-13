@@ -14,6 +14,12 @@ public:
 
     void start(u32 kind);
     void stop();
+    u32 padChan() const;
+    void update();
+    bool isPause() const;
+    void pauseInc();
+    void pauseDec();
+    void pauseReset();
 
 private:
     u32 _0[6];

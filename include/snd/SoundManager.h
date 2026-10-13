@@ -14,6 +14,7 @@ public:
     ~SoundManager();
 
     BgmPlayer& bgm();
+    u32 strToSoundId(const char* name);
 
 private:
     u32 _0[0xBB];

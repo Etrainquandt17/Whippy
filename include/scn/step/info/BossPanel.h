@@ -17,6 +17,15 @@ public:
     void setLifeBarRate(f32 rate);
     void transformStart();
     void transformEnd();
+    void dead();
+
+    // TODO: names.
+    enum GuardKind {
+        GUARD_KIND_0,
+        GUARD_KIND_1,
+    };
+    void appearGuard(GuardKind kind, u32 count);
+    void disappearGuard(u32 count);
 
 private:
     u32 _0;

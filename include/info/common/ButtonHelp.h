@@ -21,6 +21,8 @@ public:
     bool isPushEnd() const;
     void updateFrame();
     void setText(const wchar_t* text);
+    void waitNoShadow();
+    void pushHold();
 
 private:
     u8 _0[0x324];

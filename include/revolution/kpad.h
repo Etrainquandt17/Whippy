@@ -19,6 +19,9 @@ void KPADSetPosParam(s32 chan, f32 playRadius, f32 sensitivity);
 void KPADSetBtnRepeat(s32 chan, f32 delaySec, f32 pulseSec);
 void KPADSetAccParam(s32 chan, f32 playRadius, f32 sensitivity);
 void KPADSetDistParam(s32 chan, f32 playRadius, f32 sensitivity);
+void KPADGetPosParam(s32 chan, f32* playRadius, f32* sensitivity);
+void KPADGetAccParam(s32 chan, f32* playRadius, f32* sensitivity);
+void KPADGetDistParam(s32 chan, f32* playRadius, f32* sensitivity);
 void KPADEnableAimingMode(s32 chan);
 
 int PADInit(void);

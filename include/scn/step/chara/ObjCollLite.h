@@ -4,6 +4,7 @@
 #include "hel/math/Vector2.h"
 #include "ocoll/Owner.h"
 #include "scn/step/ocoll/AttackType.h"
+#include "scn/step/ocoll/Flag.h"
 #include "types.h"
 
 namespace ocoll {
@@ -45,7 +46,11 @@ public:
     void addSearchHit(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2, bool flag);
     void clearSearchHit();
     bool isCollideSearchHit() const;
+    void setSearchHitFlagXlu(ocoll::Flag flag);
     ::ocoll::Owner& owner() { return *reinterpret_cast< ::ocoll::Owner*>(_0[2]); }
+
+    // TODO: a util::PlacementNew object behind the attack; only its pointer at 0x6FC is known.
+    ::ocoll::SearchHit& searchHit() { return *reinterpret_cast< ::ocoll::SearchHit**>(this)[0x6FC / 4]; }
 
     ::ocoll::Hit& hit() { return *mHit; }
     ::ocoll::Attack& attack() { return *mAttack; }

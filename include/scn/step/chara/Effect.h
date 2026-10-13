@@ -67,7 +67,7 @@ public:
     void requestND(effect::Kind kind, const g3d::NodeAccessor& node, const hel::math::Direction3& dir, const hel::math::Vector3& offset, f32 scale);
 
 private:
-    u8 _0[0x28];
+    u32 _0[0x28 / 4];
 };
 
 }

@@ -11,9 +11,14 @@ public:
     ~SystemSERequestor();
 
     void start(u32 id);
+    void stop();
+    bool isPlaying() const;
+    void setVolume(f32 volume);
+    void setOutputMain(bool enable);
+    void setOutputWR(u32 index, bool enable);
 
 private:
-    u8 _0[0x74];
+    u32 _0[0x74 / 4];
 };
 
 }

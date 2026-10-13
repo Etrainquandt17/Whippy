@@ -41,7 +41,13 @@ public:
 #else
     Vector2() { x = y = 0.0f; }
     Vector2(f32 x_, f32 y_) : x(x_), y(y_) {}
+    // TODO: the copy constructor is the compiler's own in the original: a unit that copies twice or more calls
+    // it while the operators stay expanded. Such a unit defines HEL_MATH_VECTOR2_COPY_CONSTRUCTOR_OUT_OF_LINE.
+#ifdef HEL_MATH_VECTOR2_COPY_CONSTRUCTOR_OUT_OF_LINE
+    Vector2(const Vector2& other);
+#else
     Vector2(const Vector2& other) : x(other.x), y(other.y) {}
+#endif
 
     void set(f32 x_, f32 y_) {
         x = x_;
@@ -109,7 +115,17 @@ public:
     f32 cos(const Vector2& other) const;
     f32 signedAngle(const Vector2& other) const;
     void rotate(f32 angle);
+    // TODO: inline in the original. A unit that expands it defines HEL_MATH_VECTOR2_GETNORMALIZED_IN_CLASS ahead of
+    // its includes.
+#ifdef HEL_MATH_VECTOR2_GETNORMALIZED_IN_CLASS
+    Vector2 getNormalized() const {
+        Vector2 result(*this);
+        result.normalize();
+        return result;
+    }
+#else
     Vector2 getNormalized() const;
+#endif
     void scale(const Vector2& other);
 
     // TODO: the copy is word by word in the original, as if Vector2 were built on Vec2.

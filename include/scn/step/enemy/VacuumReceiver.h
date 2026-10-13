@@ -25,6 +25,7 @@ public:
     ~VacuumReceiver();
 
     void setIsValid(bool isValid);
+    void unsetSyncReceiver();
     void procAnim();
     void setEndVacuumed();
     hel::math::Vector2 getAttackerPos() const;

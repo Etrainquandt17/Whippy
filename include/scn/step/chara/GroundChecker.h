@@ -13,6 +13,8 @@ public:
     bool isFloorValid() const;
     hel::math::Vector2 getFloorPos() const;
     hel::math::Vector3 getFloorPosVector3() const;
+    void setIsValid(bool isValid);
+    void update();
 };
 
 }
