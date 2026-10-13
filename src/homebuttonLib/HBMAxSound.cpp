@@ -18,7 +18,7 @@
 #include <key/revolution/OS/OSInterrupt.h>
 #include <key/revolution/OS/OSMessage.h>
 #include <key/revolution/AI/ai.h>
-#include <key/revolution/ARC/ARC.h>
+#include <key/revolution/ARC/arc.h>
 #include <key/revolution/AX/AX.h>
 #endif
 

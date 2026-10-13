@@ -9,7 +9,7 @@
 #include <key/types.h> // u32
 
 #if 0
-#include <revolution/GX/GXStruct.h>
+#include <revolution/gx/GXStruct.h>
 #endif
 
 #include <key/hbm/context_rvl.h>

@@ -22,7 +22,7 @@
 #include "nw4r/snd/snd_WaveFile.h"
 
 #include "nw4r/ut/ut_algorithm.h"
-#include "nw4r/ut/ut_Lock.h"
+#include "nw4r/ut/ut_lock.h"
 
 #include <rvl/AX/AXAlloc.h> // AX_MAX_VOLUME
 

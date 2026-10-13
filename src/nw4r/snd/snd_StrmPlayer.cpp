@@ -33,7 +33,7 @@
 #include "nw4r/ut/ut_DvdFileStream.h"
 #include "nw4r/ut/ut_FileStream.h"
 #include "nw4r/ut/ut_algorithm.h"
-#include "nw4r/ut/ut_Lock.h"
+#include "nw4r/ut/ut_lock.h"
 #include "nw4r/ut/ut_RuntimeTypeInfo.h"
 
 #include <rvl/OS/OSCache.h>

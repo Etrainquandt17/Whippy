@@ -17,7 +17,7 @@
 #include "nw4r/snd/snd_StrmSoundHandle.h"
 #include "nw4r/snd/snd_MoveValue.h"
 
-#include "nw4r/ut/ut_Lock.h"
+#include "nw4r/ut/ut_lock.h"
 #include "nw4r/ut/ut_RuntimeTypeInfo.h"
 
 #include "nw4r/NW4RAssert.hpp"

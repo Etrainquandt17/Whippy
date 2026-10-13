@@ -10,7 +10,7 @@
 #include "key/hbm/nw4hbm/ut/ut_CharStrmReader.hpp"
 
 #if 0
-#include <revolution/GX/GXEnum.h> // GXTexFmt
+#include <revolution/gx/GXEnum.h> // GXTexFmt
 #endif
 
 #include <key/hbm/context_rvl.h>

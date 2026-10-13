@@ -14,7 +14,7 @@
 
 #if 0
 #include <key/revolution/TPL/TPL.h>
-#include <revolution/GX/GXStruct.h>
+#include <revolution/gx/GXStruct.h>
 #endif
 
 #include <key/hbm/context_rvl.h>

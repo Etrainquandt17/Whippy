@@ -15,7 +15,7 @@
 
 #include "nw4r/snd/snd_AxVoice.h"
 
-#include "nw4r/ut/ut_Lock.h" // ut::AutoInterruptLock
+#include "nw4r/ut/ut_lock.h" // ut::AutoInterruptLock
 
 #include <rvl/AX/AXAlloc.h>
 #include <rvl/AX/AXVPB.h>

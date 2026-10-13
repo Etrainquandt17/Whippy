@@ -11,7 +11,7 @@
 
 #include "common.h"
 
-#include "nw4r/ut/ut_Lock.h" // ut::AutoInterruptLock
+#include "nw4r/ut/ut_lock.h" // ut::AutoInterruptLock
 #include "nw4r/ut/ut_algorithm.h" // ut::RoundUp
 
 #include "nw4r/NW4RAssert.hpp"

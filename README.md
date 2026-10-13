@@ -37,8 +37,22 @@ The dtk stuff below tells you how to build, but there are two things it doesn't 
 
 Anyway, back to your regularly secheduled dtk stuff.
 
-Kirby's Return to Dream Land
-============================
+Kirby's Return to Dream Land  
+[![Build Status]][actions] [![Code Progress]][progress] [![Data Progress]][progress]
+=============
+
+<!--
+Replace with your repository's URL.
+-->
+[Build Status]: https://github.com/Etrainquandt17/Whippy/actions/workflows/build.yml/badge.svg
+[actions]: https://github.com/Etrainquandt17/Whippy/actions/workflows/build.yml
+<!--
+decomp.dev progress badges
+See https://decomp.dev/api for an API overview.
+-->
+[Code Progress]: https://decomp.dev/Etrainquandt17/Whippy.svg?mode=shield&measure=code&label=Code
+[Data Progress]: https://decomp.dev/Etrainquandt17/Whippy.svg?mode=shield&measure=data&label=Data
+[progress]: https://decomp.dev/Etrainquandt17/Whippy
 
 A work-in-progress decompilation of Kirby's Return to Dream Land.
 
@@ -83,6 +97,12 @@ Linux
 
 Building
 ========
+
+- Clone the repository:
+
+  ```sh
+  git clone https://github.com/Etrainquandt17/Whippy.git
+  ```
 
 - Copy your game's disc image to `orig/SUKE01`.
   - Supported formats: ISO (GCM), RVZ, WIA, WBFS, CISO, NFS, GCZ, TGC

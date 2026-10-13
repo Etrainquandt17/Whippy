@@ -16,7 +16,7 @@
 #include "key/hbm/nw4hbm/ut/ut_Color.hpp"
 
 #if 0
-#include <revolution/GX/GXEnum.h>
+#include <revolution/gx/GXEnum.h>
 #include <key/revolution/MTX/mtx.h>
 #endif
 

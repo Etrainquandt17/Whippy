@@ -11,7 +11,7 @@
 #include "nw4r/snd/snd_DisposeCallbackManager.h" // DisposeCallback
 #include "nw4r/snd/snd_SeqTrack.h"
 #include "nw4r/snd/snd_SoundThread.h"
-#include "nw4r/ut/ut_Lock.h"
+#include "nw4r/ut/ut_lock.h"
 
 /*******************************************************************************
  * types

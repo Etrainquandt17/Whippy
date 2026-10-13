@@ -13,7 +13,7 @@
 
 #include "nw4r/snd/snd_SoundThread.h"
 
-#include "nw4r/ut/ut_Lock.h" // ut::AutoInterruptLock
+#include "nw4r/ut/ut_lock.h" // ut::AutoInterruptLock
 
 /*******************************************************************************
  * functions

@@ -21,7 +21,7 @@
 #include "nw4r/snd/snd_VoiceManager.h"
 
 #include "nw4r/ut/ut_algorithm.h" // ut::Clamp
-#include "nw4r/ut/ut_Lock.h" // ut::AutoInterruptLock
+#include "nw4r/ut/ut_lock.h" // ut::AutoInterruptLock
 
 #include <rvl/OS/OSCache.h> // DCFlushRange
 #include <rvl/AI/ai.h> // AICheckInit

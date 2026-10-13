@@ -1,7 +1,7 @@
 #include "nw4r/snd/snd_RemoteSpeaker.h"
 #include "common.h"
 #include "nw4r/snd/snd_RemoteSpeakerManager.h"
-#include "nw4r/ut/ut_Lock.h"
+#include "nw4r/ut/ut_lock.h"
 #include <ss/cstring>
 
 namespace nw4r {
