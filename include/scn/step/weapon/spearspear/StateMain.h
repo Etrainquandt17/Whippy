@@ -2,16 +2,25 @@
 #define SCN_STEP_WEAPON_SPEARSPEAR_STATEMAIN_H
 
 #include "scn/step/weapon/StateBase.h"
+#include "types.h"
 
 namespace scn {
 namespace step {
 namespace weapon {
 namespace spearspear {
 
-// TODO: stub
 class StateMain : public StateBase {
 public:
     StateMain(Weapon* weapon);
+    virtual ~StateMain();
+    virtual void procAnim();
+    virtual void procMove();
+    virtual void procConstraint();
+    virtual void procFixPos();
+    virtual void procObjCollReact();
+
+private:
+    u32 _8;
 };
 
 }}}}  // namespace scn::step::weapon::spearspear

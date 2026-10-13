@@ -2,16 +2,25 @@
 #define SCN_STEP_WEAPON_TSUKIKAGESHURIKEN_STATEMAIN_H
 
 #include "scn/step/weapon/StateBase.h"
+#include "types.h"
 
 namespace scn {
 namespace step {
 namespace weapon {
 namespace tsukikageshuriken {
 
-// TODO: stub
 class StateMain : public StateBase {
 public:
     StateMain(Weapon* weapon);
+    virtual void procMove();
+    virtual void procFixPos();
+    virtual void procObjCollReact();
+
+private:
+    u32 mFrame;
+    u32 mHitFrame;
+    f32 _10;
+    bool mIsHit;
 };
 
 }}}}  // namespace scn::step::weapon::tsukikageshuriken

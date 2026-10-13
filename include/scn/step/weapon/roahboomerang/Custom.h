@@ -26,10 +26,12 @@ namespace step {
 namespace weapon {
 namespace roahboomerang {
 
-// TODO: stub
 class Custom : public CustomBase {
 public:
     Custom(Weapon& weapon);
+    virtual const hel::common::RuntimeTypeInfo& GetRuntimeTypeInfo() const;
+    virtual bool onInit();
+    virtual void reqCustomDeadEffect();
 };
 
 }}}}  // namespace scn::step::weapon::roahboomerang

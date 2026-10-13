@@ -27,13 +27,24 @@ namespace step {
 namespace weapon {
 namespace roahbullet {
 
-// TODO: stub
 class Custom : public CustomBase {
 public:
     Custom(Weapon& weapon);
+    virtual const hel::common::RuntimeTypeInfo& GetRuntimeTypeInfo() const;
+    virtual bool onInit();
+    virtual void reqCustomDeadEffect();
+
+    void procFixPos();
+    void setSubAnim();
+    void setWaitNum(u32 num);
+    u32 waitNum();
+    void setGenerateNum(u32 num);
+    u32 generateNum();
 
 private:
-    u32 _8[3];
+    u32 mWaitNum;
+    u32 mGenerateNum;
+    u32 mHitInterval;
 };
 
 }}}}  // namespace scn::step::weapon::roahbullet
