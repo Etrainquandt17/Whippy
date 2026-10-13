@@ -81,7 +81,4 @@ void StateDamageNormal::procFixPos() {
     Utility::EmDamageUtility_ReflectWall(&obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

@@ -10,8 +10,6 @@ enum DarknessLightSizeKind {
     DARKNESS_LIGHT_SIZE_KIND_5 = 5,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

@@ -62,7 +62,4 @@ void SelectUnit::resumeImpl() {
     AbstractSuspendableTree::resume();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::boxmenu

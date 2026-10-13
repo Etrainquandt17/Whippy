@@ -19,6 +19,6 @@ private:
     u8 _0[0x5D8];
 };
 
-}
+}  // namespace hbm
 
 #endif

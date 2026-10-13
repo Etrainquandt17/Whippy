@@ -53,9 +53,6 @@ private:
     bool _51;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

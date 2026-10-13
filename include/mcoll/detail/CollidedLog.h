@@ -21,7 +21,6 @@ private:
     CollidedInfo mInfo;
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

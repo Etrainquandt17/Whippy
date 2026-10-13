@@ -354,7 +354,4 @@ lyt::PaneAccessor Aim::hitEffectLoc() {
     return _4->pane("Loc_Aim");
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara

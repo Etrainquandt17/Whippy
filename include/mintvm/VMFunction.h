@@ -77,6 +77,6 @@ private:
     };
 };
 
-}
+}  // namespace mintvm
 
 #endif

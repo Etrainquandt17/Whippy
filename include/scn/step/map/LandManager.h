@@ -17,8 +17,6 @@ public:
     const MoveGroupAccessor& mgAccessor() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

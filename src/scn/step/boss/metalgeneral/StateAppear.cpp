@@ -161,7 +161,4 @@ void StateAppear::startBgm() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

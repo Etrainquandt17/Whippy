@@ -31,8 +31,6 @@ public:
     chara::Effect& effect();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

@@ -98,7 +98,4 @@ void StateStalactiteLanding::procMove() {
 
 void StateStalactiteLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

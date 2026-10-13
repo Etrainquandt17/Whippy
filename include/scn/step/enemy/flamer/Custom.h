@@ -11,10 +11,7 @@ namespace flamer {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::flamer::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -48,9 +44,6 @@ private:
     bool mIsMove;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer
 
 #endif

@@ -18,9 +18,6 @@ enum SignalKind {
     SIGNAL_KIND_7
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralpatriot
 
 #endif

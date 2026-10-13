@@ -55,9 +55,6 @@ private:
     u8 _8AC[0x2A0];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::title::window
 
 #endif

@@ -81,7 +81,4 @@ f32 Custom::getAngleSpeed() const {
     return mAngleSpeed;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock

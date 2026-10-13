@@ -178,6 +178,4 @@ void CarryItem::put(const Desc& desc) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem

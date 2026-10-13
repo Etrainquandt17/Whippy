@@ -27,9 +27,6 @@ private:
     bool mIsAttackEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage
 
 #endif

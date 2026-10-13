@@ -66,7 +66,4 @@ const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
 
 Custom::~Custom() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::strikeboxbullet

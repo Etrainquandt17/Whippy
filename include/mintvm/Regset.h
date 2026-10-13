@@ -182,6 +182,6 @@ private:
     int mYieldCount;
 };
 
-}
+}  // namespace mintvm
 
 #endif

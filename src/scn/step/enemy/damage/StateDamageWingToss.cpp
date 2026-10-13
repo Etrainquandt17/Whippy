@@ -95,7 +95,4 @@ void StateDamageWingToss::recover() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

@@ -117,5 +117,4 @@ void StorageAccessor::SetSphereUnlockExecutedDemo(Component& component, SphereUn
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::step

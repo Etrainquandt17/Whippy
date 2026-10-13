@@ -50,7 +50,4 @@ chara::ModelDesc& CreateEx() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralpatriot

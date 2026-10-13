@@ -140,7 +140,6 @@ public:
     f32 y;
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

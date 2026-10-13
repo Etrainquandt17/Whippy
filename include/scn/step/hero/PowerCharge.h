@@ -14,8 +14,6 @@ public:
     void setCanCharge(bool canCharge);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

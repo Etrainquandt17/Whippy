@@ -18,9 +18,6 @@ public:
     StateFall(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::carrydee
 
 #endif

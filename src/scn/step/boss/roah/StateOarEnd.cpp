@@ -55,7 +55,4 @@ void StateOarEnd::procMove() {
 
 void StateOarEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

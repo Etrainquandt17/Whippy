@@ -19,6 +19,6 @@ public:
     virtual bool pageIsBusy() const = 0;
 };
 
-}
+}  // namespace pause
 
 #endif

@@ -25,6 +25,6 @@ private:
     lyt::Layout mLayout;
 };
 
-}
+}  // namespace pause
 
 #endif

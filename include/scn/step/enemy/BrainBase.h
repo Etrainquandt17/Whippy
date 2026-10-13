@@ -27,8 +27,6 @@ protected:
     Enemy& mEnemy;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

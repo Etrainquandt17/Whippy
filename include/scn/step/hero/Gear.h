@@ -57,8 +57,6 @@ private:
     u8 _0[0x4BC];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

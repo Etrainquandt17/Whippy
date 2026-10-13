@@ -29,9 +29,6 @@ struct ParamData {
     u32 mWaitAttackShotFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa
 
 #endif

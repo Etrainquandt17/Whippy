@@ -136,7 +136,4 @@ const HighjumpParamJump& StateJump::param() const {
     return param._0[0];
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump

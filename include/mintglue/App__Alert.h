@@ -12,7 +12,6 @@ namespace App__Alert {
 
 void AddOn(mintvm::VMCore& core);
 
-}
-}
+}}  // namespace mintglue::App__Alert
 
 #endif

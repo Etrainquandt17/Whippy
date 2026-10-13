@@ -16,6 +16,6 @@ enum ModeKind {
     MODE_KIND_7,
 };
 
-}
+}  // namespace pause
 
 #endif

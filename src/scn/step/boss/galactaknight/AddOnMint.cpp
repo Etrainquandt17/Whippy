@@ -318,7 +318,4 @@ void RegisterAll(mintvm::VMCore& core) {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

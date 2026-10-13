@@ -35,7 +35,4 @@ void StateExplosion::procFixPos() {}
 
 void StateExplosion::procObjCollReact() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::beamwaveshot

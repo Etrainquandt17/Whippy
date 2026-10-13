@@ -89,4 +89,4 @@ bool PageAbility::pageIsBusy() const {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace pause

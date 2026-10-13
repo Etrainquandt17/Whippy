@@ -90,7 +90,4 @@ void StateMoveInWater::procFixPos() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy

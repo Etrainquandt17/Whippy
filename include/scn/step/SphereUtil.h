@@ -15,7 +15,6 @@ public:
     static bool SphereUnlockUpdate(Component& component);
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

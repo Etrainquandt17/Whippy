@@ -36,7 +36,4 @@ void WhispyAppleUtility::ReqBoundSEIfGordo(Enemy& enemy) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple

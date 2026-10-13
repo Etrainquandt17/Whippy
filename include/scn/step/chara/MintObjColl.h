@@ -8,8 +8,7 @@ namespace math {
 
 class Vector2;
 
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -63,9 +62,6 @@ void SetBodyCollStateXlu();
 void SetBodyCollStateHitOnly();
 void SetBodyCollStateCaptureOnly();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintObjColl
 
 #endif

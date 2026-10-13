@@ -67,7 +67,4 @@ void StateSkinned::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappy

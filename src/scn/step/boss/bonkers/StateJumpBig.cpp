@@ -67,7 +67,4 @@ void StateJumpBig::procMove() {
 
 void StateJumpBig::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers

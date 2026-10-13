@@ -11,8 +11,6 @@ public:
     void setIsBackOnly(bool isBackOnly);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

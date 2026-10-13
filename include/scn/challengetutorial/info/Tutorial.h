@@ -37,8 +37,6 @@ public:
     bool _1874;
 };
 
-}
-}
-}
+}}}  // namespace scn::challengetutorial::info
 
 #endif

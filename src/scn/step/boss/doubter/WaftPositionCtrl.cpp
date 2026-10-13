@@ -33,7 +33,4 @@ hel::math::Vector3 WaftPositionCtrl::getNextPos() const {
     return hel::math::Math::LinearInterpolation(mBoss.location().pos(), goal, param._5C);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

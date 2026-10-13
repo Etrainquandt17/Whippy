@@ -61,5 +61,4 @@ SceneMovie::~SceneMovie() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::movie

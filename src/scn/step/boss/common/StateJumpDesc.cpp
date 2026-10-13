@@ -14,7 +14,4 @@ StateJumpDesc::StateJumpDesc(
     : _0(speed), _8(a), _C(decel), _10(fall), _1C(starPos), _24(starSpeed), _2C(isTurn), _30(landingAnimType), _34(isStar),
       _38(attackType) {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

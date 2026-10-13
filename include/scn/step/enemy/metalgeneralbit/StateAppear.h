@@ -26,9 +26,6 @@ private:
     bool mIsAppearEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit
 
 #endif

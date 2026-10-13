@@ -62,6 +62,6 @@ private:
     const XDataHeader* mHeader;
 };
 
-}
+}  // namespace mintx
 
 #endif

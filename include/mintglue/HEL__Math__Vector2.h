@@ -12,7 +12,6 @@ namespace HEL__Math__Vector2 {
 
 void AddOn(mintvm::VMCore& core);
 
-}
-}
+}}  // namespace mintglue::HEL__Math__Vector2
 
 #endif

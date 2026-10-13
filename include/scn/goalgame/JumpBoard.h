@@ -15,7 +15,6 @@ private:
     bool _9F8;
 };
 
-}
-}
+}}  // namespace scn::goalgame
 
 #endif

@@ -141,7 +141,4 @@ bool StateAppear::canZoom() {
     return count == zoomCount;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

@@ -16,9 +16,6 @@ public:
     StateHover(Hero* hero, bool);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

@@ -32,7 +32,4 @@ void Custom::setAction(bool isAction) {
     mIsAction = isAction;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::spark

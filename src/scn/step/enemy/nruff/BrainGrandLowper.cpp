@@ -53,7 +53,4 @@ bool BrainGrandLowper::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::nruff

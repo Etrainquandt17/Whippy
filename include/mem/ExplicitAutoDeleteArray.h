@@ -121,7 +121,7 @@ private:
     T* mArray[N];
 };
 
-}
+}  // namespace mem
 
 #endif
 

@@ -10,9 +10,6 @@ enum HitAttribute {
     HIT_ATTRIBUTE_NONE,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 #endif

@@ -125,7 +125,6 @@ void MutableArray<T, N>::add(const T& value) {
 }
 #endif
 
-}
-}
+}}  // namespace hel::common
 
 #endif

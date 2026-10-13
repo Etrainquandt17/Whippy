@@ -18,9 +18,6 @@ public:
     StateFollow(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball
 
 #endif

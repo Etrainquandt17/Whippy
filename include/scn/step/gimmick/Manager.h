@@ -38,8 +38,6 @@ private:
     mem::ExplicitScopedPtr<shipevent::Manager> mShipeventManager;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

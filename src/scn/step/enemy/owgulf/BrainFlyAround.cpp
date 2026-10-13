@@ -51,7 +51,4 @@ void BrainFlyAround::update() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

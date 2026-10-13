@@ -76,7 +76,4 @@ void StateSwim::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy

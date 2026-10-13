@@ -62,4 +62,4 @@ f32 FrameCounter::inversedNormalizedFrame() const {
     return 1.0f - normalizedFrame();
 }
 
-}
+}  // namespace util

@@ -39,7 +39,4 @@ void StateMain::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::missileexp

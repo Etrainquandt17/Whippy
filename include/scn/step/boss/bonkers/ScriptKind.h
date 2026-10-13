@@ -19,9 +19,6 @@ enum ScriptKind {
     SCRIPT_KIND_8,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

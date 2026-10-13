@@ -110,7 +110,4 @@ void StateMoveToOtherSide::procMove() {
 
 void StateMoveToOtherSide::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

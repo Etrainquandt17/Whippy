@@ -15,9 +15,6 @@ void Register(Attacker& obj);
 void Unregister(Attacker& obj);
 u32 VacuumCount();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::vacuum::MintAttacker
 
 #endif

@@ -95,7 +95,4 @@ void StateMain::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowperbulletlandhit

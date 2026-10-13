@@ -14,9 +14,6 @@ public:
     StateSkate(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::ice
 
 #endif

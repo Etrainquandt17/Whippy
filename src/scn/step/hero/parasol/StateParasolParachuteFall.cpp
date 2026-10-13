@@ -115,7 +115,4 @@ void StateParasolParachuteFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol

@@ -159,6 +159,4 @@ Title::Title(Component& component)
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::arena::title

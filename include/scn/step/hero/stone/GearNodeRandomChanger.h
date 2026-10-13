@@ -26,9 +26,6 @@ private:
     bool mIsSelected;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

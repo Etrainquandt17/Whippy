@@ -75,6 +75,4 @@ mem::IAllocator& Heap::getAllocator() {
     return mUser.obj();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

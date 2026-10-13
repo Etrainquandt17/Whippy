@@ -32,9 +32,6 @@ private:
     u32 _0[0xA0 / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

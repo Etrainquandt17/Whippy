@@ -23,8 +23,6 @@ private:
     bool mCanClearAttack;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

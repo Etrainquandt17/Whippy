@@ -137,7 +137,4 @@ void GameResultChara::reset() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara

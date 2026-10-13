@@ -14,9 +14,6 @@ public:
     g3d::CameraAccessor currentCamera() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::view
 
 #endif

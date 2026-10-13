@@ -47,7 +47,4 @@ u32 GearNodeRandomChanger::selectedIndex() const {
     return mSelectedIndex;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

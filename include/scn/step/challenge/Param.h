@@ -18,8 +18,6 @@ public:
     };
 };
 
-}
-}
-}
+}}}  // namespace scn::step::challenge
 
 #endif

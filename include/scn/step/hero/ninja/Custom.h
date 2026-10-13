@@ -18,9 +18,6 @@ private:
     u32 _8[(0x44 - 0x8) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::ninja
 
 #endif

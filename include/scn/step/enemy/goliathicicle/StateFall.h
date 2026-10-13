@@ -27,9 +27,6 @@ private:
     u32 mWaitFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathicicle
 
 #endif

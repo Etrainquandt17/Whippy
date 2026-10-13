@@ -26,9 +26,6 @@ private:
     u32 mShakeFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathicicle
 
 #endif

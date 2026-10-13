@@ -36,4 +36,4 @@ void* XFBManager::target2() {
     return mTarget2.block().startAddress();
 }
 
-}
+}  // namespace gfx

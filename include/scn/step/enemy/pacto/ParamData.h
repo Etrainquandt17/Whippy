@@ -24,9 +24,6 @@ struct ParamData {
     f32 mBackSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto
 
 #endif

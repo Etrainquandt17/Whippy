@@ -28,9 +28,6 @@ private:
     u32 mIndex;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

@@ -75,6 +75,6 @@ private:
     std::tr1::function<F> mFunction;
 };
 
-}
+}  // namespace util
 
 #endif

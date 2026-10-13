@@ -15,9 +15,6 @@ public:
     StateStepShoeWait(Hero* hero, bool);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::ride
 
 #endif

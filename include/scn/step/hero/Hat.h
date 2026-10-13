@@ -12,8 +12,6 @@ public:
     void setNormal();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

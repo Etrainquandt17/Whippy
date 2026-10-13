@@ -106,7 +106,4 @@ void StateMoveToFar::procMove() {
 
 void StateMoveToFar::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

@@ -90,7 +90,4 @@ bool StateUp::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb

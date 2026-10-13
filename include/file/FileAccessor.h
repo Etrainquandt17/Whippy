@@ -22,6 +22,6 @@ private:
     FileLoader* mLoader;
 };
 
-}
+}  // namespace file
 
 #endif

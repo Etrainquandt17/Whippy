@@ -11,10 +11,7 @@ namespace mumbies {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mumbies
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::mumbies::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     bool mIsDead;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mumbies
 
 #endif

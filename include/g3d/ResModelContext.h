@@ -21,6 +21,6 @@ private:
     hel::common::FixedString<40> mName;
 };
 
-}
+}  // namespace g3d
 
 #endif

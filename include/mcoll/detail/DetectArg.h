@@ -41,7 +41,6 @@ private:
     bool mIsAfterMoveDetect;
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

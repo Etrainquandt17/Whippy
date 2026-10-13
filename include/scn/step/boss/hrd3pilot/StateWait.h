@@ -17,9 +17,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3pilot
 
 #endif

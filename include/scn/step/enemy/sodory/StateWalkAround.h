@@ -26,9 +26,6 @@ private:
     bool mIsRightDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory
 
 #endif

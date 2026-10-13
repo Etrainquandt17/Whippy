@@ -126,7 +126,4 @@ void StateBlowSuperIce::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

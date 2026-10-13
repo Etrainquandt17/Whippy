@@ -25,9 +25,6 @@ struct Param {
     gobj::MoveParamFall _34;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::leafanpollen
 
 #endif

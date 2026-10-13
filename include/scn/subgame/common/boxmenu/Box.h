@@ -29,9 +29,6 @@ private:
     util::ObjRefHandle<lyt::Layout> mLayout;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::boxmenu
 
 #endif

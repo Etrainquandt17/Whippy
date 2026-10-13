@@ -32,8 +32,6 @@ public:
     void shiftSearchTop();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

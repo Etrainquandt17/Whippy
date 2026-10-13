@@ -21,9 +21,6 @@ private:
     void reqStar();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

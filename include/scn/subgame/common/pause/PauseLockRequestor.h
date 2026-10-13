@@ -25,9 +25,6 @@ private:
     bool mIsSELocked;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::pause
 
 #endif

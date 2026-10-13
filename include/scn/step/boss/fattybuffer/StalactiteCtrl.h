@@ -34,9 +34,6 @@ private:
     hel::common::MutableArray<u32, 12> _124;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

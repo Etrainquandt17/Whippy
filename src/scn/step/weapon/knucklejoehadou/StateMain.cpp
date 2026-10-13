@@ -65,7 +65,4 @@ void StateMain::dead() {
     _C = true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::knucklejoehadou

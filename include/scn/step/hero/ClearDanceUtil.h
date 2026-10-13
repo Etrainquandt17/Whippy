@@ -15,8 +15,6 @@ public:
     static u32 SetZoom(Hero& hero);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

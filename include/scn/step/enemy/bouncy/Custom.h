@@ -11,10 +11,7 @@ namespace bouncy {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bouncy
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::bouncy::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -39,9 +35,6 @@ public:
     virtual bool onInit();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bouncy
 
 #endif

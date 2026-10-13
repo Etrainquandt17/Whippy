@@ -107,7 +107,4 @@ void StateStalactiteJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

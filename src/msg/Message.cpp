@@ -71,4 +71,4 @@ const wchar_t* Message::text(const char* label) {
     return LMS_GetText(mMessageInfo, index);
 }
 
-}
+}  // namespace msg

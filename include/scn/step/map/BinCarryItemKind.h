@@ -10,8 +10,6 @@ enum BinCarryItemKind {
     BIN_CARRY_ITEM_KIND_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

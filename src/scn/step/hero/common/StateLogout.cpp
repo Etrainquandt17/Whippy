@@ -80,7 +80,4 @@ void StateLogout::procMove() {}
 
 void StateLogout::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

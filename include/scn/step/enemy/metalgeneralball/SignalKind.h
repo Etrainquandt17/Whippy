@@ -14,9 +14,6 @@ enum SignalKind {
     SIGNAL_KIND_3
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralball
 
 #endif

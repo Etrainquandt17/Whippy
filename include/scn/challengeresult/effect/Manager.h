@@ -16,8 +16,6 @@ private:
     u8 _0[0x31C - 0x154];
 };
 
-}
-}
-}
+}}}  // namespace scn::challengeresult::effect
 
 #endif

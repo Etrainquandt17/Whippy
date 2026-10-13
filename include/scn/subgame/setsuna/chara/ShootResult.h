@@ -20,9 +20,6 @@ public:
     f32 _8[3];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara
 
 #endif

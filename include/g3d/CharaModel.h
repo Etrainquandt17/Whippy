@@ -8,8 +8,7 @@
 namespace hel {
 namespace math {
 class Matrix34;
-}
-}
+}}  // namespace hel::math
 
 namespace g3d {
 
@@ -35,6 +34,6 @@ private:
     u32 _0[0x164 / 4];
 };
 
-}
+}  // namespace g3d
 
 #endif

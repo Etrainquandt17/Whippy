@@ -36,6 +36,6 @@ private:
     mem::ExplicitAutoDeleteArray<mem::HeapUnit, 32> mUnits;
 };
 
-}
+}  // namespace mint
 
 #endif

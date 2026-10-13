@@ -49,7 +49,6 @@ private:
     ClearMark mClearMark;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

@@ -24,9 +24,6 @@ private:
     u32 mDamageWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut
 
 #endif

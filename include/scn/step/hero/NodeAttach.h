@@ -16,8 +16,6 @@ public:
     void setScale(f32 scale);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

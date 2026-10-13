@@ -16,9 +16,6 @@ struct ParamData {
     gobj::MoveParamFall mJumpFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledoo
 
 #endif

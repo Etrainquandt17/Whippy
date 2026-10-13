@@ -106,7 +106,4 @@ void StatePreDead::procMove() {
 
 void StatePreDead::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

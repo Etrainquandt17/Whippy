@@ -40,6 +40,4 @@ void Flash::set(const GXColor& color, g3d::ColorAnimFlashOp op) {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

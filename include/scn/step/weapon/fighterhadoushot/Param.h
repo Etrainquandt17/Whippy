@@ -27,9 +27,6 @@ struct Param {
     ExplosionParam _20;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterhadoushot
 
 #endif

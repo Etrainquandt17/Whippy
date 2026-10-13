@@ -32,9 +32,6 @@ private:
     f32 mAngle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gigatzo
 
 #endif

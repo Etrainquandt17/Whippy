@@ -32,9 +32,6 @@ private:
     bool mIsBound;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

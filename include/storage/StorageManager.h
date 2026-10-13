@@ -18,6 +18,6 @@ private:
     u8 _0[0x10];
 };
 
-}
+}  // namespace storage
 
 #endif

@@ -14,8 +14,6 @@ public:
     void onSwitchToggle(u32 id);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

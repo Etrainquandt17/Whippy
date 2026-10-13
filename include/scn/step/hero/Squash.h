@@ -14,8 +14,6 @@ public:
     void setTarget(const hel::math::Vector3& scale, f32 rate);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

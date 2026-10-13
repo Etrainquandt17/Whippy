@@ -20,9 +20,6 @@ public:
     };
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::coll
 
 #endif

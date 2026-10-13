@@ -23,9 +23,6 @@ private:
     hel::math::Vector3 mGoalPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

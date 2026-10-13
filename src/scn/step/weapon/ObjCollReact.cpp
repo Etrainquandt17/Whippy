@@ -25,6 +25,4 @@ bool ObjCollReact::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

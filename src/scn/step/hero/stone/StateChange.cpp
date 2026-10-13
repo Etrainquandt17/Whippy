@@ -108,7 +108,4 @@ void StateChange::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

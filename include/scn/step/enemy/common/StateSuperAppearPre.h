@@ -23,9 +23,6 @@ private:
     int _14;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

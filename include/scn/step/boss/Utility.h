@@ -72,8 +72,6 @@ public:
     static void SetDamagePreventMikeAndCrash(Boss& boss);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

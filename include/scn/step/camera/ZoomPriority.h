@@ -11,8 +11,6 @@ enum ZoomPriority {
     ZOOM_PRIORITY_1,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

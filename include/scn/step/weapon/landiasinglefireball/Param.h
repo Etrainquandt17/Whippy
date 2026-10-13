@@ -13,9 +13,6 @@ struct Param {
     f32 _0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiasinglefireball
 
 #endif

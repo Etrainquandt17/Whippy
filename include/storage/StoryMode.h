@@ -9,6 +9,6 @@ enum StoryMode {
     STORY_MODE_1,
 };
 
-}
+}  // namespace storage
 
 #endif

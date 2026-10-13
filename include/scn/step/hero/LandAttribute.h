@@ -13,8 +13,6 @@ public:
     void reqEffectLanding(f32, f32);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

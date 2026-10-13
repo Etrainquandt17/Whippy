@@ -60,7 +60,4 @@ void StateVacuum::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

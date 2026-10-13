@@ -13,8 +13,6 @@ public:
     void request(ShakeKind kind);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

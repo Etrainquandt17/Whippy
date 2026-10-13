@@ -42,9 +42,6 @@ struct ParamData {
     f32 mEscapeSpeedLimitY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy
 
 #endif

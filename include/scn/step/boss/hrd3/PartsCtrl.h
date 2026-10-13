@@ -31,9 +31,6 @@ public:
     void stopDrillSubAnim();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

@@ -11,9 +11,7 @@ namespace hero {
 
 class Hero;
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 namespace hel {
 namespace common {
@@ -29,8 +27,7 @@ private:
     util::ObjRefHandle<scn::step::hero::Hero> mArray[4];
 };
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -52,8 +49,6 @@ private:
     hel::common::MutableArray<util::ObjRefHandle<Hero>, 4> mObjs;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

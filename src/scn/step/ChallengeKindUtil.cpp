@@ -490,5 +490,4 @@ lyt::LayoutContext ChallengeKindUtil::TitleLayoutContext(ChallengeKind kind, mem
     return lyt::LayoutContext(path, file, allocator);
 }
 
-}
-}
+}}  // namespace scn::step

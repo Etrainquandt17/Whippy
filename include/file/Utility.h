@@ -23,6 +23,6 @@ public:
     static u32 LatestUpdateDateOnUSB(const char* path, bool);
 };
 
-}
+}  // namespace file
 
 #endif

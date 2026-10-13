@@ -47,7 +47,4 @@ void StateSparkLv1::procMove() {
 
 void StateSparkLv1::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

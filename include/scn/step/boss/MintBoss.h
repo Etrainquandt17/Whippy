@@ -13,9 +13,6 @@ void Register(Boss& obj);
 void Unregister(Boss& obj);
 Boss& Obj();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::MintBoss
 
 #endif

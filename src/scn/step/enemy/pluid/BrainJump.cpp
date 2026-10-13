@@ -35,7 +35,4 @@ bool BrainJump::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid

@@ -10,10 +10,7 @@ namespace chilly {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chilly
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::chilly::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -39,9 +35,6 @@ public:
     virtual void setupSuperEnemyEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chilly
 
 #endif

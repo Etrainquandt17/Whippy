@@ -20,9 +20,6 @@ private:
     bool mIsDash;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

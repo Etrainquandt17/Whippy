@@ -16,9 +16,6 @@ struct ParamData {
     u32 mLifeFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::strikeboxbullet
 
 #endif

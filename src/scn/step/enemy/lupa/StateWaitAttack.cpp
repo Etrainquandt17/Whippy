@@ -44,7 +44,4 @@ void StateWaitAttack::procMove() {
 
 void StateWaitAttack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa

@@ -10,8 +10,6 @@ enum BinGmkGeneralKind {
     BIN_GMK_GENERAL_KIND_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

@@ -40,7 +40,4 @@ void StateCliffAttack::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky

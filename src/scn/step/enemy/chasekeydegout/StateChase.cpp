@@ -130,7 +130,4 @@ void StateChase::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chasekeydegout

@@ -14,6 +14,6 @@ public:
     virtual void onStopPowerfulFinished(const Actor& actor) = 0;
 };
 
-}
+}  // namespace ostop
 
 #endif

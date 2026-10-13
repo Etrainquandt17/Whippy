@@ -11,8 +11,6 @@ enum Flag {
     FLAG_1,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ocoll
 
 #endif

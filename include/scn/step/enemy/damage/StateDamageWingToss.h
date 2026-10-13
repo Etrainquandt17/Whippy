@@ -28,9 +28,6 @@ private:
     u32 mCollFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

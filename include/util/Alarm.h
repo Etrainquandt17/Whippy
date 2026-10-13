@@ -18,6 +18,6 @@ private:
     OSAlarm mAlarm;
 };
 
-}
+}  // namespace util
 
 #endif

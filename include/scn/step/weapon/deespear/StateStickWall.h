@@ -15,9 +15,6 @@ public:
     StateStickWall(Weapon* weapon, f32 rot);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear
 
 #endif

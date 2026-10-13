@@ -24,9 +24,6 @@ public:
     void setVisibilityHand(bool isVisible);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

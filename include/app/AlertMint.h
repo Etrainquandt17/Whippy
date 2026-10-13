@@ -31,6 +31,6 @@ public:
     static void PrintIndex(int index, const hel::math::Vector3& value);
 };
 
-}
+}  // namespace app
 
 #endif

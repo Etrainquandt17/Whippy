@@ -74,7 +74,4 @@ void StatePutOnEnemy::put() {
     mController.putBomb();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb

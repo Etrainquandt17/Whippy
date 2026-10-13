@@ -22,6 +22,6 @@ private:
     bool mIsDrawTarget1;
 };
 
-}
+}  // namespace gfx
 
 #endif

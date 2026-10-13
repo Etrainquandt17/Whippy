@@ -83,9 +83,6 @@ struct Param {
     u32 _16C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

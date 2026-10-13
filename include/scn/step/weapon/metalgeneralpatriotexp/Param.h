@@ -18,9 +18,6 @@ struct Param {
     u32 _14;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::metalgeneralpatriotexp
 
 #endif

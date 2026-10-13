@@ -25,7 +25,4 @@ LvMapDoor& MintLvMapDoor::Obj() {
     return t_obj.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor

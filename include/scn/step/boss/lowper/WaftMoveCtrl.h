@@ -35,9 +35,6 @@ private:
     bool mIsValid;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

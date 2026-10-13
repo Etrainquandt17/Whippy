@@ -76,6 +76,6 @@ private:
     Result mResult;
 };
 
-}
+}  // namespace seq
 
 #endif

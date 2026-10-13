@@ -57,7 +57,4 @@ void StateWallAttack::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage

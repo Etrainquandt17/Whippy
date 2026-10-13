@@ -9,6 +9,6 @@ public:
     void screenRemapDrawEnd();
 };
 
-}
+}  // namespace sfx
 
 #endif

@@ -28,9 +28,6 @@ private:
     bool mIsMix;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

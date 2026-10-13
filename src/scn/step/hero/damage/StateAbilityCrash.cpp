@@ -62,7 +62,4 @@ void StateAbilityCrash::procMove() {
 
 void StateAbilityCrash::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

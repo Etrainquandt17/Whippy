@@ -66,7 +66,4 @@ void StateSharpshootShot::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball

@@ -16,8 +16,6 @@ public:
     int _8;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

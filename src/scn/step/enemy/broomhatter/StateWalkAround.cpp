@@ -84,7 +84,4 @@ void StateWalkAround::initBrush() {
     mFrame = 0;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::broomhatter

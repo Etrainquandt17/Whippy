@@ -28,9 +28,6 @@ private:
     hel::common::MutableArray<ReqData, 10> mBuff;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

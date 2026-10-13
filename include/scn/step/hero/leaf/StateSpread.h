@@ -20,9 +20,6 @@ private:
     bool mIsEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf
 
 #endif

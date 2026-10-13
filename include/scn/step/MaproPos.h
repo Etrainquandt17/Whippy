@@ -15,7 +15,6 @@ struct MaproPos {
     u32 _4;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

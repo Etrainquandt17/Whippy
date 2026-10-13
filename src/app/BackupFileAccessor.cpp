@@ -77,4 +77,4 @@ void BackupFileAccessor::updateUnlockState() {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace app

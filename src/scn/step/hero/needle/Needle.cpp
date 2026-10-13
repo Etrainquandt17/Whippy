@@ -403,7 +403,4 @@ done:;
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle

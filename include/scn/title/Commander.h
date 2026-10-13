@@ -41,7 +41,6 @@ private:
     u32 _0[1];
 };
 
-}
-}
+}}  // namespace scn::title
 
 #endif

@@ -23,7 +23,6 @@ public:
     Unk38 _38;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

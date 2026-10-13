@@ -47,7 +47,4 @@ void StateHang::procMove() {
 
 void StateHang::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::buraburadee

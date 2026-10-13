@@ -11,8 +11,6 @@ enum DrawLayerKind {
     DRAW_LAYER_KIND_8 = 8,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

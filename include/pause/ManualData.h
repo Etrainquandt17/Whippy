@@ -22,6 +22,6 @@ public:
     static bool IsCommandLineDouble(ManualKind kind, u32 page, u32 index);
 };
 
-}
+}  // namespace pause
 
 #endif

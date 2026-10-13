@@ -24,6 +24,6 @@ private:
     GXTexFmt mFormat;
 };
 
-}
+}  // namespace gfx
 
 #endif

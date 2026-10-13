@@ -27,9 +27,6 @@ private:
     f32 mFallLength;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

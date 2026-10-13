@@ -35,6 +35,6 @@ private:
     IModelAnimAccessorEventReceiver* mReceiver;
 };
 
-}
+}  // namespace g3d
 
 #endif

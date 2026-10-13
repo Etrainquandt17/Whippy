@@ -13,8 +13,6 @@ public:
     void setVelocity(const hel::math::Vector3& velocity);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

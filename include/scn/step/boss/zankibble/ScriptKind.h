@@ -31,9 +31,6 @@ enum ScriptKind {
     SCRIPT_KIND_20,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 #endif

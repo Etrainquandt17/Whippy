@@ -28,9 +28,6 @@ private:
     u32 _2C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

@@ -46,9 +46,6 @@ private:
     bool _28;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

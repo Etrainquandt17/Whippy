@@ -22,5 +22,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Snd.SERequestor", "void Stop()", Stop, &MintSERequestor::Stop);
 }
 
-}
-}
+}}  // namespace snd::AddOnMint

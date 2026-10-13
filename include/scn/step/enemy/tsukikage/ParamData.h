@@ -37,9 +37,6 @@ struct ParamData {
     f32 mWallAttackRangeBottom;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage
 
 #endif

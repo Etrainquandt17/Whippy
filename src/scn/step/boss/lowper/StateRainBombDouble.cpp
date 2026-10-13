@@ -124,7 +124,4 @@ void StateRainBombDouble::reqBullet(f32 offsetX) {
     custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(1), pos, speed, 0);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

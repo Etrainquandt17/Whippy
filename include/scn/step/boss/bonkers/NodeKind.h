@@ -14,9 +14,6 @@ enum NodeKind {
     NODE_KIND_STAR,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

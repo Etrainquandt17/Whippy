@@ -31,9 +31,6 @@ private:
     bool mIsMove;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

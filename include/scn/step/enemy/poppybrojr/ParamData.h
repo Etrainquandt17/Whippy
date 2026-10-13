@@ -17,9 +17,6 @@ struct ParamData {
     f32 mThrowSpeedY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojr
 
 #endif

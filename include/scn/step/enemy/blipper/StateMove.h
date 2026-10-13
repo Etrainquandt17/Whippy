@@ -18,9 +18,6 @@ public:
     virtual ~StateMove();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper
 
 #endif

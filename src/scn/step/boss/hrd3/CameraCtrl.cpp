@@ -52,7 +52,4 @@ void CameraCtrl::setZoomOut() {
     mBoss.comp().cameraController().setCameraHeightMax(param._34);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

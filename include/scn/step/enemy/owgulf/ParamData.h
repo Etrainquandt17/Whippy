@@ -21,9 +21,6 @@ struct ParamData {
     u32 m3WayFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf
 
 #endif

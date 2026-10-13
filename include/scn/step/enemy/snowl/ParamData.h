@@ -16,9 +16,6 @@ struct ParamData {
     hel::math::Vector2 mBallVelocity;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::snowl
 
 #endif

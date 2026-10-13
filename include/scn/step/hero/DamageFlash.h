@@ -20,8 +20,6 @@ public:
     bool isValid() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

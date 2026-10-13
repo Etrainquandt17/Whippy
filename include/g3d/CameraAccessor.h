@@ -9,8 +9,7 @@ namespace math {
 class Matrix34;
 class Matrix44;
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace g3d {
 
@@ -38,6 +37,6 @@ public:
     f32 getProjRight() const;
 };
 
-}
+}  // namespace g3d
 
 #endif

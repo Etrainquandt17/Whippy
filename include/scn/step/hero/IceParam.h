@@ -51,8 +51,6 @@ struct IceParam {
     u32 _A4[3];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

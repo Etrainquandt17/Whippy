@@ -56,7 +56,4 @@ void StateWallHit::procMove() {}
 
 void StateWallHit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball

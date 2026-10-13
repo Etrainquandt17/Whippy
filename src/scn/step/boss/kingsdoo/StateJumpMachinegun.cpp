@@ -98,7 +98,4 @@ void StateJumpMachinegun::reqMachinegun() {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo

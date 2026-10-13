@@ -25,9 +25,6 @@ private:
     Context& mContext;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

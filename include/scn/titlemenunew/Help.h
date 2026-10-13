@@ -32,7 +32,6 @@ private:
     lyt::Layout mLayout;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

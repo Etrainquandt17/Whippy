@@ -43,9 +43,6 @@ struct ParamData {
     gobj::MoveParamFall mFallWater;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy
 
 #endif

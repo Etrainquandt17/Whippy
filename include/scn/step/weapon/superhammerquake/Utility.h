@@ -15,9 +15,6 @@ public:
     static const LevelParam& GetParamLevel(Weapon& weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::superhammerquake
 
 #endif

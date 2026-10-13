@@ -114,7 +114,4 @@ void StateMoveThunder::procMove() {
 
 void StateMoveThunder::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

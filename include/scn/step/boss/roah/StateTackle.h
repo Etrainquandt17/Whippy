@@ -34,9 +34,6 @@ private:
     f32 mPrevRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

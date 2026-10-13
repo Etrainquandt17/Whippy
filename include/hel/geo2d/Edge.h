@@ -20,7 +20,6 @@ public:
     hel::math::Vector2 _10;
 };
 
-}
-}
+}}  // namespace hel::geo2d
 
 #endif

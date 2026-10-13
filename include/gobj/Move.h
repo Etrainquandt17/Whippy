@@ -39,6 +39,6 @@ private:
     f32 mMoveRate;
 };
 
-}
+}  // namespace gobj
 
 #endif

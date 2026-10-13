@@ -87,7 +87,4 @@ void StateMince::procObjCollReact() {
     hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

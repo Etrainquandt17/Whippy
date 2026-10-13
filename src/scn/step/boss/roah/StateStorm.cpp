@@ -237,7 +237,4 @@ bool StateStorm::isOnOffStormKind() {
     return result;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

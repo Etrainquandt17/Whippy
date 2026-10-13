@@ -58,6 +58,6 @@ private:
     Map mMap;
 };
 
-}
+}  // namespace mintvm
 
 #endif

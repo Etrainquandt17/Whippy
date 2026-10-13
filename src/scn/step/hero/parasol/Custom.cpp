@@ -28,7 +28,4 @@ const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
     return mBarrier;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol

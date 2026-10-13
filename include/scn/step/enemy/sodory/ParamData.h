@@ -21,9 +21,6 @@ struct ParamData {
     u32 mMoveFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory
 
 #endif

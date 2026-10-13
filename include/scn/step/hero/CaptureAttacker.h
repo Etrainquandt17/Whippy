@@ -7,8 +7,7 @@
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -34,8 +33,6 @@ public:
     void setVelocity(const hel::math::Vector3& velocity);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

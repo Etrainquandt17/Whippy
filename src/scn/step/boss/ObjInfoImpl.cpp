@@ -51,6 +51,4 @@ const util::IState& ObjInfoImpl::state() const {
     return mBoss.stateChanger().currentStateRef();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

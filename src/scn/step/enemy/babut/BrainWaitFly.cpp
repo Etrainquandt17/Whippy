@@ -26,7 +26,4 @@ bool BrainWaitFly::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut

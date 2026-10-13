@@ -18,9 +18,6 @@ public:
     StateParasolFall(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasoldee
 
 #endif

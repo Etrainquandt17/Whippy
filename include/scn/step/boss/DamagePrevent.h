@@ -33,8 +33,6 @@ private:
     hel::common::MutableArray<PreventTargetData, 16> mTargets;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

@@ -42,7 +42,4 @@ chara::ModelDesc& CreateFlame() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubterball

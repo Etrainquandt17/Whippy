@@ -21,7 +21,6 @@ public:
     ContextHeroIndivi mIndivi[4];
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

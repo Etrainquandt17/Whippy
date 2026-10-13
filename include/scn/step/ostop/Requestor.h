@@ -27,8 +27,6 @@ private:
     u32 _0[3];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ostop
 
 #endif

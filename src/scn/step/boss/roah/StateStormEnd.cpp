@@ -81,7 +81,4 @@ void StateStormEnd::procMove() {}
 
 void StateStormEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

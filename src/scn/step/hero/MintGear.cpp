@@ -141,6 +141,4 @@ void MintGear::BindEffectWarp() {
     chara::MintEffect::RegisterForce(t_obj->effectWarp());
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

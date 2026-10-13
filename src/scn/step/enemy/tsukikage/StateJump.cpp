@@ -96,7 +96,4 @@ void StateJump::setJumpSpeed() {
     obj().move().setVelocity(hel::math::Vector3(speedX, speedY, 0.0f));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage

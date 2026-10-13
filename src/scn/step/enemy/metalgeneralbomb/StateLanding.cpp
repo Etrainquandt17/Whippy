@@ -60,7 +60,4 @@ void StateLanding::procMove() {}
 
 void StateLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbomb

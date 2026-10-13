@@ -26,9 +26,6 @@ public:
                  bool _8);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle2
 
 #endif

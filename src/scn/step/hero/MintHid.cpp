@@ -30,7 +30,4 @@ void SetAutoInputHold(u32 mask) {
     t_obj().setAutoInputHold(mask);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintHid

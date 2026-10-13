@@ -104,7 +104,4 @@ void EnemyCtrl::initXOffsTable() {
     mXOffsIndex = 0;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

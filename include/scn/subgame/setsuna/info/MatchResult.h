@@ -23,9 +23,6 @@ struct MatchResult {
     bool _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::info
 
 #endif

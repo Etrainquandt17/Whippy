@@ -54,6 +54,6 @@ public:
 #endif
 };
 
-}
+}  // namespace util
 
 #endif

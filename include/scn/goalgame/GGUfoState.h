@@ -9,7 +9,6 @@ enum GGUfoState {
     GG_UFO_STATE_0,
 };
 
-}
-}
+}}  // namespace scn::goalgame
 
 #endif

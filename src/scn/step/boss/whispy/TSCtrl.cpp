@@ -36,7 +36,4 @@ void TSCtrl::setBaseScale(const hel::math::Vector3& scale) {
     mBoss.model().model().nodes().at(3).localMtx().setScale(scale);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

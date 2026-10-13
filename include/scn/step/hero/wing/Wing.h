@@ -20,9 +20,6 @@ private:
     bool mIsSetup;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::wing
 
 #endif

@@ -45,6 +45,6 @@ private:
     FrameIconKind _330;
 };
 
-}
+}  // namespace pause
 
 #endif

@@ -18,7 +18,6 @@ void SetSpeedH(f32 speed);
 void SetSpeedV(f32 speed);
 void SetSpeedD(f32 speed);
 
-}
-}
+}}  // namespace gobj::MintMove
 
 #endif

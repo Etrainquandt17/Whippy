@@ -23,9 +23,6 @@ private:
     u32 mEndFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::glunk
 
 #endif

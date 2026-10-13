@@ -21,9 +21,6 @@ struct ParamData {
     hel::math::Vec2 mAttackOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralthunder
 
 #endif

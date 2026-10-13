@@ -55,8 +55,6 @@ struct NinjaParam {
     u32 _B8;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

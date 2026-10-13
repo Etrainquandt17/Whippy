@@ -17,8 +17,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::title::SceneTitle>() {
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace title {
@@ -289,5 +288,4 @@ const hel::common::RuntimeTypeInfo& SceneTitle::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<SceneTitle>();
 }
 
-}
-}
+}}  // namespace scn::title

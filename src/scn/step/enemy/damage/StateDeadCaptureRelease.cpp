@@ -67,7 +67,4 @@ void StateDeadCaptureRelease::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

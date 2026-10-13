@@ -57,7 +57,4 @@ void StateGrow::procMove() {}
 
 void StateGrow::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

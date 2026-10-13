@@ -18,4 +18,4 @@ void BCModule::dump(const mintx::XData& data) {
     printf(static_cast<const char*>(data.labelAddressWithReference(mName)));
 }
 
-}
+}  // namespace mintvm

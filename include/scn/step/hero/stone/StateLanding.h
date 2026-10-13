@@ -25,9 +25,6 @@ private:
     bool mIsCancel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

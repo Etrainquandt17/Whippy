@@ -17,8 +17,6 @@ public:
     void resetRotVIntpRate();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

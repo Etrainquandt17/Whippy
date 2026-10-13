@@ -59,7 +59,4 @@ void StateClearDanceFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

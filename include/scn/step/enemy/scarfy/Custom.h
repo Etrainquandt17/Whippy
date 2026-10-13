@@ -11,10 +11,7 @@ namespace scarfy {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::scarfy::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     bool mIsFaceChanged;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy
 
 #endif

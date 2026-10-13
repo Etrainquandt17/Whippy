@@ -12,10 +12,7 @@ namespace lowperrollingspark {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowperrollingspark
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::lowperrollingspark::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -54,9 +50,6 @@ private:
     hel::math::Vector2 mCenterPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowperrollingspark
 
 #endif

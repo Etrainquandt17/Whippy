@@ -15,7 +15,4 @@ bool BrainWalkAround::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::broomhatter

@@ -43,7 +43,4 @@ chara::ModelDesc& CreateEx() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahoar

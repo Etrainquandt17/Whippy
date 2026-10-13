@@ -15,9 +15,6 @@ public:
     static bool IsHitFrontFloor(Hero& hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer
 
 #endif

@@ -39,7 +39,4 @@ void UnsetCamRot() {
     t_obj().unsetCamRot();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintStagingCtrl

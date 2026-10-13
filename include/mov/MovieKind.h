@@ -8,6 +8,6 @@ enum MovieKind {
     MOVIE_KIND_0,
 };
 
-}
+}  // namespace mov
 
 #endif

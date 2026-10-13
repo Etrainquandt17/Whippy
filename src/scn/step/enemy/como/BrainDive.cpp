@@ -29,7 +29,4 @@ bool BrainDive::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

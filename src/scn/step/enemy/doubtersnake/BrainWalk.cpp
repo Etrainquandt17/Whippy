@@ -26,7 +26,4 @@ void BrainWalk::update() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubtersnake

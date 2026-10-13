@@ -29,7 +29,4 @@ chara::ModelDesc& Create() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::metalgeneralneedle

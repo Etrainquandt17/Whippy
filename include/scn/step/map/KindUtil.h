@@ -36,8 +36,6 @@ public:
     static bool IsChallengeStage(Kind kind);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

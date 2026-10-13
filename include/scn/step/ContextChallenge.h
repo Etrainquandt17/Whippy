@@ -17,7 +17,6 @@ public:
     bool _89;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

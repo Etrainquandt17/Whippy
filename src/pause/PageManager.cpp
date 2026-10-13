@@ -483,4 +483,4 @@ PageManager::PageRecipe PageManager::PageRecipe::Create(PageKind kind, u32 arg) 
     return recipe;
 }
 
-}
+}  // namespace pause

@@ -78,7 +78,4 @@ void StateBackStep::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

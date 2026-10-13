@@ -19,9 +19,6 @@ struct ParamData {
     u32 mExplodeFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbomb
 
 #endif

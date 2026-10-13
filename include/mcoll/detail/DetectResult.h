@@ -20,7 +20,6 @@ private:
     u32 _0[0x5A0 / 4];
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

@@ -32,4 +32,4 @@ RootContext::RootContext(mem::IAllocator& allocator, u32 maxNumChildren, u32 max
     , mNumLightObj(numLightObj)
     , mNumLightSet(numLightSet) {}
 
-}
+}  // namespace g3d

@@ -91,7 +91,4 @@ void StateMoveInWater::setBubbleEffect() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf

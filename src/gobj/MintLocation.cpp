@@ -38,5 +38,4 @@ const hel::math::Vector3 PrevPos() {
     return t_obj->prevPos();
 }
 
-}
-}
+}}  // namespace gobj::MintLocation

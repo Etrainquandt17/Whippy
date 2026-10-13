@@ -7,8 +7,7 @@
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace g3d {
 
@@ -28,6 +27,6 @@ public:
     hel::math::Vector3 scale() const;
 };
 
-}
+}  // namespace g3d
 
 #endif

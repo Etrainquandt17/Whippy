@@ -31,6 +31,6 @@ private:
     bool mIsLooped;
 };
 
-}
+}  // namespace util
 
 #endif

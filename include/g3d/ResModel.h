@@ -24,6 +24,6 @@ private:
     nw4r::g3d::ResMdl mObj;
 };
 
-}
+}  // namespace g3d
 
 #endif

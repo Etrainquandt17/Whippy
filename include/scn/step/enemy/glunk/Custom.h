@@ -12,10 +12,7 @@ namespace glunk {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::glunk
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::glunk::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -62,9 +58,6 @@ private:
     bool mIsDamaged;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::glunk
 
 #endif

@@ -13,7 +13,4 @@ const char* HatPath() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::modeldesc

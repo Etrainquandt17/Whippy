@@ -13,9 +13,6 @@ int SecondAnim();
 int ThirdAnim();
 int FinishAnim();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintClearDanceSync
 
 #endif

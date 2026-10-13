@@ -15,9 +15,6 @@ public:
     StateMix(Hero* hero, const ::ostop::ReqHandle& handle);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

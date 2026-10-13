@@ -32,8 +32,6 @@ public:
     u32 _70[4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

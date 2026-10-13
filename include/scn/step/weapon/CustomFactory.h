@@ -15,8 +15,6 @@ public:
     static void Create(Weapon& weapon, mem::ExplicitScopedPtr<ICustom>& custom);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

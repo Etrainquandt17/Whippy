@@ -11,10 +11,7 @@ namespace zankibblecutter {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::zankibblecutter
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::zankibblecutter::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     virtual bool reqCustomDeadEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::zankibblecutter
 
 #endif

@@ -51,9 +51,6 @@ private:
     PlayListSetController* mPlayListSet;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 #endif

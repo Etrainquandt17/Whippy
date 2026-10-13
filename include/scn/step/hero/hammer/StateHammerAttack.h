@@ -21,9 +21,6 @@ private:
     bool mIsSwing;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer
 
 #endif

@@ -75,7 +75,4 @@ void StateMoveOnLand::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy

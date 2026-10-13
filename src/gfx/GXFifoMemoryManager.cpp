@@ -37,4 +37,4 @@ bool GXFifoMemoryManager::isWriteEnable() const {
     return mIsWriteEnable;
 }
 
-}
+}  // namespace gfx

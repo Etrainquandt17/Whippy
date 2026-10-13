@@ -102,7 +102,4 @@ void StateParasolDive::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol

@@ -28,9 +28,6 @@ public:
     void generateItem(const hel::math::Vector2& pos, bool, const util::ObjRefHandle<hero::Hero>& hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::popflower
 
 #endif

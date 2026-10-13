@@ -14,7 +14,6 @@ public:
     MoveGridGroup& moveGridGroup(const MoveGridGroupId& id);
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

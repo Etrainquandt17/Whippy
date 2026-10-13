@@ -26,9 +26,6 @@ private:
     bool mIsDeadNoItem;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

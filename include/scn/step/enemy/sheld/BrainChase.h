@@ -15,9 +15,6 @@ public:
     virtual bool onLanding();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld
 
 #endif

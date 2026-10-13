@@ -25,9 +25,6 @@ private:
     f32 mTheta;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

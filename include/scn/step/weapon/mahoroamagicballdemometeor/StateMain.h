@@ -14,9 +14,6 @@ public:
     StateMain(Weapon* weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroamagicballdemometeor
 
 #endif

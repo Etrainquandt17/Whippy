@@ -30,9 +30,6 @@ private:
     Config mConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

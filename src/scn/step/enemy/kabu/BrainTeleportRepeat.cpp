@@ -25,7 +25,4 @@ bool BrainTeleportRepeat::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

@@ -22,9 +22,7 @@ class Component;
 
 namespace map {
 struct BinGmkGeneralEntry;
-}
-}
-}
+}}}  // namespace scn::step::map
 
 namespace g3d {
 class Root;
@@ -94,9 +92,6 @@ private:
     bool _C78;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::switch_n
 
 #endif

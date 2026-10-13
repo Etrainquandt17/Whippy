@@ -29,8 +29,6 @@ private:
     snd::SERequestor mNonStop;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

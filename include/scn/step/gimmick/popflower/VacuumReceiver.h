@@ -26,9 +26,6 @@ private:
     u32 _4[(0x28 - 0x4) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::popflower
 
 #endif

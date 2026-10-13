@@ -11,8 +11,6 @@ public:
     void setForbidNotifyInfo(bool flag);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

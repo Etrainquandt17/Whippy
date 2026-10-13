@@ -15,6 +15,6 @@ public:
     void setIsDPDEnable(bool enable);
 };
 
-}
+}  // namespace hid
 
 #endif

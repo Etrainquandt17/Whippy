@@ -20,9 +20,6 @@ public:
     void reqMissile(enemy::metalgeneralmissile::StateSpread::SpreadKind kind);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3pilot
 
 #endif

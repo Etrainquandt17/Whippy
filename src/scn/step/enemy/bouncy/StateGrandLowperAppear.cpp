@@ -62,7 +62,4 @@ void StateGrandLowperAppear::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bouncy

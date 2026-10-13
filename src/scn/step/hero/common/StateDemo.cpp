@@ -59,7 +59,4 @@ void StateDemo::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

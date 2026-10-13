@@ -15,9 +15,6 @@ public:
     virtual bool isExclusivelyResume() const = 0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::util
 
 #endif

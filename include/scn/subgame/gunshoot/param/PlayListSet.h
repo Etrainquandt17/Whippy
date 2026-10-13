@@ -19,9 +19,6 @@ public:
     const char* str(unsigned int reference) const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::param
 
 #endif

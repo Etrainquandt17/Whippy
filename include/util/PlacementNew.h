@@ -52,6 +52,6 @@ private:
     u8 mBuffer[sizeof(T)];
 };
 
-}
+}  // namespace util
 
 #endif

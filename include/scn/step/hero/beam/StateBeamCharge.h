@@ -16,9 +16,6 @@ public:
     StateBeamCharge(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam
 
 #endif

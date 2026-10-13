@@ -31,7 +31,4 @@ void StateEnd::procMove() {}
 
 void StateEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroawarphole

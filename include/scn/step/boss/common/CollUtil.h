@@ -18,9 +18,6 @@ public:
     static void SetBodyCollDefault(Boss& boss, u32 id, f32 radius, hel::math::Vector2 offset, hel::math::Vector2 offset2);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

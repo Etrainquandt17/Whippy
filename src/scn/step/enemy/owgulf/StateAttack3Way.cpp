@@ -61,7 +61,4 @@ void StateAttack3Way::shot(f32 angle) {
         static_cast<weapon::owgulffeather::VariationKind>(1));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

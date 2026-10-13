@@ -11,10 +11,7 @@ namespace doubterbomb {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubterbomb
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::doubterbomb::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ public:
     void reqExplode();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubterbomb
 
 #endif

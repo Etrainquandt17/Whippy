@@ -45,9 +45,6 @@ private:
     bool _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

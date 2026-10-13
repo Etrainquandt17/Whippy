@@ -27,9 +27,6 @@ private:
     f32 mRotSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

@@ -110,7 +110,6 @@ function<R()>& function<R()>::operator=(const function& other) {
     return *this;
 }
 
-}
-}
+}}  // namespace std::tr1
 
 #endif

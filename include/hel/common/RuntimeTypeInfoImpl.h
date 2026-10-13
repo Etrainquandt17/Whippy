@@ -14,7 +14,6 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl() {
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 #endif

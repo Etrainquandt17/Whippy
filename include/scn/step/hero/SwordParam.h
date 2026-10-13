@@ -51,8 +51,6 @@ struct SwordParam {
     u32 _A8;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

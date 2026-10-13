@@ -196,7 +196,4 @@ bool Wing::tryToChangeState() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::wing

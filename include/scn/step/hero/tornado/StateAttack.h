@@ -35,9 +35,6 @@ private:
     bool mIsEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado
 
 #endif

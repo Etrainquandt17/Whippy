@@ -19,7 +19,4 @@ bool BrainFly::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bowby

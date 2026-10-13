@@ -25,6 +25,6 @@ private:
     mutable util::PlacementNew<ParamAccessor> mAccessor;
 };
 
-}
+}  // namespace param
 
 #endif

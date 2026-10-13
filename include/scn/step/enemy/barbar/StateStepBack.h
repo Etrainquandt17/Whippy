@@ -22,9 +22,6 @@ private:
     bool mIsHidden;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barbar
 
 #endif

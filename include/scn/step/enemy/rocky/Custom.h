@@ -11,10 +11,7 @@ namespace rocky {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::rocky::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -45,9 +41,6 @@ private:
     bool mIsFallSpeedUp;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky
 
 #endif

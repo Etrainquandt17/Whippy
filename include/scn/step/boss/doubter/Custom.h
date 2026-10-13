@@ -16,10 +16,7 @@ namespace doubter {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 namespace hel {
 namespace common {
@@ -28,8 +25,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::doubter::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -66,9 +62,6 @@ private:
     WaftPositionCtrl mWaftPositionCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

@@ -15,7 +15,6 @@ private:
     NonCopyable& operator=(const NonCopyable&);
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

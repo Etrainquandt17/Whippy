@@ -25,9 +25,6 @@ private:
     u32 mCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjawaveshot
 
 #endif

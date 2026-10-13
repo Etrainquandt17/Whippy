@@ -11,10 +11,7 @@ namespace mahoroaneedle {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroaneedle
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::mahoroaneedle::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroaneedle
 
 #endif

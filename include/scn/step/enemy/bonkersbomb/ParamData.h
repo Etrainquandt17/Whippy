@@ -38,9 +38,6 @@ struct ParamData {
     Landing mLandingBig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bonkersbomb
 
 #endif

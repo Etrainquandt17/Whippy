@@ -11,10 +11,7 @@ namespace galactarevolutionsword {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactarevolutionsword
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::galactarevolutionsword::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     f32 mFloorPosY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactarevolutionsword
 
 #endif

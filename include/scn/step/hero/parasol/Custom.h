@@ -10,18 +10,14 @@ namespace step {
 namespace hero {
 namespace parasol {
 class Custom;
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 namespace hel {
 namespace common {
 // TODO: an instance of the general template, which hel/common/RuntimeTypeInfo.h cannot define yet.
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::hero::parasol::Custom>();
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     ::ocoll::Attack mBarrier;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

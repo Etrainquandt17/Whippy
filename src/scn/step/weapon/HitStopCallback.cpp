@@ -22,6 +22,4 @@ void HitStopCallback::onEnd() {
     mObj.effect().onHitStopEnd();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

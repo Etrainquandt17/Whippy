@@ -11,10 +11,7 @@ namespace dubiorspark {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::dubiorspark
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::dubiorspark::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     virtual bool reqCustomDeadEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::dubiorspark
 
 #endif

@@ -76,7 +76,4 @@ void StateFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

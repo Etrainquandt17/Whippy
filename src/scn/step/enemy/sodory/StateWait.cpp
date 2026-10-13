@@ -63,7 +63,4 @@ void StateWait::procFixPos() {
     hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory

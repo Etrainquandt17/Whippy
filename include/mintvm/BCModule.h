@@ -58,6 +58,6 @@ struct BCObjectTypeList {
     u32 mObjectTypes[1];
 };
 
-}
+}  // namespace mintvm
 
 #endif

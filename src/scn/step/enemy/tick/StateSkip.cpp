@@ -61,7 +61,4 @@ void StateSkip::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tick

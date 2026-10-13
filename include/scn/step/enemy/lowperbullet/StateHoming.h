@@ -26,9 +26,6 @@ private:
     hel::math::Vector3 mDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 #endif

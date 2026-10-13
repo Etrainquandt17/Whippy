@@ -23,6 +23,6 @@ private:
     T* mPtr;
 };
 
-}
+}  // namespace mintvm
 
 #endif

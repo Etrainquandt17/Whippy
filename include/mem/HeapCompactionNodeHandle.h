@@ -20,6 +20,6 @@ private:
     HeapCompactionNode* mNode;
 };
 
-}
+}  // namespace mem
 
 #endif

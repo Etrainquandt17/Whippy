@@ -26,9 +26,6 @@ private:
     int mPhase;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

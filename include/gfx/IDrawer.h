@@ -9,6 +9,6 @@ public:
     virtual void drawerExecDraw() = 0;
 };
 
-}
+}  // namespace gfx
 
 #endif

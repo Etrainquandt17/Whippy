@@ -11,10 +11,7 @@ namespace rollball {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rollball
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::rollball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -52,9 +48,6 @@ private:
     bool mIsPlayingSound;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rollball
 
 #endif

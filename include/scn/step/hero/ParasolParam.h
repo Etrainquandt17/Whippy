@@ -71,8 +71,6 @@ struct ParasolParam {
     gobj::MoveParamFall _178;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

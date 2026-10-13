@@ -35,7 +35,4 @@ bool BrainZigzag::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroalowper

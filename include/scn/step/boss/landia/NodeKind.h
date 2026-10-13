@@ -31,9 +31,6 @@ enum NodeKind {
     NODE_KIND_20,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

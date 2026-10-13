@@ -15,9 +15,6 @@ public:
     virtual ~StateMahoroa2CallingShotShot();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

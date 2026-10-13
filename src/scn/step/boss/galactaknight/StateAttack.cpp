@@ -139,7 +139,4 @@ void StateAttack::generateMoonShot() {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

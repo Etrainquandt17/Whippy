@@ -24,9 +24,6 @@ private:
     f32 _14;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

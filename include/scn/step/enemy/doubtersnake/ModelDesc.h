@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateYellow();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::doubtersnake::ModelDesc
 
 #endif

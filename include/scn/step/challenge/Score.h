@@ -36,8 +36,6 @@ private:
     bool _80;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::challenge
 
 #endif

@@ -13,9 +13,6 @@ public:
     static bool TryToChangeState(Hero* hero, bool isCharged);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash
 
 #endif

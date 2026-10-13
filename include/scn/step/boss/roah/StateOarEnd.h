@@ -20,9 +20,6 @@ private:
     bool mIsTriggered;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

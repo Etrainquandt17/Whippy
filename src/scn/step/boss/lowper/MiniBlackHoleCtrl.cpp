@@ -107,7 +107,4 @@ bool MiniBlackHoleCtrl::canSetBlackHole(f32 x) const {
     return mBoss.comp().bossManager().lowperWindCtrl().canSet(x);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

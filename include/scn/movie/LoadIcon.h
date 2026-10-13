@@ -22,7 +22,6 @@ private:
     u32 _324[3];
 };
 
-}
-}
+}}  // namespace scn::movie
 
 #endif

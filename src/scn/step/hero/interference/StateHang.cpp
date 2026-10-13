@@ -149,7 +149,4 @@ void StateHang::release() {
     Utility::ChangeStateWaitOrFall(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::interference

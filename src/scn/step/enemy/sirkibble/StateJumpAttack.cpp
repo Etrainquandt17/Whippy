@@ -59,7 +59,4 @@ void StateJumpAttack::procMove() {
 
 void StateJumpAttack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble

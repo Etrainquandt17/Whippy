@@ -17,9 +17,6 @@ public:
     void reqStateStart(u32 _1);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

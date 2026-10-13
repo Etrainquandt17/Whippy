@@ -39,7 +39,4 @@ bool BrainBound::onLanding() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::fattybufferjr

@@ -366,6 +366,4 @@ const SpiralScreen::Param& SpiralScreen::param() const {
     return mParam.data<Param>();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::sfx

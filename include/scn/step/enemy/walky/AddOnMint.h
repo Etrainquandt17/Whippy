@@ -15,10 +15,6 @@ namespace AddOnMint {
 
 void RegisterAll(mintvm::VMCore& core);
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::walky::AddOnMint
 
 #endif

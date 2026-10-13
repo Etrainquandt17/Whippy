@@ -16,9 +16,6 @@ public:
     virtual ~StateSuperAppear();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

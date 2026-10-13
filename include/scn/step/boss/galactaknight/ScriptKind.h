@@ -29,9 +29,6 @@ enum ScriptKind {
     ScriptKind_TornadoAttackRise = 35,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

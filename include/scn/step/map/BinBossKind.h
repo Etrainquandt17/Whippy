@@ -32,8 +32,6 @@ enum BinBossKind {
     BinBossKind_0 = 0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

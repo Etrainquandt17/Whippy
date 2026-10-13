@@ -15,7 +15,4 @@ bool BrainEscape::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

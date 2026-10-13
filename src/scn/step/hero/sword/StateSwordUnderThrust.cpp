@@ -42,7 +42,4 @@ void StateSwordUnderThrust::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

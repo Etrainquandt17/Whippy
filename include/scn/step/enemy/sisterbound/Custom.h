@@ -11,10 +11,7 @@ namespace sisterbound {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sisterbound
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::sisterbound::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ public:
     bool isChangeDir();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sisterbound
 
 #endif

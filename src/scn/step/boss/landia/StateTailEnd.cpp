@@ -74,7 +74,4 @@ void StateTailEnd::procMove() {
 
 void StateTailEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

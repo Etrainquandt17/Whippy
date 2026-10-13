@@ -10,8 +10,6 @@ enum WipeKind {
     WIPE_KIND_1
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

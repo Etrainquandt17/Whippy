@@ -20,8 +20,6 @@ private:
     u32 mSignal;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

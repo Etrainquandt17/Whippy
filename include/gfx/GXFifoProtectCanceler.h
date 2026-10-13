@@ -16,6 +16,6 @@ private:
     GXFifoMemoryManager* mManager;
 };
 
-}
+}  // namespace gfx
 
 #endif

@@ -52,9 +52,6 @@ struct ParamData {
     f32 mBodyCollRadius;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky
 
 #endif

@@ -20,6 +20,6 @@ private:
     u32 _0[0xBB];
 };
 
-}
+}  // namespace snd
 
 #endif

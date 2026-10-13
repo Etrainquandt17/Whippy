@@ -62,6 +62,6 @@ private:
     T* mData;
 };
 
-}
+}  // namespace mintvm
 
 #endif

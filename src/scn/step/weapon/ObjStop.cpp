@@ -71,6 +71,4 @@ void ObjStop::onStopPowerfulFinished(const ::ostop::Actor& actor) {
     mObj.effect().onObjStopFinished();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

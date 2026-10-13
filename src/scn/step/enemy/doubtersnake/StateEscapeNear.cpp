@@ -76,7 +76,4 @@ void StateEscapeNear::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubtersnake

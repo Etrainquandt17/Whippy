@@ -45,7 +45,6 @@ private:
     u8 _4[0x32E4];
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

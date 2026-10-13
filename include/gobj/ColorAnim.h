@@ -36,6 +36,6 @@ private:
     u32 _0[9];
 };
 
-}
+}  // namespace gobj
 
 #endif

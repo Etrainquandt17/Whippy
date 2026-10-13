@@ -17,9 +17,6 @@ chara::ModelDesc& CreateWarpHoleEx();
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroalaser
 
 #endif

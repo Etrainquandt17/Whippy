@@ -105,7 +105,4 @@ void DataBuff::shuffleVortexBulletSpeedData() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

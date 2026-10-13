@@ -24,9 +24,6 @@ public:
     virtual ~StateShootingComeInZ();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

@@ -29,7 +29,4 @@ void StateLookAround::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chilly

@@ -57,7 +57,4 @@ void StateMain::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::leaperthorn

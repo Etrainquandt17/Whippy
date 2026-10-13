@@ -40,7 +40,4 @@ void StateRootAttack::procMove() {}
 
 void StateRootAttack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

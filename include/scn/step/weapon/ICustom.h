@@ -16,9 +16,7 @@ public:
     virtual void reqCustomDeadEffect() = 0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 namespace hel {
 namespace common {
@@ -27,7 +25,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::ICustom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

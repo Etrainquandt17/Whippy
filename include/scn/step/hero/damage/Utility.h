@@ -20,9 +20,6 @@ public:
     static bool ReflectWall(Hero& hero, const common::ParamReflectWall& param);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage
 
 #endif

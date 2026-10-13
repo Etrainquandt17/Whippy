@@ -71,6 +71,6 @@ inline MPtrArray<T>::~MPtrArray() {
     mAllocator.mintFree(mData);
 }
 
-}
+}  // namespace mintvm
 
 #endif

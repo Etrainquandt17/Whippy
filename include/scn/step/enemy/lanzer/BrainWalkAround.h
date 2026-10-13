@@ -17,9 +17,6 @@ public:
     virtual bool onLanding();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lanzer
 
 #endif

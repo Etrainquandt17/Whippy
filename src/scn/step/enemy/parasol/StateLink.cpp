@@ -48,7 +48,4 @@ void StateLink::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasol

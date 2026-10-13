@@ -53,7 +53,4 @@ void GearCtrl::setup(map::BinItemKind kind, u32 variation) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

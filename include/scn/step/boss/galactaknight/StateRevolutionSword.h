@@ -25,9 +25,6 @@ private:
     bool mIsRequested;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

@@ -17,9 +17,6 @@ struct Param {
     f32 _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahstar
 
 #endif

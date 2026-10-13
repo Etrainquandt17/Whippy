@@ -10,8 +10,6 @@ enum Flag {
     FLAG_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ostop
 
 #endif

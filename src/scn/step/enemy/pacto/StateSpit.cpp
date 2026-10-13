@@ -55,7 +55,4 @@ void StateSpit::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto

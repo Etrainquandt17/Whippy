@@ -19,8 +19,6 @@ public:
     void changeScrewSuper(int, u32);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

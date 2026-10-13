@@ -35,7 +35,4 @@ bool BrainShot3D::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet

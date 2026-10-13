@@ -86,7 +86,4 @@ void StateShot::procFixPos() {
     Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf

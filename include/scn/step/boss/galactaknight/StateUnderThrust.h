@@ -27,9 +27,6 @@ private:
     bool mIsStart;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

@@ -68,7 +68,4 @@ void StateStepBack::procMove() {
     obj().move().decel(decel);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barbar

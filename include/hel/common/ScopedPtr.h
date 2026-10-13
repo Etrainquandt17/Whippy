@@ -51,7 +51,6 @@ template <typename T>
 ScopedPtr<T>::ScopedPtr(T* ptr) : mPtr(ptr) {}
 #endif
 
-}
-}
+}}  // namespace hel::common
 
 #endif

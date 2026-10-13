@@ -30,6 +30,6 @@ private:
     Button _160;
 };
 
-}
+}  // namespace hid
 
 #endif

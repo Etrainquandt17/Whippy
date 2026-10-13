@@ -27,4 +27,4 @@ void FullScreenPlate::setAlpha(f32 alpha) {
     mAlpha = alpha;
 }
 
-}
+}  // namespace gfx

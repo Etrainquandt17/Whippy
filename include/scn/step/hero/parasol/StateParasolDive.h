@@ -26,9 +26,6 @@ private:
     bool mIsEffectReleased;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

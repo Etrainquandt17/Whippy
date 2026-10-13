@@ -40,4 +40,4 @@ int VMObjectTypeList::offsetOf(const VMCore& core, const VMKey& key) const {
     return 0;
 }
 
-}
+}  // namespace mintvm

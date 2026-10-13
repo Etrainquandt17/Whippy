@@ -16,6 +16,6 @@ public:
     bool isDisable() const;
 };
 
-}
+}  // namespace nand
 
 #endif

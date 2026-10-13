@@ -31,9 +31,6 @@ private:
     util::FrameCounter mCounter;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::info
 
 #endif

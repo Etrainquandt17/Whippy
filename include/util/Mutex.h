@@ -25,6 +25,6 @@ private:
     Mutex* mMutex;
 };
 
-}
+}  // namespace util
 
 #endif

@@ -112,7 +112,4 @@ void StateFireTackle::procMove() {
 
 void StateFireTackle::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

@@ -16,6 +16,6 @@ public:
     static void SetGXStateDirty();
 };
 
-}
+}  // namespace gfx
 
 #endif

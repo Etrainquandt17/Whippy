@@ -39,7 +39,4 @@ void StateFlyWaitFix::procMove() {
     obj().move().airDecelFall(decel, fall);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

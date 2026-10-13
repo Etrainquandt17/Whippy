@@ -1391,7 +1391,4 @@ const char* PopFlower::mfHeroKindToAlphabet(hero::Kind kind) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::popflower

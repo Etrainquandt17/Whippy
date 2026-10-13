@@ -23,9 +23,6 @@ private:
     bool mIsEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword
 
 #endif

@@ -72,7 +72,4 @@ void StateDive::procFixPos() {
     obj().model().setCustomMtx(mRotCtrl.getRotMtx());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper

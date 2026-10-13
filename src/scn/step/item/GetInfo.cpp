@@ -62,6 +62,4 @@ u32 GetInfo::subKind() const {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::item

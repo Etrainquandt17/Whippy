@@ -20,9 +20,6 @@ private:
     u32 _4[2];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::util
 
 #endif

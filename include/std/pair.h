@@ -25,6 +25,6 @@ struct less {
     }
 };
 
-}
+}  // namespace std
 
 #endif

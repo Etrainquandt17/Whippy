@@ -46,7 +46,4 @@ void StateShot::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahstar

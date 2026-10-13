@@ -11,10 +11,7 @@ namespace mahoroahammer {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroahammer
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::mahoroahammer::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ public:
     virtual void setupSuperEnemyEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroahammer
 
 #endif

@@ -20,9 +20,6 @@ public:
     virtual ~StateTackleStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

@@ -22,6 +22,6 @@ private:
     xdata::XData mXData;
 };
 
-}
+}  // namespace param
 
 #endif

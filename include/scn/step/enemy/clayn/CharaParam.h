@@ -11,10 +11,6 @@ namespace CharaParam {
 
 enemy::CharaParam Create();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::clayn::CharaParam
 
 #endif

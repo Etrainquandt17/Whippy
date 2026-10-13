@@ -24,7 +24,6 @@ private:
     UnlockKind mUnlockKind;
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

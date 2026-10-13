@@ -18,9 +18,6 @@ public:
     virtual ~StateWarp();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage
 
 #endif

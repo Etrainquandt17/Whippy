@@ -195,6 +195,4 @@ void WarpStarPanel::constraintPos() {
     mLayout.rootPane().setTrans(pos.toVector3());
 }
 
-}
-}
-}
+}}}  // namespace scn::step::info

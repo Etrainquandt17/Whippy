@@ -62,9 +62,6 @@ private:
     AnimKind mHandSubAnim;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

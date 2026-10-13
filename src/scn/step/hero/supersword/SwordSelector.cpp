@@ -52,7 +52,4 @@ void SwordSelector::setRareTryCount(u32 count) {
     mRareTryCount = count;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword

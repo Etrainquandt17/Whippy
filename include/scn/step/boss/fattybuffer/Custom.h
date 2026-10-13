@@ -18,10 +18,7 @@ namespace fattybuffer {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 namespace hel {
 namespace common {
@@ -30,8 +27,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::fattybuffer::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -70,9 +66,6 @@ private:
     CannonCaptureCtrl mCannonCaptureCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

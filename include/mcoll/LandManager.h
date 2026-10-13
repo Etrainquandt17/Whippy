@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace mcoll {
 
@@ -41,6 +40,6 @@ public:
     void setIsExistCrystalWallBlock(u32 x, u32 y, bool isExist);
 };
 
-}
+}  // namespace mcoll
 
 #endif

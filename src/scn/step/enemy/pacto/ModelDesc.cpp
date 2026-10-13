@@ -59,7 +59,4 @@ chara::ModelDesc& CreateCloud() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto

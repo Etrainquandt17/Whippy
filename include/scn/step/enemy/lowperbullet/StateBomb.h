@@ -24,9 +24,6 @@ private:
     f32 mFallAccel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 #endif

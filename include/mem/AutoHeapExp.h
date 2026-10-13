@@ -20,6 +20,6 @@ private:
     HeapExp mObj;
 };
 
-}
+}  // namespace mem
 
 #endif

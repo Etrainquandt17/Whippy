@@ -28,9 +28,6 @@ private:
     f32 mSpeedH;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu
 
 #endif

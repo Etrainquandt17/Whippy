@@ -98,7 +98,4 @@ void StateCirclingFlightEnd::procMove() {
 
 void StateCirclingFlightEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

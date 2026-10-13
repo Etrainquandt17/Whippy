@@ -41,8 +41,6 @@ private:
     g3d::ColorAnimFlashOp mOperation;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

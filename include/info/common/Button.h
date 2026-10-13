@@ -17,7 +17,6 @@ private:
     u32 _0[0x67];
 };
 
-}
-}
+}}  // namespace info::common
 
 #endif

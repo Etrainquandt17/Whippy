@@ -43,8 +43,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Gimmick.Monitor.Custom", "void ViewShip()", ViewShip, &t_viewShip);
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::gimmick::monitor::AddOnMint

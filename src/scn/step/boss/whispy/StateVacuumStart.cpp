@@ -28,7 +28,4 @@ void StateVacuumStart::procMove() {}
 
 void StateVacuumStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

@@ -71,7 +71,4 @@ void StateDisappear::procMove() {
 
 void StateDisappear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::clayn

@@ -114,7 +114,4 @@ void StateWalkAround::procFixPos() {
     custom.setDirectionAll();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory

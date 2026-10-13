@@ -11,8 +11,6 @@ public:
     void setFighterBackThrow(bool flag);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

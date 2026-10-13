@@ -25,8 +25,6 @@ private:
     u32 _0[0x1D];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

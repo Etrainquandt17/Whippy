@@ -17,9 +17,6 @@ struct ParamData {
     u32 mBeamFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralball
 
 #endif

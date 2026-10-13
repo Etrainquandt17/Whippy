@@ -52,8 +52,6 @@ struct SparkParam {
     SparkParamShot _D4;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -37,7 +37,4 @@ void StateJumpAttackStart::procFixPos() {
     common::StateFall::TryToChangeState(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble

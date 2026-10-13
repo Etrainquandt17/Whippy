@@ -75,7 +75,4 @@ void StateBombFar::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet

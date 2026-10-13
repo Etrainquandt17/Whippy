@@ -19,9 +19,6 @@ public:
     static void SetDescNode(dynamics::DescNode& node, const NodeParam& param);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::modeldesc
 
 #endif

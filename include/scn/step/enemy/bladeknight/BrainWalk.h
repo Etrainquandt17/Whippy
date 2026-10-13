@@ -16,9 +16,6 @@ public:
     virtual bool onLanding();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight
 
 #endif

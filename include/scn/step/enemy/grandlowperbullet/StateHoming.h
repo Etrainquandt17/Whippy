@@ -25,9 +25,6 @@ private:
     u32 mXluFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 #endif

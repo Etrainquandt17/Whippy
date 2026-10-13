@@ -15,7 +15,6 @@ enum MapModelRouteKind {
     MAP_MODEL_ROUTE_KIND_SHIP_TO_LV6,
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

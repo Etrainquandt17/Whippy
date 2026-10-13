@@ -93,7 +93,4 @@ void StateFireBreath::reqFireBreath(MouthKind kind) {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

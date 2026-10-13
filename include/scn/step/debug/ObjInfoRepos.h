@@ -21,8 +21,6 @@ private:
     hel::common::MutableArray<const IObjInfoImpl*, 64> mObjs;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::debug
 
 #endif

@@ -24,9 +24,6 @@ private:
     u32 mShotCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf
 
 #endif

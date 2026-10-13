@@ -27,6 +27,4 @@ void StateNormal::procFixPos() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

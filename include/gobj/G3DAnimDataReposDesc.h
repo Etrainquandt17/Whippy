@@ -20,6 +20,6 @@ public:
     const Entry* _8;
 };
 
-}
+}  // namespace gobj
 
 #endif

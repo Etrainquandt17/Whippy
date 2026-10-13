@@ -22,4 +22,4 @@ u32 ModelMultiAnimContext::DefaultAnimSlotNum() {
     return 2;
 }
 
-}
+}  // namespace g3d

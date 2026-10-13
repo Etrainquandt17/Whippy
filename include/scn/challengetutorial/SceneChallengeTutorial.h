@@ -98,7 +98,6 @@ private:
     bool _1C78;
 };
 
-}
-}
+}}  // namespace scn::challengetutorial
 
 #endif

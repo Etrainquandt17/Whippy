@@ -42,7 +42,6 @@ public:
     u32 GetResMdlNumEntries() const;
 };
 
-}
-}
+}}  // namespace nw4r::g3d
 
 #endif

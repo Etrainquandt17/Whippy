@@ -37,7 +37,4 @@ void StateWalkStart::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky

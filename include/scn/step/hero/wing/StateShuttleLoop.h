@@ -24,9 +24,6 @@ private:
     hel::math::Vector2 mPrevPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::wing
 
 #endif

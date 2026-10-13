@@ -39,8 +39,6 @@ private:
     u32 _0[0x5B0 / 4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

@@ -31,7 +31,4 @@ void Utility::Vanish(Weapon& weapon) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear

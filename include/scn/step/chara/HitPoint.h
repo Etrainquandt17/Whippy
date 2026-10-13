@@ -30,8 +30,6 @@ public:
     bool isDeadBentZero() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

@@ -19,6 +19,6 @@ public:
     static const char* LytResPathPage(PageResKind kind);
 };
 
-}
+}  // namespace pause
 
 #endif

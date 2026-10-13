@@ -6,8 +6,7 @@ namespace math {
 
 class Vector2;
 
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -22,8 +21,6 @@ public:
     bool isPosInWater(const hel::math::Vector2& offset) const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

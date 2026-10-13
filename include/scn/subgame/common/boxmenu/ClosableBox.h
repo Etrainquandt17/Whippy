@@ -69,9 +69,6 @@ private:
     u32 mCloseSELabel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::boxmenu
 
 #endif

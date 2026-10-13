@@ -18,9 +18,6 @@ private:
     u32 _C[(0x40 - 0xC) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::whip
 
 #endif

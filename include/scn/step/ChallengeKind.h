@@ -19,7 +19,6 @@ enum ChallengeKind {
     CHALLENGE_KIND_NUM,
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

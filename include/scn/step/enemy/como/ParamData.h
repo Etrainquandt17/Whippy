@@ -29,9 +29,6 @@ struct ParamData {
     f32 mCutLandingViewOffsetY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 #endif

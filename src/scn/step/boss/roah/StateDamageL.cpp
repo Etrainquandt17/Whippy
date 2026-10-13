@@ -63,7 +63,4 @@ void StateDamageL::procFixPos() {}
 // TODO: generateItem() (0x5F4 bytes) is not written: it needs scn::step::item::Desc, Manager and Item, which have no
 // headers yet.
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

@@ -29,9 +29,6 @@ public:
     void changeStateFinishFormationPass();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

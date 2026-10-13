@@ -85,7 +85,4 @@ bool StateUnderAttack::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

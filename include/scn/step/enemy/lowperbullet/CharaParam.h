@@ -15,10 +15,6 @@ enemy::CharaParam CreateLv2();
 enemy::CharaParam CreateLv3();
 enemy::CharaParam CreateLv4();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::lowperbullet::CharaParam
 
 #endif

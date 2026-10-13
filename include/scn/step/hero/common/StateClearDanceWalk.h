@@ -23,9 +23,6 @@ private:
     u32 mZoom;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

@@ -27,9 +27,6 @@ struct ParamData {
     gobj::MoveParamFall mWhispyFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt
 
 #endif

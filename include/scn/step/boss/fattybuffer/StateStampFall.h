@@ -22,9 +22,6 @@ private:
     f32 mStartY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

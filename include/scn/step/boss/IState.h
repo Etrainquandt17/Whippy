@@ -13,8 +13,6 @@ public:
     virtual ~IState();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

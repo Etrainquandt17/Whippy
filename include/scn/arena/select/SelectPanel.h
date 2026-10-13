@@ -35,8 +35,6 @@ private:
     SelectPanelType mType;
 };
 
-}
-}
-}
+}}}  // namespace scn::arena::select
 
 #endif

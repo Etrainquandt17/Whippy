@@ -12,8 +12,6 @@ public:
     void unsetBack();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

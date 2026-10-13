@@ -23,9 +23,6 @@ private:
     u32 mCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

@@ -32,6 +32,6 @@ private:
     TmpSymbol mSymbol;
 };
 
-}
+}  // namespace mintvm
 
 #endif

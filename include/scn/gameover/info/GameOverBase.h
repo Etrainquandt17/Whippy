@@ -21,8 +21,6 @@ private:
     int _7E8;
 };
 
-}
-}
-}
+}}}  // namespace scn::gameover::info
 
 #endif

@@ -12,8 +12,6 @@ public:
     void deny();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

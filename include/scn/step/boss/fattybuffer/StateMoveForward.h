@@ -21,9 +21,6 @@ private:
     f32 mRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

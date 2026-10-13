@@ -13,9 +13,6 @@ enum JumpKind {
     JUMP_KIND_2,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump
 
 #endif

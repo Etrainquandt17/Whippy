@@ -18,8 +18,6 @@ private:
     param::ParamAccessor mAccessor;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

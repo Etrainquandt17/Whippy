@@ -121,7 +121,4 @@ void Custom::setNextTurnJumpInvalid() {
     mIsNextTurnJump = false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble

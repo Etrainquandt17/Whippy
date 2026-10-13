@@ -17,9 +17,6 @@ struct Param {
     gobj::MoveParamFall _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::watergalboroswater
 
 #endif

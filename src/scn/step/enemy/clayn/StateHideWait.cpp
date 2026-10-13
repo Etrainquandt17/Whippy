@@ -70,7 +70,4 @@ void StateHideWait::procMove() {
 
 void StateHideWait::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::clayn

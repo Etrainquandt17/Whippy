@@ -57,7 +57,6 @@ private:
     int _3BC;
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

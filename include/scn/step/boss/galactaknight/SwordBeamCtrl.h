@@ -41,9 +41,6 @@ private:
     hel::common::MutableArray<ReqData, 12> mBuff;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

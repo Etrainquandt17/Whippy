@@ -12,10 +12,7 @@ namespace sheld {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::sheld::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -55,9 +51,6 @@ private:
     bool mIsNuru;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld
 
 #endif

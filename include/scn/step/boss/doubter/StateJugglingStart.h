@@ -23,9 +23,6 @@ private:
     bool mIsCapture;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

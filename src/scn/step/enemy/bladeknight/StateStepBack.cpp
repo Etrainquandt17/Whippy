@@ -62,7 +62,4 @@ void StateStepBack::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight

@@ -24,4 +24,4 @@ void VMFunction::parseName() {
     }
 }
 
-}
+}  // namespace mintvm

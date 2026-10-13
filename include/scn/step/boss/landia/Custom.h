@@ -11,10 +11,7 @@ namespace landia {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::landia::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -62,9 +58,6 @@ private:
     u32 _8[72];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

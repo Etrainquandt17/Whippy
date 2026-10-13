@@ -86,7 +86,4 @@ void StateChase::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

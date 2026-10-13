@@ -470,6 +470,4 @@ void AbilityManager::initAbilityCore(int kind) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::hero

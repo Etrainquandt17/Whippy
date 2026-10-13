@@ -55,4 +55,4 @@ u32 ModelBufferOption::value() const {
     return value;
 }
 
-}
+}  // namespace g3d

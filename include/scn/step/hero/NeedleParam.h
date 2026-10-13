@@ -41,8 +41,6 @@ struct NeedleParam {
     gobj::MoveParamFall _68;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

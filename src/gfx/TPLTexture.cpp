@@ -22,4 +22,4 @@ TPLTexture::TPLTexture(const char* path)
     TPLGetGXTexObjFromPalette(palette, &mTexObj, 0);
 }
 
-}
+}  // namespace gfx

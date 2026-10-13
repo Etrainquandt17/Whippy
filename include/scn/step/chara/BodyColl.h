@@ -44,8 +44,6 @@ private:
     ::ocoll::Hit mHit;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

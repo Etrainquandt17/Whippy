@@ -86,7 +86,4 @@ void StateOar::procMove() {
 
 void StateOar::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

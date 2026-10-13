@@ -23,9 +23,6 @@ struct ParamData {
     hel::math::Vector2 mAttackOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chilly
 
 #endif

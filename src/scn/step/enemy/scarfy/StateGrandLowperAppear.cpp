@@ -43,7 +43,4 @@ void StateGrandLowperAppear::procMove() {}
 
 void StateGrandLowperAppear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

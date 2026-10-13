@@ -14,8 +14,7 @@ namespace geo {
 
 class Rect;
 
-}
-}
+}}  // namespace hel::geo
 
 namespace scn {
 namespace step {
@@ -73,8 +72,6 @@ public:
     void unsetForbidInactiveHeroControl();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

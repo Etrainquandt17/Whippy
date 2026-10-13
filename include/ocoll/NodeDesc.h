@@ -24,6 +24,6 @@ public:
     u8 _28;
 };
 
-}
+}  // namespace ocoll
 
 #endif

@@ -27,9 +27,6 @@ private:
     u32 _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationdeeshot
 
 #endif

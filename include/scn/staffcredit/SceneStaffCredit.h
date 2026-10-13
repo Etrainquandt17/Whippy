@@ -28,7 +28,6 @@ private:
     u32 _4[0x95E];
 };
 
-}
-}
+}}  // namespace scn::staffcredit
 
 #endif

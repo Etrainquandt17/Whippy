@@ -12,10 +12,7 @@ namespace bonkers {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::bonkers::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -50,9 +46,6 @@ public:
     void reqBomb(hel::math::Vector2 pos, hel::math::Vector2 speed, map::BinEnemySize size);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

@@ -110,8 +110,6 @@ public:
     void restoreCommonParam(ParamReplKind kind);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

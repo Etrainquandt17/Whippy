@@ -16,9 +16,6 @@ bool CanSuperBGMRequest();
 int GetUseCount();
 bool IsOnGrandLowperBattle();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintAbilityManager
 
 #endif

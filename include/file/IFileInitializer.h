@@ -12,6 +12,6 @@ public:
     virtual void initialize(mem::MemBlock& block) const;
 };
 
-}
+}  // namespace file
 
 #endif

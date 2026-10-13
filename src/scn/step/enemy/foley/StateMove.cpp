@@ -72,7 +72,4 @@ void StateMove::procFixPos() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::foley

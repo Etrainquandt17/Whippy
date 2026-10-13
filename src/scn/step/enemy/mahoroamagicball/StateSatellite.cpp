@@ -86,7 +86,4 @@ void StateSatellite::procConstraint() {
 
 void StateSatellite::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball

@@ -55,7 +55,4 @@ void StateCutterSweepCutter::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::cutter

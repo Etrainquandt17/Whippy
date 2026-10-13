@@ -67,7 +67,4 @@ void StateCarryItemCatchFloat::procMove() {
 
 void StateCarryItemCatchFloat::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

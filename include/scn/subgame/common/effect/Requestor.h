@@ -20,9 +20,6 @@ public:
     void releaseAndVanish();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::effect
 
 #endif

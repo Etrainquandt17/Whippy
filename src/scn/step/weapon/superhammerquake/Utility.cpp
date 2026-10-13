@@ -25,7 +25,4 @@ const LevelParam& Utility::GetParamLevel(Weapon& weapon) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::superhammerquake

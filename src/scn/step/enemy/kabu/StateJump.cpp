@@ -108,7 +108,4 @@ void StateJump::setSpeed() {
     obj().move().setSpeedH(speedH);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

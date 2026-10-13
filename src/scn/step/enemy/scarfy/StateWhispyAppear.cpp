@@ -80,7 +80,4 @@ void StateWhispyAppear::procMove() {
 
 void StateWhispyAppear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

@@ -31,9 +31,6 @@ private:
     u32 mFallFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid
 
 #endif

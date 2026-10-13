@@ -20,9 +20,6 @@ private:
     u64 mOwnerUid;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappyhat
 
 #endif

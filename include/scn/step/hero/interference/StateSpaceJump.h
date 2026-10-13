@@ -23,9 +23,6 @@ public:
     StateSpaceJump(Hero* hero, NextState next, hel::math::Vector3 pos);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::interference
 
 #endif

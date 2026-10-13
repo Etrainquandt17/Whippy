@@ -48,6 +48,6 @@ private:
     VMObjectTypeList mObjectTypes;
 };
 
-}
+}  // namespace mintvm
 
 #endif

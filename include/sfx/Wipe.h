@@ -7,8 +7,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace sfx {
 
@@ -57,6 +56,6 @@ private:
     FullScreenModel mModel;
 };
 
-}
+}  // namespace sfx
 
 #endif

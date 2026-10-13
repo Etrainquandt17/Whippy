@@ -92,6 +92,6 @@ public:
     explicit map(const Compare& comp = Compare(), const Allocator& a = Allocator()) : base(comp, a) {}
 };
 
-}
+}  // namespace std
 
 #endif

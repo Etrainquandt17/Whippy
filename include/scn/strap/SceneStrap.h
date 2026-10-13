@@ -34,7 +34,6 @@ private:
     bool _340;
 };
 
-}
-}
+}}  // namespace scn::strap
 
 #endif

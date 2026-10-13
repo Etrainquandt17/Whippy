@@ -29,7 +29,6 @@ public:
     static lyt::LayoutContext TitleLayoutContext(ChallengeKind kind, mem::IAllocator& allocator);
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

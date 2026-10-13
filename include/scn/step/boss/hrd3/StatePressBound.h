@@ -29,9 +29,6 @@ private:
     bool mIsLast;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

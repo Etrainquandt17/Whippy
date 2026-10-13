@@ -24,9 +24,6 @@ private:
     bool mIsRight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

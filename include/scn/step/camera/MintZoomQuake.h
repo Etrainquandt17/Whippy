@@ -13,9 +13,6 @@ void Register(ZoomQuake& obj);
 void Unregister(ZoomQuake& obj);
 ZoomQuake& Obj();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::camera::MintZoomQuake
 
 #endif

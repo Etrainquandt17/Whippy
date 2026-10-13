@@ -142,7 +142,4 @@ void StateAnger::updateColorFlash() {
     obj().flash().custom().setColor(color.toGXColorAsNormal());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

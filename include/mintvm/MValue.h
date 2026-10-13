@@ -21,6 +21,6 @@ union MValue {
     const unsigned int* mCode;
 };
 
-}
+}  // namespace mintvm
 
 #endif

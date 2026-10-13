@@ -145,7 +145,4 @@ const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<Custom>();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

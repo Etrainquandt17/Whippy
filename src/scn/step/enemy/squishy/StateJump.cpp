@@ -117,7 +117,4 @@ void StateJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy

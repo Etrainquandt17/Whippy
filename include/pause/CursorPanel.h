@@ -22,6 +22,6 @@ private:
     u32 _198;
 };
 
-}
+}  // namespace pause
 
 #endif

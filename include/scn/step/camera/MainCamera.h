@@ -106,8 +106,6 @@ private:
     f32 _A8;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

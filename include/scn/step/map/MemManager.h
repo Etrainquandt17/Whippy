@@ -14,8 +14,6 @@ public:
     mem::IAllocator& allocator();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

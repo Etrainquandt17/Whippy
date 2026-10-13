@@ -108,6 +108,4 @@ pause::ManualKind AbilityKindUtil::ToManualKind(AbilityKind kind, bool a, bool b
     return result;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

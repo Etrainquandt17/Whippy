@@ -65,7 +65,4 @@ void StateWalkAround::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

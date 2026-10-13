@@ -36,9 +36,6 @@ struct ParamData {
     gobj::MoveParamFall mEscapeJumpFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubtersnake
 
 #endif

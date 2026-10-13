@@ -18,9 +18,6 @@ public:
     State6WayFollow(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

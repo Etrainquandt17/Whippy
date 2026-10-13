@@ -16,8 +16,6 @@ public:
     static pause::ManualKind ToManualKind(AbilityKind kind, bool, bool);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

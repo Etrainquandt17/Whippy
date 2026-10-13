@@ -25,9 +25,6 @@ private:
     u32 mTimer;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

@@ -106,7 +106,6 @@ public:
     storage::StoryData* mStoryData;
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

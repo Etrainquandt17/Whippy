@@ -10,18 +10,14 @@ namespace step {
 namespace hero {
 namespace supersword {
 class Custom;
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword
 
 namespace hel {
 namespace common {
 // TODO: an instance of the general template, which hel/common/RuntimeTypeInfo.h cannot define yet.
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::hero::supersword::Custom>();
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     SwordSelector mSwordSelector;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword
 
 #endif

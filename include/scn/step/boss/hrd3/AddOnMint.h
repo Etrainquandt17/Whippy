@@ -15,10 +15,6 @@ namespace AddOnMint {
 
 void RegisterAll(mintvm::VMCore& core);
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::boss::hrd3::AddOnMint
 
 #endif

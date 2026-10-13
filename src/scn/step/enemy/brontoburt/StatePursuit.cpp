@@ -100,7 +100,4 @@ void StatePursuit::procFixPos() {
 
 #pragma dont_inline reset
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

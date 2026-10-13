@@ -25,9 +25,6 @@ private:
     bool mIsAir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle
 
 #endif

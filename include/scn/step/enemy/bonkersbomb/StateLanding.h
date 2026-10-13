@@ -26,9 +26,6 @@ private:
     f32 mRotSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bonkersbomb
 
 #endif

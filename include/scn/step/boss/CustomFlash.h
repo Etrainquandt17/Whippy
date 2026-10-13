@@ -26,8 +26,6 @@ private:
     bool mIsValid;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

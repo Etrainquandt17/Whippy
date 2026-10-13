@@ -44,5 +44,4 @@ Vector3 Matrix44::mulVec(const Vector3& vec) const {
     return Vector3(nw4r::math::VEC3(result));
 }
 
-}
-}
+}}  // namespace hel::math

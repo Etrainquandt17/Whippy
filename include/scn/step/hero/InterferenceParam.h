@@ -14,8 +14,6 @@ struct InterferenceParam {
     f32 _1A4;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

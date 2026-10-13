@@ -23,9 +23,6 @@ private:
     u32 mShakeWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

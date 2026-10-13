@@ -126,7 +126,4 @@ void StateFlyUpFar::procMove() {
 
 void StateFlyUpFar::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

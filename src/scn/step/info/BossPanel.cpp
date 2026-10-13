@@ -68,6 +68,4 @@ void BossPanel::damage(f32 rate) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::info

@@ -38,7 +38,6 @@ private:
     bool _4B8;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

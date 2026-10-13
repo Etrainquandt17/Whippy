@@ -19,9 +19,6 @@ public:
     virtual ~StateFallIcicleStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

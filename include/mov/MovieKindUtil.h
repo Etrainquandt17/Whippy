@@ -11,6 +11,6 @@ public:
     static GXColor PreFadeColor(MovieKind kind);
 };
 
-}
+}  // namespace mov
 
 #endif

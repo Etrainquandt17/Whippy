@@ -30,6 +30,6 @@ private:
     u32 mSize;
 };
 
-}
+}  // namespace mintvm
 
 #endif

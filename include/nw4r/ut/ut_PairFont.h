@@ -17,7 +17,6 @@ private:
     u32 _10[3];
 };
 
-}
-}
+}}  // namespace nw4r::ut
 
 #endif

@@ -4,8 +4,7 @@
 namespace scn {
 namespace step {
 class Component;
-}
-}
+}}  // namespace scn::step
 
 namespace scn {
 namespace step {
@@ -16,8 +15,6 @@ public:
     static bool IsExtraMode(const Component& component);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

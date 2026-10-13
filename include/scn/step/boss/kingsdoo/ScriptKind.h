@@ -24,9 +24,6 @@ enum ScriptKind {
     SCRIPT_KIND_13,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 #endif

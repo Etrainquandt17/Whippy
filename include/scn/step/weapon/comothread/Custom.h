@@ -11,10 +11,7 @@ namespace comothread {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::comothread
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::comothread::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[5];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::comothread
 
 #endif

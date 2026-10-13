@@ -122,7 +122,4 @@ void StateMoveFourCorners::procMove() {
 
 void StateMoveFourCorners::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

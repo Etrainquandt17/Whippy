@@ -28,9 +28,6 @@ struct ParamData {
     f32 mChaseTargetOffsetY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::degout
 
 #endif

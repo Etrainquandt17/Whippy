@@ -27,6 +27,6 @@ private:
     u32 mNumLightSet;
 };
 
-}
+}  // namespace g3d
 
 #endif

@@ -16,10 +16,6 @@ public:
     static void Wait(Hero& hero);
 };
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::hero::mike::utility
 
 #endif

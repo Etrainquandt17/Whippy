@@ -26,9 +26,6 @@ private:
     bool mFlag;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple
 
 #endif

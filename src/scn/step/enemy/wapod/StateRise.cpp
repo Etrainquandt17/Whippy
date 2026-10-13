@@ -45,7 +45,4 @@ void StateRise::procFixPos() {
     hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).landHitDead();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapod

@@ -13,9 +13,6 @@ void Register(Shake& obj);
 void Unregister(Shake& obj);
 void Request(int kind);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintShake
 
 #endif

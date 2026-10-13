@@ -8,8 +8,7 @@ namespace geo {
 
 class Rect;
 
-}
-}
+}}  // namespace hel::geo
 
 namespace scn {
 namespace step {
@@ -23,8 +22,6 @@ public:
     hel::geo::Rect calcCullingRect() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

@@ -109,7 +109,4 @@ void StateSparkAttackStart::procMove() {
 
 void StateSparkAttackStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

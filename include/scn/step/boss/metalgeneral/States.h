@@ -29,9 +29,6 @@ class Boss;
 namespace metalgeneral {
 
 // TODO: members of every state; one header per state once their units are written.
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

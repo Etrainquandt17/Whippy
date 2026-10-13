@@ -14,9 +14,6 @@ struct Param {
     hel::math::Vec3 mWaftWidth;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 #endif

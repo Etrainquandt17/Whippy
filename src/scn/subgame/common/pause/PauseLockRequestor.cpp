@@ -279,7 +279,4 @@ void PauseLockRequestor::cancelSELock() {
     util::AccessProtectedSingleton<Manager>::object_->requestUnlockPauseSE();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::pause

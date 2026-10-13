@@ -25,8 +25,6 @@ public:
     chara::Effect& charaBack();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

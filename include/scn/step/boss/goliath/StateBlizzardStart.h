@@ -20,9 +20,6 @@ public:
     virtual ~StateBlizzardStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

@@ -80,7 +80,4 @@ void StateAnger::procMove() {
 
 void StateAnger::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

@@ -15,8 +15,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -76,8 +75,6 @@ private:
     lyt::PaneAccessor _13BC;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

@@ -21,7 +21,4 @@ bool BrainFlushPursuit::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

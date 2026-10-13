@@ -34,7 +34,4 @@ void SetBodyCollJump() {
     t_obj().setBodyCollJump();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintObjColl

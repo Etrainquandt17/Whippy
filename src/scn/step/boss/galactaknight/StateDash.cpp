@@ -88,7 +88,4 @@ void StateDash::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

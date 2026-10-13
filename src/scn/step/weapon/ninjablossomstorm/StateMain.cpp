@@ -69,7 +69,4 @@ void StateMain::procConstraint() {
 
 void StateMain::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjablossomstorm

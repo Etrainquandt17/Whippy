@@ -21,9 +21,6 @@ private:
     StateDashDesc& mDesc;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

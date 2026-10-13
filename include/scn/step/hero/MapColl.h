@@ -39,8 +39,6 @@ public:
     hel::math::Vector2 floorNormal() const { return _74; }
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

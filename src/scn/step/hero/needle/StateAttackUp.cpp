@@ -79,7 +79,4 @@ bool StateAttackUp::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle

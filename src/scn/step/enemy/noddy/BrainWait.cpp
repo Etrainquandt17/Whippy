@@ -39,7 +39,4 @@ bool BrainWait::onLanding() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::noddy

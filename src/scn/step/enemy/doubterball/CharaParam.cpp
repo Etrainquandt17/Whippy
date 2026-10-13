@@ -24,8 +24,4 @@ enemy::CharaParam CreateFlame() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::doubterball::CharaParam

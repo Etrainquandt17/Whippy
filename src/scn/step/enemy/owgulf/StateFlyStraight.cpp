@@ -50,7 +50,4 @@ void StateFlyStraight::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

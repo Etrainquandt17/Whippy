@@ -21,7 +21,6 @@ private:
     u32 mHeight;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

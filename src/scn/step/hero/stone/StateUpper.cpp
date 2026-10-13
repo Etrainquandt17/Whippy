@@ -66,7 +66,4 @@ void StateUpper::procFixPos() {
     hero::Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

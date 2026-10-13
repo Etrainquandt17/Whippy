@@ -10,8 +10,7 @@ namespace math {
 class Direction3;
 class Vector3;
 
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -54,8 +53,6 @@ private:
     PermEffectDetail mPowerful;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

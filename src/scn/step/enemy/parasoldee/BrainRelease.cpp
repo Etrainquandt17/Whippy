@@ -48,7 +48,4 @@ void BrainRelease::update() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasoldee

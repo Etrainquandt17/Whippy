@@ -25,10 +25,7 @@ private:
     u32 _8[27];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::carrydee
 
 namespace hel {
 namespace common {
@@ -36,7 +33,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::carrydee::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

@@ -27,9 +27,6 @@ private:
     bool mIsWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

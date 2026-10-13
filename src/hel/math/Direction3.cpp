@@ -118,5 +118,4 @@ bool Direction3::Front::permittedRestruct() {
     return true;
 }
 
-}
-}
+}}  // namespace hel::math

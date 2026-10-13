@@ -21,7 +21,6 @@ public:
     hel::geo2d::Edge mEdge;
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

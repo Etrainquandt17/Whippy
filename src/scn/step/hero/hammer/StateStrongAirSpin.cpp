@@ -69,7 +69,4 @@ void StateStrongAirSpin::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

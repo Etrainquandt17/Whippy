@@ -110,7 +110,4 @@ void StateWaterWait::construct(u32 script) {
     obj().piggyback().unlinkAll();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

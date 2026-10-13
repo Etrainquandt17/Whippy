@@ -111,9 +111,6 @@ private:
     ParamAccessor<Param>& mParam;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::block
 
 #endif

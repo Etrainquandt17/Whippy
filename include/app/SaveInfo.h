@@ -17,6 +17,6 @@ public:
     bool isDisplayNow() const;
 };
 
-}
+}  // namespace app
 
 #endif

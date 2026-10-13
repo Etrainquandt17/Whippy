@@ -18,7 +18,6 @@ private:
     u8 _0[0x388];
 };
 
-}
-}
+}}  // namespace scn::goalgame
 
 #endif

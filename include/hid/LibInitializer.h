@@ -11,6 +11,6 @@ public:
     ~LibInitializer();
 };
 
-}
+}  // namespace hid
 
 #endif

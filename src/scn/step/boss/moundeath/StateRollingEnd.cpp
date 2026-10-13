@@ -76,7 +76,4 @@ void StateRollingEnd::procFixPos() {
     common::StateFall::TryToChangeState(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath

@@ -15,7 +15,4 @@ bool BrainSmoke::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage

@@ -762,8 +762,6 @@ public:
     const mbossdead::ParamData& mbossdead() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

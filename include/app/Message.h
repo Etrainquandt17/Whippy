@@ -29,6 +29,6 @@ public:
     static const wchar_t* UnsafedTextStaffCredit(const char* label);
 };
 
-}
+}  // namespace app
 
 #endif

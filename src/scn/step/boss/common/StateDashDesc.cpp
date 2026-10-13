@@ -13,7 +13,4 @@ StateDashDesc::StateDashDesc(
     : _0(a), _4(accel), _10(decel), _14(decelEnd), _18(fall), _24(b), _2C(c), _34(d), _3C(e), _40(f), _48(g), _50(guardType), _54(h),
       _58(attackType) {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

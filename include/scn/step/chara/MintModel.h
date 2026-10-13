@@ -15,9 +15,6 @@ void Register(Model& obj);
 void Unregister(Model& obj);
 void SetScale3(f32 x, f32 y, f32 z);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintModel
 
 #endif

@@ -13,8 +13,6 @@ public:
     bool isSpecial() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

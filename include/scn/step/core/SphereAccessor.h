@@ -12,8 +12,6 @@ public:
     bool isGetShipParts() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

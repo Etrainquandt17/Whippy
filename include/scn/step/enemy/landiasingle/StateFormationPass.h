@@ -23,9 +23,6 @@ public:
     StateFormationPass(Enemy* enemy, Config config);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

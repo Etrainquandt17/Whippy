@@ -31,9 +31,6 @@ private:
     bool _28;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::interference
 
 #endif

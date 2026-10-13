@@ -142,7 +142,6 @@ public:
     sfx::DarknessRoot& darknessRoot();
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

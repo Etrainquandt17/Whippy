@@ -28,9 +28,6 @@ private:
     u32 mWaitLength;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa
 
 #endif

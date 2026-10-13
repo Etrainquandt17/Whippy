@@ -64,5 +64,4 @@ void AddWiiRemote::Remote::phaseOn() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace info::common

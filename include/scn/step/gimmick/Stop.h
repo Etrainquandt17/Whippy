@@ -39,8 +39,6 @@ private:
     u8 _0[0x68];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

@@ -22,9 +22,6 @@ private:
     bool _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationmetabeam
 
 #endif

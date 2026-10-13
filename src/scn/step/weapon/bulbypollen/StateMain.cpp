@@ -48,7 +48,4 @@ void StateMain::dead() {
     obj().dead();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::bulbypollen

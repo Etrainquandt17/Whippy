@@ -33,9 +33,6 @@ private:
     Config mConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

@@ -28,9 +28,6 @@ struct ParamData {
     u32 mIdlingFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::needlous
 
 #endif

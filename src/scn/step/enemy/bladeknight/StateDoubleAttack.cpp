@@ -67,7 +67,4 @@ void StateDoubleAttack::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight

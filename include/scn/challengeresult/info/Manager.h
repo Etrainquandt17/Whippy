@@ -18,8 +18,6 @@ public:
     u8 _5670[0x5784 - 0x5670];
 };
 
-}
-}
-}
+}}}  // namespace scn::challengeresult::info
 
 #endif

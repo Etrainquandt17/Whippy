@@ -70,7 +70,4 @@ void StateMain::addObjColl() {
     obj().objColl().addHit(0, 0.1f);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::owgulffeather

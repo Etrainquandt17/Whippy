@@ -58,7 +58,4 @@ void StateAttackBreath::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::hothead

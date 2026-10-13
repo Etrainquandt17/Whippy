@@ -244,7 +244,4 @@ void Utility::OnHideHero(Hero& hero) {
     hero.infoHeroPanel().spGaugeFadeOut();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::super

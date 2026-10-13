@@ -18,9 +18,6 @@ public:
     virtual ~StateWait();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojrbomb
 
 #endif

@@ -119,9 +119,6 @@ struct Param {
     f32 mDeadRotZRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

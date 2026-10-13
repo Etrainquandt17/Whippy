@@ -28,9 +28,6 @@ enum ScriptKind {
     SCRIPT_KIND_17,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge
 
 #endif

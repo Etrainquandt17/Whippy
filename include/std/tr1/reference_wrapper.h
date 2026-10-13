@@ -21,7 +21,6 @@ inline reference_wrapper<T> ref(T& t) {
     return reference_wrapper<T>(t);
 }
 
-}
-}
+}}  // namespace std::tr1
 
 #endif

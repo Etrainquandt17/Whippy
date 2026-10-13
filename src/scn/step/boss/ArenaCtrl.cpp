@@ -54,6 +54,4 @@ void ArenaCtrl::startTime() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

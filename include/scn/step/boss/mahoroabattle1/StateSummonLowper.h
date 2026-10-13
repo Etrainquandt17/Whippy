@@ -20,9 +20,6 @@ public:
     virtual ~StateSummonLowper();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

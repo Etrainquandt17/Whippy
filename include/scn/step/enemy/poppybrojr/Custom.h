@@ -12,10 +12,7 @@ namespace poppybrojr {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojr
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::poppybrojr::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -51,9 +47,6 @@ private:
     bool mIsThrowValid;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojr
 
 #endif

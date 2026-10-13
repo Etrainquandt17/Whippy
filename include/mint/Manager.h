@@ -21,6 +21,6 @@ private:
     ScriptArchive mArchive;
 };
 
-}
+}  // namespace mint
 
 #endif

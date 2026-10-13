@@ -50,6 +50,4 @@ Desc::Desc(Kind kind, u32 variation, ostop::Flag flag, const hel::math::Vector2&
     , _30(8)
     , mOwner(&owner) {}
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

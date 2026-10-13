@@ -27,9 +27,6 @@ private:
     hel::math::Direction3 mDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

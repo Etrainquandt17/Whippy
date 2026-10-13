@@ -57,7 +57,4 @@ void StateRoofHit::procMove() {
 void StateRoofHit::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump

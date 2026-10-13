@@ -24,9 +24,6 @@ struct Result {
     SphereUnlockKind mUnlockKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::challengedoor
 
 #endif

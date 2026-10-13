@@ -13,5 +13,4 @@ MintManager::MintManager()
     mEngine.addModuleBellow("Snd");
 }
 
-}
-}
+}}  // namespace scn::title

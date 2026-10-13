@@ -22,4 +22,4 @@ u32 VMObjectType::sizeOf(const VMCore& core) const {
     return size;
 }
 
-}
+}  // namespace mintvm

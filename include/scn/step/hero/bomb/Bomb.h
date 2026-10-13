@@ -42,9 +42,6 @@ private:
     u32 _70[(0x124 - 0x70) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb
 
 #endif

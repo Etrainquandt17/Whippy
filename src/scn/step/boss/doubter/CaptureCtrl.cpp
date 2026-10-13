@@ -246,7 +246,4 @@ void CaptureCtrl::setIsRightDir() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

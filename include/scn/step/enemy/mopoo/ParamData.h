@@ -18,9 +18,6 @@ struct ParamData {
     f32 mRangeBottom;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo
 
 #endif

@@ -24,9 +24,6 @@ private:
     bool mIsEffectRequested;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::wingshockwave
 
 #endif

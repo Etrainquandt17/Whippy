@@ -16,6 +16,6 @@ public:
     virtual void heapDump() const = 0;
 };
 
-}
+}  // namespace mem
 
 #endif

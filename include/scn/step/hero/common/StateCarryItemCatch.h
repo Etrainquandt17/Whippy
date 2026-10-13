@@ -24,9 +24,6 @@ private:
     bool mIsTrigger1;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

@@ -24,10 +24,7 @@ private:
     u32 _8[18];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::leaper
 
 namespace hel {
 namespace common {
@@ -35,7 +32,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::leaper::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

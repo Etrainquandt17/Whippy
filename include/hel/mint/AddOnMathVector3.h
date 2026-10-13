@@ -24,8 +24,6 @@ void SlotAdd(unsigned long index);
 void SlotSub(unsigned long index);
 const hel::math::Vector3 Create(float x, float y, float z);
 
-}
-}
-}
+}}}  // namespace hel::mint::AddOnMathVector3
 
 #endif

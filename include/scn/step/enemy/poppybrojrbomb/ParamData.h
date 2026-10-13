@@ -15,9 +15,6 @@ struct ParamData {
     f32 mExplosionOffsetY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojrbomb
 
 #endif

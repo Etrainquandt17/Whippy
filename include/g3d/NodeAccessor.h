@@ -11,8 +11,7 @@ namespace math {
 class Vector3;
 class Direction3;
 class Matrix34;
-}
-}
+}}  // namespace hel::math
 
 namespace g3d {
 
@@ -54,6 +53,6 @@ private:
 #endif
 };
 
-}
+}  // namespace g3d
 
 #endif

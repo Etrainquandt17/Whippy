@@ -138,7 +138,4 @@ void StateFlyingBodyPressRise::setTargetPos() {
     mGoalPos.z = mStartPos.z;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

@@ -14,9 +14,6 @@ enum ScriptKind {
     ScriptKind_10 = 10,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 #endif

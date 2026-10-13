@@ -47,7 +47,4 @@ void StateFireIgnition::procFixPos() {
     Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire

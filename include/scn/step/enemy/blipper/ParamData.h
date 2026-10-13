@@ -30,9 +30,6 @@ struct ParamData {
     f32 mFattyBufferEscapeVacuumOffHeight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper
 
 #endif

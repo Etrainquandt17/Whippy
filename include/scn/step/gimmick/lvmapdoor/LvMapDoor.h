@@ -140,9 +140,6 @@ private:
     bool _2197;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor
 
 #endif

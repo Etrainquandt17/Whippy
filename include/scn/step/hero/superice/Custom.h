@@ -10,18 +10,14 @@ namespace step {
 namespace hero {
 namespace superice {
 class Custom;
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superice
 
 namespace hel {
 namespace common {
 // TODO: an instance of the general template, which hel/common/RuntimeTypeInfo.h cannot define yet.
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::hero::superice::Custom>();
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     SnowBall mSnowBall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superice
 
 #endif

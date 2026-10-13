@@ -30,4 +30,4 @@ const wchar_t* Project::listItemName(u16 group, u16 tag, u16 param, u16 item) co
     return LMS_GetTagListItemName(mProjectInfo, group, tag, param, item);
 }
 
-}
+}  // namespace msg

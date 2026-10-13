@@ -13,8 +13,6 @@ public:
     bool isLogoutForce() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

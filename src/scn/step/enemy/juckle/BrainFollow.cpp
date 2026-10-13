@@ -44,7 +44,4 @@ bool BrainFollow::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::juckle

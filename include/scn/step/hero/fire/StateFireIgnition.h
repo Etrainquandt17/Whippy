@@ -21,9 +21,6 @@ private:
     int mFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire
 
 #endif

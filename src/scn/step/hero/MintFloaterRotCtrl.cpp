@@ -43,7 +43,4 @@ void ResetRotVIntpRate() {
     t_obj().resetRotVIntpRate();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintFloaterRotCtrl

@@ -12,6 +12,6 @@ public:
     static void MemSetU32(const MemBlock& block, u32 value);
 };
 
-}
+}  // namespace mem
 
 #endif

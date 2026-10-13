@@ -83,7 +83,4 @@ f32 Custom::getBasePosX() {
     return mBasePosX;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby

@@ -29,7 +29,4 @@ void StateMove::procMove() {
 
 void StateMove::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiasinglefireball

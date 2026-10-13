@@ -67,7 +67,4 @@ void StateEtherJumpRise::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

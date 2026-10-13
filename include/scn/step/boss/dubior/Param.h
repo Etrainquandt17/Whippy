@@ -54,9 +54,6 @@ struct Param {
     f32 mShotSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

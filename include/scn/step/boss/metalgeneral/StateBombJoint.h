@@ -26,9 +26,6 @@ private:
     JointKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

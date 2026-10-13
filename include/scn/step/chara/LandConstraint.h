@@ -32,8 +32,6 @@ public:
     hel::math::Vector2 prevVelocity() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

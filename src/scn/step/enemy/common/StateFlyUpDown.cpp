@@ -45,7 +45,4 @@ void StateFlyUpDown::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

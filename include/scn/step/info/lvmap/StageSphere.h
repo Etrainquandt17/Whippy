@@ -56,9 +56,6 @@ private:
     hel::math::Vector3 _720;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::info::lvmap
 
 #endif

@@ -22,9 +22,6 @@ private:
     f32 mSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 #endif

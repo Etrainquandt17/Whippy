@@ -60,7 +60,4 @@ chara::ModelDesc& Create(u32 level, bool isExtra) {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

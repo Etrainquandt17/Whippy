@@ -24,6 +24,6 @@ ObjListNode<T, Tag>::~ObjListNode() {
     unlink();
 }
 
-}
+}  // namespace util
 
 #endif

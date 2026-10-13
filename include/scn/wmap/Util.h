@@ -19,7 +19,6 @@ public:
     static int GetRoute(ItemKind from, ItemKind to);
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

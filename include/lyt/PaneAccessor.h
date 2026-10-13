@@ -9,14 +9,12 @@ namespace math {
 class Matrix34;
 class Vector2;
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace nw4r {
 namespace lyt {
 class TextBox;
-}
-}
+}}  // namespace nw4r::lyt
 
 namespace lyt {
 
@@ -49,6 +47,6 @@ private:
     void* mPane;
 };
 
-}
+}  // namespace lyt
 
 #endif

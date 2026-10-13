@@ -14,8 +14,6 @@ public:
     void startAnim(u32 kind, bool);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

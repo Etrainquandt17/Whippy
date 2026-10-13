@@ -95,6 +95,4 @@ void ResultLyt::updateFrame() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::challengeresult::info

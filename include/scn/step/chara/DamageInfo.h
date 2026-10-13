@@ -51,8 +51,6 @@ private:
     Data mData;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

@@ -18,9 +18,6 @@ public:
     virtual ~StateBackAndForthAttack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::leaper
 
 #endif

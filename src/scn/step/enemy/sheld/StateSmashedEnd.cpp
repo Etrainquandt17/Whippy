@@ -48,7 +48,4 @@ void StateSmashedEnd::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

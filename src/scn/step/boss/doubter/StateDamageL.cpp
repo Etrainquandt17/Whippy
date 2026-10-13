@@ -82,7 +82,4 @@ void StateDamageL::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

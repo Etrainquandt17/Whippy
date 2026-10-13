@@ -15,9 +15,6 @@ struct ParamData {
     f32 mRadius[3];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rollball
 
 #endif

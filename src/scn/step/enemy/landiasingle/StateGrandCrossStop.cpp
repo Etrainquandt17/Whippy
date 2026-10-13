@@ -54,7 +54,4 @@ void StateGrandCrossStop::procMove() {}
 
 void StateGrandCrossStop::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

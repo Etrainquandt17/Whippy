@@ -20,9 +20,6 @@ private:
     bool mIsSoft;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

@@ -19,4 +19,4 @@ hel::math::Vector3 Accel::rawVector3() const {
     return hel::math::Vector3(mRaw.x, mRaw.y, mRaw.z);
 }
 
-}
+}  // namespace hid

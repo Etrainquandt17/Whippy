@@ -31,10 +31,7 @@ private:
     u32 _8[19];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut
 
 namespace hel {
 namespace common {
@@ -42,7 +39,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::babut::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

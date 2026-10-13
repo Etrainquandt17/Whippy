@@ -54,7 +54,6 @@ private:
     bool _348;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

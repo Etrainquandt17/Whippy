@@ -91,7 +91,4 @@ void StateTornadoRise::procMove() {
 
 void StateTornadoRise::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath

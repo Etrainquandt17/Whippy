@@ -33,7 +33,4 @@ StateWait::StateWait(Enemy* enemy) : StateBase(enemy) {
 
 StateWait::~StateWait() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojrbomb

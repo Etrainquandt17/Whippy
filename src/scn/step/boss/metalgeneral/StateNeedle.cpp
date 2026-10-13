@@ -100,7 +100,4 @@ void StateNeedle::procMove() {}
 
 void StateNeedle::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

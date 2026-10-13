@@ -12,10 +12,6 @@ namespace CharaParam {
 enemy::CharaParam Create();
 enemy::CharaParam CreateFlame();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::doubterball::CharaParam
 
 #endif

@@ -103,7 +103,4 @@ void StateRocketFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump

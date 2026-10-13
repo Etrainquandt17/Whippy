@@ -12,8 +12,6 @@ public:
     virtual void onEnd() = 0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

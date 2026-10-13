@@ -19,9 +19,6 @@ public:
     virtual ~StateRevolutionAttackStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

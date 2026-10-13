@@ -13,10 +13,7 @@ namespace watergalboros {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 namespace hel {
 namespace common {
@@ -25,8 +22,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::watergalboros::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -54,9 +50,6 @@ private:
     CaptureCtrl mCaptureCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

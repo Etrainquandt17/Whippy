@@ -14,8 +14,6 @@ public:
     void unset();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

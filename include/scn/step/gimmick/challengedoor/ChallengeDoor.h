@@ -89,9 +89,6 @@ private:
     util::FrameCounter _1130;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::challengedoor
 
 #endif

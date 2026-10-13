@@ -15,9 +15,6 @@ chara::ModelDesc& CreateEx();
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::whispyairball
 
 #endif

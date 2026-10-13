@@ -63,7 +63,4 @@ void StateThrownNinja::procMove() {
     obj().move().airDecelFall(gobj::MoveParamDecel::Create(0.0008f), obj().param().common().mFall);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

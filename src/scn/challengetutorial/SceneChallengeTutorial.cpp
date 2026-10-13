@@ -27,8 +27,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::challengetutorial::SceneChalleng
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace challengetutorial {
@@ -230,8 +229,7 @@ SceneChallengeTutorial::SceneChallengeTutorial(const Recipe& recipe)
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::challengetutorial
 
 namespace util {
 
@@ -310,5 +308,4 @@ const hel::common::RuntimeTypeInfo& SceneChallengeTutorial::GetRuntimeTypeInfo()
     return hel::common::RuntimeTypeInfoImpl<SceneChallengeTutorial>();
 }
 
-}
-}
+}}  // namespace scn::challengetutorial

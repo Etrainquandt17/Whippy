@@ -8,8 +8,7 @@ namespace math {
 
 class Vector2;
 
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -33,8 +32,6 @@ private:
     u32 mZoomID;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

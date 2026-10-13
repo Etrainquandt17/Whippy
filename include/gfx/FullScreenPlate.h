@@ -19,6 +19,6 @@ private:
     f32 mAlpha;
 };
 
-}
+}  // namespace gfx
 
 #endif

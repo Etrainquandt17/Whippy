@@ -13,4 +13,4 @@ GlobalNewDeleteChanger::~GlobalNewDeleteChanger() {
     OperatorNewDelete::UnsetGlobalNewDeleteAllocator(mAllocator);
 }
 
-}
+}  // namespace mem

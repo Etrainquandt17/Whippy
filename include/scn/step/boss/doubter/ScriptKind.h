@@ -12,9 +12,6 @@ enum ScriptKind {
     ScriptKind_TriplePunch = 17,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

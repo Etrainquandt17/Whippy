@@ -10,8 +10,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -70,8 +69,6 @@ private:
     bool mIsLock;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

@@ -55,8 +55,6 @@ struct HighjumpParam {
     gobj::MoveParamFall _F0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

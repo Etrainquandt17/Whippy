@@ -22,8 +22,6 @@ private:
     util::PlacementNew<gobj::ColorAnim> mColorAnim;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

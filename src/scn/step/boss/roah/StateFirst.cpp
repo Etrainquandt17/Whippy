@@ -94,7 +94,4 @@ void StateFirst::procMove() {
 
 void StateFirst::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

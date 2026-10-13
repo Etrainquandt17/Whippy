@@ -84,7 +84,4 @@ void StatePlancherHit::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

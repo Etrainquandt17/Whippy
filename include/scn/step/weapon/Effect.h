@@ -26,8 +26,6 @@ private:
     chara::Effect mWarp;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

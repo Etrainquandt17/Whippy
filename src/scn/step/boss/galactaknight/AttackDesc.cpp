@@ -9,7 +9,4 @@ AttackDesc::AttackDesc(ScriptKind kind, bool a) : _0(kind), _4(0.0f), _8(0), _C(
 
 AttackDesc::AttackDesc(ScriptKind kind, f32 a, u32 b, bool c) : _0(kind), _4(a), _8(b), _C(c), _D(false), _E(false) {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

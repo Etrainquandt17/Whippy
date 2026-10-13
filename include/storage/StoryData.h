@@ -43,6 +43,6 @@ public:
     SphereUnlockData sphereUnlockData[1];
 };
 
-}
+}  // namespace storage
 
 #endif

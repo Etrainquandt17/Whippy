@@ -15,10 +15,7 @@ namespace roah {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 namespace hel {
 namespace common {
@@ -27,8 +24,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::roah::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -65,9 +61,6 @@ private:
     StormCtrl mStormCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

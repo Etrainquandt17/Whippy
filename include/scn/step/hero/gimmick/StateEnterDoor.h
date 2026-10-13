@@ -16,9 +16,6 @@ public:
     static bool TryToChangeState(Hero* hero, ScriptKind script, bool);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::gimmick
 
 #endif

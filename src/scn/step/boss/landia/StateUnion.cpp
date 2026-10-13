@@ -61,7 +61,4 @@ void StateUnion::procMove() {
 
 void StateUnion::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

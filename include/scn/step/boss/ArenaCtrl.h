@@ -29,8 +29,6 @@ private:
     arena::EntryManager::EntryId mEntryId;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

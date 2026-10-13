@@ -18,9 +18,6 @@ public:
     virtual void procAnim();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches
 
 #endif

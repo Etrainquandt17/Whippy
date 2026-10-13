@@ -19,9 +19,6 @@ public:
     virtual void procMove();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby
 
 #endif

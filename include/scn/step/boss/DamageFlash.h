@@ -26,8 +26,6 @@ private:
     u32 mCombo;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

@@ -26,9 +26,6 @@ private:
     f32 mBasePosX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby
 
 #endif

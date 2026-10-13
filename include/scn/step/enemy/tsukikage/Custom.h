@@ -12,10 +12,7 @@ namespace tsukikage {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::tsukikage::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -65,9 +61,6 @@ private:
     s32 mJumpNum;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage
 
 #endif

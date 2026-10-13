@@ -83,7 +83,4 @@ void StateThunderSpine::procMove() {}
 
 void StateThunderSpine::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

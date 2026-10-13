@@ -14,8 +14,6 @@ public:
     static bool IsSomebody(Hero& hero);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

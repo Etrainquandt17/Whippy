@@ -19,8 +19,6 @@ private:
     Weapon& mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

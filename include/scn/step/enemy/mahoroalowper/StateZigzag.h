@@ -18,9 +18,6 @@ public:
     StateZigzag(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroalowper
 
 #endif

@@ -8,8 +8,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace lyt {
 class Layout;
@@ -24,6 +23,6 @@ void selectHeroPane(lyt::Layout& layout, scn::step::hero::Kind kind);
 void selectHeroPaneByAction(lyt::Layout& layout, scn::step::hero::Kind kind);
 bool hitTest(const lyt::PaneAccessor& pane, const hel::math::Vector2& a, const hel::math::Vector2& b);
 
-}
+}  // namespace info
 
 #endif

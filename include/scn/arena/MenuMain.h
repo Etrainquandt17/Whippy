@@ -35,7 +35,6 @@ private:
     Component& mComponent;
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

@@ -49,6 +49,6 @@ private:
     snd::SoundManager mSoundManager;
 };
 
-}
+}  // namespace app
 
 #endif

@@ -64,7 +64,6 @@ private:
     lyt::PaneAccessor _8B8;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

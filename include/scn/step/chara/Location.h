@@ -24,8 +24,6 @@ public:
     hel::math::Vector3 prevPos() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

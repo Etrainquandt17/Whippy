@@ -57,6 +57,4 @@ void ObjStop::onStopPowerfulFinished(const ::ostop::Actor& actor) {
     mBoss.effect().onObjStopFinished();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

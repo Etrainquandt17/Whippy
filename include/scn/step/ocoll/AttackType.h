@@ -10,8 +10,6 @@ enum AttackType {
     ATTACK_TYPE_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ocoll
 
 #endif

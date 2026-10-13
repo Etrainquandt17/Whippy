@@ -12,9 +12,6 @@ enum ScriptKind {
     ScriptKind_ShotBulletFast = 7,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

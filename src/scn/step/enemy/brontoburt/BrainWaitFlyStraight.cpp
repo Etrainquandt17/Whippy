@@ -43,7 +43,4 @@ bool BrainWaitFlyStraight::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

@@ -15,9 +15,6 @@ enum NodeKind {
     NODE_KIND_BEAM4,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 #endif

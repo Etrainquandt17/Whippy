@@ -62,7 +62,4 @@ chara::ModelDesc& CreateLv4() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet

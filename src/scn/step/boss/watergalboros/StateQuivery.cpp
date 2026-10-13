@@ -99,7 +99,4 @@ void StateQuivery::reqQuivery() {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros

@@ -10,6 +10,6 @@ public:
     static float ScreenHalfHeight();
 };
 
-}
+}  // namespace lyt
 
 #endif

@@ -19,7 +19,6 @@ private:
 template <typename T>
 bool PrivateSingleton<T>::isExist_;
 
-}
-}
+}}  // namespace hel::common
 
 #endif

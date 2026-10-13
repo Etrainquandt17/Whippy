@@ -23,9 +23,6 @@ public:
     };
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::shipevent
 
 #endif

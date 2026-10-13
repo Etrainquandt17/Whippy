@@ -14,9 +14,6 @@ public:
     StateCapturedBeam(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::captured
 
 #endif

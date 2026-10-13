@@ -22,9 +22,6 @@ private:
     f32 mFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec
 
 #endif

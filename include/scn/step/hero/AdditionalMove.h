@@ -16,8 +16,6 @@ public:
     const hel::math::Vector2& airFlowVector() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

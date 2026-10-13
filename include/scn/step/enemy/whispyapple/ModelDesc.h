@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreatePoison();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::whispyapple::ModelDesc
 
 #endif

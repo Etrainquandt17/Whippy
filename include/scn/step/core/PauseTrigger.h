@@ -17,8 +17,6 @@ public:
     void setIsEnable(EnableKind kind, bool isEnable);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

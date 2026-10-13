@@ -18,4 +18,4 @@ VMModule::VMModule(const char* path)
     , mSymbols()
     , mObjectTypes(path) {}
 
-}
+}  // namespace mintvm

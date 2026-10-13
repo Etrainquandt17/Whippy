@@ -21,9 +21,6 @@ struct ParamData {
     f32 mAroundRange;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby
 
 #endif

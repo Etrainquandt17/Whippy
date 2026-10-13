@@ -81,7 +81,4 @@ void StateAttack::aimAntenna(f32 angle) {
     node.localMtx().setRTMtx(mtx);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whippy

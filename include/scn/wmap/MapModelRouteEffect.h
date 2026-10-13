@@ -38,7 +38,6 @@ private:
     effect::StdRequestor mEffect;
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

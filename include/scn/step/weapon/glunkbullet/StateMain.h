@@ -21,9 +21,6 @@ private:
     hel::math::Vector2 mStartPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::glunkbullet
 
 #endif

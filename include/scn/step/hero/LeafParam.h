@@ -48,8 +48,6 @@ struct LeafParam {
     u32 _8C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -120,7 +120,4 @@ void StateTornadoChase::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath

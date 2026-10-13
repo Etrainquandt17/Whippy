@@ -441,5 +441,4 @@ bool Option::isAnimEnd() const {
     return _194.isAnimEnd();
 }
 
-}
-}
+}}  // namespace scn::titlemenunew

@@ -21,9 +21,6 @@ struct Param {
     u32 _20;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::dededehammer
 
 #endif

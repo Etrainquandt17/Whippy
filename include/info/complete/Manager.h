@@ -11,7 +11,6 @@ public:
     bool isEnd() const;
 };
 
-}
-}
+}}  // namespace info::complete
 
 #endif

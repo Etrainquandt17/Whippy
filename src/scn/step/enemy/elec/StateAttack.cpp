@@ -48,7 +48,4 @@ void StateAttack::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec

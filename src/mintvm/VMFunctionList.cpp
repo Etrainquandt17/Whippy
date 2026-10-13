@@ -15,4 +15,4 @@ VMFunction* VMFunctionList::addNativeFunction(const char* name, void (*func)(Min
     return function;
 }
 
-}
+}  // namespace mintvm

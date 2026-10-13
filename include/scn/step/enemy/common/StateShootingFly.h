@@ -24,9 +24,6 @@ private:
     f32 _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

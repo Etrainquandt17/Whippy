@@ -49,7 +49,4 @@ void StateVerticalShotShot::procMove() {
 
 void StateVerticalShotShot::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball

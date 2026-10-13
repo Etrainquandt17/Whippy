@@ -13,9 +13,6 @@ public:
     static bool TryToChangeState(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superfire
 
 #endif

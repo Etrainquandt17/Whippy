@@ -21,9 +21,6 @@ private:
     bool mIsStar;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::kingsdoowaveshot
 
 #endif

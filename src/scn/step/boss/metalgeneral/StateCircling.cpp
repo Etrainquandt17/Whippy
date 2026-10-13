@@ -120,7 +120,4 @@ void StateCircling::procMove() {
 
 void StateCircling::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

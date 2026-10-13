@@ -20,8 +20,6 @@ public:
     u32 get() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

@@ -14,9 +14,6 @@ struct ParamData {
     f32 mSpeed[3];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lanzer
 
 #endif

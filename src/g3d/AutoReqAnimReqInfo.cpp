@@ -10,4 +10,4 @@ AutoReqAnimReqInfo::AutoReqAnimReqInfo()
     , _79(false)
     , _7A(false) {}
 
-}
+}  // namespace g3d

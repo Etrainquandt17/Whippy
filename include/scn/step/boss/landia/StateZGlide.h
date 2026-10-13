@@ -18,9 +18,6 @@ public:
     virtual ~StateZGlide();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

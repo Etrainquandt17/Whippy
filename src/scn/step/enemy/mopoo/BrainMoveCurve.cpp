@@ -41,7 +41,4 @@ bool BrainMoveCurve::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo

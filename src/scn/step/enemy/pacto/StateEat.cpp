@@ -69,7 +69,4 @@ void StateEat::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto

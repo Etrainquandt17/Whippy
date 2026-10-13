@@ -27,9 +27,6 @@ private:
     s32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationdededebomber
 
 #endif

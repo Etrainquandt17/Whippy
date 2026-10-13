@@ -103,7 +103,4 @@ void StateDeadInWater::deadFlash() {
     obj().flash().setEnf1F(hel::common::ColorF(192.0f, 180.0f, 180.0f, alpha).toGXColor());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

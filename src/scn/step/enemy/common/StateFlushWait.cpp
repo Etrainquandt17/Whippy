@@ -25,7 +25,4 @@ void StateFlushWait::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

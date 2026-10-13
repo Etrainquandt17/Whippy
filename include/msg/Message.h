@@ -23,6 +23,6 @@ private:
     MsbtInfo* mMessageInfo;
 };
 
-}
+}  // namespace msg
 
 #endif

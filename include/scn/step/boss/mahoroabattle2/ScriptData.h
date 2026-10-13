@@ -22,9 +22,6 @@ public:
     int getPrevMagicBallType() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle2
 
 #endif

@@ -64,6 +64,4 @@ GXColor Guard::getColor() const {
     return color;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

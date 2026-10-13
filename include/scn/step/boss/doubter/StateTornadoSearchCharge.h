@@ -25,9 +25,6 @@ private:
     f32 mDecel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

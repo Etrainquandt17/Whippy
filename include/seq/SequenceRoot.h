@@ -18,6 +18,6 @@ public:
     virtual void onSceneEnd(scn::IScene& scene);
 };
 
-}
+}  // namespace seq
 
 #endif

@@ -34,9 +34,6 @@ private:
     u8 _C[0x24];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb
 
 #endif

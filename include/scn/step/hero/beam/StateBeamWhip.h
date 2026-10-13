@@ -31,9 +31,6 @@ private:
     int mStep;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam
 
 #endif

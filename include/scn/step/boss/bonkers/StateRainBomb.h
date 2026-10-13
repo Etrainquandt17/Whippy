@@ -31,10 +31,7 @@ private:
     u32 mBigBombIndex;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #include "scn/step/boss/bonkers/StateRainBombStart.h"
 

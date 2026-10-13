@@ -24,9 +24,6 @@ private:
     u32 mWaitFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gemra
 
 #endif

@@ -59,7 +59,4 @@ void RegisterAll(mintvm::VMCore& core) {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::clayn

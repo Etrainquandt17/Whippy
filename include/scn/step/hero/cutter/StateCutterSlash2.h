@@ -26,9 +26,6 @@ private:
     bool mIsCheckHit;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::cutter
 
 #endif

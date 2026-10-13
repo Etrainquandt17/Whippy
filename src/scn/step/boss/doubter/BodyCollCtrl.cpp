@@ -104,7 +104,4 @@ void BodyCollCtrl::setTornado() {
     mBoss.objColl().addAttack(0, 0, param._1AC * scale, hel::math::Vector2(0.0f, param._1AC * scale));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

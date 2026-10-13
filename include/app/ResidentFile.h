@@ -9,6 +9,6 @@ public:
     bool isLoading() const;
 };
 
-}
+}  // namespace app
 
 #endif

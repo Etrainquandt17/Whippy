@@ -48,6 +48,4 @@ void InfoHitPointCtrl::unsetFull() {
     mFull = 0;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

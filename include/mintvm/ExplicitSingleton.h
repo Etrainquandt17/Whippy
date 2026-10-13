@@ -43,6 +43,6 @@ private:
 template <class T>
 T* ExplicitSingleton<T>::object_;
 
-}
+}  // namespace mintvm
 
 #endif

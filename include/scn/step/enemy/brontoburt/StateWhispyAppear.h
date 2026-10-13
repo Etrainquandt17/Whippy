@@ -27,9 +27,6 @@ private:
     f32 mRotH;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt
 
 #endif

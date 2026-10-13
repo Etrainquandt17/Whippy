@@ -48,7 +48,4 @@ void StateShotAirBallBig::reqAirBallIN(const hel::math::Vector2& offset, const h
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

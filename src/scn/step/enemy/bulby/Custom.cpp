@@ -71,7 +71,4 @@ void Custom::setIsBuried(bool isBuried) {
     mIsBuried = isBuried;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby

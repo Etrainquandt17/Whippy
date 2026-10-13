@@ -23,9 +23,6 @@ private:
     bool mIsLanded;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee
 
 #endif

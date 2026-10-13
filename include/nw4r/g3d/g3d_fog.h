@@ -70,7 +70,6 @@ public:
     }
 };
 
-}
-}
+}}  // namespace nw4r::g3d
 
 #endif

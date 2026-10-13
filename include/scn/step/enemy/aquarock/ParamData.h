@@ -29,9 +29,6 @@ struct ParamData {
     f32 mShakeRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock
 
 #endif

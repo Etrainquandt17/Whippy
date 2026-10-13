@@ -60,7 +60,4 @@ void StateVulcan::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe

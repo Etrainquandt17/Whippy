@@ -11,8 +11,6 @@ enum BinGmkBlockKind {
     BIN_GMK_BLOCK_KIND_NUM = 60,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

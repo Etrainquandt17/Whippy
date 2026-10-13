@@ -43,7 +43,4 @@ void StateFloorHit::procMove() {}
 
 void StateFloorHit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroaicicle

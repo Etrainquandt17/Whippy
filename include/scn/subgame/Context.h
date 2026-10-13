@@ -9,8 +9,7 @@ template <int N>
 class FixedString;
 template <typename T, int N>
 class MutableArray;
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace subgame {
@@ -43,7 +42,6 @@ public:
     u32 _34[4];
 };
 
-}
-}
+}}  // namespace scn::subgame
 
 #endif

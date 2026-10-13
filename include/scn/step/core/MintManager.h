@@ -20,8 +20,6 @@ private:
     mint::Engine mEngine;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

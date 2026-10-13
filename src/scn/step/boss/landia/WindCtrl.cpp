@@ -62,7 +62,4 @@ void WindCtrl::clear() {
     set(0.0f, 0.0f, 0.0f);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

@@ -19,7 +19,6 @@ struct Size {
     f32 height;
 };
 
-}
-}
+}}  // namespace nw4r::lyt
 
 #endif

@@ -16,8 +16,6 @@ private:
     u8 _0[0xA0];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

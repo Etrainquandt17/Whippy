@@ -78,7 +78,4 @@ void StateMain::setAttack() {
     obj().objColl().addAttack(0, param(obj())._C, hel::math::Vector2(x, 0.0f), hel::math::Vector2(x, param(obj())._8));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjawaveshot

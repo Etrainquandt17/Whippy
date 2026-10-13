@@ -13,8 +13,6 @@ public:
     void setIsDrawBg(bool isDrawBg);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::bg
 
 #endif

@@ -48,6 +48,4 @@ void SoundSE::onObjStopFinished() {
     mNormal.pauseDec();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

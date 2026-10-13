@@ -479,7 +479,4 @@ void RegisterAll(mintvm::VMCore& core) {
                          static_cast<int (*)()>(&MintClearDanceSync::FinishAnim));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::AddOnMint

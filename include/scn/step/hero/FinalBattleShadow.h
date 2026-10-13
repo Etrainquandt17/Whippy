@@ -47,8 +47,6 @@ private:
     bool _41;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

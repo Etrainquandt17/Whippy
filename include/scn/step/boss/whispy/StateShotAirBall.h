@@ -19,9 +19,6 @@ private:
     hel::math::Vector2 mTargetPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

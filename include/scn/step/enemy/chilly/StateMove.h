@@ -24,9 +24,6 @@ private:
     u32 mTurnWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chilly
 
 #endif

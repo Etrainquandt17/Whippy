@@ -67,7 +67,4 @@ void StateHoming::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet

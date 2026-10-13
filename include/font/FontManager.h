@@ -59,6 +59,6 @@ private:
     util::PlacementNew<PairFont> mPairEBOLP;
 };
 
-}
+}  // namespace font
 
 #endif

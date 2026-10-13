@@ -92,7 +92,4 @@ void StateSpinAttackCharge::procMove() {}
 
 void StateSpinAttackCharge::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

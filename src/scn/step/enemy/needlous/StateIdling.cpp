@@ -94,7 +94,4 @@ void StateIdling::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::needlous

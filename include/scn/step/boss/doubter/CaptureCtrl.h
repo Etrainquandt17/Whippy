@@ -53,9 +53,6 @@ private:
     u32 mDamageIndex;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

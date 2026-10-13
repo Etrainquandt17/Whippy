@@ -18,9 +18,6 @@ public:
     static const char* AnimPath(GGHeroKind kind);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::goalgame::desc::hero
 
 #endif

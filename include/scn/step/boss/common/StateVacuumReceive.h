@@ -21,9 +21,6 @@ private:
     chara::MoveAlgorithmVacuumReceive mMove;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

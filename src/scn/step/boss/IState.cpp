@@ -6,6 +6,4 @@ namespace boss {
 
 IState::~IState() {}
 
-}
-}
-}
+}}}  // namespace scn::step::boss

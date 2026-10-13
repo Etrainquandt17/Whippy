@@ -13,8 +13,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::CustomBase>() {
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -65,6 +64,4 @@ const hel::common::RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<CustomBase>();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

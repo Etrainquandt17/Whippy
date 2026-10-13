@@ -67,7 +67,4 @@ void StateMove::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches

@@ -16,8 +16,6 @@ public:
     void setPause(bool isPause);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

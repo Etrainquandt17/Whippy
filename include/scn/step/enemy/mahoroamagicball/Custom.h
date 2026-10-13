@@ -32,10 +32,7 @@ private:
     u32 _8[4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 namespace hel {
 namespace common {
@@ -43,7 +40,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::mahoroamagicball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

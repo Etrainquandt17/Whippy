@@ -10,10 +10,7 @@ namespace bladeknight {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::bladeknight::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -45,9 +41,6 @@ private:
     bool mWalkFlag;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight
 
 #endif

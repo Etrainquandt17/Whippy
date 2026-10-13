@@ -60,7 +60,4 @@ void StateShot::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbomb

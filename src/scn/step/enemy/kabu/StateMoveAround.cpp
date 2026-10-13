@@ -85,7 +85,4 @@ void StateMoveAround::turn() {
     mIsTurning = true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

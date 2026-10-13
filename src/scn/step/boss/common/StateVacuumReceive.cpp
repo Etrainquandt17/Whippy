@@ -46,7 +46,4 @@ void StateVacuumReceive::procFixPos() {
     obj().location().setPos(pos.toVector3());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

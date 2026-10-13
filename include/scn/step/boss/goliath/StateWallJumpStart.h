@@ -19,9 +19,6 @@ public:
     virtual ~StateWallJumpStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

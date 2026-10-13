@@ -24,9 +24,6 @@ private:
     f32 mSpeedV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

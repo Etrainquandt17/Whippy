@@ -18,9 +18,6 @@ public:
     StateShot3D(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 #endif

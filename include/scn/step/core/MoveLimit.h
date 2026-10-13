@@ -15,8 +15,6 @@ public:
     hel::geo::Rect getLimitRect() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

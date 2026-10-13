@@ -23,9 +23,6 @@ private:
     f32 mDist;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto
 
 #endif

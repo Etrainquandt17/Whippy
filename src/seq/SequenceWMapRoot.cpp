@@ -19,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<seq::SequenceWMapRoot>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace seq {
 
@@ -664,4 +663,4 @@ const hel::common::RuntimeTypeInfo& SequenceWMapRoot::GetRuntimeTypeInfo() const
     return hel::common::RuntimeTypeInfoImpl<SequenceWMapRoot>();
 }
 
-}
+}  // namespace seq

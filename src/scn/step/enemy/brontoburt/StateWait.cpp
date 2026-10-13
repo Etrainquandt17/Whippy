@@ -45,7 +45,4 @@ void StateWait::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

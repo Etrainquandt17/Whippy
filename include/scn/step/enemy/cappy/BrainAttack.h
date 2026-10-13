@@ -17,9 +17,6 @@ public:
     virtual void update();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappy
 
 #endif

@@ -18,8 +18,4 @@ enemy::CharaParam Create() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::sisterbound::CharaParam

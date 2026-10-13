@@ -76,7 +76,4 @@ chara::ModelDesc& CreateChaseKey() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

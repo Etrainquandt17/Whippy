@@ -84,5 +84,4 @@ void SceneChallengeResult::updateMain() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::challengeresult

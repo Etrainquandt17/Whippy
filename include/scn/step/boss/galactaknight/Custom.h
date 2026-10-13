@@ -16,10 +16,7 @@ namespace galactaknight {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 namespace hel {
 namespace common {
@@ -28,8 +25,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::galactaknight::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -69,9 +65,6 @@ private:
     u32 _184;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

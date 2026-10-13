@@ -32,5 +32,4 @@ void AddOn(mintvm::VMCore& core) {
     MINT_NATIVE_POD_METHOD(core, "HEL.Math.Vector2", "HEL.Math.Vector3 toVector3XOY()const", toVector3XOY, &Vector2::toVector3XOY);
 }
 
-}
-}
+}}  // namespace mintglue::HEL__Math__Vector2

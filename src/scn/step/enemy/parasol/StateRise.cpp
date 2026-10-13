@@ -72,7 +72,4 @@ void StateRise::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasol

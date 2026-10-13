@@ -16,9 +16,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowperblackhole
 
 #endif

@@ -9,8 +9,7 @@ namespace effect {
 class Requestor;
 namespace detail {
 class RequestArg;
-}
-}
+}}  // namespace effect::detail
 
 namespace scn {
 namespace step {
@@ -37,8 +36,6 @@ private:
     u32 _0[0x20 / 4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::effect
 
 #endif

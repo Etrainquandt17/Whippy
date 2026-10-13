@@ -97,9 +97,6 @@ struct Param {
     f32 _1AC;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

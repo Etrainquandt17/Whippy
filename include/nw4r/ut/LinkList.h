@@ -54,7 +54,6 @@ public:
 #endif
 };
 
-}
-}
+}}  // namespace nw4r::ut
 
 #endif

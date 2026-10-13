@@ -69,7 +69,4 @@ void StateMoveCircle::procMove() {
     obj().location().setPos(dir + mCenter);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo

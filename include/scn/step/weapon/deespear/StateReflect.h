@@ -14,9 +14,6 @@ public:
     StateReflect(Weapon* weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear
 
 #endif

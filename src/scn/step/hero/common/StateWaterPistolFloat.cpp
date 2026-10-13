@@ -67,7 +67,4 @@ void StateWaterPistolFloat::procMove() {
 
 void StateWaterPistolFloat::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

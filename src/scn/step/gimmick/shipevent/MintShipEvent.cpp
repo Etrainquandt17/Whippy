@@ -25,7 +25,4 @@ ShipEvent& MintShipEvent::Obj() {
     return t_obj.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::shipevent

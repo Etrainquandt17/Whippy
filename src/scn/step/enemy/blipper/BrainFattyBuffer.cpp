@@ -19,7 +19,4 @@ bool BrainFattyBuffer::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper

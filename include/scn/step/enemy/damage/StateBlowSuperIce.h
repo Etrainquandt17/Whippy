@@ -29,9 +29,6 @@ private:
     ocoll::Element mElement;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

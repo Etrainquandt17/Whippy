@@ -12,10 +12,6 @@ namespace CharaParam {
 enemy::CharaParam Create();
 enemy::CharaParam CreatePoison();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::whispyapple::CharaParam
 
 #endif

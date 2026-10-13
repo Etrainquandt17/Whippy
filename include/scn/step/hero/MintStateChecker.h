@@ -12,9 +12,6 @@ bool IsFloat();
 bool IsCarryBombDanger();
 bool IsHover();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintStateChecker
 
 #endif

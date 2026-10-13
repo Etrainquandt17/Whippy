@@ -21,9 +21,6 @@ struct ParamData {
     u32 mHomingFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 #endif

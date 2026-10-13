@@ -44,8 +44,6 @@ public:
     static hel::math::Vector3 GetDefaultCenterOffset(const Enemy& enemy);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

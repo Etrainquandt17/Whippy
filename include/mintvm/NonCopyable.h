@@ -13,6 +13,6 @@ private:
     NonCopyable& operator=(const NonCopyable&);
 };
 
-}
+}  // namespace mintvm
 
 #endif

@@ -19,9 +19,6 @@ public:
     virtual void procObjCollReact();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::sleepsnotbubble
 
 #endif

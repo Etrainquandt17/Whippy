@@ -19,9 +19,6 @@ public:
     static void AddAttackNode(Hero& hero, bool, const ParamBarrier& param);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

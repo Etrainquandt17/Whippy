@@ -17,7 +17,6 @@ f32 GetSign();
 void Invert();
 void LoadDirection3();
 
-}
-}
+}}  // namespace gobj::MintTarget
 
 #endif

@@ -27,9 +27,6 @@ private:
     u32 mWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

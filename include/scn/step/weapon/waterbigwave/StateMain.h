@@ -36,9 +36,6 @@ private:
     bool _80;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::waterbigwave
 
 #endif

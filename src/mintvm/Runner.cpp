@@ -572,4 +572,4 @@ void Runner::call(const char* name) {
     }
 }
 
-}
+}  // namespace mintvm

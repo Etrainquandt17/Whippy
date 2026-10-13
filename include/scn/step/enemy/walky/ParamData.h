@@ -24,9 +24,6 @@ struct ParamData {
     u32 mAttackEndFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky
 
 #endif

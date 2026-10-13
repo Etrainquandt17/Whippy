@@ -41,8 +41,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<seq::SequenceSimpleScene<scn::theater
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<seq::SequenceTitleMenuRoot>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace seq {
 
@@ -615,4 +614,4 @@ const hel::common::RuntimeTypeInfo& SequenceTitleMenuRoot::GetRuntimeTypeInfo() 
     return hel::common::RuntimeTypeInfoImpl<SequenceTitleMenuRoot>();
 }
 
-}
+}  // namespace seq

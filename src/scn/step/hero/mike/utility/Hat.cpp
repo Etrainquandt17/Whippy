@@ -37,8 +37,4 @@ void Hat::Wait(Hero& hero) {
     hero.model().hat().setNodeVisibility(3, false);
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::hero::mike::utility

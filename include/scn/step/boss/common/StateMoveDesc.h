@@ -16,9 +16,6 @@ public:
     gobj::MoveParamAccel _0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

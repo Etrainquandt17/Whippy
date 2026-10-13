@@ -19,10 +19,7 @@ namespace lowper {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 namespace hel {
 namespace common {
@@ -31,8 +28,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::lowper::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -72,9 +68,6 @@ private:
     BackEffectCtrl mBackEffectCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

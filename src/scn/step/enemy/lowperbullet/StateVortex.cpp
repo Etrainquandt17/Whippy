@@ -89,7 +89,4 @@ void StateVortex::procMove() {
 
 void StateVortex::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet

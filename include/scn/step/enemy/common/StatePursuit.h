@@ -15,9 +15,6 @@ public:
     virtual ~StatePursuit();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

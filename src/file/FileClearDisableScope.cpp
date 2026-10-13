@@ -13,4 +13,4 @@ FileClearDisableScope::~FileClearDisableScope() {
     hel::common::ExplicitSingleton<app::Application>::object_->fileManager().disableClearDec();
 }
 
-}
+}  // namespace file

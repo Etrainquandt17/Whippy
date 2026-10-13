@@ -44,9 +44,6 @@ struct Param {
     f32 mWaveShotAngleMax;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 #endif

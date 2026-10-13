@@ -26,6 +26,6 @@ private:
     MArray<const char*> mSymbols;
 };
 
-}
+}  // namespace mintvm
 
 #endif

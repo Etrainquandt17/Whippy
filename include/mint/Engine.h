@@ -21,6 +21,6 @@ private:
     mintvm::VMCore mCore;
 };
 
-}
+}  // namespace mint
 
 #endif

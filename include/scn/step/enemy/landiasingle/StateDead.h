@@ -18,9 +18,6 @@ public:
     StateDead(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

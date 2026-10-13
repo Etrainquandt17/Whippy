@@ -158,7 +158,4 @@ void SuperBeam::onStateEndCleanUp() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superbeam

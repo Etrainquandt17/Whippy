@@ -18,7 +18,4 @@ bool BrainWalkStraight::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

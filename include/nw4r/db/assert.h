@@ -7,8 +7,7 @@ namespace db {
 void Panic(const char* file, int line, const char* format, ...);
 void Warning(const char* file, int line, const char* format, ...);
 
-}
-}
+}}  // namespace nw4r::db
 
 // The library's inline functions keep their assertions in this game, under the file names and lines of its own headers.
 #define NW4R_ASSERTMSG_AT(file, line, exp, ...) ((void)((exp) || (nw4r::db::Panic(file, line, __VA_ARGS__), 0)))

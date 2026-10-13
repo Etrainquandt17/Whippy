@@ -21,9 +21,6 @@ private:
     bool mIsSoft;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

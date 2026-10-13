@@ -78,7 +78,4 @@ void StateBomb::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet

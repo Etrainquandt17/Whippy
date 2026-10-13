@@ -103,7 +103,4 @@ void StateCarryItemCatch::procFixPos() {
     Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

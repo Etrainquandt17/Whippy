@@ -24,9 +24,6 @@ private:
     gobj::MoveParamAccel mAccel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

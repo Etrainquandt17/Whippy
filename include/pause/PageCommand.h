@@ -23,6 +23,6 @@ private:
     u32 _4[0x72];
 };
 
-}
+}  // namespace pause
 
 #endif

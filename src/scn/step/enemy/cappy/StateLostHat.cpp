@@ -53,7 +53,4 @@ void StateLostHat::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappy

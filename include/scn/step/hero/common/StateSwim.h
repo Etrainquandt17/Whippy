@@ -15,9 +15,6 @@ public:
     StateSwim(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

@@ -43,7 +43,4 @@ void BrainFly::update() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman

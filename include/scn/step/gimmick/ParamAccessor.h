@@ -24,8 +24,6 @@ private:
     param::ParamAccessor mAccessor;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

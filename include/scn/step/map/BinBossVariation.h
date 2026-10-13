@@ -10,8 +10,6 @@ enum BinBossVariation {
     BinBossVariation_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

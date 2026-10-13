@@ -69,7 +69,4 @@ void StateSwellRollingRebound::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

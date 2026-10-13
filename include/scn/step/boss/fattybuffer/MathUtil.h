@@ -13,9 +13,6 @@ inline f32 t_Interpolate(const f32& value, const f32& target, f32 rate) {
     return rate * (target - value) + value;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

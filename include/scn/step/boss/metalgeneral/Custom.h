@@ -14,10 +14,7 @@ namespace metalgeneral {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 namespace hel {
 namespace common {
@@ -26,8 +23,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::metalgeneral::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -57,9 +53,6 @@ private:
     DamageInfoCtrl mDamageInfoCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

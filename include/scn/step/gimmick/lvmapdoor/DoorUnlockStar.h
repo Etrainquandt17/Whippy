@@ -60,9 +60,6 @@ private:
     State mState;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor
 
 #endif

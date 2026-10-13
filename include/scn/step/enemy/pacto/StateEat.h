@@ -23,9 +23,6 @@ private:
     int mDamageWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto
 
 #endif

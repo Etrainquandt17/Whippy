@@ -15,9 +15,6 @@ struct ParamData {
     s32 mAttackNum;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer
 
 #endif

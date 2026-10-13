@@ -14,9 +14,7 @@ enum WarpStarRidePosKind {
     WARP_STAR_RIDE_POS_KIND_NUM = 4,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 namespace hel {
 namespace common {
@@ -44,8 +42,7 @@ private:
     scn::step::hero::WarpStarRidePosKind mArray[4];
 };
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -56,8 +53,6 @@ public:
     static WarpStarRidePosKind GetWarpStarRidePosKind(const hel::common::Array<Kind, 4>& kinds, u32 index);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

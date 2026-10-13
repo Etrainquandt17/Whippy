@@ -17,8 +17,6 @@ public:
     hel::math::Vector2 offset(const mcoll::detail::MoveGridGroupId& id) const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

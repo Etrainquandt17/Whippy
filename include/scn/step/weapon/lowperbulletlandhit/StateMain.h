@@ -23,9 +23,6 @@ private:
     bool _11;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowperbulletlandhit
 
 #endif

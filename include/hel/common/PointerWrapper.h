@@ -27,7 +27,6 @@ template <typename T>
 PointerWrapper<T>::PointerWrapper()
     : mPtr(0) {}
 
-}
-}
+}}  // namespace hel::common
 
 #endif

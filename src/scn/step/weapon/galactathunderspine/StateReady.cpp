@@ -25,7 +25,4 @@ void StateReady::procMove() {}
 
 void StateReady::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactathunderspine

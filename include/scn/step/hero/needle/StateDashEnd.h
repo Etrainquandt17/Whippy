@@ -21,9 +21,6 @@ private:
     bool mIsRight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle
 
 #endif

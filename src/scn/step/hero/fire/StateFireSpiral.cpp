@@ -73,7 +73,4 @@ void StateFireSpiral::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire

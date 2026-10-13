@@ -11,10 +11,7 @@ namespace foley {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::foley
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::foley::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -48,9 +44,6 @@ private:
     bool mIsAttack;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::foley
 
 #endif

@@ -36,9 +36,6 @@ struct ParamData {
     f32 mSharpshootSpeedExtra;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

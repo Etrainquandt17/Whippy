@@ -26,9 +26,6 @@ private:
     f32 mStartX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

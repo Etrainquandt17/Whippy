@@ -17,9 +17,6 @@ public:
     StateFireBurning(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire
 
 #endif

@@ -12,8 +12,6 @@ enum BinEnemySize {
     BinEnemySize_Gigant,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

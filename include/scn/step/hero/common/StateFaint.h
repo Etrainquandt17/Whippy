@@ -22,9 +22,6 @@ private:
     bool mIsPauseDisable;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

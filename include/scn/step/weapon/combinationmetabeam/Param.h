@@ -25,9 +25,6 @@ struct Param {
     f32 _2C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationmetabeam
 
 #endif

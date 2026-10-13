@@ -29,7 +29,4 @@ void MapCollCtrl::setBalloon() {
     mBoss.mapColl().reset();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

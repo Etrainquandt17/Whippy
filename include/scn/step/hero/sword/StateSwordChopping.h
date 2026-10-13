@@ -26,9 +26,6 @@ private:
     bool mIsRetry;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword
 
 #endif

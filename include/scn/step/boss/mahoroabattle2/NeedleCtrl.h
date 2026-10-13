@@ -14,9 +14,6 @@ public:
     void request(const hel::math::Vector2& _1, const hel::math::Vector2& _2);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle2
 
 #endif

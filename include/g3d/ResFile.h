@@ -18,6 +18,6 @@ private:
     ResFileAccessor mResAccessor;
 };
 
-}
+}  // namespace g3d
 
 #endif

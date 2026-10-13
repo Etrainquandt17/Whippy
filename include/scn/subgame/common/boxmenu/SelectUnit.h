@@ -30,9 +30,6 @@ private:
     bool _42;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::boxmenu
 
 #endif

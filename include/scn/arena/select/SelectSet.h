@@ -20,8 +20,6 @@ public:
     mem::AutoHeapExp& heap();
 };
 
-}
-}
-}
+}}}  // namespace scn::arena::select
 
 #endif

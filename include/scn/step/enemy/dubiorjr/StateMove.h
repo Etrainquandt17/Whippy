@@ -19,9 +19,6 @@ public:
     virtual ~StateMove();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::dubiorjr
 
 #endif

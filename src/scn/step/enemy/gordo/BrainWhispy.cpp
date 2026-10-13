@@ -18,7 +18,4 @@ bool BrainWhispy::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo

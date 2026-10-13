@@ -42,7 +42,4 @@ void StateSmashed::procMove() {
     obj().move().airDecelFall(obj().param().waddledee().mSmashedDecel, obj().param().waddledee().mSmashedFall);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

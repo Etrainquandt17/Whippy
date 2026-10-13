@@ -18,9 +18,6 @@ public:
     virtual ~AccessProtectedSingletonAccessor();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::util
 
 #endif

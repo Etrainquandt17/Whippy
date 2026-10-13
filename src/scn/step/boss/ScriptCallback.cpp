@@ -31,6 +31,4 @@ void ScriptCallback::onScriptExecPost(const gobj::Script& script) {
     Utility::MintUnregister(mBoss);
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

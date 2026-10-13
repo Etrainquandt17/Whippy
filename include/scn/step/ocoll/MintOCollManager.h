@@ -16,9 +16,6 @@ void Register(::ocoll::Manager& manager);
 void Unregister(::ocoll::Manager& manager);
 ::ocoll::Manager& Ref();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::ocoll::MintOCollManager
 
 #endif

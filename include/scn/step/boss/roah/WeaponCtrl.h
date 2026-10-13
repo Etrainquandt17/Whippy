@@ -43,9 +43,6 @@ private:
     u32 _0[0x250 / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

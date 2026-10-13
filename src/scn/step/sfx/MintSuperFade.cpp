@@ -273,7 +273,4 @@ void SetBack(bool back) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::sfx::MintSuperFade

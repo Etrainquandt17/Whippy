@@ -21,7 +21,6 @@ public:
     f32 mFar;
 };
 
-}
-}
+}}  // namespace nrel::ezrender
 
 #endif

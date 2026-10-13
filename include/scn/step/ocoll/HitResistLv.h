@@ -16,8 +16,6 @@ enum HitResistLv {
     HIT_RESIST_LV_6,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ocoll
 
 #endif

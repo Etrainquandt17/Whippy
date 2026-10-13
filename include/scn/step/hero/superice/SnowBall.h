@@ -22,9 +22,6 @@ private:
     u32 _0[0x44 / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superice
 
 #endif

@@ -15,8 +15,6 @@ public:
     void notifyStopPinchAnim(HeroStatusIcon* icon);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

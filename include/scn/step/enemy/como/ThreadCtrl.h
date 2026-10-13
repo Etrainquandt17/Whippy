@@ -37,9 +37,6 @@ private:
     util::ObjRefHandle<weapon::Weapon> mThread;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 #endif

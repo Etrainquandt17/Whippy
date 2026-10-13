@@ -22,6 +22,6 @@ private:
     NodeLocalMtx* mMtx;
 };
 
-}
+}  // namespace g3d
 
 #endif

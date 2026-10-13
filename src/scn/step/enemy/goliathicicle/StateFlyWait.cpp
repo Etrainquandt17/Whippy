@@ -78,7 +78,4 @@ void StateFlyWait::procMove() {}
 
 void StateFlyWait::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathicicle

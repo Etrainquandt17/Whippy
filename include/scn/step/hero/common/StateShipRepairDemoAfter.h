@@ -23,9 +23,6 @@ private:
     hel::math::Vector3 mPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

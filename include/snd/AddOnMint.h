@@ -12,7 +12,6 @@ namespace AddOnMint {
 
 void RegisterAll(mintvm::VMCore& core);
 
-}
-}
+}}  // namespace snd::AddOnMint
 
 #endif

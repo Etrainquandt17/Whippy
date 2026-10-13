@@ -26,9 +26,6 @@ private:
     void generateItem(map::BinItemKind kind);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

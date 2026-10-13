@@ -14,9 +14,6 @@ struct Param {
     u32 _4;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::beamcaptureshot
 
 #endif

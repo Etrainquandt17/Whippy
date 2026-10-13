@@ -60,7 +60,4 @@ bool CannonCaptureCtrl::isCapture() const {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

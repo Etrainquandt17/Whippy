@@ -11,10 +11,7 @@ namespace poppybrojrbomb {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojrbomb
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::poppybrojrbomb::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ public:
     virtual bool onInWater();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojrbomb
 
 #endif

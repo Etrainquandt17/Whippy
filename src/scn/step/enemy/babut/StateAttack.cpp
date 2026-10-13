@@ -82,7 +82,4 @@ void StateAttack::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut

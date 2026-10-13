@@ -33,7 +33,4 @@ void StateGrandLowperEscapeStart::procMove() {
 
 void StateGrandLowperEscapeStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight

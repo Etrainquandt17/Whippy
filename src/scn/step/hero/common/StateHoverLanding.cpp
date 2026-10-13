@@ -49,7 +49,4 @@ void StateHoverLanding::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

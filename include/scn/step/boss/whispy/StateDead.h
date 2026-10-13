@@ -26,9 +26,6 @@ private:
     hel::math::Vector3 mStartPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

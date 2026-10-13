@@ -135,7 +135,4 @@ void StateDeadEscape::procMove() {
 
 void StateDeadEscape::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

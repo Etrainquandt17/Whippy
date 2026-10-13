@@ -25,9 +25,6 @@ private:
     util::ObjRefHandle<Boss> mDummy;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

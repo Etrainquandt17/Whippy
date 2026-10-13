@@ -23,9 +23,6 @@ public:
     virtual ~StateTwinBreath();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

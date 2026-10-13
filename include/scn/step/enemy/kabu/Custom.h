@@ -22,10 +22,7 @@ private:
     bool mIsInvisible;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu
 
 namespace hel {
 namespace common {
@@ -33,7 +30,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::kabu::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

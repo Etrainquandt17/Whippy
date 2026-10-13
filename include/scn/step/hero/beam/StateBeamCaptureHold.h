@@ -14,9 +14,6 @@ public:
     StateBeamCaptureHold(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam
 
 #endif

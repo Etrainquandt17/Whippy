@@ -10,8 +10,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace gfx {
 
@@ -35,6 +34,6 @@ private:
     bool mIsInitialized;
 };
 
-}
+}  // namespace gfx
 
 #endif

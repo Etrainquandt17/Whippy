@@ -24,9 +24,6 @@ private:
     bool mIsRightDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf
 
 #endif

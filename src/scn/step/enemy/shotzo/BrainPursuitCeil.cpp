@@ -35,7 +35,4 @@ bool BrainPursuitCeil::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo

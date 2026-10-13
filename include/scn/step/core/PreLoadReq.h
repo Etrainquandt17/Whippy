@@ -16,8 +16,7 @@ class Result;
 }
 namespace shipdoor {
 class Result;
-}
-}
+}}  // namespace gimmick::shipdoor
 
 namespace core {
 
@@ -40,8 +39,6 @@ private:
     bool mIsRequested;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

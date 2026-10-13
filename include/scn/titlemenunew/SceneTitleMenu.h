@@ -40,7 +40,6 @@ private:
     u32 _4[0xB2D];
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

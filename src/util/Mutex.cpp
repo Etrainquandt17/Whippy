@@ -118,4 +118,4 @@ ScopedMutex::~ScopedMutex() {
     mMutex->unlock();
 }
 
-}
+}  // namespace util

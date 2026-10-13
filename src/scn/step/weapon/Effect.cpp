@@ -40,6 +40,4 @@ void Effect::onObjStopFinished() {
     onHitStopEnd();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

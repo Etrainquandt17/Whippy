@@ -323,7 +323,4 @@ bool OnGameEndGuide::isOpenedFlipGuide() const {
     return _1BA9;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::title::window

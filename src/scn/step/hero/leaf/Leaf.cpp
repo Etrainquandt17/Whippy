@@ -123,7 +123,4 @@ bool Leaf::tryToChangeStateOnInterval() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf

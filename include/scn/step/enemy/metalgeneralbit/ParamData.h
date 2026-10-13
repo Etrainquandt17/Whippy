@@ -21,9 +21,6 @@ struct ParamData {
     u32 mDeadFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit
 
 #endif

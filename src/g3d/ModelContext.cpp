@@ -42,4 +42,4 @@ bool ModelContext::DefaultIsCreateNodeLocalMtx() {
     return true;
 }
 
-}
+}  // namespace g3d

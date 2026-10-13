@@ -89,6 +89,4 @@ CustomFlash& Flash::custom() {
     return mCustom;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

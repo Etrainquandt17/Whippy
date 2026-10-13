@@ -56,7 +56,4 @@ bool CliffChecker::isCliff() const {
     return mIsCliff;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa

@@ -79,7 +79,4 @@ void StateStartJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

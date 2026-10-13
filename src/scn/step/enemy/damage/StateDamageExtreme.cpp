@@ -114,7 +114,4 @@ void StateDamageExtreme::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

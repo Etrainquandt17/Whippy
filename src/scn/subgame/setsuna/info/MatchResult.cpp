@@ -164,7 +164,4 @@ u32 MatchResult::addedAllBonusScore() const {
     return _4 + _C * 30 + (_10 ? 50 : 0);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::info

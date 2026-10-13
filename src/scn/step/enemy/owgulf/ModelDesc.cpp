@@ -47,7 +47,4 @@ chara::ModelDesc& Create() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

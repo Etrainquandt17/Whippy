@@ -25,9 +25,6 @@ private:
     u32 mFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::algorithm
 
 #endif

@@ -89,7 +89,4 @@ void StateBound1::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple

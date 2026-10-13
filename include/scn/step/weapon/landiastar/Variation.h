@@ -13,9 +13,6 @@ enum Variation {
     VARIATION_2
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiastar
 
 #endif

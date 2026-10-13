@@ -97,8 +97,7 @@ private:
     bool& mFlag;
 };
 
-}
-}
+}}  // namespace info::sequence
 
 // Read here and not at the top: the order of the tables in .data depends on where util::Delegate<void (), 64>
 // is first needed.
@@ -688,5 +687,4 @@ void Sequence::nextCommand() {
     } while (command->isFinished());
 }
 
-}
-}
+}}  // namespace info::sequence

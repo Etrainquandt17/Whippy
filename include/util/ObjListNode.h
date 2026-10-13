@@ -36,6 +36,6 @@ protected:
     T* mObj;
 };
 
-}
+}  // namespace util
 
 #endif

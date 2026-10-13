@@ -54,7 +54,4 @@ void StateAttack::procFixPos() {
     StateFall::TryToChangeState(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

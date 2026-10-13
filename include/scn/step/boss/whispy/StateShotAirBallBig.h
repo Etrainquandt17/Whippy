@@ -19,9 +19,6 @@ private:
     void reqAirBallIN(const hel::math::Vector2& offset, const hel::math::Vector2& target);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

@@ -26,8 +26,6 @@ public:
     virtual void setupSuperEnemyEffect() = 0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

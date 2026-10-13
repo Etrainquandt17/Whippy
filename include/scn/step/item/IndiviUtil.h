@@ -23,8 +23,6 @@ public:
     static const chara::ModelDesc& ModelDesc(Component& comp, map::BinItemKind kind, u32 variation);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::item
 
 #endif

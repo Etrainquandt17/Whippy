@@ -51,8 +51,6 @@ struct StoneParam {
     StoneParamUpper _5C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

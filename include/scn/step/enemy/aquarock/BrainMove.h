@@ -15,9 +15,6 @@ public:
     virtual bool onStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock
 
 #endif

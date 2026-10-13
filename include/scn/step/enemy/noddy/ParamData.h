@@ -15,9 +15,6 @@ struct ParamData {
     gobj::MoveParamAccel mAccel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::noddy
 
 #endif

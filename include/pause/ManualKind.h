@@ -45,6 +45,6 @@ enum ManualKind {
     MANUAL_KIND_35,
 };
 
-}
+}  // namespace pause
 
 #endif

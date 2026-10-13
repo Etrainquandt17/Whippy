@@ -23,9 +23,6 @@ struct ParamData {
     f32 mCliffFrontDist;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

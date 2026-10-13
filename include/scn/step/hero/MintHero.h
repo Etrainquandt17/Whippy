@@ -13,9 +13,6 @@ void Register(Hero& obj);
 void Unregister(Hero& obj);
 Hero& Obj();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintHero
 
 #endif

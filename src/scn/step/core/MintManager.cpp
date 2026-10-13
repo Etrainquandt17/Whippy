@@ -20,6 +20,4 @@ mint::Engine& MintManager::engine() {
     return mEngine;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::core

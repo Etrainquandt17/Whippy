@@ -23,9 +23,6 @@ private:
     f32 mRotV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::wingshot
 
 #endif

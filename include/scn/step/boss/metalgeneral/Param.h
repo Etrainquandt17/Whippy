@@ -173,9 +173,6 @@ struct Param {
     int mDamageInfoRandNumber;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

@@ -11,8 +11,6 @@ enum BinItemVariation {
     BinItemVariation_1,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

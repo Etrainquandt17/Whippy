@@ -14,6 +14,6 @@ public:
     u64 getCollidedHitOwnerRootUid(u32 index) const;
 };
 
-}
+}  // namespace ocoll
 
 #endif

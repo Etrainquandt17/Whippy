@@ -26,9 +26,6 @@ private:
     dynamics::Desc mHatDynamics;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword
 
 #endif

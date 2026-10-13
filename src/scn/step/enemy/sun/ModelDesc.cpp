@@ -57,7 +57,4 @@ chara::ModelDesc& CreateMeteo() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sun

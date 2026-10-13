@@ -39,7 +39,4 @@ f32 PostureCtrl::getUpSign() const {
     return mAngle < 90.0f ? 1.0f : -1.0f;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

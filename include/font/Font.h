@@ -25,6 +25,6 @@ private:
     bool mLoaded;
 };
 
-}
+}  // namespace font
 
 #endif

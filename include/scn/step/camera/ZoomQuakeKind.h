@@ -10,8 +10,6 @@ enum ZoomQuakeKind {
     ZOOM_QUAKE_KIND_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

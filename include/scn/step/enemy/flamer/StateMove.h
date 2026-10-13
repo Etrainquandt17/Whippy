@@ -31,9 +31,6 @@ public:
     virtual bool isInitCWR() const { return false; }
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer
 
 #endif

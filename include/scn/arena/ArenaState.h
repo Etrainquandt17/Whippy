@@ -12,7 +12,6 @@ enum ArenaState {
     ARENA_STATE_7,
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

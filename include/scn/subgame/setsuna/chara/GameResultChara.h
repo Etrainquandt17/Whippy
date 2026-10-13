@@ -46,9 +46,6 @@ private:
     hel::math::Vector3 _3D8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara
 
 #endif

@@ -10,8 +10,6 @@ enum ShakeKind {
     SHAKE_KIND_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

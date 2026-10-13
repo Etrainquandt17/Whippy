@@ -71,7 +71,4 @@ void StateMoveSinCurve::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo

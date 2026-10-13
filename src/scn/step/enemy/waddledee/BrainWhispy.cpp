@@ -24,7 +24,4 @@ bool BrainWhispy::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

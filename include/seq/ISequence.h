@@ -7,8 +7,7 @@
 namespace hel {
 namespace common {
 class RuntimeTypeInfo;
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 class IScene;
@@ -30,6 +29,6 @@ public:
     virtual void onSceneEnd(scn::IScene& scene) = 0;
 };
 
-}
+}  // namespace seq
 
 #endif

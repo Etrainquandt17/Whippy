@@ -56,8 +56,6 @@ public:
     ::mcoll::detail::MoveGridGroupId groupFloor() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

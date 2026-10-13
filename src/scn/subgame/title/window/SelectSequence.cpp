@@ -58,7 +58,4 @@ int SelectSequence::nextSeq() const {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::title::window

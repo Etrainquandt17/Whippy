@@ -50,7 +50,4 @@ void StateMoveThunderStart::procMove() {
 
 void StateMoveThunderStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

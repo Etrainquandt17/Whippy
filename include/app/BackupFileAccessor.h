@@ -62,6 +62,6 @@ private:
     GameMode mExtra;
 };
 
-}
+}  // namespace app
 
 #endif

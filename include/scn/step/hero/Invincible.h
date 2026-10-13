@@ -23,8 +23,6 @@ private:
     bool mIsMighty;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

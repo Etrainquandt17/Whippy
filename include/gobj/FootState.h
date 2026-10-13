@@ -16,6 +16,6 @@ private:
     bool mIsGround;
 };
 
-}
+}  // namespace gobj
 
 #endif

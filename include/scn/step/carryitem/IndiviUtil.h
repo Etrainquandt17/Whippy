@@ -13,8 +13,6 @@ public:
     static bool IsUniqueItem(map::BinCarryItemKind kind);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

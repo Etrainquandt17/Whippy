@@ -22,9 +22,6 @@ struct ParamData {
     u32 mDisappearReceiverFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::clayn
 
 #endif

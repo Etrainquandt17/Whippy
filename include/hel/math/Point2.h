@@ -22,7 +22,6 @@ private:
     f32 mY;
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

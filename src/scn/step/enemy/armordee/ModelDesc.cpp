@@ -40,7 +40,4 @@ chara::ModelDesc& HalcandleCreate() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::armordee

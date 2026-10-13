@@ -58,7 +58,4 @@ void StateWait::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

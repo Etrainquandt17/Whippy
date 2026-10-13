@@ -11,10 +11,7 @@ namespace mahoroalowper {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroalowper
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::mahoroalowper::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ public:
     virtual bool onDamaged();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroalowper
 
 #endif

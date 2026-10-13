@@ -104,7 +104,4 @@ void StateDamageL::procMove() {
 
 void StateDamageL::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

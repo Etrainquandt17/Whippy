@@ -11,7 +11,6 @@ struct Vec2 {
     f32 y;
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

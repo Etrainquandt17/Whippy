@@ -13,9 +13,6 @@ public:
     GridPos gridPos() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::block
 
 #endif

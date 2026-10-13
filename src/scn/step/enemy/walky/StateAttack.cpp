@@ -94,7 +94,4 @@ void StateAttack::shot(u32 variation) {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky

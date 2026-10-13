@@ -24,9 +24,6 @@ private:
     hel::math::Vector3 mDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

@@ -10,10 +10,7 @@ namespace kingsdoo {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::kingsdoo::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ public:
     virtual void onProcFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 #endif

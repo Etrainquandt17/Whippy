@@ -28,9 +28,6 @@ private:
     bool mIsAttackEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 #endif

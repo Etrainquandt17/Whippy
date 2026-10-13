@@ -18,9 +18,6 @@ public:
     virtual ~StateAttackShot();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::hothead
 
 #endif

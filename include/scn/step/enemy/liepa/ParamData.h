@@ -21,9 +21,6 @@ struct ParamData {
     f32 mAttackAngle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::liepa
 
 #endif

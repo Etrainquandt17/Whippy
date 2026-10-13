@@ -114,5 +114,4 @@ u32 GGame::checkAllUfoState(GGUfoState state) {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::goalgame

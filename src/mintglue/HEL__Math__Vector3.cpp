@@ -55,5 +55,4 @@ void AddOn(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "HEL.Math.Vector3", "const HEL.Math.Vector3 Create(float,float,float)", Create, &AddOnMathVector3::Create);
 }
 
-}
-}
+}}  // namespace mintglue::HEL__Math__Vector3

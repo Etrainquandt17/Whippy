@@ -117,9 +117,6 @@ struct Param {
     u32 _270;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

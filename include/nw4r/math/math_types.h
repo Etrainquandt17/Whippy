@@ -119,7 +119,6 @@ inline MTX34* MTX34RotXYZDeg(MTX34* out, f32 dx, f32 dy, f32 dz) {
 MTX44* MTX44Identity(MTX44* out);
 MTX44* MTX44Copy(MTX44* out, const MTX44* in);
 
-}
-}
+}}  // namespace nw4r::math
 
 #endif

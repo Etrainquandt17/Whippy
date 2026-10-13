@@ -24,9 +24,6 @@ private:
     s32 mAttackFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky
 
 #endif

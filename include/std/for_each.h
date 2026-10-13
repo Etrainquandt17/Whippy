@@ -11,6 +11,6 @@ inline Function for_each(InputIterator first, InputIterator last, Function f) {
     return f;
 }
 
-}
+}  // namespace std
 
 #endif

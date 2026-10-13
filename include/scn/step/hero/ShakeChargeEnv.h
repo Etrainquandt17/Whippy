@@ -15,8 +15,6 @@ struct ShakeChargeEnv {
     u32 _C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

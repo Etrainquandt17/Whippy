@@ -41,6 +41,6 @@ private:
     xdata::XData mXData;
 };
 
-}
+}  // namespace mint
 
 #endif

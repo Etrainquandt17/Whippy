@@ -31,6 +31,6 @@ private:
     util::PlacementNew<lyt::Layout> mImage;
 };
 
-}
+}  // namespace pause
 
 #endif

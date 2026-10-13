@@ -17,8 +17,7 @@ class Script;
 namespace hel {
 namespace math {
 class Matrix34;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -65,8 +64,6 @@ public:
     void unsetDrawLayerForce();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

@@ -14,6 +14,6 @@ private:
     bool mEnabled;
 };
 
-}
+}  // namespace util
 
 #endif

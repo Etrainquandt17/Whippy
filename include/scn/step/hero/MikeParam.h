@@ -12,8 +12,6 @@ struct MikeParam {
     ShakeChargeEnv _0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

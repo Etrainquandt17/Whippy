@@ -80,7 +80,4 @@ bool SubAnimCtrl::chkValidAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah

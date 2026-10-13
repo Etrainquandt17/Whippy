@@ -29,7 +29,4 @@ void StateMahoroa1Disappear::procMove() {
 
 void StateMahoroa1Disappear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

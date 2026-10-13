@@ -33,6 +33,6 @@ public:
     bool _F;
 };
 
-}
+}  // namespace g3d
 
 #endif

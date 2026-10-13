@@ -112,7 +112,4 @@ void StateParasolRelease::procFixPos() {
 
 void StateParasolRelease::procObjCollReact() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

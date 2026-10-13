@@ -12,10 +12,7 @@ namespace juckle {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::juckle
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::juckle::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -58,9 +54,6 @@ private:
     bool mDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::juckle
 
 #endif

@@ -28,8 +28,6 @@ private:
     u32 mAnimFrame;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

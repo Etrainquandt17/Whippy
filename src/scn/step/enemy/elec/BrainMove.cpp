@@ -45,7 +45,4 @@ bool BrainMove::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec

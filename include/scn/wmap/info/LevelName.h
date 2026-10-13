@@ -10,14 +10,12 @@
 namespace info {
 namespace common {
 class WiiButton;
-}
-}
+}}  // namespace info::common
 
 namespace hel {
 namespace math {
 class Matrix44;
-}
-}
+}}  // namespace hel::math
 
 namespace lyt {
 class Layout;
@@ -72,8 +70,6 @@ private:
     bool _5E;
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::info
 
 #endif

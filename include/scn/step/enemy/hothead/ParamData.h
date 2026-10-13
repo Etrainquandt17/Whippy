@@ -15,9 +15,6 @@ struct ParamData {
     f32 mNearDist;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::hothead
 
 #endif

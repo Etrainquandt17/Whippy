@@ -180,6 +180,4 @@ bool IndiviUtil::CanHover(Kind kind) {
 }
 #pragma dont_inline reset
 
-}
-}
-}
+}}}  // namespace scn::step::hero

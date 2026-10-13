@@ -121,7 +121,4 @@ void StateAttack::reqCutterBackCircle() {
     custom.enemyCtrl().request(EnemyCtrl::CUTTER_KIND_BACK_CIRCLE, pos, velocity, false);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble

@@ -59,7 +59,4 @@ void StateMain::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiasinglefirerain

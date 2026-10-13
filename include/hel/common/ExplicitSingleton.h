@@ -32,7 +32,6 @@ protected:
 template <typename T>
 T* ExplicitSingleton<T>::object_;
 
-}
-}
+}}  // namespace hel::common
 
 #endif

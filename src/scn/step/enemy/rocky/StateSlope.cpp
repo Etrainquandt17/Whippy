@@ -64,7 +64,4 @@ void StateSlope::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky

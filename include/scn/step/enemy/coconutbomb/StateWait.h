@@ -18,9 +18,6 @@ public:
     StateWait(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::coconutbomb
 
 #endif

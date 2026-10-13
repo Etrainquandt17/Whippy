@@ -35,4 +35,4 @@ bool SimpleGCHID::isConnected() const {
     return mPrevUpdateData.isConnected;
 }
 
-}
+}  // namespace hid

@@ -24,9 +24,6 @@ private:
     bool mIsLoop;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee
 
 #endif

@@ -30,9 +30,6 @@ private:
     JumpKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

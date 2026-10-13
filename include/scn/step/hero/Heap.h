@@ -25,8 +25,6 @@ private:
     bool mIsGearAllocFromHead;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

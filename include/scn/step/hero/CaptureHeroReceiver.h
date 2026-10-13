@@ -21,8 +21,6 @@ public:
     u32 getResistPower() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

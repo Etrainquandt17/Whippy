@@ -20,9 +20,6 @@ private:
     bool mIsCaught;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 #endif

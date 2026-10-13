@@ -31,9 +31,6 @@ private:
     bool mIsHit;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu
 
 #endif

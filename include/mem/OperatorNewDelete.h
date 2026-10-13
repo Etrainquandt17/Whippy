@@ -14,6 +14,6 @@ void UnsetGlobalNewDeleteAllocator(IAllocator& allocator);
 
 }
 
-}
+}  // namespace mem
 
 #endif

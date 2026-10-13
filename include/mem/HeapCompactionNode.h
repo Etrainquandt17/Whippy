@@ -21,6 +21,6 @@ private:
     u32 mSize;
 };
 
-}
+}  // namespace mem
 
 #endif

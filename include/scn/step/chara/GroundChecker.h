@@ -17,8 +17,6 @@ public:
     void update();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

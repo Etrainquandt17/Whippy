@@ -24,6 +24,6 @@ private:
     mintvm::Runner mRunner;
 };
 
-}
+}  // namespace mint
 
 #endif

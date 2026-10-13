@@ -34,7 +34,4 @@ void StateBound::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu

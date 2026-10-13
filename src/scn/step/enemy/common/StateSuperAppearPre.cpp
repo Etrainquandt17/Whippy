@@ -43,7 +43,4 @@ void StateSuperAppearPre::procMove() {}
 
 void StateSuperAppearPre::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

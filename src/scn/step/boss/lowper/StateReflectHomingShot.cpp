@@ -122,7 +122,4 @@ void StateReflectHomingShot::reqShotBullet() {
     _10++;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

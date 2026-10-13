@@ -76,7 +76,4 @@ void StateTornadoChase::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

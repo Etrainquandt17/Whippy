@@ -42,9 +42,6 @@ private:
     hel::math::Vector3 mLocalMtxTempRot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

@@ -7,8 +7,7 @@
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace lyt {
 class PaneAccessor;
@@ -42,8 +41,6 @@ private:
     u32 _0[0x1B8 / 4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

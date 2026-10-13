@@ -75,5 +75,4 @@ int CurrentG3DAnimIndex() {
 
 void CheckIsReachableFrame(u32) {}
 
-}
-}
+}}  // namespace gobj::MintAnim

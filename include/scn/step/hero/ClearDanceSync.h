@@ -14,8 +14,6 @@ public:
     int finishAnim() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

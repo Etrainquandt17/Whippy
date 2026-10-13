@@ -24,9 +24,6 @@ private:
     int mLandFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire
 
 #endif

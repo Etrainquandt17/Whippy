@@ -10,8 +10,6 @@ enum ButtonMask {
     BUTTON_MASK_10 = 0x10
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

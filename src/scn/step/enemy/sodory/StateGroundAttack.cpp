@@ -59,7 +59,4 @@ void StateGroundAttack::procMove() {
     obj().move().groundDecel(obj().param().common().mDecel);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory

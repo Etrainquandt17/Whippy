@@ -27,8 +27,6 @@ private:
     bool mIsStopped;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::spstop
 
 #endif

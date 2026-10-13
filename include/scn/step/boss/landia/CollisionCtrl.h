@@ -31,9 +31,6 @@ public:
     void setState(State state);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

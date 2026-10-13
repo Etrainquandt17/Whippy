@@ -28,6 +28,6 @@ public:
     MValue mValue;
 };
 
-}
+}  // namespace mintvm
 
 #endif

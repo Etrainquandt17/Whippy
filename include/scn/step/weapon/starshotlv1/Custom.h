@@ -18,10 +18,7 @@ namespace starshotlv1 {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::starshotlv1
 
 namespace hel {
 namespace common {
@@ -30,8 +27,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::starshotlv1::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -54,9 +50,6 @@ private:
     bool mIsHeroAdded;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::starshotlv1
 
 #endif

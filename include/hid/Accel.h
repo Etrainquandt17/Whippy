@@ -18,6 +18,6 @@ private:
     Vec mRaw;
 };
 
-}
+}  // namespace hid
 
 #endif

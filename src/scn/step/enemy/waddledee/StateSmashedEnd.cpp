@@ -64,7 +64,4 @@ void StateSmashedEnd::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

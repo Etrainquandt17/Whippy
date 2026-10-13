@@ -18,9 +18,6 @@ public:
     StateFlyPursuit(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 #endif

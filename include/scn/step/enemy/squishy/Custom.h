@@ -11,10 +11,7 @@ namespace squishy {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::squishy::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -50,9 +46,6 @@ private:
     bool mIsJumpFromWater;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy
 
 #endif

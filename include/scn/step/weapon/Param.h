@@ -417,8 +417,6 @@ public:
     const wingshot::Param& wingShot() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

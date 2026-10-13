@@ -79,7 +79,4 @@ CutRopeStep::RestRope::RestRope(CutRopeStep& owner, u32 index)
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::cutropestep

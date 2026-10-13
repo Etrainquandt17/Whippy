@@ -8,6 +8,6 @@ public:
     static void Run(bool flag);
 };
 
-}
+}  // namespace app
 
 #endif

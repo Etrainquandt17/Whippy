@@ -17,8 +17,6 @@ public:
     void disableAlwaysRequest();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

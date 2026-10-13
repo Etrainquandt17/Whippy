@@ -23,9 +23,6 @@ private:
 #endif
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer
 
 #endif

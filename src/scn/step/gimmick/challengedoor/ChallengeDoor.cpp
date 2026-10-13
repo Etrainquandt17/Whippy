@@ -755,10 +755,7 @@ void ChallengeDoor::mfEffectReleaseDoorWelcome() {
     mEffectDoorWelcome.release();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::challengedoor
 
 // One of the hidden objects of the copy protection (docs/metafortress.md). Functions of other units reach it
 // through an address they decode from inline data.

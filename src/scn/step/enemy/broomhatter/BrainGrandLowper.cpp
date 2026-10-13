@@ -19,7 +19,4 @@ bool BrainGrandLowper::onLanding() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::broomhatter

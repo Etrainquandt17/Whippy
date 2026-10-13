@@ -48,7 +48,4 @@ void StateShootingMove::procFixPos() {
     mCenterX = obj().comp().mainCamera().getCenter().x;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

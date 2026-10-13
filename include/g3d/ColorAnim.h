@@ -20,6 +20,6 @@ private:
     u32 _0[0x70 / 4];
 };
 
-}
+}  // namespace g3d
 
 #endif

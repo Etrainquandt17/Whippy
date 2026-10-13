@@ -55,9 +55,6 @@ struct Param {
     f32 mRainBombSpeedV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

@@ -18,9 +18,6 @@ public:
     virtual ~StateBeam();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

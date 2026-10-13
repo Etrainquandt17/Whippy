@@ -44,8 +44,6 @@ public:
     virtual const util::IState& state() const = 0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::debug
 
 #endif

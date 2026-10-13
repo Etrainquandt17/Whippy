@@ -25,9 +25,6 @@ private:
     bool _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::knucklejoehadou
 
 #endif

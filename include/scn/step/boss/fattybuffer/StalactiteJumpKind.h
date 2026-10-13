@@ -15,9 +15,6 @@ enum StalactiteJumpKind {
     STALACTITE_JUMP_KIND_4,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

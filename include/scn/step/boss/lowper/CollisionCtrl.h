@@ -43,9 +43,6 @@ private:
     bool mIsHit;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

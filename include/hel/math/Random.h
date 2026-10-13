@@ -41,7 +41,6 @@ private:
     Seed mSeed;
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

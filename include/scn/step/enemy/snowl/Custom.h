@@ -11,10 +11,7 @@ namespace snowl {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::snowl
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::snowl::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     void requestBall();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::snowl
 
 #endif

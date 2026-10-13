@@ -127,7 +127,4 @@ void StateFly::flyStraight() {
     obj().location().setPos(pos);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman

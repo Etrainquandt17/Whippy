@@ -20,8 +20,6 @@ private:
     InactiveHero& mHero;
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::hero
 
 #endif

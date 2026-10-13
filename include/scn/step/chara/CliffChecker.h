@@ -16,8 +16,6 @@ public:
     void changeFrontDist(f32 dist);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

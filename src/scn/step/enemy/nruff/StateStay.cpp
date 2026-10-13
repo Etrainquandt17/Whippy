@@ -55,7 +55,4 @@ void StateStay::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::nruff

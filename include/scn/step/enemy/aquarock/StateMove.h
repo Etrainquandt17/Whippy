@@ -69,9 +69,6 @@ private:
     bool mIsShake;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock
 
 #endif

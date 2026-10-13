@@ -11,10 +11,7 @@ namespace mahoroablackhole {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroablackhole
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::mahoroablackhole::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     bool mIsRequestedChangeStateToEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroablackhole
 
 #endif

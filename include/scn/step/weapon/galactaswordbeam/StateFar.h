@@ -14,9 +14,6 @@ public:
     StateFar(Weapon* weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactaswordbeam
 
 #endif

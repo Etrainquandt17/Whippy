@@ -56,7 +56,4 @@ void StateTakeOff::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

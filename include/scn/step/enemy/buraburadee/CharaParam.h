@@ -12,10 +12,6 @@ namespace CharaParam {
 enemy::CharaParam CreateDee();
 enemy::CharaParam CreateDoo();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::buraburadee::CharaParam
 
 #endif

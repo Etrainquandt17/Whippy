@@ -23,9 +23,6 @@ private:
     bool _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

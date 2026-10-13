@@ -11,10 +11,7 @@ namespace bowby {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bowby
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::bowby::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     bool mIsAnimStart;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bowby
 
 #endif

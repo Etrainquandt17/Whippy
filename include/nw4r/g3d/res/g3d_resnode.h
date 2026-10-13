@@ -66,7 +66,6 @@ public:
     ResNode GetPrevSibling() { return ofs_to_obj<ResNode>(ref().toPrevSibling); }
 };
 
-}
-}
+}}  // namespace nw4r::g3d
 
 #endif

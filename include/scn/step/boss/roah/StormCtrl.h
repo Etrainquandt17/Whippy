@@ -30,9 +30,6 @@ private:
     u32 mTime;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

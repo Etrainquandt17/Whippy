@@ -41,4 +41,4 @@ const char* MintSetting::messageKindString(MintMsgKind kind) {
     return table[kind];
 }
 
-}
+}  // namespace mintvm

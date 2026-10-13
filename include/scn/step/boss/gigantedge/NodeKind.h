@@ -14,9 +14,6 @@ enum NodeKind {
     NODE_KIND_SHIELD,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge
 
 #endif

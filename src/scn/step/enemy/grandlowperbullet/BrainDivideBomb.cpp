@@ -35,7 +35,4 @@ bool BrainDivideBomb::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet

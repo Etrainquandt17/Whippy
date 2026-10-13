@@ -378,7 +378,4 @@ void ResultTargetNumber::initialize() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::info

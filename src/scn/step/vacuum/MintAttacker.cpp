@@ -27,7 +27,4 @@ u32 VacuumCount() {
     return t_obj->vacuumCount();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::vacuum::MintAttacker

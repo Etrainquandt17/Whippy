@@ -33,7 +33,4 @@ void StateChangeAbilityEnf::procMove() {}
 
 void StateChangeAbilityEnf::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

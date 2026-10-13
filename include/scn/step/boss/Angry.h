@@ -28,8 +28,6 @@ private:
     hel::common::FixedString<128> mBrainName;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

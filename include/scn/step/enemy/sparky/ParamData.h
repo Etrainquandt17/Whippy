@@ -21,9 +21,6 @@ struct ParamData {
     f32 mBodyRadius;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sparky
 
 #endif

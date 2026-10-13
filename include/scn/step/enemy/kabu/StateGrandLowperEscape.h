@@ -18,9 +18,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu
 
 #endif

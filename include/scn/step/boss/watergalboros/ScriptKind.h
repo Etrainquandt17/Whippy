@@ -27,9 +27,6 @@ enum ScriptKind {
     SCRIPT_KIND_16,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

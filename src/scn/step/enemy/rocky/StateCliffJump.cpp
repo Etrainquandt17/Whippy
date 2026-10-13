@@ -49,7 +49,4 @@ void StateCliffJump::procMove() {
 
 void StateCliffJump::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky

@@ -80,7 +80,4 @@ bool Utility::ReflectWall(Hero& hero, const common::ParamReflectWall& param) {
     return isReflect;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

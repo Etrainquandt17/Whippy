@@ -27,7 +27,4 @@ void BrainHang::update() {
     Utility::ChkCliffTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::buraburadee

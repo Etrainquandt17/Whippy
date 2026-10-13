@@ -44,9 +44,6 @@ private:
     f32 mRotX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

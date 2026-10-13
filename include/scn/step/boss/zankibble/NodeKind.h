@@ -12,9 +12,6 @@ enum NodeKind {
     NODE_KIND_CUTTER,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 #endif

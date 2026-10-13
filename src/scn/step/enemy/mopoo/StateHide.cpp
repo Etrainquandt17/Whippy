@@ -65,7 +65,4 @@ void StateHide::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo

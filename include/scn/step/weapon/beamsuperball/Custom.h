@@ -12,10 +12,7 @@ namespace beamsuperball {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::beamsuperball
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::beamsuperball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -47,9 +43,6 @@ private:
     hel::math::Vector3 mMoveCenter;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::beamsuperball
 
 #endif

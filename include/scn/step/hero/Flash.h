@@ -16,8 +16,6 @@ public:
     void unsetCustomColor();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

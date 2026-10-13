@@ -17,8 +17,6 @@ struct BinGmkGeneralEntry {
     u32 _1C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

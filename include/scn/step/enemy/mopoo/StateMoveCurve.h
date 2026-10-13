@@ -18,9 +18,6 @@ public:
     StateMoveCurve(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo
 
 #endif

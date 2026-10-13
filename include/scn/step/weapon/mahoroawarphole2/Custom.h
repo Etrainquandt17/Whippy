@@ -14,10 +14,7 @@ namespace mahoroawarphole2 {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroawarphole2
 
 namespace hel {
 namespace common {
@@ -26,8 +23,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::mahoroawarphole2::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -58,9 +54,6 @@ private:
     bool _19;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroawarphole2
 
 #endif

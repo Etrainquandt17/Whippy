@@ -29,9 +29,6 @@ private:
     bool mIsCameraRot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

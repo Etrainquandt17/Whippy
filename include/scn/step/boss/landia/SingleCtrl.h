@@ -33,9 +33,6 @@ public:
     bool isValid();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

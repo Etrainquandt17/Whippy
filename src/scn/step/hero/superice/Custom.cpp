@@ -23,7 +23,4 @@ SnowBall& Custom::snowBall() {
     return mSnowBall;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superice

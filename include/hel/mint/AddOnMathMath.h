@@ -13,8 +13,6 @@ namespace AddOnMathMath {
 
 void RegisterAll(mintvm::VMCore& core);
 
-}
-}
-}
+}}}  // namespace hel::mint::AddOnMathMath
 
 #endif

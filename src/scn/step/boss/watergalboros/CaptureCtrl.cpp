@@ -97,7 +97,4 @@ void CaptureCtrl::vomitSoft() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros

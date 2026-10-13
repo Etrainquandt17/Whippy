@@ -74,7 +74,6 @@ private:
     Subtitle mSubtitle;
 };
 
-}
-}
+}}  // namespace scn::movie
 
 #endif

@@ -10,6 +10,6 @@ enum SaveTiming {
     SAVE_TIMING_2,
 };
 
-}
+}  // namespace storage
 
 #endif

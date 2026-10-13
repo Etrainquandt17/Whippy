@@ -28,9 +28,6 @@ private:
     hel::math::Vector3 mBasePos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 #endif

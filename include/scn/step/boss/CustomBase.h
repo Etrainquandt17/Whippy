@@ -11,9 +11,7 @@ namespace boss {
 class Boss;
 class CustomBase;
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 namespace hel {
 namespace common {
@@ -22,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::CustomBase>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -60,8 +57,6 @@ protected:
     Boss& mBoss;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

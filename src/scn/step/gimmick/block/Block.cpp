@@ -1261,7 +1261,4 @@ const GridPos& Block::getGridPos() const {
     return mPos;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::block

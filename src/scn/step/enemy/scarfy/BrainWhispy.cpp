@@ -32,7 +32,4 @@ bool BrainWhispy::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

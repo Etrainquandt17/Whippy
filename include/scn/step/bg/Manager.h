@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -26,8 +25,6 @@ public:
     void maproSetOffset(u32 groupNo, const hel::math::Vector2& offset);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::bg
 
 #endif

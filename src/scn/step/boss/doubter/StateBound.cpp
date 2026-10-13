@@ -74,7 +74,4 @@ void StateBound::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

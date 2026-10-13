@@ -31,6 +31,4 @@ Enemy* StateBase::objPtr() {
     return &mObj;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

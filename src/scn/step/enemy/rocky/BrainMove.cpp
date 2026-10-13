@@ -22,7 +22,4 @@ bool BrainMove::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky

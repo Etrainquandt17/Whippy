@@ -35,9 +35,6 @@ private:
     bool mIsWeaponHit;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado
 
 #endif

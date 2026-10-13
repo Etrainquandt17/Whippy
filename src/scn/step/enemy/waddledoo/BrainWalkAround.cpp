@@ -21,7 +21,4 @@ void BrainWalkAround::update() {
     Utility::ChkCliffTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledoo

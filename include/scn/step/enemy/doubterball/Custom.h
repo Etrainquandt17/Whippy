@@ -11,10 +11,7 @@ namespace doubterball {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubterball
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::doubterball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ public:
     virtual bool reqCustomDeadEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubterball
 
 #endif

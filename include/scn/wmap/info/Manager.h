@@ -23,8 +23,6 @@ public:
     Main& main();
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::info
 
 #endif

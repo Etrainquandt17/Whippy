@@ -60,7 +60,4 @@ void StateSwordWaterSpin::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateMeteo();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::sun::ModelDesc
 
 #endif

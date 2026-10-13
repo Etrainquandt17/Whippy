@@ -30,9 +30,6 @@ private:
     bool mIsTurning;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu
 
 #endif

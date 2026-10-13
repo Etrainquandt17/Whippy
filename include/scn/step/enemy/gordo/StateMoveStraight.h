@@ -24,9 +24,6 @@ private:
     f32 mBaseX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo
 
 #endif

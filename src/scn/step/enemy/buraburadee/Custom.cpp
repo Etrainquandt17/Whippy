@@ -40,8 +40,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::buraburarope::Cust
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -243,7 +242,4 @@ const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<Custom>();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::buraburadee

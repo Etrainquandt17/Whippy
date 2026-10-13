@@ -32,9 +32,6 @@ private:
     bool mIsWaitAnim;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

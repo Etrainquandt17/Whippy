@@ -20,7 +20,6 @@ private:
     u32 _190[3];
 };
 
-}
-}
+}}  // namespace info::common
 
 #endif

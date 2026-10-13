@@ -25,9 +25,6 @@ private:
     bool mIsFirst;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam
 
 #endif

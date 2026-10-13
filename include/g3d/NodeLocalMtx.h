@@ -31,6 +31,6 @@ private:
     NodeLocalMtxCalcOp mCalcOp;
 };
 
-}
+}  // namespace g3d
 
 #endif

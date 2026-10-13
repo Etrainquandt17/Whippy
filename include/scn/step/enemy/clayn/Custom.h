@@ -12,10 +12,7 @@ namespace clayn {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::clayn
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::clayn::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -59,9 +55,6 @@ private:
     bool mIsDamaged;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::clayn
 
 #endif

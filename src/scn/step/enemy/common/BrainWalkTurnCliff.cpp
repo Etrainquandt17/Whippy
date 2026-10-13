@@ -100,7 +100,4 @@ bool BrainWalkTurnCliff::onLanding() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

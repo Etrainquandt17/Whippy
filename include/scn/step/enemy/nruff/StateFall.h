@@ -18,9 +18,6 @@ public:
     virtual ~StateFall();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::nruff
 
 #endif

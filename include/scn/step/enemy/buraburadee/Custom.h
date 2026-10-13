@@ -14,10 +14,7 @@ namespace buraburadee {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::buraburadee
 
 namespace hel {
 namespace common {
@@ -26,8 +23,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::buraburadee::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -69,9 +65,6 @@ private:
     bool _20;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::buraburadee
 
 #endif

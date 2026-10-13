@@ -11,10 +11,7 @@ namespace cappyhat {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappyhat
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::cappyhat::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ public:
     hel::geo::Rect calcCullingRect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappyhat
 
 #endif

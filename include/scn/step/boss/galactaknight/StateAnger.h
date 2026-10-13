@@ -29,9 +29,6 @@ private:
     u32 mFlashFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateEx();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::landiasingle::ModelDesc
 
 #endif

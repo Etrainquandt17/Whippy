@@ -26,8 +26,6 @@ public:
     bool onLanding();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

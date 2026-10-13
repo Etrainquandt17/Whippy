@@ -19,8 +19,7 @@ namespace math {
 
 class Vector2;
 
-}
-}
+}}  // namespace hel::math
 
 namespace mem {
 
@@ -135,8 +134,6 @@ public:
     DamageInvincible& damageInvincible();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

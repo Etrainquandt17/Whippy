@@ -95,7 +95,4 @@ void StateSprinkler::reqBullet() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

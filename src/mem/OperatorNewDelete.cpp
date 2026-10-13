@@ -96,5 +96,4 @@ void UnsetGlobalNewDeleteAllocator(IAllocator&) {
     t_globalNewDeleteAllocator.reset();
 }
 
-}
-}
+}}  // namespace mem::OperatorNewDelete

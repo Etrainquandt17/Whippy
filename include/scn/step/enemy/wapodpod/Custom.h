@@ -12,10 +12,7 @@ namespace wapodpod {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapodpod
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::wapodpod::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -64,9 +60,6 @@ private:
     f32 mRise;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapodpod
 
 #endif

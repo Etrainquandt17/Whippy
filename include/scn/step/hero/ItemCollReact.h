@@ -11,8 +11,6 @@ public:
     void setForbidChangeAbility(bool isForbid);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

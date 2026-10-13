@@ -113,7 +113,4 @@ void StateGlideShot::procMove() {
 
 void StateGlideShot::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

@@ -13,9 +13,6 @@ void Register(SuperFade& obj);
 void Unregister(SuperFade& obj);
 void SetBack(bool back);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::sfx::MintSuperFade
 
 #endif

@@ -29,9 +29,6 @@ struct Param {
     u32 _44;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear
 
 #endif

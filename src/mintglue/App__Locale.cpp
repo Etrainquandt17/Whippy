@@ -11,5 +11,4 @@ void AddOn(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "App.Locale", "int GetLanguage()", GetLanguage, &app::Locale::GetLanguage);
 }
 
-}
-}
+}}  // namespace mintglue::App__Locale

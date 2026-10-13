@@ -33,7 +33,4 @@ void StateGrandLowperLanding::procMove() {
 
 void StateGrandLowperLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

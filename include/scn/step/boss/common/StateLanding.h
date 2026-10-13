@@ -24,9 +24,6 @@ private:
     void init();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

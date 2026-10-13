@@ -43,7 +43,4 @@ f32 LandCtrl::getAdjustX(f32 x, f32 left, f32 right, bool isRight) const {
     return hel::math::Math::LimitMinMax(x, min, max);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

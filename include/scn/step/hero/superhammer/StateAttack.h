@@ -16,9 +16,6 @@ public:
     StateAttack(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superhammer
 
 #endif

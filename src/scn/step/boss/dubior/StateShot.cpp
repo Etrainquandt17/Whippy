@@ -68,7 +68,4 @@ void StateShot::reqShot() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

@@ -53,7 +53,4 @@ void BrainAttack::update() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::hothead

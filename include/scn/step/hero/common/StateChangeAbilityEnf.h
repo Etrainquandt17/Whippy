@@ -21,9 +21,6 @@ private:
     AbilityKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

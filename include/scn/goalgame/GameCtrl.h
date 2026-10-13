@@ -17,7 +17,6 @@ private:
     u32 _0[0x17];
 };
 
-}
-}
+}}  // namespace scn::goalgame
 
 #endif

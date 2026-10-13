@@ -49,6 +49,6 @@ private:
     T2 second_;
 };
 
-}
+}  // namespace Metrowerks
 
 #endif

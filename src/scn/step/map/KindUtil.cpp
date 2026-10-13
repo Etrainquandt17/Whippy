@@ -174,6 +174,4 @@ u32 KindUtil::ToStageIndex(StageKind stage) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::map

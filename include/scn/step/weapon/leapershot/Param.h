@@ -15,9 +15,6 @@ struct Param {
     f32 _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::leapershot
 
 #endif

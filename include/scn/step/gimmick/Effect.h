@@ -12,8 +12,7 @@ class NodeAccessor;
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace effect {
 class Requestor;
@@ -46,8 +45,6 @@ private:
     u32 _0[0x39C / 4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

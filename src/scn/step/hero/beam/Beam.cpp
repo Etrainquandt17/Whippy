@@ -179,7 +179,4 @@ void Beam::onStateEndCleanUp() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam

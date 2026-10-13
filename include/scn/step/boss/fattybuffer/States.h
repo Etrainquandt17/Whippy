@@ -51,9 +51,6 @@ public:
     virtual ~StateDisgorge();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

@@ -22,9 +22,6 @@ private:
     algorithm::AlgorithmGrandLowperAppear mAlgorithm;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu
 
 #endif

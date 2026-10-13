@@ -57,8 +57,6 @@ private:
     mutable hel::common::Array<hel::common::Array<hel::math::Vector2, 40>, 20> _1A78;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

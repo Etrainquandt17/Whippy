@@ -28,9 +28,6 @@ private:
     f32 mThetaSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::twister
 
 #endif

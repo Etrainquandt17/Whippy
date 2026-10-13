@@ -16,9 +16,6 @@ public:
     StateParasolSwing(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

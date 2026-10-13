@@ -15,9 +15,6 @@ void Register(ScriptTrigger& obj);
 void Unregister(ScriptTrigger& obj);
 void Set(u32 trigger);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintScriptTrigger
 
 #endif

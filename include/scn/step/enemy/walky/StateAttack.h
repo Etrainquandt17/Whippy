@@ -28,9 +28,6 @@ private:
     bool mIsShot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky
 
 #endif

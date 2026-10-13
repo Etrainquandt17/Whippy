@@ -112,7 +112,4 @@ void Unregister(::ocoll::Manager&) {
     return t_manager.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::ocoll::MintOCollManager

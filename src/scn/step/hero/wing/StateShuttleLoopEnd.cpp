@@ -57,7 +57,4 @@ void StateShuttleLoopEnd::procMove() {
 void StateShuttleLoopEnd::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::wing

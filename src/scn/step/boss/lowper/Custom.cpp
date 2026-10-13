@@ -177,16 +177,13 @@ const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<Custom>();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 namespace g3d {
 
 class Model;
 
-}
+}  // namespace g3d
 
 template util::ObjListNode<g3d::Model, util::ObjListDummyType>::~ObjListNode();
 

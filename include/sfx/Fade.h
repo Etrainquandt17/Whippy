@@ -18,6 +18,6 @@ private:
     u8 _0[0x140];
 };
 
-}
+}  // namespace sfx
 
 #endif

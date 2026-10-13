@@ -14,9 +14,6 @@ public:
     virtual void onRopeRequireUnsetReceiver(Custom& rope) = 0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::buraburarope
 
 #endif

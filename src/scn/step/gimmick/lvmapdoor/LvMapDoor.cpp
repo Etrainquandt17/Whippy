@@ -542,7 +542,4 @@ Manager& LvMapDoor::manager() {
     return mManager;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor

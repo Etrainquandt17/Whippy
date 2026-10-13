@@ -18,9 +18,6 @@ public:
     virtual ~StateBeamFar();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

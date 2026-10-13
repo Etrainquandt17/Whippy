@@ -28,9 +28,6 @@ inline chara::ModelDesc& CreateTmpl(const char* modelPath, const char* motionPat
     return desc;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::ModelDesc
 
 #endif

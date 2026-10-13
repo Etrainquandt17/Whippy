@@ -228,4 +228,4 @@ VMModule* VMCore::findNativeModuleMust(const char* name) {
     return module;
 }
 
-}
+}  // namespace mintvm

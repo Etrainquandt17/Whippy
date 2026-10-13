@@ -54,7 +54,4 @@ void StateHover::procMove() {
 
 void StateHover::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

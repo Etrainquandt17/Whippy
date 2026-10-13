@@ -32,8 +32,6 @@ enum BinEnemyKind {
     BinEnemyKind_Cappyhat = 101,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

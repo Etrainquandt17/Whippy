@@ -46,6 +46,4 @@ void Manager::unregisterEventReceiver(IEventReceiver& receiver) {
     mReceivers.erase(mReceivers.find(&receiver));
 }
 
-}
-}
-}
+}}}  // namespace scn::step::spstop

@@ -11,10 +11,7 @@ namespace goliath {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::goliath::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     u32 _8[173];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

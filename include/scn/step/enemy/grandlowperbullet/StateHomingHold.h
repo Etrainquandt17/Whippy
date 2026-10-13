@@ -18,9 +18,6 @@ public:
     StateHomingHold(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 #endif

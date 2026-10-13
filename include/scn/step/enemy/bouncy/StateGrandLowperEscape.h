@@ -21,9 +21,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bouncy
 
 #endif

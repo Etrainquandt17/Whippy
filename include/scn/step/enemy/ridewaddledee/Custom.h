@@ -11,10 +11,7 @@ namespace ridewaddledee {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::ridewaddledee
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::ridewaddledee::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[2];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::ridewaddledee
 
 #endif

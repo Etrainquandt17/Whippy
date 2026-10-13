@@ -599,5 +599,4 @@ void MapModelRouteEffect::mfStart() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::wmap

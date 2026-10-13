@@ -12,10 +12,7 @@ namespace pluid {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::pluid::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -57,9 +53,6 @@ private:
     bool mIsRandomFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid
 
 #endif

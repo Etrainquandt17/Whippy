@@ -66,4 +66,4 @@ int MintGearAnim::CurrentG3DAnimIndex() {
     return t_obj->currentG3DAnimIndex();
 }
 
-}
+}  // namespace gobj

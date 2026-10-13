@@ -57,7 +57,4 @@ void StateFly::procFixPos() {
     hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).updateFixPos();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gemra

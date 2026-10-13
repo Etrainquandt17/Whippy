@@ -40,6 +40,6 @@ private:
     Delegate<void(), 64> mCallback;
 };
 
-}
+}  // namespace util
 
 #endif

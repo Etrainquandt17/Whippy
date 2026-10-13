@@ -82,7 +82,4 @@ void StateAttack::procFixPos() {
     common::StateFall::TryToChangeState(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros

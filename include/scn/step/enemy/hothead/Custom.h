@@ -11,10 +11,7 @@ namespace hothead {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::hothead
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::hothead::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ public:
     int setAfterAttackFrame();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::hothead
 
 #endif

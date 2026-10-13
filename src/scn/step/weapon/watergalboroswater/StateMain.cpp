@@ -64,7 +64,4 @@ void StateMain::dead() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::watergalboroswater

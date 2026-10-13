@@ -56,6 +56,6 @@ void SequenceCallScene<Scene>::onSceneEnd(scn::IScene& scene) {
     mResult = static_cast<Scene&>(scene).result();
 }
 
-}
+}  // namespace seq
 
 #endif

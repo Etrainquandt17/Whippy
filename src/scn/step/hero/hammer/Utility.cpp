@@ -42,7 +42,4 @@ bool Utility::IsHitFrontFloor(Hero& hero) {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

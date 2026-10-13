@@ -18,9 +18,6 @@ public:
     virtual ~StateRocketCharge();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

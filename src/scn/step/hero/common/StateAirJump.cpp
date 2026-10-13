@@ -93,7 +93,4 @@ void StateAirJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

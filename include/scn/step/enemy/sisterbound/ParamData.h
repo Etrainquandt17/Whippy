@@ -26,9 +26,6 @@ struct ParamData {
     hel::math::Vector2 mHeadOffset2;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sisterbound
 
 #endif

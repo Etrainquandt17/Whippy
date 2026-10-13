@@ -15,8 +15,6 @@ public:
     hel::math::Vector2 pos() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ogen
 
 #endif

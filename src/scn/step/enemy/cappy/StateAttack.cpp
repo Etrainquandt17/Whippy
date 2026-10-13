@@ -85,7 +85,4 @@ void StateAttack::procFixPos() {
     Utility::HitFloorCheck(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappy

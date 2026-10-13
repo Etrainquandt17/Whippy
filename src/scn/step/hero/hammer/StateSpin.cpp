@@ -128,7 +128,4 @@ const HammerParamSpin& StateSpin::param() const {
     return obj().param().hammer()._0;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

@@ -70,7 +70,4 @@ void StateLanding::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

@@ -25,9 +25,6 @@ private:
     hel::common::ScopedPtr<lyt::Layout> mLayout;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::info
 
 #endif

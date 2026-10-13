@@ -31,7 +31,4 @@ EnemyReqBuff::ReqData EnemyReqBuff::pick() {
     return data;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

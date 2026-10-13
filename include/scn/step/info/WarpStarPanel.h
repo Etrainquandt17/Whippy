@@ -42,8 +42,6 @@ private:
     bool _1A3;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

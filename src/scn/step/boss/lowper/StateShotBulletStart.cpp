@@ -89,7 +89,4 @@ void StateShotBulletStart::procFixPos() {
     obj().target().setIsRightDir(isRight);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

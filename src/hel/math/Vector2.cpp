@@ -164,5 +164,4 @@ Vector2::Vector2(const Vector2& other)
     : x(other.x)
     , y(other.y) {}
 
-}
-}
+}}  // namespace hel::math

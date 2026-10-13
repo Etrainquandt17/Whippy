@@ -31,6 +31,4 @@ void StateBase::procObjCollReact() {}
 
 StateBase::~StateBase() {}
 
-}
-}
-}
+}}}  // namespace scn::step::boss

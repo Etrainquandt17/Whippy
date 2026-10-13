@@ -16,9 +16,6 @@ public:
     StateParasolParachute(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

@@ -106,7 +106,4 @@ void StateRollJump::procMove() {
 
 void StateRollJump::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath

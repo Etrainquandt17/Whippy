@@ -13,9 +13,6 @@ void SetValid(bool valid);
 void SetIntpRate(f32 rate);
 void SetAffectRate(f32 rate);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintSlopeFit
 
 #endif

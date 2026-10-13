@@ -114,6 +114,4 @@ u32 Signal::get() const {
     return mSignal;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

@@ -11,7 +11,6 @@ enum DialogKind {
     DIALOG_KIND_2,
 };
 
-}
-}
+}}  // namespace scn::challengetutorial
 
 #endif

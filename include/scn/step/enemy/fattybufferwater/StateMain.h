@@ -18,9 +18,6 @@ public:
     StateMain(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::fattybufferwater
 
 #endif

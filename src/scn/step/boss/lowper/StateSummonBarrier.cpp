@@ -83,7 +83,4 @@ void StateSummonBarrier::procMove() {}
 
 void StateSummonBarrier::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

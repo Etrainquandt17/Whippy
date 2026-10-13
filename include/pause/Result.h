@@ -18,6 +18,6 @@ enum Result {
     RESULT_8,
 };
 
-}
+}  // namespace pause
 
 #endif

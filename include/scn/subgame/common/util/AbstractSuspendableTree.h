@@ -24,9 +24,6 @@ private:
     hel::common::MutableArray<ISuspendable*, 8> mChildren;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::util
 
 #endif

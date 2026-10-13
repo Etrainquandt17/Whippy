@@ -18,9 +18,6 @@ public:
     virtual void procObjCollReact();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge
 
 #endif

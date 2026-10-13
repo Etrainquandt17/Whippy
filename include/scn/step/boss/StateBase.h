@@ -28,8 +28,6 @@ private:
     Boss& mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

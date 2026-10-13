@@ -14,8 +14,6 @@ enum ShipPartKind {
     SHIP_PART_KIND_4,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::item
 
 #endif

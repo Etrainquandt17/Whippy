@@ -19,9 +19,6 @@ struct AnimatorTarget {
     u32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 #endif

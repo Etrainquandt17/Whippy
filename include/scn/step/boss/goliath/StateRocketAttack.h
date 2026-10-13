@@ -19,9 +19,6 @@ public:
     virtual ~StateRocketAttack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

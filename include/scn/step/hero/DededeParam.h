@@ -24,8 +24,6 @@ struct DededeParam {
     int _38;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

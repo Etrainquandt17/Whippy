@@ -6,6 +6,6 @@ namespace snd {
 void onSoftReset();
 void stopAllSoundForPauseMenuDropoutScene();
 
-}
+}  // namespace snd
 
 #endif

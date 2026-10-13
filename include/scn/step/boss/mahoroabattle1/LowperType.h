@@ -12,9 +12,6 @@ enum LowperType {
     LowperType_0,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

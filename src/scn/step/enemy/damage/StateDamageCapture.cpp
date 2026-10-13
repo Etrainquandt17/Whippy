@@ -141,7 +141,4 @@ void StateDamageCapture::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

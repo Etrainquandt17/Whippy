@@ -28,10 +28,7 @@ private:
     u32 _8[7];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa
 
 namespace hel {
 namespace common {
@@ -39,7 +36,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::lupa::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

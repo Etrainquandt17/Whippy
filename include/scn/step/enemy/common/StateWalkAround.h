@@ -23,9 +23,6 @@ private:
     gobj::MoveParamAccel mAccel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

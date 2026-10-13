@@ -76,7 +76,4 @@ void StateBeamEnd::procMove() {}
 
 void StateBeamEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

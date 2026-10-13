@@ -24,9 +24,6 @@ private:
     f32 mSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

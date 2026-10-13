@@ -11,9 +11,7 @@ namespace enemy {
 class CustomBase;
 class Enemy;
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 namespace hel {
 namespace common {
@@ -22,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::CustomBase>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -55,8 +52,6 @@ private:
     Enemy& mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

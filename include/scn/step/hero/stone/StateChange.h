@@ -27,9 +27,6 @@ private:
     bool _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

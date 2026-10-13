@@ -13,6 +13,6 @@ public:
     virtual g3d::ModelAccessor g3dModel() = 0;
 };
 
-}
+}  // namespace gobj
 
 #endif

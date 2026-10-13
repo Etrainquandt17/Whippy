@@ -39,7 +39,4 @@ bool BrainWalk::onLanding() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe

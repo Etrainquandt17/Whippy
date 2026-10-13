@@ -146,5 +146,4 @@ void Rect::margeUnion(const Rect& other) {
     }
 }
 
-}
-}
+}}  // namespace hel::geo

@@ -41,9 +41,6 @@ private:
     u32 mZoomId;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

@@ -20,9 +20,6 @@ public:
     virtual void procMove();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut
 
 #endif

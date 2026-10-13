@@ -35,7 +35,4 @@ chara::ModelDesc& CreateHalcan() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::bowbyarrow

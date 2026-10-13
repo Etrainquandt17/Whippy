@@ -35,7 +35,4 @@ bool Brain6WayShot::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball

@@ -142,7 +142,4 @@ void StatePatriotTackleUpper::procMove() {
 
 void StatePatriotTackleUpper::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

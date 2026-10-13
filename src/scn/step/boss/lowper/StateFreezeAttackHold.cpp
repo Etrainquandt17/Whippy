@@ -93,7 +93,4 @@ void StateFreezeAttackHold::procMove() {}
 
 void StateFreezeAttackHold::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

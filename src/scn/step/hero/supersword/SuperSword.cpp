@@ -143,10 +143,7 @@ bool SuperSword::isDepleted() const {
     return mHero.abilityManager().getFuel() == 0;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword
 
 // One of the hidden objects of the copy protection (docs/metafortress.md). Functions of other units reach it
 // through an address they decode from inline data, so the linker would drop it as unused.

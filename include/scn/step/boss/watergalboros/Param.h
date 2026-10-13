@@ -52,9 +52,6 @@ struct Param {
     u32 mCaptureResistPower;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

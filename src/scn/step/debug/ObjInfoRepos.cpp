@@ -155,6 +155,4 @@ void ObjInfoRepos::unregisterObj(const IObjInfoImpl& obj) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::debug

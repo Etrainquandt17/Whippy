@@ -19,9 +19,6 @@ public:
     virtual ~StateBlackHole();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

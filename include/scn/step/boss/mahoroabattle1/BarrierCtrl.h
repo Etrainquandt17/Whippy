@@ -15,9 +15,6 @@ public:
     bool isHealed() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

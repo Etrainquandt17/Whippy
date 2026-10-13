@@ -24,9 +24,6 @@ private:
     bool mIsSetup;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sleep
 
 #endif

@@ -13,10 +13,6 @@ chara::ModelDesc& Create();
 chara::ModelDesc& CreateVolt();
 chara::ModelDesc& CreateCold();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::gigatzo::ModelDesc
 
 #endif

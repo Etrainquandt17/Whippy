@@ -33,9 +33,7 @@ class ObjCollLite;
 class Shadow;
 class Water;
 class WorldCage;
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 namespace scn {
 namespace step {
@@ -95,8 +93,6 @@ public:
     void setDarknessLightVisibility(bool isVisible);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

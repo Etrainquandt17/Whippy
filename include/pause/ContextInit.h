@@ -18,6 +18,6 @@ private:
     u32 _0[0x3];
 };
 
-}
+}  // namespace pause
 
 #endif

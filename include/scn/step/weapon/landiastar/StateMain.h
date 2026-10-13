@@ -15,9 +15,6 @@ public:
     StateMain(Weapon* weapon, Variation variation);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiastar
 
 #endif

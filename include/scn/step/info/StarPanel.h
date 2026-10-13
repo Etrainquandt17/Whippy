@@ -22,8 +22,6 @@ private:
     u32 _190[5];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

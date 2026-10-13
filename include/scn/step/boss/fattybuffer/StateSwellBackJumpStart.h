@@ -22,9 +22,6 @@ private:
     f32 mSpeedV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

@@ -28,9 +28,6 @@ private:
     dynamics::Desc mHatDynamicsR;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superbeam
 
 #endif

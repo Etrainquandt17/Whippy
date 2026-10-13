@@ -19,9 +19,6 @@ public:
     virtual ~StateEnergyCharge();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

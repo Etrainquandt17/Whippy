@@ -35,6 +35,4 @@ Hero* StateBase::objPtr() {
     return &mObj;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

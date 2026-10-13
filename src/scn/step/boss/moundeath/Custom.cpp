@@ -135,10 +135,7 @@ const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<Custom>();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();

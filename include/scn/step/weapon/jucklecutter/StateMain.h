@@ -21,9 +21,6 @@ private:
     f32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::jucklecutter
 
 #endif

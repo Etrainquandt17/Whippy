@@ -28,9 +28,6 @@ private:
     mem::ExplicitScopedPtr<DoorUnlockStar> mDoorUnlockStar;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor
 
 #endif

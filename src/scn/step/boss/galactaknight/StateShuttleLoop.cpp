@@ -102,7 +102,4 @@ void StateShuttleLoop::procMove() {
 
 void StateShuttleLoop::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

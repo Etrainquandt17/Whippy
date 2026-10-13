@@ -22,8 +22,6 @@ public:
     void setIsRun(bool isRun) { reinterpret_cast<bool*>(this)[0x43] = isRun; }
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

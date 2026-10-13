@@ -21,7 +21,6 @@ private:
     bool mIsFinished;
 };
 
-}
-}
+}}  // namespace info::sequence
 
 #endif

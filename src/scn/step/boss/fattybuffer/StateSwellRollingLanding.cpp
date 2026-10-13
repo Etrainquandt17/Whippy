@@ -71,7 +71,4 @@ void StateSwellRollingLanding::procMove() {
 
 void StateSwellRollingLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

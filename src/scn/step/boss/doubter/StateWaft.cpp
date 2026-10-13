@@ -58,7 +58,4 @@ void StateWaft::procMove() {
 
 void StateWaft::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

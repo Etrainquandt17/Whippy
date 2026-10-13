@@ -33,8 +33,6 @@ public:
     void setBoxState(scn::arena::ArenaData::BoxState state);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::arena
 
 #endif

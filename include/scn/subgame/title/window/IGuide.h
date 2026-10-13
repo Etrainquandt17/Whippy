@@ -12,8 +12,7 @@ class SelectableBox;
 }
 namespace pause {
 class CursorContainedButtons;
-}
-}
+}}  // namespace common::pause
 
 namespace title {
 namespace window {
@@ -47,9 +46,6 @@ public:
 
 inline IGuide::~IGuide() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::title::window
 
 #endif

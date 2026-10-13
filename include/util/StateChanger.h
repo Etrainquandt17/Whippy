@@ -191,6 +191,6 @@ private:
     u8 mStateBuffer[N];
 };
 
-}
+}  // namespace util
 
 #endif

@@ -22,9 +22,6 @@ private:
     bool mIsVomited;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

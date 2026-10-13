@@ -865,5 +865,4 @@ void ModePanel::bringToFront(IModeButton& button) {
     _8A0.setScale(hel::math::Vector2(mtx.m[0][0], mtx.m[1][1]));
 }
 
-}
-}
+}}  // namespace scn::titlemenunew

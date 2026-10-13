@@ -135,5 +135,4 @@ hel::math::Direction3 Create(const hel::math::Vector3& front, const hel::math::V
 
 }
 
-}
-}
+}}  // namespace hel::mint

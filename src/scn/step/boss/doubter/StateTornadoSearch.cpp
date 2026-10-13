@@ -74,7 +74,4 @@ void StateTornadoSearch::procMove() {
 
 void StateTornadoSearch::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

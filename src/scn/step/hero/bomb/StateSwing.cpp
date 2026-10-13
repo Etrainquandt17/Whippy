@@ -88,7 +88,4 @@ void StateSwing::procFixPos() {
     Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb

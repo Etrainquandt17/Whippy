@@ -23,9 +23,6 @@ private:
     bool mIsExploded;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches
 
 #endif

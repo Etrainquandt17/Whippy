@@ -19,6 +19,6 @@ private:
     u8 _0[0x64];
 };
 
-}
+}  // namespace lyt
 
 #endif

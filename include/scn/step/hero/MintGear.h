@@ -36,8 +36,6 @@ private:
     Gear* mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

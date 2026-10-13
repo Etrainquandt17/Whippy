@@ -11,10 +11,7 @@ namespace roahstar {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahstar
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::roahstar::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     void setInvisible();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahstar
 
 #endif

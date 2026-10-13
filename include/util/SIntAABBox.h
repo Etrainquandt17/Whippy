@@ -18,6 +18,6 @@ public:
     s32 mMaxY;
 };
 
-}
+}  // namespace util
 
 #endif

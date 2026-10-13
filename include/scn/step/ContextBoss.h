@@ -13,7 +13,6 @@ public:
     bool mIsShowLastBossAppearStagingEnf;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

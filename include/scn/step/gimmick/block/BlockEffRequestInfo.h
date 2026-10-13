@@ -21,9 +21,6 @@ public:
     };
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::block
 
 #endif

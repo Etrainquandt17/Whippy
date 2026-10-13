@@ -122,7 +122,4 @@ void BrainWait::update() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

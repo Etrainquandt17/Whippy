@@ -24,8 +24,6 @@ public:
     void endBossBattleLast2();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

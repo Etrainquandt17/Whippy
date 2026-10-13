@@ -88,7 +88,4 @@ void StateFallFar::procMove() {
 
 void StateFallFar::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

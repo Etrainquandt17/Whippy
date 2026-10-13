@@ -88,4 +88,4 @@ void N_Mint_Debug_StackDump(MintFuncProxy& proxy) {
     proxy.mRegset->dump();
 }
 
-}
+}  // namespace mintvm

@@ -28,9 +28,6 @@ private:
     hel::math::Vector2 mEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

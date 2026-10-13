@@ -21,7 +21,6 @@ private:
     f32 mCharSpace;
 };
 
-}
-}
+}}  // namespace nw4r::lyt
 
 #endif

@@ -21,6 +21,6 @@ private:
     u32 _0[0xC];
 };
 
-}
+}  // namespace effect
 
 #endif

@@ -11,9 +11,6 @@ namespace MintSquash {
 void SetTarget(f32 arg0, f32 arg1, f32 arg2, f32 arg3);
 void ResetTarget(f32 value);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintSquash
 
 #endif

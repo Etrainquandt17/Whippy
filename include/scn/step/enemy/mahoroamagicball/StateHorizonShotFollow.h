@@ -18,9 +18,6 @@ public:
     StateHorizonShotFollow(Enemy* enemy, bool _1);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

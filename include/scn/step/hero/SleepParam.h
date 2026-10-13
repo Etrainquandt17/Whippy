@@ -24,8 +24,6 @@ struct SleepParam {
     f32 _30;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

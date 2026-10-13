@@ -28,9 +28,6 @@ private:
     u32 mScrewTackleCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado
 
 #endif

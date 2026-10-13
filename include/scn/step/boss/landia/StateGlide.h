@@ -14,9 +14,6 @@ public:
     StateGlide(Boss* boss);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

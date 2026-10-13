@@ -29,8 +29,6 @@ private:
     u32 _0[0x1A];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

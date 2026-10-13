@@ -12,8 +12,6 @@ enum Kind {
     KIND_225 = 0x225,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::effect
 
 #endif

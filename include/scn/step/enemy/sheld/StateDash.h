@@ -24,9 +24,6 @@ private:
     f32 mAccel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld
 
 #endif

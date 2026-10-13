@@ -74,7 +74,4 @@ void StatePunch::procMove() {
 
 void StatePunch::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

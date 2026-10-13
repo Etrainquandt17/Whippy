@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -20,8 +19,6 @@ public:
     void clear();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

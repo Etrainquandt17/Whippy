@@ -25,9 +25,6 @@ private:
     bool mIsFast;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump
 
 #endif

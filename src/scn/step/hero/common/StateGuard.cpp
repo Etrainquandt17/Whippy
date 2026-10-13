@@ -101,7 +101,4 @@ void StateGuard::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

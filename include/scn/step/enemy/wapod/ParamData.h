@@ -17,9 +17,6 @@ struct ParamData {
     u32 mPodWaitFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapod
 
 #endif

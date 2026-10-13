@@ -63,9 +63,6 @@ private:
     StateJumpDesc& mDesc;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

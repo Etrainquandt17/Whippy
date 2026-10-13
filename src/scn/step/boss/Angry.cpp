@@ -47,6 +47,4 @@ void Angry::setChangeBrain(const char* name) {
     hel::common::Traits<char>::Strncpy(const_cast<char*>(static_cast<const char*>(mBrainName)), name, 128);
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

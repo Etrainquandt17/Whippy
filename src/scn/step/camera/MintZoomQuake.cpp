@@ -26,7 +26,4 @@ ZoomQuake& Obj() {
     return t_obj.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::camera::MintZoomQuake

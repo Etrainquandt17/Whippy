@@ -20,9 +20,6 @@ private:
     u32 _8[(0xB0 - 0x8) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle
 
 #endif

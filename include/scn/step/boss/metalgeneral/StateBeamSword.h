@@ -21,9 +21,6 @@ private:
     u32 mScriptKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

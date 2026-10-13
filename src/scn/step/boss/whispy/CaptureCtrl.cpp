@@ -56,7 +56,4 @@ u32 CaptureCtrl::getResistPower() const {
     return mAttacker.getResistPower();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

@@ -25,6 +25,6 @@ private:
     u32 _0[0x14];
 };
 
-}
+}  // namespace hid
 
 #endif

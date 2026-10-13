@@ -40,6 +40,6 @@ private:
     GearAnim* mObj;
 };
 
-}
+}  // namespace gobj
 
 #endif

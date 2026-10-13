@@ -17,9 +17,6 @@ public:
     static bool IsJumpInput(Hero& hero, u32 frame);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::ride
 
 #endif

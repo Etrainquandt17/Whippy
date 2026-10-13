@@ -13,8 +13,6 @@ public:
     void setOffs(f32 offs);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

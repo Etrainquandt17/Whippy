@@ -26,9 +26,6 @@ private:
     StateFormationPass::Config mConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

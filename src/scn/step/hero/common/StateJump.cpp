@@ -115,7 +115,4 @@ bool StateJump::doEnableRotAnim() const {
     return isSafe() && mFrame > obj().param().common()._160;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

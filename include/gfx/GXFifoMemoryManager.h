@@ -23,6 +23,6 @@ private:
     bool mIsWriteEnable;
 };
 
-}
+}  // namespace gfx
 
 #endif

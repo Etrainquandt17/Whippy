@@ -167,8 +167,6 @@ struct CapturedGalactaKnightParam {
     f32 _3C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -19,9 +19,6 @@ public:
     virtual ~StateSwoopStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

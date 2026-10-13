@@ -77,7 +77,4 @@ bool StateDemoFall::canPlancher() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

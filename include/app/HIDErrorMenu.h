@@ -20,6 +20,6 @@ public:
     void setWatchEnable(u32 index, bool enable);
 };
 
-}
+}  // namespace app
 
 #endif

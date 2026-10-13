@@ -12,8 +12,6 @@ public:
     DataAccessor accessor() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

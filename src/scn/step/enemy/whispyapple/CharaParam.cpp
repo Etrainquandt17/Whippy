@@ -27,8 +27,4 @@ enemy::CharaParam CreatePoison() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::whispyapple::CharaParam

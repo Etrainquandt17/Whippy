@@ -24,9 +24,6 @@ private:
     bool mIsChanged;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

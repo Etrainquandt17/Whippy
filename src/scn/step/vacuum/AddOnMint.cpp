@@ -12,7 +12,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Vacuum.Attacker", "int VacuumCount()", VacuumCount, &MintAttacker::VacuumCount);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::vacuum::AddOnMint

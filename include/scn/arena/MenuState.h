@@ -11,7 +11,6 @@ enum MenuState {
     MENU_STATE_3 = 3,
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

@@ -14,9 +14,6 @@ public:
     StateWaterWaterRide(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::water
 
 #endif

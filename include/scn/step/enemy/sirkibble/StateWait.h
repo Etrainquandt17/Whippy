@@ -25,9 +25,6 @@ private:
     bool mCanJump;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble
 
 #endif

@@ -38,7 +38,4 @@ void StateFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

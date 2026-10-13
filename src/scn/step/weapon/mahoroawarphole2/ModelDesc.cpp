@@ -44,7 +44,4 @@ chara::ModelDesc& Create() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroawarphole2

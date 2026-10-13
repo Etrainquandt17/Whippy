@@ -64,7 +64,4 @@ void StateThrow::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappyhat

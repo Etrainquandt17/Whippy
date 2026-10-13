@@ -14,7 +14,6 @@ public:
     FixedString(const FixedStringIN<char, N>& other) : FixedStringIN<char, N>(other) {}
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

@@ -67,6 +67,4 @@ Enemy& CustomBase::obj() {
     return mObj;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

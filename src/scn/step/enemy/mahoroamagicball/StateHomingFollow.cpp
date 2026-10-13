@@ -97,7 +97,4 @@ void StateHomingFollow::procConstraint() {
 
 void StateHomingFollow::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball

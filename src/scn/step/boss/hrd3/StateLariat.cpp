@@ -143,7 +143,4 @@ void StateLariat::updateRotate() {
     obj().model().rotCtrl().initRotH(mRot);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

@@ -17,9 +17,6 @@ struct Param {
     hel::math::Vec2 _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::whispytornado
 
 #endif

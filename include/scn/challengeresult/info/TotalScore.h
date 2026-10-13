@@ -14,8 +14,6 @@ public:
     void bonusSkipEffect();
 };
 
-}
-}
-}
+}}}  // namespace scn::challengeresult::info
 
 #endif

@@ -101,7 +101,4 @@ void StateRise::procMove() {
 
 void StateRise::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

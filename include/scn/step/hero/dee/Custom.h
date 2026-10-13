@@ -18,9 +18,6 @@ private:
     u32 _8[(0x2C - 0x8) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::dee
 
 #endif

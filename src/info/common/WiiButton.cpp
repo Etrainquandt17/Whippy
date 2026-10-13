@@ -439,5 +439,4 @@ void WiiButton::changeDoLoop(bool doLoop) {
     mLayout.changeDoLoop(doLoop);
 }
 
-}
-}
+}}  // namespace info::common

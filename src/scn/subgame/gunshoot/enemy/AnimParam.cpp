@@ -122,7 +122,4 @@ int AnimParam::getDamagePlayListIndex() const {
     return mDamageAnimList.anim().playListIndex;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy

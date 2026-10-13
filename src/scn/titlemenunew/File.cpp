@@ -622,5 +622,4 @@ void File::unlockExtra() {
     mStatusExtra.unlock();
 }
 
-}
-}
+}}  // namespace scn::titlemenunew

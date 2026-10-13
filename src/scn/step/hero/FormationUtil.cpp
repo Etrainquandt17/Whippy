@@ -271,6 +271,4 @@ WarpStarRidePosKind FormationUtil::GetWarpStarRidePosKind(const hel::common::Arr
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::hero

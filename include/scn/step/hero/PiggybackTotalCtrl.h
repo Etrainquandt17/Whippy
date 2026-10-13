@@ -13,8 +13,6 @@ public:
     void setDisablePiggyback();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

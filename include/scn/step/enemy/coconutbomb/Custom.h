@@ -11,10 +11,7 @@ namespace coconutbomb {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::coconutbomb
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::coconutbomb::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[1];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::coconutbomb
 
 #endif

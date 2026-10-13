@@ -439,4 +439,4 @@ void Regset::dump() const {
     printf("\n");
 }
 
-}
+}  // namespace mintvm

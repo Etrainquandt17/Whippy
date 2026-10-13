@@ -82,7 +82,4 @@ void StateShot::shot() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::glunk

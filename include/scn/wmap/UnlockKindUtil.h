@@ -12,7 +12,6 @@ public:
     static UnlockKind GetUnlockKindFromLevelKind(step::LevelKind kind);
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

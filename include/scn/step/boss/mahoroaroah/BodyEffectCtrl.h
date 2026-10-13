@@ -27,9 +27,6 @@ private:
     bool mIsVisible;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 #endif

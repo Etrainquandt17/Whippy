@@ -26,9 +26,6 @@ private:
     bool _d;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky
 
 #endif

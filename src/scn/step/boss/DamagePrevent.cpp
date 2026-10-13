@@ -50,6 +50,4 @@ void DamagePrevent::removePreventTarget(ocoll::AttackType type) {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

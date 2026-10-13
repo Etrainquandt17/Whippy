@@ -11,44 +11,37 @@ namespace step {
 namespace chara {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace chara::AddOnMint
 
 namespace enemy {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace enemy::AddOnMint
 
 namespace hero {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace hero::AddOnMint
 
 namespace sfx {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace sfx::AddOnMint
 
 namespace vacuum {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace vacuum::AddOnMint
 
 namespace gimmick {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace gimmick::AddOnMint
 
 namespace ocoll {
 namespace AddOnMint {
 void RegisterAll(mintvm::VMCore& core);
-}
-}
+}}  // namespace ocoll::AddOnMint
 
 namespace AddOnMint {
 
@@ -65,6 +58,4 @@ void RegisterAll(mintvm::VMCore& core) {
     ocoll::AddOnMint::RegisterAll(core);
 }
 
-}
-}
-}
+}}}  // namespace scn::step::AddOnMint

@@ -28,9 +28,6 @@ private:
     Boss& mBoss;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

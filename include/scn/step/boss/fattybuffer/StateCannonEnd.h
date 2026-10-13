@@ -23,9 +23,6 @@ private:
     f32 mAngle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

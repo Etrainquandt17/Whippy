@@ -63,8 +63,6 @@ private:
     ::ocoll::Attack* mAttack;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

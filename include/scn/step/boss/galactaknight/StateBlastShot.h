@@ -21,9 +21,6 @@ private:
     void generateBlastShot();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

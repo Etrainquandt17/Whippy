@@ -11,10 +11,7 @@ namespace whispyapple {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::whispyapple::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     virtual void onProcFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple
 
 #endif

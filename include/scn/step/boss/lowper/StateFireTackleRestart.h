@@ -27,9 +27,6 @@ private:
     f32 mRotY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

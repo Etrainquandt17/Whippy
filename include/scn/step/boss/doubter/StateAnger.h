@@ -22,9 +22,6 @@ private:
     bool mIsScaling;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

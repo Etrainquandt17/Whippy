@@ -36,9 +36,6 @@ private:
     CaptureKind mCaptureKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

@@ -259,7 +259,4 @@ void Sword::onStateEndCleanUp() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

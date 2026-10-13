@@ -30,9 +30,6 @@ struct ParamData {
     f32 mEscapeVacuumOffHeight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight
 
 #endif

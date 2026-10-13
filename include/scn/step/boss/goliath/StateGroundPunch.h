@@ -18,9 +18,6 @@ public:
     virtual ~StateGroundPunch();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

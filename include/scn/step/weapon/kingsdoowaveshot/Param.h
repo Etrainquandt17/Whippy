@@ -26,9 +26,6 @@ struct Param {
     f32 _3C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::kingsdoowaveshot
 
 #endif

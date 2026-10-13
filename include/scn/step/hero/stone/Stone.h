@@ -42,9 +42,6 @@ private:
     util::PlacementNew<g3d::ResFileAccessor> mResFile;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

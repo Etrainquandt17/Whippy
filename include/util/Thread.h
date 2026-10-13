@@ -20,6 +20,6 @@ private:
     OSThread mThread;
 };
 
-}
+}  // namespace util
 
 #endif

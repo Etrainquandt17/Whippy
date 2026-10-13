@@ -31,8 +31,6 @@ public:
     u32 _2C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

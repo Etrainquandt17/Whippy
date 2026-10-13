@@ -23,8 +23,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<seq::SequenceTheaterRoomRoot>() {
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace seq {
 
@@ -221,4 +220,4 @@ const hel::common::RuntimeTypeInfo& SequenceTheaterRoomRoot::GetRuntimeTypeInfo(
     return hel::common::RuntimeTypeInfoImpl<SequenceTheaterRoomRoot>();
 }
 
-}
+}  // namespace seq

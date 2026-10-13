@@ -18,6 +18,6 @@ private:
     nw4r::ut::RomFont mFont;
 };
 
-}
+}  // namespace app
 
 #endif

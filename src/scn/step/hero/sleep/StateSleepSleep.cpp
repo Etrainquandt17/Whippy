@@ -234,7 +234,4 @@ void StateSleepSleep::initShakeCharge() {
     obj().shakeCharge().reset();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sleep

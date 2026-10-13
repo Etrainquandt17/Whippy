@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateIron();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::barbar::ModelDesc
 
 #endif

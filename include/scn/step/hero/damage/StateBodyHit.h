@@ -22,9 +22,6 @@ private:
     void init(ScriptKind script);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage
 
 #endif

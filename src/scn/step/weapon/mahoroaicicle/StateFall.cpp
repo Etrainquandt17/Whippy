@@ -53,7 +53,4 @@ void StateFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroaicicle

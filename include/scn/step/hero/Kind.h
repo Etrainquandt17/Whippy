@@ -17,8 +17,6 @@ enum Kind {
     KIND_NONE,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

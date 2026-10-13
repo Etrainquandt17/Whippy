@@ -13,10 +13,7 @@ namespace sodory {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory
 
 namespace hel {
 namespace common {
@@ -25,8 +22,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::sodory::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -66,9 +62,6 @@ private:
     u32 mFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory
 
 #endif

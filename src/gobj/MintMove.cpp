@@ -45,5 +45,4 @@ void SetSpeedD(f32 speed) {
     t_obj->setSpeedD(speed);
 }
 
-}
-}
+}}  // namespace gobj::MintMove

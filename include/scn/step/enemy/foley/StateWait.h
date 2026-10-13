@@ -23,9 +23,6 @@ private:
     bool mIsReady;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::foley
 
 #endif

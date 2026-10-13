@@ -12,6 +12,6 @@ public:
     void set(Result result);
 };
 
-}
+}  // namespace pause
 
 #endif

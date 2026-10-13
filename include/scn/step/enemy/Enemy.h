@@ -140,8 +140,6 @@ public:
     hel::math::Vector2 getBasePos() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

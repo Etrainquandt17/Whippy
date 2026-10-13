@@ -44,8 +44,6 @@ private:
     chara::Effect mFore;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

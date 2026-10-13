@@ -19,9 +19,6 @@ public:
     virtual ~StateJumpFarHeroStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

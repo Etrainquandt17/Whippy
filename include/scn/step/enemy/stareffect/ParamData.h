@@ -23,9 +23,6 @@ struct ParamData {
     gobj::MoveParamDecel mPuffDecel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::stareffect
 
 #endif

@@ -14,8 +14,6 @@ public:
     virtual void onSuperStopFinished(const Manager& manager) = 0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::spstop
 
 #endif

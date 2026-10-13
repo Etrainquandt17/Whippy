@@ -10,8 +10,7 @@ class Root;
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -32,9 +31,6 @@ private:
     u32 _0[0x30 / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::spherecount
 
 #endif

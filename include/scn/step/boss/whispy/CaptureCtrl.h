@@ -31,9 +31,6 @@ private:
     hero::CaptureHeroAttacker mAttacker;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

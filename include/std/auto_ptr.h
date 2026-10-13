@@ -44,6 +44,6 @@ private:
     X* ptr_;
 };
 
-}
+}  // namespace std
 
 #endif

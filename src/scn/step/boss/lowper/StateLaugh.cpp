@@ -78,7 +78,4 @@ void StateLaugh::procMove() {}
 
 void StateLaugh::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

@@ -19,8 +19,6 @@ public:
     void requestStarBack(hel::math::Vector2 dir);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

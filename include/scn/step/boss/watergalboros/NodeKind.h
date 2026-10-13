@@ -10,9 +10,6 @@ enum NodeKind {
     NODE_KIND_0,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

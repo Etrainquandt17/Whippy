@@ -77,7 +77,4 @@ bool StateCutterFinalCutterRise::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::cutter

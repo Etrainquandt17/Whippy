@@ -26,7 +26,4 @@ void Stop() {
     t_obj().stop();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintHidRumble

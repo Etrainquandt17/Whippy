@@ -23,9 +23,6 @@ private:
     f32 mSpeedX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

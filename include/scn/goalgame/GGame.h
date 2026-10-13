@@ -57,8 +57,7 @@ private:
     util::PlacementNew<scn::goalgame::Ufo> mArray[4];
 };
 
-}
-}
+}}  // namespace hel::common
 
 namespace effect {
 class Manager;
@@ -107,7 +106,6 @@ private:
     u32 _36690;
 };
 
-}
-}
+}}  // namespace scn::goalgame
 
 #endif

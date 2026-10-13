@@ -22,9 +22,6 @@ private:
     u32 mNearFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec
 
 #endif

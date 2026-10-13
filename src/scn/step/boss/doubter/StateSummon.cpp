@@ -127,7 +127,4 @@ void StateSummon::reqEnemy() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

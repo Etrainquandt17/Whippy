@@ -25,9 +25,6 @@ chara::ModelDesc& CreateHeavy3x2x1();
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::vacuumedblock
 
 #endif

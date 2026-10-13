@@ -19,6 +19,6 @@ private:
     u8 _0[0x8];
 };
 
-}
+}  // namespace mem
 
 #endif

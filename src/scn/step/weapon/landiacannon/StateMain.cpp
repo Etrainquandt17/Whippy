@@ -55,7 +55,4 @@ void StateMain::setInvisible() {
     obj().move().resetVelocity();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiacannon

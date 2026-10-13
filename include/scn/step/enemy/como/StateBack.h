@@ -22,9 +22,6 @@ private:
     f32 mStartLength;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 #endif

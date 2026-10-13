@@ -80,7 +80,4 @@ void StateCatch::procObjCollReact() {
     hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

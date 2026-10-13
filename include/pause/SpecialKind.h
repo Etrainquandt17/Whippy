@@ -20,6 +20,6 @@ enum SpecialKind {
     SPECIAL_KIND_11,
 };
 
-}
+}  // namespace pause
 
 #endif

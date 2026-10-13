@@ -18,9 +18,6 @@ public:
     StateMoveStraight(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo
 
 #endif

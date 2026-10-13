@@ -83,7 +83,4 @@ chara::ModelDesc& CreateSuper(u32 level, bool isExtra) {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers

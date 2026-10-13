@@ -18,8 +18,6 @@ public:
     u32 useCount;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

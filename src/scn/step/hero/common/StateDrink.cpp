@@ -123,7 +123,4 @@ void StateDrink::checkMix() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

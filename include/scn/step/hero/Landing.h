@@ -13,8 +13,6 @@ public:
     void setValidAir(bool isValid);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

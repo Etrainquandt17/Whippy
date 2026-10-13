@@ -13,4 +13,4 @@ ModelAnimContext::ModelAnimContext(const ResModelContext& resModel, mem::IAlloca
     , mTexSRTAllocator(texSRTAllocator)
     , mVisibleAllocator(visibleAllocator) {}
 
-}
+}  // namespace g3d

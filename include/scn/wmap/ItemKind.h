@@ -19,7 +19,6 @@ enum ItemKind {
     ITEM_KIND_10,
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

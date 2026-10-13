@@ -25,9 +25,6 @@ private:
     f32 mBaseY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy
 
 #endif

@@ -15,9 +15,6 @@ public:
     bool isAnimEnd() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::info::challenge
 
 #endif

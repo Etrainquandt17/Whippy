@@ -49,7 +49,6 @@ enum StageKind {
     STAGE_KIND_38,
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

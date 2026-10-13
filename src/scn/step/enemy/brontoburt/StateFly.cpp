@@ -72,7 +72,4 @@ void StateFly::procFixPos() {
     obj().move().setVelocity(velocity);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

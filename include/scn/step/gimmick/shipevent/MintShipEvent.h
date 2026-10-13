@@ -15,9 +15,6 @@ public:
     static ShipEvent& Obj();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::shipevent
 
 #endif

@@ -198,5 +198,4 @@ Vector3& Vector3::operator-=(const Vector3& other) {
     return *this;
 }
 
-}
-}
+}}  // namespace hel::math

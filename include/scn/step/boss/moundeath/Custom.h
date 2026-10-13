@@ -11,10 +11,7 @@ namespace moundeath {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::moundeath::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -48,9 +44,6 @@ public:
     void setBodyCollRolling();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

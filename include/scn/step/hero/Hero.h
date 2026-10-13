@@ -200,8 +200,6 @@ public:
     MapCollProducer& mapCollProducer();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -96,7 +96,4 @@ void StateGrandCrossEndWait::setCustomMtx(f32 rate) {
     obj().model().setCustomMtx(toCenter * rot * fromCenter);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

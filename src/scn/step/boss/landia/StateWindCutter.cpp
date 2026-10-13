@@ -100,7 +100,4 @@ void StateWindCutter::reqWindCutter(bool isBig) {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

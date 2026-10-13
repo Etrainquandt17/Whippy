@@ -26,7 +26,4 @@ void DamageEyeCtrl::set() {
     mIsSet = true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

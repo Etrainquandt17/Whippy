@@ -16,7 +16,6 @@ enum SphereUnlockKind {
     SPHERE_UNLOCK_KIND_NONE = 0xFF,
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

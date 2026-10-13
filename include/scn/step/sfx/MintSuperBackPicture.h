@@ -26,9 +26,6 @@ void RequestEffectNonStop2(effect::Kind kind);
 void RequestEffectNonStop2N(effect::Kind kind);
 void ReleaseEffectNonStop2();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::sfx::MintSuperBackPicture
 
 #endif

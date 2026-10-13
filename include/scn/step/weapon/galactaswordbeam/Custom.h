@@ -11,10 +11,7 @@ namespace galactaswordbeam {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactaswordbeam
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::galactaswordbeam::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     bool mIsReqStarEffect;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactaswordbeam
 
 #endif

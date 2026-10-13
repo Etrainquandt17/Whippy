@@ -15,9 +15,6 @@ public:
     virtual ~StateDead();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

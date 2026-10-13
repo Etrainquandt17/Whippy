@@ -28,8 +28,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::strap::SceneStrap>() {
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace strap {
@@ -323,5 +322,4 @@ const hel::common::RuntimeTypeInfo& SceneStrap::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<SceneStrap>();
 }
 
-}
-}
+}}  // namespace scn::strap

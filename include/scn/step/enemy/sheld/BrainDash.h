@@ -16,9 +16,6 @@ public:
     virtual void update();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld
 
 #endif

@@ -47,7 +47,4 @@ void StateWhispyFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

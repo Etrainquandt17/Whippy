@@ -39,6 +39,4 @@ void WeakPointCtrl::remove(u32 id) {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

@@ -59,7 +59,4 @@ void StateJumpEnd::procMove() {
 void StateJumpEnd::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump

@@ -89,7 +89,4 @@ void TailCtrl::extract() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3pilot

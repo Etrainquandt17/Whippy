@@ -60,7 +60,4 @@ void StateHadou::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe

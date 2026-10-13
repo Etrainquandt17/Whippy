@@ -43,6 +43,6 @@ public:
     MessageCallback mMessageCallback;
 };
 
-}
+}  // namespace mintvm
 
 #endif

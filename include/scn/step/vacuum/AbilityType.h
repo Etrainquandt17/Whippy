@@ -13,8 +13,6 @@ enum AbilityType {
     ABILITY_TYPE_3
 };
 
-}
-}
-}
+}}}  // namespace scn::step::vacuum
 
 #endif

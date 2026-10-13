@@ -144,7 +144,4 @@ void StateFreezeAttackSpine::shotIceSpine() {
     obj().soundSE().normal().start(0x562);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

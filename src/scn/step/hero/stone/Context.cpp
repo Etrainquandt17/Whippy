@@ -81,7 +81,4 @@ bool Context::isRotEnable() const {
     return mIsRotEnable;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

@@ -67,9 +67,7 @@ private:
     PermEffectDetail mDetail;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 namespace scn {
 namespace step {
@@ -147,8 +145,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Gimmick.ChallengeDoor.Custom", "void RequestItemCombo()", RequestItemCombo, &t_RequestItemCombo);
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::gimmick::challengedoor::AddOnMint

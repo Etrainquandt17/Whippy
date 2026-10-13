@@ -13,9 +13,6 @@ void Register(CameraController& obj);
 void Unregister(CameraController& obj);
 CameraController& Obj();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::camera::MintCameraController
 
 #endif

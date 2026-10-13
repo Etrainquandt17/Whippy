@@ -18,9 +18,6 @@ public:
     StateLaunch(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo
 
 #endif

@@ -24,9 +24,6 @@ private:
     u32 _0[0x59];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::chara
 
 #endif

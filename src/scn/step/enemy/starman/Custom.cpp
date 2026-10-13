@@ -43,7 +43,4 @@ bool Custom::isHighJumpMode() {
     return mIsHighJumpMode;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman

@@ -30,9 +30,6 @@ struct ParamData {
     hel::math::Vector2 mShotOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby
 
 #endif

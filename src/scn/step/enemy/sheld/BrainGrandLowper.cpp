@@ -30,7 +30,4 @@ bool BrainGrandLowper::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

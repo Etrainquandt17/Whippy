@@ -112,7 +112,4 @@ void RotCtrl::resetLocalMtxTempRot() {
     mLocalMtxTempRot = hel::math::Vector3::ZERO;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

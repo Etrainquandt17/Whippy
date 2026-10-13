@@ -26,9 +26,6 @@ private:
     WarpKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 #endif

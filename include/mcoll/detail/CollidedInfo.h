@@ -31,7 +31,6 @@ private:
     hel::math::Vector2 mLandVelocity;
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

@@ -14,6 +14,6 @@ public:
     ResFileAccessor get(const char* path, bool);
 };
 
-}
+}  // namespace g3d
 
 #endif

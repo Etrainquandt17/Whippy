@@ -201,7 +201,4 @@ hel::math::Vector3 WaftMoveCtrl::getCenter() const {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

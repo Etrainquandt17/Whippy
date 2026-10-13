@@ -25,9 +25,6 @@ private:
     bool mIsDead;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

@@ -8,6 +8,6 @@ inline const T& min(const T& a, const T& b) {
     return b < a ? b : a;
 }
 
-}
+}  // namespace std
 
 #endif

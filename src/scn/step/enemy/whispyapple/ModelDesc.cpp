@@ -49,7 +49,4 @@ chara::ModelDesc& CreatePoison() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple

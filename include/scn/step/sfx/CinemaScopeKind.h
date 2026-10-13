@@ -11,8 +11,6 @@ enum CinemaScopeKind {
     CINEMA_SCOPE_KIND_1,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

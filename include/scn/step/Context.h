@@ -27,7 +27,6 @@ public:
     u32 _584[0x96];
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

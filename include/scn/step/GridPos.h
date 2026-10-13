@@ -24,7 +24,6 @@ private:
     s32 mY;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

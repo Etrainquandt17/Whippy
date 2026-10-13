@@ -24,9 +24,6 @@ public:
     static bool ChkCancel(Hero& hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

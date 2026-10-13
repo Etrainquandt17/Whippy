@@ -19,8 +19,6 @@ enum BinEnemyDirType {
     BinEnemyDirType_DownRight,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

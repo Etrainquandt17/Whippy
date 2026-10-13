@@ -9,6 +9,6 @@ enum Mode {
     MODE_1,
 };
 
-}
+}  // namespace nururi
 
 #endif

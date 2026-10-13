@@ -26,7 +26,4 @@ bool BrainMahoroa1::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

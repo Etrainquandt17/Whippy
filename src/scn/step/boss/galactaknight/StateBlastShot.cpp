@@ -93,7 +93,4 @@ void StateBlastShot::generateBlastShot() {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

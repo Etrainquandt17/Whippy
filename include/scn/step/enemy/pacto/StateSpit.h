@@ -22,9 +22,6 @@ private:
     bool mIsAnimEnd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto
 
 #endif

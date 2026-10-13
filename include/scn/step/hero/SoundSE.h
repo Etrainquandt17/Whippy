@@ -23,8 +23,6 @@ public:
     snd::SERequestor _330;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

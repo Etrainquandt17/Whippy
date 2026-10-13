@@ -16,9 +16,6 @@ public:
     void requestUnlockPauseSE();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::pause
 
 #endif

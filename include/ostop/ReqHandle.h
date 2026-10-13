@@ -18,6 +18,6 @@ private:
     u32 mId;
 };
 
-}
+}  // namespace ostop
 
 #endif

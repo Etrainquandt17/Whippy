@@ -37,6 +37,4 @@ g3d::ColorAnimFlashOp CustomFlash::getOperation() const {
     return mOperation;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

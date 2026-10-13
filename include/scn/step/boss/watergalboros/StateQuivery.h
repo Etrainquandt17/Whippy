@@ -31,9 +31,6 @@ private:
     bool mIsStart;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

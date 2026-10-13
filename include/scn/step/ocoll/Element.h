@@ -17,8 +17,6 @@ enum Element {
     ELEMENT_19,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ocoll
 
 #endif

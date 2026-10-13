@@ -42,7 +42,4 @@ void StateMoveStart::procMove() {
 
 void StateMoveStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahoar

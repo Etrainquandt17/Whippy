@@ -24,9 +24,6 @@ private:
     f32 mNormalX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky
 
 #endif

@@ -24,8 +24,4 @@ enemy::CharaParam Create() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::fattybufferstalactite::CharaParam

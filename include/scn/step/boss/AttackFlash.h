@@ -29,8 +29,6 @@ private:
     f32 mAlphaIncRate;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

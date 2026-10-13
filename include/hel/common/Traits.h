@@ -13,7 +13,6 @@ public:
     static u32 Strlen(const T* str);
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

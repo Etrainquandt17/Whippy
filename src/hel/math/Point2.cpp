@@ -9,5 +9,4 @@ Point2::Point2(f32 x, f32 y)
     : mX(x)
     , mY(y) {}
 
-}
-}
+}}  // namespace hel::math

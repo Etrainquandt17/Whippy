@@ -11,7 +11,6 @@ public:
     static void RangeCheck(u32 index, u32 count);
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

@@ -39,6 +39,6 @@ private:
     ContextInit mContextInit;
 };
 
-}
+}  // namespace pause
 
 #endif

@@ -19,6 +19,6 @@ public:
     u32 dataNum() const;
 };
 
-}
+}  // namespace ocoll
 
 #endif

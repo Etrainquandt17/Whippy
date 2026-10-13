@@ -20,9 +20,6 @@ public:
     virtual ~StateWarpHoleAttackStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

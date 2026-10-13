@@ -33,7 +33,4 @@ void StateWhispyLanding::procMove() {
 
 void StateWhispyLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

@@ -1127,7 +1127,4 @@ void ClosableBox::setStatusOnClosing() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::boxmenu

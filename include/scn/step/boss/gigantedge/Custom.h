@@ -10,10 +10,7 @@ namespace gigantedge {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::gigantedge::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -47,9 +43,6 @@ public:
     void reqSwordShot(bool isTriple);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge
 
 #endif

@@ -16,6 +16,6 @@ public:
     void invert();
 };
 
-}
+}  // namespace gobj
 
 #endif

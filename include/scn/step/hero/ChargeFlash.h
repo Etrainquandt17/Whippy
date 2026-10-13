@@ -20,8 +20,6 @@ public:
     void clear();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

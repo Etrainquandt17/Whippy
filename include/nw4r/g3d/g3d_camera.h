@@ -90,7 +90,6 @@ public:
     GXProjectionType GetProjectionType() const { return ref().projType; }
 };
 
-}
-}
+}}  // namespace nw4r::g3d
 
 #endif

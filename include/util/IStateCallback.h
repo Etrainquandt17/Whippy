@@ -12,6 +12,6 @@ public:
     virtual void onStateChanged(const IStateChanger& changer) = 0;
 };
 
-}
+}  // namespace util
 
 #endif

@@ -25,7 +25,4 @@ bool BrainSwimStraight::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu

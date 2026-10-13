@@ -35,9 +35,6 @@ private:
     u32 mXOffsIndex;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

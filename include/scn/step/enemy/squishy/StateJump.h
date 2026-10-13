@@ -29,9 +29,6 @@ private:
     bool mIsInWater;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy
 
 #endif

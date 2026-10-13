@@ -36,6 +36,6 @@ private:
     bool mIsCreateNodeLocalMtx;
 };
 
-}
+}  // namespace g3d
 
 #endif

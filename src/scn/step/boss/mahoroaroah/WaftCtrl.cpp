@@ -100,7 +100,4 @@ void WaftCtrl::setToValid() {
     mIsValid = true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah

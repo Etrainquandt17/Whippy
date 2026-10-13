@@ -93,7 +93,4 @@ bool StateCharge::isShakeMax() {
     return obj().shakeCharge().power() >= obj().param().mike()._0._8;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::mike

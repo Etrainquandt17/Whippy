@@ -20,9 +20,6 @@ struct Param {
     gobj::MoveParamDecel _18;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::cutterfinalwave
 
 #endif

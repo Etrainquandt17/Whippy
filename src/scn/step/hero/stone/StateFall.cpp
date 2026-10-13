@@ -86,7 +86,4 @@ bool StateFall::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

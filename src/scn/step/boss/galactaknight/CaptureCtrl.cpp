@@ -65,7 +65,4 @@ void CaptureCtrl::setCaptureKind(CaptureKind kind) {
     mCaptureKind = kind;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

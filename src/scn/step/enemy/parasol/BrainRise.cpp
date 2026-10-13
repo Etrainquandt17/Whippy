@@ -35,7 +35,4 @@ bool BrainRise::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasol

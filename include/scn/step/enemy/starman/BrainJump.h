@@ -18,9 +18,6 @@ public:
     virtual void update();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman
 
 #endif

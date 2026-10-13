@@ -45,7 +45,4 @@ void StateComeInBackward::procMove() {
 
 void StateComeInBackward::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

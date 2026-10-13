@@ -107,7 +107,4 @@ void StateMoveAroundAttack::procFixPos() {
     custom.cliffChecker().setAccelDirRight(mIsRight);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa

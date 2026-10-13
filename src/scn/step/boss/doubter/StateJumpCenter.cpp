@@ -75,7 +75,4 @@ void StateJumpCenter::procMove() {
 
 void StateJumpCenter::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

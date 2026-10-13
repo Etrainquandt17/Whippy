@@ -88,7 +88,4 @@ void StateCatchSearch::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

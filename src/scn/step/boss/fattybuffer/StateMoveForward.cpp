@@ -69,7 +69,4 @@ void StateMoveForward::procMove() {
 
 void StateMoveForward::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

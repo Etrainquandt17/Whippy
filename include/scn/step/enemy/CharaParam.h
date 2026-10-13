@@ -39,8 +39,6 @@ struct CharaParam {
     bool _4d;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

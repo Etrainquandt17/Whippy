@@ -25,6 +25,6 @@ private:
     ScreenType mScreenType;
 };
 
-}
+}  // namespace gfx
 
 #endif

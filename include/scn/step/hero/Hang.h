@@ -35,8 +35,6 @@ public:
     u32 mInterval;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

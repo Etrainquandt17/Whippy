@@ -73,7 +73,4 @@ void WaftCtrl::update() {
     mBoss.location().setPos(pos);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

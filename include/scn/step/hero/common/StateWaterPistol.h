@@ -24,9 +24,6 @@ private:
     hel::math::Vector2 mDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

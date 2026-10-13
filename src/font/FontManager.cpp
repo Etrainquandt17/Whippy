@@ -39,4 +39,4 @@ IFont& FontManager::font(FontKind kind) {
     return mFonts[kind];
 }
 
-}
+}  // namespace font

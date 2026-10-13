@@ -26,9 +26,6 @@ private:
     map::BinEnemySize mSize;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

@@ -334,8 +334,7 @@ SceneSubgameTitle::SceneSubgameTitle(const Recipe& recipe)
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::subgame
 
 namespace hel {
 namespace common {
@@ -346,8 +345,7 @@ ScopedPtr<scn::subgame::title::Main>::~ScopedPtr() {
     delete ptr;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace subgame {
@@ -490,5 +488,4 @@ bool SceneSubgameTitle::isSceneEnd() const {
     return mMain->isSceneEnd();
 }
 
-}
-}
+}}  // namespace scn::subgame

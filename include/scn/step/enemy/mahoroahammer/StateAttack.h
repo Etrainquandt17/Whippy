@@ -19,9 +19,6 @@ public:
     virtual ~StateAttack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroahammer
 
 #endif

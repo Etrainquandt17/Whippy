@@ -17,8 +17,6 @@ public:
     void setValid(bool isValid);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

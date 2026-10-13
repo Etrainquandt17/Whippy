@@ -27,9 +27,6 @@ private:
     StateRainBomb::Config mConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

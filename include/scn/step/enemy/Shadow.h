@@ -20,8 +20,6 @@ public:
     void changeMaxHeight(f32 height);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

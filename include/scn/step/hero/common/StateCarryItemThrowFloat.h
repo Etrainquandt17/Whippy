@@ -24,9 +24,6 @@ private:
     bool mIsHold;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

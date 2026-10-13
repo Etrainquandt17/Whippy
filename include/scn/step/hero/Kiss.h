@@ -14,8 +14,6 @@ public:
     void setCanReceive(bool canReceive);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

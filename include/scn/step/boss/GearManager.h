@@ -19,8 +19,6 @@ public:
     void onObjStopFinished();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

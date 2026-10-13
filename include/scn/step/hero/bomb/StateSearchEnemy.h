@@ -5,9 +5,7 @@ namespace scn {
 namespace step {
 namespace hero {
 class Hero;
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 namespace scn {
 namespace step {
@@ -21,9 +19,6 @@ public:
     static bool TryToChangeState(Hero* hero, GearBombController& controller);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb
 
 #endif

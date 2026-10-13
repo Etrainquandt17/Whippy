@@ -14,8 +14,6 @@ struct SuperBeamParam {
     modeldesc::Dynamics::NodeParam _4[5];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -64,10 +64,7 @@ namespace step {
 namespace boss {
 namespace lowper {
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 namespace hel {
 namespace common {
@@ -78,8 +75,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::lowperbullet::Custo
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -235,7 +231,4 @@ u32 EnemyCtrl::getBarrierCount() const {
     return count;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

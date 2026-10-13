@@ -24,9 +24,6 @@ private:
     u32 mCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

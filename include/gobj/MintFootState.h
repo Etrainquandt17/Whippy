@@ -12,7 +12,6 @@ void Unregister(FootState& obj);
 bool IsGround();
 bool IsAir();
 
-}
-}
+}}  // namespace gobj::MintFootState
 
 #endif

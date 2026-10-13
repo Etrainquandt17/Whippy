@@ -20,9 +20,6 @@ struct Param {
     f32 _1C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjablossomstorm
 
 #endif

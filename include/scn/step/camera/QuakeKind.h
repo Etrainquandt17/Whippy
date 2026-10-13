@@ -10,8 +10,6 @@ enum QuakeKind {
     QUAKE_KIND_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

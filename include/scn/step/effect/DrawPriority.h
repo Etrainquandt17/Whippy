@@ -10,8 +10,6 @@ enum DrawPriority {
     DRAW_PRIORITY_4 = 4,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::effect
 
 #endif

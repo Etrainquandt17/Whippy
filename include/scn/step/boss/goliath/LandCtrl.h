@@ -13,9 +13,6 @@ public:
     int getMaxLevelOnBattle() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

@@ -38,9 +38,6 @@ public:
     static void UpdateMoveRateExtreme(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

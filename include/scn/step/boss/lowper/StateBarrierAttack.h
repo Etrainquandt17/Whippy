@@ -22,9 +22,6 @@ private:
     bool mIsStarted;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

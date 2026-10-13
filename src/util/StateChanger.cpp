@@ -68,4 +68,4 @@ void StateChangerBase::onSetNextStateFactory() {
     releaseNextStateFactory();
 }
 
-}
+}  // namespace util

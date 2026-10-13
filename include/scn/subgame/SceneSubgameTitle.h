@@ -35,8 +35,7 @@ private:
     scn::subgame::title::Main* mPtr;
 };
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace subgame {
@@ -67,7 +66,6 @@ private:
     hel::common::ScopedPtr<title::Main> mMain;
 };
 
-}
-}
+}}  // namespace scn::subgame
 
 #endif

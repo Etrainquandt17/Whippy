@@ -17,5 +17,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "G3D.ModelAccessor", "void SetVisibility(bool)", SetVisibility, &MintModelAccessor::SetVisibility);
 }
 
-}
-}
+}}  // namespace g3d::AddOnMint

@@ -22,4 +22,4 @@ void FogAccessor::setFogRangeAdj(bool enable) {
     SetFogRangeAdj(enable);
 }
 
-}
+}  // namespace g3d

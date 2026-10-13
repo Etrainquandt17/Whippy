@@ -14,8 +14,7 @@ static const f32 FALL_ACL = ONE_DPF(-0.25f);
 static const f32 PUSH2_YPOS = ONE_DPF(-90.0f);
 static const f32 PUSHDOWN_YPOS = ONE_DPF(40.0f);
 
-}
-}
+}}  // namespace scn::goalgame
 
 using namespace scn::step::hero;
 
@@ -325,7 +324,4 @@ const char* HeroDesc::AnimPath(GGHeroKind kind) {
     return animPath[index];
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::goalgame::desc::hero

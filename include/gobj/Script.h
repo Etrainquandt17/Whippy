@@ -13,6 +13,6 @@ public:
     void start(u32 index);
 };
 
-}
+}  // namespace gobj
 
 #endif

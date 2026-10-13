@@ -11,10 +11,7 @@ namespace fighterhadoushot {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterhadoushot
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::fighterhadoushot::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -38,9 +34,6 @@ public:
     virtual bool onInit();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterhadoushot
 
 #endif

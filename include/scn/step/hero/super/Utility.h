@@ -27,9 +27,6 @@ public:
     static void OnHideHero(Hero& hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::super
 
 #endif

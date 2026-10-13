@@ -69,7 +69,4 @@ void StateCopyPre::construct() {
     obj().water().setForbidChangeState(true);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

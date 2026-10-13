@@ -16,9 +16,6 @@ public:
     u32 _14;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor
 
 #endif

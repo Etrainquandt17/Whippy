@@ -18,9 +18,6 @@ public:
     hel::math::Matrix34 kirbyRideWorldMtx();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::warpstar
 
 #endif

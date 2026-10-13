@@ -12,6 +12,6 @@ enum WRButtonMask {
     WR_BUTTON_MASK_A = 0x800,
 };
 
-}
+}  // namespace hid
 
 #endif

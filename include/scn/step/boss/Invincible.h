@@ -27,8 +27,6 @@ private:
     bool mIsNoFlash;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

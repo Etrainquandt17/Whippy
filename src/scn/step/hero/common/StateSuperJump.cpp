@@ -63,7 +63,4 @@ void StateSuperJump::procMove() {
 
 void StateSuperJump::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

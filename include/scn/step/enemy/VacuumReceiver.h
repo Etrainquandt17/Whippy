@@ -9,8 +9,7 @@ namespace geo {
 
 class Rect;
 
-}
-}
+}}  // namespace hel::geo
 
 namespace scn {
 namespace step {
@@ -39,8 +38,6 @@ public:
     void setCustomCollideRect(const hel::geo::Rect& rect);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

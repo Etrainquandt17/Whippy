@@ -50,7 +50,4 @@ void StateVomit::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapodpod

@@ -98,7 +98,4 @@ void StatePressFallStart::procMove() {
 
 void StatePressFallStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath

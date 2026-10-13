@@ -26,9 +26,6 @@ private:
     bool mIsRolling;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

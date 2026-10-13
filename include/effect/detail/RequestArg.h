@@ -21,7 +21,6 @@ private:
     RequestArgOption mOption;
 };
 
-}
-}
+}}  // namespace effect::detail
 
 #endif

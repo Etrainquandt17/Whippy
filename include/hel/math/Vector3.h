@@ -200,7 +200,6 @@ private:
     };
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

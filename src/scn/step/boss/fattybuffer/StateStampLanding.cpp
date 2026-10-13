@@ -75,7 +75,4 @@ void StateStampLanding::procMove() {
 
 void StateStampLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

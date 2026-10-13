@@ -124,7 +124,4 @@ void Unpause(int category) {
     t_obj->unpause(static_cast<BGMCategory>(category));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::core::MintBGMController

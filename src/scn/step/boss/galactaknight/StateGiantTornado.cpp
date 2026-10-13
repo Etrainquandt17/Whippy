@@ -112,7 +112,4 @@ void StateGiantTornado::reqTornado() {
     Utility::GenerateStarEffect(obj(), starPosL, speed, static_cast<map::BinEnemyVariation>(0x19B));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

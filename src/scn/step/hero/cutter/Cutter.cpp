@@ -71,7 +71,4 @@ void Cutter::onStateEndCleanUp() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::cutter

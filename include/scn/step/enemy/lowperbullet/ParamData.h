@@ -32,9 +32,6 @@ struct ParamData {
     u32 mStillMoveFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 #endif

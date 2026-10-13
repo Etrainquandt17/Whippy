@@ -38,7 +38,4 @@ void StateEscape::procMove() {
     obj().move().airAccelFall(obj().target().isRightDir(), gobj::MoveParamAccel::Create(0.075f, 0.0035f, 0.0035f), gobj::MoveParamFall::Zero());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut

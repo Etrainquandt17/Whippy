@@ -112,7 +112,4 @@ void StateCirclingJump::procMove() {
 
 void StateCirclingJump::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

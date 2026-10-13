@@ -18,9 +18,6 @@ public:
     virtual ~StateWalkStepBack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe
 
 #endif

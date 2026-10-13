@@ -137,7 +137,4 @@ void StateFall::construct() {
     obj().additionalMove().setEnableAirFlowOffset(true);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

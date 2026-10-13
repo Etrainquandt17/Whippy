@@ -65,7 +65,4 @@ void StateJump::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby

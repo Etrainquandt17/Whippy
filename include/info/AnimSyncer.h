@@ -17,6 +17,6 @@ public:
     void update();
 };
 
-}
+}  // namespace info
 
 #endif

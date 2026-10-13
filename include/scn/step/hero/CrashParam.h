@@ -16,8 +16,6 @@ struct CrashParam {
     ShakeChargeEnv _14;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

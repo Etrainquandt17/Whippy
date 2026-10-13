@@ -15,7 +15,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Core.BGMController", "void Unpause(int)", Unpause, &MintBGMController::Unpause);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::core::AddOnMint

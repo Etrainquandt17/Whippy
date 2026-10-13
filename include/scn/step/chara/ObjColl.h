@@ -65,8 +65,6 @@ public:
     bool isAttackCollide() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

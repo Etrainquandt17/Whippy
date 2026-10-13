@@ -38,9 +38,6 @@ private:
     int mState;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara
 
 #endif

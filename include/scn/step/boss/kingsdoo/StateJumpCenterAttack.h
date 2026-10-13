@@ -24,9 +24,6 @@ private:
     hel::math::Vector2 mCenter;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 #endif

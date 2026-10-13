@@ -41,7 +41,4 @@ void StateLanding::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bouncy

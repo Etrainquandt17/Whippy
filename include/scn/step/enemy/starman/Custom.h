@@ -11,10 +11,7 @@ namespace starman {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::starman::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     bool mIsHighJumpMode;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman
 
 #endif

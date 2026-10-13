@@ -49,4 +49,4 @@ hel::math::Random& Random::Obj() {
     return hel::common::ExplicitSingleton<Application>::object_->random();
 }
 
-}
+}  // namespace app

@@ -20,6 +20,6 @@ private:
     Vec2 mHori;
 };
 
-}
+}  // namespace hid
 
 #endif

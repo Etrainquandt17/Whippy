@@ -119,7 +119,4 @@ void StateFirst::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

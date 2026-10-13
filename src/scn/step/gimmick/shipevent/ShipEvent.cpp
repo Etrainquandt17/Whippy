@@ -66,7 +66,4 @@ void ShipEvent::SEFadeRequester::mfRequestCommon(u32 id) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::shipevent

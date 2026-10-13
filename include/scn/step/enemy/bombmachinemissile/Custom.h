@@ -11,10 +11,7 @@ namespace bombmachinemissile {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bombmachinemissile
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::bombmachinemissile::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     virtual bool onDamaged();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bombmachinemissile
 
 #endif

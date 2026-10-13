@@ -16,6 +16,6 @@ private:
     int mY;
 };
 
-}
+}  // namespace hid
 
 #endif

@@ -22,9 +22,6 @@ private:
     f32 mPrevPosX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroahammershockwave
 
 #endif

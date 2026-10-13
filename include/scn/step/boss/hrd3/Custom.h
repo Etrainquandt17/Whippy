@@ -11,10 +11,7 @@ namespace hrd3 {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::hrd3::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -55,9 +51,6 @@ private:
     u32 _8[449];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

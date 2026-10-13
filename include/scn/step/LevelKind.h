@@ -15,7 +15,6 @@ enum LevelKind {
     LEVEL_KIND_6,
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

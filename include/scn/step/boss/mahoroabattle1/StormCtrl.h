@@ -13,9 +13,6 @@ public:
     void end();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

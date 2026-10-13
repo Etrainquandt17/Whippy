@@ -15,8 +15,6 @@ public:
     void requestWipeOut(WipeKind kind, const hel::math::Vector3& center, u32, u32 frame);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

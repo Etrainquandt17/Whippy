@@ -15,9 +15,6 @@ public:
     int _34;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::chara
 
 #endif

@@ -31,9 +31,6 @@ private:
     u32 mEndFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage
 
 #endif

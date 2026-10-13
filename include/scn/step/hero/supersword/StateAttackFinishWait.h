@@ -18,9 +18,6 @@ public:
     virtual bool procObjCollReact();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword
 
 #endif

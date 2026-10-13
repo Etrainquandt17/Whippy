@@ -21,9 +21,6 @@ private:
     u32 mSEId;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::util
 
 #endif

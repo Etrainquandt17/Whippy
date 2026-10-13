@@ -16,9 +16,6 @@ public:
     virtual bool onRecover();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 #endif

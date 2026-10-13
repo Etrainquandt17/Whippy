@@ -26,9 +26,7 @@ namespace StepReleaseUtil {
 
 void StepRelease(Component& component);
 
-}
-}
-}
+}}}  // namespace scn::step::StepReleaseUtil
 
 namespace scn {
 namespace step {
@@ -289,8 +287,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Gimmick.LvMapDoor.Custom", "int GetLevel()", GetLevel, &t_GetLevel);
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::gimmick::lvmapdoor::AddOnMint

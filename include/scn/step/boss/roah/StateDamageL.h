@@ -21,9 +21,6 @@ private:
     void generateItem();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

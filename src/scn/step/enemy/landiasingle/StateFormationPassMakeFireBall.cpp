@@ -79,7 +79,4 @@ void StateFormationPassMakeFireBall::procMove() {}
 
 void StateFormationPassMakeFireBall::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

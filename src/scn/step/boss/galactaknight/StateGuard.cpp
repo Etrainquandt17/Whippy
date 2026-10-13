@@ -108,7 +108,4 @@ void StateGuard::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

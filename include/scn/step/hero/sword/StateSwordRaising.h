@@ -24,9 +24,6 @@ private:
     f32 mRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword
 
 #endif

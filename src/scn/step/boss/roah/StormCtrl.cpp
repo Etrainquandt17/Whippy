@@ -41,7 +41,4 @@ bool StormCtrl::isDamageTiming() const {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

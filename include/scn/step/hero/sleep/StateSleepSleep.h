@@ -50,9 +50,6 @@ private:
     util::ObjRefHandle<weapon::Weapon> mWeapon;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sleep
 
 #endif

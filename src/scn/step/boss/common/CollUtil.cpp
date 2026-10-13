@@ -25,7 +25,4 @@ void CollUtil::SetBodyCollDefault(Boss& boss, u32 id, f32 radius, hel::math::Vec
     bodyColl.setResistLv(ocoll::HIT_RESIST_LV_2);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

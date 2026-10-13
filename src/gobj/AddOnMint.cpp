@@ -88,5 +88,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "GObj.Target", "void LoadDirection3()", LoadDirection3, &MintTarget::LoadDirection3);
 }
 
-}
-}
+}}  // namespace gobj::AddOnMint

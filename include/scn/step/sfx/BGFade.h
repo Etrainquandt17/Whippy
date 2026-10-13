@@ -24,8 +24,6 @@ private:
     ::sfx::Fade mFade;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

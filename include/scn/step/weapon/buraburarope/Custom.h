@@ -47,10 +47,7 @@ private:
     u32 _4[5];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::buraburarope
 
 namespace hel {
 namespace common {
@@ -59,7 +56,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::buraburarope::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

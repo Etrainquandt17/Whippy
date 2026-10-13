@@ -194,7 +194,4 @@ CameraController& Obj() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::camera::MintCameraController

@@ -14,9 +14,6 @@ public:
     StatePursuit(Weapon* weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahoar
 
 #endif

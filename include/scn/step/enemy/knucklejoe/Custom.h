@@ -11,10 +11,7 @@ namespace knucklejoe {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::knucklejoe::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -59,9 +55,6 @@ private:
     bool mHitWall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe
 
 #endif

@@ -103,7 +103,4 @@ void SetRotDIntoTarget() {
     t_obj->setRotDIntoTarget();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintModelRotCtrl

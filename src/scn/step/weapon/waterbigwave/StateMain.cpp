@@ -117,7 +117,4 @@ void StateMain::calcJoint() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::waterbigwave

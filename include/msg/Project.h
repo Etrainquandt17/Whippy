@@ -22,6 +22,6 @@ private:
     ProjectInfo* mProjectInfo;
 };
 
-}
+}  // namespace msg
 
 #endif

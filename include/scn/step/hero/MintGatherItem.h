@@ -12,9 +12,6 @@ namespace MintGatherItem {
 void Add(f32 left, f32 top, f32 right, f32 bottom);
 void Clear();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintGatherItem
 
 #endif

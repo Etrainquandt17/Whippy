@@ -23,7 +23,6 @@ private:
     bool mCameraAnimFlag;
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

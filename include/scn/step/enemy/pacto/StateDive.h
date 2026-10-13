@@ -24,9 +24,6 @@ private:
     bool mIsBite;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto
 
 #endif

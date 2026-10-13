@@ -24,9 +24,6 @@ private:
     bool _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::airball
 
 #endif

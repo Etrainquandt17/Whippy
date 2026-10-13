@@ -81,4 +81,4 @@ void TPLTexturePlate::setPos(const hel::math::Vector2& pos) {
     PSMTXTrans(mPos, pos.x, pos.y, 0.0f);
 }
 
-}
+}  // namespace gfx

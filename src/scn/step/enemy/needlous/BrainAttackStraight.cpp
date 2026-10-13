@@ -66,7 +66,4 @@ void BrainAttackStraight::mfChangeWalkStraight() {
     obj().stateChanger().setNextState<StateWalkStraight, Enemy*>(&obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::needlous

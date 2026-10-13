@@ -481,6 +481,4 @@ bool MainCamera::isReverseMode() const {
     return _A5;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::camera

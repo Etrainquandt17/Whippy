@@ -85,7 +85,4 @@ void StateJumpStart::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman

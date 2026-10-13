@@ -30,8 +30,6 @@ private:
     bool mIsAutoSpecial;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

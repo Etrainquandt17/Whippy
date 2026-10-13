@@ -12,10 +12,7 @@ namespace leaperthorn {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::leaperthorn
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::leaperthorn::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -41,9 +37,6 @@ public:
     void reqStart(hel::math::Vector2 pos, hel::math::Vector2 dir);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::leaperthorn
 
 #endif

@@ -62,7 +62,4 @@ void StateSwordMeteor::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

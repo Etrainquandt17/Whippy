@@ -27,9 +27,6 @@ private:
     f32 mHeight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

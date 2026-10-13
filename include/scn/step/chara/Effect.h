@@ -20,8 +20,7 @@ namespace math {
 class Direction3;
 class Vector3;
 
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -70,8 +69,6 @@ private:
     u32 _0[0x28 / 4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

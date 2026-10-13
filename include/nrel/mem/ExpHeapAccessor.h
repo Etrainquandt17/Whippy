@@ -22,7 +22,6 @@ private:
     MEMiHeapHead* mHeap;
 };
 
-}
-}
+}}  // namespace nrel::mem
 
 #endif

@@ -27,6 +27,6 @@ private:
     mem::IAllocator& mAllocator;
 };
 
-}
+}  // namespace g3d
 
 #endif

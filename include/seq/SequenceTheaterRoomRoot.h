@@ -26,6 +26,6 @@ private:
     scn::theaterroom::SceneTheaterRoom::Result mResult;
 };
 
-}
+}  // namespace seq
 
 #endif

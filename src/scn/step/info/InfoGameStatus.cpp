@@ -167,6 +167,4 @@ BossPanel* InfoGameStatus::bossPanel() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::info

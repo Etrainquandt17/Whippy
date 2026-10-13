@@ -18,7 +18,4 @@ void Utility::RequestHatEffectAttack(Hero& hero) {
     hero.model().hat().effect().requestN(static_cast<effect::Kind>(0xC0), 0);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash

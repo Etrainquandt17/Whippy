@@ -36,9 +36,6 @@ private:
     snd::SERequestor mSE;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::monitor
 
 #endif

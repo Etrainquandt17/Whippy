@@ -26,9 +26,6 @@ private:
     bool mIsMove;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

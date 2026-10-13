@@ -25,7 +25,4 @@ void StateMain::procMove() {
     obj().move().decel(gobj::MoveParamDecel::Zero());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::superfiredragon

@@ -27,7 +27,4 @@ void Set(u32 trigger) {
     t_obj->set(trigger);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintScriptTrigger

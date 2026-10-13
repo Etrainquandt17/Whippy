@@ -27,9 +27,6 @@ private:
     hel::math::Vector3 mRot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

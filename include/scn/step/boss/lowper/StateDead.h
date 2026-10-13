@@ -22,9 +22,6 @@ private:
     f32 mRotV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

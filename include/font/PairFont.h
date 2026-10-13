@@ -24,6 +24,6 @@ private:
     nw4r::ut::PairFont mFont;
 };
 
-}
+}  // namespace font
 
 #endif

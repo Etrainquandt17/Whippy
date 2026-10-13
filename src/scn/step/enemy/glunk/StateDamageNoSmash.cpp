@@ -59,7 +59,4 @@ void StateDamageNoSmash::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::glunk

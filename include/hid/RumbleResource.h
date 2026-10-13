@@ -23,6 +23,6 @@ private:
     xdata::XData mXData;
 };
 
-}
+}  // namespace hid
 
 #endif

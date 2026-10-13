@@ -152,4 +152,4 @@ FontLoader::~FontLoader() {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace font

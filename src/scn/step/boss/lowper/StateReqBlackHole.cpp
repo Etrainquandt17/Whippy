@@ -88,7 +88,4 @@ void StateReqBlackHole::reqHole() {
     hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).miniBlackHoleCtrl().set(mKind, 0.0f, 0.00032f, 0.032f);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

@@ -29,9 +29,6 @@ private:
     u32 mShakeFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 #endif

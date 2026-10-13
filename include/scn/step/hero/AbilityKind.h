@@ -42,8 +42,6 @@ enum AbilityKind {
     ABILITY_KIND_DEE,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -20,7 +20,4 @@ void StateAppear::procMove() {}
 
 void StateAppear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3pilot

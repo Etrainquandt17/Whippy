@@ -56,7 +56,4 @@ void StateAppearFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::fattybufferjr

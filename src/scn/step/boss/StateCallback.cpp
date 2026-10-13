@@ -38,6 +38,4 @@ void StateCallback::setCanClearAttack(bool canClearAttack) {
     mCanClearAttack = canClearAttack;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

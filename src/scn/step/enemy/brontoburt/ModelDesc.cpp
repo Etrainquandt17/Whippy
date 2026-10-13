@@ -51,7 +51,4 @@ chara::ModelDesc& HalcandleCreate() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

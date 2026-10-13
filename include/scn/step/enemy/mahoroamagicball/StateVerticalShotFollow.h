@@ -28,9 +28,6 @@ private:
     hel::math::Vector3 mVelocity;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

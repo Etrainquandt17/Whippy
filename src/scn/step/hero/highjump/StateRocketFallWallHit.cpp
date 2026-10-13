@@ -56,7 +56,4 @@ void StateRocketFallWallHit::procMove() {
 void StateRocketFallWallHit::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump

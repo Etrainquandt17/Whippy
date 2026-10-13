@@ -26,7 +26,4 @@ Boss& Obj() {
     return t_obj.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::MintBoss

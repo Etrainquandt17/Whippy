@@ -637,4 +637,4 @@ void PageDropout::procHIDConfirm() {
 
 PageDropout::~PageDropout() {}
 
-}
+}  // namespace pause

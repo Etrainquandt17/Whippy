@@ -15,6 +15,6 @@ public:
     virtual void onScriptExecPost(const Script& script) = 0;
 };
 
-}
+}  // namespace gobj
 
 #endif

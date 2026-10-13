@@ -110,7 +110,4 @@ void CollisionCtrl::setAttackType() {
     mBoss.objColl().setAttackType(0, type);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

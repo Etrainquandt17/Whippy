@@ -232,4 +232,4 @@ LibInitializer::~LibInitializer() {
     KPADShutdown();
 }
 
-}
+}  // namespace hid

@@ -103,7 +103,4 @@ void StateSparkLv3::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

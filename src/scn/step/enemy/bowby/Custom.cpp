@@ -123,7 +123,4 @@ void Custom::setAnimStart(bool start) {
     mIsAnimStart = start;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bowby

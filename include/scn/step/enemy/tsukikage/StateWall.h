@@ -18,9 +18,6 @@ public:
     virtual ~StateWall();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage
 
 #endif

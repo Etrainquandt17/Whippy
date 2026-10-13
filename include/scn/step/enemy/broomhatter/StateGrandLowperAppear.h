@@ -25,9 +25,6 @@ private:
     algorithm::AlgorithmGrandLowperAppear mAlgorithm;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::broomhatter
 
 #endif

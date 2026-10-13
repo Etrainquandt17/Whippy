@@ -32,8 +32,4 @@ void SetRareTryCount(int count) {
     t_obj->setRareTryCount(count);
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::hero::supersword::MintSwordSelector

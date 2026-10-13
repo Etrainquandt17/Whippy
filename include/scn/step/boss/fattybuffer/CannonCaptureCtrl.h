@@ -30,9 +30,6 @@ private:
     mem::ExplicitAutoDeleteArray<hero::CaptureHeroAttacker, 4> mAttackers;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

@@ -21,9 +21,6 @@ public:
     bool isUnlockEnd(int index);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::areaevent
 
 #endif

@@ -22,9 +22,6 @@ struct Param {
     LevelParam _50;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::superhammerquake
 
 #endif

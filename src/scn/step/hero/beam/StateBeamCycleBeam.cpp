@@ -86,7 +86,4 @@ bool StateBeamCycleBeam::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam

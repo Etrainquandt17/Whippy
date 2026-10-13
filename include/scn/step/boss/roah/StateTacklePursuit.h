@@ -31,9 +31,6 @@ private:
     StateTackle::Config mTackleConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

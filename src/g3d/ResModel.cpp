@@ -26,4 +26,4 @@ ResNode ResModel::nodeByName(const char* name) const {
     return ResNode(mObj.GetResNode(name));
 }
 
-}
+}  // namespace g3d

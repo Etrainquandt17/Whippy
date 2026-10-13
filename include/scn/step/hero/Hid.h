@@ -18,8 +18,6 @@ public:
     void cancelTrigger(u32 mask);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

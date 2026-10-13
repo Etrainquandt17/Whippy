@@ -73,8 +73,6 @@ struct FighterParam {
     u32 _14C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

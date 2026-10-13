@@ -95,5 +95,4 @@ void Matrix34::mtxInverse(const f32 (*src)[4], f32 (*dst)[4]) const {
     dst[2][3] = -dst[2][0] * src[0][3] - dst[2][1] * src[1][3] - dst[2][2] * src[2][3];
 }
 
-}
-}
+}}  // namespace hel::math

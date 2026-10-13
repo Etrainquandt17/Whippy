@@ -24,9 +24,6 @@ struct ParamData {
     Air mEscape;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::fattybufferjr
 
 #endif

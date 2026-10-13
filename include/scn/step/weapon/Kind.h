@@ -97,8 +97,6 @@ enum Kind {
     KIND_BURABURAROPE = 0x4F,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

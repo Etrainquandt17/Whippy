@@ -27,4 +27,4 @@ void HeapCompactionNode::setIsFree(bool isFree) {
     mSize = (mSize & 0x7FFFFFFF) | (isFree ? 0x80000000 : 0);
 }
 
-}
+}  // namespace mem

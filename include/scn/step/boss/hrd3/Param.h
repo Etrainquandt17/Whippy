@@ -60,9 +60,6 @@ struct Param {
     f32 _138;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

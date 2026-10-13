@@ -15,8 +15,6 @@ public:
     void clear();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

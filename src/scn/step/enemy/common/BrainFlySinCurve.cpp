@@ -25,7 +25,4 @@ bool BrainFlySinCurve::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

@@ -22,9 +22,6 @@ struct Param {
     f32 _3C[4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::popflower
 
 #endif

@@ -39,6 +39,6 @@ public:
     FreeFunction mFree;
 };
 
-}
+}  // namespace mintvm
 
 #endif

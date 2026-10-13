@@ -38,7 +38,4 @@ void Custom::setIsInvisible(bool isInvisible) {
     mIsInvisible = isInvisible;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

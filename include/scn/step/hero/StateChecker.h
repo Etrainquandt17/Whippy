@@ -98,8 +98,6 @@ private:
     bool mIsCarryBombDanger;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -21,7 +21,6 @@ private:
     mov::MovieKind mKind;
 };
 
-}
-}
+}}  // namespace scn::movie
 
 #endif

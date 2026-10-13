@@ -29,8 +29,6 @@ private:
     bool mIsSet;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

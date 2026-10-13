@@ -17,6 +17,6 @@ private:
     bool mUseFlash;
 };
 
-}
+}  // namespace g3d
 
 #endif

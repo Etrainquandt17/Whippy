@@ -21,9 +21,6 @@ private:
     StalactiteJumpKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

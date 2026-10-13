@@ -209,4 +209,4 @@ nw4r::ut::Font& Font::font() {
     return mFont;
 }
 
-}
+}  // namespace font

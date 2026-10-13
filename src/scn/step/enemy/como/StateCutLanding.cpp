@@ -47,7 +47,4 @@ void StateCutLanding::procMove() {}
 
 void StateCutLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

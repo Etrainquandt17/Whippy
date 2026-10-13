@@ -15,9 +15,6 @@ public:
     virtual ~StateMain();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fattybufferwaterwarp
 
 #endif

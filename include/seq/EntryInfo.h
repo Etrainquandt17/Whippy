@@ -11,6 +11,6 @@ struct EntryInfo {
     u32 _0[4];
 };
 
-}
+}  // namespace seq
 
 #endif

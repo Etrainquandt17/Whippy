@@ -39,6 +39,6 @@ public:
     void removeParentNode();
 };
 
-}
+}  // namespace gobj
 
 #endif

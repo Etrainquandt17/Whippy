@@ -22,9 +22,6 @@ private:
     bool mIsVacuum;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

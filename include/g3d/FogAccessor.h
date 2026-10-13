@@ -19,6 +19,6 @@ private:
     bool _4;
 };
 
-}
+}  // namespace g3d
 
 #endif

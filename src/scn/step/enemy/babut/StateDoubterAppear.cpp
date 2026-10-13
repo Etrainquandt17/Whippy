@@ -34,7 +34,4 @@ void StateDoubterAppear::procMove() {
     obj().move().decel(gobj::MoveParamDecel::Create(0.0075f));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut

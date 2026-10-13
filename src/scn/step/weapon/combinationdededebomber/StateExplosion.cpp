@@ -64,7 +64,4 @@ const ocoll::AttackType& StateExplosion::attackType() const {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationdededebomber

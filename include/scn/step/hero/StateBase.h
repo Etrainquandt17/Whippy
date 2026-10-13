@@ -29,8 +29,6 @@ private:
     Hero& mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

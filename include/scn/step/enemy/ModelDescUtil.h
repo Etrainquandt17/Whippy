@@ -28,9 +28,6 @@ inline chara::ModelDesc& CreateTmpl(const char* path, const char* name, u32 node
     return desc;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::ModelDescUtil
 
 #endif

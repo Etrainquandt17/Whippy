@@ -54,6 +54,6 @@ private:
     Regset mRegset;
 };
 
-}
+}  // namespace mintvm
 
 #endif

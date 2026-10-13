@@ -402,6 +402,4 @@ void SelectPanel::small() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::arena::select

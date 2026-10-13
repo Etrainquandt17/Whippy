@@ -12,7 +12,6 @@ namespace App__Locale {
 
 void AddOn(mintvm::VMCore& core);
 
-}
-}
+}}  // namespace mintglue::App__Locale
 
 #endif

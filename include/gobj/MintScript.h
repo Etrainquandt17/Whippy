@@ -13,7 +13,6 @@ void Register(Script& obj);
 void Unregister(Script& obj);
 u32 PrevScriptIndex();
 
-}
-}
+}}  // namespace gobj::MintScript
 
 #endif

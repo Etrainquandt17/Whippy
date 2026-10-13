@@ -11,7 +11,6 @@ enum MapKind {
     MAP_KIND_2,
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

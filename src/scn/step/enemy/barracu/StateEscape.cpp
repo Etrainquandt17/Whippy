@@ -45,7 +45,4 @@ void StateEscape::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu

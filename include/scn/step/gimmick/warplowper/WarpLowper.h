@@ -99,9 +99,6 @@ private:
     bool _875;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::warplowper
 
 #endif

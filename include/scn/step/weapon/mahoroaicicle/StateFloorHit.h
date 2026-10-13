@@ -21,9 +21,6 @@ private:
     u32 mWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroaicicle
 
 #endif

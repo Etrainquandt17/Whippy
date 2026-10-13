@@ -17,9 +17,6 @@ chara::ModelDesc& Create2Ex();
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroaneedle
 
 #endif

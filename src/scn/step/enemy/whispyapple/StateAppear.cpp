@@ -53,7 +53,4 @@ void StateAppear::procMove() {}
 
 void StateAppear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple

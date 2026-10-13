@@ -341,7 +341,4 @@ void Utility::UpdateMoveRateExtreme(Enemy* enemy) {
     enemy->move().setMoveRate(rate);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

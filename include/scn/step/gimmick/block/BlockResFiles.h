@@ -15,9 +15,6 @@ public:
     const char* entryName(map::BinGmkBlockKind kind) const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::block
 
 #endif

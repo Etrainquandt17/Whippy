@@ -43,6 +43,6 @@ private:
     u32 _4[0x32A];
 };
 
-}
+}  // namespace seq
 
 #endif

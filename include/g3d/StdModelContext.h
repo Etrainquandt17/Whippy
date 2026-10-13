@@ -16,6 +16,6 @@ public:
         : ModelContext(resModel, option, maxNumChildren, numView, allocator, isCreateNodeLocalMtx) {}
 };
 
-}
+}  // namespace g3d
 
 #endif

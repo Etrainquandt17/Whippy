@@ -17,6 +17,6 @@ public:
     u32 _44[5];
 };
 
-}
+}  // namespace gobj
 
 #endif

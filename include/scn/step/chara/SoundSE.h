@@ -31,8 +31,6 @@ public:
     void updateVolume();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

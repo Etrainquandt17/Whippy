@@ -60,7 +60,4 @@ void StateDeadEnd::procMove() {}
 
 void StateDeadEnd::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

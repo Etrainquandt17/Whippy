@@ -34,9 +34,6 @@ void SetRotDTarget(f32 rot);
 void SetRotDIntpRate(f32 rate);
 void SetRotDIntoTarget();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintModelRotCtrl
 
 #endif

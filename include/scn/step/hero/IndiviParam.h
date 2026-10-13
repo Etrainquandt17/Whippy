@@ -18,8 +18,6 @@ struct IndiviParam {
     gobj::MoveParamFall _58;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

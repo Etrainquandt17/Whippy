@@ -33,7 +33,6 @@ inline f32 TanRad(f32 rad) {
     return TanFIdx(NW4R_MATH_RAD_TO_FIDX(rad));
 }
 
-}
-}
+}}  // namespace nw4r::math
 
 #endif

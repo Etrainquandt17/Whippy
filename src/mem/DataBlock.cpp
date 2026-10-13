@@ -12,4 +12,4 @@ DataBlock::~DataBlock() {
     mAllocator->allocatorFree(mBlock.startAddress());
 }
 
-}
+}  // namespace mem

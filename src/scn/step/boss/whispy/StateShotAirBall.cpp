@@ -43,7 +43,4 @@ void StateShotAirBall::reqAirBall() {
     obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, hel::math::Direction3::FRONT_TO_LEFT);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

@@ -21,9 +21,6 @@ private:
     bool _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer
 
 #endif

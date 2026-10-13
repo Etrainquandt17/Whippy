@@ -31,9 +31,6 @@ private:
     hel::common::ScopedPtr<lyt::Layout> _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara
 
 #endif

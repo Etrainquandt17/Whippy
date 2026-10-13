@@ -19,9 +19,6 @@ public:
     virtual ~StatePunchCharge();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

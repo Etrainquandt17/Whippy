@@ -15,8 +15,6 @@ public:
     static void Create(Boss& boss, mem::ExplicitScopedPtr<ICustom>& custom);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

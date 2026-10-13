@@ -25,9 +25,6 @@ private:
     u32 mStopCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight
 
 #endif

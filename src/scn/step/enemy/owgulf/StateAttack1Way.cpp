@@ -53,7 +53,4 @@ void StateAttack1Way::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

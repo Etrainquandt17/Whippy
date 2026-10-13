@@ -21,9 +21,6 @@ public:
     f32 _18;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

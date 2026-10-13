@@ -20,8 +20,6 @@ public:
     void reqDeadByTeamNoForBoss(ocoll::TeamNo teamNo);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

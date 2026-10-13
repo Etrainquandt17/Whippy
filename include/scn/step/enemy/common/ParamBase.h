@@ -11,10 +11,6 @@ namespace ParamBase {
 
 CharaParam Create();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::common::ParamBase
 
 #endif

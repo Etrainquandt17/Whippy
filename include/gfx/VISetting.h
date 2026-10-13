@@ -45,6 +45,6 @@ public:
     u32 mRenderModeNo;
 };
 
-}
+}  // namespace gfx
 
 #endif

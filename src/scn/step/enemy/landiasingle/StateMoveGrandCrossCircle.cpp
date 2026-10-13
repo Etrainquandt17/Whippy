@@ -98,7 +98,4 @@ void StateMoveGrandCrossCircle::procMove() {
 
 void StateMoveGrandCrossCircle::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

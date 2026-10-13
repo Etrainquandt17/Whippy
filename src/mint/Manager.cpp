@@ -26,4 +26,4 @@ const ScriptArchive& Manager::scriptArchive() const {
     return mArchive;
 }
 
-}
+}  // namespace mint

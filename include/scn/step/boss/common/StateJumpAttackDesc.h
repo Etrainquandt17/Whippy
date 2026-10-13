@@ -20,9 +20,6 @@ public:
     int _18;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

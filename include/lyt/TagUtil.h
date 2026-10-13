@@ -8,6 +8,6 @@ public:
     static int Find(const wchar_t* str, wchar_t ch);
 };
 
-}
+}  // namespace lyt
 
 #endif

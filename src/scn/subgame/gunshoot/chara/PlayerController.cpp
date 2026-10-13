@@ -76,7 +76,4 @@ void PlayerController::shot(bool charged) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::chara

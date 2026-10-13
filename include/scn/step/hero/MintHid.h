@@ -13,9 +13,6 @@ bool IsHold(u32 mask);
 bool IsTrigger(u32 mask);
 void SetAutoInputHold(u32 mask);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintHid
 
 #endif

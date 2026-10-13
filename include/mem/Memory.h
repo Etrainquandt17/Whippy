@@ -17,6 +17,6 @@ public:
     HeapExp& mem2FixHeap();
 };
 
-}
+}  // namespace mem
 
 #endif

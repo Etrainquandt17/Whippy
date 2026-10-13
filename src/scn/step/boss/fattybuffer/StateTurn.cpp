@@ -67,7 +67,4 @@ void StateTurn::procMove() {
 
 void StateTurn::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

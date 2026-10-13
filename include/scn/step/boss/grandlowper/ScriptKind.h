@@ -16,9 +16,6 @@ enum ScriptKind {
     ScriptKind_FlyingBombEnd = 16,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::grandlowper
 
 #endif

@@ -11,9 +11,6 @@ enum AnotherDimensionType {
     AnotherDimensionType_0,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle2
 
 #endif

@@ -24,9 +24,6 @@ private:
     u32 mThrowFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojr
 
 #endif

@@ -11,10 +11,7 @@ namespace elec {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::elec::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -39,9 +35,6 @@ public:
     virtual void onProcFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec
 
 #endif

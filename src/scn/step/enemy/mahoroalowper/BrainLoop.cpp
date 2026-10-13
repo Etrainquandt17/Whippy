@@ -35,7 +35,4 @@ bool BrainLoop::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroalowper

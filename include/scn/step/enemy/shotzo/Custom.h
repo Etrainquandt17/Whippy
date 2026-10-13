@@ -11,10 +11,7 @@ namespace shotzo {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::shotzo::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     f32 mAimAngle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo
 
 #endif

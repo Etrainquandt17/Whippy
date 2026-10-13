@@ -23,9 +23,6 @@ private:
     u32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::metashockwave
 
 #endif

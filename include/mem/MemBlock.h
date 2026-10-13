@@ -29,6 +29,6 @@ private:
     void* mAddress;
 };
 
-}
+}  // namespace mem
 
 #endif

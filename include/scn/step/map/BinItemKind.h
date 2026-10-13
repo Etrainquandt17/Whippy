@@ -10,8 +10,6 @@ enum BinItemKind {
     BinItemKind_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

@@ -25,9 +25,6 @@ private:
     bool mIsLeft;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby
 
 #endif

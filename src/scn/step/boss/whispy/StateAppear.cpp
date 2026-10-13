@@ -74,7 +74,4 @@ void StateAppear::startBgm() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

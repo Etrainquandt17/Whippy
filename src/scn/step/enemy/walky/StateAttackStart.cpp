@@ -63,7 +63,4 @@ void StateAttackStart::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky

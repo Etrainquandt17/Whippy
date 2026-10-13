@@ -28,7 +28,4 @@ void StateWait::procFixPos() {}
 
 void StateWait::procObjCollReact() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::superhammerquake

@@ -29,5 +29,4 @@ bool IsAir() {
     return t_obj->isAir();
 }
 
-}
-}
+}}  // namespace gobj::MintFootState

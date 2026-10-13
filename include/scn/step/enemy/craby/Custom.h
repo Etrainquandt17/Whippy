@@ -12,10 +12,7 @@ namespace craby {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::craby::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -54,9 +50,6 @@ private:
     f32 mBasePosX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby
 
 #endif

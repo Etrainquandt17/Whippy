@@ -17,8 +17,6 @@ public:
     void requestStopPowerful(u32 frame);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ostop
 
 #endif

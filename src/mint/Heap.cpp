@@ -117,4 +117,4 @@ void Heap::memFree(void* ptr) {
     mHeap.obj().free(ptr);
 }
 
-}
+}  // namespace mint

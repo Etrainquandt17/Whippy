@@ -34,6 +34,6 @@ private:
     MPtrArray<VMFunction> mFunctions;
 };
 
-}
+}  // namespace mintvm
 
 #endif

@@ -22,9 +22,6 @@ private:
     bool mIsFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

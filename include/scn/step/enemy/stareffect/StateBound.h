@@ -18,9 +18,6 @@ public:
     StateBound(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::stareffect
 
 #endif

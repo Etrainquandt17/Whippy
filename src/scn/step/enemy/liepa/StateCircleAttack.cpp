@@ -70,7 +70,4 @@ void StateCircleAttack::procMove() {
 
 void StateCircleAttack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::liepa

@@ -9,7 +9,6 @@ struct Link {
     void* nextObject;
 };
 
-}
-}
+}}  // namespace nw4r::ut
 
 #endif

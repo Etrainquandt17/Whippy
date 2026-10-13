@@ -22,9 +22,6 @@ private:
     u32 mEnemyTimer;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

@@ -84,7 +84,4 @@ void StateMain::mfExplode() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::crackershot

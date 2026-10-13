@@ -26,9 +26,6 @@ private:
     bool mIsRequest;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

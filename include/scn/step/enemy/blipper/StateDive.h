@@ -27,9 +27,6 @@ private:
     chara::FreeRotController mRotCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper
 
 #endif

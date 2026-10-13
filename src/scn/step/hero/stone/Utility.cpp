@@ -128,7 +128,4 @@ bool Utility::ChkCancel(Hero& hero) {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

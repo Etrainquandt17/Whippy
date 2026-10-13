@@ -12,6 +12,4 @@ Desc::Desc(map::BinBossKind kind, map::BinBossVariation variation, u32 level, bo
            const hel::math::Vector2& camOffs)
     : mIsValid(true), mKind(kind), mVariation(variation), mLevel(level), mIsSuper(isSuper), mPos(pos), mCamOffs(camOffs), _24(0) {}
 
-}
-}
-}
+}}}  // namespace scn::step::boss

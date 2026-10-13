@@ -126,7 +126,4 @@ void StateFlyingBodyPressEnd::reqStar() {
     Utility::GenerateStarEffect(obj(), pos, speed, accel, static_cast<map::BinEnemyVariation>(0x19B));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

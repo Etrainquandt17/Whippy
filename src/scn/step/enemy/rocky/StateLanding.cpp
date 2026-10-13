@@ -81,7 +81,4 @@ void StateLanding::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rocky

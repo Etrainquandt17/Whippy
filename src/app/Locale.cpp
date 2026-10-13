@@ -96,4 +96,4 @@ const char* Locale::FilePostfix() {
 }
 #endif
 
-}
+}  // namespace app

@@ -21,9 +21,6 @@ struct ParamData {
     f32 mWeaponSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::leafan
 
 #endif

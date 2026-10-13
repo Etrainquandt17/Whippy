@@ -88,7 +88,4 @@ bool StateCutterSlash2::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::cutter

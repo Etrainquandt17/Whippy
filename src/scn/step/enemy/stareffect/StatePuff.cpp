@@ -54,7 +54,4 @@ void StatePuff::procMove() {
     obj().move().decel(param.mPuffDecel);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::stareffect

@@ -63,7 +63,4 @@ void StatePursuit::procMove() {
 
 void StatePursuit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

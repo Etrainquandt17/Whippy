@@ -27,9 +27,6 @@ private:
     bool mIsPassThroughLand;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

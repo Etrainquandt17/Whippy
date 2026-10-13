@@ -16,8 +16,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<seq::SequenceStep>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace seq {
 
@@ -446,4 +445,4 @@ const hel::common::RuntimeTypeInfo& SequenceStep::GetRuntimeTypeInfo() const {
 SequenceStep::~SequenceStep() {
 }
 
-}
+}  // namespace seq

@@ -12,6 +12,6 @@ public:
     static void Unregister(nrel::devkit::heapmap::IHeapMapUser& user);
 };
 
-}
+}  // namespace mem
 
 #endif

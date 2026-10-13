@@ -15,5 +15,4 @@ void AddOn(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "App.Random", "float RandAF()", RandAF, &app::Random::RandAF);
 }
 
-}
-}
+}}  // namespace mintglue::App__Random

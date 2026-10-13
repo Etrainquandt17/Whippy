@@ -9,8 +9,7 @@ namespace detail {
 
 class ShapeDiamondContext;
 
-}
-}
+}}  // namespace mcoll::detail
 
 namespace scn {
 namespace step {
@@ -33,8 +32,6 @@ public:
     void changeActorShape(const mcoll::detail::ShapeDiamondContext& shape);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

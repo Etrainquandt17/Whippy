@@ -27,8 +27,6 @@ private:
     u32 mFull;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

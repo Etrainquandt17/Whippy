@@ -51,7 +51,4 @@ void StateSwordUnderThrustStart::procMove() {
 void StateSwordUnderThrustStart::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

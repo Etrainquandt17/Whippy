@@ -12,7 +12,6 @@ namespace Scn__Title__Commander {
 
 void AddOn(mintvm::VMCore& core);
 
-}
-}
+}}  // namespace mintglue::Scn__Title__Commander
 
 #endif

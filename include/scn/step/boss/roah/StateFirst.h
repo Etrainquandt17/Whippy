@@ -24,9 +24,6 @@ private:
     hel::geo::Rect mGoalRect;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

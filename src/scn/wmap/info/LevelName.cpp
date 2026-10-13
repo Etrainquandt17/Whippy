@@ -821,6 +821,4 @@ bool LevelName::mfCanMoveToHalcandra() const {
     return mComponent.unlockManager().canMove(ITEM_KIND_7);
 }
 
-}
-}
-}
+}}}  // namespace scn::wmap::info

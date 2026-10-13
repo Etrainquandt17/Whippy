@@ -22,9 +22,6 @@ private:
     algorithm::AlgorithmMahoroa1Disappear mAlgorithm;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

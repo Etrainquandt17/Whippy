@@ -120,7 +120,4 @@ bool SuperHammer::isDepleted() const {
     return mHero.abilityManager().getFuel() == 0;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::superhammer

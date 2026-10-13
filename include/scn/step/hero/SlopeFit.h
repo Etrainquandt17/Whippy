@@ -14,8 +14,6 @@ public:
     void setAffectRate(f32 rate);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

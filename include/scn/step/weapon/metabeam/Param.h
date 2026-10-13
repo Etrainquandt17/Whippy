@@ -17,9 +17,6 @@ struct Param {
     gobj::MoveParamDecel _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::metabeam
 
 #endif

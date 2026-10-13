@@ -52,8 +52,6 @@ struct BombParam {
     gobj::MoveParamFall _80;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

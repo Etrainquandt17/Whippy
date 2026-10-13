@@ -11,10 +11,7 @@ namespace bonkersbomb {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bonkersbomb
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::bonkersbomb::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ public:
     void reqRollExp();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bonkersbomb
 
 #endif

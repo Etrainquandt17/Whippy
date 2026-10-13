@@ -11,10 +11,7 @@ namespace pierce {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::pierce::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     u32 mTurnFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 #endif

@@ -96,7 +96,4 @@ void StateSparkShot::reqBullet() {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

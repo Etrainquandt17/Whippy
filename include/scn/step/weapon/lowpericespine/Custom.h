@@ -10,10 +10,7 @@ namespace lowpericespine {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowpericespine
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::lowpericespine::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -38,9 +34,6 @@ public:
     virtual void reqCustomDeadEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::lowpericespine
 
 #endif

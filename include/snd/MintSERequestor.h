@@ -16,6 +16,6 @@ void Stop();
 
 }
 
-}
+}  // namespace snd
 
 #endif

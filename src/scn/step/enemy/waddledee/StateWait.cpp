@@ -82,7 +82,4 @@ void StateWait::setLoopLimit() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

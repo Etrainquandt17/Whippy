@@ -13,7 +13,6 @@ public:
     static void renderRect(const nw4r::ut::Rect& rect, const GXColor& color);
 };
 
-}
-}
+}}  // namespace nrel::ezrender
 
 #endif

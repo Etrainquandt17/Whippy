@@ -58,7 +58,4 @@ void StateFattyBufferAppearFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper

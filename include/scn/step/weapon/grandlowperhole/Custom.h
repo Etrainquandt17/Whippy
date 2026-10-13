@@ -11,10 +11,7 @@ namespace grandlowperhole {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::grandlowperhole
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::grandlowperhole::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -45,9 +41,6 @@ private:
     bool mIsMove;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::grandlowperhole
 
 #endif

@@ -14,9 +14,6 @@ public:
     static void Vanish(Weapon& weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear
 
 #endif

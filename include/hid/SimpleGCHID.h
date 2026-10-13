@@ -41,6 +41,6 @@ private:
     Stick mSubStick;
 };
 
-}
+}  // namespace hid
 
 #endif

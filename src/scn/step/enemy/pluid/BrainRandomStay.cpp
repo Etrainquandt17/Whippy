@@ -38,7 +38,4 @@ bool BrainRandomStay::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid

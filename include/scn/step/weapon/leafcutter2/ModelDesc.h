@@ -14,9 +14,6 @@ chara::ModelDesc& Create();
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::leafcutter2
 
 #endif

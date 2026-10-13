@@ -38,6 +38,4 @@ void Handicap::setup() {
     DebugStepSettingProxy::GetAlertInfoBossHandicapMonitor();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

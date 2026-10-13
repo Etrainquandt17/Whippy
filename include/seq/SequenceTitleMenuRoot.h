@@ -40,6 +40,6 @@ private:
     int _28;
 };
 
-}
+}  // namespace seq
 
 #endif

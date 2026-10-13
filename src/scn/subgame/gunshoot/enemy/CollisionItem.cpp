@@ -118,7 +118,4 @@ void CollisionItem::recover() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy

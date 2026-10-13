@@ -23,9 +23,6 @@ private:
     bool mIsSearch;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

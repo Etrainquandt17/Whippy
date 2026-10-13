@@ -13,8 +13,6 @@ public:
     void setForbidFrame(u32 frame);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

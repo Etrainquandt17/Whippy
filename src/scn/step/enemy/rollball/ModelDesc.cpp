@@ -58,7 +58,4 @@ chara::ModelDesc& CreateLava() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rollball

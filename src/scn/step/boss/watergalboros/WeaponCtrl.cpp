@@ -101,7 +101,4 @@ void WeaponCtrl::requestBase(weapon::Kind kind, hel::math::Vector2 pos, hel::mat
     mBoss.comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros

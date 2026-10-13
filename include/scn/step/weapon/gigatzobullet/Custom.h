@@ -10,10 +10,7 @@ namespace gigatzobullet {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::gigatzobullet
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::gigatzobullet::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -37,9 +33,6 @@ public:
     virtual bool onInit();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::gigatzobullet
 
 #endif

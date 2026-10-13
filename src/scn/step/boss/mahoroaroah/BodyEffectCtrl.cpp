@@ -88,7 +88,4 @@ void BodyEffectCtrl::releaseAfterImage() {
     mBoss.effect().back().release();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah

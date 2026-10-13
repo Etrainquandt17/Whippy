@@ -25,9 +25,6 @@ private:
     hel::math::Vector3 mOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

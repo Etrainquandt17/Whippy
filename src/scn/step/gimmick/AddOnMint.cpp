@@ -19,7 +19,4 @@ void RegisterAll(mintvm::VMCore& core) {
     shipevent::AddOnMint::RegisterAll(core);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::AddOnMint

@@ -132,7 +132,4 @@ bool Victory::isExitEnd() const {
     return _8 == 7;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::info

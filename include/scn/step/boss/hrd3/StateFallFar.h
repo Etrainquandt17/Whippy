@@ -25,9 +25,6 @@ private:
     f32 mGoalY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

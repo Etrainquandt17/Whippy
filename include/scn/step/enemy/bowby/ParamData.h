@@ -17,9 +17,6 @@ struct ParamData {
     u32 mShotFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bowby
 
 #endif

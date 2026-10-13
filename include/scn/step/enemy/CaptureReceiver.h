@@ -13,8 +13,6 @@ public:
     bool isCaptured() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

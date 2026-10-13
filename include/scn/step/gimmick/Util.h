@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -21,8 +20,6 @@ public:
     static bool InScreen(Component& component, const hel::math::Vector2& pos, f32 margin);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

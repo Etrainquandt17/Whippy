@@ -336,6 +336,4 @@ chara::ModelDesc& IndiviUtil::ModelDesc(Kind kind, bool isEx) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

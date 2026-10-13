@@ -19,9 +19,6 @@ public:
     StateHomingShot(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

@@ -24,9 +24,6 @@ private:
     Anim mAnim;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::param
 
 #endif

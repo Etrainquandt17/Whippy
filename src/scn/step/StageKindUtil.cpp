@@ -238,5 +238,4 @@ u32 StageKindUtil::StageCount(LevelKind level) {
     return count;
 }
 
-}
-}
+}}  // namespace scn::step

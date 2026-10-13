@@ -87,7 +87,4 @@ void StateCameraOutWait::procMove() {}
 
 void StateCameraOutWait::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

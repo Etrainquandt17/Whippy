@@ -24,8 +24,6 @@ private:
     bool mIsSpecial;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

@@ -20,9 +20,6 @@ private:
     bool mIsFound;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec
 
 #endif

@@ -45,9 +45,6 @@ private:
     util::ObjRefHandle<weapon::Weapon> mWeapon;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

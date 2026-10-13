@@ -15,7 +15,4 @@ bool BrainGrandLowper::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight

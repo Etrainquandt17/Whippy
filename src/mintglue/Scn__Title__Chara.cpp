@@ -204,4 +204,4 @@ void Scn__Title__Chara::effectRequestN(u32 index, const char* name) {
     mChara->effectRequestN(index, name);
 }
 
-}
+}  // namespace mintglue

@@ -153,7 +153,6 @@ inline bool Direction3::Front::permittedRestruct() {
 }
 #endif
 
-}
-}
+}}  // namespace hel::math
 
 #endif

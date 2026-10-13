@@ -104,7 +104,4 @@ void StateVerticalShotFollow::procConstraint() {
 
 void StateVerticalShotFollow::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball

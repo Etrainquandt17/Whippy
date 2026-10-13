@@ -16,8 +16,6 @@ enum GuardType {
     GUARD_TYPE_6,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

@@ -70,7 +70,6 @@ OBJ_T ResCommon<T>::ofs_to_obj(s32 ofs) {
     return OBJ_T(0);
 }
 
-}
-}
+}}  // namespace nw4r::g3d
 
 #endif

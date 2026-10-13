@@ -32,9 +32,6 @@ private:
     u32 mRareTryCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword
 
 #endif

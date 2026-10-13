@@ -23,10 +23,7 @@ namespace lowperbullet {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 namespace hel {
 namespace common {
@@ -35,8 +32,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::lowperbullet::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -58,9 +54,6 @@ private:
     u32 _8[9];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 #endif

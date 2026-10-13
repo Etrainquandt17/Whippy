@@ -19,7 +19,6 @@ public:
     static u32 StageCount(LevelKind level);
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

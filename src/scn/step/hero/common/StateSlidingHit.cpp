@@ -38,7 +38,4 @@ void StateSlidingHit::procMove() {
 
 void StateSlidingHit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

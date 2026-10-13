@@ -14,10 +14,6 @@ chara::ModelDesc& CreateIron();
 chara::ModelDesc& CreateIce();
 chara::ModelDesc& CreateLava();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::rollball::ModelDesc
 
 #endif

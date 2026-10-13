@@ -132,4 +132,4 @@ void FileLoader::loadIN(const char* path, mem::IAllocator& allocator, mem::HeapC
     }
 }
 
-}
+}  // namespace file

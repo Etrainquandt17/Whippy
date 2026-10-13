@@ -26,8 +26,6 @@ public:
     void setConstraintPos(const hel::math::Vector3& pos);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

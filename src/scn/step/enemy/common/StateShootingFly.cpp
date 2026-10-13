@@ -52,7 +52,4 @@ void StateShootingFly::procMove() {
 
 void StateShootingFly::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

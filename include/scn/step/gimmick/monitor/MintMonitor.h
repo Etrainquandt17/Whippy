@@ -15,9 +15,6 @@ public:
     static Monitor& Obj();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::monitor
 
 #endif

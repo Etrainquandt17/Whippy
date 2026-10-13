@@ -5,8 +5,7 @@ namespace hel {
 namespace math {
 class Vector2;
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -22,8 +21,6 @@ public:
     void requestBubble(const hel::math::Vector2& pos);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

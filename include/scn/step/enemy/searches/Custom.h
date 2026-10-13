@@ -11,10 +11,7 @@ namespace searches {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::searches::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ public:
     bool searchesDamage();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches
 
 #endif

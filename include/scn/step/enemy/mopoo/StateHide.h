@@ -22,9 +22,6 @@ private:
     int mWaitTime;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mopoo
 
 #endif

@@ -33,7 +33,4 @@ void StateDashEnd::procFixPos() {
     StateFall::TryToChangeState(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

@@ -40,4 +40,4 @@ const void* RumbleResource::commandList(u32 index) const {
     return mXData.labelAddressWithReference(head[index + 1]);
 }
 
-}
+}  // namespace hid

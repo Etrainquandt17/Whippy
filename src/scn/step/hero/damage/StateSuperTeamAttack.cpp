@@ -59,7 +59,4 @@ void StateSuperTeamAttack::procMove() {
 
 void StateSuperTeamAttack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

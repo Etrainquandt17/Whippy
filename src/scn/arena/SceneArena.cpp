@@ -75,5 +75,4 @@ SceneArena::Result SceneArena::result() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::arena

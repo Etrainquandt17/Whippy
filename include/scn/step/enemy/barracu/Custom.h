@@ -13,10 +13,7 @@ namespace barracu {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu
 
 namespace hel {
 namespace common {
@@ -25,8 +22,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::barracu::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -66,9 +62,6 @@ private:
     u32 mFlashFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu
 
 #endif

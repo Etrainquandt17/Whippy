@@ -77,7 +77,4 @@ void StateJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

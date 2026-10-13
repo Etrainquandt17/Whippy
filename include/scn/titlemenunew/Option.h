@@ -52,7 +52,6 @@ private:
     info::AnimSyncer* mAnimSyncer;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

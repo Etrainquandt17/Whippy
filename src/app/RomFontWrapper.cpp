@@ -194,4 +194,4 @@ nw4r::ut::RomFont& RomFontWrapper::font() {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace app

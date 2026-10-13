@@ -11,9 +11,6 @@ namespace MintScriptData {
 void SetFlipFoot(bool value);
 bool GetFlipFoot();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintScriptData
 
 #endif

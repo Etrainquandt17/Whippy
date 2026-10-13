@@ -13,8 +13,7 @@ class RequestorBuilder;
 }
 namespace view {
 class ModelAccessor;
-}
-}
+}}  // namespace common::view
 
 namespace gunshoot {
 namespace enemy {
@@ -37,9 +36,6 @@ private:
     u8 _0[0x390];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 #endif

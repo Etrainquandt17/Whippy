@@ -18,9 +18,6 @@ private:
     u32 _C[(0x18 - 0xC) / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::landia
 
 #endif

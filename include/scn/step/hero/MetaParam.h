@@ -75,8 +75,6 @@ struct MetaParam {
     gobj::MoveParamDecel _108;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

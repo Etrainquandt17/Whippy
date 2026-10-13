@@ -25,7 +25,4 @@ bool BrainMoveStraight::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

@@ -50,7 +50,4 @@ void StateHammerAttack::procFixPos() {
     hero::Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

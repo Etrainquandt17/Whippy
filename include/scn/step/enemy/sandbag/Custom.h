@@ -11,10 +11,7 @@ namespace sandbag {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sandbag
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::sandbag::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[3];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sandbag
 
 #endif

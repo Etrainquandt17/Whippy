@@ -48,8 +48,6 @@ private:
     bool _1A1;
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::info
 
 #endif

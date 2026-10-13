@@ -31,7 +31,6 @@ private:
     u32 _190;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

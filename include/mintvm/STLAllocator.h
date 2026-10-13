@@ -41,6 +41,6 @@ public:
     IAllocator* mAllocator;
 };
 
-}
+}  // namespace mintvm
 
 #endif

@@ -18,9 +18,6 @@ public:
     StateFlyAround(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::snowl
 
 #endif

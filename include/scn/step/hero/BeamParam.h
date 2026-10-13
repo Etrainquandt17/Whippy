@@ -30,8 +30,6 @@ struct BeamParam {
     f32 _54;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

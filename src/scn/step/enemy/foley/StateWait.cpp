@@ -57,7 +57,4 @@ void StateWait::procMove() {
     obj().move().airDecelFall(gobj::MoveParamDecel::Zero(), gobj::MoveParamFall::Zero());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::foley

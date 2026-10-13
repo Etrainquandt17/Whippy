@@ -36,7 +36,4 @@ chara::ModelDesc& Create() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::hrd3laser

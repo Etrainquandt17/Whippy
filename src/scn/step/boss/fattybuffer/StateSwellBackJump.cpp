@@ -67,7 +67,4 @@ void StateSwellBackJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

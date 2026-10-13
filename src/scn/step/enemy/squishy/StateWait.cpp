@@ -56,7 +56,4 @@ void StateWait::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy

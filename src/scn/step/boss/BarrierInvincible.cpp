@@ -19,6 +19,4 @@ void BarrierInvincible::setIsValid(bool isValid) {
     mIsValid = isValid;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

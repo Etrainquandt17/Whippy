@@ -69,6 +69,6 @@ private:
     hel::common::MutableArray<PageRecipe, 10> mRecipes;
 };
 
-}
+}  // namespace pause
 
 #endif

@@ -16,8 +16,7 @@ class Model;
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -84,8 +83,6 @@ public:
     void unsetCustomMtx();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

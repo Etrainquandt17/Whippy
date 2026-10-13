@@ -24,9 +24,6 @@ private:
     bool mIsDash;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword
 
 #endif

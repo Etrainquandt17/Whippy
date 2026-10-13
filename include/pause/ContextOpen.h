@@ -36,6 +36,6 @@ private:
     u32 mPlayerEntryInfo;
 };
 
-}
+}  // namespace pause
 
 #endif

@@ -18,9 +18,6 @@ public:
     virtual ~StateWallThrow();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

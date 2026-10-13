@@ -80,8 +80,6 @@ private:
     bool _54;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

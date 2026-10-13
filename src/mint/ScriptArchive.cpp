@@ -34,4 +34,4 @@ const ScriptArchive::Header* ScriptArchive::header() const {
     return 0;
 }
 
-}
+}  // namespace mint

@@ -63,7 +63,4 @@ bool Custom::isFirstChase() const {
     return mIsFirstChase;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::degout

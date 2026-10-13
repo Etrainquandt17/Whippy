@@ -21,4 +21,4 @@ Vec2 DPD::hori() const {
     return mHori;
 }
 
-}
+}  // namespace hid

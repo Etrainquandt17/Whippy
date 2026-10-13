@@ -24,9 +24,6 @@ private:
     bool mIsAirContinue;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

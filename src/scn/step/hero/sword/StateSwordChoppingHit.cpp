@@ -50,7 +50,4 @@ void StateSwordChoppingHit::procMove() {
 void StateSwordChoppingHit::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

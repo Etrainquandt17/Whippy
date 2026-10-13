@@ -31,8 +31,6 @@ public:
     static bool CheckShootingCulling(Weapon& weapon, f32 margin);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

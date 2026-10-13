@@ -43,7 +43,4 @@ void StateShotAirBallTornado::reqAirBall() {
     mSpeedAdd += param.mTornadoSpeedAdd;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

@@ -26,9 +26,6 @@ private:
     f32 mAccelVRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado
 
 #endif

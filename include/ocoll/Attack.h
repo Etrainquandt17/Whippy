@@ -36,6 +36,6 @@ private:
     u32 _0[0x270 / 4];
 };
 
-}
+}  // namespace ocoll
 
 #endif

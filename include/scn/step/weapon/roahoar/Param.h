@@ -17,9 +17,6 @@ struct Param {
     f32 _20;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahoar
 
 #endif

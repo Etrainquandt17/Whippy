@@ -35,6 +35,6 @@ private:
     hel::common::FixedString<32> mName;
 };
 
-}
+}  // namespace g3d
 
 #endif

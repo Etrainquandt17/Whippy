@@ -10,8 +10,6 @@ public:
     bool isInvisible() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

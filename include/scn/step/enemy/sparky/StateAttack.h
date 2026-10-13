@@ -20,9 +20,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sparky
 
 #endif

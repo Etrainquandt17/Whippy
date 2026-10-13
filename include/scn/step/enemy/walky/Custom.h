@@ -11,10 +11,7 @@ namespace walky {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::walky::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -47,9 +43,6 @@ private:
     f32 mAnimRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walky
 
 #endif

@@ -148,7 +148,4 @@ void StateThrownFighter::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

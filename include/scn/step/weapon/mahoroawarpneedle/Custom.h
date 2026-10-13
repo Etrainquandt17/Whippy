@@ -14,10 +14,7 @@ namespace mahoroawarpneedle {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroawarpneedle
 
 namespace hel {
 namespace common {
@@ -26,8 +23,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::mahoroawarpneedle::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -50,9 +46,6 @@ private:
     util::ObjRefHandle<Weapon> mChild;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroawarpneedle
 
 #endif

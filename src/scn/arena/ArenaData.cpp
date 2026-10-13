@@ -910,5 +910,4 @@ bool ArenaData::isHpReady() {
     return sum != 0;
 }
 
-}
-}
+}}  // namespace scn::arena

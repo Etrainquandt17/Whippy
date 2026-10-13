@@ -40,7 +40,4 @@ chara::ModelDesc& CreateCold() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::gigatzobullet

@@ -802,7 +802,4 @@ u32 StageSphere::getNextFlashSphere(u32 index) const {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::info::lvmap

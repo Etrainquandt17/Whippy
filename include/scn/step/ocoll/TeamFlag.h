@@ -10,8 +10,6 @@ enum TeamFlag {
     TEAM_FLAG_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ocoll
 
 #endif

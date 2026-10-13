@@ -27,9 +27,6 @@ private:
     u32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterhadoushot
 
 #endif

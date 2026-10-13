@@ -322,7 +322,4 @@ void Crash::releaseHatLight() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash

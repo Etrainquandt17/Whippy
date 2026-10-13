@@ -14,9 +14,6 @@ public:
     void requestWithMagicBall(const hel::math::Vector2& pos);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

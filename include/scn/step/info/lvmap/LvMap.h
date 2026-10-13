@@ -13,9 +13,6 @@ public:
     FrameControl& frameControl();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::info::lvmap
 
 #endif

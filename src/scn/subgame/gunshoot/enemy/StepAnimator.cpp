@@ -74,7 +74,4 @@ void StepAnimator::resumeStep() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy

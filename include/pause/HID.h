@@ -12,6 +12,6 @@ public:
     hid::Button btn() const;
 };
 
-}
+}  // namespace pause
 
 #endif

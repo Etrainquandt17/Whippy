@@ -20,8 +20,6 @@ public:
     void stop();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

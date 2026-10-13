@@ -33,7 +33,4 @@ void StateDiveWait::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

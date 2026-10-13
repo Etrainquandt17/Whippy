@@ -102,7 +102,4 @@ void StateTail::reqStar() {
     obj().effect().normal().requestP(static_cast<effect::Kind>(0xB4), obj().location().pos() + (offset + pos).toVector3());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

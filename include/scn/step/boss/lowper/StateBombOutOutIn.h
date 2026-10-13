@@ -30,9 +30,6 @@ private:
     f32 mRotH;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

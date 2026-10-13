@@ -62,7 +62,4 @@ void StateRollingFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball

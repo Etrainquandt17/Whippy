@@ -46,8 +46,6 @@ private:
     hero::Kind _6C0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

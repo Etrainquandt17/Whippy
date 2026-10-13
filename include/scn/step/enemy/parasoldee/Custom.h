@@ -11,10 +11,7 @@ namespace parasoldee {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasoldee
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::parasoldee::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ private:
     u32 _8[6];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasoldee
 
 #endif

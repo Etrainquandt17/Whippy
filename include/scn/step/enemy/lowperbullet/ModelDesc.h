@@ -14,10 +14,6 @@ chara::ModelDesc& CreateLv2();
 chara::ModelDesc& CreateLv3();
 chara::ModelDesc& CreateLv4();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::lowperbullet::ModelDesc
 
 #endif

@@ -14,9 +14,6 @@ enum AnimKind {
     ANIM_KIND_NONE = 0x24,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

@@ -97,7 +97,4 @@ f32 StateFlySinCurve::speedX() const {
     return obj().param().babut().mSinCurveSpeedX * difficultyRate();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut

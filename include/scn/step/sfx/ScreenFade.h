@@ -18,8 +18,6 @@ public:
     bool isEnd() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

@@ -20,9 +20,6 @@ public:
     virtual ~StateMoveFar();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

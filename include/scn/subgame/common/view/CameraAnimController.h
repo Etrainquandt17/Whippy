@@ -13,9 +13,6 @@ public:
     void setFrameRate(f32 rate);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::view
 
 #endif

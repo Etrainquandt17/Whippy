@@ -23,7 +23,4 @@ SwordSelector& Custom::swordSelector() {
     return mSwordSelector;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword

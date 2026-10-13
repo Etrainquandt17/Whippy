@@ -24,5 +24,4 @@ void SetVisibility(bool visible) {
     t_obj.setVisibility(visible);
 }
 
-}
-}
+}}  // namespace g3d::MintModelAccessor

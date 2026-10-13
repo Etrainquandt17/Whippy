@@ -22,9 +22,6 @@ private:
     bool mIsSignaled;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

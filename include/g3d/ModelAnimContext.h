@@ -24,6 +24,6 @@ private:
     mem::IAllocator& mVisibleAllocator;
 };
 
-}
+}  // namespace g3d
 
 #endif

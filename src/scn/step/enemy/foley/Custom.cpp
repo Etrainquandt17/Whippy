@@ -110,7 +110,4 @@ void Custom::setAttack(bool isAttack) {
     mIsAttack = isAttack;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::foley

@@ -28,9 +28,6 @@ private:
     JugglingShotKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

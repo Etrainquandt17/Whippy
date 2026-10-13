@@ -31,8 +31,6 @@ private:
     snd::SERequestor mSE;
 };
 
-}
-}
-}
+}}}  // namespace scn::challengetutorial::info
 
 #endif

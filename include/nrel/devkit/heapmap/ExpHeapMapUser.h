@@ -19,8 +19,6 @@ private:
     const char* mName;
 };
 
-}
-}
-}
+}}}  // namespace nrel::devkit::heapmap
 
 #endif

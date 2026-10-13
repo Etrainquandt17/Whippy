@@ -33,9 +33,6 @@ private:
     void reqFireBreath(MouthKind kind);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

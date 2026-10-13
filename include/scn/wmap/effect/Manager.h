@@ -19,8 +19,6 @@ public:
     ::effect::Group& group(DrawLayerKind kind);
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::effect
 
 #endif

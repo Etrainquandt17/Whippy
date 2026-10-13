@@ -37,6 +37,6 @@ private:
     bool _FC8;
 };
 
-}
+}  // namespace seq
 
 #endif

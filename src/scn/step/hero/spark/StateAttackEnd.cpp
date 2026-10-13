@@ -38,7 +38,4 @@ void StateAttackEnd::procFixPos() {
     Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::spark

@@ -54,4 +54,4 @@ void Engine::addModuleBellow(const char* name) {
     }
 }
 
-}
+}  // namespace mint

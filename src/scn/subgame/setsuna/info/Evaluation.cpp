@@ -117,7 +117,4 @@ void Evaluation::drawLayout() const {
     mBadLayout->draw();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::info

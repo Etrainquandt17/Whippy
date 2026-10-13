@@ -23,9 +23,6 @@ private:
     f32 mRot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

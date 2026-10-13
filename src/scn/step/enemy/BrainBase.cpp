@@ -84,6 +84,4 @@ void BrainBase::update() {
 BrainBase::~BrainBase() {
 }
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

@@ -11,10 +11,6 @@ namespace ModelDesc {
 
 chara::ModelDesc& Create();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::snowl::ModelDesc
 
 #endif

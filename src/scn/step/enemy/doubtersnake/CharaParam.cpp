@@ -21,8 +21,4 @@ enemy::CharaParam CreateYellow() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::doubtersnake::CharaParam

@@ -28,4 +28,4 @@ GameScreen::ScreenType GameScreen::getScreenType() const {
     return mScreenType;
 }
 
-}
+}  // namespace gfx

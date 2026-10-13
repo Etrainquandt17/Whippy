@@ -55,7 +55,4 @@ void BrainJump::update() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman

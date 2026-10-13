@@ -35,7 +35,4 @@ bool BrainWait::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::coconutbomb

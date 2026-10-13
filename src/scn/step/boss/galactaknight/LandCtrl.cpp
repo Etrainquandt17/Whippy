@@ -53,7 +53,4 @@ bool LandCtrl::isGround() const {
     return hel::math::Math::Equals(y, getFloorY(), 0.00001f);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

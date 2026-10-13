@@ -19,7 +19,6 @@ private:
     lyt::Layout mLayout;
 };
 
-}
-}
+}}  // namespace info::cutin
 
 #endif

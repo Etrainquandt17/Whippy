@@ -16,9 +16,6 @@ public:
     virtual ~StateDead();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

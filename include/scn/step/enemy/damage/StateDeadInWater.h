@@ -31,9 +31,6 @@ private:
     f32 mFlashRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

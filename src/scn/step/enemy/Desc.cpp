@@ -19,6 +19,4 @@ Desc::Desc(map::BinEnemyKind kind, map::BinEnemyVariation variation, u32 _8, map
     , _29(false)
     , _2C(0) {}
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

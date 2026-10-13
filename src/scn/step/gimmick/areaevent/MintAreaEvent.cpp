@@ -25,7 +25,4 @@ AreaEvent& MintAreaEvent::Obj() {
     return t_obj.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::areaevent

@@ -40,8 +40,6 @@ public:
     ::ocoll::Owner* mOwner;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

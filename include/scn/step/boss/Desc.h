@@ -27,8 +27,6 @@ public:
     u32 _24;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

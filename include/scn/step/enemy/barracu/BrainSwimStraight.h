@@ -15,9 +15,6 @@ public:
     virtual bool onRecover();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu
 
 #endif

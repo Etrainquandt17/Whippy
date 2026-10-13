@@ -23,8 +23,6 @@ public:
     void endBossDemoMode();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

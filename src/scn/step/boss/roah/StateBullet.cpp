@@ -91,7 +91,4 @@ void StateBullet::procMove() {
 
 void StateBullet::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

@@ -14,7 +14,6 @@ void Unregister(Model& obj);
 void LoadNode(u32 index);
 void SetScale(f32 x, f32 y, f32 z);
 
-}
-}
+}}  // namespace gobj::MintModel
 
 #endif

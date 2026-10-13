@@ -11,10 +11,7 @@ namespace metalgeneralbomb {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbomb
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::metalgeneralbomb::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ public:
     void reqRollExp(bool isLanding);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbomb
 
 #endif

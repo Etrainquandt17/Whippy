@@ -18,7 +18,6 @@ enum UnlockKind {
     UNLOCK_KIND_8,
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

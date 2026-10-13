@@ -24,9 +24,6 @@ private:
     bool mIsParachuteKeep;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

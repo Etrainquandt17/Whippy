@@ -16,9 +16,6 @@ public:
     map::Kind _14;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::shipdoor
 
 #endif

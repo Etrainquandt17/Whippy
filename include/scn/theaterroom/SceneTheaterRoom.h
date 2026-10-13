@@ -35,7 +35,6 @@ private:
     u32 _4[0xBAF];
 };
 
-}
-}
+}}  // namespace scn::theaterroom
 
 #endif

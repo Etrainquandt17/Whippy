@@ -20,8 +20,6 @@ public:
 
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

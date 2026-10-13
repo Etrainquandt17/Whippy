@@ -65,7 +65,4 @@ void StateMoveTwinBreathContinuity::procMove() {
 
 void StateMoveTwinBreathContinuity::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

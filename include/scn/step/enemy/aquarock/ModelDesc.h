@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateSea();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::aquarock::ModelDesc
 
 #endif

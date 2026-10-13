@@ -101,7 +101,4 @@ void StateFlySinCurve::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce

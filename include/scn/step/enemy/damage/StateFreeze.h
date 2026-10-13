@@ -45,9 +45,6 @@ private:
     hel::math::Vector3 mPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage
 
 #endif

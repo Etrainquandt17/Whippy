@@ -12,10 +12,7 @@ namespace needlous {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::needlous
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::needlous::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -65,9 +61,6 @@ private:
     f32 mCurSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::needlous
 
 #endif

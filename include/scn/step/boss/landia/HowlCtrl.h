@@ -24,9 +24,6 @@ private:
     bool mIsStop;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

@@ -61,7 +61,4 @@ void StateMain::reqStar() {
     Utility::GenerateStarEffect(obj(), offset, velocity, static_cast<map::BinEnemyVariation>(0x19B));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactashockwave

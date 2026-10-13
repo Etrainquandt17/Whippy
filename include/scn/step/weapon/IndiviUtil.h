@@ -14,8 +14,6 @@ public:
     static chara::ModelDesc& ModelDesc(Kind kind, bool isEx);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

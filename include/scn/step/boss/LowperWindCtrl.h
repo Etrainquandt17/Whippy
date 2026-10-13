@@ -24,8 +24,6 @@ public:
     bool canSet(f32 x) const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

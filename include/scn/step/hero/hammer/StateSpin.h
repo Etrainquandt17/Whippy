@@ -32,9 +32,6 @@ private:
     int mTurnWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer
 
 #endif

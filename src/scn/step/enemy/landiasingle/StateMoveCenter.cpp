@@ -82,7 +82,4 @@ void StateMoveCenter::procMove() {
 
 void StateMoveCenter::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

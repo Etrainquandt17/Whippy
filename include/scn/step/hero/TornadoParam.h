@@ -53,8 +53,6 @@ struct TornadoParam {
     gobj::MoveParamFall _118;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

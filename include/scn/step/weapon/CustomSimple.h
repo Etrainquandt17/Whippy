@@ -19,8 +19,6 @@ public:
     }
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

@@ -35,7 +35,4 @@ void StateFallNoDecel::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

@@ -22,9 +22,6 @@ private:
     f32 mBaseY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

@@ -41,7 +41,4 @@ bool BrainWaitAndChase::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::degout

@@ -21,9 +21,6 @@ private:
     void reqBullet();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

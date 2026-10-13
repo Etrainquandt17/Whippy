@@ -21,6 +21,6 @@ public:
     void setAmbientLightObj(const nw4r::g3d::AmbLightObj& lightObj) const;
 };
 
-}
+}  // namespace g3d
 
 #endif

@@ -10,10 +10,7 @@ namespace volcanorock {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::volcanorock
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::volcanorock::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -36,9 +32,6 @@ public:
     Custom(Enemy& enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::volcanorock
 
 #endif

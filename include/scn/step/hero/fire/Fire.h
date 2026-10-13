@@ -31,9 +31,6 @@ private:
     u32 mBurningCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire
 
 #endif

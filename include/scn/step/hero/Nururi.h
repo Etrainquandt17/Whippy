@@ -22,8 +22,6 @@ public:
     ::nururi::Nururi& nururi();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

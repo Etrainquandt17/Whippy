@@ -25,9 +25,6 @@ private:
     f32 mGoalX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

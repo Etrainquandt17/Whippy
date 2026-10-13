@@ -23,9 +23,6 @@ struct ParamData {
     u32 mShakeInterval;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::fattybufferstalactite
 
 #endif

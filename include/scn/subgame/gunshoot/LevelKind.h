@@ -12,8 +12,6 @@ enum LevelKind {
     LEVEL_KIND_2,
 };
 
-}
-}
-}
+}}}  // namespace scn::subgame::gunshoot
 
 #endif

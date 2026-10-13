@@ -271,7 +271,4 @@ void Bomb::clearBombIfHave() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb

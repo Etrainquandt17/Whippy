@@ -49,8 +49,6 @@ private:
     bool _FA0;
 };
 
-}
-}
-}
+}}}  // namespace scn::arena::title
 
 #endif

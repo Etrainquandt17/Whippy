@@ -31,5 +31,4 @@ void SetScale(f32 x, f32 y, f32 z) {
     t_obj->setScale(hel::math::Vector3(x, y, z));
 }
 
-}
-}
+}}  // namespace gobj::MintModel

@@ -95,7 +95,4 @@ void StateVortex::reqBullet() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

@@ -50,7 +50,4 @@ bool BrainWait::onLanding() {
 
 void BrainWait::update() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gemra

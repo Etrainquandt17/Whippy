@@ -30,4 +30,4 @@ void messageHandler(MintMsgKind kind, const char* message, const char* detail) {
 
 }
 
-}
+}  // namespace mintvm

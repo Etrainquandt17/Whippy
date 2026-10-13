@@ -112,5 +112,4 @@ void Stop() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace snd::MintSERequestor

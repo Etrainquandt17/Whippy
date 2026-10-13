@@ -65,7 +65,4 @@ void Sleep::clearAbility() {
     mHero.abilityManager().clearAbility();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sleep

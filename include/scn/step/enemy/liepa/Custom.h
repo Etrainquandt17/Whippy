@@ -12,10 +12,7 @@ namespace liepa {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::liepa
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::liepa::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -54,9 +50,6 @@ private:
     f32 mCameraCenterPrevPosX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::liepa
 
 #endif

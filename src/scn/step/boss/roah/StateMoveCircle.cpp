@@ -56,7 +56,4 @@ void StateMoveCircle::procMove() {
 
 void StateMoveCircle::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

@@ -244,8 +244,7 @@ void Ship::procFixPos() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::wmap
 
 // One of the hidden objects of the copy protection (docs/metafortress.md). Functions of other units reach it
 // through an address they decode from inline data, so the linker would drop it as unused.

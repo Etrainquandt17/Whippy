@@ -41,7 +41,4 @@ void StateFly::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::degout

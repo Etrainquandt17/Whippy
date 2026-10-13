@@ -27,9 +27,6 @@ private:
     bool mIsRolling;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

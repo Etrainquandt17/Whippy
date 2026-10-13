@@ -17,7 +17,6 @@ struct Rect {
     ~Rect() {}
 };
 
-}
-}
+}}  // namespace nw4r::ut
 
 #endif

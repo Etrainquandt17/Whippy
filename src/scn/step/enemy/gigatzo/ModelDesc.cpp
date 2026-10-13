@@ -85,7 +85,4 @@ chara::ModelDesc& CreateCold() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gigatzo

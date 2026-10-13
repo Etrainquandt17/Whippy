@@ -12,10 +12,7 @@ namespace rollexp {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::rollexp
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::rollexp::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -51,9 +47,6 @@ private:
     u32 mAttackFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::rollexp
 
 #endif

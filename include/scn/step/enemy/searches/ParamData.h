@@ -19,9 +19,6 @@ struct ParamData {
     u32 mDeadFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches
 
 #endif

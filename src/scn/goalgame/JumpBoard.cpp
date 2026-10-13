@@ -55,5 +55,4 @@ void JumpBoard::effectJumpBoard() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::goalgame

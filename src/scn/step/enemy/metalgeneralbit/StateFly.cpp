@@ -64,7 +64,4 @@ void StateFly::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit

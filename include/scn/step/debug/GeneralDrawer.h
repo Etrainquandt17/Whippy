@@ -16,8 +16,6 @@ public:
     void addPoint(const hel::math::Vector2& pos, const GXColor& color);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::debug
 
 #endif

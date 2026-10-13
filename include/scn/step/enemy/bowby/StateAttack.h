@@ -19,9 +19,6 @@ public:
     virtual void procAnim();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bowby
 
 #endif

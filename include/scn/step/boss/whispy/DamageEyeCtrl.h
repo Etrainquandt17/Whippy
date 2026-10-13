@@ -24,9 +24,6 @@ private:
     bool mIsSet;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

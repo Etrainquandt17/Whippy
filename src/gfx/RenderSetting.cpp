@@ -268,4 +268,4 @@ void RenderSetting::dirty() {
     mIsDirty = true;
 }
 
-}
+}  // namespace gfx

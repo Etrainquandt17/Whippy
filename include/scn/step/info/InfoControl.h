@@ -11,8 +11,6 @@ public:
     void setIsPlayerOut(bool isOut);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

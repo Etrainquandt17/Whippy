@@ -36,7 +36,4 @@ void RegisterAll(mintvm::VMCore& core) {
                          &MintSuperBackPicture::ReleaseEffectNonStop2);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::sfx::AddOnMint

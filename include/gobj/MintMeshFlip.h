@@ -13,7 +13,6 @@ void Register(MeshFlip& obj);
 void Unregister(MeshFlip& obj);
 void Flip(u32 index);
 
-}
-}
+}}  // namespace gobj::MintMeshFlip
 
 #endif

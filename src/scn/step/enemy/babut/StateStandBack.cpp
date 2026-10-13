@@ -73,7 +73,4 @@ void StateStandBack::procFixPos() {
     obj().move().setVelocity(velocity);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut

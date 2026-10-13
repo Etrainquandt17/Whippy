@@ -39,7 +39,4 @@ bool BrainWaitAttack::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojr

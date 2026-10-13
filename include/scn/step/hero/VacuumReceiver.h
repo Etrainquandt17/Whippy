@@ -11,8 +11,6 @@ public:
     void setIsValid(bool isValid);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

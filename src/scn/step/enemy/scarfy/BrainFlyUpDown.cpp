@@ -29,7 +29,4 @@ bool BrainFlyUpDown::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

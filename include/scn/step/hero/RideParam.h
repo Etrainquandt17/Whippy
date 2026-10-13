@@ -15,8 +15,6 @@ struct RideParam {
     f32 _38;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -18,9 +18,6 @@ public:
     StateShot(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::poppybrojrbomb
 
 #endif

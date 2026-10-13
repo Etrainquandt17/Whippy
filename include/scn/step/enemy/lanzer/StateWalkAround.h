@@ -18,9 +18,6 @@ public:
     virtual ~StateWalkAround();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lanzer
 
 #endif

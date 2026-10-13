@@ -87,7 +87,4 @@ void StateCannonEnd::updateSRT() {
     node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

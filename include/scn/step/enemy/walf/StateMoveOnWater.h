@@ -18,9 +18,6 @@ public:
     virtual ~StateMoveOnWater();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf
 
 #endif

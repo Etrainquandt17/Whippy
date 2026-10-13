@@ -11,5 +11,4 @@ f32 invSquare(f32 t) {
     return 1.0f - square(1.0f - t);
 }
 
-}
-}
+}}  // namespace util::CurveUtility

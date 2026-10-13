@@ -41,8 +41,6 @@ public:
     bool _52EA;
 };
 
-}
-}
-}
+}}}  // namespace scn::challengeresult::info
 
 #endif

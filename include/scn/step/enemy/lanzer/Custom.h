@@ -11,10 +11,7 @@ namespace lanzer {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lanzer
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::lanzer::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -65,9 +61,6 @@ private:
     bool mDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lanzer
 
 #endif

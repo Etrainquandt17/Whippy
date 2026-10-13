@@ -16,9 +16,6 @@ void Unrequest(int category);
 void Pause(int category);
 void Unpause(int category);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::core::MintBGMController
 
 #endif

@@ -79,7 +79,4 @@ void StateMain::procFixPos() {
 
 void StateMain::procObjCollReact() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear

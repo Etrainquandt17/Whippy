@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateFlame();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::doubterball::ModelDesc
 
 #endif

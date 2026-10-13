@@ -96,7 +96,4 @@ void StateDivideBomb::reqBullet(f32 sign) {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet

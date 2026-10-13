@@ -33,7 +33,4 @@ void StateSwordRaisingEnd::procMove() {
 void StateSwordRaisingEnd::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

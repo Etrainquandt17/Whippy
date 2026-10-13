@@ -44,6 +44,4 @@ void BrainCtrl::onExecPost() {
     Utility::MintUnregister(mBoss);
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

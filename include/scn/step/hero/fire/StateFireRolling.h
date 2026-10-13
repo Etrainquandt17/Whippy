@@ -16,9 +16,6 @@ public:
     StateFireRolling(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire
 
 #endif

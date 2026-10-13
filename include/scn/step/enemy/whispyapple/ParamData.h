@@ -39,9 +39,6 @@ struct ParamData {
     gobj::MoveParamFall mNearFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple
 
 #endif

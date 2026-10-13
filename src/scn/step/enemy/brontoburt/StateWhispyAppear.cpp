@@ -99,7 +99,4 @@ void StateWhispyAppear::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

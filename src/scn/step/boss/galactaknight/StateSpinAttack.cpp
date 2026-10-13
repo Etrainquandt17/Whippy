@@ -118,7 +118,4 @@ void StateSpinAttack::generateStar() {
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

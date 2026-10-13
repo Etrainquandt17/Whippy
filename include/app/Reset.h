@@ -16,6 +16,6 @@ private:
     u8 _0[0x54];
 };
 
-}
+}  // namespace app
 
 #endif

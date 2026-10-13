@@ -49,8 +49,6 @@ struct CutterParam {
     CutterParamThrow _80;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -13,10 +13,7 @@ namespace hrd3pilot {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3pilot
 
 namespace hel {
 namespace common {
@@ -25,8 +22,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::hrd3pilot::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -57,9 +53,6 @@ private:
     TailCtrl mTailCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3pilot
 
 #endif

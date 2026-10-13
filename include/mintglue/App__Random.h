@@ -12,7 +12,6 @@ namespace App__Random {
 
 void AddOn(mintvm::VMCore& core);
 
-}
-}
+}}  // namespace mintglue::App__Random
 
 #endif

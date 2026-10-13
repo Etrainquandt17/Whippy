@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace g3d {
 class NodeAccessor;
@@ -33,6 +32,6 @@ private:
     u32 _0[7];
 };
 
-}
+}  // namespace effect
 
 #endif

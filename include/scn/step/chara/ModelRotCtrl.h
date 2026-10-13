@@ -44,8 +44,6 @@ public:
     static const f32 ROT_H_TARGET;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

@@ -10,10 +10,7 @@ namespace waterunderwater {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::waterunderwater
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::waterunderwater::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -36,9 +32,6 @@ public:
     Custom(Weapon& weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::waterunderwater
 
 #endif

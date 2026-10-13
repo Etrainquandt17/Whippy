@@ -40,6 +40,6 @@ private:
     mem::ExplicitAutoDeleteArray<PartsLayout, 5> mParts;
 };
 
-}
+}  // namespace pause
 
 #endif

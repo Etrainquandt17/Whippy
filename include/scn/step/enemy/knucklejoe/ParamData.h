@@ -20,9 +20,6 @@ struct ParamData {
     u32 mAttackRepeatMax;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::knucklejoe
 
 #endif

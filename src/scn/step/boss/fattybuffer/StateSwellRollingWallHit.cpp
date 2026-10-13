@@ -81,7 +81,4 @@ void StateSwellRollingWallHit::procMove() {
 
 void StateSwellRollingWallHit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

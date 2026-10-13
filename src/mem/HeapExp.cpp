@@ -90,4 +90,4 @@ IAllocator& HeapExp::allocFromTailAllocator() {
     return *mTailAllocator;
 }
 
-}
+}  // namespace mem

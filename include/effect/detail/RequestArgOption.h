@@ -31,7 +31,6 @@ private:
     g3d::NodeAccessor mNode;
 };
 
-}
-}
+}}  // namespace effect::detail
 
 #endif

@@ -15,6 +15,6 @@ public:
     u32 _470[0x4];
 };
 
-}
+}  // namespace seq
 
 #endif

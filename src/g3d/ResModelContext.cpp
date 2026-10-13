@@ -10,4 +10,4 @@ ResModelContext::ResModelContext(const ResFileAccessor& resFile, const char* nam
     : mResFile(resFile)
     , mName(hel::common::FixedStringIN<char, 40>::FromFormat("%s", name)) {}
 
-}
+}  // namespace g3d

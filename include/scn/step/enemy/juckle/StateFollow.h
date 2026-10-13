@@ -18,9 +18,6 @@ public:
     virtual ~StateFollow();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::juckle
 
 #endif

@@ -45,6 +45,6 @@ private:
     file::FileClearDisableScope mFileClearDisableScope;
 };
 
-}
+}  // namespace seq
 
 #endif

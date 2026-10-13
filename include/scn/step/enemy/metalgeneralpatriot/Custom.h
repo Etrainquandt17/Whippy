@@ -11,10 +11,7 @@ namespace metalgeneralpatriot {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralpatriot
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::metalgeneralpatriot::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralpatriot
 
 #endif

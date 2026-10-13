@@ -31,9 +31,6 @@ private:
     StateMoveJointDesc mDesc;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

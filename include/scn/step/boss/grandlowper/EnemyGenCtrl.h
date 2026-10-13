@@ -28,9 +28,6 @@ public:
     void shuffleReqData();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::grandlowper
 
 #endif

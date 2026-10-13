@@ -13,5 +13,4 @@ const Color Color::YELLOW = Color(255, 255, 0, 255);
 const Color Color::MAGENTA = Color(255, 0, 255, 255);
 const Color Color::CYAN = Color(0, 255, 255, 255);
 
-}
-}
+}}  // namespace hel::common

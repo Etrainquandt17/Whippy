@@ -16,9 +16,6 @@ struct BlizzardDesc {
     bool _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

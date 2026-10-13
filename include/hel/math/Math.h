@@ -114,7 +114,6 @@ public:
     }
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

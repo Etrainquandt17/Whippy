@@ -39,7 +39,4 @@ bool BrainFlyWait::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf

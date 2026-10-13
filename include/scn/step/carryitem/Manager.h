@@ -11,8 +11,7 @@ class Rect;
 }
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -27,8 +26,6 @@ public:
     u32 countExistObjInRect(const hel::geo::Rect& rect);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

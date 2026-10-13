@@ -23,9 +23,6 @@ private:
     u32 mDamageFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu
 
 #endif

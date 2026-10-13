@@ -16,9 +16,6 @@ public:
     StateEnterMahoroa(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::gimmick
 
 #endif

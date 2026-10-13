@@ -12,4 +12,4 @@ void N_Mint_Cast_f2i(MintFuncProxy& proxy) {
     proxy.setRet_s32(static_cast<int>(proxy.getArg_f32(0)));
 }
 
-}
+}  // namespace mintvm

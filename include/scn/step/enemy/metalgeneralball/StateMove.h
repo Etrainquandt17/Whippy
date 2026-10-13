@@ -18,9 +18,6 @@ public:
     StateMove(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralball
 
 #endif

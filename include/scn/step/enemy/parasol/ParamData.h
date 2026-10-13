@@ -16,9 +16,6 @@ struct ParamData {
     gobj::MoveParamFall mFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasol
 
 #endif

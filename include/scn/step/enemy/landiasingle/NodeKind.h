@@ -16,9 +16,6 @@ enum NodeKind {
     NODE_KIND_EYE_R,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

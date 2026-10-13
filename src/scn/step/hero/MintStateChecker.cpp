@@ -34,7 +34,4 @@ bool IsHover() {
     return t_obj().isHover();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintStateChecker

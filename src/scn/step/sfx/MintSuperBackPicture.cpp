@@ -350,7 +350,4 @@ void ReleaseEffectNonStop2() {
     t_obj->releaseEffectNonStop2();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::sfx::MintSuperBackPicture

@@ -21,9 +21,6 @@ private:
     u32 _0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 #endif

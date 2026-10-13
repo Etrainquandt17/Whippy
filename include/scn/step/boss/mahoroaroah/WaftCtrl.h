@@ -31,9 +31,6 @@ private:
     bool mIsValid;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 #endif

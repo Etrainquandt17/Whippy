@@ -25,9 +25,6 @@ private:
     bool mCanCancel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer
 
 #endif

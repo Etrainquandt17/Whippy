@@ -25,9 +25,6 @@ private:
     gobj::MoveParamAccel mAccel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby
 
 #endif

@@ -40,4 +40,4 @@ hel::math::Vector3 ResNode::scale() const {
 
 ResNode::ResNode(const nw4r::g3d::ResNode& node) : nw4r::g3d::ResNode(node) {}
 
-}
+}  // namespace g3d

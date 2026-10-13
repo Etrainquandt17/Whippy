@@ -45,7 +45,4 @@ void StateChewing::procMove() {}
 
 void StateChewing::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

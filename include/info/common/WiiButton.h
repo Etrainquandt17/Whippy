@@ -44,7 +44,6 @@ private:
     u8 _192[2];
 };
 
-}
-}
+}}  // namespace info::common
 
 #endif

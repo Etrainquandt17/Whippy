@@ -43,8 +43,6 @@ protected:
     Hero& mHero;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

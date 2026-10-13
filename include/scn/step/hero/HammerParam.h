@@ -24,8 +24,6 @@ struct HammerParam {
     int _34;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

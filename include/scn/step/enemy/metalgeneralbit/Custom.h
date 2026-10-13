@@ -11,10 +11,7 @@ namespace metalgeneralbit {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::metalgeneralbit::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -47,9 +43,6 @@ private:
     f32 _c;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit
 
 #endif

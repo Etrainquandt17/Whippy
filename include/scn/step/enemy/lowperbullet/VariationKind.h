@@ -14,9 +14,6 @@ enum VariationKind {
     VariationKind_Still = 8,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet
 
 #endif

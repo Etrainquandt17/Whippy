@@ -93,4 +93,4 @@ const wchar_t* Message::UnsafedTextStaffCredit(const char* label) {
     return hel::common::ExplicitSingleton<Application>::object_->messageManager().unsafedText(msg::Manager::CATEGORY_STAFF_CREDIT, label);
 }
 
-}
+}  // namespace app

@@ -24,7 +24,4 @@ bool BrainDash::onLanding() {
 
 void BrainDash::update() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

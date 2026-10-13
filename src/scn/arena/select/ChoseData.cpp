@@ -901,6 +901,4 @@ bool ChoseData::chkAllKind(u32 player, Kind kind) {
     return false;
 }
 
-}
-}
-}
+}}}  // namespace scn::arena::select

@@ -56,7 +56,6 @@ public:
     f32 a;
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

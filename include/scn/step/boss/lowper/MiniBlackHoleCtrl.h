@@ -30,9 +30,6 @@ private:
     util::ObjRefHandle<weapon::Weapon> mWeapon;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

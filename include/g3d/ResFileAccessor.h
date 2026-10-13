@@ -19,6 +19,6 @@ private:
     nw4r::g3d::ResFile mResFile;
 };
 
-}
+}  // namespace g3d
 
 #endif

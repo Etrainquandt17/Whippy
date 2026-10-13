@@ -13,4 +13,4 @@ GXFifoProtectCanceler::~GXFifoProtectCanceler() {
     mManager->setWriteDisable();
 }
 
-}
+}  // namespace gfx

@@ -87,7 +87,4 @@ void StateBomb::procMove() {}
 
 void StateBomb::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

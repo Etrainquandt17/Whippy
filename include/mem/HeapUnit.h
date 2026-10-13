@@ -43,6 +43,6 @@ private:
     u32 _50;
 };
 
-}
+}  // namespace mem
 
 #endif

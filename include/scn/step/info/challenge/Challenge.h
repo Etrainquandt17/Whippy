@@ -19,9 +19,6 @@ private:
     Start mStart;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::info::challenge
 
 #endif

@@ -14,9 +14,6 @@ namespace AddOnMint {
 
 void RegisterAll(mintvm::VMCore& core);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::sfx::AddOnMint
 
 #endif

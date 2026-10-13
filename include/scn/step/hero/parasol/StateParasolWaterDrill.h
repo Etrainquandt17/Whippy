@@ -16,9 +16,6 @@ public:
     StateParasolWaterDrill(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

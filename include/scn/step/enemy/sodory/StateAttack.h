@@ -18,9 +18,6 @@ public:
     virtual ~StateAttack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory
 
 #endif

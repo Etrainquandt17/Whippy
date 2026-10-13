@@ -55,7 +55,4 @@ bool Mike::tryToChangeState() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::mike

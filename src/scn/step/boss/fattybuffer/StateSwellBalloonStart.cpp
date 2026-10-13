@@ -70,7 +70,4 @@ void StateSwellBalloonStart::procMove() {
 
 void StateSwellBalloonStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

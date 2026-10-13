@@ -111,7 +111,4 @@ void StateBoomerang::procMove() {
 
 void StateBoomerang::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

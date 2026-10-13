@@ -60,7 +60,4 @@ void StateShotBullet::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet

@@ -102,7 +102,4 @@ void BackEffectCtrl::onDead() {
     mIsDead = true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

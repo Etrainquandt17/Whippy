@@ -79,7 +79,4 @@ void StateVomit::procMove() {}
 
 void StateVomit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros

@@ -25,9 +25,6 @@ private:
     bool mIsBgmStarted;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

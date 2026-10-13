@@ -14,9 +14,6 @@ public:
     static void RequestDeadEffect(Boss& boss, bool isWeak);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

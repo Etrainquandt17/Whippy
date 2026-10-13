@@ -31,8 +31,6 @@ public:
     virtual hel::math::Vector2 getFirstOffs() const = 0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

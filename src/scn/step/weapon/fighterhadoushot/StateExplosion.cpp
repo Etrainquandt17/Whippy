@@ -63,7 +63,4 @@ const ExplosionParam& StateExplosion::param() const {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterhadoushot

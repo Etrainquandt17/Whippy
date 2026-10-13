@@ -27,9 +27,6 @@ private:
     bool mIsAttack;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash
 
 #endif

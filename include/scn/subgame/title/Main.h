@@ -26,8 +26,6 @@ private:
     u32 _0[0x18];
 };
 
-}
-}
-}
+}}}  // namespace scn::subgame::title
 
 #endif

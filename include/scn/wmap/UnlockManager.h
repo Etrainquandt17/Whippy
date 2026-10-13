@@ -22,7 +22,6 @@ private:
     u32 _0[5];
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

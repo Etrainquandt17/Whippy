@@ -27,9 +27,6 @@ private:
     bool mIsCharged;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::mike
 
 #endif

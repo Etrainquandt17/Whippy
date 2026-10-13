@@ -118,7 +118,4 @@ void StateBeamWhip::procAnimRevolution() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam

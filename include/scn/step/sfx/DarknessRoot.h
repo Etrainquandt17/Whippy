@@ -15,8 +15,6 @@ public:
     void lightsAdd(DarknessLight& light);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

@@ -28,9 +28,6 @@ private:
     f32 mCenterX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

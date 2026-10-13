@@ -25,8 +25,6 @@ public:
     bool isInFrozenArea(const hel::math::Vector2& pos) const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::core
 
 #endif

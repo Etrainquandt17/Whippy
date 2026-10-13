@@ -30,7 +30,4 @@ ThreadCtrl& Custom::threadCtrl() {
     return mThreadCtrl;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

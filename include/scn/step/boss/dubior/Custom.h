@@ -12,10 +12,7 @@ namespace dubior {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::dubior::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -57,9 +53,6 @@ private:
     EnemyCtrl mEnemyCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

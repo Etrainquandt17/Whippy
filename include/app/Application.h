@@ -20,8 +20,7 @@ class GameScreen;
 namespace hel {
 namespace math {
 class Random;
-}
-}
+}}  // namespace hel::math
 
 namespace hid {
 class HIDManager;
@@ -80,6 +79,6 @@ private:
     hel::common::ScopedPtr<AppImpl> mImpl;
 };
 
-}
+}  // namespace app
 
 #endif

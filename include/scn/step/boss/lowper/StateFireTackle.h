@@ -27,9 +27,6 @@ private:
     bool mIsEx;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

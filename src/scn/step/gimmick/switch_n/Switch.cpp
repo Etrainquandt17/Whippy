@@ -695,7 +695,4 @@ ocoll::NodeDesc Switch::mfGetOCNodeDesc(f32 radius) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::switch_n

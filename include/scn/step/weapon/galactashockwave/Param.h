@@ -16,9 +16,6 @@ struct Param {
     f32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactashockwave
 
 #endif

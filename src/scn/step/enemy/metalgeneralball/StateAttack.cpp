@@ -65,7 +65,4 @@ void StateAttack::reqBeam() {
     const util::ObjRefHandle<weapon::Weapon>& beam = obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralball

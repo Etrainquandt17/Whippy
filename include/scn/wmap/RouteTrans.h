@@ -12,7 +12,6 @@ public:
     hel::math::Matrix34 getShipMtx();
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

@@ -21,4 +21,4 @@ void FootState::setAir() {
     mIsGround = false;
 }
 
-}
+}  // namespace gobj

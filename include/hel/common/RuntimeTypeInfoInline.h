@@ -17,7 +17,6 @@ inline bool RuntimeTypeInfo::isDerivedFrom(const RuntimeTypeInfo& other) const {
     return false;
 }
 
-}
-}
+}}  // namespace hel::common
 
 #endif

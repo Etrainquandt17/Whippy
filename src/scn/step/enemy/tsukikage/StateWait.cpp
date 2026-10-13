@@ -40,7 +40,4 @@ void StateWait::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage

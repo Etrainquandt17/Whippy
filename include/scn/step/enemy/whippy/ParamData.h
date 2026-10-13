@@ -17,9 +17,6 @@ struct ParamData {
     u32 mAntennaFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whippy
 
 #endif

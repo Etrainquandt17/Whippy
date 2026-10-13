@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Random;
-}
-}
+}}  // namespace hel::math
 
 namespace app {
 
@@ -26,6 +25,6 @@ public:
     static hel::math::Random& Obj();
 };
 
-}
+}  // namespace app
 
 #endif

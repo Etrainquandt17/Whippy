@@ -128,6 +128,4 @@ void MintEffect::RequestND(u32 kind, u32 node, const hel::math::Direction3& dir,
     t_obj->requestND(static_cast<effect::Kind>(kind), node, dir, offset, scale);
 }
 
-}
-}
-}
+}}}  // namespace scn::step::chara

@@ -79,7 +79,4 @@ chara::ModelDesc& HalcandledeeCreate() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee

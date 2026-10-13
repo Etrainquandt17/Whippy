@@ -24,9 +24,6 @@ private:
     StateAttackDesc& mDesc;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

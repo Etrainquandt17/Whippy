@@ -42,9 +42,6 @@ enum JumpKind {
     JUMP_KIND_3,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

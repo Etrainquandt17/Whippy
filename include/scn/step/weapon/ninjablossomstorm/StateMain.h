@@ -22,9 +22,6 @@ private:
     int mFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjablossomstorm
 
 #endif

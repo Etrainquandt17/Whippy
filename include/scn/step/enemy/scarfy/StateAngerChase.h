@@ -18,9 +18,6 @@ public:
     StateAngerChase(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy
 
 #endif

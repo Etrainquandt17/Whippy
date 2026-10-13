@@ -106,8 +106,6 @@ private:
     bool _4C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

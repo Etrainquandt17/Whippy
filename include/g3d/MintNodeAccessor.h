@@ -16,7 +16,6 @@ bool IsVisible();
 void SetVisibility(bool visible);
 void SetVisibilityBelow(bool visible);
 
-}
-}
+}}  // namespace g3d::MintNodeAccessor
 
 #endif

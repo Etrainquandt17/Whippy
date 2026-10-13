@@ -13,8 +13,7 @@ namespace math {
 class Direction3;
 class Vector3;
 
-}
-}
+}}  // namespace hel::math
 
 namespace hel {
 namespace mint {
@@ -41,8 +40,6 @@ void RestructLeftUp();
 hel::math::Direction3 Basis();
 hel::math::Direction3 Create(const hel::math::Vector3& front, const hel::math::Vector3& up, const hel::math::Vector3& left);
 
-}
-}
-}
+}}}  // namespace hel::mint::AddOnMathDirection3
 
 #endif

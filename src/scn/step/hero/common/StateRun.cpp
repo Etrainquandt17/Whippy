@@ -148,7 +148,4 @@ void StateRun::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

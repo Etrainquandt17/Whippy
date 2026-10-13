@@ -318,4 +318,4 @@ void AnimController::checkAnimEnd() {
     }
 }
 
-}
+}  // namespace util

@@ -26,8 +26,6 @@ private:
     chara::ObjColl mObjColl;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

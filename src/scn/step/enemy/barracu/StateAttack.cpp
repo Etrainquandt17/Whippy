@@ -56,7 +56,4 @@ void StateAttack::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu

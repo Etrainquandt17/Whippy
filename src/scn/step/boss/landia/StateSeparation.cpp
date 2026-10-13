@@ -54,7 +54,4 @@ void StateSeparation::procMove() {
 
 void StateSeparation::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

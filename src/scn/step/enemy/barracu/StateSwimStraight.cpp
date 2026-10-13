@@ -104,7 +104,4 @@ void StateSwimStraight::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu

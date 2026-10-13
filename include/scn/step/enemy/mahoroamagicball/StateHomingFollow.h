@@ -26,9 +26,6 @@ private:
     f32 mRadius;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

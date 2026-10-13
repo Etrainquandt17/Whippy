@@ -23,9 +23,6 @@ private:
     dynamics::Desc _F4;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf
 
 #endif

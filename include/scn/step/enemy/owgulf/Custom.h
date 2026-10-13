@@ -13,10 +13,7 @@ namespace owgulf {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf
 
 namespace hel {
 namespace common {
@@ -25,8 +22,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::owgulf::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ public:
     void shot(hel::math::Vector3 pos, hel::math::Vector3 velocity, weapon::owgulffeather::VariationKind kind);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf
 
 #endif

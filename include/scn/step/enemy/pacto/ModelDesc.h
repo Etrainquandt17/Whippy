@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& CreateCloud();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::pacto::ModelDesc
 
 #endif

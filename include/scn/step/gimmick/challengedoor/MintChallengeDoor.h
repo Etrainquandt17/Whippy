@@ -15,9 +15,6 @@ public:
     static ChallengeDoor& Obj();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::challengedoor
 
 #endif

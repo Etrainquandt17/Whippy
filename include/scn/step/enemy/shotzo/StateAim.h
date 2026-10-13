@@ -27,9 +27,6 @@ private:
     f32 mEndAngle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo
 
 #endif

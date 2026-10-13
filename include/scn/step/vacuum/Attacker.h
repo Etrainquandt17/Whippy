@@ -23,8 +23,6 @@ public:
     void onDrink();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::vacuum
 
 #endif

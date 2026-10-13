@@ -11,8 +11,7 @@ class Root;
 namespace hel {
 namespace math {
 class Matrix34;
-}
-}
+}}  // namespace hel::math
 
 namespace gobj {
 
@@ -32,6 +31,6 @@ public:
     void updateWorldMtx();
 };
 
-}
+}  // namespace gobj
 
 #endif

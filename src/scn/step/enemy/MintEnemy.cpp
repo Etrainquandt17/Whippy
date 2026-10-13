@@ -24,6 +24,4 @@ Enemy* MintEnemy::Obj() {
     return &t_obj.ref();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

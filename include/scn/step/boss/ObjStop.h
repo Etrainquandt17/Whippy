@@ -28,8 +28,6 @@ private:
     ostop::Actor mActor;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

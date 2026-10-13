@@ -67,7 +67,4 @@ void StatePrepare::procMove() {}
 
 void StatePrepare::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet

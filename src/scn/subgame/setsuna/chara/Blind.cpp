@@ -143,7 +143,4 @@ void Blind::fadeOut() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::setsuna::chara

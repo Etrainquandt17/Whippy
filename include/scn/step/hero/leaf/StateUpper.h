@@ -22,9 +22,6 @@ private:
     bool mIsTriggered;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf
 
 #endif

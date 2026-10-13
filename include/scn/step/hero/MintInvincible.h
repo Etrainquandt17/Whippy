@@ -12,9 +12,6 @@ void SetPerm();
 void UnsetPerm();
 bool IsMighty();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintInvincible
 
 #endif

@@ -461,7 +461,4 @@ void Tornado::releaseHatWind() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado

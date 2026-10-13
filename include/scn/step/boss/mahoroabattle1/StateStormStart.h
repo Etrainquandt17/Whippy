@@ -19,9 +19,6 @@ public:
     virtual ~StateStormStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

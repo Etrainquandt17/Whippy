@@ -80,7 +80,4 @@ void StateRainBomb::reqBomb() {
     custom->reqBomb(pos, speed, size);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers

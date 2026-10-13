@@ -15,9 +15,6 @@ public:
     StateVacuum(Hero* hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

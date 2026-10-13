@@ -85,7 +85,4 @@ void Custom::setThetaY(f32 theta) {
     mThetaY = theta;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::twister

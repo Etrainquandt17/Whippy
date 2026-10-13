@@ -25,6 +25,6 @@ private:
     const void* mData;
 };
 
-}
+}  // namespace xdata
 
 #endif

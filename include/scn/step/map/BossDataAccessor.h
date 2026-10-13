@@ -29,8 +29,6 @@ private:
     u32 _0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

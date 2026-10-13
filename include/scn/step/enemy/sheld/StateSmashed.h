@@ -26,9 +26,6 @@ private:
     bool mIsLanded;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld
 
 #endif

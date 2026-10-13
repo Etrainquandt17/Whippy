@@ -61,5 +61,4 @@ ContextChallenge ContextChallenge::Create() {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::step

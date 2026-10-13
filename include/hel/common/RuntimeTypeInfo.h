@@ -47,7 +47,6 @@ inline T& DynamicCastToRef(U* ptr) {
     return *DynamicCast<T*, U>(ptr);
 }
 
-}
-}
+}}  // namespace hel::common
 
 #endif

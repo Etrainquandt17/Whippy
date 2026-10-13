@@ -24,9 +24,6 @@ private:
     bool _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::cutter
 
 #endif

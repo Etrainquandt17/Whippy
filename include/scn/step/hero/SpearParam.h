@@ -65,8 +65,6 @@ struct SpearParam {
     f32 _100;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

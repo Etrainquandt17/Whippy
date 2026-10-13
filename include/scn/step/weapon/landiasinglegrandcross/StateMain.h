@@ -21,9 +21,6 @@ private:
     bool mIsLoop;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiasinglegrandcross
 
 #endif

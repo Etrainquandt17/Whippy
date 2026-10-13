@@ -29,5 +29,4 @@ void AddOn(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "App.Alert", "void PrintIndex(int,const ref HEL.Math.Vector3)", PrintIndex, static_cast<void (*)(int, const hel::math::Vector3&)>(&app::AlertMint::PrintIndex));
 }
 
-}
-}
+}}  // namespace mintglue::App__Alert

@@ -87,7 +87,4 @@ void StateTornadoFall::setInitSpeed() {
     obj().move().setVelocity(hel::math::Vector3(0.0f, param._8C, 0.0f));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

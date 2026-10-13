@@ -20,6 +20,6 @@ public:
     StoryData& storyData(StoryMode mode);
 };
 
-}
+}  // namespace storage
 
 #endif

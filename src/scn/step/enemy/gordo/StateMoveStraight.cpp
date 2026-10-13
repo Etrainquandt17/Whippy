@@ -45,7 +45,4 @@ void StateMoveStraight::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo

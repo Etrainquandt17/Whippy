@@ -12,7 +12,7 @@ public:
     virtual void allocatorFree(void* ptr) = 0;
 };
 
-}
+}  // namespace mem
 
 void* operator new(u32 size, mem::IAllocator& allocator);
 

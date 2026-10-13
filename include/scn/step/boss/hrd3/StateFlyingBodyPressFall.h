@@ -23,9 +23,6 @@ private:
     hel::math::Vector3 mStartPos;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

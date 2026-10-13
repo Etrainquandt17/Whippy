@@ -50,9 +50,6 @@ void RequestEffectGearNodeNDS(effect::Kind arg0, u32 arg1, f32 arg2);
 void RequestEffectGearNodeNDO(effect::Kind arg0, u32 arg1);
 void RequestEffectGearNodeNDOS(effect::Kind arg0, u32 arg1, f32 arg2);
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintUtility
 
 #endif

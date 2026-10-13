@@ -28,6 +28,6 @@ public:
     u32 _151C[0x200];
 };
 
-}
+}  // namespace storage
 
 #endif

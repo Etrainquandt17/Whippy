@@ -11,10 +11,7 @@ namespace sirkibble {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::sirkibble::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -56,9 +52,6 @@ private:
     bool mJumpLog2;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble
 
 #endif

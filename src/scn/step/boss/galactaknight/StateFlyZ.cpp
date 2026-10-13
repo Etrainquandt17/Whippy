@@ -134,7 +134,4 @@ void StateFlyZ::procMove() {
 
 void StateFlyZ::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

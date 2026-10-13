@@ -138,7 +138,6 @@ inline Matrix34::Matrix34(const Direction3& direction, const Vector3& pos) : m()
 }
 #endif
 
-}
-}
+}}  // namespace hel::math
 
 #endif

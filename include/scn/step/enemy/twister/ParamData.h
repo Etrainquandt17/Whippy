@@ -25,9 +25,6 @@ struct ParamData {
     f32 mThetaYSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::twister
 
 #endif

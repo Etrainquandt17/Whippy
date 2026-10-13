@@ -83,7 +83,4 @@ void StateJumpAttack::reqCutterSlant() {
     custom.enemyCtrl().request(EnemyCtrl::CUTTER_KIND_SLANT, pos, velocity, false);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble

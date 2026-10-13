@@ -28,9 +28,6 @@ private:
     f32 _18;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::crackershot
 
 #endif

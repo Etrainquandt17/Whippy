@@ -77,7 +77,4 @@ f32 StateAim::roundAngle(f32 angle) {
     return nw4r::math::FFloor((angle + 22.5f) / 45.0f) * 45.0f;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo

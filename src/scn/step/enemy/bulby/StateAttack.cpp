@@ -85,7 +85,4 @@ void StateAttack::shot(hel::math::Vector3 velocity) {
     obj().soundSE().start(0x2e8);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby

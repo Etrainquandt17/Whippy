@@ -37,7 +37,4 @@ StateWall::~StateWall() {
     obj().model().rotCtrl().setValid(true);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage

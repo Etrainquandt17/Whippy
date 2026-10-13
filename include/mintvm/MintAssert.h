@@ -9,7 +9,7 @@ void panic(const char* file, int line, const char* message, ...);
 
 }
 
-}
+}  // namespace mintvm
 
 // The file and line are written out because the originals were .hpp files with another layout.
 #define MINT_ASSERT_MSG(file, line, cond, ...) \

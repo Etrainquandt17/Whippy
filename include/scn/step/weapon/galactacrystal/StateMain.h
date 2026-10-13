@@ -17,9 +17,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactacrystal
 
 #endif

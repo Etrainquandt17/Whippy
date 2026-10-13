@@ -12,6 +12,6 @@ public:
     void flip(u32 index);
 };
 
-}
+}  // namespace gobj
 
 #endif

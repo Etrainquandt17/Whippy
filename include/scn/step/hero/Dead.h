@@ -12,8 +12,6 @@ public:
     bool isDead() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

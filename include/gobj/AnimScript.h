@@ -10,6 +10,6 @@ public:
     static const char* PLAY_SUITE;
 };
 
-}
+}  // namespace gobj
 
 #endif

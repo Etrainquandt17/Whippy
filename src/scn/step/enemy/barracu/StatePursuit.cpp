@@ -124,7 +124,4 @@ void StatePursuit::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu

@@ -18,9 +18,6 @@ struct Param {
     u32 _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterkickshot
 
 #endif

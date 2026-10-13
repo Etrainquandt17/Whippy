@@ -40,6 +40,6 @@ public:
     MintGearAnim mint();
 };
 
-}
+}  // namespace gobj
 
 #endif

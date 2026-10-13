@@ -9,6 +9,6 @@ public:
     virtual ~IState();
 };
 
-}
+}  // namespace util
 
 #endif

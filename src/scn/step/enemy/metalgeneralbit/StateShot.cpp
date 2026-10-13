@@ -67,7 +67,4 @@ void StateShot::reqBeam() {
     obj().soundSE().start(0x1cc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit

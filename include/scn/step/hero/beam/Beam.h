@@ -22,9 +22,6 @@ private:
     bool mIsSetup;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam
 
 #endif

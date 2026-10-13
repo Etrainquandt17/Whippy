@@ -79,7 +79,6 @@ private:
     LightSetData* mpLightSetData;
 };
 
-}
-}
+}}  // namespace nw4r::g3d
 
 #endif

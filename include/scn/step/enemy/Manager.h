@@ -24,8 +24,6 @@ public:
     util::ObjRefHandle<Enemy> getEnemyByID(u32 id);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

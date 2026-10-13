@@ -17,6 +17,6 @@ private:
     IAllocator* mAllocator;
 };
 
-}
+}  // namespace mem
 
 #endif

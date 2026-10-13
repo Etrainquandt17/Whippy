@@ -20,7 +20,4 @@ bool BrainMahoroa2CallingShot::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

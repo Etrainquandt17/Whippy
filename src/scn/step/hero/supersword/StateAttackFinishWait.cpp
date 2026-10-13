@@ -58,7 +58,4 @@ bool StateAttackFinishWait::procObjCollReact() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::supersword

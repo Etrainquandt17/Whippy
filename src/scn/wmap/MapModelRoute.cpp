@@ -603,5 +603,4 @@ void MapModelRoute::mfStartWaitAnim(UnlockKind kind) {
 }
 #undef MF_FUNCTION
 
-}
-}
+}}  // namespace scn::wmap

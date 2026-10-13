@@ -17,9 +17,6 @@ struct ParamReflectWall {
     f32 _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

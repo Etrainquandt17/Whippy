@@ -33,6 +33,4 @@ void Lifetime::unsetAgeless() {
     mIsAgeless = false;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::chara

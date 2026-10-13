@@ -12,7 +12,6 @@ public:
     virtual Result result() const = 0;
 };
 
-}
-}
+}}  // namespace scn::subgame
 
 #endif

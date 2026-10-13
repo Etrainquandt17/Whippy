@@ -34,4 +34,4 @@ u32 Button::release() const {
     return mRelease;
 }
 
-}
+}  // namespace hid

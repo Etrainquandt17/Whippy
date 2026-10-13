@@ -37,4 +37,4 @@ void FileAccessor::load(const char* path, const IFileInitializer* initializer, b
     }
 }
 
-}
+}  // namespace file

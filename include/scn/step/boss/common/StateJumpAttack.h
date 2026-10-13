@@ -23,9 +23,6 @@ private:
     StateJumpAttackDesc& mDesc;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

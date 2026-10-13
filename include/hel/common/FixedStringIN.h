@@ -21,7 +21,6 @@ private:
     T mStr[N];
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

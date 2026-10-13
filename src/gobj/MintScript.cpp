@@ -25,5 +25,4 @@ u32 PrevScriptIndex() {
     return t_obj->prevScriptIndex();
 }
 
-}
-}
+}}  // namespace gobj::MintScript

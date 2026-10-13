@@ -18,6 +18,6 @@ public:
     bool _7A;
 };
 
-}
+}  // namespace g3d
 
 #endif

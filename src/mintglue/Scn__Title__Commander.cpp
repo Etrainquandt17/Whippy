@@ -25,5 +25,4 @@ void AddOn(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Title.Commander", "void BGSetFrameRate(float)", BGSetFrameRate, &scn::title::Commander::BGSetFrameRate);
 }
 
-}
-}
+}}  // namespace mintglue::Scn__Title__Commander

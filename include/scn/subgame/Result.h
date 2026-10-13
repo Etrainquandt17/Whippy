@@ -28,7 +28,6 @@ public:
     Seq mSeq;
 };
 
-}
-}
+}}  // namespace scn::subgame
 
 #endif

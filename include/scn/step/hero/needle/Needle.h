@@ -23,9 +23,6 @@ private:
     bool mIsSetup;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle
 
 #endif

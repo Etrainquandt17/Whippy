@@ -82,6 +82,6 @@ typename alloc_ptr<T, Allocator, Size>::pointer alloc_ptr<T, Allocator, Size>::g
     return p;
 }
 
-}
+}  // namespace Metrowerks
 
 #endif

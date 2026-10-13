@@ -68,7 +68,4 @@ void StateJugglingAttack2::procMove() {
 
 void StateJugglingAttack2::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

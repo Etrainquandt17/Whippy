@@ -28,9 +28,6 @@ private:
     u32 mIntervalFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

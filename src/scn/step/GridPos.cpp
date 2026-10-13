@@ -31,5 +31,4 @@ bool GridPos::isPositivePos() const {
     return mX >= 0 && mY >= 0;
 }
 
-}
-}
+}}  // namespace scn::step

@@ -34,7 +34,4 @@ bool IsMighty() {
     return t_obj().isMighty();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintInvincible

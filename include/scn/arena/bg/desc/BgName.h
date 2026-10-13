@@ -12,9 +12,6 @@ enum BgName {
     BG_NAME_1,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::arena::bg::desc
 
 #endif

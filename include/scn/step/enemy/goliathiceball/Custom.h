@@ -11,10 +11,7 @@ namespace goliathiceball {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::goliathiceball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ public:
     void reqExplode();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball
 
 #endif

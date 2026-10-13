@@ -73,7 +73,4 @@ void StateParasolUnder::procMove() {
 void StateParasolUnder::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol

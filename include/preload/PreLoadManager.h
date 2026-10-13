@@ -33,6 +33,6 @@ private:
     u8 _0[0xBB64];
 };
 
-}
+}  // namespace preload
 
 #endif

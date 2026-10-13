@@ -24,7 +24,6 @@ private:
     u32 _0;
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

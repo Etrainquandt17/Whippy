@@ -15,6 +15,6 @@ private:
     file::FileAccessor mFile;
 };
 
-}
+}  // namespace gfx
 
 #endif

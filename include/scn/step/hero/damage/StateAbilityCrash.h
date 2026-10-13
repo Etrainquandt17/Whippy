@@ -19,9 +19,6 @@ public:
     virtual void procFixPos();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage
 
 #endif

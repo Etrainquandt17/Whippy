@@ -247,5 +247,4 @@ void FileNumber::show() {
     _4B8 = true;
 }
 
-}
-}
+}}  // namespace scn::titlemenunew

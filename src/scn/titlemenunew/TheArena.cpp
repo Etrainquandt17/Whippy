@@ -805,5 +805,4 @@ bool TheArena::isAnimEnd() const {
     return mLayout.isAnimEnd();
 }
 
-}
-}
+}}  // namespace scn::titlemenunew

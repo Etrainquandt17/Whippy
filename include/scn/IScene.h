@@ -4,8 +4,7 @@
 namespace hel {
 namespace common {
 class RuntimeTypeInfo;
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 
@@ -22,6 +21,6 @@ public:
     virtual bool isSceneEnd() const = 0;
 };
 
-}
+}  // namespace scn
 
 #endif

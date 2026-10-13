@@ -14,8 +14,6 @@ struct SuperSwordParam {
     modeldesc::Dynamics::NodeParam _4[4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

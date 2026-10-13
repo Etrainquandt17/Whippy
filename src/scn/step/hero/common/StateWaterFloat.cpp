@@ -158,7 +158,4 @@ void StateWaterFloat::updateNinjaViewOffset() {
     obj().model().setViewOffset(hel::math::Vector3(0.0f, y, 0.0f));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

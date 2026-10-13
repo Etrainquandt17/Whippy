@@ -75,8 +75,6 @@ struct WaterParam {
     f32 _198;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

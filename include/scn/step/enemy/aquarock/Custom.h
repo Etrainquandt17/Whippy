@@ -11,10 +11,7 @@ namespace aquarock {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::aquarock::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     f32 mAngleSpeed;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock
 
 #endif

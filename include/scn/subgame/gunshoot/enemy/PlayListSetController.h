@@ -15,8 +15,7 @@ class RequestorBuilder;
 }
 namespace view {
 class ModelAccessor;
-}
-}
+}}  // namespace common::view
 
 namespace gunshoot {
 
@@ -28,10 +27,7 @@ namespace enemy {
 
 class PlayListController;
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 namespace scn {
 namespace subgame {
@@ -62,9 +58,6 @@ private:
     int mIndex;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy
 
 #endif

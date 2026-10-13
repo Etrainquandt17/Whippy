@@ -34,7 +34,6 @@ struct CAPSULE {
 int IntersectionSegment3Sphere(const SEGMENT3* segment, const SPHERE* sphere, f32* t0, f32* t1);
 bool IntersectionCapsule(const CAPSULE* c0, const CAPSULE* c1);
 
-}
-}
+}}  // namespace nw4r::math
 
 #endif

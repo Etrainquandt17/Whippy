@@ -23,8 +23,6 @@ struct SuperParam {
     SuperParamAbility _64[5];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

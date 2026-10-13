@@ -11,10 +11,7 @@ namespace zankibble {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::zankibble::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -50,9 +46,6 @@ private:
     EnemyCtrl mEnemyCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 #endif

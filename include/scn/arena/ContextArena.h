@@ -16,7 +16,6 @@ public:
     u8 _E4[0x258 - 0xE4];
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

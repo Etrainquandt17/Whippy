@@ -26,9 +26,6 @@ private:
     bool mIsHatLight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash
 
 #endif

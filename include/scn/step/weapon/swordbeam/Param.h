@@ -20,9 +20,6 @@ struct Param {
     gobj::MoveParamAccel _18;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::swordbeam
 
 #endif

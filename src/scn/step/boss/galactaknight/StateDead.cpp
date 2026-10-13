@@ -181,7 +181,4 @@ void StateDead::stagingBossDead() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

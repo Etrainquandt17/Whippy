@@ -25,9 +25,6 @@ private:
     bool mIsLooped;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy
 
 #endif

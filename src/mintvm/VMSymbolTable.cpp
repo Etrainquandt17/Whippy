@@ -9,4 +9,4 @@ VMSymbolTable::VMSymbolTable(const mintx::XData& data, const BCSymbolTable* tabl
     }
 }
 
-}
+}  // namespace mintvm

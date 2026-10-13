@@ -89,6 +89,6 @@ public:
     u32 mOffset;
 };
 
-}
+}  // namespace mintvm
 
 #endif

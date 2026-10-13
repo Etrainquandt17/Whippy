@@ -60,7 +60,4 @@ void StateMoveOnGround::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf

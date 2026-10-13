@@ -61,6 +61,4 @@ void SuperStop::unsetSpecial() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

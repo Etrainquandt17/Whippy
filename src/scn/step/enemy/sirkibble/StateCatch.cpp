@@ -44,7 +44,4 @@ void StateCatch::procMove() {}
 
 void StateCatch::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble

@@ -209,7 +209,4 @@ void StateFreezeShot::createWeapon(const util::ObjRefHandle<hero::Hero>& hero) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::damage

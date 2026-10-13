@@ -23,6 +23,6 @@ enum FontKind {
     FONT_KIND_NUM,
 };
 
-}
+}  // namespace font
 
 #endif

@@ -128,7 +128,4 @@ const gobj::GearModelDesc& GearDesc::Model(AbilityKind kind) {
     return desc;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::goalgame::desc::gear

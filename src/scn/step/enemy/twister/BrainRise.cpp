@@ -39,7 +39,4 @@ bool BrainRise::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::twister

@@ -15,10 +15,6 @@ public:
     static void Clear(Hero& hero);
 };
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::hero::mike::utility
 
 #endif

@@ -96,7 +96,4 @@ void StateSquat::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

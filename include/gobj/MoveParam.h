@@ -31,6 +31,6 @@ struct MoveParamFall {
     f32 _8;
 };
 
-}
+}  // namespace gobj
 
 #endif

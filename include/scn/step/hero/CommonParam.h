@@ -138,8 +138,6 @@ struct CommonParam {
     f32 _4F4;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

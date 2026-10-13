@@ -24,9 +24,6 @@ private:
     bool mIsChase;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

@@ -171,8 +171,7 @@ CUSTOM_RUNTIME_TYPE_INFO(scn::step::weapon::gianttornado::Custom)
 
 #undef CUSTOM_RUNTIME_TYPE_INFO
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -623,6 +622,4 @@ void CustomFactory::Create(Weapon& weapon, mem::ExplicitScopedPtr<ICustom>& cust
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

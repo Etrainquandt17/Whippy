@@ -102,7 +102,6 @@ inline detail::bound_func<R, detail::mem_fn_0<R, T>, tuple<A1> > bind(R (T::*pm)
     return detail::bound_func<R, detail::mem_fn_0<R, T>, tuple<A1> >(mem_fn(pm), tuple<A1>(a1));
 }
 
-}
-}
+}}  // namespace std::tr1
 
 #endif

@@ -11,10 +11,7 @@ namespace blipper {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::blipper::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ public:
     virtual void onCaptured();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper
 
 #endif

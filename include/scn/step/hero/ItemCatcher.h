@@ -15,8 +15,6 @@ public:
     void resetSize();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

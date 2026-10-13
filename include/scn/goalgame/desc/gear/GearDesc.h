@@ -19,9 +19,6 @@ public:
     static const gobj::GearModelDesc& Model(step::hero::AbilityKind kind);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::goalgame::desc::gear
 
 #endif

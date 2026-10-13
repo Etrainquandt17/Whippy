@@ -41,7 +41,4 @@ bool BrainPursuit::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::brontoburt

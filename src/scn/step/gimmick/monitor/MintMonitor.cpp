@@ -25,7 +25,4 @@ Monitor& MintMonitor::Obj() {
     return t_obj.ref();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::monitor

@@ -71,8 +71,7 @@ CUSTOM_RUNTIME_TYPE_INFO(scn::step::boss::zankibble::Custom)
 
 #undef CUSTOM_RUNTIME_TYPE_INFO
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -152,6 +151,4 @@ void CustomFactory::Create(Boss& boss, mem::ExplicitScopedPtr<ICustom>& custom) 
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

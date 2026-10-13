@@ -43,7 +43,4 @@ void StateDashWallHit::procMove() {
 
 void StateDashWallHit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

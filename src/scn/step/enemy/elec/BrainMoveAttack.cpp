@@ -52,7 +52,4 @@ void BrainMoveAttack::update() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec

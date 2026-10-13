@@ -186,7 +186,4 @@ bool PlayListSetController::isPause() const {
     return mController->isPause();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy

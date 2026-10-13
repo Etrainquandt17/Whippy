@@ -12,6 +12,6 @@ public:
     bool _0;
 };
 
-}
+}  // namespace file
 
 #endif

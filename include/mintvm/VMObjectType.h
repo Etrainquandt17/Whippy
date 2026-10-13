@@ -44,6 +44,6 @@ private:
     VMFunctionList mFunctions;
 };
 
-}
+}  // namespace mintvm
 
 #endif

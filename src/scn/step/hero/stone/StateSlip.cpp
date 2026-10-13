@@ -123,7 +123,4 @@ bool StateSlip::isSpeedZero() const {
     return hel::math::Math::EqZero(obj().move().velocity().length());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

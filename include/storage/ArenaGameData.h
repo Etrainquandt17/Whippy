@@ -41,6 +41,6 @@ private:
     ArenaOneRecord mRecords[PLAY_MODE_NUM][RANK_NUM];
 };
 
-}
+}  // namespace storage
 
 #endif

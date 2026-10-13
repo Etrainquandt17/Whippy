@@ -96,9 +96,7 @@ InactiveHero::InactiveHero(Component& component, mem::HeapExpArray& heapArray, u
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::wmap::hero
 
 namespace util {
 
@@ -196,6 +194,4 @@ step::hero::Kind InactiveHero::kind() const {
     return static_cast<step::hero::Kind>(_38);
 }
 
-}
-}
-}
+}}}  // namespace scn::wmap::hero

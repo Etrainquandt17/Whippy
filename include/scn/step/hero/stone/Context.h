@@ -42,9 +42,6 @@ private:
     bool mIsRotEnable;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone
 
 #endif

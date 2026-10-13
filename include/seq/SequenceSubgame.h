@@ -33,6 +33,6 @@ private:
     u32 _4[0x14];
 };
 
-}
+}  // namespace seq
 
 #endif

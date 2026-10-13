@@ -166,7 +166,4 @@ void Hammer::onStateEndCleanUp() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

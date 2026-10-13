@@ -90,7 +90,4 @@ void StateMoveGround::procMove() {
 
 void StateMoveGround::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

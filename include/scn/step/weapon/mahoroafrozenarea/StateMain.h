@@ -23,9 +23,6 @@ private:
     u32 mAreaId;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroafrozenarea
 
 #endif

@@ -41,6 +41,6 @@ private:
     u8 _4[0x944];
 };
 
-}
+}  // namespace seq
 
 #endif

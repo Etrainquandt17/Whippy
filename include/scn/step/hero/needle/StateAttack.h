@@ -16,9 +16,6 @@ public:
     StateAttack(Hero* hero, bool, bool);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle
 
 #endif

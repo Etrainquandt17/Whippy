@@ -110,7 +110,4 @@ void StateZStar::reqStar() {
     custom.weaponCtrl().request();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

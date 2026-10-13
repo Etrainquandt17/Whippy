@@ -35,7 +35,4 @@ void SwitchModelCtrl::deadLandiaDummy() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

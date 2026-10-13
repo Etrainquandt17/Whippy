@@ -96,7 +96,4 @@ const ShotParam& StateMain::param() const {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fighterhadoushot

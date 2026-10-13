@@ -12,10 +12,7 @@ namespace landiasingle {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::landiasingle::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -62,9 +58,6 @@ private:
     HeadAngleCtrl mHeadAngleCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

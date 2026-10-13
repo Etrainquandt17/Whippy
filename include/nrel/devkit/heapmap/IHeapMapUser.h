@@ -13,8 +13,6 @@ public:
     virtual ~IHeapMapUser();
 };
 
-}
-}
-}
+}}}  // namespace nrel::devkit::heapmap
 
 #endif

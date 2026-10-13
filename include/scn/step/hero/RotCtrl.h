@@ -12,8 +12,6 @@ public:
     void toInvalid();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

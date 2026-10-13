@@ -62,7 +62,4 @@ chara::ModelDesc& CreateIron() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barbar

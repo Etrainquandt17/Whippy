@@ -11,7 +11,6 @@ void RegisterForce(const ModelAccessor& obj);
 void Unregister();
 void SetVisibility(bool visible);
 
-}
-}
+}}  // namespace g3d::MintModelAccessor
 
 #endif

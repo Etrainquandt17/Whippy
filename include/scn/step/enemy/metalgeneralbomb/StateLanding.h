@@ -25,9 +25,6 @@ private:
     bool mIsFloor;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbomb
 
 #endif

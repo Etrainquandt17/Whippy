@@ -12,10 +12,7 @@ namespace metalgeneralmissile {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralmissile
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::metalgeneralmissile::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -53,9 +49,6 @@ private:
     bool mIsExpSED3;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralmissile
 
 #endif

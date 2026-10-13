@@ -19,9 +19,6 @@ private:
     bool mIsSetup;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::mike
 
 #endif

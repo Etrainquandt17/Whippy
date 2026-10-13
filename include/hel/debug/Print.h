@@ -11,7 +11,6 @@ public:
     static common::FixedString<384> HelSPrintfImpl(const char* format, ...);
 };
 
-}
-}
+}}  // namespace hel::debug
 
 #endif

@@ -22,9 +22,6 @@ struct ParamData {
     f32 mBigCullingMargin;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo
 
 #endif

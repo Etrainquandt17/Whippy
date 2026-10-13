@@ -106,6 +106,6 @@ inline void VMKey::setName(const char* name) {
     mNameLength = strlen(name);
 }
 
-}
+}  // namespace mintvm
 
 #endif

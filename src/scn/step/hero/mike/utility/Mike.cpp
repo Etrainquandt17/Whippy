@@ -32,8 +32,4 @@ void Mike::Clear(Hero& hero) {
     hero.model().weapon().anim().clear();
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::hero::mike::utility

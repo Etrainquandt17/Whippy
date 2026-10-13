@@ -228,6 +228,4 @@ void VacuumSoundCtrl::cleanup() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

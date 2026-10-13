@@ -28,9 +28,6 @@ private:
     f32 mDecel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::broomhatter
 
 #endif

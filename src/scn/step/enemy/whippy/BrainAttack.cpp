@@ -35,7 +35,4 @@ bool BrainAttack::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whippy

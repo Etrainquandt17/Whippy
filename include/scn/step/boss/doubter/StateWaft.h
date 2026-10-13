@@ -21,9 +21,6 @@ private:
     f32 _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

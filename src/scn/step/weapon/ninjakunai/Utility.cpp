@@ -20,7 +20,4 @@ void Utility::Rotate(Weapon& weapon) {
     weapon.model().rotCtrl().setRotV(sign * param._84);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjakunai

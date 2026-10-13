@@ -18,9 +18,6 @@ public:
     virtual void procMove();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::owgulf
 
 #endif

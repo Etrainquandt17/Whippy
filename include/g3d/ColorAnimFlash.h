@@ -18,6 +18,6 @@ private:
     ColorAnimFlashOp mOperation;
 };
 
-}
+}  // namespace g3d
 
 #endif

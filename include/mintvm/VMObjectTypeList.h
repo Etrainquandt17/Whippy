@@ -39,6 +39,6 @@ private:
     MPtrArray<VMObjectType> mObjectTypes;
 };
 
-}
+}  // namespace mintvm
 
 #endif

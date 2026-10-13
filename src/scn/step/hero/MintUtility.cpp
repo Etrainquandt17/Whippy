@@ -507,7 +507,4 @@ void RequestEffectGearNodeNDOS(effect::Kind arg0, u32 arg1, f32 arg2) {
     chara::MintEffect::Obj().requestND(arg0, node, hel::mint::AddOnMathDirection3::Get(), hel::mint::AddOnMathVector3::Get(), arg2);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintUtility

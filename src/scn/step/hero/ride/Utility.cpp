@@ -46,7 +46,4 @@ bool Utility::IsJumpInput(Hero& hero, u32 frame) {
     return hero.commandManager().getTriggerPastFrame(static_cast<ButtonMask>(0x10)) <= frame;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::ride

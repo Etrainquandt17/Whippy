@@ -32,8 +32,6 @@ private:
     bool mIsMighty;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

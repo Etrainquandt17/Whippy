@@ -28,9 +28,6 @@ private:
     gobj::GearAnimDesc mAnimDesc;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

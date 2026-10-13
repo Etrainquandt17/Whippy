@@ -397,7 +397,4 @@ Gear& Stone::gearHand() {
     return mHero.model().weapon();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::stone

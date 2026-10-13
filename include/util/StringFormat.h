@@ -5,6 +5,6 @@ namespace util {
 
 void StringFormat(char* buffer, unsigned long size, const char* format, ...);
 
-}
+}  // namespace util
 
 #endif

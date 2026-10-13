@@ -119,7 +119,4 @@ void StateWalk::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

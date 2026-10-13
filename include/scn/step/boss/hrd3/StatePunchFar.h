@@ -18,9 +18,6 @@ public:
     virtual ~StatePunchFar();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

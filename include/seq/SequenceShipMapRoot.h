@@ -8,8 +8,7 @@
 namespace scn {
 namespace step {
 class ContextMode;
-}
-}
+}}  // namespace scn::step
 
 namespace seq {
 
@@ -44,6 +43,6 @@ private:
     u8 _4[0xA00];
 };
 
-}
+}  // namespace seq
 
 #endif

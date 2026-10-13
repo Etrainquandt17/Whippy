@@ -13,6 +13,4 @@ void StateCallback::onStateChanged(const util::IStateChanger&) {
     mObj.landConstraint().resetMode();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

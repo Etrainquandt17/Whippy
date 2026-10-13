@@ -54,7 +54,4 @@ void StateBack::procMove() {
 
 void StateBack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::dubiorjr

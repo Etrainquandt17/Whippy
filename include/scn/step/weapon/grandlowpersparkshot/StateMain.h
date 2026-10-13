@@ -20,9 +20,6 @@ private:
     chara::Lifetime mLifetime;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::grandlowpersparkshot
 
 #endif

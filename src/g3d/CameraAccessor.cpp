@@ -89,4 +89,4 @@ f32 CameraAccessor::getProjRight() const {
     return const_cast<CameraAccessor*>(this)->ref().projRight;
 }
 
-}
+}  // namespace g3d

@@ -4,8 +4,7 @@
 namespace info {
 namespace complete {
 class Manager;
-}
-}
+}}  // namespace info::complete
 
 namespace scn {
 namespace step {
@@ -30,8 +29,6 @@ public:
     challenge::Challenge& challenge();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

@@ -21,9 +21,6 @@ private:
     void setInitSpeed();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

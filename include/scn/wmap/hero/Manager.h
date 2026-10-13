@@ -32,8 +32,6 @@ private:
     ShareData mShareData;
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::hero
 
 #endif

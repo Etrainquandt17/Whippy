@@ -18,9 +18,6 @@ public:
     StateDemoFollow(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

@@ -31,9 +31,6 @@ struct ParamData {
     f32 mEscapeVacuumOffHeight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee
 
 #endif

@@ -127,7 +127,4 @@ void StateBeamBlast::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam

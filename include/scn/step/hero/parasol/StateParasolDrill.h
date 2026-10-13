@@ -27,9 +27,6 @@ private:
     bool mIsAir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

@@ -109,7 +109,4 @@ void StateCaptureAttack::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros

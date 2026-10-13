@@ -24,9 +24,6 @@ private:
     f32 mDistance;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers
 
 #endif

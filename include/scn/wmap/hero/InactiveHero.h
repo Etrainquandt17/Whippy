@@ -65,8 +65,6 @@ private:
     bool _3E;
 };
 
-}
-}
-}
+}}}  // namespace scn::wmap::hero
 
 #endif

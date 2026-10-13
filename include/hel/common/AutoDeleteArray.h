@@ -67,7 +67,6 @@ private:
 };
 #endif
 
-}
-}
+}}  // namespace hel::common
 
 #endif

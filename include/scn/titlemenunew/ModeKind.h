@@ -19,7 +19,6 @@ enum ModeKind {
     MODE_KIND_9,
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

@@ -19,9 +19,6 @@ public:
     State6WayPreShot(Enemy* enemy, const hel::math::Vector3& pos, f32 _18, f32 angle);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

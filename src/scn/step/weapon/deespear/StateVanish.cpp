@@ -62,7 +62,4 @@ void StateVanish::procFixPos() {}
 
 void StateVanish::procObjCollReact() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::deespear

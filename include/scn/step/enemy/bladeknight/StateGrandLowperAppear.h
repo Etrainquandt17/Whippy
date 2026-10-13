@@ -21,9 +21,6 @@ private:
     algorithm::AlgorithmGrandLowperAppear mAlgorithm;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bladeknight
 
 #endif

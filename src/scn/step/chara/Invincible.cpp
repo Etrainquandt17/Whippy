@@ -84,6 +84,4 @@ void Invincible::updateFrame() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::chara

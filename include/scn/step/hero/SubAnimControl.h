@@ -13,8 +13,6 @@ public:
     void clearAll();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

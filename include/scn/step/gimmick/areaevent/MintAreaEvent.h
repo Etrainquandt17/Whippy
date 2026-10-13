@@ -15,9 +15,6 @@ public:
     static AreaEvent& Obj();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::areaevent
 
 #endif

@@ -56,8 +56,6 @@ struct WingParam {
     gobj::MoveParamAccel _D8;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

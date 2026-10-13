@@ -49,7 +49,4 @@ void StateWait::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::togekuki

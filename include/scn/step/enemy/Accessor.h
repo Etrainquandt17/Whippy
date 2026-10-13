@@ -22,8 +22,6 @@ private:
     util::ObjRefHandle<Enemy> mHandle;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

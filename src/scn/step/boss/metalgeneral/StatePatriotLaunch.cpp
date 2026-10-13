@@ -159,7 +159,4 @@ void StatePatriotLaunch::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

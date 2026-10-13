@@ -23,9 +23,6 @@ struct ParamData {
     gobj::MoveParamFall mStayFall;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid
 
 #endif

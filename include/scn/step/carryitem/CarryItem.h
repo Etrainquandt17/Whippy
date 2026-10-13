@@ -54,9 +54,7 @@ class StateCallback;
 class User;
 class VacuumReceiver;
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 namespace util {
 
@@ -157,8 +155,6 @@ private:
     util::ObjRefHandle<CarryItem>::Owner mHandleOwner;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

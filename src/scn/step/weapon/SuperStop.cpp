@@ -40,6 +40,4 @@ void SuperStop::onSuperStopFinished(const spstop::Manager&) {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

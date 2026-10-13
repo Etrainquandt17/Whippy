@@ -18,9 +18,6 @@ public:
     StateCharge(Hero* hero, GearBombController& controller, bool isUp);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::bomb
 
 #endif

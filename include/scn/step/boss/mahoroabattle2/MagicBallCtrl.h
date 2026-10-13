@@ -26,9 +26,6 @@ public:
     void clearReqData();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle2
 
 #endif

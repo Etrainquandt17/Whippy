@@ -21,9 +21,6 @@ private:
     u32 _0[0x74 / 4];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::view
 
 #endif

@@ -14,8 +14,6 @@ public:
     static Enemy* Obj();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

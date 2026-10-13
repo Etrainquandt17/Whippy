@@ -59,8 +59,6 @@ private:
     Effect* mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

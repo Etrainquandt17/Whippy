@@ -6,8 +6,7 @@
 namespace hel {
 namespace math {
 class Direction3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -38,8 +37,6 @@ public:
     void releaseEffectNonStop2();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

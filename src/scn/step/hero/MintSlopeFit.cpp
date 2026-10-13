@@ -31,7 +31,4 @@ void SetAffectRate(f32 rate) {
     t_obj().setAffectRate(rate);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintSlopeFit

@@ -17,6 +17,6 @@ protected:
     GXTexObj mTexObj;
 };
 
-}
+}  // namespace gfx
 
 #endif

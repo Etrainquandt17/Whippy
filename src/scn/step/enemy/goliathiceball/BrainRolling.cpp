@@ -39,7 +39,4 @@ bool BrainRolling::onLanding() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball

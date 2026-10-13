@@ -10,7 +10,6 @@ enum ArenaCursor {
     ARENA_CURSOR_1,
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

@@ -71,7 +71,4 @@ void StateDamage::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::rollball

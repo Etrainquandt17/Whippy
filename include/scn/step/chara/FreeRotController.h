@@ -23,8 +23,6 @@ private:
     f32 _24;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

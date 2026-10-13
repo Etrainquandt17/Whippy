@@ -29,9 +29,6 @@ private:
     bool mIsValid;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

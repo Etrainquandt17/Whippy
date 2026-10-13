@@ -31,6 +31,4 @@ void HitStopCallback::onEnd() {
     mBoss.effect().onHitStopEnd();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

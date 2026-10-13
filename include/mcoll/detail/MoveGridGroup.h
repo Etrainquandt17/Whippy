@@ -14,7 +14,6 @@ public:
     hel::math::Vector2 getDelta();
 };
 
-}
-}
+}}  // namespace mcoll::detail
 
 #endif

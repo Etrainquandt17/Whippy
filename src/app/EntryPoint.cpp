@@ -68,4 +68,4 @@ void EntryPoint::Run(bool flag) {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace app

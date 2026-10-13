@@ -26,7 +26,4 @@ void Clear() {
     t_obj().clear();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintGatherItem

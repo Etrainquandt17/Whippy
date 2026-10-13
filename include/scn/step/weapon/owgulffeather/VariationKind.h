@@ -12,9 +12,6 @@ enum VariationKind {
     VARIATION_KIND_3WAY
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::owgulffeather
 
 #endif

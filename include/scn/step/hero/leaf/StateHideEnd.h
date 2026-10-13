@@ -22,9 +22,6 @@ private:
     bool mIsUnsetXlu;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::leaf
 
 #endif

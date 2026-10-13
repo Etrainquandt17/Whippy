@@ -12,7 +12,6 @@ public:
     bool getIsGetCurrent(u32 index) const;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

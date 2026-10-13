@@ -31,7 +31,4 @@ void StateMain::procMove() {}
 
 void StateMain::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroablackholebg

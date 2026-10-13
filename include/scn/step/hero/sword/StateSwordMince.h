@@ -24,9 +24,6 @@ private:
     bool mIsNext;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword
 
 #endif

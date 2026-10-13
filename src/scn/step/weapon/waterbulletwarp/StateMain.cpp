@@ -15,7 +15,4 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon) {
 
 StateMain::~StateMain() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::waterbulletwarp

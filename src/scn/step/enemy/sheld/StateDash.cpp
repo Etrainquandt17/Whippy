@@ -70,7 +70,4 @@ void StateDash::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

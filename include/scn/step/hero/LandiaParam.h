@@ -39,8 +39,6 @@ struct LandiaParam {
     u32 _98;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

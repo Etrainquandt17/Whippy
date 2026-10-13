@@ -26,9 +26,6 @@ private:
     f32 mAngle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whippy
 
 #endif

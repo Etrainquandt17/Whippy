@@ -17,8 +17,6 @@ public:
     void clearRequested();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

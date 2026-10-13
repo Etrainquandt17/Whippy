@@ -87,6 +87,6 @@ private:
     char mBuffer[BUFFER_SIZE];
 };
 
-}
+}  // namespace mintvm
 
 #endif

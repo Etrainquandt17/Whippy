@@ -18,9 +18,6 @@ public:
     StateWarpHolePopup(Enemy* enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroamagicball
 
 #endif

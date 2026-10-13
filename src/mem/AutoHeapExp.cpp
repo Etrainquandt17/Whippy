@@ -10,4 +10,4 @@ HeapExp& AutoHeapExp::obj() {
     return mObj;
 }
 
-}
+}  // namespace mem

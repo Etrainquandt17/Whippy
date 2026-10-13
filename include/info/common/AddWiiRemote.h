@@ -24,7 +24,6 @@ public:
     };
 };
 
-}
-}
+}}  // namespace info::common
 
 #endif

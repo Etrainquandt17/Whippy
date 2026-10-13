@@ -89,7 +89,4 @@ void StateStep::procMove() {
 
 void StateStep::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

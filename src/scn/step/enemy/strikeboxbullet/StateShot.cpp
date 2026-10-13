@@ -69,7 +69,4 @@ void StateShot::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::strikeboxbullet

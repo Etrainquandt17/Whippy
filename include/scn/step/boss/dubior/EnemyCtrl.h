@@ -28,9 +28,6 @@ private:
     hel::common::MutableArray<enemy::Accessor, 10> mEnemies;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

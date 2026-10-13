@@ -105,7 +105,4 @@ void StateGust::createWeapon() {
     mWeapon = obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado

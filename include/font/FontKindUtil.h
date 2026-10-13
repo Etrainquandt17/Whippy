@@ -13,6 +13,6 @@ const char* Name(FontKind kind);
 
 }
 
-}
+}  // namespace font
 
 #endif

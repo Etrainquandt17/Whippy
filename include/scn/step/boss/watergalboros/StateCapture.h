@@ -22,9 +22,6 @@ private:
     bool mIsFirst;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

@@ -545,6 +545,4 @@ void LevelTitle::mfTextClose() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::wmap::info

@@ -25,5 +25,4 @@ void Flip(u32 index) {
     t_obj->flip(index);
 }
 
-}
-}
+}}  // namespace gobj::MintMeshFlip

@@ -67,7 +67,4 @@ void StateMain::dead() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::airball

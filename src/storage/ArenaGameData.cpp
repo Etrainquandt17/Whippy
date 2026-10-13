@@ -202,4 +202,4 @@ ArenaGameData::ArenaOneRecord ArenaGameData::getRecord(ArenaPlayMode mode, Arena
     return mRecords[mode][rank];
 }
 
-}
+}  // namespace storage

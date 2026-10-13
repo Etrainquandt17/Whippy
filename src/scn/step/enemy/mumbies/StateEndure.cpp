@@ -54,7 +54,4 @@ void StateEndure::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mumbies

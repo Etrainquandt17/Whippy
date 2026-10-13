@@ -52,6 +52,6 @@ private:
     util::PlacementNew<AllocFromTailAllocator> mTailAllocator;
 };
 
-}
+}  // namespace mem
 
 #endif

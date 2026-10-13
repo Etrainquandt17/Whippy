@@ -35,7 +35,4 @@ bool BrainDead::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::mahoroadead

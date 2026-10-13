@@ -21,8 +21,6 @@ public:
     SpiralScreen& spiralScreen();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

@@ -170,6 +170,6 @@ private:
     const u8* mCode;
 };
 
-}
+}  // namespace mintvm
 
 #endif

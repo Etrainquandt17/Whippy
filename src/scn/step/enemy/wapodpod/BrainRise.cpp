@@ -40,7 +40,4 @@ bool BrainRise::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapodpod

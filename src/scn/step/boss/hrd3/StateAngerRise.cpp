@@ -110,7 +110,4 @@ void StateAngerRise::procMove() {
 
 void StateAngerRise::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

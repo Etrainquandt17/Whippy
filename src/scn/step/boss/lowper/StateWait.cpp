@@ -91,7 +91,4 @@ void StateWait::commonInit(const hel::math::Vector3& pos) {
     custom.waftMoveCtrl().setWaveWidth(param._14);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

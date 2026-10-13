@@ -108,9 +108,6 @@ struct Param {
     u32 mAngerScaleTime;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

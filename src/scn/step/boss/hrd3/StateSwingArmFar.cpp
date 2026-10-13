@@ -107,7 +107,4 @@ void StateSwingArmFar::procMove() {
 
 void StateSwingArmFar::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

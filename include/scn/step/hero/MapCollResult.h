@@ -21,8 +21,6 @@ typedef chara::MapCollResult MapCollResult;
 // A copy of one of its group ids, which the original makes without a call.
 #define HERO_MAPCOLLRESULT_GROUP(id) (::mcoll::detail::MoveGridGroupId(*reinterpret_cast<const u32*>(&(id))))
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

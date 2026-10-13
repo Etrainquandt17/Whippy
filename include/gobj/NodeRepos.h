@@ -12,6 +12,6 @@ public:
     g3d::NodeAccessor at(u32 index) const;
 };
 
-}
+}  // namespace gobj
 
 #endif

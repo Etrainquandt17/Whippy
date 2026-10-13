@@ -64,7 +64,4 @@ void StateJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::carrydee

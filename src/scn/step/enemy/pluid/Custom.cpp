@@ -137,7 +137,4 @@ bool Custom::isRandomFall() const {
     return mIsRandomFall;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid

@@ -20,9 +20,6 @@ private:
     bool mFlag;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer
 
 #endif

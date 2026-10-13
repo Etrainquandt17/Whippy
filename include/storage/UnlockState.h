@@ -11,6 +11,6 @@ enum UnlockState {
     UNLOCK_STATE_3,
 };
 
-}
+}  // namespace storage
 
 #endif

@@ -180,4 +180,4 @@ void FramePanel::updateFrame() {
     }
 }
 
-}
+}  // namespace pause

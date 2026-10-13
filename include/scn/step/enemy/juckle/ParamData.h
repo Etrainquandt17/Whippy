@@ -20,9 +20,6 @@ struct ParamData {
     f32 mAnger[8];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::juckle
 
 #endif

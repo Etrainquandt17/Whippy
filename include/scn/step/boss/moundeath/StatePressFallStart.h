@@ -24,9 +24,6 @@ private:
     u32 mFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

@@ -62,10 +62,7 @@ namespace step {
 namespace boss {
 namespace galactaknight {
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 namespace hel {
 namespace common {
@@ -76,8 +73,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::galactarevolutions
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -126,7 +122,4 @@ void StateRevolutionSword::reqRevolutionSword() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

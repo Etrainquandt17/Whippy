@@ -67,7 +67,4 @@ void StateShipRepairDemoAfter::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

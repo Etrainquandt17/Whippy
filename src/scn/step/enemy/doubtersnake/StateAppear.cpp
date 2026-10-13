@@ -72,7 +72,4 @@ void StateAppear::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubtersnake

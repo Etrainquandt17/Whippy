@@ -14,9 +14,6 @@ public:
     StateWait(Weapon* weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::needleshot
 
 #endif

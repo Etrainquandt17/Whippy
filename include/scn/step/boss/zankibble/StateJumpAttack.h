@@ -41,9 +41,6 @@ private:
     StateJumpAttack::Config mConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 #endif

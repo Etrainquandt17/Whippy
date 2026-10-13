@@ -19,9 +19,6 @@ public:
     virtual ~StateWallClimb();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

@@ -28,9 +28,6 @@ private:
     f32 mSpeedMax;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

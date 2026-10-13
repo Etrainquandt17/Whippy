@@ -32,9 +32,6 @@ struct ParamData {
     f32 mMapCheckY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barracu
 
 #endif

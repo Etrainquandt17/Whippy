@@ -75,7 +75,4 @@ void StateFireBurningWallHit::procMove() {
 void StateFireBurningWallHit::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire

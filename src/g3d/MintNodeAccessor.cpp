@@ -47,5 +47,4 @@ void SetVisibilityBelow(bool visible) {
     t_obj.setVisibilityBelow(visible);
 }
 
-}
-}
+}}  // namespace g3d::MintNodeAccessor

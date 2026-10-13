@@ -11,8 +11,6 @@ public:
     void setPauseFrame(int frame);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::challenge
 
 #endif

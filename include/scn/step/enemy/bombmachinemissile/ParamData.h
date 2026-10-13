@@ -17,9 +17,6 @@ struct ParamData {
     u32 mEffectFrameSuper;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bombmachinemissile
 
 #endif

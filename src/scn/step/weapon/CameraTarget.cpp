@@ -27,6 +27,4 @@ void CameraTarget::setOffset(const hel::math::Vector2& offset) {
     mOffset = offset;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

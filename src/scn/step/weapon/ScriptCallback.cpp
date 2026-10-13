@@ -21,6 +21,4 @@ void ScriptCallback::onScriptExecPre(const gobj::Script& script) {}
 
 void ScriptCallback::onScriptExecPost(const gobj::Script& script) {}
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

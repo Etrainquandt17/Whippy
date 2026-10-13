@@ -43,7 +43,4 @@ void StateShot::procFixPos() {
     common::StateFall::TryToChangeState(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge

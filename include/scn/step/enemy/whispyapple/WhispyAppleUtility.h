@@ -18,9 +18,6 @@ public:
     static void ReqBoundSEIfGordo(Enemy& enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::whispyapple
 
 #endif

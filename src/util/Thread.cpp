@@ -101,4 +101,4 @@ Thread::~Thread() {
     OSCancelThread(&mThread);
 }
 
-}
+}  // namespace util

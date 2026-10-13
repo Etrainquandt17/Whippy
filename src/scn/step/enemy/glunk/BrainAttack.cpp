@@ -39,7 +39,4 @@ bool BrainAttack::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::glunk

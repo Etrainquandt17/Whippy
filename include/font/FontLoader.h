@@ -14,6 +14,6 @@ private:
     FontKind mKind;
 };
 
-}
+}  // namespace font
 
 #endif

@@ -28,9 +28,6 @@ private:
     f32 mAccelDir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lupa
 
 #endif

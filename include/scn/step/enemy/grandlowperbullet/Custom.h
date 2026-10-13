@@ -18,10 +18,7 @@ namespace grandlowperbullet {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 namespace hel {
 namespace common {
@@ -30,8 +27,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::grandlowperbullet::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -59,9 +55,6 @@ private:
     util::ObjRefHandle<hero::Hero> mTargetHero;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::grandlowperbullet
 
 #endif

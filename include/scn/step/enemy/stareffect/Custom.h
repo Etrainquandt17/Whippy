@@ -11,10 +11,7 @@ namespace stareffect {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::stareffect
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::stareffect::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ private:
     u32 _8[3];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::stareffect
 
 #endif

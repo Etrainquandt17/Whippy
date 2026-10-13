@@ -26,9 +26,6 @@ private:
     u32 mMoveFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::squishy
 
 #endif

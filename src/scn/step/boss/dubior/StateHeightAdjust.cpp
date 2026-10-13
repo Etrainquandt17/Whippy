@@ -50,7 +50,4 @@ void StateHeightAdjust::procMove() {
 
 void StateHeightAdjust::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

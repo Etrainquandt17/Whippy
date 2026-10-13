@@ -15,9 +15,6 @@ public:
     virtual void procAnim();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fattybuffercannonsplash
 
 #endif

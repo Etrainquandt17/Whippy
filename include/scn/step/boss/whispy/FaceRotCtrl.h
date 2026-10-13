@@ -25,9 +25,6 @@ private:
     Boss& mBoss;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

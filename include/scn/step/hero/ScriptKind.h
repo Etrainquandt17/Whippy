@@ -10,8 +10,6 @@ enum ScriptKind {
     SCRIPT_KIND_3 = 3
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

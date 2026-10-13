@@ -18,9 +18,6 @@ private:
     u32 mCount;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common
 
 #endif

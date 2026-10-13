@@ -27,7 +27,4 @@ void Request(int kind) {
     t_obj->request(static_cast<ShakeKind>(kind));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintShake

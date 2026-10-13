@@ -36,8 +36,6 @@ struct WhipParam {
     u32 _5C;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

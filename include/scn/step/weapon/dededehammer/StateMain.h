@@ -26,9 +26,6 @@ private:
     f32 _10;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::dededehammer
 
 #endif

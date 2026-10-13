@@ -35,6 +35,4 @@ GXColor GuardFlash::getColor() const {
     return mColor;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

@@ -59,7 +59,4 @@ void StateFaceChange::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

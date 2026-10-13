@@ -84,7 +84,4 @@ void StateStill::procMove() {
 
 void StateStill::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet

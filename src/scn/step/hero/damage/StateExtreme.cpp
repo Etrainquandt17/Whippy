@@ -106,7 +106,4 @@ void StateExtreme::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

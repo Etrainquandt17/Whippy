@@ -98,7 +98,4 @@ void StateFireLv2::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

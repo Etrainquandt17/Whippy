@@ -34,7 +34,6 @@ private:
     hel::common::ScopedPtr<Main> mMain;
 };
 
-}
-}
+}}  // namespace scn::title
 
 #endif

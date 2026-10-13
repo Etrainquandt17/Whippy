@@ -95,7 +95,4 @@ void StatePressSearch::procMove() {
 
 void StatePressSearch::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

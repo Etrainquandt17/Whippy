@@ -52,9 +52,6 @@ private:
     bool mIsBarrierSE;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

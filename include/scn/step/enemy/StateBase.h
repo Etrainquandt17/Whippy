@@ -28,8 +28,6 @@ private:
     Enemy& mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

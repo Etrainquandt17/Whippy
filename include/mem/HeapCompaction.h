@@ -17,6 +17,6 @@ public:
     HeapCompactionNodeHandle search(void* address);
 };
 
-}
+}  // namespace mem
 
 #endif

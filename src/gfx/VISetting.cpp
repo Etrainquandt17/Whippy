@@ -263,4 +263,4 @@ const _GXRenderModeObj* VISetting::rmode(u32 renderModeNo) const {
     return &StandardRenderModeSets[renderModeNo]->rmode;
 }
 
-}
+}  // namespace gfx

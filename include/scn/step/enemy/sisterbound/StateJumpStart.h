@@ -25,9 +25,6 @@ private:
     f32 mSpeedH;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sisterbound
 
 #endif

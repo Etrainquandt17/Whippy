@@ -23,9 +23,6 @@ public:
     void reqBeam();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit
 
 #endif

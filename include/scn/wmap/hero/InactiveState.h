@@ -32,8 +32,6 @@ public:
 
 }
 
-}
-}
-}
+}}}  // namespace scn::wmap::hero
 
 #endif

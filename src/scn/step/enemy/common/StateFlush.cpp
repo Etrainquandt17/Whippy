@@ -34,7 +34,4 @@ void StateFlush::procMove() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

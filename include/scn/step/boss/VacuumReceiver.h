@@ -24,8 +24,6 @@ public:
     hel::math::Vector2 getAttackerPos() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

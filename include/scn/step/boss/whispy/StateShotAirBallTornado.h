@@ -18,9 +18,6 @@ private:
     f32 mSpeedAdd;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

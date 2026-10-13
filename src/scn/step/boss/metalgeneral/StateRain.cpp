@@ -117,7 +117,4 @@ void StateRain::procMove() {}
 
 void StateRain::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

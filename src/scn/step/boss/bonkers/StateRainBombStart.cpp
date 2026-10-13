@@ -62,7 +62,4 @@ void StateRainBombStart::procMove() {
 
 void StateRainBombStart::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers

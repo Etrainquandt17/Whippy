@@ -75,10 +75,7 @@ namespace step {
 namespace boss {
 namespace lowper {
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 namespace hel {
 namespace common {
@@ -89,8 +86,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::lowperrollingspark
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -193,7 +189,4 @@ void StateSparkAttackRolling::reqWeapon() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

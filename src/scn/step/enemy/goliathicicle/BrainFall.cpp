@@ -39,7 +39,4 @@ bool BrainFall::onLanding() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathicicle

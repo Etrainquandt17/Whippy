@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& CreateNormal();
 chara::ModelDesc& CreateSuper();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::hothead::ModelDesc
 
 #endif

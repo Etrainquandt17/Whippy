@@ -18,8 +18,6 @@ public:
     void resetResponse();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

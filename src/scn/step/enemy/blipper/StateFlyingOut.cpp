@@ -44,7 +44,4 @@ void StateFlyingOut::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper

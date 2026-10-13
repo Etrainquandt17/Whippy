@@ -52,7 +52,6 @@ private:
     bool _5C81;
 };
 
-}
-}
+}}  // namespace scn::challengeresult
 
 #endif

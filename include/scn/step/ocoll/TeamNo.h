@@ -13,8 +13,6 @@ enum TeamNo {
     TEAM_NO_3,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::ocoll
 
 #endif

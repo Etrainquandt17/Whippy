@@ -31,9 +31,6 @@ struct ParamData {
     f32 mBackZ;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gigatzo
 
 #endif

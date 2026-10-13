@@ -12,8 +12,6 @@ public:
     void setContinue();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

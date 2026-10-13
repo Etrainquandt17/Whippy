@@ -16,9 +16,6 @@ struct Param {
     f32 _84;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjakunai
 
 #endif

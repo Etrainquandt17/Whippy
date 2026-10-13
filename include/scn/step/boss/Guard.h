@@ -20,8 +20,6 @@ private:
     GuardType mType;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

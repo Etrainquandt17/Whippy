@@ -27,9 +27,6 @@ private:
     bool mIsJump;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubtersnake
 
 #endif

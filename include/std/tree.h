@@ -394,6 +394,6 @@ typename __tree<T, Compare, Allocator>::node* __tree<T, Compare, Allocator>::ins
     return n;
 }
 
-}
+}  // namespace std
 
 #endif

@@ -14,9 +14,6 @@ struct Param {
     f32 _4;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::sparkshotlv3
 
 #endif

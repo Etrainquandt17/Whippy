@@ -91,5 +91,4 @@ const hel::math::Vector3 Create(float x, float y, float z) {
 
 }
 
-}
-}
+}}  // namespace hel::mint

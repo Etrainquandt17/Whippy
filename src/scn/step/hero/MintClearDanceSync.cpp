@@ -40,7 +40,4 @@ int FinishAnim() {
     return t_obj().finishAnim();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintClearDanceSync

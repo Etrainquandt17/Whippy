@@ -21,9 +21,6 @@ struct Param {
     u32 _18;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationdeeshot
 
 #endif

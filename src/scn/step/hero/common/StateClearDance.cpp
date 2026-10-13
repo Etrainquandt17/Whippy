@@ -77,7 +77,4 @@ void StateClearDance::procMove() {}
 
 void StateClearDance::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

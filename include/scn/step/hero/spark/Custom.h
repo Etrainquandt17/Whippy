@@ -10,18 +10,14 @@ namespace step {
 namespace hero {
 namespace spark {
 class Custom;
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::spark
 
 namespace hel {
 namespace common {
 // TODO: an instance of the general template, which hel/common/RuntimeTypeInfo.h cannot define yet.
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::hero::spark::Custom>();
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -43,9 +39,6 @@ private:
     bool mIsAction;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::spark
 
 #endif

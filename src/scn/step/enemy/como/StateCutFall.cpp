@@ -44,7 +44,4 @@ void StateCutFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

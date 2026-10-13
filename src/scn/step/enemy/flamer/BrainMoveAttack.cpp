@@ -56,7 +56,4 @@ bool BrainMoveAttack::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer

@@ -35,9 +35,6 @@ private:
     hel::math::Vector2 mWidthTarget;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia
 
 #endif

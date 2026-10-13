@@ -39,9 +39,6 @@ struct ParamData {
     f32 mSearchOffsetY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::babut
 
 #endif

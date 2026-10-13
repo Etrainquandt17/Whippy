@@ -24,9 +24,6 @@ private:
     bool mIsAttack;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 #endif

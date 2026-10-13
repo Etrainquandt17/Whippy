@@ -207,7 +207,4 @@ void StateAppear::startGame() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

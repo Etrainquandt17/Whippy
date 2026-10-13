@@ -25,9 +25,6 @@ private:
     u32 mEndFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathiceball
 
 #endif

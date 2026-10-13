@@ -20,9 +20,6 @@ struct Param {
     hel::math::Vec2 mDeadEffectOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

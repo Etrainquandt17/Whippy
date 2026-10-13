@@ -45,9 +45,6 @@ struct Param {
     gobj::MoveParamFall _D0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::gigantedge
 
 #endif

@@ -8,8 +8,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::hero::AbilityCustomBase>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -23,6 +22,4 @@ const hel::common::RuntimeTypeInfo& AbilityCustomBase::GetRuntimeTypeInfo() cons
     return hel::common::RuntimeTypeInfoImpl<AbilityCustomBase>();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

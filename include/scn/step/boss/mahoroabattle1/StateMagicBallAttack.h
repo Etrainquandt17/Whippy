@@ -19,9 +19,6 @@ public:
     virtual ~StateMagicBallAttack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

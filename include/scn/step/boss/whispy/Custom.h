@@ -17,10 +17,7 @@ namespace whispy {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 namespace hel {
 namespace common {
@@ -29,8 +26,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::whispy::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -69,9 +65,6 @@ private:
     WindCtrl mWindCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

@@ -32,4 +32,4 @@ ResFileAccessor ResFile::accessor() const {
     return mResAccessor;
 }
 
-}
+}  // namespace g3d

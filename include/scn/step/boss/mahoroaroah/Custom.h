@@ -15,10 +15,7 @@ namespace mahoroaroah {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 namespace hel {
 namespace common {
@@ -27,8 +24,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::mahoroaroah::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -74,9 +70,6 @@ private:
     WaftCtrl mWaftCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah
 
 #endif

@@ -51,7 +51,4 @@ bool BrainWait::onRecover() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory

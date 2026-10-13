@@ -15,10 +15,6 @@ void Unregister(SwordSelector& obj);
 void SetKind(int kind);
 void SetRareTryCount(int count);
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::hero::supersword::MintSwordSelector
 
 #endif

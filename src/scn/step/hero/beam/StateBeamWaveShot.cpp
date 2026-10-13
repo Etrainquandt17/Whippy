@@ -91,7 +91,4 @@ void StateBeamWaveShot::procFixPos() {
     Utility::MapCollReactDefaultAction(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam

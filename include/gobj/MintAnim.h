@@ -26,7 +26,6 @@ void SetFrameRate(f32 rate);
 int CurrentG3DAnimIndex();
 void CheckIsReachableFrame(u32 frame);
 
-}
-}
+}}  // namespace gobj::MintAnim
 
 #endif

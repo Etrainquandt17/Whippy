@@ -57,7 +57,4 @@ void StateWaveStar::procMove() {
 
 void StateWaveStar::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

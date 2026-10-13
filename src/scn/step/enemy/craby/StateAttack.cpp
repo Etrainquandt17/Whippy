@@ -91,7 +91,4 @@ void StateAttack::setNextState() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::craby

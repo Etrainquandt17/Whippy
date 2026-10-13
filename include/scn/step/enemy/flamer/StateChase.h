@@ -18,9 +18,6 @@ public:
     virtual ~StateChase();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer
 
 #endif

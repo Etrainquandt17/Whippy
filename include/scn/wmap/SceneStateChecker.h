@@ -12,7 +12,6 @@ public:
     bool _2;
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

@@ -30,9 +30,6 @@ private:
     bool mIsMoonShot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

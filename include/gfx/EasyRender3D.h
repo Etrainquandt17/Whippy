@@ -7,20 +7,17 @@
 namespace hel {
 namespace math {
 class Matrix34;
-}
-}
+}}  // namespace hel::math
 
 namespace hel {
 namespace math {
 class Matrix44;
-}
-}
+}}  // namespace hel::math
 
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace gfx {
 
@@ -38,6 +35,6 @@ public:
     static void DrawStarFill(const hel::math::Matrix34& mtx, f32, f32, f32, const hel::math::Vector3&, const hel::math::Vector3&);
 };
 
-}
+}  // namespace gfx
 
 #endif

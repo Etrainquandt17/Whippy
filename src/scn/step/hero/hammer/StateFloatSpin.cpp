@@ -90,7 +90,4 @@ void StateFloatSpin::reqJumpEffect() {
     obj().effect()._8.requestPD(static_cast<effect::Kind>(0x74), pos, dir);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

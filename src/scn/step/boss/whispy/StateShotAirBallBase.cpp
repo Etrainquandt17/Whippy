@@ -45,7 +45,4 @@ void StateShotAirBallBase::procMove() {}
 
 void StateShotAirBallBase::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

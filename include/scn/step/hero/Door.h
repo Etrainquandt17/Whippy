@@ -11,8 +11,6 @@ public:
     void setCanShowLvMapDoorInfo();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

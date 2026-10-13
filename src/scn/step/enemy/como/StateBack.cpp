@@ -49,7 +49,4 @@ void StateBack::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

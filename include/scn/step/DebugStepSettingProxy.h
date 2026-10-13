@@ -11,7 +11,6 @@ public:
     static int GetHeroSettingStoneKind();
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

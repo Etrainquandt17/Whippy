@@ -338,7 +338,4 @@ void Monitor::viewShip() {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::monitor

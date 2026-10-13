@@ -100,7 +100,4 @@ void StateScrewTackle::procMove() {
 void StateScrewTackle::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado

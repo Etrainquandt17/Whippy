@@ -80,7 +80,4 @@ void HeadAngleCtrl::setMtx(NodeKind kind, f32 angle) {
     node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

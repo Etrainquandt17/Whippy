@@ -16,9 +16,6 @@ void ResetRotVTarget();
 void SetRotVIntpRate(f32 rate);
 void ResetRotVIntpRate();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintFloaterRotCtrl
 
 #endif

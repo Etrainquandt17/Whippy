@@ -21,9 +21,6 @@ struct ParamData {
     gobj::MoveParamDecel mBackDecel;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::dubiorjr
 
 #endif

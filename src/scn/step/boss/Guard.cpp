@@ -31,6 +31,4 @@ u32 Guard::calcDamage(u32 damage, f32 rate) {
     return result;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

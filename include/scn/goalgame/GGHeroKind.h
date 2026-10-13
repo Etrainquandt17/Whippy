@@ -15,7 +15,6 @@ enum GGHeroKind {
     GG_HERO_KIND_DEE,
 };
 
-}
-}
+}}  // namespace scn::goalgame
 
 #endif

@@ -28,10 +28,7 @@ private:
     u32 _8[88];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barbar
 
 namespace hel {
 namespace common {
@@ -39,7 +36,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::barbar::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

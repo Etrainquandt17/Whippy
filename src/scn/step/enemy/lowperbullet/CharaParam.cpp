@@ -45,8 +45,4 @@ enemy::CharaParam CreateLv4() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::lowperbullet::CharaParam

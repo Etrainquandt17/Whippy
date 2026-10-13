@@ -38,6 +38,6 @@ private:
     mem::ExplicitAutoDeleteArray<ButtonPanel, 3> mButtons;
 };
 
-}
+}  // namespace pause
 
 #endif

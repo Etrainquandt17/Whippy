@@ -31,4 +31,4 @@ GXTexFmt TexBuffer::format() const {
     return mFormat;
 }
 
-}
+}  // namespace gfx

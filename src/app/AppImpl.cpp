@@ -99,4 +99,4 @@ void AppImpl::run(bool flag) {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace app

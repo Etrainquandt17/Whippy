@@ -12,10 +12,6 @@ namespace CharaParam {
 enemy::CharaParam Create();
 enemy::CharaParam CreateSkinned();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::cappy::CharaParam
 
 #endif

@@ -12,8 +12,6 @@ public:
     void setDamageState();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

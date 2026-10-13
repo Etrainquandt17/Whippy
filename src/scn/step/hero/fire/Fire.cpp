@@ -116,7 +116,4 @@ void Fire::releaseHatFire() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::fire

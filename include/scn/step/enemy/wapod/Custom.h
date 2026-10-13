@@ -11,10 +11,7 @@ namespace wapod {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapod
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::wapod::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -56,9 +52,6 @@ private:
     u32 mTurnFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::wapod
 
 #endif

@@ -610,7 +610,4 @@ void WarpLowper::mfUpdateSRT() {
     material.texSRTEndEdit();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::warplowper

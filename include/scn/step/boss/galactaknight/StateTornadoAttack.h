@@ -28,9 +28,6 @@ private:
     hero::CaptureHeroAttacker mAttacker;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

@@ -27,9 +27,6 @@ public:
     bool isSeat(u32 index) const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::shipevent
 
 #endif

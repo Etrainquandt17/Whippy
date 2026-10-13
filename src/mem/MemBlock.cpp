@@ -10,4 +10,4 @@ MemBlock::MemBlock(void* address, u32 size)
     : mSize(size)
     , mAddress(address) {}
 
-}
+}  // namespace mem

@@ -13,8 +13,7 @@ namespace hel {
 namespace math {
 class Matrix34;
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -54,8 +53,6 @@ private:
     u8 _0[0x1B4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::gimmick
 
 #endif

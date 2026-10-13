@@ -140,7 +140,4 @@ void StateMain::deadWithEffect() {
     obj().dead();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::starshotlv1

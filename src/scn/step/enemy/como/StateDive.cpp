@@ -55,7 +55,4 @@ void StateDive::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

@@ -41,7 +41,4 @@ void StateDead::procMove() {}
 
 void StateDead::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralthunder

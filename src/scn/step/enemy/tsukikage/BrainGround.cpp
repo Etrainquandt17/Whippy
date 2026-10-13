@@ -15,7 +15,4 @@ bool BrainGround::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::tsukikage

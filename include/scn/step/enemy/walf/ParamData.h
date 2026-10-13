@@ -28,9 +28,6 @@ struct ParamData {
     hel::math::Vector2 mFloatingOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf
 
 #endif

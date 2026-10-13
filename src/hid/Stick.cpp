@@ -12,4 +12,4 @@ void Stick::update(int x, int y) {
     mY = y;
 }
 
-}
+}  // namespace hid

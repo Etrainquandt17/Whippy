@@ -22,9 +22,6 @@ private:
     u32 mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

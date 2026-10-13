@@ -80,5 +80,4 @@ f32 Random::randCoreF32() {
     return static_cast<f32>(randCoreU32() & 0xFFFF) / 65536.0f;
 }
 
-}
-}
+}}  // namespace hel::math

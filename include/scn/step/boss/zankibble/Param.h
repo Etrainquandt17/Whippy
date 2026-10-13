@@ -47,9 +47,6 @@ struct Param {
     hel::math::Vec2 _C0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::zankibble
 
 #endif

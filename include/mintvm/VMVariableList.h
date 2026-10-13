@@ -46,6 +46,6 @@ private:
     MPtrArray<VMVariable> mVariables;
 };
 
-}
+}  // namespace mintvm
 
 #endif

@@ -27,9 +27,6 @@ private:
     ScriptKind mScript;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

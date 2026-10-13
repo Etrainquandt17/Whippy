@@ -39,6 +39,6 @@ inline ObjRefHandle<T>& ObjRefHandle<T>::operator=(const ObjRefHandle& other) {
     return *this;
 }
 
-}
+}  // namespace util
 
 #endif

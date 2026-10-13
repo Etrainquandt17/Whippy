@@ -14,6 +14,6 @@ public:
     void preLoad(const char* name, const DNOption& option);
 };
 
-}
+}  // namespace file
 
 #endif

@@ -81,8 +81,6 @@ struct FireParam {
     };
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

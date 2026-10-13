@@ -45,7 +45,4 @@ void BrainNoseDive::update() {
     Utility::ChkNururiTurn(obj());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::parasoldee

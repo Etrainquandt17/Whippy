@@ -8,8 +8,7 @@ namespace hel {
 namespace math {
 class Matrix44;
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -22,8 +21,6 @@ public:
     f32 projAspect(Kind kind) const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

@@ -10,10 +10,7 @@ namespace galactathunderspine {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactathunderspine
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::galactathunderspine::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -39,9 +35,6 @@ public:
     void attack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::galactathunderspine
 
 #endif

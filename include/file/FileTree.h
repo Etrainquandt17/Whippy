@@ -32,6 +32,6 @@ private:
     u8 _0[0x40];
 };
 
-}
+}  // namespace file
 
 #endif

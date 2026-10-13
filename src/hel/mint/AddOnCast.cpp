@@ -29,5 +29,4 @@ void RegisterAll(mintvm::VMCore& core) {
 
 }
 
-}
-}
+}}  // namespace hel::mint

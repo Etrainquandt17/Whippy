@@ -53,7 +53,4 @@ void StateHide::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby

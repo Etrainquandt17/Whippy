@@ -222,8 +222,7 @@ CUSTOM_RUNTIME_TYPE_INFO(scn::step::enemy::aquarock::Custom)
 
 #undef CUSTOM_RUNTIME_TYPE_INFO
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -580,6 +579,4 @@ void CustomFactory::Create(Enemy& enemy, mem::ExplicitScopedPtr<ICustom>& custom
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::enemy

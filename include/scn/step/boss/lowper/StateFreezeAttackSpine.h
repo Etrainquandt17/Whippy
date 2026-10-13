@@ -28,9 +28,6 @@ private:
     hel::common::Array<util::ObjRefHandle<weapon::Weapon>, 4> mWeapons;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

@@ -49,7 +49,4 @@ void EnemyCtrl::cleanup() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior

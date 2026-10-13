@@ -28,9 +28,6 @@ private:
     bool mIsSwing;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo
 
 #endif

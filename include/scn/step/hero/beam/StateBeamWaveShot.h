@@ -22,9 +22,6 @@ private:
     bool mIsRight;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::beam
 
 #endif

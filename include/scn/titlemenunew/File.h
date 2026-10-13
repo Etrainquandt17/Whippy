@@ -51,7 +51,6 @@ private:
     snd::SERequestor mSE;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

@@ -36,4 +36,4 @@ void FileManager::clearFilesIfEnable() {
     }
 }
 
-}
+}  // namespace file

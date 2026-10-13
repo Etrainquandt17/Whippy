@@ -18,8 +18,6 @@ private:
     u32 mSubKind;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::item
 
 #endif

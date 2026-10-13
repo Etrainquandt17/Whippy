@@ -12,6 +12,6 @@ f32 invSquare(f32 t);
 
 }
 
-}
+}  // namespace util
 
 #endif

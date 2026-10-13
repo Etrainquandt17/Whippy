@@ -25,7 +25,4 @@ StateMain::~StateMain() {}
 
 void StateMain::procAnim() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::fattybufferwatercannon

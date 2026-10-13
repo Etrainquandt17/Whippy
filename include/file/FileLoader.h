@@ -42,6 +42,6 @@ private:
     u32 mLatestUpdateDate;
 };
 
-}
+}  // namespace file
 
 #endif

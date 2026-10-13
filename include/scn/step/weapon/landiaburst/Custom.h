@@ -13,10 +13,7 @@ namespace landiaburst {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiaburst
 
 namespace hel {
 namespace common {
@@ -25,8 +22,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::landiaburst::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -42,9 +38,6 @@ public:
     void reqStart(hel::math::Vector2 pos, hel::math::Vector2 velocity, Variation variation);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::landiaburst
 
 #endif

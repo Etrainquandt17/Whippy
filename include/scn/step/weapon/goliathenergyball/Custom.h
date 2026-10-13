@@ -11,10 +11,7 @@ namespace goliathenergyball {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::goliathenergyball
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::goliathenergyball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     u32 mScaleUpFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::goliathenergyball
 
 #endif

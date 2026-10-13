@@ -11,10 +11,7 @@ namespace hrd3eyelaser {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::hrd3eyelaser
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::hrd3eyelaser::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -44,9 +40,6 @@ private:
     f32 mLengthMax;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::hrd3eyelaser
 
 #endif

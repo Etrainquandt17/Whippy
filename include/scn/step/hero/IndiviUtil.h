@@ -40,8 +40,6 @@ public:
     static bool CanHover(Kind kind);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

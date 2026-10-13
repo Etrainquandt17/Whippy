@@ -179,9 +179,6 @@ const gobj::GearModelDesc& HatModel();
 const char* CutterPath();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::modeldesc
 
 #endif

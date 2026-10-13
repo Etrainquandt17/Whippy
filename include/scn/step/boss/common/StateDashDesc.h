@@ -35,9 +35,6 @@ public:
     ocoll::AttackType _58;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
 
 #endif

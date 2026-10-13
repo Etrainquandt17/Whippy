@@ -122,4 +122,4 @@ void Alarm::final() {
     OSCancelAlarm(&mAlarm);
 }
 
-}
+}  // namespace util

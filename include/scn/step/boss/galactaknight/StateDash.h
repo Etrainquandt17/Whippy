@@ -23,9 +23,6 @@ private:
     bool mIsMove;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

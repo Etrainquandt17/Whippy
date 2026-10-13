@@ -15,8 +15,7 @@ namespace title {
 
 class Chara;
 
-}
-}
+}}  // namespace scn::title
 
 namespace mintglue {
 
@@ -32,6 +31,6 @@ private:
     mintvm::MintPtr<scn::title::Chara> mChara;
 };
 
-}
+}  // namespace mintglue
 
 #endif

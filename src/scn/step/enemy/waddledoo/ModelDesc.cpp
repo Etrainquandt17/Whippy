@@ -85,7 +85,4 @@ chara::ModelDesc& CreateSuper() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledoo

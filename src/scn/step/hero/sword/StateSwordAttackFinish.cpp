@@ -63,7 +63,4 @@ void StateSwordAttackFinish::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

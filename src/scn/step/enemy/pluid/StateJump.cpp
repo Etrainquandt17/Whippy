@@ -105,7 +105,4 @@ void StateJump::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid

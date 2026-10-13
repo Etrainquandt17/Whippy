@@ -25,8 +25,6 @@ private:
     bool mIsSpecial;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

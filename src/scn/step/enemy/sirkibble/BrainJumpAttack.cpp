@@ -35,7 +35,4 @@ bool BrainJumpAttack::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble

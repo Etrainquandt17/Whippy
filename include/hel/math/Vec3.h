@@ -12,7 +12,6 @@ struct Vec3 {
     f32 z;
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

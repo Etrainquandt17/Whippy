@@ -53,7 +53,4 @@ bool StateFallEnemy::reqEnemy() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

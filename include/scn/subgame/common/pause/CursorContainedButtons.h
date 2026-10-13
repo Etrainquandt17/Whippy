@@ -24,9 +24,6 @@ private:
     hel::common::MutableArray<boxmenu::SelectableBox*, 4> mBoxes;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::pause
 
 #endif

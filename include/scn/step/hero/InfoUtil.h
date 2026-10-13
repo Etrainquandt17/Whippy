@@ -14,8 +14,6 @@ public:
     static void PlayerNumAppearAll(Hero& hero);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

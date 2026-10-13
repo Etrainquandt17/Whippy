@@ -67,7 +67,4 @@ void StateMain::explode() {
     obj().stateChanger().setNextState<StateExplosion, Weapon*>(objPtr());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::dededehammer

@@ -11,10 +11,7 @@ namespace mahoroasuperbeamball {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroasuperbeamball
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::mahoroasuperbeamball::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -40,9 +36,6 @@ private:
     u32 _8[5];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::mahoroasuperbeamball
 
 #endif

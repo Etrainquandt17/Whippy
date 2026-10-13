@@ -22,7 +22,6 @@ public:
     LevelKind _10;
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

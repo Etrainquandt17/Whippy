@@ -17,9 +17,6 @@ public:
     virtual void draw() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::chara
 
 #endif

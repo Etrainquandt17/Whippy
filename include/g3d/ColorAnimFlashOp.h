@@ -8,6 +8,6 @@ enum ColorAnimFlashOp {
     ColorAnimFlashOp_0,
 };
 
-}
+}  // namespace g3d
 
 #endif

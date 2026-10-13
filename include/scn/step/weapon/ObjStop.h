@@ -32,8 +32,6 @@ private:
     ostop::Actor mActor;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

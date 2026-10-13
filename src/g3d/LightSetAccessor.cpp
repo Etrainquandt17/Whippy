@@ -36,4 +36,4 @@ void LightSetAccessor::setAmbientLightObj(const nw4r::g3d::AmbLightObj& lightObj
     *const_cast<LightSetAccessor*>(this)->GetAmbLightObj() = lightObj;
 }
 
-}
+}  // namespace g3d

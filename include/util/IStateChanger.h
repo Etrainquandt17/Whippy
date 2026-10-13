@@ -8,6 +8,6 @@ public:
     virtual ~IStateChanger();
 };
 
-}
+}  // namespace util
 
 #endif

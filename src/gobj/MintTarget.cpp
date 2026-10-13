@@ -42,5 +42,4 @@ void LoadDirection3() {
     hel::mint::AddOnMathDirection3::Set(t_obj->getDirection3());
 }
 
-}
-}
+}}  // namespace gobj::MintTarget

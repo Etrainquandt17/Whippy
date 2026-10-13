@@ -28,9 +28,6 @@ struct Param {
     gobj::MoveParamDecel _38;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::combinationdededebomber
 
 #endif

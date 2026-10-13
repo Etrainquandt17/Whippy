@@ -20,9 +20,6 @@ struct Param {
     f32 mWaterMoveRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::starshotlv1
 
 #endif

@@ -10,8 +10,6 @@ enum Kind {
     KIND_0,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

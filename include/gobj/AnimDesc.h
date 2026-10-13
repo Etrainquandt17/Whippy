@@ -7,6 +7,6 @@ namespace gobj {
 
 class AnimDesc : public G3DAnimDataReposDesc {};
 
-}
+}  // namespace gobj
 
 #endif

@@ -24,6 +24,6 @@ private:
     u32 mRelease;
 };
 
-}
+}  // namespace hid
 
 #endif

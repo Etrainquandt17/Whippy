@@ -79,7 +79,4 @@ void StateChargeAttack::reqWaveShot() {
     obj().move().setSpeedH(param.mWaveShotRecoil * -obj().target().getSign());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo

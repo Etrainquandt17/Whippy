@@ -16,7 +16,6 @@ private:
     mint::Engine mEngine;
 };
 
-}
-}
+}}  // namespace scn::title
 
 #endif

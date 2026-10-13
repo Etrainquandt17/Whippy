@@ -10,10 +10,7 @@ namespace waddledoo {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledoo
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::waddledoo::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -38,9 +34,6 @@ public:
     virtual void setupSuperEnemyEffect();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledoo
 
 #endif

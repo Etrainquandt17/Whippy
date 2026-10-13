@@ -27,8 +27,6 @@ struct Param {
     f32 _B0;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::camera
 
 #endif

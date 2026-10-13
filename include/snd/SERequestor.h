@@ -31,6 +31,6 @@ private:
     u8 _4[0x70];
 };
 
-}
+}  // namespace snd
 
 #endif

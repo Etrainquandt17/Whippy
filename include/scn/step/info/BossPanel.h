@@ -41,8 +41,6 @@ private:
     util::FrameCounter _B94;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

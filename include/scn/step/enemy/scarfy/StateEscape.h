@@ -22,9 +22,6 @@ private:
     f32 getSpd();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy
 
 #endif

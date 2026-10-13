@@ -55,7 +55,4 @@ void StateWarp::procMove() {}
 
 void StateWarp::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lowperbullet

@@ -67,6 +67,4 @@ u32 DamageInvincible::getFrame() const {
     return mFrame;
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

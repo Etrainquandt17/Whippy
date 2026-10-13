@@ -30,8 +30,6 @@ private:
     hel::common::MutableArray<WeakPointData, 4> mData;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

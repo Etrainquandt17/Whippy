@@ -17,8 +17,6 @@ public:
     void unsetCamRot();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

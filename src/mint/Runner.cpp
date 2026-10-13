@@ -33,4 +33,4 @@ void Runner::setArgS32(unsigned long index, long value) {
     mintvm::MintFuncProxy(mRunner.regset(), false).setArg_s32(index, value);
 }
 
-}
+}  // namespace mint

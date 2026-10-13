@@ -24,9 +24,6 @@ struct Param {
     f32 _28;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::wingshockwave
 
 #endif

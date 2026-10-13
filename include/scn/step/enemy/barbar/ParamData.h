@@ -18,9 +18,6 @@ struct ParamData {
     f32 mHiddenDecelRate;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barbar
 
 #endif

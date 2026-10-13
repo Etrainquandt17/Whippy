@@ -46,7 +46,4 @@ chara::ModelDesc& CreateSea() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock

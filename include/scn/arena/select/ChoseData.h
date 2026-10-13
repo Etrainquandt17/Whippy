@@ -69,8 +69,6 @@ private:
     PlayerData mPlayers[4];
 };
 
-}
-}
-}
+}}}  // namespace scn::arena::select
 
 #endif

@@ -12,6 +12,6 @@ public:
     virtual void mintFree(void* ptr) = 0;
 };
 
-}
+}  // namespace mintvm
 
 #endif

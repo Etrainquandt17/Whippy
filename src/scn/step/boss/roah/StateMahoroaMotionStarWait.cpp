@@ -34,7 +34,4 @@ void StateMahoroaMotionStarWait::procMove() {
 
 void StateMahoroaMotionStarWait::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

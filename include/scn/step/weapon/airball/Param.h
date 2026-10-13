@@ -20,9 +20,6 @@ struct Param {
     gobj::MoveParamFall _20;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::airball
 
 #endif

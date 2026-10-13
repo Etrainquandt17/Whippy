@@ -14,8 +14,7 @@ namespace step {
 namespace boss {
 namespace galactaknight {
 
-}
-}
+}}  // namespace boss::galactaknight
 namespace weapon {
 class Weapon;
 }
@@ -45,9 +44,6 @@ private:
     hel::common::MutableArray<ReqData, 8> mBuff;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

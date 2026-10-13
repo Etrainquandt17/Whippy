@@ -69,7 +69,4 @@ void HeadAngleCtrl::setMtx(NodeKind kind, f32 angle) {
     node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(-angle, 0.0f, 0.0f)));
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

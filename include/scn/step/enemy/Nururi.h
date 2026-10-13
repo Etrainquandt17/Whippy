@@ -25,8 +25,6 @@ public:
     void changeSetting(nururi::Mode mode);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

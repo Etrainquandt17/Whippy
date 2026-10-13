@@ -107,7 +107,4 @@ f32 StateChase::getSpd() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::scarfy

@@ -11,9 +11,6 @@ public:
     void frameOutStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::info::lvmap
 
 #endif

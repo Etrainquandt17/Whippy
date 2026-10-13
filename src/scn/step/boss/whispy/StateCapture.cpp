@@ -25,7 +25,4 @@ void StateCapture::procMove() {}
 
 void StateCapture::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

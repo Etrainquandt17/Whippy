@@ -610,6 +610,4 @@ void HeroStatus::setNameColor(hero::AbilityKind kind) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::info

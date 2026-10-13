@@ -11,10 +11,7 @@ namespace gigatzo {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gigatzo
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::gigatzo::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -59,9 +55,6 @@ private:
     bool mIsAir;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gigatzo
 
 #endif

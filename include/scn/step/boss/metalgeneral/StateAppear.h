@@ -26,9 +26,6 @@ private:
     bool mIsBgmStarted;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

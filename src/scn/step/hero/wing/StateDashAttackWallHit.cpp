@@ -59,7 +59,4 @@ void StateDashAttackWallHit::procMove() {
 void StateDashAttackWallHit::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::wing

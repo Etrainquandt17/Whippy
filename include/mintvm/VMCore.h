@@ -54,6 +54,6 @@ private:
     Runner* mRunner;
 };
 
-}
+}  // namespace mintvm
 
 #endif

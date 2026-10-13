@@ -52,6 +52,6 @@ void SequenceSimpleScene<Scene>::onSceneEnd(scn::IScene&) {
     mNextAction = 0;
 }
 
-}
+}  // namespace seq
 
 #endif

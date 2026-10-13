@@ -56,7 +56,4 @@ void StateSwordChargeStart::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

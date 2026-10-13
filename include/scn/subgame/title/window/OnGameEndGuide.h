@@ -61,9 +61,6 @@ private:
     int _1BAC;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::title::window
 
 #endif

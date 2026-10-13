@@ -76,7 +76,4 @@ void BackButton::push() {
     ButtonHelp::push();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::common::util

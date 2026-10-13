@@ -90,7 +90,4 @@ void StateAppear::procMove() {}
 
 void StateAppear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

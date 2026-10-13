@@ -48,7 +48,4 @@ bool BrainFixCeil::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo

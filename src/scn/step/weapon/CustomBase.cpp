@@ -26,6 +26,4 @@ const hel::common::RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
     return hel::common::RuntimeTypeInfoImpl<CustomBase>();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

@@ -26,9 +26,6 @@ private:
     bool mIsWait;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::searches
 
 #endif

@@ -58,6 +58,4 @@ void CameraController::setLock(const hel::geo::Rect& rect) {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::step::camera

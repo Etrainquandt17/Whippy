@@ -58,9 +58,6 @@ private:
     f32 mPrevCameraX;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah
 
 #endif

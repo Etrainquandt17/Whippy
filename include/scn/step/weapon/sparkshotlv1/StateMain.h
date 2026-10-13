@@ -21,9 +21,6 @@ private:
     u32 _8;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::sparkshotlv1
 
 #endif

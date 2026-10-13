@@ -12,10 +12,6 @@ namespace ModelDesc {
 chara::ModelDesc& Create();
 chara::ModelDesc& HalcandledeeCreate();
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::waddledee::ModelDesc
 
 #endif

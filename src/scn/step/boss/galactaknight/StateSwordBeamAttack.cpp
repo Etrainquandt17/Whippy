@@ -86,7 +86,4 @@ void StateSwordBeamAttack::procMove() {}
 
 void StateSwordBeamAttack::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

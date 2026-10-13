@@ -43,7 +43,4 @@ void StateMiss::procAnim() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::barbar

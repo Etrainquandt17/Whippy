@@ -70,7 +70,4 @@ void StateSwordMince::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

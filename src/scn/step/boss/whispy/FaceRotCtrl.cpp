@@ -41,7 +41,4 @@ void FaceRotCtrl::reset() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy

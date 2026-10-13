@@ -19,7 +19,6 @@ public:
     virtual bool isAnimEnd() const = 0;
 };
 
-}
-}
+}}  // namespace scn::titlemenunew
 
 #endif

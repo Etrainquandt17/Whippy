@@ -51,7 +51,4 @@ bool Highjump::tryToChangeState() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump

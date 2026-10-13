@@ -18,9 +18,6 @@ private:
     u32 _C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::dee
 
 #endif

@@ -14,6 +14,6 @@ public:
     void updatePrevPos();
 };
 
-}
+}  // namespace gobj
 
 #endif

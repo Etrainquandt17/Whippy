@@ -20,8 +20,6 @@ public:
     void unsetSuperFinishType();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

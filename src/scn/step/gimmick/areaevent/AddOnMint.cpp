@@ -60,8 +60,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Gimmick.AreaEvent.Custom", "bool IsUnlockEnd(int)", IsUnlockEnd, &t_isUnlockEnd);
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::gimmick::areaevent::AddOnMint

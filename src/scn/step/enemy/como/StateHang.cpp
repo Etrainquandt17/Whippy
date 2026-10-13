@@ -45,7 +45,4 @@ void StateHang::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

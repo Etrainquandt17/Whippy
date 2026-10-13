@@ -12,9 +12,6 @@ public:
     void launchMissile();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3
 
 #endif

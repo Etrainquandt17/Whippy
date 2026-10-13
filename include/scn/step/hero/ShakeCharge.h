@@ -24,8 +24,6 @@ private:
     u32 _0[0x34 / 4];
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

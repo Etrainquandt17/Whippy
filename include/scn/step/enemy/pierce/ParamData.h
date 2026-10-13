@@ -23,9 +23,6 @@ struct ParamData {
     f32 mAimV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pierce
 
 #endif

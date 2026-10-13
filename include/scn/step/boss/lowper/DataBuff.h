@@ -44,9 +44,6 @@ private:
     hel::common::MutableArray<f32, 10> mVortexBulletSpeedData;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

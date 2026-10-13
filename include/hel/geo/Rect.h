@@ -40,7 +40,6 @@ public:
     f32 _C;
 };
 
-}
-}
+}}  // namespace hel::geo
 
 #endif

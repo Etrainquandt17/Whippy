@@ -27,9 +27,6 @@ private:
     f32 mScale;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::starshotlv1
 
 #endif

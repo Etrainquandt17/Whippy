@@ -27,7 +27,4 @@ void DeadUtil::RequestDeadEffect(Boss& boss, bool isWeak) {
     boss.comp().screenFade().setFadeIn(20);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common

@@ -23,9 +23,6 @@ private:
     f32 mRotDiff;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

@@ -15,9 +15,6 @@ void UnsetZoom();
 void SetCamRot(f32 x, f32 y);
 void UnsetCamRot();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintStagingCtrl
 
 #endif

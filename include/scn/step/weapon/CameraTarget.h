@@ -24,8 +24,6 @@ private:
     hel::math::Vector2 mOffset;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

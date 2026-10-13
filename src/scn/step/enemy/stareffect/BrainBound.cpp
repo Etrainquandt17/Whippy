@@ -35,7 +35,4 @@ bool BrainBound::onStart() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::stareffect

@@ -26,9 +26,6 @@ private:
     bool mIsNinja;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

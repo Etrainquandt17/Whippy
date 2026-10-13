@@ -9,6 +9,6 @@ public:
     void clearResult();
 };
 
-}
+}  // namespace nururi
 
 #endif

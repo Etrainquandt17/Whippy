@@ -60,7 +60,4 @@ void StateSpine::procMove() {
 void StateSpine::procFixPos() {
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

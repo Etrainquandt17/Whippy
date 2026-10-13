@@ -300,6 +300,4 @@ void FinalBattleShadow::setIsValid(bool isValid) {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::hero

@@ -82,7 +82,4 @@ void StateDive::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pacto

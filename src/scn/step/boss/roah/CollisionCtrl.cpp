@@ -84,7 +84,4 @@ void CollisionCtrl::setResistLv() {
     mBoss.objColl().bodyColl().setResistLv(lv);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

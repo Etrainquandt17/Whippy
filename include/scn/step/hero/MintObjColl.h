@@ -12,9 +12,6 @@ void SetBodyCollBig();
 void SetBodyCollSquat();
 void SetBodyCollJump();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintObjColl
 
 #endif

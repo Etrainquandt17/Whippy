@@ -34,9 +34,6 @@ private:
     f32 mRise;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman
 
 #endif

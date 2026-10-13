@@ -21,9 +21,6 @@ struct ParamData {
     u32 mJumpAttackShotFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sirkibble
 
 #endif

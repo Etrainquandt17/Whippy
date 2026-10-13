@@ -14,9 +14,6 @@ void ReqEffectLanding(f32 arg0, f32 arg1);
 void ReqSE();
 int AttributeType();
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::MintLandAttribute
 
 #endif

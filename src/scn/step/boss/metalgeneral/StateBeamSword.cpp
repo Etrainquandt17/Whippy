@@ -105,7 +105,4 @@ void StateBeamSword::procMove() {
 
 void StateBeamSword::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

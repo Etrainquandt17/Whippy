@@ -17,9 +17,6 @@ struct ParamData {
     f32 mAimArea;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo
 
 #endif

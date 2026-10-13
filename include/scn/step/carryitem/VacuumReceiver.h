@@ -10,8 +10,6 @@ public:
     void setIsValid(bool isValid);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::carryitem
 
 #endif

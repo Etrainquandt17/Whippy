@@ -169,7 +169,4 @@ void StateBeamSwordDash::reqStar() {
     obj().effect().normal().requestP(static_cast<effect::Kind>(0xB4), obj().location().pos() + pos.toVector3());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

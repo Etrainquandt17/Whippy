@@ -285,4 +285,4 @@ void PageShip::PartsLayout::updateFrame() {
     mParts.updateFrame();
 }
 
-}
+}  // namespace pause

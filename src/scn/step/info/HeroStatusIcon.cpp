@@ -956,6 +956,4 @@ void HeroStatusIcon::createIcon(hero::AbilityKind kind) {
     _518.setParent(_6A8->paneByName("HeroPEffectN"));
 }
 
-}
-}
-}
+}}}  // namespace scn::step::info

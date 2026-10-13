@@ -125,7 +125,4 @@ void StatePatriotJump::procMove() {
 
 void StatePatriotJump::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

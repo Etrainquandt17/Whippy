@@ -18,10 +18,7 @@ public:
     void setBodyColl();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::larpa
 
 namespace hel {
 namespace common {
@@ -29,7 +26,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::larpa::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

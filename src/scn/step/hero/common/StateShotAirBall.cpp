@@ -48,7 +48,4 @@ void StateShotAirBall::procMove() {
 
 void StateShotAirBall::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

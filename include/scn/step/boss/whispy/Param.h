@@ -75,9 +75,6 @@ struct Param {
     hel::math::Vec3 mCaptureOffset;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

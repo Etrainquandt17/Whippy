@@ -25,9 +25,6 @@ private:
     f32 _c;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sodory
 
 #endif

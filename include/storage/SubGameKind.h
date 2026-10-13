@@ -9,6 +9,6 @@ enum SubGameKind {
     SUB_GAME_KIND_1,
 };
 
-}
+}  // namespace storage
 
 #endif

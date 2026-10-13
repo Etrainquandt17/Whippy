@@ -49,9 +49,6 @@ struct ParamData {
     f32 mDeadEndOffsetY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

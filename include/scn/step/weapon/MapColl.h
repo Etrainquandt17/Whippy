@@ -32,8 +32,6 @@ public:
     hel::math::Vector2 intersectPos() const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

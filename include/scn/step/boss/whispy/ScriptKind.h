@@ -13,9 +13,6 @@ enum ScriptKind {
     ScriptKind_FallEnemy2 = 12,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::whispy
 
 #endif

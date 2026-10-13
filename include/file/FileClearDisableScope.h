@@ -11,6 +11,6 @@ public:
     ~FileClearDisableScope();
 };
 
-}
+}  // namespace file
 
 #endif

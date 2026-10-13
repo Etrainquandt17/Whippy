@@ -10,10 +10,7 @@ namespace gordo {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo
 
 namespace hel {
 namespace common {
@@ -22,8 +19,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::gordo::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -36,9 +32,6 @@ public:
     Custom(Enemy& enemy);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gordo
 
 #endif

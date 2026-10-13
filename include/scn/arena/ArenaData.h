@@ -119,7 +119,6 @@ private:
     f32 mHpRatio[2];
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

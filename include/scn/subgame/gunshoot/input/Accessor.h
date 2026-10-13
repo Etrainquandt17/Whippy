@@ -18,9 +18,6 @@ private:
     u32 _4;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::input
 
 #endif

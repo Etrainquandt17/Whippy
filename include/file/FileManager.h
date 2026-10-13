@@ -21,6 +21,6 @@ private:
     s32 mDisableClear;
 };
 
-}
+}  // namespace file
 
 #endif

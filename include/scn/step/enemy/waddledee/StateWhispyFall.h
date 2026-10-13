@@ -21,9 +21,6 @@ private:
     f32 mRot;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::waddledee
 
 #endif

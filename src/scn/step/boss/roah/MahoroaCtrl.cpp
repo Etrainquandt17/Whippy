@@ -233,7 +233,4 @@ hel::math::Vector3 MahoroaCtrl::nextEscapeWarpPos() {
     return hel::math::Vector3(param.mMahoroaEscapeWarpOffsetSecond);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::roah

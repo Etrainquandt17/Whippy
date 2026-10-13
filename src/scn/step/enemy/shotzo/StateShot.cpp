@@ -84,7 +84,4 @@ void StateShot::shot() {
     obj().comp().weaponManager().request(desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::shotzo

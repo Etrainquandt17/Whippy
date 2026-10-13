@@ -12,8 +12,6 @@ enum BinEnemyVariation {
     BinEnemyVariation_StarBound = 0x19b,
 };
 
-}
-}
-}
+}}}  // namespace scn::step::map
 
 #endif

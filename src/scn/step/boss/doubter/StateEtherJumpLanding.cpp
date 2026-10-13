@@ -60,7 +60,4 @@ void StateEtherJumpLanding::procMove() {
 
 void StateEtherJumpLanding::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter

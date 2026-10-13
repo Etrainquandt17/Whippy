@@ -51,7 +51,4 @@ bool BrainWalkAround::onRecover() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::lanzer

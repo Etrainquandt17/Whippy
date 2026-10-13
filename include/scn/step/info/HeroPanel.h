@@ -16,8 +16,6 @@ public:
     void sphereCompleteStart();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::info
 
 #endif

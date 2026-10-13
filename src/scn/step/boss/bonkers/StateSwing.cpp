@@ -71,7 +71,4 @@ void StateSwing::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::bonkers

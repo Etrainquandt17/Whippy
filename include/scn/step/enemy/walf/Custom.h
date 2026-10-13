@@ -12,10 +12,7 @@ namespace walf {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf
 
 namespace hel {
 namespace common {
@@ -24,8 +21,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::walf::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -57,9 +53,6 @@ private:
     s32 mJumpRand;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf
 
 #endif

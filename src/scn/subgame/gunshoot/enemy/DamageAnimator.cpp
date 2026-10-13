@@ -387,7 +387,4 @@ void DamageAnimator::startPlayListIfNecessary(int index) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::subgame::gunshoot::enemy

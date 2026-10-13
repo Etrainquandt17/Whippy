@@ -119,7 +119,4 @@ void StateTornadoAttack::changeStateLanding() {
     obj().stateChanger().setNextState<StateAttack, Boss*, AttackDesc>(objPtr(), desc);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight

@@ -48,7 +48,4 @@ void StateGrandLowperEscape::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

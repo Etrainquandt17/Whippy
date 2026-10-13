@@ -210,4 +210,4 @@ const char* BCOpCode::getOpTypeName(OpType type) const {
 }
 #pragma dont_inline reset
 
-}
+}  // namespace mintvm

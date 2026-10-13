@@ -21,9 +21,6 @@ private:
     u32 mStartFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::roahoar
 
 #endif

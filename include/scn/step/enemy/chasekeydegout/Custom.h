@@ -11,10 +11,7 @@ namespace chasekeydegout {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chasekeydegout
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::chasekeydegout::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -47,9 +43,6 @@ private:
     bool mIsFirstChase;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chasekeydegout
 
 #endif

@@ -114,7 +114,4 @@ void StateCenterJump::procMove() {
 
 void StateCenterJump::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

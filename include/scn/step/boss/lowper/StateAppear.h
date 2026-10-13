@@ -21,9 +21,6 @@ private:
     u32 mZoomHandle;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper
 
 #endif

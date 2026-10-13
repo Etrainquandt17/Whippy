@@ -53,7 +53,4 @@ void StateAttack::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sparky

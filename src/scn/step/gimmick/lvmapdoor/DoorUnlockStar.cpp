@@ -535,10 +535,7 @@ void DoorUnlockStar::mfSetupEffect() {
     mEffect.requestN(static_cast<effect::Kind>(0x226), mModel.model().nodeByName("TopL"), false);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor
 
 // One of the hidden objects of the copy protection (docs/metafortress.md). Functions of other units reach it
 // through an address they decode from inline data.

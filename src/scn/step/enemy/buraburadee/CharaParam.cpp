@@ -21,8 +21,4 @@ enemy::CharaParam CreateDoo() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::buraburadee::CharaParam

@@ -34,9 +34,6 @@ struct ParamData {
     int _60;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::elec
 
 #endif

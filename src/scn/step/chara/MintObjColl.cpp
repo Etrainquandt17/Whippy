@@ -187,7 +187,4 @@ void SetBodyCollStateCaptureOnly() {
     t_obj->setBodyCollStateCaptureOnly();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::chara::MintObjColl

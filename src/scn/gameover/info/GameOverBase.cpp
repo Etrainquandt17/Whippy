@@ -66,6 +66,4 @@ f32 GameOverBase::cursorPos() const {
 }
 #undef MF_FUNCTION
 
-}
-}
-}
+}}}  // namespace scn::gameover::info

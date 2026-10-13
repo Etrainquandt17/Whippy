@@ -13,7 +13,6 @@ enum DrawLayerKind {
     DRAW_LAYER_KIND_4,
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

@@ -14,9 +14,6 @@ public:
     virtual bool onStart();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chilly
 
 #endif

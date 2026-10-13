@@ -88,6 +88,4 @@ void Effect::onObjStopFinished() {
     onHitStopEnd();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

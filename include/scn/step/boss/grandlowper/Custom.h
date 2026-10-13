@@ -11,10 +11,7 @@ namespace grandlowper {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::grandlowper
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::boss::grandlowper::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -49,9 +45,6 @@ private:
     u32 _8[184];
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::grandlowper
 
 #endif

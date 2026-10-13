@@ -23,7 +23,4 @@ bool BrainChase::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::sheld

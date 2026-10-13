@@ -22,4 +22,4 @@ MemBlock HeapCompactionNodeHandle::block() const {
     return mNode->block();
 }
 
-}
+}  // namespace mem

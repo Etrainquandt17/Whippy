@@ -11,8 +11,7 @@ class ObjRefHandle;
 namespace hel {
 namespace math {
 class Vector2;
-}
-}
+}}  // namespace hel::math
 
 namespace gobj {
 struct MoveParamAccel;
@@ -24,9 +23,7 @@ namespace scn {
 namespace step {
 namespace weapon {
 class Weapon;
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 namespace scn {
 namespace step {
@@ -79,8 +76,6 @@ public:
     static bool IsCollideCapturedEnemy(Hero& hero);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

@@ -152,7 +152,4 @@ void StateTeleport::blinkModel() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::kabu

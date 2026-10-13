@@ -20,8 +20,6 @@ private:
     u32 _0[0x128];
 };
 
-}
-}
-}
+}}}  // namespace scn::arena::bg
 
 #endif

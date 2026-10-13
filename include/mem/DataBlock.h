@@ -20,6 +20,6 @@ private:
     MemBlock mBlock;
 };
 
-}
+}  // namespace mem
 
 #endif

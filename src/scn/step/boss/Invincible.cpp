@@ -39,6 +39,4 @@ bool Invincible::isInvincible() const {
     return mInvincible.isInvincible();
 }
 
-}
-}
-}
+}}}  // namespace scn::step::boss

@@ -139,7 +139,4 @@ void StateWait::construct() {
     obj().stateChecker().setWait(true);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

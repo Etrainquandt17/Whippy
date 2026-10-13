@@ -38,7 +38,4 @@ chara::ModelDesc& Create() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::starshotlv3

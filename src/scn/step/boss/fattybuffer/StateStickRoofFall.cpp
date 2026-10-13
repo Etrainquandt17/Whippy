@@ -68,7 +68,4 @@ void StateStickRoofFall::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::fattybuffer

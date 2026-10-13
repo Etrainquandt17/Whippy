@@ -44,10 +44,7 @@ private:
     s32 mSearchHatFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::cappy
 
 namespace hel {
 namespace common {
@@ -55,7 +52,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::cappy::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

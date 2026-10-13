@@ -66,7 +66,4 @@ void StateWaterSpin::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::hammer

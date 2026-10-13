@@ -55,7 +55,4 @@ chara::ModelDesc& CreateEx() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::metalgeneralbit

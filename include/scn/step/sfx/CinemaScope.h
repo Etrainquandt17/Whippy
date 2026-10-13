@@ -14,8 +14,6 @@ public:
     void end();
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

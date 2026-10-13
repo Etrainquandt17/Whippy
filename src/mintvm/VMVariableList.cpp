@@ -30,4 +30,4 @@ int VMVariableList::search(const VMKey& key) const {
     return -1;
 }
 
-}
+}  // namespace mintvm

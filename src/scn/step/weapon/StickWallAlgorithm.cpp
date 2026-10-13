@@ -43,6 +43,4 @@ void StickWallAlgorithm::pressToWall() {
     }
 }
 
-}
-}
-}
+}}}  // namespace scn::step::weapon

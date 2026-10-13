@@ -25,7 +25,4 @@ void StateWarp::procFixPos() {}
 
 void StateWarp::procObjCollReact() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::waterunderwater

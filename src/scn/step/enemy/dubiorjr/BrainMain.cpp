@@ -39,7 +39,4 @@ bool BrainMain::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::dubiorjr

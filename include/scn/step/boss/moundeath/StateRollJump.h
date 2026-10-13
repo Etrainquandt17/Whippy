@@ -29,9 +29,6 @@ private:
     f32 mDistance;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::moundeath
 
 #endif

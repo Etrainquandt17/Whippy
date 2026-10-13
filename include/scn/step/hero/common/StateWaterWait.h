@@ -25,9 +25,6 @@ private:
     void construct(u32 script);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common
 
 #endif

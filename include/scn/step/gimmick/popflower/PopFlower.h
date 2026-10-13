@@ -117,9 +117,6 @@ private:
     bool _CC0;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::popflower
 
 #endif

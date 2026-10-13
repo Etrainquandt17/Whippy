@@ -101,6 +101,6 @@ private:
     T* mPtr;
 };
 
-}
+}  // namespace mem
 
 #endif

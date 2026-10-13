@@ -52,7 +52,6 @@ private:
     bool mIsRunning;
 };
 
-}
-}
+}}  // namespace info::sequence
 
 #endif

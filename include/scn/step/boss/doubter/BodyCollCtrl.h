@@ -37,9 +37,6 @@ private:
     State mState;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

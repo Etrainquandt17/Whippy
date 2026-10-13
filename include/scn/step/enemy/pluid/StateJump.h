@@ -29,9 +29,6 @@ private:
     f32 mSpeedV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::pluid
 
 #endif

@@ -27,6 +27,6 @@ private:
     u32 mFrame;
 };
 
-}
+}  // namespace util
 
 #endif

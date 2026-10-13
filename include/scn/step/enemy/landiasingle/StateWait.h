@@ -18,9 +18,6 @@ public:
     StateWait(Enemy* enemy, bool isFirst);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle
 
 #endif

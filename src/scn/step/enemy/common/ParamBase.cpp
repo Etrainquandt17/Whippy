@@ -39,8 +39,4 @@ CharaParam Create() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::common::ParamBase

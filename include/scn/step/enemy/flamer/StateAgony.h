@@ -18,9 +18,6 @@ public:
     virtual ~StateAgony();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::flamer
 
 #endif

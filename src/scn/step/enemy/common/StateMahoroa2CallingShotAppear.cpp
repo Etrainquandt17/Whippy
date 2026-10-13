@@ -23,7 +23,4 @@ void StateMahoroa2CallingShotAppear::procMove() {}
 
 void StateMahoroa2CallingShotAppear::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::common

@@ -37,6 +37,6 @@ private:
     u32 _0[0x1C / 4];
 };
 
-}
+}  // namespace effect
 
 #endif

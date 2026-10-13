@@ -31,8 +31,6 @@ public:
     chara::Effect _210;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

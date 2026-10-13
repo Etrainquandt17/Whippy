@@ -19,9 +19,6 @@ public:
     virtual ~StateNeedleAttack();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

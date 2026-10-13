@@ -92,7 +92,4 @@ void StateFlyingBodyPressFall::procMove() {
 
 void StateFlyingBodyPressFall::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::hrd3

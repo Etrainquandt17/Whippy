@@ -28,7 +28,6 @@ inline f32 FFloor(f32 x) {
     return floor(x);
 }
 
-}
-}
+}}  // namespace nw4r::math
 
 #endif

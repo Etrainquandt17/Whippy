@@ -14,9 +14,6 @@ enum NodeKind {
     NODE_KIND_3,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::doubter
 
 #endif

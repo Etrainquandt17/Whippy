@@ -29,9 +29,6 @@ private:
     Config mConfig;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

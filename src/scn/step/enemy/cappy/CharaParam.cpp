@@ -30,8 +30,4 @@ enemy::CharaParam CreateSkinned() {
     return param;
 }
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::cappy::CharaParam

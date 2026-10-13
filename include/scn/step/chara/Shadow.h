@@ -21,8 +21,6 @@ public:
     void changeColor(const GXColor& color);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::chara
 
 #endif

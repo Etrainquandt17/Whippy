@@ -91,7 +91,4 @@ void StateGrandCrossNip::procMove() {
 
 void StateGrandCrossNip::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::landiasingle

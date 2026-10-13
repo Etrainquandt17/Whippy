@@ -15,9 +15,6 @@ public:
     static LvMapDoor& Obj();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::lvmapdoor
 
 #endif

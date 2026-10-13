@@ -65,7 +65,4 @@ void StateWarp::procMove() {}
 
 void StateWarp::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroaroah

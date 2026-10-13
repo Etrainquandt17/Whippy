@@ -22,9 +22,6 @@ private:
     u32 mFallFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::parasol
 
 #endif

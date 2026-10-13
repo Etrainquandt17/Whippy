@@ -239,7 +239,4 @@ bool StateAttack::tryToChangeChargeAttack() {
     return false;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::tornado

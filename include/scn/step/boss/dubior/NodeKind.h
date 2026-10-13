@@ -11,9 +11,6 @@ enum NodeKind {
     NODE_KIND_TOP,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::dubior
 
 #endif

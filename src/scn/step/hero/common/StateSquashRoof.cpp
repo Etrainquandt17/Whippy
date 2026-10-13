@@ -74,7 +74,4 @@ void StateSquashRoof::procMove() {
 
 void StateSquashRoof::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

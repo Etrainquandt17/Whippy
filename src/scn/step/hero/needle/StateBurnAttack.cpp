@@ -65,7 +65,4 @@ void StateBurnAttack::reqWeaponAll() {
     obj().abilityManager().customNeedle().shotAllWeapon(num);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::needle

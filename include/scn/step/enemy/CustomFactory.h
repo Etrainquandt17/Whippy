@@ -15,8 +15,6 @@ public:
     static void Create(Enemy& enemy, mem::ExplicitScopedPtr<ICustom>& custom);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::enemy
 
 #endif

@@ -25,9 +25,6 @@ private:
     JumpKind mKind;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump
 
 #endif

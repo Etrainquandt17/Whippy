@@ -12,8 +12,6 @@ public:
     void setEnableReceive(bool isEnable);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

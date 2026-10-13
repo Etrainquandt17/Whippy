@@ -49,7 +49,4 @@ void StateMain::procObjCollReact() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::sparkshotlv2

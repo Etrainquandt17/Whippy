@@ -46,7 +46,4 @@ bool BrainWait::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bouncy

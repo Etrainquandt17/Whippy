@@ -494,7 +494,4 @@ void StateMove::mfMapCheck() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::aquarock

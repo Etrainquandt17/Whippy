@@ -28,9 +28,6 @@ private:
     bool mIsFloating;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::walf
 
 #endif

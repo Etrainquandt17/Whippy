@@ -13,9 +13,6 @@ public:
     static void Rotate(Weapon& weapon);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::ninjakunai
 
 #endif

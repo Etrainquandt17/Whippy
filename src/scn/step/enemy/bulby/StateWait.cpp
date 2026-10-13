@@ -102,7 +102,4 @@ void StateWait::setHitFlag(bool flag) {
     obj().shadow().setVisibility(flag);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::bulby

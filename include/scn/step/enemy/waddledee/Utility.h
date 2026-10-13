@@ -15,10 +15,6 @@ namespace Utility {
 void Generate3Waddledee(Enemy& enemy, bool flag, map::BinEnemyVariation variation);
 bool CommonBehaviorOnHitPointIsZero(Enemy& enemy, bool flag, map::BinEnemyVariation variation);
 
-}
-}
-}
-}
-}
+}}}}}  // namespace scn::step::enemy::waddledee::Utility
 
 #endif

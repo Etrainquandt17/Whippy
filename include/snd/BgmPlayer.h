@@ -14,6 +14,6 @@ public:
     void setVolume(f32 volume);
 };
 
-}
+}  // namespace snd
 
 #endif

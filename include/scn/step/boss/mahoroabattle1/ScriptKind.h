@@ -14,9 +14,6 @@ enum ScriptKind {
     ScriptKind_NeedleAttackR = 10,
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::mahoroabattle1
 
 #endif

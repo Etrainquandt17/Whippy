@@ -26,9 +26,6 @@ private:
     u32 mChaseFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::chasekeydegout
 
 #endif

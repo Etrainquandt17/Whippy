@@ -15,9 +15,6 @@ public:
     virtual void procMove();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::weapon::superfiredragon
 
 #endif

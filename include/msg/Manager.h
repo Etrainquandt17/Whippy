@@ -35,6 +35,6 @@ public:
     const wchar_t* unsafedText(Category category, const char* label);
 };
 
-}
+}  // namespace msg
 
 #endif

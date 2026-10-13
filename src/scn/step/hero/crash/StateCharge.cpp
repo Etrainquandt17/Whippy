@@ -101,7 +101,4 @@ bool StateCharge::isShakeMax() {
     return obj().shakeCharge().power() >= obj().param().crash()._14._8;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash

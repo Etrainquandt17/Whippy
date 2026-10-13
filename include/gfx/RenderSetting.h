@@ -8,14 +8,12 @@
 namespace nrel {
 namespace ezrender {
 class ViewportSetting;
-}
-}
+}}  // namespace nrel::ezrender
 
 namespace nw4r {
 namespace g3d {
 class Camera;
-}
-}
+}}  // namespace nw4r::g3d
 
 namespace gfx {
 
@@ -77,6 +75,6 @@ public:
     void (*mCallback)(s32 pass);
 };
 
-}
+}  // namespace gfx
 
 #endif

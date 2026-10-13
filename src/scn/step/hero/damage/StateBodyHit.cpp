@@ -60,7 +60,4 @@ void StateBodyHit::init(ScriptKind script) {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::damage

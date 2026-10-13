@@ -11,10 +11,7 @@ namespace como {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::como::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -46,9 +42,6 @@ private:
     ThreadCtrl mThreadCtrl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 #endif

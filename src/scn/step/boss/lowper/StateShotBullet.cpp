@@ -103,7 +103,4 @@ void StateShotBullet::reqShotBullet() {
     custom.enemyCtrl().request(mVariation, pos, dir, _10);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::lowper

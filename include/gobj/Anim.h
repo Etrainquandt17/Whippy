@@ -36,6 +36,6 @@ private:
     u8 _0[0x2C];
 };
 
-}
+}  // namespace gobj
 
 #endif

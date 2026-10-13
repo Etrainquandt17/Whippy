@@ -25,7 +25,6 @@ private:
     T mArray[N];
 };
 
-}
-}
+}}  // namespace hel::common
 
 #endif

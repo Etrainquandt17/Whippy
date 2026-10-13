@@ -60,7 +60,4 @@ void StateFloorHit::procMove() {}
 
 void StateFloorHit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::goliathicicle

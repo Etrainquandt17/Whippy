@@ -11,9 +11,7 @@ namespace weapon {
 class CustomBase;
 class Weapon;
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 namespace hel {
 namespace common {
@@ -22,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::weapon::CustomBase>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -45,8 +42,6 @@ private:
     Weapon& mObj;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::weapon
 
 #endif

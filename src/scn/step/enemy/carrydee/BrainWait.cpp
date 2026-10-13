@@ -47,7 +47,4 @@ bool BrainWait::onLanding() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::carrydee

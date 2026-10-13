@@ -23,9 +23,6 @@ public:
     void clearReqBuff();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::goliath
 
 #endif

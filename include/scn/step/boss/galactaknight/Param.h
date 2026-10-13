@@ -115,9 +115,6 @@ struct Param {
     CollParam mColl;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::galactaknight
 
 #endif

@@ -211,4 +211,4 @@ void Wipe::modelSetup(const char* name, unsigned long frame) {
 }
 #undef MF_FUNCTION
 
-}
+}  // namespace sfx

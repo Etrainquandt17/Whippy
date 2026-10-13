@@ -44,7 +44,6 @@ public:
     static void SetCompleteReserve(storage::StoryMode mode, bool reserve);
 };
 
-}
-}
+}}  // namespace scn::step
 
 #endif

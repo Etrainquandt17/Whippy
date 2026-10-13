@@ -26,9 +26,6 @@ private:
     bool mIsHighJump;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::starman
 
 #endif

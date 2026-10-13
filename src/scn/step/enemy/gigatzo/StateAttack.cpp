@@ -200,7 +200,4 @@ hel::math::Vector2 StateAttack::setBulletInitVel() {
     return vel;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gigatzo

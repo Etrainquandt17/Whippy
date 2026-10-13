@@ -44,8 +44,6 @@ public:
     hero::AbilityKind getKeptAbility(u32 index);
 };
 
-}
-}
-}
+}}}  // namespace scn::step::boss
 
 #endif

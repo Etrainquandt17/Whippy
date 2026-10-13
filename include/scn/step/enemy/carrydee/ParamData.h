@@ -22,9 +22,6 @@ struct ParamData {
     f32 mCarryRangeV;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::carrydee
 
 #endif

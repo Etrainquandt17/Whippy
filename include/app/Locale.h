@@ -17,6 +17,6 @@ public:
     static const char* FilePostfix();
 };
 
-}
+}  // namespace app
 
 #endif

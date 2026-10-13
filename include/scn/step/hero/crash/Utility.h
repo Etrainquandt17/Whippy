@@ -14,9 +14,6 @@ public:
     static void RequestHatEffectAttack(Hero& hero);
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::crash
 
 #endif

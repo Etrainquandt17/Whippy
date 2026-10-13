@@ -9,7 +9,6 @@ enum UnlockKind {
     UNLOCK_KIND_0,
 };
 
-}
-}
+}}  // namespace scn::wmap
 
 #endif

@@ -28,7 +28,4 @@ bool BrainHang::onRecover() {
     return true;
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como

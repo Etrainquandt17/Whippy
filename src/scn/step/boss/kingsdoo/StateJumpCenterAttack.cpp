@@ -70,7 +70,4 @@ void StateJumpCenterAttack::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::kingsdoo

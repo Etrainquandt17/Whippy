@@ -50,7 +50,4 @@ void StateSwordUnderThrustLanding::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::sword

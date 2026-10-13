@@ -25,7 +25,6 @@ private:
     u32 _4[0xA1B];
 };
 
-}
-}
+}}  // namespace scn::option
 
 #endif

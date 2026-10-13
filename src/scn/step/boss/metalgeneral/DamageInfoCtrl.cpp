@@ -130,7 +130,4 @@ void DamageInfoCtrl::requestAddCommaDigit4(u32 digit, hel::math::Vector3 pos, f3
 }
 #endif
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

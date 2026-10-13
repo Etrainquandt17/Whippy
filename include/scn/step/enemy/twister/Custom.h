@@ -11,10 +11,7 @@ namespace twister {
 
 class Custom;
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::twister
 
 namespace hel {
 namespace common {
@@ -23,8 +20,7 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::twister::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace step {
@@ -53,9 +49,6 @@ private:
     f32 mThetaY;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::twister
 
 #endif

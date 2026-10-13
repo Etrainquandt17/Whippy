@@ -52,9 +52,6 @@ private:
     g3d::ResFileAccessor _28;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::gimmick::cutropestep
 
 #endif

@@ -72,7 +72,4 @@ void StateWindCutterTurn::procMove() {
 
 void StateWindCutterTurn::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::landia

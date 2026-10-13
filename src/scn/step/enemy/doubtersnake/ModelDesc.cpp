@@ -53,7 +53,4 @@ chara::ModelDesc& CreateYellow() {
 
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::doubtersnake

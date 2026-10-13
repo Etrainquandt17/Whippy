@@ -27,7 +27,6 @@ public:
     nw4r::math::MTX44 m;
 };
 
-}
-}
+}}  // namespace hel::math
 
 #endif

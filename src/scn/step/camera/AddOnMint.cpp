@@ -34,7 +34,4 @@ void RegisterAll(mintvm::VMCore& core) {
     MINT_NATIVE_FUNCTION(core, "Scn.Step.Camera.ZoomQuake.Method", "void SetOffs(float)", SetOffs, &t_ZoomQuake_Method_SetOffs);
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::camera::AddOnMint

@@ -43,4 +43,4 @@ void NodeLocalMtx::setCalcOp(NodeLocalMtxCalcOp op) {
     mCalcOp = op;
 }
 
-}
+}  // namespace g3d

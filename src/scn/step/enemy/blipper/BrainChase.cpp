@@ -25,7 +25,4 @@ bool BrainChase::onRecover() {
     return onStart();
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::blipper

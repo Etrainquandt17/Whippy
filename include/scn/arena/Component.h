@@ -23,7 +23,6 @@ public:
     bool getNoTitleAnimFlag();
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

@@ -24,8 +24,7 @@ const RuntimeTypeInfo& RuntimeTypeInfoImpl<seq::SequenceChallengeRoot>() {
     return ti;
 }
 
-}
-}
+}}  // namespace hel::common
 
 namespace {
 
@@ -844,4 +843,4 @@ const hel::common::RuntimeTypeInfo& SequenceChallengeRoot::GetRuntimeTypeInfo() 
     return hel::common::RuntimeTypeInfoImpl<SequenceChallengeRoot>();
 }
 
-}
+}  // namespace seq

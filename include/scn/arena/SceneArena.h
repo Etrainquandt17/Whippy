@@ -24,8 +24,7 @@ private:
     scn::arena::Component* mPtr;
 };
 
-}
-}
+}}  // namespace hel::common
 
 namespace scn {
 namespace arena {
@@ -46,7 +45,6 @@ private:
     hel::common::ScopedPtr<Component> mComponent;
 };
 
-}
-}
+}}  // namespace scn::arena
 
 #endif

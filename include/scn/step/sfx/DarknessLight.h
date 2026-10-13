@@ -11,8 +11,7 @@
 namespace hel {
 namespace math {
 class Vector3;
-}
-}
+}}  // namespace hel::math
 
 namespace scn {
 namespace step {
@@ -38,8 +37,6 @@ private:
 #endif
 };
 
-}
-}
-}
+}}}  // namespace scn::step::sfx
 
 #endif

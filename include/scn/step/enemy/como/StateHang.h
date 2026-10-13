@@ -17,9 +17,6 @@ public:
     virtual void procObjCollReact();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::como
 
 #endif

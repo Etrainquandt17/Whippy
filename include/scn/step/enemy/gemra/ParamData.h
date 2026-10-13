@@ -15,9 +15,6 @@ struct ParamData {
     u32 mFlyWaitFrame;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::gemra
 
 #endif

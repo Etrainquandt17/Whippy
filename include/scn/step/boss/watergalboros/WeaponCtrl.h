@@ -37,9 +37,6 @@ private:
     hel::common::MutableArray<ReqData, 10> mReqBuff;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::watergalboros
 
 #endif

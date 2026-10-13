@@ -25,9 +25,6 @@ private:
     bool _1C;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::highjump
 
 #endif

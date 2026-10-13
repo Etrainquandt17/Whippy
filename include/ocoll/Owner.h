@@ -26,6 +26,6 @@ private:
     u8 _0[0x30];
 };
 
-}
+}  // namespace ocoll
 
 #endif

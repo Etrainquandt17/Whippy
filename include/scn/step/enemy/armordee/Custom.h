@@ -19,10 +19,7 @@ public:
     f32 getFrameRate();
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::enemy::armordee
 
 namespace hel {
 namespace common {
@@ -30,7 +27,6 @@ namespace common {
 template <>
 const RuntimeTypeInfo& RuntimeTypeInfoImpl<scn::step::enemy::armordee::Custom>();
 
-}
-}
+}}  // namespace hel::common
 
 #endif

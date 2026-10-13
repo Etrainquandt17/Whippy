@@ -37,7 +37,4 @@ void StateMixPre::procAnim() {
     obj().stateChanger().setNextState<StateMix, Hero*, ::ostop::ReqHandle>(objPtr(), requestor.takeHandle());
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::hero::common

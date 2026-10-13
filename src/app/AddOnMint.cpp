@@ -13,5 +13,4 @@ void RegisterAll(mintvm::VMCore& core) {
     mintglue::App__Locale::AddOn(core);
 }
 
-}
-}
+}}  // namespace app::AddOnMint

@@ -64,9 +64,6 @@ private:
     u32 mPatriotLoopNumMax;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral
 
 #endif

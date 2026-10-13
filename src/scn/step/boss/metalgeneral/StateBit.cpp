@@ -106,7 +106,4 @@ void StateBit::procMove() {}
 
 void StateBit::procFixPos() {}
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::metalgeneral

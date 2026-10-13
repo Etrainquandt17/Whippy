@@ -56,6 +56,6 @@ public:
     void setDescNode(int index, const DescNode& node);
 };
 
-}
+}  // namespace dynamics
 
 #endif

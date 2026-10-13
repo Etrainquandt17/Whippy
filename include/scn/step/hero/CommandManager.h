@@ -16,8 +16,6 @@ public:
     u32 getTriggerPastFrame(ButtonMask mask) const;
 };
 
-}
-}
-}
+}}}  // namespace scn::step::hero
 
 #endif

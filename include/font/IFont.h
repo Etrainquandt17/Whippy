@@ -4,8 +4,7 @@
 namespace nw4r {
 namespace ut {
 class Font;
-}
-}
+}}  // namespace nw4r::ut
 
 namespace font {
 
@@ -19,6 +18,6 @@ public:
     virtual nw4r::ut::Font& font() = 0;
 };
 
-}
+}  // namespace font
 
 #endif

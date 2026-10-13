@@ -17,9 +17,6 @@ public:
     bool isFirstChange() const;
 };
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::grandlowper
 
 #endif

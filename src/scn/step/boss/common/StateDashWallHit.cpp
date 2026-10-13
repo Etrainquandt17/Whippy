@@ -56,7 +56,4 @@ void StateDashWallHit::procFixPos() {
     }
 }
 
-}
-}
-}
-}
+}}}}  // namespace scn::step::boss::common
