@@ -15,6 +15,7 @@
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Manager.h"
+#include "scn/step/ocoll/HitResistLv.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Param.h"
@@ -67,7 +68,7 @@ void StateMain::procConstraint() {}
 void StateMain::procObjCollReact() {
     if (obj().objColl().attack().isCollide()) {
         obj().effect().normal().release();
-        if (obj().objColl().attack().getCollidedHitResistLv() >= 4) {
+        if (obj().objColl().attack().getCollidedHitResistLv() >= ocoll::HIT_RESIST_LV_REPEL) {
             obj().stateChanger().setNextState<StateVanish, Weapon*, VanishKind>(&obj(), VANISH_KIND_REPEL_ROLL);
         } else {
             u64 uid = obj().objColl().attack().result().getData(0).mOwnerID;

@@ -52,13 +52,13 @@ StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
     obj().soundSE().loop().stop();
     Utility::StagingBossDamageL(obj());
     obj().invincible().setPermNoFlash();
-    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_6);
+    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_REFLECT);
     custom.bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
     obj().move().resetVelocity();
 }
 
 StateDamageL::~StateDamageL() {
-    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_2);
+    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_NORMAL);
 }
 
 void StateDamageL::procAnim() {

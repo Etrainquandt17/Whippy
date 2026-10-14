@@ -19,6 +19,7 @@
 #include "scn/step/chara/Water.h"
 #include "scn/step/core/PermEffect.h"
 #include "scn/step/core/PermSoundSE.h"
+#include "scn/step/ocoll/HitResistLv.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Param.h"
@@ -112,11 +113,11 @@ void StateMain::procObjCollReact() {
         Vector3 velocity = obj().move().velocity();
         Vector2 hitPos = obj().objColl().attack().getCollidedHitPos();
         f32 diff = hitPos.y - obj().location().pos().y;
-        if (resistLv == 6) {
+        if (resistLv == ocoll::HIT_RESIST_LV_REFLECT) {
             velocity.x *= param.mResistSpeedRateH;
             velocity.y = param.mResistSpeedV;
             obj().move().setVelocity(velocity);
-        } else if (resistLv >= 4) {
+        } else if (resistLv >= ocoll::HIT_RESIST_LV_REPEL) {
             deadWithEffect();
             return;
         } else if (!obj().objColl().isAttackCollideMain()) {

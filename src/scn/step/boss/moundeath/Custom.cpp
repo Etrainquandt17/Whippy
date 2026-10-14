@@ -131,7 +131,7 @@ void Custom::setBodyCollRolling() {
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1B5));
     obj().objColl().addBodyColl(0, param.mBodyCollRadius, param.mBodyCollOffset);
-    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_6);
+    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_REFLECT);
 }
 
 const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {

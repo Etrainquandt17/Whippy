@@ -56,7 +56,7 @@ StateAppear::~StateAppear() {
     obj().model().setVisibility(true);
     obj().model().resetScale();
     obj().objColl().bodyColl().setStateNormal();
-    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_2);
+    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_NORMAL);
 }
 
 void StateAppear::procAnim() {
@@ -106,7 +106,7 @@ void StateAppear::procAnim() {
         }
         if (mCount == 160) {
             obj().objColl().bodyColl().setStateNormal();
-            obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_6);
+            obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_REFLECT);
             obj().invincible().setPermNoFlash();
             obj().guard().setType(GUARD_TYPE_6);
         }

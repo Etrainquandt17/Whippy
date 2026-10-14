@@ -35,7 +35,7 @@ namespace doubter {
 StateAnger::StateAnger(Boss* boss) : StateBase(boss), mScale(1.0f), mIsScaling(false) {
     obj().footState().setGround();
     obj().invincible().setPermNoFlash();
-    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_6);
+    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_REFLECT);
     obj().model().reqScript(0x1F);
     DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
     obj().infoBossPanel().transformStart();
@@ -43,7 +43,7 @@ StateAnger::StateAnger(Boss* boss) : StateBase(boss), mScale(1.0f), mIsScaling(f
 
 StateAnger::~StateAnger() {
     obj().infoBossPanel().transformEnd();
-    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_2);
+    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_NORMAL);
     obj().flash().custom().setIsValid(false);
     obj().flash().attack().setEnd(ColorF(1.0f, 1.0f, 1.0f, 1.0f).toGXColorAsNormal());
 }

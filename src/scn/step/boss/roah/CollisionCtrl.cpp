@@ -79,9 +79,9 @@ void CollisionCtrl::setAttackType() {
 }
 
 void CollisionCtrl::setResistLv() {
-    ocoll::HitResistLv lv = ocoll::HIT_RESIST_LV_2;
+    ocoll::HitResistLv lv = ocoll::HIT_RESIST_LV_NORMAL;
     if (mState == STATE_REFLECT || mState == STATE_TACKLE) {
-        lv = ocoll::HIT_RESIST_LV_6;
+        lv = ocoll::HIT_RESIST_LV_REFLECT;
     }
     mBoss.objColl().bodyColl().setResistLv(lv);
 }

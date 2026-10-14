@@ -114,7 +114,7 @@ void Custom::setBodyCollGuard() {
     Vector2 offset2 = param.mGuardCollOffset2;
     offset2.x *= obj().target().getSign();
     obj().objColl().addBodyColl(3, param.mGuardCollRadius, offset, offset2);
-    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_6);
+    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_REFLECT);
 }
 
 void Custom::reqSwordShot(bool isTriple) {

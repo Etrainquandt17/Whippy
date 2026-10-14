@@ -50,7 +50,7 @@ void Custom::onInit() {
     obj().objColl().bodyColl().initAttackType(static_cast<ocoll::AttackType>(0x197));
     obj().objColl().bodyColl().setStateHitOnly();
     obj().objColl().addBodyColl(0, param.mBodyCollRadius, param.mBodyCollOffset, param.mBodyCollOffset2);
-    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_3);
+    obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_WALL);
     if (Utility::IsVariationExtra(obj())) {
         obj().brainCtrl().set("Scn.Step.Boss.Whispy.Brain.ExecEx");
         obj().angry().setChangeBrain("Scn.Step.Boss.Whispy.Brain.ExecAngryEx");

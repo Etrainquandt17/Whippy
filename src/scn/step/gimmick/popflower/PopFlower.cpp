@@ -24,6 +24,7 @@
 #include "scn/step/hero/Manager.h"
 #include "scn/step/map/BinGmkGeneralEntry.h"
 #include "scn/step/map/MemManager.h"
+#include "scn/step/ocoll/HitResistLv.h"
 #include "scn/step/spstop/Manager.h"
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjRefHandleInline.h"
@@ -243,7 +244,7 @@ PopFlower::PopFlower(const map::BinGmkGeneralEntry& entry, Component& component,
         hash ^= hash >> 6;
         word += 2;
     }
-    mHit.setResistLv(1);
+    mHit.setResistLv(ocoll::HIT_RESIST_LV_1);
     mHit.setFlagXlu(-3);
     hash ^= hash >> 10;
     mfAddHitNode();
@@ -573,7 +574,7 @@ Vector2 PopFlower::mfCenterPos() const {
 #undef MF_FUNCTION
 
 #define MF_FUNCTION mfGetOCollNodeDesc__Q53scn4step7gimmick9popflower9PopFlowerFv
-ocoll::NodeDesc PopFlower::mfGetOCollNodeDesc() {
+::ocoll::NodeDesc PopFlower::mfGetOCollNodeDesc() {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -582,7 +583,7 @@ ocoll::NodeDesc PopFlower::mfGetOCollNodeDesc() {
     u32 hash;
 
     NodeAccessor node = mModel.model().nodeByName(getConnectString(mName, "FlowerL"));
-    ocoll::NodeDesc desc;
+    ::ocoll::NodeDesc desc;
     asm {
         bl      after1
         opword  MF_WORD(0x68)
@@ -782,7 +783,7 @@ void PopFlower::mfAddSearchAttackNode() {
     u32 base;
     u32 hash;
 
-    ocoll::NodeDesc desc = mfGetOCollNodeDesc();
+    ::ocoll::NodeDesc desc = mfGetOCollNodeDesc();
     asm {
         bl      after1
         opword  0xF0429390

@@ -116,7 +116,7 @@ void Custom::setBodyCollFastMove() {
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1AB));
     obj().objColl().addBodyColl(0, param.mFastMoveCollRadius, param.mFastMoveCollOffset);
-    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_2);
+    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_NORMAL);
 }
 
 void Custom::setBodyCollDash() {
@@ -125,7 +125,7 @@ void Custom::setBodyCollDash() {
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1B0));
     obj().objColl().addBodyColl(0, param.mDashCollRadius, param.mDashCollOffset, param.mDashCollOffset2);
-    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_2);
+    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_NORMAL);
 }
 
 void Custom::reqThunderGroundEffect() {

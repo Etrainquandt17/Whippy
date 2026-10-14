@@ -136,7 +136,7 @@ void Custom::setBodyCollSwing() {
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1AC));
     obj().objColl().addBodyColl(0, param.mBodyCollRadius, param.mBodyCollOffset);
-    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_6);
+    bodyColl.setResistLv(ocoll::HIT_RESIST_LV_REFLECT);
 }
 
 void Custom::reqBomb(Vector2 pos, Vector2 speed, map::BinEnemySize size) {

@@ -21,6 +21,7 @@
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Manager.h"
+#include "scn/step/ocoll/HitResistLv.h"
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Param.h"
 #include "scn/step/weapon/Weapon.h"
@@ -77,9 +78,9 @@ void StateMain::procFixPos() {}
 void StateMain::procObjCollReact() {
     if (obj().objColl().attack().isCollide()) {
         u32 lv = obj().objColl().attack().getCollidedHitResistLv();
-        if (lv >= 4) {
+        if (lv >= ocoll::HIT_RESIST_LV_REPEL) {
             obj().stateChanger().setNextState<StateReflect, Weapon*>(&obj());
-        } else if (lv == 3) {
+        } else if (lv == ocoll::HIT_RESIST_LV_WALL) {
             obj().stateChanger().setNextState<StateStickObj, Weapon*>(&obj());
         } else {
             u64 uid = obj().objColl().attack().result().getData(0).mOwnerID;

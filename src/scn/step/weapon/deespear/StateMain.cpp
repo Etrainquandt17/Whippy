@@ -10,6 +10,7 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 #include "scn/step/chara/ObjCollLite.h"
+#include "scn/step/ocoll/HitResistLv.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Param.h"
@@ -70,9 +71,9 @@ void StateMain::procConstraint() {
 
 void StateMain::procFixPos() {
     if (obj().objColl().attack().isCollide()) {
-        if (obj().objColl().attack().getCollidedHitResistLv() >= 6) {
+        if (obj().objColl().attack().getCollidedHitResistLv() >= ocoll::HIT_RESIST_LV_REFLECT) {
             obj().stateChanger().setNextState<StateReflect, Weapon*>(objPtr());
-        } else if (obj().objColl().attack().getCollidedHitResistLv() == 3) {
+        } else if (obj().objColl().attack().getCollidedHitResistLv() == ocoll::HIT_RESIST_LV_WALL) {
             f32 rot = obj().model().rotCtrl().getRotV();
             obj().stateChanger().setNextState<StateStickObj, Weapon*, f32>(objPtr(), rot);
         }
