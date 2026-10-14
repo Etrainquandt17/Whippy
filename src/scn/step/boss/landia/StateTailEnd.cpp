@@ -6,6 +6,7 @@
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"
@@ -71,7 +72,7 @@ void StateTailEnd::procMove() {
     pos.y += param._234 * Math::SinDegF(180.0f * t);
     f32 swing = Math::SinDegF(180.0f * (1.5f * t + t * (-0.5f * t * t)));
     pos.z += swing * param._238;
-    f32 rate = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t));
+    f32 rate = 1.0f - POW2(1.0f - Math::SinDegF(90.0f * t));
     obj().model().rotCtrl().initRotD((1.0f - rate) * (360.0f * obj().target().getSign()));
     custom.waftCtrl().setRefPos(pos);
 }

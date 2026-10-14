@@ -9,6 +9,7 @@
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
 #include "ocoll/Hit.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Manager.h"
@@ -112,9 +113,7 @@ void StateMain::procMove() {
     Vector3 pos = mStartPos;
     if (Utility::IsExtra(obj())) {
         t += param._C * Math::SinDegF(1440.0f * t);
-        pos.x -= mRange.x
-                 * (1.0f
-                    - (1.0f - Math::SinDegF(180.0f * t)) * (1.0f - Math::SinDegF(180.0f * t)));
+        pos.x -= mRange.x * (1.0f - POW2(1.0f - Math::SinDegF(180.0f * t)));
         pos.x += mRangeBack.x
                  * (Math::SinDegF(180.0f * t) * Math::SinDegF(180.0f * t)
                     * Math::SinDegF(180.0f * t));

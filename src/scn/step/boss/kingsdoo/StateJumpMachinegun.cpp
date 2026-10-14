@@ -5,6 +5,7 @@
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
 #include "mintglue/VectorInline.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"
@@ -58,8 +59,7 @@ void StateJumpMachinegun::procMove() {
     const Param& param = obj().param().kingsdoo();
     f32 height;
     f32 rate = static_cast<f32>(mCount) / static_cast<f32>(param.mJumpMachinegunTime);
-    height = 1.0f - (1.0f - Math::SinDegF(180.0f * rate)) *
-                            ((1.0f - Math::SinDegF(180.0f * rate)) * (1.0f - Math::SinDegF(180.0f * rate)));
+    height = 1.0f - POW3(1.0f - Math::SinDegF(180.0f * rate));
     Vector2 pos = mStartPos;
     pos.y += height * param.mJumpMachinegunHeight;
     obj().location().setPos(pos.toVector3());

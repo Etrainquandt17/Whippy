@@ -9,6 +9,7 @@
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Location.h"
@@ -54,11 +55,7 @@ void StateMoveUp::procMove() {
     const Param& param = obj().param().roahBullet();
     f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param._34);
     Vector2 pos = Vector2::ZERO;
-    pos.x = Math::LinearInterpolation(
-        mStartPos.x,
-        mEndPos.x,
-        1.0f - (1.0f - Math::SinDegF(90.0f * rate)) * (1.0f - Math::SinDegF(90.0f * rate))
-    );
+    pos.x = Math::LinearInterpolation(mStartPos.x, mEndPos.x, 1.0f - POW2(1.0f - Math::SinDegF(90.0f * rate)));
     pos.y = Math::LinearInterpolation(
         mStartPos.y,
         mEndPos.y,

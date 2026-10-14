@@ -14,6 +14,7 @@
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/BrainCtrl.h"
@@ -100,10 +101,7 @@ void StateSparkAttackStart::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
     Vector3 pos(
         Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t * t),
-        Math::LinearInterpolation(
-            mStartPos.y, mGoalPos.y,
-            1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t))
-        ),
+        Math::LinearInterpolation(mStartPos.y, mGoalPos.y, 1.0f - POW2(1.0f - Math::SinDegF(90.0f * t))),
         Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t)
     );
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());

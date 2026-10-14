@@ -11,6 +11,7 @@
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Manager.h"
@@ -71,11 +72,7 @@ void StateZMove::procMove() {
     f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param._44);
     Vector3 pos = Vector3::ZERO;
     pos.x = Math::LinearInterpolation(mStartPos.x, mTargetPos.x, Math::SinDegF(90.0f * rate));
-    pos.y = Math::LinearInterpolation(
-        mStartPos.y,
-        mTargetPos.y,
-        1.0f - (1.0f - Math::SinDegF(90.0f * rate)) * (1.0f - Math::SinDegF(90.0f * rate))
-    );
+    pos.y = Math::LinearInterpolation(mStartPos.y, mTargetPos.y, 1.0f - POW2(1.0f - Math::SinDegF(90.0f * rate)));
     if (mPassFrame != 0) {
         f32 t = static_cast<f32>(mFrame - mPassFrame) / static_cast<f32>(param._44 - mPassFrame);
         pos.y += param._48.y * (1.0f - Math::CosDegF(90.0f * t));

@@ -6,6 +6,7 @@
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
@@ -86,7 +87,7 @@ void StateTail::procMove() {
     if (mIsMove) {
         f32 rate;
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._218);
-        rate = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t));
+        rate = 1.0f - POW2(1.0f - Math::SinDegF(90.0f * t));
         custom.waftCtrl().setRefPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
     }
 }

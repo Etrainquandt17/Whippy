@@ -11,6 +11,7 @@
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
 #include "scn/step/boss/Guard.h"
@@ -122,7 +123,7 @@ void StateStorm::procAnim() {
         f32 t = static_cast<f32>(mStormCount) / static_cast<f32>(mConfig._0);
         f32 rotZ = (1.0f - Math::CosDegF(90.0f * t)) * (1.0f - Math::CosDegF(90.0f * t));
         if (Utility::IsVariationExtra(obj())) {
-            f32 s = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t));
+            f32 s = 1.0f - POW2(1.0f - Math::SinDegF(90.0f * t));
             f32 base = Math::InterpolationParamMinToMax(t);
             base = 540.0f * base - param.mStormRotZBack * Math::SinDegF(180.0f * s);
             rotZ = param.mStormRotZSwing * Math::SinDegF(180.0f * rotZ) + base;
@@ -130,8 +131,7 @@ void StateStorm::procAnim() {
             rotZ = -(360.0f * t) + param.mStormRotZSwing * Math::SinDegF(180.0f * rotZ);
         }
         mRotX = mRotX * (1.0f - param.mStormRotXRate) + 360.0f * t * param.mStormRotXRate;
-        f32 rate = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) *
-                              ((1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t)));
+        f32 rate = 1.0f - POW3(1.0f - Math::SinDegF(90.0f * t));
         f32 side = 90.0f * obj().target().getSign();
         f32 front = param.mRotYMax * obj().target().getSign();
         f32 rotY = rate * (side - front) + front;

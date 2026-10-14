@@ -12,6 +12,7 @@
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/BrainCtrl.h"
@@ -102,8 +103,7 @@ void StateRollJump::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
     Vector2 pos = mStartPos;
     pos.x += mDistance * Math::SinDegF(90.0f * t);
-    pos.y += param._CC * (1.0f - (1.0f - Math::SinDegF(180.0f * t)) *
-                                     ((1.0f - Math::SinDegF(180.0f * t)) * (1.0f - Math::SinDegF(180.0f * t))));
+    pos.y += param._CC * (1.0f - POW3(1.0f - Math::SinDegF(180.0f * t)));
     obj().location().setPos(pos.toVector3());
 }
 

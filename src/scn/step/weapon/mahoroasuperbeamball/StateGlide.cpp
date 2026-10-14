@@ -2,6 +2,7 @@
 
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
+#include "pow.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/chara/Culling.h"
@@ -89,9 +90,7 @@ void StateGlide::procAnim() {
 void StateGlide::procMove() {
     f32 t = static_cast<f32>(mFrame) / static_cast<f32>(mTotalFrame);
     Vector3 pos = Math::LinearInterpolation(mStartPos, mTargetPos, t);
-    pos.z -= 80.0f
-             * (1.0f
-                - (1.0f - Math::SinDegF(200.0f * t)) * (1.0f - Math::SinDegF(200.0f * t)));
+    pos.z -= 80.0f * (1.0f - POW2(1.0f - Math::SinDegF(200.0f * t)));
     obj().location().setPos(pos);
 }
 
