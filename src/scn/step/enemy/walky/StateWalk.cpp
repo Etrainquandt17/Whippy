@@ -25,6 +25,8 @@
 #include "scn/step/enemy/walky/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ StateWalk::StateWalk(Enemy* enemy) : StateBase(enemy) {
     if (obj().model().anim().currentG3DAnimIndex() != 3) {
         obj().model().reqScript(3);
     }
-    obj().model().setFrameRate(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getAnimRate());
+    obj().model().setFrameRate(DynamicCastToRef<Custom, ICustom>(obj().custom()).getAnimRate());
     obj().brainCtrl().toValid();
 }
 
@@ -46,7 +48,7 @@ StateWalk::~StateWalk() {
 void StateWalk::procAnim() {}
 
 void StateWalk::procMove() {
-    gobj::MoveParamAccel accel = gobj::MoveParamAccel::Create(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed(), 0.003f, 0.001f);
+    gobj::MoveParamAccel accel = gobj::MoveParamAccel::Create(DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed(), 0.003f, 0.001f);
     obj().move().groundAccel(obj().target().isRightDir(), accel);
 }
 

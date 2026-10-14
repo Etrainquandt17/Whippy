@@ -12,6 +12,9 @@
 #include "scn/step/enemy/waddledee/ParamData.h"
 #include "scn/step/enemy/waddledee/StateWhispyFall.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,8 +44,8 @@ void StateWhispyAppear::procMove() {
     if (rate > 1.0f) {
         rate = 1.0f;
     }
-    hel::math::Vector3 pos = obj().location().pos();
-    pos.y = mBaseY - param.mWhispyAppearHeight * hel::math::Math::SinDegF(90.0f * rate);
+    Vector3 pos = obj().location().pos();
+    pos.y = mBaseY - param.mWhispyAppearHeight * Math::SinDegF(90.0f * rate);
     obj().location().setPos(pos);
 }
 

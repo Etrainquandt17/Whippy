@@ -5,13 +5,15 @@
 #include "hel/common/PointerWrapper.h"
 #include "metafortress.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace hero {
 
 namespace {
 
-hel::common::PointerWrapper<Gear> t_obj;
+PointerWrapper<Gear> t_obj;
 
 }
 

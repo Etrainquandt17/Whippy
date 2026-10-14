@@ -17,6 +17,8 @@
 #include "scn/step/hero/beam/StateBeamCycleBeam.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -34,8 +36,8 @@ Beam::~Beam() {
 }
 
 void Beam::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/beam/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/beam/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(7, motion);
     mHero.model().hat().set(modeldesc::Beam::HatPath(), modeldesc::Beam::HatModel());

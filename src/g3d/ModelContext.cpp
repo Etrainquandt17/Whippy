@@ -3,10 +3,12 @@
 #include "hel/common/ExplicitSingleton.h"
 #include "mem/Memory.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace g3d {
 
 mem::IAllocator& ModelContext::DefaultAllocator() {
-    return hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap();
+    return ExplicitSingleton<mem::Memory>::object_->sceneHeap();
 }
 
 ModelBufferOption ModelContext::DefaultModelBufferOption() {

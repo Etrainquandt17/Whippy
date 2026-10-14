@@ -25,6 +25,11 @@
 #include "scn/step/enemy/rocky/StateWalkEnd.h"
 #include "scn/step/hero/Manager.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +40,7 @@ StateWalk::StateWalk(Enemy* enemy) : StateBase(enemy), mIsMove(false), mFrame(0)
     obj().model().reqScript(3);
     obj().move().resetSpeedV();
     obj().move().resetSpeedH();
-    mFrame = app::Random::Rand(obj().param().rocky().mWalkRandFrame) + obj().param().rocky().mWalkBaseFrame;
+    mFrame = Random::Rand(obj().param().rocky().mWalkRandFrame) + obj().param().rocky().mWalkBaseFrame;
     mAttackFrame = mFrame - obj().param().rocky().mWalkAttackWait;
 }
 
@@ -63,8 +68,8 @@ void StateWalk::procAnim() {
         bool isRight = obj().target().isRightDir();
         u32 count = obj().comp().heroManager().getPlayerCount();
         for (u32 i = 0; i < count; i++) {
-            hel::math::Vector3 diff = obj().comp().heroManager().getPlayerPosByIndex(i) - obj().location().pos();
-            if (hel::math::Math::Abs(diff.x) < param.mStayAttackRangeX && diff.y < param.mStayAttackRangeTop &&
+            Vector3 diff = obj().comp().heroManager().getPlayerPosByIndex(i) - obj().location().pos();
+            if (Math::Abs(diff.x) < param.mStayAttackRangeX && diff.y < param.mStayAttackRangeTop &&
                 diff.y > param.mStayAttackRangeBottom) {
                 isFound = true;
                 isRight = diff.x >= 0.0f;
@@ -92,8 +97,8 @@ void StateWalk::procFixPos() {
     } else if (obj().cliffChecker().isCliff()) {
         obj().stateChanger().setNextState<StateCliffAttack, Enemy*>(objPtr());
     } else if (obj().variation() == 0x2f) {
-        hel::math::Vector2 normal = obj().mapColl().floorNormal();
-        if (hel::math::Math::Abs(normal.x) >= obj().param().rocky().mWalkSlopeNormalX) {
+        Vector2 normal = obj().mapColl().floorNormal();
+        if (Math::Abs(normal.x) >= obj().param().rocky().mWalkSlopeNormalX) {
             if ((normal.x < 0.0f && obj().target().isRightDir()) || (normal.x > 0.0f && !obj().target().isRightDir())) {
                 obj().target().setIsRightDir(!obj().target().isRightDir());
             } else {

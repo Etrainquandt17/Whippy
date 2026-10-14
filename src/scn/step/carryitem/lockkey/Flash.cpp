@@ -6,6 +6,9 @@
 #include "scn/step/carryitem/Flash.h"
 #include "scn/step/carryitem/lockkey/Utility.h"
 
+using hel::common::Color;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -58,14 +61,14 @@ void Flash::updateFlash() {
     if (mAngle >= 180.0f) {
         mAngle = 0.0f;
     }
-    mObj.flash().set(hel::common::Color(0xFF, 0x10, 0x00, static_cast<u8>(static_cast<f32>(param._18) * hel::math::Math::SinDegF(mAngle))));
+    mObj.flash().set(Color(0xFF, 0x10, 0x00, static_cast<u8>(static_cast<f32>(param._18) * Math::SinDegF(mAngle))));
 }
 
 f32 Flash::ratio() {
     const Param& param = mObj.param().lockKey();
     u32 start = param._0 - param._8;
     f32 t = (static_cast<f32>(mObj.useCount()) - static_cast<f32>(start)) / (static_cast<f32>(param._4) - static_cast<f32>(param._0));
-    return hel::math::Math::Min(t * t, 1.0f);
+    return Math::Min(t * t, 1.0f);
 }
 
 }}}}  // namespace scn::step::carryitem::lockkey

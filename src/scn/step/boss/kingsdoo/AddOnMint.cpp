@@ -22,6 +22,8 @@
 #include "scn/step/boss/kingsdoo/StateJumpMachinegun.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -40,8 +42,8 @@ inline Boss* t_Boss(Boss& boss) {
 void t_SetNextState_Attack() {
     common::StateAttackDesc desc(
         MintBoss::Obj().param().kingsdoo()._24,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         0.0f,
         0.0f
     );
@@ -85,8 +87,8 @@ void t_SetNextState_JumpBack() {
         MintBoss::Obj().param().kingsdoo()._24,
         MintBoss::Obj().param().kingsdoo()._28,
         MintBoss::Obj().param().kingsdoo()._2C,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         false,
         static_cast<common::StateJumpDesc::LandingAnimType>(1),
         false,

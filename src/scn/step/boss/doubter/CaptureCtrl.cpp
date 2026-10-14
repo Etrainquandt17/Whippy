@@ -19,6 +19,9 @@
 #include "scn/step/hero/CameraTarget.h"
 #include "scn/step/hero/Hero.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -39,7 +42,7 @@ CaptureCtrl::CaptureCtrl(Boss& boss) : mBoss(boss), mAttackers(boss.allocator())
     while (mAttackers.count() != 3) {
         mAttackers.add<Component&, ::ocoll::SearchHit&>(mBoss.comp(), mBoss.objColl().searchHit());
     }
-    hel::math::Vector3 pos = mBoss.location().pos();
+    Vector3 pos = mBoss.location().pos();
     for (u32 i = 0; i < mAttackers.count(); i++) {
         mAttackers[i].setConstraintPos(pos);
     }
@@ -65,9 +68,9 @@ void CaptureCtrl::update() {
 }
 
 void CaptureCtrl::updateConstraintPosAtHold() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(mBoss.custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(mBoss.custom());
     if (custom.punchCtrlR().isValid()) {
-        hel::math::Vector3 pos = custom.punchCtrlR().getPos();
+        Vector3 pos = custom.punchCtrlR().getPos();
         pos.x += 0.6f * mBoss.target().getSign();
         pos.z += mBoss.target().isRightDir() ? -0.5f : 0.0f;
         for (u32 i = 0; i < mAttackers.count(); i++) {
@@ -77,21 +80,21 @@ void CaptureCtrl::updateConstraintPosAtHold() {
 }
 
 void CaptureCtrl::updateConstraintPosAtHide() {
-    hel::math::Vector3 pos = mBoss.location().centerPos();
+    Vector3 pos = mBoss.location().centerPos();
     for (u32 i = 0; i < mAttackers.count(); i++) {
         mAttackers[i].setConstraintPos(pos);
     }
 }
 
 void CaptureCtrl::updateConstraintPosAtJuggling() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(mBoss.custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(mBoss.custom());
     for (u32 i = 0; i < mAttackers.count(); i++) {
         mAttackers[i].setConstraintPos(custom.jugglingCtrl().getFollowNode(i).worldTrans());
     }
 }
 
 void CaptureCtrl::updateConstraintPosAtShotprepare() {
-    hel::math::Vector3 pos = mBoss.location().pos();
+    Vector3 pos = mBoss.location().pos();
     for (u32 i = 0; i < mAttackers.count(); i++) {
         mAttackers[i].setConstraintPos(pos);
     }

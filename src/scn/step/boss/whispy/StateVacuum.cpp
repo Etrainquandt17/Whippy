@@ -12,13 +12,15 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace whispy {
 
 StateVacuum::StateVacuum(Boss* boss) : StateBase(boss), mCount(0), mEnemyTimer(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const VacuumParam& param = Utility::IsVariationExtra(obj()) ? obj().param().whispy().mVacuumExtra : obj().param().whispy().mVacuum;
     obj().model().reqScript(0x10);
     obj().guard().setType(Utility::IsVariationExtra(obj()) ? GUARD_TYPE_2 : GUARD_TYPE_3);
@@ -27,14 +29,14 @@ StateVacuum::StateVacuum(Boss* boss) : StateBase(boss), mCount(0), mEnemyTimer(0
 }
 
 StateVacuum::~StateVacuum() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.windCtrl().clear();
     obj().objColl().clearSearchHit();
     custom.enemyReqBuff().clear();
 }
 
 void StateVacuum::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const VacuumParam& param = obj().variation() == 1 ? obj().param().whispy().mVacuumExtra : obj().param().whispy().mVacuum;
     mCount++;
     if (mCount == param.mFrame) {
@@ -55,7 +57,7 @@ void StateVacuum::procAnim() {
 void StateVacuum::procMove() {}
 
 void StateVacuum::procObjCollReact() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture()) {
         obj().stateChanger().setNextState<StateCapture, Boss*>(objPtr());
     }
 }

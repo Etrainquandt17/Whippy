@@ -56,6 +56,13 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,12 +70,12 @@ namespace lowper {
 
 StateFireTackle::StateFireTackle(Boss* boss, u32 frame, bool isEx)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(), mGoalPos(), mRotY(0.0f), mIsEx(isEx) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_5);
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    f32 width = hel::math::Math::AbsF32(rect._C - rect._8);
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - obj().basePos().x);
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    f32 width = Math::AbsF32(rect._C - rect._8);
+    f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);
     mStartPos = obj().location().pos();
     if (mIsEx) {
         mGoalPos.x = obj().basePos().x - sign * param._6C;
@@ -96,15 +103,15 @@ void StateFireTackle::procAnim() {
     if (mRotY >= 360.0f) {
         mRotY -= 360.0f;
     }
-    g3d::NodeAccessor node = obj().model().model().nodes().at(3);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(90.0f, 0.0f, 0.0f)) *
-                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRotY, 0.0f)));
+    NodeAccessor node = obj().model().model().nodes().at(3);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(90.0f, 0.0f, 0.0f)) *
+                             Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRotY, 0.0f)));
 }
 
 void StateFireTackle::procMove() {
-    f32 rate = hel::math::Math::SinDegF(90.0f * (static_cast<f32>(mCount) / static_cast<f32>(mFrame)));
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    f32 rate = Math::SinDegF(90.0f * (static_cast<f32>(mCount) / static_cast<f32>(mFrame)));
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

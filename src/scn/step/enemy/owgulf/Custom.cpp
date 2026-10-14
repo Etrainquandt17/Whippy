@@ -28,6 +28,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,18 +40,18 @@ namespace owgulf {
 
 Custom::Custom(Enemy& enemy) : CustomBase(enemy) {}
 
-void Custom::shot(hel::math::Vector3 pos, hel::math::Vector3 velocity, weapon::owgulffeather::VariationKind kind) {
+void Custom::shot(Vector3 pos, Vector3 velocity, weapon::owgulffeather::VariationKind kind) {
     obj().soundSE().start(0x559);
     weapon::Desc desc(static_cast<weapon::Kind>(0x35), kind, static_cast<ostop::Flag>(4), pos.getXY(), velocity.getXY(),
                       obj().objColl().owner());
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
         weapon->move().setVelocity(velocity);
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -47,13 +47,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateLanding::StateLanding(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(2);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);

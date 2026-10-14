@@ -29,6 +29,9 @@
 #include "scn/step/map/KindUtil.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -112,8 +115,8 @@ void Utility::MoveGround(Hero& hero, Context& context) {
 
 bool Utility::IsSlope(Hero& hero) {
     if (hero.footState().isGround()) {
-        hel::math::Vector2 normal = hero.mapColl()._74;
-        if (hel::math::Math::AbsF32(normal.x) > 0.1f) {
+        Vector2 normal = hero.mapColl()._74;
+        if (Math::AbsF32(normal.x) > 0.1f) {
             return true;
         }
     }

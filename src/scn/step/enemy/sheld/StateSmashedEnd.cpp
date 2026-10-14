@@ -16,6 +16,8 @@
 #include "scn/step/enemy/sheld/ParamData.h"
 #include "scn/step/enemy/sheld/StateEscape.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -27,7 +29,7 @@ StateSmashedEnd::StateSmashedEnd(Enemy* enemy) : StateBase(enemy), mWait(obj().p
     obj().objColl().bodyColl().setStateHitOnly();
     obj().model().rotCtrl().setRotVIntpRate(1.0f);
     obj().model().rotCtrl().setRotHIntpRate(1.0f);
-    obj().effect().normal().requestP(static_cast<effect::Kind>(0x9f), obj().location().pos() + hel::math::Vector3(0.0f, 0.3f, 0.0f));
+    obj().effect().normal().requestP(static_cast<effect::Kind>(0x9f), obj().location().pos() + Vector3(0.0f, 0.3f, 0.0f));
 }
 
 StateSmashedEnd::~StateSmashedEnd() {

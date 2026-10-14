@@ -14,6 +14,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -33,8 +35,8 @@ void StateAttack::procAnim() {
         return;
     }
     if (obj().scriptTrigger().get(0)) {
-        hel::math::Vector2 pos(mDesc._4.x * obj().target().getSign(), mDesc._4.y);
-        hel::math::Vector2 speed(mDesc._C.x * obj().target().getSign(), mDesc._C.y);
+        Vector2 pos(mDesc._4.x * obj().target().getSign(), mDesc._4.y);
+        Vector2 speed(mDesc._C.x * obj().target().getSign(), mDesc._C.y);
         Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xB4), obj().location().pos() + pos.toVector3());
     }

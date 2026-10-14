@@ -35,6 +35,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,12 +58,12 @@ void StateAttack::procAnim() {
     const ParamData& param = obj().param().bulby();
     mFrame++;
     if (mFrame == param.mAttackShotFrame) {
-        shot(hel::math::Vector3::BASIS_Y * param.mShotSpeed);
+        shot(Vector3::BASIS_Y * param.mShotSpeed);
         if (obj().variation() == 0x66) {
-            f32 sin = hel::math::Math::SinDegF(param.mShotAngle);
-            f32 cos = hel::math::Math::CosDegF(param.mShotAngle);
-            shot(hel::math::Vector3(sin, cos, 0.0f) * param.mShotSpeed);
-            shot(hel::math::Vector3(-sin, cos, 0.0f) * param.mShotSpeed);
+            f32 sin = Math::SinDegF(param.mShotAngle);
+            f32 cos = Math::CosDegF(param.mShotAngle);
+            shot(Vector3(sin, cos, 0.0f) * param.mShotSpeed);
+            shot(Vector3(-sin, cos, 0.0f) * param.mShotSpeed);
         }
     }
     if (obj().model().isAllEnd()) {
@@ -72,13 +77,13 @@ void StateAttack::procFixPos() {
     }
 }
 
-void StateAttack::shot(hel::math::Vector3 velocity) {
-    hel::math::Vector2 nodePos = obj().model().model().nodes().at(0).worldMtx().getT().getXY();
+void StateAttack::shot(Vector3 velocity) {
+    Vector2 nodePos = obj().model().model().nodes().at(0).worldMtx().getT().getXY();
     const ParamData& param = obj().param().bulby();
-    hel::math::Vector2 pos = nodePos + param.mShotOffset;
+    Vector2 pos = nodePos + param.mShotOffset;
     weapon::Desc desc(static_cast<weapon::Kind>(0x34), 0, static_cast<ostop::Flag>(4), pos, velocity.getXY(),
                       obj().objColl().owner());
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
         weapon->move().setVelocity(velocity);
     }

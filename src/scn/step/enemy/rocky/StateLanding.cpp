@@ -26,6 +26,12 @@
 #include "scn/step/enemy/rocky/StateSlope.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,18 +42,18 @@ StateLanding::StateLanding(Enemy* enemy) : StateBase(enemy), mNormalX(0.0f), mIs
     obj().model().reqScript(2);
     obj().move().resetSpeedV();
     obj().move().resetSpeedH();
-    hel::math::Vector2 normal = obj().mapColl().floorNormal();
+    Vector2 normal = obj().mapColl().floorNormal();
     mNormalX = normal.x;
-    obj().model().rotCtrl().setRotV(hel::math::Math::Atan2DegF(-normal.x, normal.y));
+    obj().model().rotCtrl().setRotV(Math::Atan2DegF(-normal.x, normal.y));
     obj().soundSE().start(0x2c2);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(false);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(false);
 }
 
 StateLanding::~StateLanding() {}
 
 void StateLanding::procAnim() {
     if (obj().model().isAllEnd()) {
-        f32 x = hel::math::Math::Abs(mNormalX);
+        f32 x = Math::Abs(mNormalX);
         if (x < obj().param().rocky().mLandingSlopeNormalX) {
             obj().brainCtrl().toValid();
         } else {
@@ -61,20 +67,20 @@ void StateLanding::procFixPos() {
         obj().stateChanger().setNextState<StateFall, Enemy*>(objPtr());
         return;
     }
-    hel::math::Vector2 normal = obj().mapColl().floorNormal();
+    Vector2 normal = obj().mapColl().floorNormal();
     mNormalX = normal.x;
-    obj().model().rotCtrl().setRotV(hel::math::Math::Atan2DegF(-normal.x, normal.y));
+    obj().model().rotCtrl().setRotV(Math::Atan2DegF(-normal.x, normal.y));
     if (!mIsEffectRequested) {
-        hel::math::Vector3 right = obj().location().pos();
-        hel::math::Vector3 left = obj().location().pos();
+        Vector3 right = obj().location().pos();
+        Vector3 left = obj().location().pos();
         right.x += normal.y * obj().param().rocky().mLandingEffectOffsetX;
         right.y += -normal.x * obj().param().rocky().mLandingEffectOffsetY;
         left.x += -normal.y * obj().param().rocky().mLandingEffectOffsetX;
         left.y += normal.x * obj().param().rocky().mLandingEffectOffsetY;
-        hel::math::Direction3 rightDir(hel::math::Vector3(-normal.y, normal.x, 0.0f), hel::math::Vector3(normal.x, normal.y, 0.0f),
-                                       hel::math::Vector3(0.0f, 0.0f, 1.0f));
-        hel::math::Direction3 leftDir(hel::math::Vector3(normal.y, -normal.x, 0.0f), hel::math::Vector3(normal.x, normal.y, 0.0f),
-                                      hel::math::Vector3(0.0f, 0.0f, -1.0f));
+        Direction3 rightDir(Vector3(-normal.y, normal.x, 0.0f), Vector3(normal.x, normal.y, 0.0f),
+                            Vector3(0.0f, 0.0f, 1.0f));
+        Direction3 leftDir(Vector3(normal.y, -normal.x, 0.0f), Vector3(normal.x, normal.y, 0.0f),
+                           Vector3(0.0f, 0.0f, -1.0f));
         obj().effect().normal().requestPD(static_cast<effect::Kind>(0x124), right, rightDir);
         obj().effect().normal().requestPD(static_cast<effect::Kind>(0x124), left, leftDir);
         mIsEffectRequested = true;

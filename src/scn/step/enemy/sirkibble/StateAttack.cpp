@@ -28,13 +28,15 @@
 #include "scn/step/enemy/sirkibble/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace sirkibble {
 
 StateAttack::StateAttack(Enemy* enemy) : StateBase(enemy), mFrame(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(7);
     custom.chkNextTurnJump();
@@ -47,7 +49,7 @@ StateAttack::~StateAttack() {}
 
 void StateAttack::procAnim() {
     const ParamData& param = obj().param().sirkibble();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     if (mFrame == param.mAttackShotFrame) {
         custom.reqWeapon();

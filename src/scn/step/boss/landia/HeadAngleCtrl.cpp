@@ -14,6 +14,11 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using g3d::NodeAccessor;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -23,14 +28,14 @@ HeadAngleCtrl::HeadAngleCtrl(Boss& boss) : mBoss(boss), mNeckAngle(0.0f), mHeadA
 
 void HeadAngleCtrl::update() {
     const Param& param = mBoss.param().landia();
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(mBoss);
+    Vector3 heroPos = Utility::GetHatedHeroPos(mBoss);
     f32 diffY = heroPos.y - (param.mHeadOffsetY + mBoss.location().pos().y);
-    f32 neckAngle = hel::math::Math::LimitMinMax(diffY * param.mNeckAngleRate, param.mNeckAngleMin, param.mNeckAngleMax);
+    f32 neckAngle = Math::LimitMinMax(diffY * param.mNeckAngleRate, param.mNeckAngleMin, param.mNeckAngleMax);
     f32 headAngle = 0.0f;
-    if (hel::math::Math::Equals(neckAngle, param.mNeckAngleMax, 0.00001f) || hel::math::Math::Equals(neckAngle, param.mNeckAngleMin, 0.00001f)) {
-        f32 distance = hel::math::Math::AbsF32(heroPos.x - mBoss.location().pos().x);
+    if (Math::Equals(neckAngle, param.mNeckAngleMax, 0.00001f) || Math::Equals(neckAngle, param.mNeckAngleMin, 0.00001f)) {
+        f32 distance = Math::AbsF32(heroPos.x - mBoss.location().pos().x);
         if (distance < param.mHeadDistance) {
-            headAngle = hel::math::Math::LimitMinMax(param.mHeadAngleRate * (param.mHeadDistance - distance), param.mHeadAngleMin, param.mHeadAngleMax);
+            headAngle = Math::LimitMinMax(param.mHeadAngleRate * (param.mHeadDistance - distance), param.mHeadAngleMin, param.mHeadAngleMax);
             if (neckAngle < 0.0f) {
                 headAngle *= -1.0f;
             }
@@ -65,8 +70,8 @@ void HeadAngleCtrl::toInvalid() {
 }
 
 void HeadAngleCtrl::setMtx(NodeKind kind, f32 angle) {
-    g3d::NodeAccessor node = mBoss.model().model().nodes().at(kind);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(-angle, 0.0f, 0.0f)));
+    NodeAccessor node = mBoss.model().model().nodes().at(kind);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(-angle, 0.0f, 0.0f)));
 }
 
 }}}}  // namespace scn::step::boss::landia

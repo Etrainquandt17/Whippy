@@ -40,6 +40,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -48,7 +50,7 @@ namespace fattybuffer {
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
     obj().footState().setAir();
     obj().model().reqScript(0x21);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().comp().enemyManager().reqDeadAllEnemyForBoss();
     obj().comp().weaponManager().reqDeadByTeamNo(ocoll::TEAM_NO_1);
     Utility::StagingBossDamageL(obj());

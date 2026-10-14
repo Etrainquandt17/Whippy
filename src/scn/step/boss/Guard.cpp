@@ -2,6 +2,8 @@
 
 #include "hel/math/Math.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -19,7 +21,7 @@ void Guard::setType(GuardType type) {
 }
 
 u32 Guard::calcDamage(u32 damage, f32 rate) {
-    if (hel::math::Math::EqZero(rate) && mType == GUARD_TYPE_6) {
+    if (Math::EqZero(rate) && mType == GUARD_TYPE_6) {
         return 0;
     }
     u32 passed = damage * T_DAMAGE_PASS_RATE_TABLE[mType];

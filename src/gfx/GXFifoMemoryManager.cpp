@@ -6,18 +6,20 @@
 #include "mem/Memory.h"
 #include "revolution/os/OSCache.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace gfx {
 
 GXFifoMemoryManager::GXFifoMemoryManager(u32 size, u32 arg)
     : mSize(size)
     , _4(arg)
-    , mData(hel::common::ExplicitSingleton<mem::Memory>::object_->mem1FixHeap().allocatorAlloc(mSize + 0x400, 0x20))
+    , mData(ExplicitSingleton<mem::Memory>::object_->mem1FixHeap().allocatorAlloc(mSize + 0x400, 0x20))
     , mIsWriteEnable(true) {
     DCInvalidateRange(data(), mSize);
 }
 
 GXFifoMemoryManager::~GXFifoMemoryManager() {
-    hel::common::ExplicitSingleton<mem::Memory>::object_->mem1FixHeap().free(mData);
+    ExplicitSingleton<mem::Memory>::object_->mem1FixHeap().free(mData);
     mData = 0;
 }
 

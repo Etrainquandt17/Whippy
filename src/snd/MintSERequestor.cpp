@@ -4,11 +4,13 @@
 #include "metafortress.h"
 #include "snd/SERequestor.h"
 
+using hel::common::PointerWrapper;
+
 namespace snd {
 
 namespace {
 
-hel::common::PointerWrapper<SERequestor> t_obj;
+PointerWrapper<SERequestor> t_obj;
 
 }
 

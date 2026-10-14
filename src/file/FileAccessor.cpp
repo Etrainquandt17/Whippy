@@ -5,6 +5,9 @@
 #include "file/FileManager.h"
 #include "file/FileTree.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+
 namespace file {
 
 FileAccessor::FileAccessor(const char* path, bool arg)
@@ -25,7 +28,7 @@ mem::MemBlock FileAccessor::block() const {
 }
 
 void FileAccessor::load(const char* path, const IFileInitializer* initializer, bool) {
-    FileTree& tree = hel::common::ExplicitSingleton<app::Application>::object_->fileManager().treeRoot();
+    FileTree& tree = ExplicitSingleton<Application>::object_->fileManager().treeRoot();
     FileLoader* loader = tree.findFile(path);
     if (loader != 0) {
         mLoader = loader;

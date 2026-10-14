@@ -22,6 +22,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjList.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -29,7 +31,7 @@ namespace roah {
 
 StateBoomerang::StateBoomerang(Boss* boss, Config config)
     : StateBase(boss), mCount(0), mIsThrown(false), mIsCaught(false), mConfig(config) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     switch (mConfig._0) {
     case 0:
@@ -48,13 +50,13 @@ StateBoomerang::StateBoomerang(Boss* boss, Config config)
 }
 
 StateBoomerang::~StateBoomerang() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).weaponCtrl().isCaught();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).weaponCtrl().isCaught();
     obj().model().model().nodes().at(6).setVisibility(true);
     obj().model().model().nodes().at(7).setVisibility(true);
 }
 
 void StateBoomerang::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mCount++;
     if (mConfig._0 == 2 && !mIsThrown && mCount % 5 == 0) {
         obj().model().shake().request(static_cast<chara::ShakeKind>(0));

@@ -19,6 +19,11 @@
 #include "scn/step/hero/Manager.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -48,22 +53,22 @@ void StateDead::procAnim() {
                 return;
             }
             Utility::GenerateShipParts(obj(), static_cast<item::ShipPartKind>(0),
-                                       obj().location().pos() + hel::math::Vector3(param.mDeadShipPartsOffset),
-                                       obj().basePos() + hel::math::Vector2(param.mDeadShipPartsGoal));
-            obj().comp().heroManager().setClearDanceOffset(4, hel::math::Vector3(param.mDeadClearDanceOffset));
+                                       obj().location().pos() + Vector3(param.mDeadShipPartsOffset),
+                                       obj().basePos() + Vector2(param.mDeadShipPartsGoal));
+            obj().comp().heroManager().setClearDanceOffset(4, Vector3(param.mDeadClearDanceOffset));
         }
     }
     f32 rate = static_cast<f32>(mCount) / static_cast<f32>(param.mDeadFrame);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    f32 trunkScale = hel::math::Math::LinearInterpolation(param.mGrowTrunkScale, 1.0f, rate);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    f32 trunkScale = Math::LinearInterpolation(param.mGrowTrunkScale, 1.0f, rate);
     custom.tsctrl().setTrunkScale(trunkScale);
-    hel::math::Vector3 trans = hel::math::Vector3(param.mGrowBaseTrans) * (1.0f - rate);
+    Vector3 trans = Vector3(param.mGrowBaseTrans) * (1.0f - rate);
     custom.tsctrl().setBaseTrans(trans);
-    obj().location().setPos(obj().location().pos() + hel::math::Vector3::BASIS_Z * (param.mGrowBaseTrans.z - trans.z));
-    hel::math::Vector3 scale =
-        hel::math::Math::LinearInterpolation(hel::math::Vector3(param.mGrowBaseScale), hel::math::Vector3::ALL_ONE, rate);
+    obj().location().setPos(obj().location().pos() + Vector3::BASIS_Z * (param.mGrowBaseTrans.z - trans.z));
+    Vector3 scale =
+        Math::LinearInterpolation(Vector3(param.mGrowBaseScale), Vector3::ALL_ONE, rate);
     custom.tsctrl().setBaseScale(scale);
-    obj().location().setPos(mStartPos + hel::math::Vector3(param.mDeadMove) * (rate * rate));
+    obj().location().setPos(mStartPos + Vector3(param.mDeadMove) * (rate * rate));
 }
 
 void StateDead::procMove() {}
@@ -77,7 +82,7 @@ void StateDead::stagingBossDead() {
         obj().comp().enemyManager().reqDeadAllEnemyForBoss();
         obj().comp().weaponManager().reqDeadByTeamNo(ocoll::TEAM_NO_1);
         obj().model().reqScript(0x15);
-        Utility::StagingBossDead(obj(), hel::math::Vector3(param.mDeadStagingOffset));
+        Utility::StagingBossDead(obj(), Vector3(param.mDeadStagingOffset));
     }
 }
 

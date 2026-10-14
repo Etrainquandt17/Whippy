@@ -19,14 +19,19 @@
 #include "scn/step/map/BinGmkGeneralEntry.h"
 #include "scn/step/map/MemManager.h"
 
+using g3d::NodeAccessor;
+using g3d::Root;
+using hel::common::FixedString;
+using hel::common::FixedStringIN;
 using hel::math::Vector2;
 using hel::math::Vector3;
+using util::ObjRefHandle;
 
 namespace {
 
 // TODO: what g3d::NodeAccessor holds; g3d/NodeAccessor.h has it opaque.
 struct NodeAccessorMembers {
-    util::ObjRefHandle<g3d::Model> model;
+    ObjRefHandle<g3d::Model> model;
     u32 index;
 };
 
@@ -42,7 +47,7 @@ inline f32 t_distance(const Vector2& a, const Vector2& b) {
 }
 
 #define MF_FUNCTION getConnectString__24_unnamed_Switch_prt_cpp_FPCcPCc
-hel::common::FixedString<40> getConnectString(const char* a, const char* b) {
+FixedString<40> getConnectString(const char* a, const char* b) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -135,13 +140,13 @@ hel::common::FixedString<40> getConnectString(const char* a, const char* b) {
             blr
         }
     } else {
-        return hel::common::FixedStringIN<char, 40>::FromFormat("%s%s", a, b);
+        return FixedStringIN<char, 40>::FromFormat("%s%s", a, b);
     }
 }
 #undef MF_FUNCTION
 
 #define MF_FUNCTION getConnectString__24_unnamed_Switch_prt_cpp_FPCcPCcPCc
-hel::common::FixedString<40> getConnectString(const char* a, const char* b, const char* c) {
+FixedString<40> getConnectString(const char* a, const char* b, const char* c) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -196,7 +201,7 @@ hel::common::FixedString<40> getConnectString(const char* a, const char* b, cons
     hash = (expected & ~hash) | (hash & ~expected);
     hash -= hash >> 2;
     if (hash == 0) {
-        return hel::common::FixedStringIN<char, 40>::FromFormat("%s%s%s", a, b, c);
+        return FixedStringIN<char, 40>::FromFormat("%s%s%s", a, b, c);
     }
     asm {
         bl      after4
@@ -317,7 +322,7 @@ Switch::~Switch() {
     mStop.remove(_5FC);
 }
 
-void Switch::registerToRoot(g3d::Root& root) {
+void Switch::registerToRoot(Root& root) {
     mModel.registerToRoot(root);
 }
 
@@ -424,7 +429,7 @@ void Switch::objCollReact() {
     }
     {
         Vector2 offset(0.0f, 0.4f);
-        util::ObjRefHandle<carryitem::CarryItem> carried =
+        ObjRefHandle<carryitem::CarryItem> carried =
             mComponent.carryItemManager().chkCollideSwitch(mPos + offset);
         if (carried.ptr() != 0 && carried->kind() != 0) {
             _C78 = true;
@@ -603,7 +608,7 @@ ocoll::NodeDesc Switch::mfGetOCNodeDesc(f32 radius) {
     u32 size;
     u32 i;
 
-    g3d::NodeAccessor node = mModel.model().nodeByName(getConnectString("TopL", mName));
+    NodeAccessor node = mModel.model().nodeByName(getConnectString("TopL", mName));
     ocoll::NodeDesc desc;
     size = 0x811D0000;
     hash = size - 0x623B;

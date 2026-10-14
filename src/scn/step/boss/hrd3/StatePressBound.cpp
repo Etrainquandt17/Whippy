@@ -60,13 +60,18 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
 StatePressBound::StatePressBound(Boss* boss, u32 frame) : StateBase(boss), mCount(0), mFrame(frame), mIsLast(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::TurnHatedHero(obj());
     setTargetPos();
     u32 scriptKind = 0x13;
@@ -96,12 +101,12 @@ void StatePressBound::procAnim() {
 void StatePressBound::procMove() {
     const Param& param = obj().param().hrd3();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 sin = hel::math::Math::SinDegF(180.0f * t);
+    f32 sin = Math::SinDegF(180.0f * t);
     f32 easeOut = 1.0f - (1.0f - sin) * (1.0f - sin);
-    f32 height = hel::math::Math::LinearInterpolation(sin, easeOut, 0.8f);
-    hel::math::Vector3 pos = mStartPos;
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
-    pos.y += hel::math::Math::LinearInterpolation(0.0f, param._B0, height);
+    f32 height = Math::LinearInterpolation(sin, easeOut, 0.8f);
+    Vector3 pos = mStartPos;
+    pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
+    pos.y += Math::LinearInterpolation(0.0f, param._B0, height);
     obj().location().setPos(pos);
 }
 
@@ -109,7 +114,7 @@ void StatePressBound::procFixPos() {}
 
 void StatePressBound::setTargetPos() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mStartPos = obj().location().pos();
     mGoalPos = mStartPos;
     mGoalPos.x += param._AC * obj().target().getSign();
@@ -125,8 +130,8 @@ void StatePressBound::reqBoundEffect() {
     obj().effect().normal().requestP(static_cast<effect::Kind>(0x2EF), obj().location().pos());
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(5));
     obj().soundSE().normal().start(0x3CF);
-    hel::math::Vector2 pos = param._14;
-    hel::math::Vector2 speed = param._24;
+    Vector2 pos = param._14;
+    Vector2 speed = param._24;
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
     pos.x *= -1.0f;
     speed.x *= -1.0f;

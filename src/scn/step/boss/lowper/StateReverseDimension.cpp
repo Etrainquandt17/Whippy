@@ -64,13 +64,15 @@
 #include "scn/step/sfx/ScreenFade.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateReverseDimension::StateReverseDimension(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x29);
     obj().guard().setType(static_cast<GuardType>(4));

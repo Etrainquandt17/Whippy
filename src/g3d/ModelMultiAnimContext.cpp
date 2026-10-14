@@ -1,9 +1,12 @@
 #include "g3d/ModelMultiAnimContext.h"
 
+using hel::common::FixedString;
+using hel::common::FixedStringIN;
+
 namespace g3d {
 
-hel::common::FixedString<32> ModelMultiAnimContext::DefaultHeapNamePrefix() {
-    return hel::common::FixedStringIN<char, 32>::FromFormat("%s", "MdlAnm");
+FixedString<32> ModelMultiAnimContext::DefaultHeapNamePrefix() {
+    return FixedStringIN<char, 32>::FromFormat("%s", "MdlAnm");
 }
 
 u32 ModelMultiAnimContext::DefaultOneAnimSlotWorkMemSize() {
@@ -11,7 +14,7 @@ u32 ModelMultiAnimContext::DefaultOneAnimSlotWorkMemSize() {
 }
 
 ModelMultiAnimContext::ModelMultiAnimContext(const ResModelContext& resModel, u32 animSlotNum, u32 oneAnimSlotWorkMemSize,
-                                             const hel::common::FixedString<32>& heapNamePrefix, mem::IAllocator& allocator)
+                                             const FixedString<32>& heapNamePrefix, mem::IAllocator& allocator)
     : ResModelContext(resModel)
     , mAnimSlotNum(animSlotNum)
     , mOneAnimSlotWorkMemSize(oneAnimSlotWorkMemSize)

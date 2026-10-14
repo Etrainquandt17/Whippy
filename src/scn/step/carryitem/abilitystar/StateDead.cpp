@@ -12,6 +12,9 @@
 #include "scn/step/chara/WorldCage.h"
 #include "scn/step/core/PermEffect.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -25,7 +28,7 @@ StateDead::StateDead(CarryItem* carryItem, bool isLong)
     obj().vacuumReceiver().setIsValid(false);
     obj().worldCage().setIsValid(true);
     obj().move().resetVelocity();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     if (obj().mapColl().result()._7) {
         obj().comp().permEffect().normal().requestForeP(static_cast<effect::Kind>(0xD9), pos);
     } else {
@@ -42,10 +45,10 @@ StateDead::~StateDead() {
 void StateDead::procAnim() {
     mFrame++;
     if (mFrame < 15) {
-        hel::math::Vector3 offset;
+        Vector3 offset;
         f32 angle = 30.0f + 120.0f * static_cast<f32>((mFrame % 6) / 2);
-        offset.x = 0.05f * hel::math::Math::CosDegF(angle);
-        offset.y = 0.05f * hel::math::Math::SinDegF(angle);
+        offset.x = 0.05f * Math::CosDegF(angle);
+        offset.y = 0.05f * Math::SinDegF(angle);
         obj().model().setViewOffset(offset);
     }
     if (mIsLong) {

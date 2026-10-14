@@ -3,6 +3,9 @@
 #include "hel/common/Array.h"
 #include "scn/step/DebugStepSettingProxy.h"
 
+using app::Random;
+using hel::common::Array;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -25,13 +28,13 @@ void GearNodeRandomChanger::select(const u32* table, u32 num) {
         mIsSelected = true;
         return;
     }
-    hel::common::Array<u32, 16> sums;
+    Array<u32, 16> sums;
     u32 total = 0;
     for (u32 i = 0; i < num; i++) {
         total += table[i];
         sums[i] = total;
     }
-    u32 value = app::Random::RandU32(total);
+    u32 value = Random::RandU32(total);
     mIsSelected = false;
     for (u32 i = 0; i < num; i++) {
         if (value < sums[i]) {

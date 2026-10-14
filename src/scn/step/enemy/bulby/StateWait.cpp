@@ -32,6 +32,8 @@
 #include "scn/step/enemy/common/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ namespace bulby {
 
 StateWait::StateWait(Enemy* enemy) : StateBase(enemy), mFrame(0) {
     obj().footState().setGround();
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isBuried()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isBuried()) {
         obj().model().reqScript(7);
     }
 }
@@ -50,7 +52,7 @@ StateWait::~StateWait() {
 
 void StateWait::procAnim() {
     const ParamData& param = obj().param().bulby();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     setHitFlag(true);
     if (mFrame > param.mWaitFrame && Utility::IsHeroInRange(obj(), param.mRangeH, -param.mRangeH, -param.mRangeV, param.mRangeV)) {
         if (custom.isBuried() || obj().variation() == 0x64) {

@@ -26,6 +26,8 @@
 #include "scn/step/enemy/squishy/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +35,7 @@ namespace squishy {
 
 StateMoveInWater::StateMoveInWater(Enemy* enemy) : StateBase(enemy), mIsInWater(true), mFrame(0), mMoveFrame(0) {
     const ParamData& param = obj().param().squishy();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(7);
     obj().move().resetVelocity();
@@ -82,7 +84,7 @@ void StateMoveInWater::procMove() {
 }
 
 void StateMoveInWater::procFixPos() {
-    mIsInWater = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater(false);
+    mIsInWater = DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater(false);
     if (obj().mapColl().result().isHitWallFront()) {
         obj().move().resetSpeedH();
         obj().target().setIsRightDir(!obj().target().isRightDir());

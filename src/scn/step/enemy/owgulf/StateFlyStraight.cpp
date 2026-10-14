@@ -24,6 +24,8 @@
 #include "scn/step/enemy/owgulf/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +47,7 @@ void StateFlyStraight::procFixPos() {
     if (obj().mapColl().result()._2) {
         obj().move().resetSpeedH();
         obj().target().setIsRightDir(!obj().target().isRightDir());
-    } else if (hel::math::Math::Abs(obj().nururi().getNururiDir().x) >= 0.1f) {
+    } else if (Math::Abs(obj().nururi().getNururiDir().x) >= 0.1f) {
         obj().target().setIsRightDir(obj().nururi().getNururiDir().x > 0.0f);
     }
 }

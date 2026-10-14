@@ -25,6 +25,9 @@
 #include "scn/step/hero/highjump/StateRocketFallWallHit.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -54,14 +57,14 @@ void StateRocketFall::procAnim() {
         obj().stateChanger().setNextState<StateRocketFallEnd, Hero*>(objPtr());
         return;
     }
-    hel::math::Vector2 velocity = obj().move().velocity().getXY();
+    Vector2 velocity = obj().move().velocity().getXY();
     if (!velocity.isZero()) {
         velocity.normalize();
-        f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(velocity);
+        f32 angle = Vector2::BASIS_Y.signedAngle(velocity);
         obj().model().modelRotCtrl().setRotV(57.29578f * angle - 180.0f);
     }
     if (!_1C) {
-        hel::math::Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
+        Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
         if (pos.y - mStartPos.y < param._88) {
             mFrame += param._8C;
             _1C = true;
@@ -74,7 +77,7 @@ void StateRocketFall::procMove() {
     if (mFrame > param._90) {
         mSpeedRate *= param._94;
     }
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     f32 maxSpeedH = param._7C;
     velocity.y = param._80;
     if (Utility::IsPressHDirKey(obj())) {

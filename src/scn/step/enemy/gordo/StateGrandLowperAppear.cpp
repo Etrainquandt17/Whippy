@@ -11,6 +11,9 @@
 #include "scn/step/enemy/whispyapple/StateFall.h"
 #include "scn/step/enemy/whispyapple/WhispyAppleUtility.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -21,7 +24,7 @@ StateGrandLowperAppear::StateGrandLowperAppear(Enemy* enemy) : StateBase(enemy),
     obj().objColl().bodyColl().setStateXlu();
     obj().model().reqScript(1);
     obj().move().resetVelocity();
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * 0.1f);
+    obj().model().setScale(Vector3::ALL_ONE * 0.1f);
 }
 
 StateGrandLowperAppear::~StateGrandLowperAppear() {
@@ -32,7 +35,7 @@ void StateGrandLowperAppear::procAnim() {
     mAlgorithm.procAnim();
     if (!mAlgorithm.isHoldEnd()) {
         f32 rate = 1.0f - mAlgorithm.getHoldFrameRate();
-        obj().model().setScale(hel::math::Vector3::ALL_ONE * hel::math::Math::LinearInterpolation(0.1f, 1.0f, rate));
+        obj().model().setScale(Vector3::ALL_ONE * Math::LinearInterpolation(0.1f, 1.0f, rate));
     } else {
         whispyapple::WhispyAppleUtility::ReqFallSE(obj());
         obj().stateChanger().setNextState<whispyapple::StateFall, Enemy*, int, bool>(objPtr(), 1, true);

@@ -13,6 +13,9 @@
 #include "scn/step/weapon/roahoar/Param.h"
 #include "scn/step/weapon/roahoar/StateMoveStart.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -60,9 +63,9 @@ void StateSpread::procAnim() {
     }
     if (Utility::IsExtra(obj())) {
         f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param._10);
-        f32 sin = hel::math::Math::SinDegF(90.0f * rate);
+        f32 sin = Math::SinDegF(90.0f * rate);
         f32 scale = sin * param._8 + 1.0f;
-        obj().model().setBaseScale(hel::math::Vector3::ALL_ONE * scale);
+        obj().model().setBaseScale(Vector3::ALL_ONE * scale);
         if (mFrame % 5 == 0) {
             obj().model().shake().request(static_cast<chara::ShakeKind>(1));
         }
@@ -71,8 +74,8 @@ void StateSpread::procAnim() {
 
 void StateSpread::procMove() {
     const Param& param = obj().param().roahOar();
-    f32 t = hel::math::Math::InterpolationParamMinToMin(static_cast<f32>(mFrame) / static_cast<f32>(param._10));
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mStartPos, mEndPos, t));
+    f32 t = Math::InterpolationParamMinToMin(static_cast<f32>(mFrame) / static_cast<f32>(param._10));
+    obj().location().setPos(Math::LinearInterpolation(mStartPos, mEndPos, t));
 }
 
 void StateSpread::procFixPos() {}

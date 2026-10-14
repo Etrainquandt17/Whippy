@@ -15,6 +15,8 @@
 #include "scn/step/hero/common/StateWaterFloat.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -49,7 +51,7 @@ StateWaterPistolFloat::~StateWaterPistolFloat() {
 void StateWaterPistolFloat::procAnim() {
     obj().abilityManager().chkDiscardAbility();
     if (obj().model().scriptTrigger().get(0)) {
-        hel::math::Vector2 offset(obj().model().isRightDir() ? 1.0f : -1.0f, 0.0f);
+        Vector2 offset(obj().model().isRightDir() ? 1.0f : -1.0f, 0.0f);
         Utility::CreateWaterPistol(obj(), offset, false);
     }
     if (obj().model().scriptTrigger().get(1)) {

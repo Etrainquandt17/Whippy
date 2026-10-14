@@ -71,13 +71,17 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateCircling::StateCircling(Boss* boss) : StateBase(boss), mCount(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1B);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -107,13 +111,13 @@ void StateCircling::procAnim() {
 void StateCircling::procMove() {
     const Param& param = obj().param().metalgeneral();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._174);
-    hel::math::Vector3 pos = mStartPos;
-    f32 x = hel::math::Math::SinDegF(360.0f * t);
+    Vector3 pos = mStartPos;
+    f32 x = Math::SinDegF(360.0f * t);
     if (static_cast<f32>(mCount + 1) < static_cast<f32>(param._174) / 2.0f) {
         x *= 0.3f;
     }
     pos.x += x * param._178 * obj().target().getSign();
-    f32 y = hel::math::Math::SinDegF(180.0f * t);
+    f32 y = Math::SinDegF(180.0f * t);
     pos.y += y * param._17C;
     obj().location().setPos(pos);
 }

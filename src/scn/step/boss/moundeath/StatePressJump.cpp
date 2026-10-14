@@ -50,6 +50,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -79,7 +82,7 @@ StatePressJump::StatePressJump(Boss* boss, JumpKind kind)
     case JUMP_KIND_2:
         obj().model().reqScript(0xD);
         mGoalPos.x = Utility::GetHatedHeroPos(obj()).x;
-        if (hel::math::Math::AbsF32(mGoalPos.x - obj().comp().mainCamera().getCenter().x) > param._B0) {
+        if (Math::AbsF32(mGoalPos.x - obj().comp().mainCamera().getCenter().x) > param._B0) {
             mGoalPos.x = mGoalPos.x > obj().comp().mainCamera().getCenter().x ? param._B0 + obj().comp().mainCamera().getCenter().x
                                                                              : obj().comp().mainCamera().getCenter().x - param._B0;
         }
@@ -112,9 +115,9 @@ void StatePressJump::procAnim() {
 
 void StatePressJump::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector2 pos = hel::math::Vector2::ZERO;
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalPos.y, hel::math::Math::SinDegF(90.0f * t));
+    Vector2 pos = Vector2::ZERO;
+    pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
+    pos.y = Math::LinearInterpolation(mStartPos.y, mGoalPos.y, Math::SinDegF(90.0f * t));
     obj().location().setPos(pos.toVector3());
 }
 

@@ -22,6 +22,10 @@
 #include "scn/step/weapon/spearspear/StateStickWall.h"
 #include "scn/step/weapon/spearspear/Utility.h"
 
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -29,7 +33,7 @@ namespace spearspear {
 
 StateReflect::StateReflect(Weapon* weapon) : StateBase(weapon), mRot(0.0f) {
     const Param& param = obj().param().spearSpear();
-    hel::math::Vector3 velocity(param._28 * hel::math::Math::Sign(obj().move().velocity().x), param._2C, 0.0f);
+    Vector3 velocity(param._28 * Math::Sign(obj().move().velocity().x), param._2C, 0.0f);
     obj().move().setVelocity(velocity);
 }
 
@@ -48,7 +52,7 @@ void StateReflect::procAnim() {
         mRot += 360.0f;
     }
     obj().model().model().nodes().at(1).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, mRot))
+        Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, mRot))
     );
 }
 
@@ -59,7 +63,7 @@ void StateReflect::procMove() {
 
 void StateReflect::procFixPos() {
     if (obj().mapColl().isHit()) {
-        hel::math::Vector3 velocity = obj().mapColl().normal().toVector3();
+        Vector3 velocity = obj().mapColl().normal().toVector3();
         velocity *= -0.1f;
         obj().move().setVelocity(velocity);
         f32 rot = obj().model().rotCtrl().getRotV();

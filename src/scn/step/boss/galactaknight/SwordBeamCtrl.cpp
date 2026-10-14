@@ -54,6 +54,13 @@
 #include "scn/step/weapon/galactaswordbeam/Custom.h"
 #include "util/ObjRefHandle.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::common::MutableArray;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -102,9 +109,9 @@ SwordBeamCtrl::ReqData SwordBeamCtrl::pick() {
 }
 
 void SwordBeamCtrl::shuffleIndex() {
-    hel::common::MutableArray<ReqData, 12> buff = mBuff;
+    MutableArray<ReqData, 12> buff = mBuff;
     for (u32 i = 0; buff.count() != 0; i++) {
-        u32 index = app::Random::RandU32(buff.count());
+        u32 index = Random::RandU32(buff.count());
         mBuff[i].mIndex = buff[index].mIndex;
         buff.removeAtIndex(index);
     }
@@ -114,12 +121,12 @@ void SwordBeamCtrl::shuffleIndex() {
 // this gives r30, r29 and r31.
 void SwordBeamCtrl::requestOne() {
     const Param& param = mBoss.param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(mBoss.custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(mBoss.custom());
     if (!isEmpty()) {
         ReqData data = pick();
-        hel::math::Vector2 pos = mBoss.location().pos().getXY();
+        Vector2 pos = mBoss.location().pos().getXY();
         pos.y += 1.0f;
-        hel::math::Vector2 dir = hel::math::Vector2::BASIS_X;
+        Vector2 dir = Vector2::BASIS_X;
         dir.rotate(0.017453292f * data._0);
         dir.x *= mBoss.target().getSign();
         dir *= 0.5f;
@@ -130,13 +137,13 @@ void SwordBeamCtrl::requestOne() {
             desc._24.x = x * mBoss.target().getSign() + custom.landCtrl().getCenterX();
             desc._24.y = 1.0f + (param._40 + custom.landCtrl().getFloorY());
         }
-        util::ObjRefHandle<weapon::Weapon> weapon = mBoss.comp().weaponManager().request(desc);
+        ObjRefHandle<weapon::Weapon> weapon = mBoss.comp().weaponManager().request(desc);
         if (weapon.operator->() != 0) {
             weapon::galactaswordbeam::Custom& weaponCustom =
-                hel::common::DynamicCastToRef<weapon::galactaswordbeam::Custom, weapon::ICustom>(weapon->custom());
+                DynamicCastToRef<weapon::galactaswordbeam::Custom, weapon::ICustom>(weapon->custom());
             weaponCustom.setIsReqStarEffect(data._5);
             if (data._4) {
-                hel::math::Vector3 weaponPos = pos.toVector3();
+                Vector3 weaponPos = pos.toVector3();
                 weaponPos.z = mBoss.location().pos().z;
                 weapon->location().setPos(weaponPos);
             }

@@ -71,13 +71,15 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateCirclingFlightEnd::StateCirclingFlightEnd(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1D);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);

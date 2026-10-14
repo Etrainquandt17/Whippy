@@ -50,13 +50,17 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace moundeath {
 
 StateRolling::StateRolling(Boss* boss) : StateBase(boss), mCount(0), mRot(0.0f), mWait(0), mIsRight(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x18);
     obj().move().resetVelocity();
@@ -67,7 +71,7 @@ StateRolling::StateRolling(Boss* boss) : StateBase(boss), mCount(0), mRot(0.0f),
 }
 
 StateRolling::~StateRolling() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
 }
 
 void StateRolling::procAnim() {
@@ -87,7 +91,7 @@ void StateRolling::procMove() {
         mWait--;
     }
     if (mWait == 0) {
-        hel::math::Vector3 target = Utility::GetHatedHeroPos(obj());
+        Vector3 target = Utility::GetHatedHeroPos(obj());
         bool isRight = mIsRight;
         if (target.squareDistance(obj().location().pos()) > param._13C) {
             isRight = target.x > obj().location().pos().x;
@@ -111,9 +115,9 @@ void StateRolling::procFixPos() {
     if (mCount > 20 && (result.isHitWallFront() || obj().worldCage().isCorrected())) {
         mWait = param._128;
         f32 sign = obj().move().velocity().x > 0.0f ? 1.0f : -1.0f;
-        hel::math::Vector2 offset(param._130 * sign, param._134);
+        Vector2 offset(param._130 * sign, param._134);
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xD8), obj().location().pos() + offset.toVector3());
-        hel::math::Vector3 velocity = obj().move().velocity();
+        Vector3 velocity = obj().move().velocity();
         velocity.x *= -param._124;
         obj().move().setVelocity(velocity);
         obj().soundSE().state().start(0x5A6);

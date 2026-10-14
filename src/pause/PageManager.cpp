@@ -29,6 +29,10 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjList.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedString;
+
 namespace pause {
 
 namespace {
@@ -73,7 +77,7 @@ bool tHasPageRemote(Component& component) {
 // TODO: mem::HeapExp is a mem::IAllocator; its header does not say so yet.
 PageManager::PageManager(Component& component)
     : mComponent(component)
-    , mHeap(hel::common::ExplicitSingleton<mem::Memory>::object_->externalHeap(), 0xC8000, "PausePage")
+    , mHeap(ExplicitSingleton<mem::Memory>::object_->externalHeap(), 0xC8000, "PausePage")
     , mFileTree(component.allocator(), reinterpret_cast<mem::IAllocator&>(mHeap.obj()), 2, 0)
     , _A4(0)
     , mPage(0)
@@ -107,7 +111,7 @@ PageManager::PageManager(Component& component)
         add     r18, r18, r22
         stw     r18, end
     }
-    mFileTree.setParent(hel::common::ExplicitSingleton<app::Application>::object_->fileManager().treeRoot());
+    mFileTree.setParent(ExplicitSingleton<Application>::object_->fileManager().treeRoot());
     limit = end - start + 1;
     base = start;
     mLayout.setParent(mComponent.base().paneByName("PauseCursorN"));
@@ -354,11 +358,11 @@ void PageManager::setupCurrentPage() {
         PAGE_RES_KIND_0, PAGE_RES_KIND_1, PAGE_RES_KIND_2, PAGE_RES_KIND_3,
         PAGE_RES_KIND_3, PAGE_RES_KIND_4, PAGE_RES_KIND_0,
     };
-    hel::common::FixedString<80> path =
-        hel::common::FixedString<80>::FromFormat("lyt/%s.arc", Constant::LytResPathPage(res[recipe.mKind]));
-    hel::common::FixedString<80> cmpbin =
-        hel::common::FixedString<80>::FromFormat("%s.cmpbin", static_cast<const char*>(path));
-    hel::common::FixedString<80> cmp = hel::common::FixedString<80>::FromFormat("%s.cmp", static_cast<const char*>(path));
+    FixedString<80> path =
+        FixedString<80>::FromFormat("lyt/%s.arc", Constant::LytResPathPage(res[recipe.mKind]));
+    FixedString<80> cmpbin =
+        FixedString<80>::FromFormat("%s.cmpbin", static_cast<const char*>(path));
+    FixedString<80> cmp = FixedString<80>::FromFormat("%s.cmp", static_cast<const char*>(path));
     {
         file::FileAccessor accessor(cmpbin, false);
         mFileTree.addFile(accessor.block(), cmp, 0);

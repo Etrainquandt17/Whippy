@@ -25,13 +25,16 @@
 #include "scn/step/enemy/barbar/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace barbar {
 
 StateStepBack::StateStepBack(Enemy* enemy) : StateBase(enemy), mIsHidden(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().anim().currentG3DAnimIndex() != 3) {
         custom.setStepBackSpeed();
         custom.reqCameraInSoundSE(0x2f0);
@@ -39,7 +42,7 @@ StateStepBack::StateStepBack(Enemy* enemy) : StateBase(enemy), mIsHidden(false) 
     obj().footState().setAir();
     if (obj().kind() == 0x4d && obj().model().anim().currentG3DAnimIndex() == 4 && custom.isHidden()) {
         mIsHidden = true;
-        hel::math::Vector3 velocity = obj().move().velocity();
+        Vector3 velocity = obj().move().velocity();
         velocity *= obj().param().barbar().mHiddenSpeedRate;
         obj().move().setVelocity(velocity);
     } else {
@@ -48,7 +51,7 @@ StateStepBack::StateStepBack(Enemy* enemy) : StateBase(enemy), mIsHidden(false) 
 }
 
 void StateStepBack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd() && 0.0f == obj().move().velocity().x && 0.0f == obj().move().velocity().y) {
         if (custom.isHidden()) {
             obj().location().setPos(custom.getInitPos());
@@ -58,7 +61,7 @@ void StateStepBack::procAnim() {
 }
 
 void StateStepBack::procMove() {
-    f32 size = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getSize();
+    f32 size = DynamicCastToRef<Custom, ICustom>(obj().custom()).getSize();
     gobj::MoveParamDecel decel = gobj::MoveParamDecel::Zero();
     decel._0 = obj().param().barbar().mStepBackDecel;
     decel._0 *= size;

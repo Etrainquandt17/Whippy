@@ -8,6 +8,8 @@
 #include "scn/step/boss/galactaknight/Param.h"
 #include "scn/step/chara/Location.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -50,7 +52,7 @@ f32 LandCtrl::getFrontOutSidePosX() const {
 
 bool LandCtrl::isGround() const {
     f32 y = mBoss.location().pos().y;
-    return hel::math::Math::Equals(y, getFloorY(), 0.00001f);
+    return Math::Equals(y, getFloorY(), 0.00001f);
 }
 
 }}}}  // namespace scn::step::boss::galactaknight

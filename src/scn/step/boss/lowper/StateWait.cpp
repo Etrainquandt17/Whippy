@@ -54,16 +54,19 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateWait::StateWait(Boss* boss) : StateBase(boss) {
-    commonInit(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).waftMoveCtrl().getCenter());
+    commonInit(DynamicCastToRef<Custom, ICustom>(obj().custom()).waftMoveCtrl().getCenter());
 }
 
-StateWait::StateWait(Boss* boss, const hel::math::Vector3& offset) : StateBase(boss) {
+StateWait::StateWait(Boss* boss, const Vector3& offset) : StateBase(boss) {
     commonInit(obj().basePos().toVector3() + offset);
 }
 
@@ -79,8 +82,8 @@ void StateWait::procFixPos() {
     obj().target().setIsRightDir(isRight);
 }
 
-void StateWait::commonInit(const hel::math::Vector3& pos) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+void StateWait::commonInit(const Vector3& pos) {
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().brainCtrl().toValid();

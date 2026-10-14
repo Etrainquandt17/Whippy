@@ -29,13 +29,15 @@
 #include "scn/step/enemy/mopoo/StateLaunch.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace mopoo {
 
 StateHide::StateHide(Enemy* enemy) : StateBase(enemy), mFrame(0), mWaitTime(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0);
     obj().model().setVisibility(false);
@@ -51,7 +53,7 @@ StateHide::StateHide(Enemy* enemy) : StateBase(enemy), mFrame(0), mWaitTime(0) {
 
 void StateHide::procFixPos() {
     const ParamData& param = obj().param().mopoo();
-    bool isConst = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isVariationConst();
+    bool isConst = DynamicCastToRef<Custom, ICustom>(obj().custom()).isVariationConst();
     bool isInRange = Utility::IsHeroInRange(obj(), param.mRangeLeft, param.mRangeRight, param.mRangeTop, param.mRangeBottom);
     if (mFrame <= mWaitTime) {
         mFrame++;

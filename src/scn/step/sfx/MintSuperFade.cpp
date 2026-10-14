@@ -5,13 +5,15 @@
 #include "scn/step/sfx/SuperFade.h"
 #include "types.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace sfx {
 
 namespace {
 
-hel::common::PointerWrapper<SuperFade> t_obj;
+PointerWrapper<SuperFade> t_obj;
 
 }
 

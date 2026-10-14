@@ -33,6 +33,13 @@
 #include "scn/step/sfx/BGFade.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -41,7 +48,7 @@ namespace roah {
 StateAppear::StateAppear(Boss* boss)
     : StateBase(boss), mCount(0), mMoveFrame(0), mIsMove(false), mIsWaitDemo(true), mIsStarted(false), mCameraCount(0), mIsCameraRot(false) {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.mahoroaCtrl().init();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().guard().setType(GUARD_TYPE_6);
@@ -61,7 +68,7 @@ StateAppear::~StateAppear() {}
 
 void StateAppear::procAnim() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (Utility::IsStagingFirstAppear(obj()) && Utility::IsAppearDemoCancelRequested(obj())) {
         startGame();
         custom.mahoroaCtrl().getCustom().bodyEffectCtrl().setInvisible();
@@ -81,8 +88,8 @@ void StateAppear::procAnim() {
     }
     {
         f32 width = param.mAppearLock.mHeight * obj().comp().mainCamera().getAspect();
-        hel::geo::Rect rect(param.mAppearLock.mHeight + param.mAppearLock.mBaseY, param.mAppearLock.mBaseY,
-                            -0.5f * width + param.mAppearLock.mCenterX, 0.5f * width + param.mAppearLock.mCenterX);
+        Rect rect(param.mAppearLock.mHeight + param.mAppearLock.mBaseY, param.mAppearLock.mBaseY,
+                  -0.5f * width + param.mAppearLock.mCenterX, 0.5f * width + param.mAppearLock.mCenterX);
         f32 rate;
         if (mIsCameraRot) {
             if (mCameraCount < param.mAppearCameraInFrame) {
@@ -118,7 +125,7 @@ void StateAppear::procAnim() {
         custom.mahoroaCtrl().setPhase(static_cast<MahoroaCtrl::Phase>(6));
     }
     if (obj().scriptTrigger().get(4)) {
-        hel::math::Vector3 pos = obj().basePos().toVector3() + hel::math::Vector3(param.mAppearEffectOffset);
+        Vector3 pos = obj().basePos().toVector3() + Vector3(param.mAppearEffectOffset);
 #ifdef VERSION_SUKK01
         obj().effect().state().requestPD(static_cast<effect::Kind>(0x634), pos, obj().target().getDirection3(), param.mAppearEffectScale);
 #else
@@ -142,7 +149,7 @@ void StateAppear::procAnim() {
     if (obj().scriptTrigger().get(7)) {
         obj().effect().state().release();
         obj().effect().stateWarp().release();
-        hel::math::Vector3 pos = obj().basePos().toVector3() + hel::math::Vector3(param.mAppearEffectOffset);
+        Vector3 pos = obj().basePos().toVector3() + Vector3(param.mAppearEffectOffset);
         obj().effect().state().requestP(static_cast<effect::Kind>(0x4BE), pos);
     }
     if (obj().scriptTrigger().get(8)) {
@@ -172,18 +179,18 @@ void StateAppear::procAnim() {
 void StateAppear::procMove() {
     const Param& param = obj().param().roah();
     if (mIsMove) {
-        hel::math::Vector2 start = obj().basePos() + hel::math::Vector2(param.mFirstOffset);
-        hel::math::Vector2 goal = obj().basePos() + hel::math::Vector2(0.0f, param.mFirstOffset.y);
+        Vector2 start = obj().basePos() + Vector2(param.mFirstOffset);
+        Vector2 goal = obj().basePos() + Vector2(0.0f, param.mFirstOffset.y);
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(mMoveFrame);
         f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-        hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(start, goal, rate);
+        Vector2 pos = Math::LinearInterpolation(start, goal, rate);
         obj().location().setPos(pos.toVector3());
     }
 }
 
 void StateAppear::procFixPos() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (param.mAppearHitX + obj().comp().mainCamera().getCenter().x > obj().location().pos().x) {
         custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     }
@@ -197,7 +204,7 @@ void StateAppear::startGame() {
             Utility::StagingFirstAppearEnd(obj());
             obj().comp().infoManager().gameStatus().checkLowBattery(60);
             for (u32 i = 0; i < 4; i++) {
-                util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
+                ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
                 if (hero.operator->() != 0) {
                     hero->pinch().setForbidNotifyInfo(false);
                     hero::InfoUtil::PlayerNumAppearIfNotLonely(*hero.operator->());

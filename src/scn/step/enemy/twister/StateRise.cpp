@@ -33,6 +33,10 @@
 #include "scn/step/ocoll/AttackType.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -57,7 +61,7 @@ StateRise::StateRise(Enemy* enemy)
 StateRise::~StateRise() {}
 
 void StateRise::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const ParamData& param = obj().param().twister();
     mFrame++;
     custom.setThetaY(mThetaSpeed + custom.getThetaY());
@@ -65,7 +69,7 @@ void StateRise::procAnim() {
         custom.setThetaX(custom.getThetaX() - param.mThetaXMax / 10.0f);
     }
     obj().model().model().nodes().at(1).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(custom.getThetaX(), custom.getThetaY(), 0.0f)));
+        Matrix34::CreateRotXYZDeg(Vector3(custom.getThetaX(), custom.getThetaY(), 0.0f)));
     if (mIsRising == true) {
         if (mFrame <= param.mRiseFrame) {
             if (mFrame == param.mRiseStartFrame) {

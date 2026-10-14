@@ -26,6 +26,8 @@
 #include "scn/step/enemy/common/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +47,7 @@ StateJump::StateJump(Enemy* enemy) : StateBase(enemy) {
     obj().objColl().clearBodyColl();
     f32 scale = Utility::GetModelScaleBySizeType(obj());
     obj().objColl().addBodyColl(1, param.mBodyRadius * scale);
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isBuried()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isBuried()) {
         obj().effect().normal().requestN(static_cast<effect::Kind>(0x375), 0);
         obj().soundSE().start(0x2e6);
     }

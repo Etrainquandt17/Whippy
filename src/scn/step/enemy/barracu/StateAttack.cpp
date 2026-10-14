@@ -13,6 +13,8 @@
 #include "scn/step/enemy/barracu/StateEscape.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -21,19 +23,19 @@ namespace barracu {
 StateAttack::StateAttack(Enemy* enemy)
     : StateBase(enemy), mFrame(0), mDamageFrame(obj().param().barracu().mAttackDamageFrame) {
     obj().model().reqScript(10);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.setDamageCaptureHero(obj().param().barracu().mAttackDamage, false);
     obj().nururi().setCanNururi(false);
     obj().soundSEState().start(0x30a);
 }
 
 StateAttack::~StateAttack() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).disableResistCaptureHero();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).disableResistCaptureHero();
     obj().nururi().setCanNururi(true);
 }
 
 void StateAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const ParamData& param = obj().param().barracu();
     if (--mDamageFrame == 0) {
         mDamageFrame = param.mAttackDamageFrame;

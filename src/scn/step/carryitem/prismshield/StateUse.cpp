@@ -20,6 +20,9 @@
 #include "scn/step/hero/Manager.h"
 #include "scn/step/hero/Model.h"
 
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -118,7 +121,7 @@ bool StateUse::isSameDir() {
 
 void StateUse::chkAnim() {
     if (obj().getUser().wasSet()) {
-        util::ObjRefHandle<hero::Hero> hero =
+        ObjRefHandle<hero::Hero> hero =
             obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().getUser()->getOCOwner().uid());
         if (!hero.isNull()) {
             int index = hero->model().anim().currentG3DAnimIndex();
@@ -138,19 +141,19 @@ void StateUse::setAttack() {
     f32 sign = mIsRightDir ? 1.0f : -1.0f;
     obj().objColl().clearAttack();
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x256));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
     f32 up = mIsGuard ? 0.5f : 0.0f;
     obj().objColl().addAttack(
-        0, param._2C, hel::math::Vector2(sign * param._30, param._34 + up),
-        hel::math::Vector2(sign * param._38, param._3C + up));
+        0, param._2C, Vector2(sign * param._30, param._34 + up),
+        Vector2(sign * param._38, param._3C + up));
 }
 
 void StateUse::reqReleaseEffect() {
     obj().effect().releaseAndVanish();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     f32 sign = mIsRightDir ? 1.0f : -1.0f;
     const Param& param = obj().param().prismShield();
-    pos += hel::math::Vector2(sign * param._18, param._1C);
+    pos += Vector2(sign * param._18, param._1C);
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x354), pos.toVector3());
 }
 

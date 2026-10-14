@@ -25,6 +25,9 @@
 #include "scn/step/enemy/fattybufferstalactite/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,7 +37,7 @@ StateLanding::StateLanding(Enemy* enemy) : StateBase(enemy), mFrame(0), mShakeFr
     const ParamData& param = obj().param().fattybufferstalactite();
     obj().footState().setGround();
     obj().move().resetVelocity();
-    mFrame = param.mLandFrameBase + app::Random::RandU32(param.mLandFrameRand);
+    mFrame = param.mLandFrameBase + Random::RandU32(param.mLandFrameRand);
     mShakeFrame = mFrame - param.mShakeStartFrame;
     if (mShakeFrame < param.mShakeInterval) {
         mShakeFrame = param.mShakeInterval;
@@ -42,7 +45,7 @@ StateLanding::StateLanding(Enemy* enemy) : StateBase(enemy), mFrame(0), mShakeFr
     obj().effect().state().requestP(static_cast<effect::Kind>(0x142), obj().location().pos());
     obj().soundSE().start(0x35f);
     obj().model().shake().request(static_cast<chara::ShakeKind>(3));
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, -0.5f, 0.0f));
+    obj().model().setViewOffset(Vector3(0.0f, -0.5f, 0.0f));
 }
 
 StateLanding::~StateLanding() {

@@ -7,6 +7,9 @@
 #include "scn/step/carryitem/VacuumReceiver.h"
 #include "scn/step/chara/Lifetime.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -17,9 +20,9 @@ StateVacuumReceive::StateVacuumReceive(CarryItem* carryItem, u32 time)
     , mMoveAlgorithm()
     , mWasAgeless(obj().lifetime().isAgeless())
     , mIsRight(false) {
-    hel::math::Vector2 dir(0.0f, 0.5f);
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 attackerPos = obj().vacuumReceiver().getAttackerPos();
+    Vector2 dir(0.0f, 0.5f);
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 attackerPos = obj().vacuumReceiver().getAttackerPos();
     mMoveAlgorithm.init(pos - attackerPos, dir, 1.0f, time);
     mIsRight = pos.x >= attackerPos.x;
     obj().mapColl().setValid(false);
@@ -49,7 +52,7 @@ void StateVacuumReceive::procAnim() {
             obj().vacuumReceiver().setEndVacuumed();
             obj().dead();
         } else {
-            hel::math::Vector3 pos = obj().location().pos();
+            Vector3 pos = obj().location().pos();
             obj().location().setPos(obj().vacuumReceiver().getAttackerPos().toVector3());
             obj().mapColl().setValid(true);
             obj().location().setPos(pos);
@@ -64,7 +67,7 @@ void StateVacuumReceive::procAnim() {
 }
 
 void StateVacuumReceive::procFixPos() {
-    hel::math::Vector2 pos = obj().vacuumReceiver().getAttackerPos() + mMoveAlgorithm.getNextOffs();
+    Vector2 pos = obj().vacuumReceiver().getAttackerPos() + mMoveAlgorithm.getNextOffs();
     obj().location().setPos(pos.toVector3());
 }
 

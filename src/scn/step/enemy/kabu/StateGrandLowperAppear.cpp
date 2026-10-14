@@ -12,6 +12,9 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,8 +37,8 @@ void StateGrandLowperAppear::procAnim() {
     mAlgorithm.procAnim();
     if (!mAlgorithm.isHoldEnd()) {
         f32 rate = mAlgorithm.getHoldFrameRate();
-        f32 z = 360.0f * (1.0f - hel::math::Math::CosDegF(90.0f * rate));
-        hel::math::Vector3 rot(720.0f * (1.0f - hel::math::Math::CosDegF(90.0f * rate)), 0.0f, z);
+        f32 z = 360.0f * (1.0f - Math::CosDegF(90.0f * rate));
+        Vector3 rot(720.0f * (1.0f - Math::CosDegF(90.0f * rate)), 0.0f, z);
         Utility::SetCustomMtxRotate(obj(), rot);
     } else {
         obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());

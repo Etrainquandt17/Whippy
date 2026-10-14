@@ -21,6 +21,10 @@
 #include "scn/step/enemy/barracu/ParamData.h"
 #include "scn/step/enemy/barracu/StateAttack.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -70,25 +74,25 @@ void StateSwimStraight::procMove() {
     }
     f32 speed = param.mLevel[level].mSpeed;
     if (obj().model().getCurrentScriptIndex() != 7) {
-        if (obj().water().isPosInWater(hel::math::Vector2(0.5f * obj().target().getSign(), 0.0f))) {
+        if (obj().water().isPosInWater(Vector2(0.5f * obj().target().getSign(), 0.0f))) {
             speed = param.mTurnSpeed;
         } else {
             speed = 0.0f;
         }
     }
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.x += speed * obj().target().getSign();
     obj().location().setPos(pos);
     obj().objColl().clearSearchHit();
     if (obj().model().getCurrentScriptIndex() == 7) {
-        obj().objColl().addSearchHit(1, param.mSearchRadius, hel::math::Vector2(param.mSearchOffset * obj().target().getSign(), 0.0f));
+        obj().objColl().addSearchHit(1, param.mSearchRadius, Vector2(param.mSearchOffset * obj().target().getSign(), 0.0f));
     }
 }
 
 void StateSwimStraight::procFixPos() {
     if (obj().model().getCurrentScriptIndex() == 7) {
         if (obj().mapColl().result()._2 || Utility::ChkNururiByDir(obj(), 0.1f) ||
-            !obj().water().isPosInWater(hel::math::Vector2(0.5f * obj().target().getSign(), 0.0f))) {
+            !obj().water().isPosInWater(Vector2(0.5f * obj().target().getSign(), 0.0f))) {
             Utility::Turn(obj());
             obj().objColl().clearSearchHit();
             obj().model().reqScript(obj().target().isRightDir() ? SCRIPT_TURN_RIGHT : SCRIPT_TURN_LEFT);
@@ -99,7 +103,7 @@ void StateSwimStraight::procFixPos() {
 }
 
 void StateSwimStraight::procObjCollReact() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).chkCaptureHero()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).chkCaptureHero()) {
         obj().stateChanger().setNextState<StateAttack, Enemy*>(objPtr());
     }
 }

@@ -9,13 +9,15 @@
 #include "scn/step/boss/roah/StateWait.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateStar::StateStar(Boss* boss, Config config) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     switch (static_cast<u32>(config._0)) {
     case 1:
         obj().model().reqScript(7);

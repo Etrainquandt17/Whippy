@@ -15,6 +15,10 @@
 #include "scn/step/map/BinEnemyVariation.h"
 #include "util/ObjList.h"
 
+using app::Random;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -58,7 +62,7 @@ void EnemyCtrl::request(map::BinEnemyKind kind, map::BinEnemySize size, u32 arg)
             break;
         }
     }
-    hel::math::Vector2 pos = mBoss.location().pos().getXY();
+    Vector2 pos = mBoss.location().pos().getXY();
     pos.x += mXOffsTable[mXOffsIndex];
     pos.y += offsY;
     mXOffsIndex++;
@@ -66,7 +70,7 @@ void EnemyCtrl::request(map::BinEnemyKind kind, map::BinEnemySize size, u32 arg)
         mXOffsIndex = 0;
     }
     enemy::Desc desc(kind, variation, arg, static_cast<map::BinEnemyDirType>(0), size, false, false, pos);
-    util::ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
     if (enemy.isAlive()) {
         enemy->mapColl().setPassInvisibleLand(false);
     }
@@ -95,8 +99,8 @@ void EnemyCtrl::initXOffsTable() {
         mXOffsTable[i] = distance * i - farDist;
     }
     for (u32 i = 0; i < 20; i++) {
-        u32 a = app::Random::RandU32(6);
-        u32 b = app::Random::RandU32(6);
+        u32 a = Random::RandU32(6);
+        u32 b = Random::RandU32(6);
         f32 offs = mXOffsTable[a];
         mXOffsTable[a] = mXOffsTable[b];
         mXOffsTable[b] = offs;

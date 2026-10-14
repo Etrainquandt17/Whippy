@@ -40,13 +40,15 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace fattybuffer {
 
 StateSwellBalloonMove::StateSwellBalloonMove(Boss* boss, u32 count) : StateBase(boss), mCount(count) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1D);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_6);

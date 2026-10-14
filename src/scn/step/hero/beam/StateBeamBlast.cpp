@@ -32,6 +32,10 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using app::Random;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -57,7 +61,7 @@ StateBeamBlast::StateBeamBlast(Hero* hero)
     obj().piggyback().unlinkAll();
     obj().model().setFixDir(true);
     obj().model().script().start(0xC1);
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     velocity.y += obj().param().beam()._0;
     if (velocity.y < obj().param().beam()._8) {
         velocity.y = obj().param().beam()._8;
@@ -83,19 +87,19 @@ void StateBeamBlast::procAnim() {
         } else {
             const f32 min = 25.0f;
             const f32 range = 25.0f;
-            f32 angle = min + range * app::Random::RandNF();
+            f32 angle = min + range * Random::RandNF();
             if (mShotCount == 0) {
                 angle = 50.0f;
             } else if (mShotCount == 1) {
                 angle = min;
             }
-            hel::math::Vector2 dir(0.0f, -1.0f);
+            Vector2 dir(0.0f, -1.0f);
             dir.rotate(0.017453292f * angle);
             dir.x *= mIsRight ? 1.0f : -1.0f;
-            hel::math::Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
+            Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
             pos.y += 0.6f;
-            hel::math::Vector2 weaponPos = pos;
-            weaponPos += hel::math::Vector2(mIsRight ? 0.5f : -0.5f, -0.25f);
+            Vector2 weaponPos = pos;
+            weaponPos += Vector2(mIsRight ? 0.5f : -0.5f, -0.25f);
             weapon::Desc desc;
             desc.mKind = static_cast<weapon::Kind>(0x16);
             desc.mVariation = 0;

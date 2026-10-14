@@ -20,13 +20,18 @@
 #include "scn/step/core/PermEffect.h"
 #include "util/ObjList.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateOar::StateOar(Boss* boss) : StateBase(boss), mCount(0), mBasePos(), mIsMove(false), mIsOarLost(false), mIsRequest(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mBasePos = obj().location().pos().getXY();
     custom.resetSubAnimOar();
     obj().model().reqScript(19);
@@ -36,17 +41,17 @@ StateOar::StateOar(Boss* boss) : StateBase(boss), mCount(0), mBasePos(), mIsMove
 }
 
 StateOar::~StateOar() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setSubAnimOar();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setSubAnimOar();
     if (!mIsOarLost) {
         for (u32 i = 0; i < 6; i++) {
-            hel::math::Vector3 pos = obj().model().model().nodes().at(i + 13).worldTrans();
+            Vector3 pos = obj().model().model().nodes().at(i + 13).worldTrans();
             obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x7A), pos);
         }
     }
 }
 
 void StateOar::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mCount++;
     if (obj().scriptTrigger().get(0)) {
         mIsRequest = true;
@@ -75,8 +80,8 @@ void StateOar::procMove() {
     if (mIsMove) {
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mOarMoveFrame);
         f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-        hel::math::Vector2 pos = mBasePos;
-        pos.x -= param.mOarMoveDistance * hel::math::Math::SinDegF(180.0f * rate);
+        Vector2 pos = mBasePos;
+        pos.x -= param.mOarMoveDistance * Math::SinDegF(180.0f * rate);
         obj().location().setPos(pos.toVector3());
         if (mCount == param.mOarMoveFrame) {
             mIsMove = false;

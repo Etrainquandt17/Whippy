@@ -33,6 +33,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using g3d::NodeAccessor;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -74,7 +78,7 @@ void StateAttack::shotAll() {
         { 1, 2, 0 }, { 1, 2, 3 }, { 1, 3, 0 }, { 1, 3, 2 }, { 2, 0, 1 }, { 2, 0, 3 }, { 2, 1, 0 }, { 2, 1, 3 },
         { 2, 3, 0 }, { 2, 3, 1 }, { 3, 0, 1 }, { 3, 0, 2 }, { 3, 1, 0 }, { 3, 1, 2 }, { 3, 2, 0 }, { 3, 2, 1 },
     };
-    int index = app::Random::Rand(24);
+    int index = Random::Rand(24);
     shot(table[index][0] * 3);
     shot(table[index][1] * 3 + 1);
     shot(table[index][2] * 3 + 2);
@@ -86,9 +90,9 @@ void StateAttack::shot(u32 variation) {
     desc.mKind = static_cast<weapon::Kind>(0x42);
     desc.mVariation = variation;
     desc.mFlag = static_cast<ostop::Flag>(4);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(4);
+    NodeAccessor node = obj().model().model().nodes().at(4);
     desc.mPos = node.worldMtx().getT().getXY();
-    desc._14 = obj().location().pos().getXY() + hel::math::Vector2(0.0f, 0.0f);
+    desc._14 = obj().location().pos().getXY() + Vector2(0.0f, 0.0f);
     desc._1c = node.worldMtx().getZ().getXY();
     desc.mOwner = &obj().objColl().owner();
     obj().comp().weaponManager().request(desc);

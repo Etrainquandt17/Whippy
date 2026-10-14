@@ -24,6 +24,8 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -92,7 +94,7 @@ void t_SetNextState_Dash(bool arg) {
 void t_SetNextState_AttackStraight(f32 x) {
     StateAttack::Config config;
     config._0 = SCRIPT_KIND_12;
-    config._4 = hel::math::Vector2(x, 0.0f);
+    config._4 = Vector2(x, 0.0f);
     config._C = false;
     Boss& obj = MintBoss::Obj();
     Boss& owner = MintBoss::Obj();
@@ -102,7 +104,7 @@ void t_SetNextState_AttackStraight(f32 x) {
 void t_SetNextState_AttackCircle(f32 x, f32 y, bool arg) {
     StateAttack::Config config;
     config._0 = arg ? SCRIPT_KIND_15 : SCRIPT_KIND_14;
-    config._4 = hel::math::Vector2(x, y);
+    config._4 = Vector2(x, y);
     config._C = arg;
     Boss& obj = MintBoss::Obj();
     Boss& owner = MintBoss::Obj();
@@ -112,7 +114,7 @@ void t_SetNextState_AttackCircle(f32 x, f32 y, bool arg) {
 void t_SetNextState_AttackBackCircle(f32 x, f32 y) {
     StateAttack::Config config;
     config._0 = SCRIPT_KIND_16;
-    config._4 = hel::math::Vector2(x, y);
+    config._4 = Vector2(x, y);
     config._C = false;
     Boss& obj = MintBoss::Obj();
     Boss& owner = MintBoss::Obj();
@@ -131,8 +133,8 @@ void t_SetNextState_JumpBack() {
         MintBoss::Obj().param().zankibble()._24,
         MintBoss::Obj().param().zankibble()._28,
         MintBoss::Obj().param().zankibble()._2C,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         false,
         static_cast<common::StateJumpDesc::LandingAnimType>(2),
         false,

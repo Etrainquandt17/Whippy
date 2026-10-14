@@ -26,6 +26,9 @@
 #include "scn/step/enemy/needlous/StateWalkStraight.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,19 +37,19 @@ namespace needlous {
 BrainAttackStraight::BrainAttackStraight(Enemy& enemy) : BrainBase(enemy), mFrame(0) {}
 
 bool BrainAttackStraight::onRecover() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).resetInitMoveCount();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).resetInitMoveCount();
     mfChangeWalkStraight();
     return true;
 }
 
 bool BrainAttackStraight::onLanding() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).resetInitMoveCount();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).resetInitMoveCount();
     mfChangeWalkStraight();
     return true;
 }
 
 void BrainAttackStraight::update() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isAttack()) {
         if (++mFrame >= obj().param().needlous().mAttackFrame) {
             mFrame = 0;
@@ -62,7 +65,7 @@ void BrainAttackStraight::update() {
 void BrainAttackStraight::mfChangeWalkStraight() {
     obj().objColl().clearBodyColl();
     f32 scale = Utility::GetModelScaleBySizeType(obj());
-    obj().objColl().addBodyColl(1, 0.28f * scale, hel::math::Vector2(0.3f * scale, 0.0f), hel::math::Vector2(-0.3f * scale, 0.0f));
+    obj().objColl().addBodyColl(1, 0.28f * scale, Vector2(0.3f * scale, 0.0f), Vector2(-0.3f * scale, 0.0f));
     obj().stateChanger().setNextState<StateWalkStraight, Enemy*>(&obj());
 }
 

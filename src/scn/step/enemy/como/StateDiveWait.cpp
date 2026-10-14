@@ -8,6 +8,8 @@
 #include "scn/step/enemy/como/StateBack.h"
 #include "scn/step/enemy/como/StateCutFall.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -28,7 +30,7 @@ void StateDiveWait::procMove() {}
 void StateDiveWait::procFixPos() {}
 
 void StateDiveWait::procObjCollReact() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).threadCtrl().checkCut()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).threadCtrl().checkCut()) {
         obj().stateChanger().setNextState<StateCutFall, Enemy*>(objPtr());
     }
 }

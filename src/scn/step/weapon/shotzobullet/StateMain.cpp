@@ -21,6 +21,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/shotzobullet/Param.h"
 
+using g3d::NodeAccessor;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -29,9 +33,9 @@ namespace shotzobullet {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mRot(0.0f), mFrame(0) {
     f32 speed = obj().param().shotzoBullet()._0;
     mVelocity = obj().move().velocity() * speed;
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Matrix34 mtx = node.localMtx().rtMtx();
-    mtx.setT(hel::math::Vector3(0.0f, 0.0f, obj().param().shotzoBullet()._8));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Matrix34 mtx = node.localMtx().rtMtx();
+    mtx.setT(Vector3(0.0f, 0.0f, obj().param().shotzoBullet()._8));
     node.localMtx().setRTMtx(mtx);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x19B));
     obj().objColl().addAttack(1, 0.2f);
@@ -40,8 +44,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mRot(0.0f), mFrame(0) 
 
 void StateMain::procAnim() {
     mRot += obj().param().shotzoBullet()._4;
-    g3d::NodeAccessor node = obj().model().model().nodes().at(0);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(1.0f, 0.0f, 0.0f), mRot));
+    NodeAccessor node = obj().model().model().nodes().at(0);
+    node.localMtx().setRTMtx(Matrix34::CreateRotAxisDeg(Vector3(1.0f, 0.0f, 0.0f), mRot));
     if (++mFrame > obj().param().shotzoBullet()._C) {
         obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x4DD), obj().location().pos());
         obj().dead();

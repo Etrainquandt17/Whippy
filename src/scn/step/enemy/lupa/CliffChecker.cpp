@@ -10,6 +10,8 @@
 #include "scn/step/enemy/lupa/ParamData.h"
 #include "scn/step/map/LandManager.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,12 +32,12 @@ void CliffChecker::setAccelDirRight(bool isRight) {
 void CliffChecker::update() {
     const ParamData& param = mObj.param().lupa();
     mIsCliff = false;
-    hel::math::Vector2 pos = mObj.location().pos().getXY();
+    Vector2 pos = mObj.location().pos().getXY();
     if (mDirV < 0.0f) {
         pos.y += param.mShapeTop;
     }
     pos.y += 0.05f * mDirV;
-    hel::math::Vector2 check = pos + hel::math::Vector2(0.0f, -0.5f * mDirV);
+    Vector2 check = pos + Vector2(0.0f, -0.5f * mDirV);
     if (mObj.comp().mapLandManager().native().isExistLand(check) || mObj.comp().mapLandManager().native().isExistMoveLand(check)) {
         pos.x += 0.5f * mAccelDir;
         if (pos.x < 0.0f || mObj.comp().mapLandManager().native().gridWidth() < pos.x) {

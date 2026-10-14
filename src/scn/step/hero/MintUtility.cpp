@@ -41,6 +41,12 @@
 #include "scn/step/hero/Water.h"
 #include "util/ObjList.h"
 
+using g3d::NodeAccessor;
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 // TODO: a stand-in: with it AddAttackGearNode8 calls unlink and GetNodeFromPointer as the original does.
 template class util::ObjListNode<g3d::Model, util::ObjListDummyType>;
 
@@ -59,7 +65,7 @@ namespace {
 // TODO: the node of an ocoll::NodeDesc is a g3d::NodeAccessor, assigned member by member; ocoll/NodeDesc.h holds
 // its two parts.
 struct NodeParts {
-    util::ObjRefHandle<g3d::Model> mModel;
+    ObjRefHandle<g3d::Model> mModel;
     u32 _10;
 };
 
@@ -188,16 +194,16 @@ void LoadDir() {
 }
 
 void LoadModelDir() {
-    hel::math::Direction3 dir;
-    dir.mFront = hel::math::Vector3::BASIS_X;
+    Direction3 dir;
+    dir.mFront = Vector3::BASIS_X;
     dir.mFront *= MintHero::Obj().model().isRightDir() ? 1.0f : -1.0f;
     dir.restructFrontUp();
     hel::mint::AddOnMathDirection3::Set(dir);
 }
 
 void LoadDirFollowFloor() {
-    hel::math::Direction3 dir = MintHero::Obj().target().getDirection3();
-    hel::math::Vector2 normal = MintHero::Obj().mapColl()._74;
+    Direction3 dir = MintHero::Obj().target().getDirection3();
+    Vector2 normal = MintHero::Obj().mapColl()._74;
     dir.mUp = normal.toVector3();
     dir.restructUpLeft();
     hel::mint::AddOnMathDirection3::Set(dir);
@@ -374,10 +380,10 @@ void AddAttackGearNode7(u32 arg0, u32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 ar
 void AddAttackGearNode8(u32 arg0, u32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, bool arg7) {
     ::ocoll::NodeDesc desc;
     reinterpret_cast<NodeParts&>(desc) =
-        reinterpret_cast<const NodeParts&>(static_cast<const g3d::NodeAccessor&>(Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1)));
+        reinterpret_cast<const NodeParts&>(static_cast<const NodeAccessor&>(Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1)));
     desc._14 = arg2;
-    desc._18 = hel::math::Vector2(arg3, arg4);
-    desc._20 = hel::math::Vector2(arg5, arg6);
+    desc._18 = Vector2(arg3, arg4);
+    desc._20 = Vector2(arg5, arg6);
     desc._28 = arg7;
     // TODO: the chara::ObjColl at 0x8 of hero::ObjColl, whose header has no members yet.
     reinterpret_cast<chara::ObjColl*>(reinterpret_cast<u8*>(&MintHero::Obj().objColl()) + 8)->attack().addNode(arg0, desc);
@@ -466,44 +472,44 @@ void RequestEffectGearNodeN(effect::Kind arg0, u32 arg1) {
             blr
         }
     } else {
-        g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+        NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
         chara::MintEffect::Obj().requestN(arg0, node);
     }
 }
 #undef MF_FUNCTION
 
 void RequestEffectGearNodeNS(effect::Kind arg0, u32 arg1, f32 arg2) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestN(arg0, node, arg2);
 }
 
 void RequestEffectGearNodeNO(effect::Kind arg0, u32 arg1) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestN(arg0, node, hel::mint::AddOnMathVector3::Get());
 }
 
 void RequestEffectGearNodeNOS(effect::Kind arg0, u32 arg1, f32 arg2) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestN(arg0, node, hel::mint::AddOnMathVector3::Get(), arg2);
 }
 
 void RequestEffectGearNodeND(effect::Kind arg0, u32 arg1) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestND(arg0, node, hel::mint::AddOnMathDirection3::Get());
 }
 
 void RequestEffectGearNodeNDS(effect::Kind arg0, u32 arg1, f32 arg2) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestND(arg0, node, hel::mint::AddOnMathDirection3::Get(), arg2);
 }
 
 void RequestEffectGearNodeNDO(effect::Kind arg0, u32 arg1) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestND(arg0, node, hel::mint::AddOnMathDirection3::Get(), hel::mint::AddOnMathVector3::Get());
 }
 
 void RequestEffectGearNodeNDOS(effect::Kind arg0, u32 arg1, f32 arg2) {
-    g3d::NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
+    NodeAccessor node = Obj__Q43scn4step4hero8MintGearFv().model().nodes().at(arg1);
     chara::MintEffect::Obj().requestND(arg0, node, hel::mint::AddOnMathDirection3::Get(), hel::mint::AddOnMathVector3::Get(), arg2);
 }
 

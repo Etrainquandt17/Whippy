@@ -16,6 +16,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -28,10 +31,10 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mDir() {
     obj().objColl().addHit(0, variationParam._4);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x455), 0);
     obj().move().resetVelocity();
-    hel::math::Vector3 target = hel::math::Vector3::ZERO;
+    Vector3 target = Vector3::ZERO;
     u32 num = obj().comp().bossManager().getBossCount();
     for (u32 i = 0; i < num; i++) {
-        util::ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
+        ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
         if (boss.isAlive() && boss->kind() == 0xB) {
             target = boss::Utility::GetHatedHeroPos(*boss.operator->());
         }
@@ -56,7 +59,7 @@ void StateMain::procMove() {
         obj().move().accel(mDir, variationParam._C);
         break;
     case 1:
-        obj().move().accel(hel::math::Vector3::BASIS_Y * -1.0f, variationParam._C);
+        obj().move().accel(Vector3::BASIS_Y * -1.0f, variationParam._C);
         break;
     }
 }

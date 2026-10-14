@@ -28,6 +28,8 @@
 #include "scn/step/ocoll/AttackType.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -61,7 +63,7 @@ void StateShot::procMove() {
 }
 
 void StateShot::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const ParamData& param = obj().param().strikeboxbullet();
     if (mFrame == param.mLifeFrame || obj().mapColl().isHitAll()) {
         obj().effect().state().releaseAndVanish();

@@ -19,6 +19,9 @@
 #include "scn/step/hero/parasol/Barrier.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -51,8 +54,8 @@ StateParasolUnder::~StateParasolUnder() {
         }
         obj().model().subAnimControl().setLiftUpRHand(true);
         Barrier::SetValid(obj(), true);
-        hel::math::Vector3 velocity = obj().move().velocity();
-        velocity.y = hel::math::Math::Min(velocity.y, obj().param().parasol()._164);
+        Vector3 velocity = obj().move().velocity();
+        velocity.y = Math::Min(velocity.y, obj().param().parasol()._164);
         obj().move().setVelocity(velocity);
     }
 }

@@ -25,6 +25,8 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -68,8 +70,8 @@ StateSwing::~StateSwing() {
 void StateSwing::procAnim() {
     if (mController.isHave() && obj().model().scriptTrigger().get(0)) {
         const BombParam& param = obj().param().bomb();
-        hel::math::Vector2 speed(param._74 * obj().target().getSign(), param._78);
-        hel::math::Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY() + speed;
+        Vector2 speed(param._74 * obj().target().getSign(), param._78);
+        Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY() + speed;
         mController.swingBomb(pos);
     }
     if (obj().model().isAllEnd()) {

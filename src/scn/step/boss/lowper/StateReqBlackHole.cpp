@@ -55,13 +55,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateReqBlackHole::StateReqBlackHole(Boss* boss, u32 kind) : StateBase(boss), mKind(kind) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x28);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -85,7 +87,7 @@ void StateReqBlackHole::procMove() {}
 void StateReqBlackHole::procFixPos() {}
 
 void StateReqBlackHole::reqHole() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).miniBlackHoleCtrl().set(mKind, 0.0f, 0.00032f, 0.032f);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).miniBlackHoleCtrl().set(mKind, 0.0f, 0.00032f, 0.032f);
 }
 
 }}}}  // namespace scn::step::boss::lowper

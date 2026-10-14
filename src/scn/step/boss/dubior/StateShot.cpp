@@ -21,6 +21,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -51,16 +55,16 @@ void StateShot::procFixPos() {}
 
 void StateShot::reqShot() {
     const Param& param = obj().param().dubior();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mShotOffset.x * obj().target().getSign(), param.mShotOffset.y);
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mShotOffset.x * obj().target().getSign(), param.mShotOffset.y);
     enemy::Desc desc(static_cast<map::BinEnemyKind>(0x77), map::BinEnemyVariation_0, 0, static_cast<map::BinEnemyDirType>(0),
                      static_cast<map::BinEnemySize>(0), false, false, pos);
     desc._28 = true;
     desc._20 = obj().location().pos().getXY();
-    util::ObjRefHandle<enemy::Enemy> shot = obj().comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> shot = obj().comp().enemyManager().request(desc);
     if (shot.isAlive()) {
-        hel::math::Vector3 velocity = hel::math::Vector3::BASIS_Y * -1.0f;
-        velocity.rotate(hel::math::Vector3::AXIS_Z, 0.017453292f * mAngle);
+        Vector3 velocity = Vector3::BASIS_Y * -1.0f;
+        velocity.rotate(Vector3::AXIS_Z, 0.017453292f * mAngle);
         velocity.x *= obj().target().getSign();
         velocity *= param.mShotSpeed;
         shot->move().setVelocity(velocity);

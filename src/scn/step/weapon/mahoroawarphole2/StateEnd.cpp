@@ -9,13 +9,15 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/mahoroawarphole2/Custom.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace mahoroawarphole2 {
 
 StateEnd::StateEnd(Weapon* weapon) : StateBase(weapon) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().culling().setValid(false);
     obj().model().rotCtrl().setValid(false);
     obj().mapColl().setValid(false);
@@ -28,7 +30,7 @@ StateEnd::~StateEnd() {
 }
 
 void StateEnd::procAnim() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).updateFlash();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).updateFlash();
     if (obj().model().isAllEnd()) {
         obj().dead();
     }

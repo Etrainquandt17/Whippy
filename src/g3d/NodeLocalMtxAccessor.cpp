@@ -1,5 +1,8 @@
 #include "g3d/NodeLocalMtxAccessor.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace g3d {
 
 NodeLocalMtxAccessor::NodeLocalMtxAccessor()
@@ -16,19 +19,19 @@ void NodeLocalMtxAccessor::reset() const {
     mMtx->reset();
 }
 
-hel::math::Matrix34 NodeLocalMtxAccessor::rtMtx() const {
+Matrix34 NodeLocalMtxAccessor::rtMtx() const {
     return mMtx->rtMtx();
 }
 
-void NodeLocalMtxAccessor::setRTMtx(const hel::math::Matrix34& mtx) const {
+void NodeLocalMtxAccessor::setRTMtx(const Matrix34& mtx) const {
     mMtx->setRTMtx(mtx);
 }
 
-hel::math::Vector3 NodeLocalMtxAccessor::scale() const {
+Vector3 NodeLocalMtxAccessor::scale() const {
     return mMtx->scale();
 }
 
-void NodeLocalMtxAccessor::setScale(const hel::math::Vector3& scale) const {
+void NodeLocalMtxAccessor::setScale(const Vector3& scale) const {
     mMtx->setScale(scale);
 }
 

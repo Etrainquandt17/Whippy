@@ -30,6 +30,8 @@
 #include "scn/step/enemy/shotzo/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,7 +44,7 @@ StateWait::StateWait(Enemy* enemy) : StateBase(enemy) {
 
 void StateWait::procMove() {
     const common::ParamData& param = obj().param().common();
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isFixPos() && obj().footState().isAir()) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).isFixPos() && obj().footState().isAir()) {
         obj().move().airDecelFall(param.mDecel, param.mFall);
     } else {
         obj().move().resetSpeedV();

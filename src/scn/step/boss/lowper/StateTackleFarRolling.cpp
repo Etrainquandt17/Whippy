@@ -56,6 +56,12 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,7 +69,7 @@ namespace lowper {
 
 StateTackleFarRolling::StateTackleFarRolling(Boss* boss)
     : StateBase(boss), mCount(0), mStartY(0.0f), mGoalY(0.0f), mX(0.0f), mRotX(0.0f), mRotY(0.0f), mRotSpeed(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
     mStartY = 4.0f + obj().basePos().y;
     mGoalY = 0.5f + obj().basePos().y;
@@ -74,7 +80,7 @@ StateTackleFarRolling::StateTackleFarRolling(Boss* boss)
 }
 
 StateTackleFarRolling::~StateTackleFarRolling() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().resetBarrierAngle();
     obj().model().model().nodes().at(3).localMtx().reset();
 }
@@ -85,7 +91,7 @@ void StateTackleFarRolling::procAnim() {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
         return;
     }
-    mRotX = hel::math::Math::LinearInterpolation(mRotX, 90.0f, 0.1f);
+    mRotX = Math::LinearInterpolation(mRotX, 90.0f, 0.1f);
     mRotSpeed += 0.5f;
     if (mRotSpeed >= 20.0f) {
         mRotSpeed = 20.0f;
@@ -94,23 +100,23 @@ void StateTackleFarRolling::procAnim() {
     if (mRotY >= 360.0f) {
         mRotY -= 360.0f;
     }
-    g3d::NodeAccessor node = obj().model().model().nodes().at(3);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRotX, 0.0f, 0.0f)) *
-                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRotY, 0.0f)));
+    NodeAccessor node = obj().model().model().nodes().at(3);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(mRotX, 0.0f, 0.0f)) *
+                             Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRotY, 0.0f)));
 }
 
 void StateTackleFarRolling::procMove() {
     f32 t = static_cast<f32>(mCount) / 90.0f;
-    hel::math::Vector3 pos;
+    Vector3 pos;
     pos.x = mX;
-    f32 sin = hel::math::Math::SinDegF(180.0f * t);
+    f32 sin = Math::SinDegF(180.0f * t);
     f32 rate = 1.0f - sin;
     if (t > 0.5f) {
         rate *= 0.5f;
     }
-    pos.y = hel::math::Math::LinearInterpolation(mGoalY, mStartY, rate);
+    pos.y = Math::LinearInterpolation(mGoalY, mStartY, rate);
     pos.z = -80.0f * (1.0f - t) + 80.0f * t;
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

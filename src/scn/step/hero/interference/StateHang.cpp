@@ -27,6 +27,10 @@
 #include "scn/step/hero/common/StateWait.h"
 #include "util/StateChanger.h"
 
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -63,10 +67,10 @@ StateHang::StateHang(Hero* hero)
     obj().mapColl().setValid(false);
     obj().nururi().setValid(false);
     obj().wearBack().setBack();
-    hel::math::Vector3 pos = obj().hang().getConstraintPos() - obj().hang().getConstraintOffsetChild()
-        + hel::math::Vector3(0.0f, -0.3f, 0.0f);
-    obj().effect().get_8().requestPD(static_cast<effect::Kind>(0xA0), pos + hel::math::Vector3(0.2f, 0.0f, 1.0f), hel::math::Direction3::BASIS);
-    obj().effect().get_8().requestPD(static_cast<effect::Kind>(0xA0), pos + hel::math::Vector3(-0.2f, 0.0f, 1.0f), hel::math::Direction3::BASIS);
+    Vector3 pos = obj().hang().getConstraintPos() - obj().hang().getConstraintOffsetChild()
+        + Vector3(0.0f, -0.3f, 0.0f);
+    obj().effect().get_8().requestPD(static_cast<effect::Kind>(0xA0), pos + Vector3(0.2f, 0.0f, 1.0f), Direction3::BASIS);
+    obj().effect().get_8().requestPD(static_cast<effect::Kind>(0xA0), pos + Vector3(-0.2f, 0.0f, 1.0f), Direction3::BASIS);
     mRootPos = obj().hang().getRootPos();
 }
 
@@ -100,7 +104,7 @@ void StateHang::procConstraint() {
     mRootPos = obj().hang().getRootPos();
     obj().target().setIsRightDir(obj().hang().isParentRightDir());
     f32 rot = obj().hang().getParentRotH();
-    if (hel::math::Math::AbsF32(rot) > 50.0f) {
+    if (Math::AbsF32(rot) > 50.0f) {
         rot = 50.0f * (rot < 0.0f ? -1 : 1);
     }
     obj().model().modelRotCtrl().setRotH(rot * obj().model().getSign());
@@ -108,11 +112,11 @@ void StateHang::procConstraint() {
     if (mRate > 1.0f) {
         mRate = 1.0f;
     }
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     mConstraintPos = obj().hang().getConstraintPos();
     pos = pos * (1.0f - mRate) + mConstraintPos * mRate;
     obj().location().setPos(pos);
-    hel::math::Vector3 prevPos = obj().location().pos();
+    Vector3 prevPos = obj().location().pos();
     obj().location().setPos(obj().hang().getRootPos());
     obj().mapColl().setValid(true);
     obj().location().setPos(prevPos);
@@ -128,11 +132,11 @@ void StateHang::procFixPos() {
         return;
     }
     if (obj().hang().isExistParent()) {
-        if (hel::math::Math::Equals(mRate, 1.0f, 0.00001f)) {
-            hel::math::Vector3 pos = obj().location().pos();
+        if (Math::Equals(mRate, 1.0f, 0.00001f)) {
+            Vector3 pos = obj().location().pos();
             // TODO: the copy of the difference stands in for the compiler's own copy, as in Vector3::squareDistance.
-            Vector3Words diff = reinterpret_cast<const Vector3Words&>(static_cast<const hel::math::Vector3&>(pos - mConstraintPos));
-            f32 length = hel::math::Math::SqrtF(reinterpret_cast<const hel::math::Vector3&>(diff).squareLength());
+            Vector3Words diff = reinterpret_cast<const Vector3Words&>(static_cast<const Vector3&>(pos - mConstraintPos));
+            f32 length = Math::SqrtF(reinterpret_cast<const Vector3&>(diff).squareLength());
             if (length > obj().param().interference()._1A0) {
                 obj().hang().unlinkParent();
             }
@@ -141,7 +145,7 @@ void StateHang::procFixPos() {
 }
 
 void StateHang::release() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     obj().location().setPos(mRootPos);
     obj().mapColl().setValid(true);
     obj().location().setPos(pos);

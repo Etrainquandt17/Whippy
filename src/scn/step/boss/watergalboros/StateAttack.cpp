@@ -50,6 +50,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -64,7 +66,7 @@ StateAttack::StateAttack(Boss* boss, u32 scriptKind) : StateBase(boss), mScriptK
 StateAttack::~StateAttack() {}
 
 void StateAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         custom.weaponCtrl().request();
     }

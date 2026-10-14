@@ -30,6 +30,13 @@
 #include "scn/step/chara/Shake.h"
 #include "scn/step/core/G3DRootSet.h"
 
+using g3d::ColorAnimFlashOp;
+using g3d::FogAccessor;
+using hel::common::Color;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -44,16 +51,16 @@ void Custom::onInit() {
     obj().hitPoint().init(param._0);
     obj().angry().setAngryHpRate(param._4);
     Utility::SetDamagePreventMikeAndCrash(obj());
-    obj().location().setToCenter(hel::math::Vector3(0.0f, 0.5f, 0.0f));
+    obj().location().setToCenter(Vector3(0.0f, 0.5f, 0.0f));
     obj().handicap().setup();
     obj().target().setIsRightDir(false);
     obj().shadow().changeDiameter(1.0f);
     obj().shadow().changeMaxHeight(12.0f);
     obj().shadow().setVisibility(true);
-    g3d::FogAccessor fog = obj().comp().g3dRootSet().root(static_cast<core::DrawLayerKind>(6)).fog();
+    FogAccessor fog = obj().comp().g3dRootSet().root(static_cast<core::DrawLayerKind>(6)).fog();
     fog.setFogType(static_cast<GXFogType>(2));
     fog.setZ(50.0f, 300.0f);
-    fog.setFogColor(static_cast<GXColor>(hel::common::Color(180, 150, 200, 255)));
+    fog.setFogColor(static_cast<GXColor>(Color(180, 150, 200, 255)));
     fog.setFogRangeAdj(true);
     obj().model().rotCtrl().setRotHTargetDefault(50.0f);
     obj().brainCtrl().set("Scn.Step.Boss.GalactaKnight.Brain.Exec");
@@ -87,8 +94,8 @@ void Custom::onProcAnim() {
             _184++;
         }
         u8 alpha = 255.0f * (static_cast<f32>(_184) / static_cast<f32>(param._2C));
-        hel::common::Color color(255, 255, 255, alpha);
-        obj().flash().custom().setOperation(static_cast<g3d::ColorAnimFlashOp>(1));
+        Color color(255, 255, 255, alpha);
+        obj().flash().custom().setOperation(static_cast<ColorAnimFlashOp>(1));
         obj().flash().custom().setIsValid(true);
         obj().flash().custom().setColor(color);
     }
@@ -130,8 +137,8 @@ ThunderSpineCtrl& Custom::thunderSpineCtrl() {
     return mThunderSpineCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::galactaknight

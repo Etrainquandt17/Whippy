@@ -8,6 +8,8 @@
 #include "scn/step/enemy/glunk/Custom.h"
 #include "scn/step/enemy/glunk/StateShot.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -21,19 +23,19 @@ void SetNextState() {
 }
 
 void t_Custom_SetRotate(f32 value) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setRotate(value);
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setRotate(value);
 }
 
 bool t_Custom_CheckExistLand() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).checkExistLand();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).checkExistLand();
 }
 
 bool t_IsCurrentFall() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isCurrentFall();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isCurrentFall();
 }
 
 void t_SetIsCurrentFall(bool value) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setIsCurrentFall(value);
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setIsCurrentFall(value);
 }
 
 }

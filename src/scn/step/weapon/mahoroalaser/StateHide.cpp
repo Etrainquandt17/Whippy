@@ -7,6 +7,8 @@
 #include "scn/step/weapon/mahoroalaser/StateMain.h"
 #include "scn/step/weapon/mahoroalaser/StateReady.h"
 
+using hel::common::DynamicCast;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -21,7 +23,7 @@ StateHide::~StateHide() {
 }
 
 void StateHide::procAnim() {
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
     if (custom->isStartRequested()) {
         if (custom->getReadyFrame() == 0) {
             obj().stateChanger().setNextState<StateMain, Weapon*>(&obj());

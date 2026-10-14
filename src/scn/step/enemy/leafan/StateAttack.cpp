@@ -29,6 +29,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,10 +49,10 @@ void StateAttack::procAnim() {
         obj().stateChanger().setNextState<StateWait, Enemy*>(objPtr());
     } else if (mFrame == obj().param().leafan().mAttackShotFrame) {
         f32 sign = obj().target().getSign();
-        hel::math::Vector2 center = obj().location().pos().getXY();
+        Vector2 center = obj().location().pos().getXY();
         center.y += 0.5f;
-        hel::math::Vector2 pos = center;
-        hel::math::Vector2 velocity(sign * obj().param().leafan().mWeaponSpeed, 0.0f);
+        Vector2 pos = center;
+        Vector2 velocity(sign * obj().param().leafan().mWeaponSpeed, 0.0f);
         velocity.x += obj().move().velocity().x;
         weapon::Desc desc(static_cast<weapon::Kind>(0x10), 0, static_cast<ostop::Flag>(4), pos, center, velocity, obj().objColl().owner());
         obj().comp().weaponManager().request(desc);

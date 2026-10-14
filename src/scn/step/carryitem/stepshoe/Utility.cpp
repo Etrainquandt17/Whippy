@@ -10,6 +10,9 @@
 #include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::Color;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -81,9 +84,9 @@ f32 Utility::UpdateBodyFlash(CarryItem& carryItem, f32 angle) {
             angle -= 360.0f;
         }
     }
-    f32 rate = 0.5f * hel::math::Math::SinDegF(angle) + 0.5f;
+    f32 rate = 0.5f * Math::SinDegF(angle) + 0.5f;
     u8 alpha = static_cast<u8>(128.0f * rate);
-    carryItem.flash().set(hel::common::Color(0xFF, 0x10, 0x00, alpha));
+    carryItem.flash().set(Color(0xFF, 0x10, 0x00, alpha));
     return angle;
 }
 

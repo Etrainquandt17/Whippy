@@ -16,6 +16,8 @@
 #include "scn/step/weapon/spearspear/Param.h"
 #include "scn/step/weapon/spearspear/Utility.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,7 +26,7 @@ namespace spearspear {
 StateVanish::StateVanish(Weapon* weapon, f32 rot) : StateBase(weapon), _8(rot), _C(0) {
     obj().mapColl().setValid(false);
     const Param& param = obj().param().spearSpear();
-    obj().move().setVelocity(hel::math::Vector3(param._34 * obj().target().getSign(), param._38, 0.0f));
+    obj().move().setVelocity(Vector3(param._34 * obj().target().getSign(), param._38, 0.0f));
     obj().model().rotCtrl().setRotV(_8);
     obj().model().reqScript(0);
 }

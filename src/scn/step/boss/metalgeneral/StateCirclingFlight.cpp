@@ -78,6 +78,12 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -85,20 +91,20 @@ namespace metalgeneral {
 
 StateCirclingFlight::StateCirclingFlight(Boss* boss) : StateBase(boss), mDir(), mRot(0.0f) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1C);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
     mDir = Utility::GetHatedHeroPos(obj()) - obj().location().pos();
     Utility::ControlHateOnAction(obj());
     if (mDir.y > 0.0f) {
-        if (mDir.y / hel::math::Math::Abs(mDir.x) > param._184) {
-            mDir.x = hel::math::Math::SignF32(mDir.x);
+        if (mDir.y / Math::Abs(mDir.x) > param._184) {
+            mDir.x = Math::SignF32(mDir.x);
             mDir.y = param._184;
         }
     } else {
-        if (mDir.y / hel::math::Math::Abs(mDir.x) < param._188) {
-            mDir.x = hel::math::Math::SignF32(mDir.x);
+        if (mDir.y / Math::Abs(mDir.x) < param._188) {
+            mDir.x = Math::SignF32(mDir.x);
             mDir.y = param._188;
         }
     }
@@ -106,7 +112,7 @@ StateCirclingFlight::StateCirclingFlight(Boss* boss) : StateBase(boss), mDir(), 
         mDir.x *= -1.0f;
     }
     mDir.normalize();
-    hel::math::Vector3 velocity = mDir * param._180;
+    Vector3 velocity = mDir * param._180;
     obj().move().setVelocity(velocity);
     if (Utility::IsVariationExtra(obj())) {
         obj().model().rotCtrl().setRotHTarget(90.0f);
@@ -129,7 +135,7 @@ void StateCirclingFlight::procAnim() {
             mRot -= 360.0f;
         }
         obj().model().model().nodes().at(6).localMtx().setRTMtx(
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, mRot))
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, mRot))
         );
     }
 }
@@ -143,8 +149,8 @@ void StateCirclingFlight::procFixPos() {
     const Param& param = obj().param().metalgeneral();
     chara::MapCollResult result = obj().mapColl().result();
     if (result.isHitWallFront()) {
-        hel::math::Vector2 pos(param._190 * obj().target().getSign(), param._194);
-        hel::math::Vector2 speed(param._198 * obj().target().getSign(), param._19C);
+        Vector2 pos(param._190 * obj().target().getSign(), param._194);
+        Vector2 speed(param._198 * obj().target().getSign(), param._19C);
         Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19A));
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xB4), obj().location().pos() + pos.toVector3());
         obj().move().resetVelocity();

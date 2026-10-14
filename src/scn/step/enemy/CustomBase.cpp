@@ -3,6 +3,9 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/damage/StateDeadInWater.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -55,8 +58,8 @@ bool CustomBase::reqCustomDeadEffect() {
 
 void CustomBase::setupSuperEnemyEffect() {}
 
-const hel::common::RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<CustomBase>();
+const RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<CustomBase>();
 }
 
 Enemy& CustomBase::obj() const {

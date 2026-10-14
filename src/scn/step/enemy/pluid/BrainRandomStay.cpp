@@ -25,6 +25,8 @@
 #include "scn/step/enemy/pluid/StateStay.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +35,7 @@ namespace pluid {
 BrainRandomStay::BrainRandomStay(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainRandomStay::onStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).onRandomFall();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).onRandomFall();
     obj().stateChanger().setNextState<StateStay, Enemy*>(&obj());
     return true;
 }

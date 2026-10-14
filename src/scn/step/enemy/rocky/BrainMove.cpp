@@ -5,6 +5,8 @@
 #include "scn/step/enemy/common/StateFall.h"
 #include "scn/step/enemy/rocky/Custom.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -18,7 +20,7 @@ bool BrainMove::onStart() {
 }
 
 bool BrainMove::onRecover() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(false);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(false);
     return onStart();
 }
 

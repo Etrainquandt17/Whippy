@@ -27,6 +27,8 @@
 #include "scn/step/enemy/brontoburt/StatePursuit.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,7 +44,7 @@ void StateTakeOff::procMove() {
     const ParamData& param = obj().param().brontoburt();
     mFrame++;
     if (mFrame < param.mTakeOffFrame) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         f32 height = param.mTakeOffHeight;
         f32 total = param.mTakeOffFrame;
         pos.y += 6.0f * height * mFrame * (total - mFrame) / total / total / total;

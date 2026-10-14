@@ -15,6 +15,9 @@
 #include "scn/step/hero/TornadoParam.h"
 #include "scn/step/hero/Utility.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -65,13 +68,13 @@ void StateChargeAttack::procMove() {
         Utility::MoveFromKeyState(obj(), param._EC, param._F8, param._FC);
         return;
     }
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     if (obj().hid().isHold(8)) {
         velocity.y += param._DC;
     } else if (obj().hid().isHold(4)) {
         velocity.y += param._E0;
     }
-    velocity.y = hel::math::Math::LimitMinMax(velocity.y, param._E8, param._E4);
+    velocity.y = Math::LimitMinMax(velocity.y, param._E8, param._E4);
     obj().move().setVelocity(velocity);
     Utility::MoveFromKeyState(obj(), param._108, param._114, param._118);
 }

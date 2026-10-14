@@ -27,23 +27,27 @@
 #include "scn/step/enemy/pacto/StateEat.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace pacto {
 
 StateBack::StateBack(Enemy* enemy) : StateBase(enemy), mFrame(0), mTotalFrame(0), mDist(0.0f) {
-    hel::math::Vector2 diff = obj().location().pos().getXY();
-    diff -= hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).initPos();
+    Vector2 diff = obj().location().pos().getXY();
+    diff -= DynamicCastToRef<Custom, ICustom>(obj().custom()).initPos();
     mDist = diff.length();
     mFrame = mTotalFrame = static_cast<int>(mDist / obj().param().pacto().mBackSpeed);
 }
 
 void StateBack::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mFrame > 0) {
         f32 rot = Utility::GetRotByDirType(obj());
-        hel::math::Vector2 dir(hel::math::Math::SinDegF(rot), hel::math::Math::CosDegF(rot));
+        Vector2 dir(Math::SinDegF(rot), Math::CosDegF(rot));
         mFrame--;
         dir *= static_cast<f32>(mFrame) * mDist / static_cast<f32>(mTotalFrame);
         dir += custom.initPos();

@@ -55,13 +55,16 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateWarpIn::StateWarpIn(Boss* boss) : StateBase(boss), mCount(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().reqScript(0x18);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -84,7 +87,7 @@ void StateWarpIn::procAnim() {
     }
     f32 t = static_cast<f32>(mCount) / 20.0f;
     f32 width = 0.01f + (1.0f - t);
-    hel::math::Vector3 scale(width, t * t + 1.0f, width);
+    Vector3 scale(width, t * t + 1.0f, width);
     obj().model().setScale(scale);
 }
 

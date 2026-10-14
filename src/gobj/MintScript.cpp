@@ -3,11 +3,13 @@
 #include "gobj/Script.h"
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<Script> t_obj;
+PointerWrapper<Script> t_obj;
 
 }
 

@@ -30,6 +30,9 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -59,10 +62,10 @@ void StateAttack::procMove() {}
 void StateAttack::procFixPos() {}
 
 void StateAttack::reqBeam() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    weapon::Desc desc(static_cast<weapon::Kind>(0x3f), 1, static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO,
+    Vector2 pos = obj().location().pos().getXY();
+    weapon::Desc desc(static_cast<weapon::Kind>(0x3f), 1, static_cast<ostop::Flag>(8), pos, Vector2::ZERO,
                       obj().objColl().owner());
-    const util::ObjRefHandle<weapon::Weapon>& beam = obj().comp().weaponManager().request(desc);
+    const ObjRefHandle<weapon::Weapon>& beam = obj().comp().weaponManager().request(desc);
 }
 
 }}}}  // namespace scn::step::enemy::metalgeneralball

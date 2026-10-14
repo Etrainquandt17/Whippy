@@ -12,6 +12,8 @@
 #include "scn/step/enemy/squishy/StateSwim.h"
 #include "scn/step/enemy/squishy/StateWait.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,11 +42,11 @@ void t_SetNextState_Wait() {
 }
 
 bool t_Custom_IsJumpFromWater() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isJumpFromWater();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isJumpFromWater();
 }
 
 bool t_Custom_IsInWater(bool flag) {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isInWater(flag);
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isInWater(flag);
 }
 
 }

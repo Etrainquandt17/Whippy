@@ -29,6 +29,8 @@
 #include "scn/step/enemy/craby/StateAttack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -61,7 +63,7 @@ StateWalkStraight::StateWalkStraight(Enemy* enemy) : StateBase(enemy) {
 StateWalkStraight::~StateWalkStraight() {}
 
 void StateWalkStraight::procAnim() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea()) {
         obj().stateChanger().setNextState<StateAttack, Enemy*>(objPtr());
     }
 }
@@ -80,7 +82,7 @@ void StateWalkStraight::procFixPos() {
     if (result.mIsHitFloor) {
         obj().move().resetSpeedV();
     } else {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).reset();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).reset();
         obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());
     }
 }

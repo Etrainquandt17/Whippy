@@ -20,6 +20,10 @@
 #include "scn/step/weapon/goliathenergyball/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -50,8 +54,8 @@ void StateExplode::procAnim() {
         f32 top = 7.0f + bottom;
         for (int i = 0; i < 3; i++) {
             f32 x = 2.0f * (1.75f * static_cast<f32>(i - 1));
-            hel::math::Vector2 start(x, bottom);
-            hel::math::Vector2 end(x, top);
+            Vector2 start(x, bottom);
+            Vector2 end(x, top);
             obj().objColl().addSearchHit(0, 1.75f, start, end);
         }
     }
@@ -74,14 +78,14 @@ void StateExplode::procObjCollReact() {
 void StateExplode::reqEffect() {
     mIsEffectRequested = true;
     const Param& param = obj().param().goliathEnergyBall();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y = param._18 + static_cast<const Component&>(obj().comp()).mainCamera().getViewRect()._4;
-    hel::math::Direction3 dir = hel::math::Direction3::BASIS;
-    dir.mFront = hel::math::Vector3::BASIS_Y;
+    Direction3 dir = Direction3::BASIS;
+    dir.mFront = Vector3::BASIS_Y;
     dir.restructFrontLeft();
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x297), pos, 2.0f);
     for (int i = 0; i < 7; i++) {
-        hel::math::Vector3 effectPos = pos;
+        Vector3 effectPos = pos;
         effectPos.x += 1.6f * static_cast<f32>(i - 3);
         obj().effect().normal().requestPD(static_cast<effect::Kind>(0x298), effectPos, dir, 3.0f);
     }
@@ -89,10 +93,10 @@ void StateExplode::reqEffect() {
 
 void StateExplode::reqStar() {
     const Param& param = obj().param().goliathEnergyBall();
-    hel::math::Vector2 center = static_cast<const Component&>(obj().comp()).mainCamera().getViewRect().getCenter();
-    hel::math::Vector2 offset(param._24, 0.0f);
-    hel::math::Vector2 velocity(0.0f, -5.0f);
-    hel::math::Vector2 speed(param._1C, param._20);
+    Vector2 center = static_cast<const Component&>(obj().comp()).mainCamera().getViewRect().getCenter();
+    Vector2 offset(param._24, 0.0f);
+    Vector2 velocity(0.0f, -5.0f);
+    Vector2 speed(param._1C, param._20);
     Utility::GenerateStarEffectFirstMapColl(
         obj(), center + offset, velocity, speed, static_cast<map::BinEnemyVariation>(0x19B), 0
     );

@@ -15,6 +15,8 @@
 #include "scn/step/enemy/bladeknight/ParamData.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,7 +48,7 @@ void StateStepBack::procMove() {
 }
 
 void StateStepBack::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     chara::MapCollResult result = obj().mapColl().result();
     if (result._2) {
         obj().move().resetSpeedH();

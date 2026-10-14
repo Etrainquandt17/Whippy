@@ -22,6 +22,11 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -46,7 +51,7 @@ StateMoveThunder::~StateMoveThunder() {
 
 void StateMoveThunder::procAnim() {
     const Param& param = obj().param().dubior();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     switch (mPhase) {
     case 0:
         if (mCount < mTime) {
@@ -55,7 +60,7 @@ void StateMoveThunder::procAnim() {
             mCount = 0;
             mPhase = 1;
             mStartPos = obj().location().pos().getXY();
-            hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
+            Rect rect = obj().comp().mainCamera().getViewRect();
             if (mStartPos.x > obj().comp().mainCamera().getCenter().x) {
                 mTargetPos.x = rect._8;
             } else {
@@ -100,15 +105,15 @@ void StateMoveThunder::procAnim() {
 void StateMoveThunder::procMove() {
     const Param& param = obj().param().dubior();
     f32 rate = static_cast<f32>(mCount) / static_cast<f32>(mTime);
-    hel::math::Vector2 pos;
+    Vector2 pos;
     f32 rateX = rate;
     if (mPhase == 1) {
         f32 square = rate * rate;
         f32 curve = 1.5f * square - 0.5f * rate * square;
-        rateX = 1.0f - hel::math::Math::CosDegF(90.0f * (param.mMoveThunderWave * hel::math::Math::SinDegF(360.0f * curve) + rate));
+        rateX = 1.0f - Math::CosDegF(90.0f * (param.mMoveThunderWave * Math::SinDegF(360.0f * curve) + rate));
     }
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mTargetPos.x, rateX);
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mTargetPos.y, rate);
+    pos.x = Math::LinearInterpolation(mStartPos.x, mTargetPos.x, rateX);
+    pos.y = Math::LinearInterpolation(mStartPos.y, mTargetPos.y, rate);
     obj().location().setPos(pos.toVector3());
 }
 

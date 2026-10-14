@@ -13,6 +13,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -20,7 +24,7 @@ namespace dubior {
 
 EnemyCtrl::EnemyCtrl(Boss& boss) : mBoss(boss), mEnemies() {}
 
-void EnemyCtrl::request(map::BinEnemyVariation variation, hel::math::Vector2 pos, hel::math::Vector3 velocity) {
+void EnemyCtrl::request(map::BinEnemyVariation variation, Vector2 pos, Vector3 velocity) {
     cleanup();
     if (mEnemies.isFull()) {
         return;
@@ -29,7 +33,7 @@ void EnemyCtrl::request(map::BinEnemyVariation variation, hel::math::Vector2 pos
                      false, false, pos);
     desc._28 = true;
     desc._20 = mBoss.location().pos().getXY();
-    util::ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
     if (enemy.isAlive()) {
         enemy->move().setVelocity(velocity);
         enemy::Accessor accessor(enemy.operator->());

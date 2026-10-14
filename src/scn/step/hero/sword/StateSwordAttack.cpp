@@ -26,6 +26,8 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -61,11 +63,11 @@ void StateSwordAttack::procAnim() {
         mIsHold = false;
     }
     if (!mIsHit && mFrame == param._0 && obj().hitPoint().isFull()) {
-        hel::math::Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
+        Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
         pos.y += param._8;
-        hel::math::Vector2 weaponPos = pos;
+        Vector2 weaponPos = pos;
         weaponPos.x += param._4 * obj().target().getSign();
-        hel::math::Vector2 speed(param._C * obj().target().getSign(), 0.0f);
+        Vector2 speed(param._C * obj().target().getSign(), 0.0f);
         weapon::Desc desc(static_cast<weapon::Kind>(5), 0, static_cast<ostop::Flag>(1), weaponPos, pos, speed,
                           obj().objColl().objColl().owner());
         obj().comp().weaponManager().request(desc);

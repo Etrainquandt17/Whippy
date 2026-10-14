@@ -26,6 +26,8 @@
 #include "scn/step/enemy/poppybrojr/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +43,7 @@ StateThrow::StateThrow(Enemy* enemy) : StateBase(enemy), mFrame(0), mThrowFrame(
 }
 
 StateThrow::~StateThrow() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isThrowValid()) {
         custom.requestBombDead();
     }
@@ -52,7 +54,7 @@ void StateThrow::procAnim() {
     mFrame++;
     if (mFrame == mThrowFrame) {
         obj().soundSE().start(0x2a9);
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).changeBombState();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).changeBombState();
     }
     if (obj().model().isAllEnd()) {
         obj().brainCtrl().toValid();

@@ -66,6 +66,9 @@
 #include "util/ObjList.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -173,8 +176,8 @@ MiniBlackHoleCtrl& Custom::miniBlackHoleCtrl() {
     return mMiniBlackHoleCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::lowper

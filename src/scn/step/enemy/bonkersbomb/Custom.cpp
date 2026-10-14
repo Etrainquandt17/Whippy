@@ -42,6 +42,12 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace hel {
 namespace common {
 
@@ -95,15 +101,15 @@ bool Custom::reqCustomDeadEffect() {
 }
 
 void Custom::reqRollExp() {
-    hel::math::Vector2 pos = obj().location().pos().getXY() + hel::math::Vector2(obj().charaParam()._4);
+    Vector2 pos = obj().location().pos().getXY() + Vector2(obj().charaParam()._4);
     enum Variation { VARIATION_NORMAL = 1, VARIATION_BIG = 2 };
     Variation variation = obj().size() == 0 ? VARIATION_NORMAL : VARIATION_BIG;
-    weapon::Desc desc(static_cast<weapon::Kind>(0x2f), variation, static_cast<ostop::Flag>(4), pos, hel::math::Vector2::ZERO,
+    weapon::Desc desc(static_cast<weapon::Kind>(0x2f), variation, static_cast<ostop::Flag>(4), pos, Vector2::ZERO,
                       obj().objColl().owner());
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
         weapon::rollexp::Custom& custom =
-            hel::common::DynamicCastToRef<weapon::rollexp::Custom, weapon::ICustom>(weapon->custom());
+            DynamicCastToRef<weapon::rollexp::Custom, weapon::ICustom>(weapon->custom());
         if (obj().size() != 0) {
             custom.changeAttackType(static_cast<ocoll::AttackType>(0x1ad));
             obj().comp().permSoundSE().start(0x2cc);
@@ -114,8 +120,8 @@ void Custom::reqRollExp() {
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::bonkersbomb

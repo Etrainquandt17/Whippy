@@ -38,6 +38,8 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -46,7 +48,7 @@ namespace fattybuffer {
 StateLanding::StateLanding(Boss* boss) : StateBase(boss) {
     obj().footState().setGround();
     obj().model().reqScript(0xA);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().move().resetSpeedV();
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(1));
 }

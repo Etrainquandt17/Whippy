@@ -24,16 +24,21 @@
 #include "scn/step/weapon/roahbullet/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCast;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace roahbullet {
 
 StateMove::StateMove(Weapon* weapon) : StateBase(weapon), mFrame(0) {
-    hel::math::Vector3 target = hel::math::Vector3::ZERO;
+    Vector3 target = Vector3::ZERO;
     u32 num = obj().comp().bossManager().getBossCount();
     for (u32 i = 0; i < num; i++) {
-        util::ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
+        ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
         if (boss.isAlive() && boss->kind() == 0xE) {
             target = boss::Utility::GetHatedHeroPos(*boss.operator->());
         }
@@ -58,7 +63,7 @@ void StateMove::procAnim() {
     } else {
         f32 rate = static_cast<f32>(mFrame % param._2C) / static_cast<f32>(param._2C);
         obj().model().model().nodes().at(0).localMtx().setRTMtx(
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(360.0f * -rate, 0.0f, 0.0f))
+            Matrix34::CreateRotXYZDeg(Vector3(360.0f * -rate, 0.0f, 0.0f))
         );
     }
 }
@@ -70,13 +75,13 @@ void StateMove::procMove() {
         obj().move().accel(mDir, param._20);
         break;
     case 1:
-        obj().move().accel(hel::math::Vector3::BASIS_X * -1.0f, param._20);
+        obj().move().accel(Vector3::BASIS_X * -1.0f, param._20);
         break;
     }
 }
 
 void StateMove::procFixPos() {
-    hel::common::DynamicCast<Custom*, ICustom>(obj().custom())->procFixPos();
+    DynamicCast<Custom*, ICustom>(obj().custom())->procFixPos();
     if (weapon::Utility::CheckShootingCulling(obj())) {
         obj().dead();
     }

@@ -26,6 +26,8 @@
 #include "scn/step/enemy/carrydee/StateCarry.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -55,7 +57,7 @@ void StateJump::procMove() {
         }
         obj().move().airAccelFall(obj().target().isRightDir(), param.mJumpAccel, param.mJumpFall);
     }
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosKey();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosKey();
 }
 
 void StateJump::procFixPos() {

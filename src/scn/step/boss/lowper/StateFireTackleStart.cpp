@@ -57,6 +57,13 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -65,12 +72,12 @@ namespace lowper {
 StateFireTackleStart::StateFireTackleStart(Boss* boss, u32 frame, u32 _3, bool isEx)
     : StateBase(boss), mFrame(frame), _C(_3), mCount(0), mStartPos(), mGoalPos(), mRotX(0.0f), mRotY(0.0f), mRotSpeed(0.0f),
       mIsEx(isEx) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_5);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_5);
     Utility::ControlHateOnAction(obj());
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    f32 width = hel::math::Math::AbsF32(rect._C - rect._8);
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - obj().basePos().x);
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    f32 width = Math::AbsF32(rect._C - rect._8);
+    f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
     mStartPos = obj().location().pos();
     mGoalPos.x = obj().basePos().x + sign * (0.5f * width + 3.5f);
     mGoalPos.y = heroPos.y;
@@ -92,7 +99,7 @@ void StateFireTackleStart::procAnim() {
     } else {
         obj().stateChanger().setNextState<StateFireTackle, Boss*, unsigned long, bool>(objPtr(), _C, mIsEx);
     }
-    mRotX = hel::math::Math::LinearInterpolation(mRotX, 90.0f, 0.1f);
+    mRotX = Math::LinearInterpolation(mRotX, 90.0f, 0.1f);
     mRotSpeed += 0.5f;
     if (mRotSpeed >= 20.0f) {
         mRotSpeed = 20.0f;
@@ -101,22 +108,22 @@ void StateFireTackleStart::procAnim() {
     if (mRotY >= 360.0f) {
         mRotY -= 360.0f;
     }
-    g3d::NodeAccessor node = obj().model().model().nodes().at(3);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRotX, 0.0f, 0.0f)) *
-                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRotY, 0.0f)));
+    NodeAccessor node = obj().model().model().nodes().at(3);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(mRotX, 0.0f, 0.0f)) *
+                             Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRotY, 0.0f)));
 }
 
 void StateFireTackleStart::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos(
-        hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t * t),
-        hel::math::Math::LinearInterpolation(
+    Vector3 pos(
+        Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t * t),
+        Math::LinearInterpolation(
             mStartPos.y, mGoalPos.y,
-            1.0f - (1.0f - hel::math::Math::SinDegF(90.0f * t)) * (1.0f - hel::math::Math::SinDegF(90.0f * t))
+            1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t))
         ),
-        hel::math::Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t)
+        Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t)
     );
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.25f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

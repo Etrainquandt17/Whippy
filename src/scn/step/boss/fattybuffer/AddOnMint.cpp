@@ -12,6 +12,9 @@
 #include "scn/step/boss/fattybuffer/Custom.h"
 #include "scn/step/boss/fattybuffer/States.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -23,7 +26,7 @@ namespace fattybuffer {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_Turn() {
@@ -79,8 +82,8 @@ void t_SetNextState_SwellRollingAttackCircuit() {
 }
 
 void t_SetNextState_SwellBalloon(f32 x, f32 y, int count) {
-    MintBoss::Obj().stateChanger().setNextState<StateSwellBalloonStart, Boss*, hel::math::Vector3, unsigned long>(
-        &MintBoss::Obj(), hel::math::Vector3(x, y, 0.0f), count
+    MintBoss::Obj().stateChanger().setNextState<StateSwellBalloonStart, Boss*, Vector3, unsigned long>(
+        &MintBoss::Obj(), Vector3(x, y, 0.0f), count
     );
 }
 

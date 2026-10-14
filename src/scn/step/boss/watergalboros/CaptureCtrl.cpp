@@ -44,6 +44,8 @@
 #include "scn/step/hero/Hero.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -55,8 +57,8 @@ CaptureCtrl::~CaptureCtrl() {}
 
 void CaptureCtrl::update() {
     const Param& param = mBoss.param().watergalboros();
-    hel::math::Vector3 pos = mBoss.location().pos();
-    pos += hel::math::Vector3(param._D0);
+    Vector3 pos = mBoss.location().pos();
+    pos += Vector3(param._D0);
     mAttacker.setConstraintPos(pos);
 }
 

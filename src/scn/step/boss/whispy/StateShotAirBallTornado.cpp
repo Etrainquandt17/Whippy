@@ -18,6 +18,10 @@
 #include "snd/SERequestor.h"
 #include "util/ObjList.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -28,18 +32,18 @@ StateShotAirBallTornado::StateShotAirBallTornado(Boss* boss, u32 count, u32 inte
 
 void StateShotAirBallTornado::reqAirBall() {
     const Param& param = obj().param().whispy();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos += param.mTornadoOffset;
-    hel::math::Vector2 speed = param.mTornadoSpeed;
+    Vector2 speed = param.mTornadoSpeed;
     speed.x += mSpeedAdd;
     weapon::Desc desc(static_cast<weapon::Kind>(0x53), 0, static_cast<ostop::Flag>(8), pos, speed, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
     obj().soundSE().normal().start(0x31D);
     u32 label = obj().angry().isAngry() ? 0x310 : 0x30F;
     obj().soundSE().normal().start(label);
-    hel::math::Vector3 effectPos = obj().location().pos();
-    effectPos += hel::math::Vector3(param.mTornadoEffectOffset);
-    obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, hel::math::Direction3::FRONT_TO_LEFT);
+    Vector3 effectPos = obj().location().pos();
+    effectPos += Vector3(param.mTornadoEffectOffset);
+    obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, Direction3::FRONT_TO_LEFT);
     mSpeedAdd += param.mTornadoSpeedAdd;
 }
 

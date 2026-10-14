@@ -3,13 +3,16 @@
 #include "hel/common/PointerWrapper.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::common::PointerWrapper;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace chara {
 
 namespace {
 
-hel::common::PointerWrapper<ObjColl> t_obj;
+PointerWrapper<ObjColl> t_obj;
 
 }
 
@@ -28,18 +31,18 @@ void AddBodyColl(u32 id, f32 radius) {
 }
 
 void AddBodyColl(u32 id, f32 radius, f32 x, f32 y) {
-    t_obj->addBodyColl(id, radius, hel::math::Vector2(x, y));
+    t_obj->addBodyColl(id, radius, Vector2(x, y));
 }
 
 void AddBodyColl(u32 id, f32 radius, f32 x, f32 y, f32 x2, f32 y2) {
-    t_obj->addBodyColl(id, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2));
+    t_obj->addBodyColl(id, radius, Vector2(x, y), Vector2(x2, y2));
 }
 
-void AddBodyColl(u32 id, f32 radius, const hel::math::Vector2& offset) {
+void AddBodyColl(u32 id, f32 radius, const Vector2& offset) {
     t_obj->addBodyColl(id, radius, offset);
 }
 
-void AddBodyColl(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2) {
+void AddBodyColl(u32 id, f32 radius, const Vector2& offset, const Vector2& offset2) {
     t_obj->addBodyColl(id, radius, offset, offset2);
 }
 
@@ -52,26 +55,26 @@ void AddAttack(u32 id, u32 attack, f32 radius) {
 }
 
 void AddAttack(u32 id, u32 attack, f32 radius, f32 x, f32 y) {
-    t_obj->addAttack(id, attack, radius, hel::math::Vector2(x, y));
+    t_obj->addAttack(id, attack, radius, Vector2(x, y));
 }
 
 void AddAttack(u32 id, u32 attack, f32 radius, f32 x, f32 y, f32 x2, f32 y2) {
-    t_obj->addAttack(id, attack, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2));
+    t_obj->addAttack(id, attack, radius, Vector2(x, y), Vector2(x2, y2));
 }
 
 void AddAttack(u32 id, u32 attack, f32 radius, f32 x, f32 y, f32 x2, f32 y2, bool flag) {
-    t_obj->addAttack(id, attack, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2), flag);
+    t_obj->addAttack(id, attack, radius, Vector2(x, y), Vector2(x2, y2), flag);
 }
 
-void AddAttack(u32 id, u32 attack, f32 radius, const hel::math::Vector2& offset) {
+void AddAttack(u32 id, u32 attack, f32 radius, const Vector2& offset) {
     t_obj->addAttack(id, attack, radius, offset);
 }
 
-void AddAttack(u32 id, u32 attack, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2) {
+void AddAttack(u32 id, u32 attack, f32 radius, const Vector2& offset, const Vector2& offset2) {
     t_obj->addAttack(id, attack, radius, offset, offset2);
 }
 
-void AddAttack(u32 id, u32 attack, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2, bool flag) {
+void AddAttack(u32 id, u32 attack, f32 radius, const Vector2& offset, const Vector2& offset2, bool flag) {
     t_obj->addAttack(id, attack, radius, offset, offset2, flag);
 }
 
@@ -88,7 +91,7 @@ void SetAttackType(u32 id, u32 type) {
 }
 
 void SetAttackCenter(u32 id, f32 x, f32 y) {
-    t_obj->setAttackCenter(id, hel::math::Vector2(x, y));
+    t_obj->setAttackCenter(id, Vector2(x, y));
 }
 
 void RenewAttack() {
@@ -100,26 +103,26 @@ void AddSearchHit(u32 id, f32 radius) {
 }
 
 void AddSearchHit(u32 id, f32 radius, f32 x, f32 y) {
-    t_obj->addSearchHit(id, radius, hel::math::Vector2(x, y));
+    t_obj->addSearchHit(id, radius, Vector2(x, y));
 }
 
 void AddSearchHit(u32 id, f32 radius, f32 x, f32 y, f32 x2, f32 y2) {
-    t_obj->addSearchHit(id, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2));
+    t_obj->addSearchHit(id, radius, Vector2(x, y), Vector2(x2, y2));
 }
 
 void AddSearchHit(u32 id, f32 radius, f32 x, f32 y, f32 x2, f32 y2, bool flag) {
-    t_obj->addSearchHit(id, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2), flag);
+    t_obj->addSearchHit(id, radius, Vector2(x, y), Vector2(x2, y2), flag);
 }
 
-void AddSearchHit(u32 id, f32 radius, const hel::math::Vector2& offset) {
+void AddSearchHit(u32 id, f32 radius, const Vector2& offset) {
     t_obj->addSearchHit(id, radius, offset);
 }
 
-void AddSearchHit(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2) {
+void AddSearchHit(u32 id, f32 radius, const Vector2& offset, const Vector2& offset2) {
     t_obj->addSearchHit(id, radius, offset, offset2);
 }
 
-void AddSearchHit(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2, bool flag) {
+void AddSearchHit(u32 id, f32 radius, const Vector2& offset, const Vector2& offset2, bool flag) {
     t_obj->addSearchHit(id, radius, offset, offset2, flag);
 }
 
@@ -136,26 +139,26 @@ void AddSearchAttack(u32 id, f32 radius) {
 }
 
 void AddSearchAttack(u32 id, f32 radius, f32 x, f32 y) {
-    t_obj->addSearchAttack(id, radius, hel::math::Vector2(x, y));
+    t_obj->addSearchAttack(id, radius, Vector2(x, y));
 }
 
 void AddSearchAttack(u32 id, f32 radius, f32 x, f32 y, f32 x2, f32 y2) {
-    t_obj->addSearchAttack(id, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2));
+    t_obj->addSearchAttack(id, radius, Vector2(x, y), Vector2(x2, y2));
 }
 
 void AddSearchAttack(u32 id, f32 radius, f32 x, f32 y, f32 x2, f32 y2, bool flag) {
-    t_obj->addSearchAttack(id, radius, hel::math::Vector2(x, y), hel::math::Vector2(x2, y2), flag);
+    t_obj->addSearchAttack(id, radius, Vector2(x, y), Vector2(x2, y2), flag);
 }
 
-void AddSearchAttack(u32 id, f32 radius, const hel::math::Vector2& offset) {
+void AddSearchAttack(u32 id, f32 radius, const Vector2& offset) {
     t_obj->addSearchAttack(id, radius, offset);
 }
 
-void AddSearchAttack(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2) {
+void AddSearchAttack(u32 id, f32 radius, const Vector2& offset, const Vector2& offset2) {
     t_obj->addSearchAttack(id, radius, offset, offset2);
 }
 
-void AddSearchAttack(u32 id, f32 radius, const hel::math::Vector2& offset, const hel::math::Vector2& offset2, bool flag) {
+void AddSearchAttack(u32 id, f32 radius, const Vector2& offset, const Vector2& offset2, bool flag) {
     t_obj->addSearchAttack(id, radius, offset, offset2, flag);
 }
 

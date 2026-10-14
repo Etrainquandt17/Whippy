@@ -30,6 +30,10 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -56,8 +60,8 @@ bool Custom::onHitPointIsZero() {
 }
 
 void Custom::reqExplode() {
-    hel::math::Vector2 pos = Utility::GetCenterPos(obj()).getXY();
-    weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 1, static_cast<ostop::Flag>(4), pos, hel::math::Vector2::ZERO,
+    Vector2 pos = Utility::GetCenterPos(obj()).getXY();
+    weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 1, static_cast<ostop::Flag>(4), pos, Vector2::ZERO,
                       obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
     if (obj().size() == 0) {
@@ -67,8 +71,8 @@ void Custom::reqExplode() {
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

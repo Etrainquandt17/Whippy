@@ -3,6 +3,8 @@
 #include "gobj/AnimScript.h"
 #include "scn/step/carryitem/ModelDescUtil.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -31,7 +33,7 @@ namespace ModelDesc {
 chara::ModelDesc& Create() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<2,0>("step/item/MTomatoBox", "MTomatoBox", 1, T_NODE_NAMES, 2, T_ANIM_ENTRIES, 2, T_SCRIPT_ENTRIES);
     desc.mModel._44[0] = 0x1000;
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 

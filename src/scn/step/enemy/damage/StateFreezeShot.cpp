@@ -54,6 +54,11 @@
 #include "scn/step/weapon/Param.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -76,9 +81,9 @@ inline bool t_IsHitWall(const chara::MapCollResult& result) {
 }
 
 inline bool t_IsCameraOut(Enemy& enemy) {
-    hel::math::Vector3 center = enemy.location().centerPos();
+    Vector3 center = enemy.location().centerPos();
     f32 radius = (enemy.location().pos() - center).length();
-    hel::geo::Rect rect = enemy.comp().mainCamera().getViewRect();
+    Rect rect = enemy.comp().mainCamera().getViewRect();
     rect._0 -= radius;
     rect._4 += radius;
     rect._8 += radius;
@@ -93,7 +98,7 @@ inline bool t_IsCameraOut(Enemy& enemy) {
 
 StateFreezeShot::StateFreezeShot(Enemy* enemy, const u64& ownerUid)
     : StateBase(enemy), mFrame(0), mRot(360.0f), mOwnerUid(ownerUid), mWeapon() {
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
     obj().worldCage().setIsValid(false);
     obj().vacuumReceiver().setIsValid(false);
     obj().nururi().setCanNururi(false);
@@ -101,7 +106,7 @@ StateFreezeShot::StateFreezeShot(Enemy* enemy, const u64& ownerUid)
     obj().objColl().bodyColl().setStateXlu();
     obj().model().setDynamicsDisable();
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(1));
-    hel::math::Vector3 offset = hel::math::Vector2(obj().charaParam()._4).toVector3();
+    Vector3 offset = Vector2(obj().charaParam()._4).toVector3();
     offset.y += Utility::EmDamageUtility_GetEffectOffsetY(&obj());
     u32 node = obj().charaParam()._38;
     f32 scale = Utility::EmDamageUtility_GetEffectScale(&obj());
@@ -180,11 +185,11 @@ void StateFreezeShot::procFixPos() {
     }
 }
 
-void StateFreezeShot::createWeapon(const util::ObjRefHandle<hero::Hero>& hero) {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector3 toCenter = obj().location().toCenter();
-    hel::math::Vector2 center = pos + toCenter.getXY();
-    hel::math::Vector2 zero;
+void StateFreezeShot::createWeapon(const ObjRefHandle<hero::Hero>& hero) {
+    Vector2 pos = obj().location().pos().getXY();
+    Vector3 toCenter = obj().location().toCenter();
+    Vector2 center = pos + toCenter.getXY();
+    Vector2 zero;
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(0x21);
     desc.mVariation = 0;
@@ -197,7 +202,7 @@ void StateFreezeShot::createWeapon(const util::ObjRefHandle<hero::Hero>& hero) {
     if (mWeapon.isAlive()) {
         mWeapon->objColl().setAttackType(static_cast<ocoll::AttackType>(0xcc));
         f32 scale = Utility::EmDamageUtility_GetModelScale(&obj());
-        hel::math::Vector2 offset = hel::math::Vector2::ZERO;
+        Vector2 offset = Vector2::ZERO;
         offset.y += Utility::EmDamageUtility_GetEffectOffsetY(&obj());
         if (obj().kind() == 0x65) {
             offset.y += 0.4f;

@@ -49,13 +49,18 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace landiasingle {
 
 StateGrandCrossEndWait::StateGrandCrossEndWait(Enemy* enemy) : StateBase(enemy), mFrame(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(7);
     obj().move().resetVelocity();
     custom.setFlagActionEnd();
@@ -85,14 +90,14 @@ void StateGrandCrossEndWait::procFixPos() {}
 
 // TODO: the original loads the y of each offset ahead of the vector's address and the two zeros (three lines each).
 void StateGrandCrossEndWait::setCustomMtx(f32 rate) {
-    hel::math::Direction3 dir;
-    dir.mFront = hel::math::Vector3::BASIS_Z;
-    dir.mFront.rotate(hel::math::Vector3::AXIS_X, 0.017453292f * (-360.0f * rate));
-    dir.mLeft = hel::math::Vector3::BASIS_X;
+    Direction3 dir;
+    dir.mFront = Vector3::BASIS_Z;
+    dir.mFront.rotate(Vector3::AXIS_X, 0.017453292f * (-360.0f * rate));
+    dir.mLeft = Vector3::BASIS_X;
     dir.restructFrontLeft();
-    hel::math::Matrix34 toCenter = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, obj().location().toCenter().y, 0.0f));
-    hel::math::Matrix34 fromCenter = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, -obj().location().toCenter().y, 0.0f));
-    hel::math::Matrix34 rot(dir, hel::math::Vector3::ZERO);
+    Matrix34 toCenter = Matrix34::CreateTrans(Vector3(0.0f, obj().location().toCenter().y, 0.0f));
+    Matrix34 fromCenter = Matrix34::CreateTrans(Vector3(0.0f, -obj().location().toCenter().y, 0.0f));
+    Matrix34 rot(dir, Vector3::ZERO);
     obj().model().setCustomMtx(toCenter * rot * fromCenter);
 }
 

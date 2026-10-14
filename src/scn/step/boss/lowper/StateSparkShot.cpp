@@ -58,13 +58,16 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateSparkShot::StateSparkShot(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x25);
@@ -88,9 +91,9 @@ void StateSparkShot::procMove() {}
 void StateSparkShot::procFixPos() {}
 
 void StateSparkShot::reqBullet() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 0.5f;
-    hel::math::Vector3 speed(0.3f * obj().target().getSign(), 0.0f, 0.0f);
+    Vector3 speed(0.3f * obj().target().getSign(), 0.0f, 0.0f);
     weapon::Desc desc(static_cast<weapon::Kind>(0x80), 0, static_cast<ostop::Flag>(8), pos.getXY(), speed.getXY(),
                       obj().objColl().owner());
     obj().comp().weaponManager().request(desc);

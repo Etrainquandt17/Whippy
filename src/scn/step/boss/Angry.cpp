@@ -4,6 +4,8 @@
 #include "scn/step/boss/BrainCtrl.h"
 #include "scn/step/chara/HitPoint.h"
 
+using hel::common::Traits;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -44,7 +46,7 @@ float Angry::getAngryHpRate() const {
 void Angry::setChangeBrain(const char* name) {
     mIsChangeBrain = true;
     // TODO: an assignment of the string in the original; hel::common::FixedStringIN has none yet.
-    hel::common::Traits<char>::Strncpy(const_cast<char*>(static_cast<const char*>(mBrainName)), name, 128);
+    Traits<char>::Strncpy(const_cast<char*>(static_cast<const char*>(mBrainName)), name, 128);
 }
 
 }}}  // namespace scn::step::boss

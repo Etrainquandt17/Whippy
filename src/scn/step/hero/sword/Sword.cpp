@@ -23,6 +23,8 @@
 #include "scn/step/hero/sword/StateSwordUnderThrustStart.h"
 #include "scn/step/hero/sword/StateSwordWaterSpin.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -152,8 +154,8 @@ void Sword::setup() {
         add     r28, r27, r28
         stw     r28, end
     }
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/sword/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/sword/Motion", true);
     motion.bind(base, false);
     word = start;
     last = end;

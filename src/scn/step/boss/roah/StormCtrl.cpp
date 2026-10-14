@@ -5,6 +5,8 @@
 #include "scn/step/boss/Param.h"
 #include "scn/step/boss/roah/Param.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -34,7 +36,7 @@ bool StormCtrl::isDamageTiming() const {
         return false;
     }
     f32 rate = static_cast<f32>(mTime) / static_cast<f32>(param.mStormDamageTime);
-    rate = hel::math::Math::Max(1.0f, rate);
+    rate = Math::Max(1.0f, rate);
     if (mCount % static_cast<u32>(rate) == 0) {
         return mCount != mTime;
     }

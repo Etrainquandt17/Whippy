@@ -56,20 +56,23 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateBombFar::StateBombFar(Boss* boss) : StateBase(boss), mPos(), mCount(0), mIsStarted(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().reqScript(0x10);
     mPos = obj().basePos().toVector3();
     mPos.y += 2.0f;
     mPos.z -= 80.0f;
     obj().model().rotCtrl().setRotHTarget(0.0f);
-    hel::math::Vector3 center = obj().basePos().toVector3();
+    Vector3 center = obj().basePos().toVector3();
     center.y += 2.0f;
     center.z += -80.0f;
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -78,12 +81,12 @@ StateBombFar::StateBombFar(Boss* boss) : StateBase(boss), mPos(), mCount(0), mIs
 }
 
 StateBombFar::~StateBombFar() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.dataBuff().clearBombFarBulletData();
 }
 
 void StateBombFar::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mIsStarted) {
         mCount++;
     }
@@ -109,10 +112,10 @@ void StateBombFar::procMove() {}
 void StateBombFar::procFixPos() {}
 
 void StateBombFar::reqBomb(f32 speedX) {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 0.25f;
-    hel::math::Vector3 speed(speedX, 0.12f, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 speed(speedX, 0.12f, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(2), pos, speed, 0);
 }
 

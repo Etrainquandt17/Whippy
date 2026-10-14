@@ -54,6 +54,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -61,7 +65,7 @@ namespace galactaknight {
 
 StateGuard::StateGuard(Boss* boss, f32 distance, u32 frame, u32 guardFrame)
     : StateBase(boss), mFrame(frame), mCount(0), mGuardFrame(guardFrame), mStartPos(boss->location().pos()), mGoalPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = distance * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     obj().model().reqScript(0xC);
@@ -84,7 +88,7 @@ void StateGuard::procAnim() {
             obj().model().reqScript(0xD);
             obj().flash().guard().setIsValid(false);
             obj().guard().setType(static_cast<GuardType>(0));
-            hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+            DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
         }
     }
     if (mGuardFrame == 0 && obj().model().isAllEnd()) {
@@ -94,8 +98,8 @@ void StateGuard::procAnim() {
 
 void StateGuard::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
     obj().location().setPos(pos);
 }
 

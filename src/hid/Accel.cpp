@@ -1,5 +1,7 @@
 #include "hid/Accel.h"
 
+using hel::math::Vector3;
+
 namespace hid {
 
 Accel::Accel()
@@ -15,8 +17,8 @@ Vec Accel::raw() const {
     return mRaw;
 }
 
-hel::math::Vector3 Accel::rawVector3() const {
-    return hel::math::Vector3(mRaw.x, mRaw.y, mRaw.z);
+Vector3 Accel::rawVector3() const {
+    return Vector3(mRaw.x, mRaw.y, mRaw.z);
 }
 
 }  // namespace hid

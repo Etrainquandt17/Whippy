@@ -25,13 +25,15 @@
 #include "scn/step/enemy/gigatzo/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace gigatzo {
 
 StateWait::StateWait(Enemy* enemy) : StateBase(enemy) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isBackAttack() || custom.isAir()) {
         obj().footState().setAir();
     } else {
@@ -47,7 +49,7 @@ StateWait::~StateWait() {
 }
 
 void StateWait::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().footState().isAir() && !custom.isBackAttack() && !custom.isAir()) {
         obj().move().airDecelFall(obj().param().common().mDecel, obj().param().common().mFall);
     } else {
@@ -56,7 +58,7 @@ void StateWait::procMove() {
 }
 
 void StateWait::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!custom.isBackAttack() && !custom.isAir()) {
         if (obj().mapColl().result().mIsHitFloor) {
             obj().footState().setGround();

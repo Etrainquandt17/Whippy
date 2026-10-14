@@ -24,6 +24,8 @@
 #include "scn/step/enemy/doubtersnake/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,7 +48,7 @@ void StateWalk::procMove() {
         mAngle -= 360.0f;
     }
     gobj::MoveParamAccel accel = param.mWalkAccel;
-    accel._0 += param.mWalkAccelAdd * (0.5f * (1.0f - hel::math::Math::CosDegF(mAngle)));
+    accel._0 += param.mWalkAccelAdd * (0.5f * (1.0f - Math::CosDegF(mAngle)));
     obj().move().groundAccel(obj().target().isRightDir(), accel);
 }
 

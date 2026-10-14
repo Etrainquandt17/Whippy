@@ -3,11 +3,13 @@
 #include "gobj/Move.h"
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<Move> t_obj;
+PointerWrapper<Move> t_obj;
 
 }
 

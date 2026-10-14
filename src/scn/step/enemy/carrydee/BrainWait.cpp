@@ -26,6 +26,8 @@
 #include "scn/step/enemy/common/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ bool BrainWait::onStart() {
 }
 
 bool BrainWait::onLanding() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isHaveKey()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isHaveKey()) {
         obj().stateChanger().setNextState<StateWait, Enemy*>(&obj());
     } else {
         obj().stateChanger().setNextState<common::StateWait, Enemy*>(&obj());

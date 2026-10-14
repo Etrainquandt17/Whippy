@@ -4,6 +4,9 @@
 #include "scn/subgame/gunshoot/enemy/PlayListController.h"
 #include "scn/subgame/gunshoot/param/PlayListSet.h"
 
+using g3d::NodeAccessor;
+using hel::common::ScopedPtr;
+
 extern "C" unsigned long strlen(const char* string);
 
 namespace scn {
@@ -12,7 +15,7 @@ namespace gunshoot {
 namespace enemy {
 
 #define MF_FUNCTION __ct__Q53scn7subgame8gunshoot5enemy21PlayListSetControllerFRCQ53scn7subgame8gunshoot5param11PlayListSetRQ53scn7subgame6common6effect16RequestorBuilderQ23g3d12NodeAccessorRQ53scn7subgame6common4view13ModelAccessor
-PlayListSetController::PlayListSetController(const param::PlayListSet& playListSet, common::effect::RequestorBuilder& builder, g3d::NodeAccessor node,
+PlayListSetController::PlayListSetController(const param::PlayListSet& playListSet, common::effect::RequestorBuilder& builder, NodeAccessor node,
                                              common::view::ModelAccessor& model)
     : mPlayListSet(playListSet)
     , mController()
@@ -67,7 +70,7 @@ PlayListSetController::~PlayListSetController() {
 }
 
 #define MF_FUNCTION initPlayListSet__Q53scn7subgame8gunshoot5enemy21PlayListSetControllerFRQ53scn7subgame6common6effect16RequestorBuilderQ23g3d12NodeAccessorRQ53scn7subgame6common4view13ModelAccessor
-void PlayListSetController::initPlayListSet(common::effect::RequestorBuilder& builder, g3d::NodeAccessor node, common::view::ModelAccessor& model) {
+void PlayListSetController::initPlayListSet(common::effect::RequestorBuilder& builder, NodeAccessor node, common::view::ModelAccessor& model) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -128,7 +131,7 @@ void PlayListSetController::initPlayListSet(common::effect::RequestorBuilder& bu
     for (u32 n = 0; n < 32; n++) {
         const char* name = mPlayListSet.str(mPlayListSet.playListData().name[n]);
         if (strlen(name) != 0) {
-            hel::common::ScopedPtr<PlayListController>(new PlayListController(name, &builder, node, &model)).swap(mController);
+            ScopedPtr<PlayListController>(new PlayListController(name, &builder, node, &model)).swap(mController);
             break;
         }
     }

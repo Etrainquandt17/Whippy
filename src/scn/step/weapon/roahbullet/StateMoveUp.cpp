@@ -19,6 +19,12 @@
 #include "scn/step/weapon/roahbullet/Param.h"
 #include "scn/step/weapon/roahbullet/StateZMove.h"
 
+using hel::common::DynamicCast;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -40,29 +46,29 @@ void StateMoveUp::procAnim() {
     }
     f32 rate = static_cast<f32>(mFrame % param._40) / static_cast<f32>(param._40);
     obj().model().model().nodes().at(0).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(360.0f * rate, 0.0f, 0.0f))
+        Matrix34::CreateRotXYZDeg(Vector3(360.0f * rate, 0.0f, 0.0f))
     );
 }
 
 void StateMoveUp::procMove() {
     const Param& param = obj().param().roahBullet();
     f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param._34);
-    hel::math::Vector2 pos = hel::math::Vector2::ZERO;
-    pos.x = hel::math::Math::LinearInterpolation(
+    Vector2 pos = Vector2::ZERO;
+    pos.x = Math::LinearInterpolation(
         mStartPos.x,
         mEndPos.x,
-        1.0f - (1.0f - hel::math::Math::SinDegF(90.0f * rate)) * (1.0f - hel::math::Math::SinDegF(90.0f * rate))
+        1.0f - (1.0f - Math::SinDegF(90.0f * rate)) * (1.0f - Math::SinDegF(90.0f * rate))
     );
-    pos.y = hel::math::Math::LinearInterpolation(
+    pos.y = Math::LinearInterpolation(
         mStartPos.y,
         mEndPos.y,
-        (1.0f - hel::math::Math::CosDegF(90.0f * rate)) * (1.0f - hel::math::Math::CosDegF(90.0f * rate))
+        (1.0f - Math::CosDegF(90.0f * rate)) * (1.0f - Math::CosDegF(90.0f * rate))
     );
     obj().location().setPos(pos.toVector3());
 }
 
 void StateMoveUp::procFixPos() {
-    hel::common::DynamicCast<Custom*, ICustom>(obj().custom())->procFixPos();
+    DynamicCast<Custom*, ICustom>(obj().custom())->procFixPos();
 }
 
 }}}}  // namespace scn::step::weapon::roahbullet

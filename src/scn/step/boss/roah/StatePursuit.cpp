@@ -15,13 +15,17 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StatePursuit::StatePursuit(Boss* boss, Config config) : StateBase(boss), mCount(0), mConfig(config) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().brainCtrl().toValid();
@@ -52,9 +56,9 @@ void StatePursuit::procAnim() {
 void StatePursuit::procMove() {
     const Param& param = obj().param().roah();
     f32 heroY = Utility::GetHatedHeroPos(obj()).y;
-    if (hel::math::Math::Abs(heroY - obj().location().pos().y) > param.mPursuitMargin) {
+    if (Math::Abs(heroY - obj().location().pos().y) > param.mPursuitMargin) {
         bool isUp = heroY > obj().location().pos().y;
-        hel::math::Vector3 dir = hel::math::Vector3::BASIS_Y * (isUp ? 1.0f : -1.0f);
+        Vector3 dir = Vector3::BASIS_Y * (isUp ? 1.0f : -1.0f);
         obj().move().accel(dir, mConfig._4);
     } else {
         obj().move().decel(gobj::MoveParamDecel::Create(mConfig._4._8));

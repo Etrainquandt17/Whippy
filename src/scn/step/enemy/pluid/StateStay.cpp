@@ -28,6 +28,11 @@
 #include "scn/step/enemy/pluid/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,10 +41,10 @@ namespace pluid {
 StateStay::StateStay(Enemy* enemy) : StateBase(enemy), mIsExistLand(true), _9(false), mFrame(0), mWaitFrame(0), mFallFrame(0) {
     obj().footState().setAir();
     obj().model().reqScript(0);
-    int rand = app::Random::Rand(10);
+    int rand = Random::Rand(10);
     mWaitFrame = (rand + 1) * obj().param().pluid().mStayFrameUnit;
     obj().model().rotCtrl().setRotHTarget(0.0f);
-    obj().effect().normal().requestND(static_cast<effect::Kind>(0x565), 0, hel::math::Direction3::BASIS);
+    obj().effect().normal().requestND(static_cast<effect::Kind>(0x565), 0, Direction3::BASIS);
 }
 
 StateStay::~StateStay() {}
@@ -52,7 +57,7 @@ void StateStay::procAnim() {
 
 void StateStay::procMove() {
     bool isFall;
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isRandomFall()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isRandomFall()) {
         mFrame++;
         isFall = mFrame >= mWaitFrame;
     } else {
@@ -65,7 +70,7 @@ void StateStay::procMove() {
             Utility::TurnHero(obj());
             obj().soundSE().start(0x2d0);
         }
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setRotate(0.0f);
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).setRotate(0.0f);
         obj().move().airDecelFall(gobj::MoveParamDecel::Zero(), obj().param().pluid().mStayFall);
     }
 }
@@ -78,8 +83,8 @@ void StateStay::procFixPos() {
 }
 
 bool StateStay::isPlayerNear() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
     if (pos.y >= playerPos.y && pos.x - 2.5f <= playerPos.x && playerPos.x <= 2.5f + pos.x) {
         return true;
     }

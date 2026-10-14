@@ -13,6 +13,13 @@
 #include "storage/StorageManager.h"
 #include "storage/VolatileData.h"
 
+using app::Application;
+using hel::common::DynamicCast;
+using hel::common::DynamicCastToRef;
+using hel::common::ExplicitSingleton;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 // TODO: hel/common/RuntimeTypeInfo.h does not define this yet; the unit holds its own copy.
 namespace hel {
 namespace common {
@@ -129,10 +136,10 @@ void SequenceTheaterRoomRoot::onChildSequenceEnd(ISequence&) {
 std::auto_ptr<scn::IScene> SequenceTheaterRoomRoot::createScene() const {
     if (_8) {
         storage::TheaterRoomData& data =
-            hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData().theaterRoomData();
+            ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData().theaterRoomData();
         if ((&data._8)[mResult._8] == 2) {
             (&data._8)[mResult._8] = 3;
-            hel::common::ExplicitSingleton<app::Application>::object_->storageManager().volatileData().updateSaveTiming(
+            ExplicitSingleton<Application>::object_->storageManager().volatileData().updateSaveTiming(
                 storage::SAVE_TIMING_2);
         }
         if (mResult._8 == 11 || mResult._8 == 12) {
@@ -162,9 +169,9 @@ void SequenceTheaterRoomRoot::onSceneEnd(scn::IScene& scene) {
     u32 last;
     u32 hash;
 
-    scn::movie::SceneMovie* movie = hel::common::DynamicCast<scn::movie::SceneMovie*, scn::IScene>(&scene);
+    scn::movie::SceneMovie* movie = DynamicCast<scn::movie::SceneMovie*, scn::IScene>(&scene);
     scn::staffcredit::SceneStaffCredit* staffCredit =
-        hel::common::DynamicCast<scn::staffcredit::SceneStaffCredit*, scn::IScene>(&scene);
+        DynamicCast<scn::staffcredit::SceneStaffCredit*, scn::IScene>(&scene);
     asm {
         bl      after1
         opword  0x641E1893
@@ -204,7 +211,7 @@ void SequenceTheaterRoomRoot::onSceneEnd(scn::IScene& scene) {
         mRecipe._0 = mResult._4;
     } else {
         scn::theaterroom::SceneTheaterRoom& room =
-            hel::common::DynamicCastToRef<scn::theaterroom::SceneTheaterRoom, scn::IScene>(&scene);
+            DynamicCastToRef<scn::theaterroom::SceneTheaterRoom, scn::IScene>(&scene);
         if (room.result()._0) {
             _4 = 0;
         } else {
@@ -216,8 +223,8 @@ void SequenceTheaterRoomRoot::onSceneEnd(scn::IScene& scene) {
 }
 #undef MF_FUNCTION
 
-const hel::common::RuntimeTypeInfo& SequenceTheaterRoomRoot::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SequenceTheaterRoomRoot>();
+const RuntimeTypeInfo& SequenceTheaterRoomRoot::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SequenceTheaterRoomRoot>();
 }
 
 }  // namespace seq

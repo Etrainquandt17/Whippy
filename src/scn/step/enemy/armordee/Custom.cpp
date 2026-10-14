@@ -4,6 +4,9 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/waddledee/Utility.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,8 +38,8 @@ f32 Custom::getFrameRate() {
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

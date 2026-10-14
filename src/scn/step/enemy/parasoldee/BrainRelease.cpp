@@ -26,6 +26,8 @@
 #include "scn/step/enemy/parasoldee/StateParasolFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,7 +36,7 @@ namespace parasoldee {
 BrainRelease::BrainRelease(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainRelease::onStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setReleaseOnLanding();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setReleaseOnLanding();
     obj().stateChanger().setNextState<StateParasolFall, Enemy*>(&obj());
     return true;
 }

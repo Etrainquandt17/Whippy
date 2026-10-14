@@ -13,6 +13,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/landiacannon/Param.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -23,8 +26,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0) {
     obj().setVisibility(true);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x10E));
     obj().objColl().addAttack(0, param._0);
-    obj().model().setBaseScale(hel::math::Vector3::ALL_ONE * param._8);
-    hel::math::Vector2 velocity = obj().move().velocity().getXY();
+    obj().model().setBaseScale(Vector3::ALL_ONE * param._8);
+    Vector2 velocity = obj().move().velocity().getXY();
     velocity *= param._4;
     obj().move().setVelocity(velocity.toVector3());
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x80), 0);

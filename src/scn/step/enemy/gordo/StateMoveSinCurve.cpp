@@ -10,6 +10,9 @@
 #include "scn/step/enemy/Param.h"
 #include "scn/step/enemy/gordo/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,7 +28,7 @@ inline bool t_IsHitWall(const chara::MapCollResult& result) {
 }
 
 StateMoveSinCurve::StateMoveSinCurve(Enemy* enemy)
-    : StateBase(enemy), mBase(hel::math::Vector3(enemy->location().pos().x, enemy->location().pos().y, 0.0f)), mAngle(0.0f) {
+    : StateBase(enemy), mBase(Vector3(enemy->location().pos().x, enemy->location().pos().y, 0.0f)), mAngle(0.0f) {
     obj().footState().setAir();
     obj().model().reqScript(0);
 }
@@ -36,13 +39,13 @@ void StateMoveSinCurve::procMove() {
     while (mAngle >= 360.0f) {
         mAngle -= 360.0f;
     }
-    hel::math::Vector3 offset;
+    Vector3 offset;
     if (obj().dirType() == 2 || obj().dirType() == 3) {
-        offset.x = hel::math::Math::SinDegF(mAngle);
+        offset.x = Math::SinDegF(mAngle);
         offset.y = 0.0f;
     } else {
         offset.x = 0.0f;
-        offset.y = hel::math::Math::SinDegF(mAngle);
+        offset.y = Math::SinDegF(mAngle);
     }
     offset *= param.mCircleRadius;
     obj().location().setPos(offset + mBase);
@@ -52,12 +55,12 @@ void StateMoveSinCurve::procFixPos() {
     const ParamData& param = obj().param().gordo();
     if (obj().mapColl().result().mIsHitRoof && obj().dirType() != 2 && obj().dirType() != 3) {
         mAngle = 90.0f;
-        f32 offset = param.mCircleRadius * hel::math::Math::SinDegF(mAngle);
+        f32 offset = param.mCircleRadius * Math::SinDegF(mAngle);
         mBase.y = obj().location().pos().y - offset;
     }
     if (obj().mapColl().result().mIsHitFloor && obj().dirType() != 2 && obj().dirType() != 3) {
         mAngle = 270.0f;
-        f32 offset = param.mCircleRadius * hel::math::Math::SinDegF(mAngle);
+        f32 offset = param.mCircleRadius * Math::SinDegF(mAngle);
         mBase.y = obj().location().pos().y - offset;
     }
     if (t_IsHitWall(obj().mapColl().result()) && (obj().dirType() == 2 || obj().dirType() == 3)) {
@@ -66,7 +69,7 @@ void StateMoveSinCurve::procFixPos() {
         } else {
             mAngle = 90.0f;
         }
-        f32 offset = param.mCircleRadius * hel::math::Math::SinDegF(mAngle);
+        f32 offset = param.mCircleRadius * Math::SinDegF(mAngle);
         mBase.x = obj().location().pos().x - offset;
     }
 }

@@ -26,6 +26,12 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/roahboomerang/Param.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -58,20 +64,20 @@ StateMain::StateMain(Weapon* weapon)
     switch (obj().variation()) {
     case 0:
         if (Utility::IsExtra(obj())) {
-            mRange = hel::math::Vector2(param._28);
+            mRange = Vector2(param._28);
         } else {
-            mRange = hel::math::Vector2(param._20);
+            mRange = Vector2(param._20);
         }
-        mRangeBack = hel::math::Vector2(param._30);
+        mRangeBack = Vector2(param._30);
         obj().model().model().nodes().at(2).setVisibility(false);
         break;
     case 1:
         if (Utility::IsExtra(obj())) {
-            mRange = hel::math::Vector2(param._40);
+            mRange = Vector2(param._40);
         } else {
-            mRange = hel::math::Vector2(param._38);
+            mRange = Vector2(param._38);
         }
-        mRangeBack = hel::math::Vector2(param._48);
+        mRangeBack = Vector2(param._48);
         obj().model().model().nodes().at(1).setVisibility(false);
         break;
     }
@@ -86,9 +92,9 @@ void StateMain::procAnim() {
         if (mEndFrame == 1) {
             u32 num = obj().comp().bossManager().getBossCount();
             for (u32 i = 0; i < num; i++) {
-                util::ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
+                ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
                 if (boss.isAlive() && boss->kind() == 0xE) {
-                    hel::common::DynamicCastToRef<boss::roah::Custom, boss::ICustom>(boss->custom())
+                    DynamicCastToRef<boss::roah::Custom, boss::ICustom>(boss->custom())
                         .weaponCtrl()
                         .caughtSignal();
                 }
@@ -103,24 +109,24 @@ void StateMain::procAnim() {
 void StateMain::procMove() {
     const Param& param = obj().param().roahBoomerang();
     f32 t = static_cast<f32>(mFrame) / static_cast<f32>(mMoveFrame);
-    hel::math::Vector3 pos = mStartPos;
+    Vector3 pos = mStartPos;
     if (Utility::IsExtra(obj())) {
-        t += param._C * hel::math::Math::SinDegF(1440.0f * t);
+        t += param._C * Math::SinDegF(1440.0f * t);
         pos.x -= mRange.x
                  * (1.0f
-                    - (1.0f - hel::math::Math::SinDegF(180.0f * t)) * (1.0f - hel::math::Math::SinDegF(180.0f * t)));
+                    - (1.0f - Math::SinDegF(180.0f * t)) * (1.0f - Math::SinDegF(180.0f * t)));
         pos.x += mRangeBack.x
-                 * (hel::math::Math::SinDegF(180.0f * t) * hel::math::Math::SinDegF(180.0f * t)
-                    * hel::math::Math::SinDegF(180.0f * t));
-        pos.y -= mRange.y * hel::math::Math::SinDegF(720.0f * t);
+                 * (Math::SinDegF(180.0f * t) * Math::SinDegF(180.0f * t)
+                    * Math::SinDegF(180.0f * t));
+        pos.y -= mRange.y * Math::SinDegF(720.0f * t);
         f32 sign = obj().variation() == 0 ? -1.0f : 1.0f;
-        pos.z += sign * param._10 * hel::math::Math::SinDegF(360.0f * t);
+        pos.z += sign * param._10 * Math::SinDegF(360.0f * t);
     } else {
-        t += param._8 * hel::math::Math::SinDegF(720.0f * t);
-        pos.x -= mRange.x * hel::math::Math::SinDegF(180.0f * t);
-        pos.y -= mRange.y * hel::math::Math::SinDegF(360.0f * t);
+        t += param._8 * Math::SinDegF(720.0f * t);
+        pos.x -= mRange.x * Math::SinDegF(180.0f * t);
+        pos.y -= mRange.y * Math::SinDegF(360.0f * t);
         f32 sign = obj().variation() == 0 ? -1.0f : 1.0f;
-        pos.z += sign * param._10 * hel::math::Math::SinDegF(360.0f * t);
+        pos.z += sign * param._10 * Math::SinDegF(360.0f * t);
     }
     obj().location().setPos(pos);
 }

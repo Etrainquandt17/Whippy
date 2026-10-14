@@ -15,6 +15,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/combinationmetabeam/Param.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -35,9 +38,9 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(weapon->param().com
     f32 sign = obj().target().getSign();
     obj().objColl().setAttackType(attackType);
     obj().objColl().addAttack(
-        0, param._C * _C, hel::math::Vector2(sign * param._18 * _C, 0.0f), hel::math::Vector2(sign * param._14 * _C, 0.0f));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2(sign * param._1C, 0.0f));
-    hel::math::Direction3 dir = obj().target().getDirection3();
+        0, param._C * _C, Vector2(sign * param._18 * _C, 0.0f), Vector2(sign * param._14 * _C, 0.0f));
+    obj().objColl().setAttackCenter(0, Vector2(sign * param._1C, 0.0f));
+    Direction3 dir = obj().target().getDirection3();
     obj().effect().normal().requestND(static_cast<effect::Kind>(0x613), 0, dir, _C);
     obj().effect().normal().requestND(static_cast<effect::Kind>(0x446), 0, dir, _C);
 }
@@ -49,7 +52,7 @@ void StateMain::procAnim() {
     const Param& param = obj().param().combinationMetaBeam();
     if (_10 && _8 == param._8) {
         obj().objColl().addAttack(0, param._10 * _C);
-        obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+        obj().objColl().setAttackCenter(0, Vector2::ZERO);
         obj().objColl().renewAttack();
     }
 }

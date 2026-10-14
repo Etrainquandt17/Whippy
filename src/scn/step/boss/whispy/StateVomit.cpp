@@ -9,6 +9,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -17,7 +19,7 @@ namespace whispy {
 StateVomit::StateVomit(Boss* boss, bool isSoft) : StateBase(boss), mIsSoft(isSoft) {
     obj().model().reqScript(20);
     if (mIsSoft) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).damageEyeCtrl().set();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).damageEyeCtrl().set();
     }
 }
 
@@ -25,7 +27,7 @@ StateVomit::~StateVomit() {}
 
 void StateVomit::procAnim() {
     if (obj().scriptTrigger().get(0)) {
-        Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+        Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
         if (mIsSoft) {
             custom.captureCtrl().vomitSoft();
         } else {

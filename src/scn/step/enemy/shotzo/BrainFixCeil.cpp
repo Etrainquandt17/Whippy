@@ -30,6 +30,9 @@
 #include "scn/step/enemy/shotzo/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,9 +45,9 @@ bool BrainFixCeil::onStart() {
     f32 angle = 0.0f;
     if (obj().dirType() != static_cast<map::BinEnemyDirType>(0) && obj().dirType() != static_cast<map::BinEnemyDirType>(1)) {
         f32 rot = Utility::GetRotByDirType(obj());
-        angle = hel::math::Math::Atan2DegF(hel::math::Math::SinDegF(rot), -hel::math::Math::CosDegF(rot));
+        angle = Math::Atan2DegF(Math::SinDegF(rot), -Math::CosDegF(rot));
     }
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(angle);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(angle);
     return true;
 }
 

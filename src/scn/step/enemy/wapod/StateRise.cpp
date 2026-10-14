@@ -25,6 +25,9 @@
 #include "scn/step/enemy/wapod/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,14 +38,14 @@ StateRise::StateRise(Enemy* enemy) : StateBase(enemy) {
 }
 
 void StateRise::procMove() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += obj().param().wapod().mRiseSpeed;
     obj().location().setPos(pos);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).turn();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).turn();
 }
 
 void StateRise::procFixPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).landHitDead();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).landHitDead();
 }
 
 }}}}  // namespace scn::step::enemy::wapod

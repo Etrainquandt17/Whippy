@@ -20,6 +20,9 @@
 #include "scn/step/chara/Shake.h"
 #include "util/ObjList.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -109,8 +112,8 @@ WaftPositionCtrl& Custom::waftPositionCtrl() {
     return mWaftPositionCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::doubter

@@ -37,6 +37,10 @@
 #include "scn/step/enemy/landiasingle/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -67,7 +71,7 @@ bool Custom::onInit() {
         obj().model().model().nodes().at(NODE_KIND_CROWN).setVisibilityBelow(false);
         break;
     }
-    obj().location().setToCenter(hel::math::Vector2(param._4).toVector3());
+    obj().location().setToCenter(Vector2(param._4).toVector3());
     if (obj().kind() == 0x89) {
         obj().stateChanger().setNextState<StateWait, Enemy*, bool>(&obj(), true);
         return true;
@@ -141,8 +145,8 @@ HeadAngleCtrl& Custom::headAngleCtrl() {
     return mHeadAngleCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::landiasingle

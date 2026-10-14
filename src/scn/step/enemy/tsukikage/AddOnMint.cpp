@@ -14,6 +14,8 @@
 #include "scn/step/enemy/tsukikage/StateWallAttack.h"
 #include "scn/step/enemy/tsukikage/StateWarp.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -50,19 +52,19 @@ void t_SetNextState_Wall() {
 }
 
 bool t_Custom_IsWall() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isWall();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isWall();
 }
 
 bool t_Custom_IsJumpAttack() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isJumpAttack();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isJumpAttack();
 }
 
 bool t_Custom_IsFirstAppear() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isFirstAppear();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isFirstAppear();
 }
 
 bool t_Custom_IsWallAttack() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isWallAttack();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isWallAttack();
 }
 
 }

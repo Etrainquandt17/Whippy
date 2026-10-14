@@ -21,13 +21,16 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/sfx/ScreenFade.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateUnion::StateUnion(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(33);
     custom.waftCtrl().setWaveWidthZero();
     obj().model().setVisibility(true);
@@ -40,7 +43,7 @@ StateUnion::StateUnion(Boss* boss) : StateBase(boss) {
 }
 
 StateUnion::~StateUnion() {
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
     if (obj().location().pos().x < heroPos.x) {
         obj().target().setIsRightDir(true);
     } else {

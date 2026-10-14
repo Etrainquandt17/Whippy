@@ -36,13 +36,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace doubter {
 
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.jugglingCtrl().inactivateEnf();
     obj().model().reqScript(37);
     obj().comp().enemyManager().reqDeadAllEnemyForBoss();

@@ -3,6 +3,9 @@
 #include "hel/common/MutableArray.h"
 #include "metafortress.h"
 
+using hel::common::Array;
+using hel::common::MutableArray;
+
 // TODO: this unit calls its own functions where the compiler would inline them by itself.
 #pragma auto_inline off
 
@@ -186,7 +189,7 @@ WarpStarRidePosKind defaultPosKind(Kind kind) {
 }
 
 #define MF_FUNCTION GetWarpStarRidePosKind__Q43scn4step4hero13FormationUtilFRCQ33hel6common30Array_Q43scn4step4hero4Kind_4_Ul
-WarpStarRidePosKind FormationUtil::GetWarpStarRidePosKind(const hel::common::Array<Kind, 4>& kinds, u32 index) {
+WarpStarRidePosKind FormationUtil::GetWarpStarRidePosKind(const Array<Kind, 4>& kinds, u32 index) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -237,7 +240,7 @@ WarpStarRidePosKind FormationUtil::GetWarpStarRidePosKind(const hel::common::Arr
     if (hash - expected != 0 || isDefaultPosKind(kinds[index])) {
         return defaultPosKind(kinds[index]);
     }
-    hel::common::MutableArray<WarpStarRidePosKind, 4> used;
+    MutableArray<WarpStarRidePosKind, 4> used;
     for (u32 k = 0; k < 4; k++) {
         if (k != index && isDefaultPosKind(kinds[k])) {
             used.add(defaultPosKind(kinds[k]));

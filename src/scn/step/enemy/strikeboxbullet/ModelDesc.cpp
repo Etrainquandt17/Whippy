@@ -4,6 +4,8 @@
 #include "hel/common/FixedString.h"
 #include "scn/step/enemy/ModelDescUtil.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,7 +36,7 @@ namespace ModelDesc {
 
 chara::ModelDesc& Create() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<140, 0>("step/weapon/common/EffectLocator", "StrikeBoxBullet", 1, T_NODE_NAMES, 0, T_ANIM_ENTRIES, 7, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("Model");
+    desc.mModel._18 = FixedString<40>("Model");
     return desc;
 }
 

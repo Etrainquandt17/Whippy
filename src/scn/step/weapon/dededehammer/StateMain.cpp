@@ -15,6 +15,8 @@
 #include "scn/step/weapon/dededehammer/Param.h"
 #include "scn/step/weapon/dededehammer/StateExplosion.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -23,8 +25,8 @@ namespace dededehammer {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(-45.0f * obj().target().getSign()), _10(0.0f) {
     const Param& param = obj().param().dededeHammer();
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x148));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
-    obj().objColl().addAttack(0, param._0, hel::math::Vector2(param._4, 0.0f), hel::math::Vector2(param._8, 0.0f));
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
+    obj().objColl().addAttack(0, param._0, Vector2(param._4, 0.0f), Vector2(param._8, 0.0f));
     obj().effect().normal().requestN(static_cast<effect::Kind>(0xFF), 1);
     obj().setDarknessLightVisibility(false);
 }

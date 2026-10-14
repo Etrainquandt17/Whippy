@@ -38,6 +38,10 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -47,7 +51,7 @@ StateTornadoFall::StateTornadoFall(Boss* boss) : StateBase(boss) {
     obj().footState().setAir();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(13);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
     setInitSpeed();
 }
 
@@ -70,8 +74,8 @@ void StateTornadoFall::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
     if (result.mIsHitFloor) {
         obj().move().resetSpeedV();
-        hel::math::Vector2 pos = obj().param().doubter()._24;
-        hel::math::Vector2 speed = obj().param().doubter()._2C;
+        Vector2 pos = obj().param().doubter()._24;
+        Vector2 speed = obj().param().doubter()._2C;
         Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
         pos.x *= -1.0f;
         speed.x *= -1.0f;
@@ -84,7 +88,7 @@ void StateTornadoFall::procFixPos() {
 
 void StateTornadoFall::setInitSpeed() {
     const Param& param = obj().param().doubter();
-    obj().move().setVelocity(hel::math::Vector3(0.0f, param._8C, 0.0f));
+    obj().move().setVelocity(Vector3(0.0f, param._8C, 0.0f));
 }
 
 }}}}  // namespace scn::step::boss::doubter

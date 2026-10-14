@@ -23,6 +23,8 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -67,9 +69,9 @@ void StateDisorderShot::procAnim() {
         return;
     }
     if (mCount < param(obj())._20) {
-        hel::math::Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
+        Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
         pos.y += param(obj())._2C;
-        hel::math::Vector2 dir(0.0f, -1.0f);
+        Vector2 dir(0.0f, -1.0f);
         dir.rotate(0.017453292f * param(obj())._0[mCount]);
         dir.x *= mIsRightDir ? 1.0f : -1.0f;
         dir *= param(obj())._28;

@@ -55,6 +55,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,7 +65,7 @@ namespace lowper {
 
 StateShotBullet::StateShotBullet(Boss* boss, ScriptKind kind, f32 angle, enemy::lowperbullet::VariationKind variation, u32 _5)
     : StateBase(boss), mAngle(angle), mVariation(variation), _10(_5) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(kind);
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
@@ -90,16 +93,16 @@ void StateShotBullet::procFixPos() {
 
 void StateShotBullet::reqShotBullet() {
     const Param& param = obj().param().lowper();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     f32 speed = param._50;
     if (mVariation == enemy::lowperbullet::VariationKind_Homing) {
         speed = 0.2f;
     }
-    hel::math::Vector3 dir(0.0f, -1.0f, 0.0f);
-    dir.rotate(hel::math::Vector3::BASIS_Z, 0.017453292f * mAngle);
+    Vector3 dir(0.0f, -1.0f, 0.0f);
+    dir.rotate(Vector3::BASIS_Z, 0.017453292f * mAngle);
     dir.x *= obj().target().getSign();
     dir *= speed;
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(mVariation, pos, dir, _10);
 }
 

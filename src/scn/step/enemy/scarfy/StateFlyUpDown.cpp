@@ -12,6 +12,9 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/scarfy/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,8 +38,8 @@ void StateFlyUpDown::procMove() {
     if (mAngle >= 360.0f) {
         mAngle -= 360.0f;
     }
-    f32 offset = param.mFlyUpDownHeight * hel::math::Math::SinDegF(mAngle);
-    hel::math::Vector3 pos = obj().location().pos();
+    f32 offset = param.mFlyUpDownHeight * Math::SinDegF(mAngle);
+    Vector3 pos = obj().location().pos();
     pos.y = mBaseY + offset;
     obj().location().setPos(pos);
 }
@@ -45,12 +48,12 @@ void StateFlyUpDown::procFixPos() {
     const ParamData& param = obj().param().scarfy();
     if (obj().mapColl().result().mIsHitRoof) {
         mAngle = 90.0f;
-        f32 offset = param.mFlyUpDownHeight * hel::math::Math::SinDegF(mAngle);
+        f32 offset = param.mFlyUpDownHeight * Math::SinDegF(mAngle);
         mBaseY = obj().location().pos().y - offset;
     }
     if (obj().mapColl().result().mIsHitFloor) {
         mAngle = 270.0f;
-        f32 offset = param.mFlyUpDownHeight * hel::math::Math::SinDegF(mAngle);
+        f32 offset = param.mFlyUpDownHeight * Math::SinDegF(mAngle);
         mBaseY = obj().location().pos().y - offset;
     }
 }

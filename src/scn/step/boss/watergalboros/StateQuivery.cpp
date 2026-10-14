@@ -52,6 +52,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using app::Random;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -92,9 +95,9 @@ void StateQuivery::procFixPos() {
 
 void StateQuivery::reqQuivery() {
     const Param& param = obj().param().watergalboros();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mQuiveryOffset.x * obj().target().getSign(), param.mQuiveryOffset.y);
-    hel::math::Vector2 speed(param.mQuiverySpeed.x * app::Random::RandAF(), param.mQuiverySpeed.y);
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mQuiveryOffset.x * obj().target().getSign(), param.mQuiveryOffset.y);
+    Vector2 speed(param.mQuiverySpeed.x * Random::RandAF(), param.mQuiverySpeed.y);
     weapon::Desc desc(static_cast<weapon::Kind>(0x33), 0, static_cast<ostop::Flag>(8), pos, speed, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
 }

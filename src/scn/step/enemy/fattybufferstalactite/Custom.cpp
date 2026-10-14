@@ -30,6 +30,10 @@
 #include "scn/step/enemy/fattybufferstalactite/StateAppear.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +43,7 @@ Custom::Custom(Enemy& enemy) : CustomBase(enemy) {}
 
 bool Custom::onInit() {
     obj().captureReceiver().setCanCapture(false);
-    obj().objColl().addBodyColl(0, 0.65f * obj().charaParam()._2c, hel::math::Vector2(0.0f, 0.5f));
+    obj().objColl().addBodyColl(0, 0.65f * obj().charaParam()._2c, Vector2(0.0f, 0.5f));
     obj().stateChanger().setNextState<StateAppear, Enemy*>(&obj());
     return true;
 }
@@ -58,8 +62,8 @@ bool Custom::reqCustomDeadEffect() {
     return true;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::fattybufferstalactite

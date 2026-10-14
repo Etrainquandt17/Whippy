@@ -58,6 +58,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -66,7 +70,7 @@ namespace hrd3 {
 StateSwingArmFar::StateSwingArmFar(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(boss->location().pos()), mGoalPos(), mIsMove(false) {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mStartPos.x = param._128 + (custom.landCtrl().getCenterX() + 0.5f * -custom.landCtrl().getWidth());
     mStartPos.y = param._130 + custom.landCtrl().getFloorY();
     mStartPos.z = param._134;
@@ -95,13 +99,13 @@ void StateSwingArmFar::procMove() {
         f32 depthRate;
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
         f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-        f32 sin = hel::math::Math::SinDegF(180.0f * t);
+        f32 sin = Math::SinDegF(180.0f * t);
         depthRate = 1.0f - (1.0f - sin) * (1.0f - sin);
-        hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
-        pos.z = hel::math::Math::LinearInterpolation(mGoalPos.z, param._138, depthRate);
+        Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+        pos.z = Math::LinearInterpolation(mGoalPos.z, param._138, depthRate);
         obj().location().setPos(pos);
     } else {
-        obj().location().setPos(hel::math::Math::LinearInterpolation(obj().location().pos(), mStartPos, 0.05f));
+        obj().location().setPos(Math::LinearInterpolation(obj().location().pos(), mStartPos, 0.05f));
     }
 }
 

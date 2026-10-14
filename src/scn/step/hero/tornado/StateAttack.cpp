@@ -29,6 +29,10 @@
 #include "scn/step/hero/tornado/StateChargeAttack.h"
 #include "util/StateChanger.h"
 
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -142,7 +146,7 @@ bool StateAttack::procObjCollReact() {
 
 void StateAttack::tornadoMove(const ParamTornadoMove& move) {
     Utility::UpdateMoveTarget(obj());
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     const TornadoParam& param = obj().param().tornado();
     if (obj().hid().isHold(4)) {
         velocity.y -= velocity.y > 0.0f ? move._8 * param._5C : move._8;
@@ -154,8 +158,8 @@ void StateAttack::tornadoMove(const ParamTornadoMove& move) {
         f32 sign = obj().target().getSign();
         velocity.x += velocity.x * sign > 0.0f ? sign * move._0 : param._54 * (sign * move._0);
     }
-    velocity.x = hel::math::Math::Limit(velocity.x, move._C);
-    velocity.y = hel::math::Math::Limit(velocity.y, move._10);
+    velocity.x = Math::Limit(velocity.x, move._C);
+    velocity.y = Math::Limit(velocity.y, move._10);
     obj().move().setVelocity(velocity);
     gobj::MoveParamAccel accel = gobj::MoveParamAccel::Create(move._C, 0.0f, move._14);
     if (obj().footState().isGround()) {
@@ -171,7 +175,7 @@ void StateAttack::turn() {
     }
     const TornadoParam& param = obj().param().tornado();
     mTurnWait = param._84;
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     velocity.x *= -param._80;
     obj().move().setVelocity(velocity);
     obj().target().invert();
@@ -186,12 +190,12 @@ void StateAttack::updateDustEffect() {
     if (!obj().groundChecker().isFloorValid()) {
         return;
     }
-    hel::math::Vector3 floorPos = obj().groundChecker().getFloorPos().toVector3();
+    Vector3 floorPos = obj().groundChecker().getFloorPos().toVector3();
     const TornadoParam& param = obj().param().tornado();
     f32 height = static_cast<const Hero&>(obj()).location().pos().y - floorPos.y;
-    if (hel::math::Math::AbsF32(height) < param._88) {
+    if (Math::AbsF32(height) < param._88) {
         mDustWait = param._8C;
-        obj().effect()._58.requestPD(static_cast<effect::Kind>(0x540), floorPos, hel::math::Direction3::BASIS);
+        obj().effect()._58.requestPD(static_cast<effect::Kind>(0x540), floorPos, Direction3::BASIS);
     }
 }
 

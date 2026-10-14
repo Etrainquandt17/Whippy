@@ -29,6 +29,8 @@
 #include "scn/step/enemy/clayn/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -66,7 +68,7 @@ void StateAppear::procMove() {
     gobj::MoveParamDecel decel = gobj::MoveParamDecel::Create(0.02f);
     const gobj::MoveParamFall& fall = gobj::MoveParamFall::Create(0.0f, 0.0f, 0.02f);
     obj().move().airDecelFall(decel, fall);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setPos();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setPos();
 }
 
 void StateAppear::procFixPos() {}

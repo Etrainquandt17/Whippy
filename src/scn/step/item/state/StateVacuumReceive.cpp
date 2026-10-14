@@ -9,6 +9,8 @@
 #include "scn/step/item/RotAnim.h"
 #include "scn/step/item/VacuumReceiver.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -18,8 +20,8 @@ StateVacuumReceive::StateVacuumReceive(Item* item, u32 time)
     : StateBase(item)
     , mMoveAlgorithm() {
     obj().rotAnim().setIsEnable(false);
-    hel::math::Vector2 offs = obj().location().pos().getXY() - obj().vacuumReceiver().getAttackerPos();
-    hel::math::Vector2 centerOffs = obj().centerOffs();
+    Vector2 offs = obj().location().pos().getXY() - obj().vacuumReceiver().getAttackerPos();
+    Vector2 centerOffs = obj().centerOffs();
     f32 scale = 1.0f;
     mMoveAlgorithm.init(offs, centerOffs, scale, time);
     obj().mapColl().setValid(false);
@@ -44,7 +46,7 @@ void StateVacuumReceive::procAnim() {
 }
 
 void StateVacuumReceive::procFixPos() {
-    hel::math::Vector2 pos = obj().vacuumReceiver().getAttackerPos() + mMoveAlgorithm.getNextOffs();
+    Vector2 pos = obj().vacuumReceiver().getAttackerPos() + mMoveAlgorithm.getNextOffs();
     obj().location().setPos(pos.toVector3());
     obj().model().setCustomMtx(mMoveAlgorithm.getRotMtx());
 }

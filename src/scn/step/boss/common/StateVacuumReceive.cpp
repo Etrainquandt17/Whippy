@@ -11,14 +11,17 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace common {
 
 StateVacuumReceive::StateVacuumReceive(Boss* boss) : StateBase(boss), mMove() {
-    hel::math::Vector2 offset = obj().location().pos().getXY() - obj().vacuumReceiver().getAttackerPos();
-    hel::math::Vector2 dir(0.0f, 1.0f);
+    Vector2 offset = obj().location().pos().getXY() - obj().vacuumReceiver().getAttackerPos();
+    Vector2 dir(0.0f, 1.0f);
     mMove.init(offset, dir, 0.4f, 30);
     obj().mapColl().setValid(false);
     obj().vacuumReceiver().setIsValid(false);
@@ -41,8 +44,8 @@ void StateVacuumReceive::procAnim() {
 void StateVacuumReceive::procMove() {}
 
 void StateVacuumReceive::procFixPos() {
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * mMove.getScale());
-    hel::math::Vector2 pos = obj().vacuumReceiver().getAttackerPos() + mMove.getNextOffs();
+    obj().model().setScale(Vector3::ALL_ONE * mMove.getScale());
+    Vector2 pos = obj().vacuumReceiver().getAttackerPos() + mMove.getNextOffs();
     obj().location().setPos(pos.toVector3());
 }
 

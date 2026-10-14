@@ -25,6 +25,9 @@
 #include "scn/step/enemy/brontoburt/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +36,7 @@ namespace brontoburt {
 StatePursuit::StatePursuit(Enemy* enemy) : StateBase(enemy) {
     obj().footState().setAir();
     obj().model().reqScript(4);
-    obj().move().setVelocity(hel::math::Vector3(0.0f, 0.0f, 0.0f));
+    obj().move().setVelocity(Vector3(0.0f, 0.0f, 0.0f));
 }
 
 void StatePursuit::procMove() {
@@ -58,12 +61,12 @@ void StatePursuit::procMove() {
         accel = obj().param().brontoburt().mFlyAccel[3];
         break;
         }
-        hel::math::Vector3 velocity = obj().move().velocity();
-        hel::math::Vector3 dir = Utility::GetNearestPlayerPos(obj()).toVector3() - obj().location().pos();
+        Vector3 velocity = obj().move().velocity();
+        Vector3 dir = Utility::GetNearestPlayerPos(obj()).toVector3() - obj().location().pos();
         if (!dir.isZeroLoose(0.00001f)) {
             dir.normalize();
             velocity += dir * accel;
-            f32 speed = hel::math::Math::SqrtF(velocity.squareLength());
+            f32 speed = Math::SqrtF(velocity.squareLength());
             if (speed > maxSpeed) {
                 velocity = velocity * maxSpeed / speed;
             }
@@ -79,8 +82,8 @@ void StatePursuit::procMove() {
 #pragma dont_inline on
 void StatePursuit::procFixPos() {
     f32 bound = 2.0f;
-    hel::math::Vector3 velocity = obj().move().velocity();
-    hel::math::Vector3 nururiDir = obj().nururi().getNururiDir().toVector3();
+    Vector3 velocity = obj().move().velocity();
+    Vector3 nururiDir = obj().nururi().getNururiDir().toVector3();
     f32 dot = velocity.dot(nururiDir);
     if (dot < 0.0f) {
         velocity -= nururiDir * ((1.0f + bound) * dot / nururiDir.squareLength());

@@ -44,6 +44,8 @@
 #include "scn/step/vacuum/Attacker.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -54,7 +56,7 @@ bool StateRun::TryToChangeState(Hero* hero) {
         return false;
     }
     if (Utility::IsPressHDirKeySameTarget(*hero)) {
-        if (hero->mapColl().precheck(hel::math::Vector2(0.01f * hero->target().getSign(), 0.0f))._2) {
+        if (hero->mapColl().precheck(Vector2(0.01f * hero->target().getSign(), 0.0f))._2) {
             return false;
         }
     }

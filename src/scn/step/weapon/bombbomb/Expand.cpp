@@ -2,6 +2,9 @@
 
 #include "hel/math/Math.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -26,12 +29,12 @@ void Expand::update() {
     }
 }
 
-hel::math::Vector3 Expand::scale() {
+Vector3 Expand::scale() {
     if (!mIsValid) {
-        return hel::math::Vector3::ALL_ONE;
+        return Vector3::ALL_ONE;
     }
-    f32 sin = hel::math::Math::SinDegF(mAngle);
-    return hel::math::Vector3::ALL_ONE * (1.0f + sin * (0.1f * sin));
+    f32 sin = Math::SinDegF(mAngle);
+    return Vector3::ALL_ONE * (1.0f + sin * (0.1f * sin));
 }
 
 void Expand::setNormal() {

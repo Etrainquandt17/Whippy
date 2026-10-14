@@ -4,13 +4,16 @@
 #include "mintglue/VectorInline.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::PointerWrapper;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace chara {
 
 namespace {
 
-hel::common::PointerWrapper<Model> t_obj;
+PointerWrapper<Model> t_obj;
 
 }
 
@@ -25,7 +28,7 @@ void Unregister(Model&) {
 }
 
 void SetScale3(f32 x, f32 y, f32 z) {
-    t_obj->setScale(hel::math::Vector3(x, y, z));
+    t_obj->setScale(Vector3(x, y, z));
 }
 
 }}}}  // namespace scn::step::chara::MintModel

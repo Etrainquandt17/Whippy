@@ -15,6 +15,11 @@
 #include "scn/step/weapon/leaperthorn/StateMain.h"
 #include "std/cmath.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -34,14 +39,14 @@ bool Custom::onInit() {
     return false;
 }
 
-void Custom::reqStart(hel::math::Vector2 pos, hel::math::Vector2 dir) {
+void Custom::reqStart(Vector2 pos, Vector2 dir) {
     const Param& param = obj().param().leaperThorn();
     obj().location().setPos(pos.toVector3());
-    hel::math::Vector3 velocity = dir.toVector3();
+    Vector3 velocity = dir.toVector3();
     velocity.normalize();
     velocity *= param._C;
     obj().move().setVelocity(velocity);
-    f32 angle = static_cast<f32>(acos(hel::math::Vector2::BASIS_Y.cos(velocity.getXY())));
+    f32 angle = static_cast<f32>(acos(Vector2::BASIS_Y.cos(velocity.getXY())));
     if (velocity.x > 0.0f) {
         angle *= -1.0f;
     }
@@ -50,8 +55,8 @@ void Custom::reqStart(hel::math::Vector2 pos, hel::math::Vector2 dir) {
     obj().stateChanger().setNextState<StateMain, Weapon*>(&obj());
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::leaperthorn

@@ -27,6 +27,9 @@
 #include "scn/step/hero/Manager.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,7 +40,7 @@ StateEndure::StateEndure(Enemy* enemy) : StateBase(enemy) {
     obj().model().reqScript(10);
     obj().captureReceiver().setCanCapture(true);
     obj().brainCtrl().toValid();
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setEndureFlag(true);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setEndureFlag(true);
 }
 
 StateEndure::~StateEndure() {}
@@ -46,7 +49,7 @@ void StateEndure::procMove() {}
 
 void StateEndure::procFixPos() {
     if (Utility::IsPlayerExist(obj())) {
-        hel::math::Vector3 playerPos = obj().comp().heroManager().getMainPlayerPos();
+        Vector3 playerPos = obj().comp().heroManager().getMainPlayerPos();
         bool isRight = playerPos.x > obj().location().pos().x;
         if (isRight != obj().target().isRightDir()) {
             obj().target().setIsRightDir(isRight);

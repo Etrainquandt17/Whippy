@@ -52,14 +52,17 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace galactaknight {
 
 StateCameraOutWait::StateCameraOutWait(Boss* boss, u32 frame, f32 height) : StateBase(boss), mFrame(frame), mCount(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector3 pos = obj().location().pos();
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 pos = obj().location().pos();
     f32 distance = 0.5f * custom.landCtrl().getWidth() + 2.0f;
     f32 center = custom.landCtrl().getCenterX();
     pos.x = distance * obj().target().getSign() + center;

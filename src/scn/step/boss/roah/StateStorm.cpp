@@ -27,6 +27,12 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -51,7 +57,7 @@ StateStorm::StateStorm(Boss* boss, Config config)
     , mOnCount(0)
     , mRotX(0.0f) {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mBasePos = obj().location().pos().getXY();
     obj().model().reqScript(15);
     custom.mahoroaCtrl().getCustom().reqMotionStorm();
@@ -67,8 +73,8 @@ StateStorm::StateStorm(Boss* boss, Config config)
         mRotX = custom.rotCtrl().getRotX();
         custom.rotCtrl().toInvalid();
         obj().model().model().nodes().at(1).localMtx().setRTMtx(
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRotX, 0.0f, 0.0f)) *
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, param.mRotYMax * obj().target().getSign(), 0.0f)));
+            Matrix34::CreateRotXYZDeg(Vector3(mRotX, 0.0f, 0.0f)) *
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, param.mRotYMax * obj().target().getSign(), 0.0f)));
         break;
     }
     custom.rotCtrl().resetLocalMtxTempRot();
@@ -76,7 +82,7 @@ StateStorm::StateStorm(Boss* boss, Config config)
 
 StateStorm::~StateStorm() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.rotCtrl().setRotXMax(param.mRotXMax);
     custom.rotCtrl().setRotYMax(param.mRotYMax);
     custom.rotCtrl().setFixRotRate(param.mFixRotRate);
@@ -86,7 +92,7 @@ StateStorm::~StateStorm() {
 
 void StateStorm::procAnim() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mStormCount < mConfig._0) {
         if (mIsStorm) {
             mStormCount++;
@@ -114,24 +120,24 @@ void StateStorm::procAnim() {
     }
     if (mConfig._8 == StormKind_Circle) {
         f32 t = static_cast<f32>(mStormCount) / static_cast<f32>(mConfig._0);
-        f32 rotZ = (1.0f - hel::math::Math::CosDegF(90.0f * t)) * (1.0f - hel::math::Math::CosDegF(90.0f * t));
+        f32 rotZ = (1.0f - Math::CosDegF(90.0f * t)) * (1.0f - Math::CosDegF(90.0f * t));
         if (Utility::IsVariationExtra(obj())) {
-            f32 s = 1.0f - (1.0f - hel::math::Math::SinDegF(90.0f * t)) * (1.0f - hel::math::Math::SinDegF(90.0f * t));
-            f32 base = hel::math::Math::InterpolationParamMinToMax(t);
-            base = 540.0f * base - param.mStormRotZBack * hel::math::Math::SinDegF(180.0f * s);
-            rotZ = param.mStormRotZSwing * hel::math::Math::SinDegF(180.0f * rotZ) + base;
+            f32 s = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t));
+            f32 base = Math::InterpolationParamMinToMax(t);
+            base = 540.0f * base - param.mStormRotZBack * Math::SinDegF(180.0f * s);
+            rotZ = param.mStormRotZSwing * Math::SinDegF(180.0f * rotZ) + base;
         } else {
-            rotZ = -(360.0f * t) + param.mStormRotZSwing * hel::math::Math::SinDegF(180.0f * rotZ);
+            rotZ = -(360.0f * t) + param.mStormRotZSwing * Math::SinDegF(180.0f * rotZ);
         }
         mRotX = mRotX * (1.0f - param.mStormRotXRate) + 360.0f * t * param.mStormRotXRate;
-        f32 rate = 1.0f - (1.0f - hel::math::Math::SinDegF(90.0f * t)) *
-                              ((1.0f - hel::math::Math::SinDegF(90.0f * t)) * (1.0f - hel::math::Math::SinDegF(90.0f * t)));
+        f32 rate = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) *
+                              ((1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t)));
         f32 side = 90.0f * obj().target().getSign();
         f32 front = param.mRotYMax * obj().target().getSign();
         f32 rotY = rate * (side - front) + front;
-        obj().model().model().nodes().at(1).localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, rotZ)) *
-                                                                 hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRotX, 0.0f, 0.0f)) *
-                                                                 hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, rotY, 0.0f)));
+        obj().model().model().nodes().at(1).localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, rotZ)) *
+                                                                 Matrix34::CreateRotXYZDeg(Vector3(mRotX, 0.0f, 0.0f)) *
+                                                                 Matrix34::CreateRotXYZDeg(Vector3(0.0f, rotY, 0.0f)));
         custom.rotCtrl().setLocalMtxTempRot(mRotX, rotY, rotZ);
     }
 }
@@ -143,25 +149,25 @@ void StateStorm::procMove() {
             mCount++;
             f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mOarMoveFrame);
             f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-            hel::math::Vector2 pos = mBasePos;
-            pos.x -= param.mOarMoveDistance * hel::math::Math::SinDegF(180.0f * rate);
+            Vector2 pos = mBasePos;
+            pos.x -= param.mOarMoveDistance * Math::SinDegF(180.0f * rate);
             obj().location().setPos(pos.toVector3());
         }
     } else {
         f32 t = static_cast<f32>(mStormCount) / static_cast<f32>(mConfig._0);
-        hel::math::Vector2 pos = mBasePos;
+        Vector2 pos = mBasePos;
         if (mConfig._8 == StormKind_UpDown) {
             if (isOnOffStormKind()) {
-                f32 fade = (1.0f - hel::math::Math::CosDegF(90.0f * t)) *
-                                                 ((1.0f - hel::math::Math::CosDegF(90.0f * t)) *
-                                                  ((1.0f - hel::math::Math::CosDegF(90.0f * t)) *
-                                                   ((1.0f - hel::math::Math::CosDegF(90.0f * t)) * (1.0f - hel::math::Math::CosDegF(90.0f * t)))));
+                f32 fade = (1.0f - Math::CosDegF(90.0f * t)) *
+                                                 ((1.0f - Math::CosDegF(90.0f * t)) *
+                                                  ((1.0f - Math::CosDegF(90.0f * t)) *
+                                                   ((1.0f - Math::CosDegF(90.0f * t)) * (1.0f - Math::CosDegF(90.0f * t)))));
                 f32 amplitude = mConfig._4 - fade * param.mStormAmplitudeDown;
-                pos.y += amplitude * (0.5f * (hel::math::Math::SinDegF(1.5f * (360.0f * t) + 90.0f) - 1.0f));
+                pos.y += amplitude * (0.5f * (Math::SinDegF(1.5f * (360.0f * t) + 90.0f) - 1.0f));
             } else {
-                t = hel::math::Math::InterpolationParamMinToMax(t);
-                pos.y -= mConfig._4 * hel::math::Math::SinDegF(param.mStormPhase);
-                pos.y += mConfig._4 * hel::math::Math::SinDegF(360.0f * t + param.mStormPhase);
+                t = Math::InterpolationParamMinToMax(t);
+                pos.y -= mConfig._4 * Math::SinDegF(param.mStormPhase);
+                pos.y += mConfig._4 * Math::SinDegF(360.0f * t + param.mStormPhase);
             }
         }
         obj().location().setPos(pos.toVector3());
@@ -170,7 +176,7 @@ void StateStorm::procMove() {
 
 void StateStorm::procFixPos() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mIsStorm) {
         obj().objColl().clearAttack();
         if (isOnOffStormKind()) {
@@ -214,16 +220,16 @@ void StateStorm::procFixPos() {
             }
         }
         if (isAttack) {
-            hel::math::Vector3 dir = obj().model().model().nodes().at(4).worldRotate().mFront;
+            Vector3 dir = obj().model().model().nodes().at(4).worldRotate().mFront;
             if (!dir.isZeroLoose(0.00001f)) {
                 dir.normalize();
             } else {
-                dir = hel::math::Vector3::BASIS_X * -1.0f;
+                dir = Vector3::BASIS_X * -1.0f;
             }
-            hel::math::Vector2 tip = dir.getXY() * param.mStormAttackLength;
-            hel::math::Vector2 root = dir.getXY() * param.mStormAttackLengthNear;
+            Vector2 tip = dir.getXY() * param.mStormAttackLength;
+            Vector2 root = dir.getXY() * param.mStormAttackLengthNear;
             obj().objColl().setAttackType(0, static_cast< ::scn::step::ocoll::AttackType>(0x1F7));
-            obj().objColl().addAttack(0, 4, param.mStormAttackRadius, hel::math::Vector2::ZERO, tip);
+            obj().objColl().addAttack(0, 4, param.mStormAttackRadius, Vector2::ZERO, tip);
             obj().objColl().addAttack(0, 4, param.mStormAttackRadiusNear, root, tip);
         }
     }

@@ -8,6 +8,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/beamcaptureshot/Param.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -15,7 +17,7 @@ namespace beamcaptureshot {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0) {
     obj().setValidAttackRumble(true);
-    obj().effect().normal().requestN(static_cast<effect::Kind>(0x30), 0, hel::math::Vector3(0.0f, obj().param().beamCaptureShot()._0, 0.0f));
+    obj().effect().normal().requestN(static_cast<effect::Kind>(0x30), 0, Vector3(0.0f, obj().param().beamCaptureShot()._0, 0.0f));
 }
 
 StateMain::~StateMain() {}

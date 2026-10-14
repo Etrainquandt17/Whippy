@@ -45,6 +45,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -90,7 +94,7 @@ void Custom::setNextStateMissile() {
     obj().stateChanger().setNextState<StateMissile, Boss*>(objPtr());
 }
 
-hel::math::Vector3 Custom::getMissileLaunchPos() {
+Vector3 Custom::getMissileLaunchPos() {
     return obj().model().model().nodes().at(4).worldTrans();
 }
 
@@ -98,8 +102,8 @@ TailCtrl& Custom::tailCtrl() {
     return mTailCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::hrd3pilot

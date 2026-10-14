@@ -12,6 +12,8 @@
 #include "scn/step/enemy/Param.h"
 #include "scn/step/enemy/tsukikage/Custom.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -19,7 +21,7 @@ namespace tsukikage {
 
 StateWall::StateWall(Enemy* enemy) : StateBase(enemy) {
     obj().footState().setAir();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isWall()) {
         if (obj().dirType() == static_cast<map::BinEnemyDirType>(3)) {
             obj().model().reqScript(11);

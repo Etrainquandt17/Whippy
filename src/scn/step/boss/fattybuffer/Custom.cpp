@@ -25,6 +25,10 @@
 #include "scn/step/chara/WorldCage.h"
 #include "util/ObjList.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -53,7 +57,7 @@ void Custom::onInit() {
         obj().brainCtrl().set("Scn.Step.Boss.FattyBuffer.Brain.Exec");
         obj().angry().setChangeBrain("Scn.Step.Boss.FattyBuffer.Brain.ExecAngry");
     }
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * param.mScaleDefault);
+    obj().model().setScale(Vector3::ALL_ONE * param.mScaleDefault);
     obj().worldCage().changePadding(1.75f, 0.0f);
     obj().stateChanger().setNextState<StateFirst, Boss*>(objPtr());
 }
@@ -120,8 +124,8 @@ CannonCaptureCtrl& Custom::cannonCaptureCtrl() {
     return mCannonCaptureCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::fattybuffer

@@ -5,6 +5,8 @@
 #include "scn/step/hero/MintHero.h"
 #include "scn/step/hero/StagingCtrl.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -20,7 +22,7 @@ StagingCtrl& t_obj() {
 namespace MintStagingCtrl {
 
 void SetZoom(f32 x, f32 y, f32 rate) {
-    t_obj().setZoom(hel::math::Vector2(x, y), rate);
+    t_obj().setZoom(Vector2(x, y), rate);
 }
 
 void SetZoom(f32 rate) {

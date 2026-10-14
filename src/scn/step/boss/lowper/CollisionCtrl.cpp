@@ -10,6 +10,8 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -26,12 +28,12 @@ CollisionCtrl::~CollisionCtrl() {}
 
 void CollisionCtrl::update() {
     const Param& param = mBoss.param().lowper();
-    bool isHit = hel::math::Math::Abs(mBoss.location().pos().z) < param._90;
+    bool isHit = Math::Abs(mBoss.location().pos().z) < param._90;
     if (isHit != mIsHit) {
         mIsHit = isHit;
         setHit();
     }
-    bool isAttack = hel::math::Math::Abs(mBoss.location().pos().z) < param._94;
+    bool isAttack = Math::Abs(mBoss.location().pos().z) < param._94;
     if (isAttack != mIsAttack) {
         mIsAttack = isAttack;
         setAttack();

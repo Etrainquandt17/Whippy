@@ -9,6 +9,8 @@
 #include "scn/step/enemy/cappy/StateLostHat.h"
 #include "scn/step/enemy/common/StateWait.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -22,7 +24,7 @@ bool BrainAttack::onStart() {
 }
 
 bool BrainAttack::onLanding() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isLostHat()) {
         obj().stateChanger().setNextState<StateLostHat, Enemy*>(&obj());
     } else {
@@ -38,7 +40,7 @@ bool BrainAttack::onLanding() {
 }
 
 void BrainAttack::update() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().footState().isGround() && custom.isValidTurn()) {
         Utility::TurnHero(obj());
     }

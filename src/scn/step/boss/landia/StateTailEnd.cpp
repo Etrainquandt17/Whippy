@@ -20,13 +20,17 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateTailEnd::StateTailEnd(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mGoalPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(10);
     custom.waftCtrl().setWaveWidthZero();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -37,7 +41,7 @@ StateTailEnd::StateTailEnd(Boss* boss) : StateBase(boss), mCount(0), mStartPos()
 }
 
 StateTailEnd::~StateTailEnd() {
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
     if (obj().location().pos().x < heroPos.x) {
         obj().target().setIsRightDir(true);
     } else {
@@ -47,7 +51,7 @@ StateTailEnd::~StateTailEnd() {
 
 void StateTailEnd::procAnim() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount < param._22C) {
         mCount++;
     } else {
@@ -61,13 +65,13 @@ void StateTailEnd::procAnim() {
 
 void StateTailEnd::procMove() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._22C);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    pos.y += param._234 * hel::math::Math::SinDegF(180.0f * t);
-    f32 swing = hel::math::Math::SinDegF(180.0f * (1.5f * t + t * (-0.5f * t * t)));
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    pos.y += param._234 * Math::SinDegF(180.0f * t);
+    f32 swing = Math::SinDegF(180.0f * (1.5f * t + t * (-0.5f * t * t)));
     pos.z += swing * param._238;
-    f32 rate = 1.0f - (1.0f - hel::math::Math::SinDegF(90.0f * t)) * (1.0f - hel::math::Math::SinDegF(90.0f * t));
+    f32 rate = 1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t));
     obj().model().rotCtrl().initRotD((1.0f - rate) * (360.0f * obj().target().getSign()));
     custom.waftCtrl().setRefPos(pos);
 }

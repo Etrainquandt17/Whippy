@@ -49,13 +49,16 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateBeamSword::StateBeamSword(Boss* boss, u32 scriptKind) : StateBase(boss), mScriptKind(scriptKind) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(mScriptKind);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -73,8 +76,8 @@ void StateBeamSword::procAnim() {
         return;
     }
     if (obj().scriptTrigger().get(0)) {
-        hel::math::Vector2 pos(param._F8.x * obj().target().getSign(), param._F8.y);
-        hel::math::Vector2 speed(param._100.x * obj().target().getSign(), param._100.y);
+        Vector2 pos(param._F8.x * obj().target().getSign(), param._F8.y);
+        Vector2 speed(param._100.x * obj().target().getSign(), param._100.y);
         Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xB4), obj().location().pos() + pos.toVector3());
     }

@@ -27,6 +27,8 @@
 #include "scn/step/boss/roah/StateZStar.h"
 #include "scn/step/boss/roah/WeaponCtrl.h"
 
+using hel::common::DynamicCastToRef;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -38,7 +40,7 @@ namespace roah {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_Move(f32 x, f32 y, int kind, bool flag) {

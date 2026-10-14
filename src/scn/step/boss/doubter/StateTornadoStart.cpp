@@ -33,6 +33,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -42,7 +44,7 @@ StateTornadoStart::StateTornadoStart(Boss* boss) : StateBase(boss) {
     obj().footState().setGround();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(11);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
 }
 
 StateTornadoStart::~StateTornadoStart() {}

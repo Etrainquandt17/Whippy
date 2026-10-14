@@ -17,6 +17,10 @@
 #include "scn/step/weapon/roahbullet/StateAppear.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCast;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -25,7 +29,7 @@ namespace roahbullet {
 Custom::Custom(Weapon& weapon) : CustomBase(weapon), mWaitNum(0), mGenerateNum(0), mHitInterval(0) {}
 
 bool Custom::onInit() {
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
     obj().mapColl().setValid(false);
     obj().culling().setValid(false);
     custom->setSubAnim();
@@ -93,8 +97,8 @@ u32 Custom::generateNum() {
     return mGenerateNum;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::roahbullet

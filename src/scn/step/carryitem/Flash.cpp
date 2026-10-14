@@ -4,6 +4,8 @@
 #include "scn/step/carryitem/CarryItem.h"
 #include "scn/step/chara/Model.h"
 
+using g3d::ColorAnimFlash;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -21,7 +23,7 @@ Flash::Flash(CarryItem& carryItem, mem::IAllocator& allocator)
     , mColor(T_UNSET_COLOR) {}
 
 void Flash::update() {
-    g3d::ColorAnimFlash flash = mColorAnim.flash();
+    ColorAnimFlash flash = mColorAnim.flash();
     flash.setColor(mColor);
     mColorAnim.setFlash(flash);
 }

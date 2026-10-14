@@ -11,6 +11,8 @@
 #include "scn/step/enemy/fattybufferjr/StateEscapeNear.h"
 #include "scn/step/enemy/fattybufferjr/StateJump.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -19,7 +21,7 @@ namespace fattybufferjr {
 namespace {
 
 void t_SetNextState_Jump(f32 x, f32 y) {
-    MintEnemy::Obj()->stateChanger().setNextState<StateJump, Enemy*, hel::math::Vector3>(MintEnemy::Obj(), hel::math::Vector3(x, y, 0.0f));
+    MintEnemy::Obj()->stateChanger().setNextState<StateJump, Enemy*, Vector3>(MintEnemy::Obj(), Vector3(x, y, 0.0f));
 }
 
 void t_SetNextState_EscapeNear() {

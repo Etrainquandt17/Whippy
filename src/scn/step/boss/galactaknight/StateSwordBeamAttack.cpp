@@ -52,13 +52,15 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace galactaknight {
 
 StateSwordBeamAttack::StateSwordBeamAttack(Boss* boss, ScriptKind kind) : StateBase(boss), mIsStart(false), mWait(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(kind);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
 }
@@ -66,7 +68,7 @@ StateSwordBeamAttack::StateSwordBeamAttack(Boss* boss, ScriptKind kind) : StateB
 StateSwordBeamAttack::~StateSwordBeamAttack() {}
 
 void StateSwordBeamAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mWait != 0) {
         mWait--;
     }

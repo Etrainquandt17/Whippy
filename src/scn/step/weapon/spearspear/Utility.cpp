@@ -10,13 +10,15 @@
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace spearspear {
 
 void Utility::Rotate(Weapon& weapon) {
-    f32 rot = -(57.29578f * weapon.move().velocity().getXY().signedAngle(hel::math::Vector2::BASIS_X));
+    f32 rot = -(57.29578f * weapon.move().velocity().getXY().signedAngle(Vector2::BASIS_X));
     if (!weapon.target().isRightDir()) {
         rot += 180.0f;
     }

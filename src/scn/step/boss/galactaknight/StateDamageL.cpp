@@ -56,6 +56,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,9 +68,9 @@ namespace galactaknight {
 
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss), mCount(0), mStartPos(boss->location().pos()), mGoalPos() {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().objColl().bodyColl().hit().isCollide()) {
-        hel::math::Vector2 attackPos = obj().objColl().bodyColl().damageInfo().attackPos();
+        Vector2 attackPos = obj().objColl().bodyColl().damageInfo().attackPos();
         bool isRight = attackPos.x > obj().location().pos().x;
         obj().target().setIsRightDir(isRight);
     }
@@ -96,8 +101,8 @@ void StateDamageL::procAnim() {
 void StateDamageL::procMove() {
     const Param& param = obj().param().galactaknight();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._124);
-    f32 sin = hel::math::Math::SinDegF(180.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    f32 sin = Math::SinDegF(180.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
     pos.y += param._12C * sin;
     obj().location().setPos(pos);
 }

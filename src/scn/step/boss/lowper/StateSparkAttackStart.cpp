@@ -58,6 +58,11 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -65,11 +70,11 @@ namespace lowper {
 
 StateSparkAttackStart::StateSparkAttackStart(Boss* boss, u32 frame, u32 _3, f32 y, bool isRolling)
     : StateBase(boss), mFrame(frame), mCount(0), _10(_3), mStartPos(), mGoalPos(), mIsRolling(isRolling) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
     Utility::ControlHateOnAction(obj());
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    f32 width = hel::math::Math::AbsF32(rect._C - rect._8);
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - obj().basePos().x);
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    f32 width = Math::AbsF32(rect._C - rect._8);
+    f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);
     mStartPos = obj().location().pos();
     mGoalPos.x = obj().basePos().x + sign * (0.5f * width - 0.5f);
     mGoalPos.y = y + obj().basePos().y;
@@ -93,15 +98,15 @@ void StateSparkAttackStart::procAnim() {
 
 void StateSparkAttackStart::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos(
-        hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t * t),
-        hel::math::Math::LinearInterpolation(
+    Vector3 pos(
+        Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t * t),
+        Math::LinearInterpolation(
             mStartPos.y, mGoalPos.y,
-            1.0f - (1.0f - hel::math::Math::SinDegF(90.0f * t)) * (1.0f - hel::math::Math::SinDegF(90.0f * t))
+            1.0f - (1.0f - Math::SinDegF(90.0f * t)) * (1.0f - Math::SinDegF(90.0f * t))
         ),
-        hel::math::Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t)
+        Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t)
     );
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

@@ -20,6 +20,10 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -33,9 +37,9 @@ struct t_Words {
 
 // TODO: a stand-in. The original copies the difference word by word, as a vector without a declared copy
 // constructor is copied into a named local or a value parameter of an inline function.
-inline f32 t_SquareDistance(const hel::math::Vector3& a, const hel::math::Vector3& b) {
+inline f32 t_SquareDistance(const Vector3& a, const Vector3& b) {
     t_Words copy = *reinterpret_cast<const t_Words*>(&(a - b));
-    return reinterpret_cast<const hel::math::Vector3&>(copy).squareLength();
+    return reinterpret_cast<const Vector3&>(copy).squareLength();
 }
 
 }
@@ -48,12 +52,12 @@ StateSwingPursuit::StateSwingPursuit(Boss* boss) : StateBase(boss), mIsMove(fals
 }
 
 StateSwingPursuit::~StateSwingPursuit() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
 }
 
 void StateSwingPursuit::procAnim() {
     const Param& param = obj().param().bonkers();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount < param.mSwingPursuitTime) {
         if (mIsMove) {
             mCount++;
@@ -78,7 +82,7 @@ void StateSwingPursuit::procMove() {
     }
     if (mIsMove) {
         if (mTurnWait == 0) {
-            hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+            Vector3 heroPos = Utility::GetHatedHeroPos(obj());
             if (t_SquareDistance(obj().location().pos(), heroPos) > param.mSwingPursuitTurnDistance) {
                 mIsRight = heroPos.x > obj().location().pos().x;
             }
@@ -106,9 +110,9 @@ void StateSwingPursuit::procFixPos() {
     if (result._2 || obj().worldCage().isCorrected()) {
         mTurnWait = param.mSwingPursuitTurnWait;
         f32 sign = obj().move().velocity().x > 0.0f ? 1.0f : -1.0f;
-        hel::math::Vector2 offset(param.mSwingPursuitEffectOffset.x * sign, param.mSwingPursuitEffectOffset.y);
+        Vector2 offset(param.mSwingPursuitEffectOffset.x * sign, param.mSwingPursuitEffectOffset.y);
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xD8), obj().location().pos() + offset.toVector3());
-        hel::math::Vector3 velocity = obj().move().velocity();
+        Vector3 velocity = obj().move().velocity();
         velocity.x *= -param.mSwingPursuitReboundRate;
         obj().move().setVelocity(velocity);
     }

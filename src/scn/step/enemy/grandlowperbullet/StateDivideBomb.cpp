@@ -30,6 +30,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -88,9 +90,9 @@ void StateDivideBomb::procFixPos() {
 
 void StateDivideBomb::reqBullet(f32 sign) {
     const ParamData& param = obj().param().grandlowperbullet();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 1.0f;
-    hel::math::Vector3 velocity(sign * param.mDivideSpeed, 0.0f, 0.0f);
+    Vector3 velocity(sign * param.mDivideSpeed, 0.0f, 0.0f);
     weapon::Desc desc(static_cast<weapon::Kind>(0x8c), 0, static_cast<ostop::Flag>(8), pos.getXY(), velocity.getXY(),
                       obj().objColl().owner());
     obj().comp().weaponManager().request(desc);

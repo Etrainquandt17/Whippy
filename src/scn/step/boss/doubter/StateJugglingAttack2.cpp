@@ -34,6 +34,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -41,7 +43,7 @@ namespace doubter {
 
 StateJugglingAttack2::StateJugglingAttack2(Boss* boss) : StateBase(boss), _8(0.0f) {
     obj().footState().setAir();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ControlHateOnAction(obj());
     custom.jugglingCtrl().signalAllEnemyPrepare2();
     custom.jugglingCtrl().inactivateEnf();
@@ -53,7 +55,7 @@ StateJugglingAttack2::StateJugglingAttack2(Boss* boss) : StateBase(boss), _8(0.0
 StateJugglingAttack2::~StateJugglingAttack2() {}
 
 void StateJugglingAttack2::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         custom.jugglingCtrl().signalAllEnemyShot2();
     }
@@ -63,7 +65,7 @@ void StateJugglingAttack2::procAnim() {
 }
 
 void StateJugglingAttack2::procMove() {
-    obj().location().setPos(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).waftPositionCtrl().getNextPos());
+    obj().location().setPos(DynamicCastToRef<Custom, ICustom>(obj().custom()).waftPositionCtrl().getNextPos());
 }
 
 void StateJugglingAttack2::procFixPos() {}

@@ -27,6 +27,8 @@
 #include "scn/step/enemy/walf/StateMoveOnWater.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ namespace walf {
 BrainMove::BrainMove(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainMove::onStart() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isInWater()) {
         obj().stateChanger().setNextState<StateMoveInWater, Enemy*>(&obj());
     } else if (custom.isFloating()) {
@@ -47,7 +49,7 @@ bool BrainMove::onStart() {
 }
 
 bool BrainMove::onRecover() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater()) {
         obj().stateChanger().setNextState<StateMoveInWater, Enemy*>(&obj());
     } else {
         obj().stateChanger().setNextState<StateMoveOnGround, Enemy*>(&obj());

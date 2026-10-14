@@ -24,6 +24,10 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/StateChanger.h"
 
+using g3d::ModelAccessor;
+using g3d::ResFileAccessor;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -70,7 +74,7 @@ const char* STONEBODY_MODEL_TABLE[16] = {
 class ModelHolder {
 public:
     virtual void _8();
-    virtual g3d::ModelAccessor model();
+    virtual ModelAccessor model();
 };
 
 inline ModelHolder& t_modelHolder(Model& model) {
@@ -149,8 +153,8 @@ Stone::~Stone() {
 #undef MF_FUNCTION
 
 void Stone::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/stone/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/stone/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(9, motion);
     gearHat().set(modeldesc::Stone::HatPath());
@@ -188,7 +192,7 @@ bool Stone::tryToChangeState() {
 
 void Stone::onStateEndCleanUp() {
     t_modelHolder(mHero.model()).model().setVisibility(true);
-    t_gobjModel(mHero.model()).setScale(hel::math::Vector3(1.0f, 1.0f, 1.0f));
+    t_gobjModel(mHero.model()).setScale(Vector3(1.0f, 1.0f, 1.0f));
     if (gearHat().isValid()) {
         gearHat().setVisibility(true);
     }

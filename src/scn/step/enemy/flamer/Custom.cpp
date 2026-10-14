@@ -24,6 +24,9 @@
 #include "scn/step/enemy/flamer/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,8 +56,8 @@ void Custom::setIsMove(bool isMove) {
     mIsMove = isMove;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

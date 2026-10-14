@@ -33,6 +33,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -40,7 +42,7 @@ namespace doubter {
 
 StateWaft::StateWaft(Boss* boss) : StateBase(boss), _8(0.0f) {
     obj().footState().setAir();
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
     obj().model().reqScript(0);
     obj().brainCtrl().toValid();
     obj().move().resetVelocity();
@@ -53,7 +55,7 @@ void StateWaft::procAnim() {
 }
 
 void StateWaft::procMove() {
-    obj().location().setPos(hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).waftPositionCtrl().getNextPos());
+    obj().location().setPos(DynamicCastToRef<Custom, ICustom>(obj().custom()).waftPositionCtrl().getNextPos());
 }
 
 void StateWaft::procFixPos() {}

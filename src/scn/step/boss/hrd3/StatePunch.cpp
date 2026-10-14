@@ -58,13 +58,16 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
 StatePunch::StatePunch(Boss* boss, bool isStrong) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     u32 scriptKind;
     if (obj().target().isRightDir()) {
         if (isStrong) {
@@ -85,11 +88,11 @@ StatePunch::StatePunch(Boss* boss, bool isStrong) : StateBase(boss) {
 }
 
 StatePunch::~StatePunch() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).partsCtrl().shrinkDrillForce();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).partsCtrl().shrinkDrillForce();
 }
 
 void StatePunch::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.partsCtrl().updateDrillScale();
     if (obj().scriptTrigger().get(0)) {
         reqStar();
@@ -111,8 +114,8 @@ void StatePunch::procFixPos() {}
 
 void StatePunch::reqStar() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
     pos.y = custom.landCtrl().getFloorY();
     switch (obj().model().anim().currentG3DAnimIndex()) {
     case 0xC:
@@ -122,8 +125,8 @@ void StatePunch::reqStar() {
         pos.x = obj().model().model().nodes().at(0xF).worldTrans().x;
         break;
     }
-    hel::math::Vector2 speed = param._14;
-    hel::math::Vector2 accel = param._1C;
+    Vector2 speed = param._14;
+    Vector2 accel = param._1C;
     Utility::GenerateStarEffect(obj(), pos, speed, accel, static_cast<map::BinEnemyVariation>(0x19B));
     speed.x *= -1.0f;
     accel.x *= -1.0f;

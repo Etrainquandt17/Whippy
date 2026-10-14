@@ -37,6 +37,12 @@
 #include "scn/step/weapon/rollexp/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -87,12 +93,12 @@ bool Custom::onHitPointIsZero() {
 
 // TODO: the two vectors have their stack slots the other way round in the original (velocity at 8, pos at 0x10).
 void Custom::requestRollExp() {
-    hel::math::Vector2 velocity(0.0f, 0.0f);
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 velocity(0.0f, 0.0f);
+    Vector2 pos = obj().location().pos().getXY();
     weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 1, static_cast<ostop::Flag>(4), pos, velocity, obj().objColl().owner());
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
-        hel::common::DynamicCastToRef<weapon::rollexp::Custom, weapon::ICustom>(weapon->custom())
+        DynamicCastToRef<weapon::rollexp::Custom, weapon::ICustom>(weapon->custom())
             .changeAttackType(static_cast<ocoll::AttackType>(0x242));
     }
     obj().soundSE().stop();
@@ -100,8 +106,8 @@ void Custom::requestRollExp() {
     obj().deadIndependent();
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

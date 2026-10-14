@@ -25,6 +25,8 @@
 #include "scn/step/enemy/metalgeneralbomb/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ StateLanding::~StateLanding() {}
 
 void StateLanding::procAnim() {
     const ParamData& param = obj().param().metalgeneralbomb();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     if (mFrame == param.mBlinkFrame) {
         obj().model().reqScript(7);

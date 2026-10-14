@@ -11,6 +11,9 @@
 #include "scn/step/boss/Manager.h"
 #include "scn/step/chara/Location.h"
 
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -22,8 +25,8 @@ SwitchModelCtrl::~SwitchModelCtrl() {}
 
 void SwitchModelCtrl::createLandiaDummy() {
     Desc desc(static_cast<map::BinBossKind>(0x10), static_cast<map::BinBossVariation>(0), 1, false, mBoss.location().pos().getXY(),
-              hel::math::Vector2::ZERO);
-    util::ObjRefHandle<Boss> dummy = mBoss.comp().bossManager().request(desc);
+              Vector2::ZERO);
+    ObjRefHandle<Boss> dummy = mBoss.comp().bossManager().request(desc);
     if (dummy.isAlive()) {
         mDummy = dummy;
     }

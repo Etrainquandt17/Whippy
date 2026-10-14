@@ -53,13 +53,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateNeedle::StateNeedle(Boss* boss, u32 index) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     switch (static_cast<int>(index)) {
     case 1:
@@ -80,7 +82,7 @@ StateNeedle::StateNeedle(Boss* boss, u32 index) : StateBase(boss) {
 StateNeedle::~StateNeedle() {}
 
 void StateNeedle::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateFall, Boss*>(objPtr());
         return;

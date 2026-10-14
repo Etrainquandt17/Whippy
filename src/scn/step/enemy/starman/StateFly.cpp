@@ -25,6 +25,9 @@
 #include "scn/step/enemy/starman/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -76,7 +79,7 @@ void StateFly::procMove() {
         flyStraight();
     }
     mCurX = obj().location().pos().x;
-    f32 diff = hel::math::Math::AbsF32(mCurX - mPrevX);
+    f32 diff = Math::AbsF32(mCurX - mPrevX);
     if (diff < obj().param().starman().mFlyStopDist) {
         obj().move().resetSpeedH();
         obj().target().setIsRightDir(!obj().target().isRightDir());
@@ -98,8 +101,8 @@ void StateFly::procFixPos() {
 void StateFly::flySinCurve() {
     const ParamData& param = obj().param().starman();
     obj().move().groundAccel(obj().target().isRightDir(), mAccel);
-    hel::math::Vector3 pos = obj().location().pos();
-    f32 offset = param.mFlySinWidth * hel::math::Math::CosDegF(mAngle);
+    Vector3 pos = obj().location().pos();
+    f32 offset = param.mFlySinWidth * Math::CosDegF(mAngle);
     pos.y += offset;
     obj().location().setPos(pos);
     mAngle += param.mFlySinSpeed;
@@ -111,7 +114,7 @@ void StateFly::flySinCurve() {
 void StateFly::flyStraight() {
     const ParamData& param = obj().param().starman();
     obj().move().groundAccel(obj().target().isRightDir(), param.mFlyAccel[2]);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += param.mStraightSpeedY;
     if (mFrame <= param.mStraightStartFrame) {
         pos.y += param.mStraightStartY;

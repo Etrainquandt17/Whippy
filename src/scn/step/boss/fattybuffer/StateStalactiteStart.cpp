@@ -38,13 +38,15 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace fattybuffer {
 
 StateStalactiteStart::StateStalactiteStart(Boss* boss, StalactiteJumpKind kind) : StateBase(boss), mKind(kind) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     switch (mKind) {

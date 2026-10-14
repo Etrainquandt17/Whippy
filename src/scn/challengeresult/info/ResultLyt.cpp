@@ -4,6 +4,8 @@
 #include "hid/HIDManager.h"
 #include "metafortress.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace scn {
 namespace challengeresult {
 namespace info {
@@ -60,7 +62,7 @@ void ResultLyt::updateFrame() {
     hash ^= hash >> 11;
     hash += hash << 15;
     if (hash - expected != 0 ||
-        (mState != 0 && mState <= 5 && hel::common::ExplicitSingleton<hid::HIDManager>::object_->gameWR(0).button().isTrigger(0x100))) {
+        (mState != 0 && mState <= 5 && ExplicitSingleton<hid::HIDManager>::object_->gameWR(0).button().isTrigger(0x100))) {
         _52EA = true;
         while (mState == 1) {
             _18.setFrameToTail();

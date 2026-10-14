@@ -26,6 +26,8 @@
 #include "scn/step/enemy/bouncy/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ StateGrandLowperEscape::StateGrandLowperEscape(Enemy* enemy) : StateBase(enemy) 
     const ParamData& param = obj().param().bouncy();
     obj().footState().setAir();
     obj().model().reqScript(9);
-    hel::math::Vector3 velocity = param.mEscapeVelocity;
+    Vector3 velocity = param.mEscapeVelocity;
     obj().move().setVelocity(velocity);
     obj().mapColl().setValid(false);
     obj().objColl().bodyColl().setStateXlu();

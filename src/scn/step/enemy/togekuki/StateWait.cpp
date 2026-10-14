@@ -23,6 +23,8 @@
 #include "scn/step/enemy/togekuki/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,7 +39,7 @@ StateWait::StateWait(Enemy* enemy) : StateBase(enemy), mFrame(0) {
 void StateWait::procMove() {
     const ParamData& param = obj().param().togekuki();
     obj().move().airDecelFall(param.mDecel, param.mFall);
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
     bool isRight = playerPos.x > obj().location().pos().x;
     if (isRight != obj().target().isRightDir()) {
         mFrame++;

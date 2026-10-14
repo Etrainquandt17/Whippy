@@ -15,6 +15,9 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,10 +28,10 @@ StateDashWallHit::StateDashWallHit(Boss* boss) : StateBase(boss) {
     obj().footState().setAir();
     obj().model().reqScript(8);
     obj().brainCtrl().toValid();
-    hel::math::Vector2 pos(param.mDashWallHitStarPos.x * obj().target().getSign(), param.mDashWallHitStarPos.y);
-    hel::math::Vector2 speed(param.mDashWallHitStarSpeed.x * obj().target().getSign(), param.mDashWallHitStarSpeed.y);
+    Vector2 pos(param.mDashWallHitStarPos.x * obj().target().getSign(), param.mDashWallHitStarPos.y);
+    Vector2 speed(param.mDashWallHitStarSpeed.x * obj().target().getSign(), param.mDashWallHitStarSpeed.y);
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19A));
-    hel::math::Direction3 dir = obj().target().isRightDir() ? hel::math::Direction3::FRONT_TO_LEFT : hel::math::Direction3::FRONT_TO_RIGHT;
+    Direction3 dir = obj().target().isRightDir() ? Direction3::FRONT_TO_LEFT : Direction3::FRONT_TO_RIGHT;
     obj().effect().normal().requestPD(static_cast<effect::Kind>(0xB4), obj().location().pos() + pos.toVector3(), dir);
 }
 

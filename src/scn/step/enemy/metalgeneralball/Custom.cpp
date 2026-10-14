@@ -35,6 +35,11 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +50,7 @@ Custom::Custom(Enemy& enemy) : CustomBase(enemy), mMoveCount(0), mIsAlreadyDead(
 bool Custom::onInit() {
     const ParamData& param = obj().param().metalgeneralball();
     obj().culling().setValid(false);
-    obj().model().setBaseScale(hel::math::Vector3::ALL_ONE * param.mScale);
+    obj().model().setBaseScale(Vector3::ALL_ONE * param.mScale);
     obj().stateChanger().setNextState<StateSpread, Enemy*>(&obj());
     return true;
 }
@@ -69,8 +74,8 @@ void Custom::onProcFixPos() {
 }
 
 void Custom::reqRollExp() {
-    hel::math::Vector2 pos = obj().location().pos().getXY() + hel::math::Vector2(obj().charaParam()._4);
-    weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 1, static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO,
+    Vector2 pos = obj().location().pos().getXY() + Vector2(obj().charaParam()._4);
+    weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 1, static_cast<ostop::Flag>(8), pos, Vector2::ZERO,
                       obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
     obj().comp().permSoundSE().start(0x2c8);
@@ -88,8 +93,8 @@ bool Custom::isAlreadyDead() const {
     return mIsAlreadyDead;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::metalgeneralball

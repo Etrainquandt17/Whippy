@@ -25,6 +25,12 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using app::Random;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -55,17 +61,17 @@ StateShot::~StateShot() {
 
 void StateShot::procAnim() {
     if (mWait == 0 && mShotCount < obj().param().leaf()._4) {
-        hel::math::Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
-        pos.y += app::Random::RandNF() * obj().param().leaf()._0;
-        hel::math::Vector2 dir(0.0f, 0.0f);
+        Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
+        pos.y += Random::RandNF() * obj().param().leaf()._0;
+        Vector2 dir(0.0f, 0.0f);
         weapon::Desc desc(static_cast<weapon::Kind>(9), 0, static_cast<ostop::Flag>(1), pos, dir,
                           obj().objColl().objColl().owner());
         {
-            util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+            ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
             if (weapon.isAlive()) {
                 weapon->target().setIsRightDir(obj().target().isRightDir());
-                hel::math::Matrix34 mtx =
-                    hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_Z, -2.0f + 40.0f * app::Random::RandNF());
+                Matrix34 mtx =
+                    Matrix34::CreateRotAxisDeg(Vector3::BASIS_Z, -2.0f + 40.0f * Random::RandNF());
                 weapon->model().setCustomMtx(mtx);
             }
         }

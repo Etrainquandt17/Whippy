@@ -6,6 +6,8 @@
 #include "scn/step/boss/Boss.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -49,7 +51,7 @@ void CaptureCtrl::reqStateFinish() {
     clearCapture();
 }
 
-void CaptureCtrl::setConstraintPos(const hel::math::Vector3& pos) {
+void CaptureCtrl::setConstraintPos(const Vector3& pos) {
     for (u32 i = 0; i < mAttackers.count(); i++) {
         mAttackers[i].setConstraintPos(pos);
     }

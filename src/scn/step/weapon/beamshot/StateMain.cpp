@@ -12,6 +12,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/beamshot/Param.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -34,7 +36,7 @@ void StateMain::procAnim() {
     }
     f32 rate = static_cast<f32>(_8) / (static_cast<f32>(param._4) - 1.0f);
     f32 scale = param._C * rate + param._8;
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * scale);
+    obj().model().setScale(Vector3::ALL_ONE * scale);
 }
 
 void StateMain::procMove() {

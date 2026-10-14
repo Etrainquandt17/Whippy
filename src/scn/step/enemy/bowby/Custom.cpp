@@ -24,6 +24,11 @@
 #include "scn/step/enemy/bowby/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -68,10 +73,10 @@ void Custom::onCaptured() {
 }
 
 f32 Custom::playerAnger() {
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    Vector2 pos = obj().location().pos().getXY();
     playerPos -= pos;
-    return hel::math::Math::Atan2DegF(playerPos.x, playerPos.y);
+    return Math::Atan2DegF(playerPos.x, playerPos.y);
 }
 
 bool Custom::isPlayerInArea() {
@@ -82,9 +87,9 @@ bool Custom::isPlayerInArea() {
     case 4:
         result = true;
         angle = mAngle;
-        if (!(hel::math::Math::Abs(playerAnger() - angle) <= param.mAreaNear)) {
+        if (!(Math::Abs(playerAnger() - angle) <= param.mAreaNear)) {
             angle = mAngle;
-            bool isFar = hel::math::Math::Abs(playerAnger() - angle) >= param.mAreaFar;
+            bool isFar = Math::Abs(playerAnger() - angle) >= param.mAreaFar;
             if (!isFar) {
                 result = false;
             }
@@ -93,9 +98,9 @@ bool Custom::isPlayerInArea() {
     case 5:
         result = true;
         angle = mAngle;
-        if (!(hel::math::Math::Abs(playerAnger() - angle) <= param.mAreaNear)) {
+        if (!(Math::Abs(playerAnger() - angle) <= param.mAreaNear)) {
             angle = mAngle;
-            bool isFar = hel::math::Math::Abs(playerAnger() - angle) >= param.mAreaFar;
+            bool isFar = Math::Abs(playerAnger() - angle) >= param.mAreaFar;
             if (!isFar) {
                 result = false;
             }
@@ -109,8 +114,8 @@ bool Custom::isPlayerInArea() {
     return result;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

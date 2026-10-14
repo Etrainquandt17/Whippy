@@ -34,6 +34,10 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -43,7 +47,7 @@ StateTornadoRise::StateTornadoRise(Boss* boss) : StateBase(boss), mCount(0), mSt
     obj().footState().setAir();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(12);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
     obj().soundSE().loop().start(0x336);
     obj().move().resetVelocity();
 }
@@ -60,8 +64,8 @@ void StateTornadoRise::procAnim() {
 void StateTornadoRise::procMove() {
     const Param& param = obj().param().doubter();
     f32 t = (static_cast<f32>(mCount) - static_cast<f32>(param._84)) / static_cast<f32>(param._80 - param._84 * 2);
-    f32 rate = 0.5f * (1.0f - hel::math::Math::CosDegF(180.0f * hel::math::Math::LimitMinMax(t, 0.0f, 1.0f)));
-    hel::math::Vector3 pos = obj().location().pos();
+    f32 rate = 0.5f * (1.0f - Math::CosDegF(180.0f * Math::LimitMinMax(t, 0.0f, 1.0f)));
+    Vector3 pos = obj().location().pos();
     pos.y = param._88 * rate + mStartY;
     obj().location().setPos(pos);
 }

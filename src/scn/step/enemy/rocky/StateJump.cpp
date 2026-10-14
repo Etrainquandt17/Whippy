@@ -15,6 +15,8 @@
 #include "scn/step/enemy/rocky/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,7 +38,7 @@ void StateJump::procAnim() {
         obj().move().resetSpeedH();
         obj().move().resetSpeedV();
     } else if (mFrame == obj().param().rocky().mJumpStopFrame + obj().param().rocky().mJumpFallFrame) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(true);
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(true);
         obj().stateChanger().setNextState<StateFall, Enemy*>(objPtr());
     }
 }

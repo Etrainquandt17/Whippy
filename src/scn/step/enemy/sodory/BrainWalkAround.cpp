@@ -27,6 +27,8 @@
 #include "scn/step/enemy/sodory/StateWalkAround.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ namespace sodory {
 BrainWalkAround::BrainWalkAround(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainWalkAround::onStart() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.resetBasePosX();
     custom.setDirectionAll();
     obj().stateChanger().setNextState<StateWalkAround, Enemy*>(&obj());
@@ -47,7 +49,7 @@ bool BrainWalkAround::onLanding() {
 }
 
 bool BrainWalkAround::onRecover() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.resetBasePosX();
     custom.setDirectionAll();
     custom.setFrame();

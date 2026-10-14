@@ -16,6 +16,8 @@
 #include "scn/step/boss/whispy/StateShotAirBallTornado.h"
 #include "scn/step/boss/whispy/StateVacuumStart.h"
 
+using hel::common::DynamicCastToRef;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -27,7 +29,7 @@ namespace whispy {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_ShotAirBall(int a, int b, int c) {

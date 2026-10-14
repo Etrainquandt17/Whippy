@@ -9,6 +9,8 @@
 #include "scn/step/enemy/poppybrojr/StateMove.h"
 #include "scn/step/enemy/poppybrojr/StateThrow.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -17,15 +19,15 @@ namespace poppybrojr {
 namespace {
 
 int t_Custom_SetWaitTime() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitTime();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitTime();
 }
 
 bool t_Custom_IsThrowValid() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isThrowValid();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isThrowValid();
 }
 
 void t_Custom_RequestBomb() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).requestBomb();
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).requestBomb();
 }
 
 template <typename S>

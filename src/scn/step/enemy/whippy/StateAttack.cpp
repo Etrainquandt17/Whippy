@@ -30,6 +30,12 @@
 #include "scn/step/enemy/whippy/ParamData.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -48,10 +54,10 @@ StateAttack::~StateAttack() {
 void StateAttack::procAnim() {
     const ParamData& param = obj().param().whippy();
     if (mFrame == param.mAimFrame) {
-        g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-        hel::math::Vector2 diff = Utility::GetNearestPlayerPos(obj());
+        NodeAccessor node = obj().model().model().nodes().at(1);
+        Vector2 diff = Utility::GetNearestPlayerPos(obj());
         diff -= node.worldMtx().getT().getXY();
-        mAngle = hel::math::Math::Atan2DegF(diff.x, diff.y);
+        mAngle = Math::Atan2DegF(diff.x, diff.y);
     }
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<common::StateWait, Enemy*>(objPtr());
@@ -74,9 +80,9 @@ void StateAttack::procFixPos() {
 
 void StateAttack::aimAntenna(f32 angle) {
     const ParamData& param = obj().param().whippy();
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotAxisDeg(
-        hel::math::Vector3(0.0f, 1.0f, 0.0f), hel::math::Math::LimitMinMax(angle, -param.mAngleMax, param.mAngleMax));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Matrix34 mtx = Matrix34::CreateRotAxisDeg(
+        Vector3(0.0f, 1.0f, 0.0f), Math::LimitMinMax(angle, -param.mAngleMax, param.mAngleMax));
     mtx.setT(node.localMtx().rtMtx().getT());
     node.localMtx().setRTMtx(mtx);
 }

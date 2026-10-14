@@ -28,6 +28,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,7 +42,7 @@ Custom::Custom(Enemy& enemy) : CustomBase(enemy) {}
 
 bool Custom::onInit() {
     if (obj().variation() == 0x176) {
-        obj().effect().normal().requestN(static_cast<effect::Kind>(0x295), 0, hel::math::Vector3(0.0f, 0.5f, 0.0f), 1.0f);
+        obj().effect().normal().requestN(static_cast<effect::Kind>(0x295), 0, Vector3(0.0f, 0.5f, 0.0f), 1.0f);
     }
     return false;
 }
@@ -62,15 +67,15 @@ bool Custom::reqCustomDeadEffect() {
 }
 
 void Custom::reqExplode() {
-    hel::math::Vector2 pos = Utility::GetCenterPos(obj()).getXY();
-    hel::math::Vector2 velocity = hel::math::Vector2::ZERO;
+    Vector2 pos = Utility::GetCenterPos(obj()).getXY();
+    Vector2 velocity = Vector2::ZERO;
     weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 1, static_cast<ostop::Flag>(4), pos, velocity, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
     obj().comp().permSoundSE().start(0x382);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

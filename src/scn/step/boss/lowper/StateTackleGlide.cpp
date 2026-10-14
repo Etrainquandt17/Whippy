@@ -56,6 +56,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,11 +67,11 @@ namespace lowper {
 
 StateTackleGlide::StateTackleGlide(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mStartY(0.0f), mGoalY(0.0f), mGoalX(0.0f), mStartX(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     f32 baseX = obj().basePos().x;
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - baseX);
+    f32 sign = Math::SignF32(obj().location().pos().x - baseX);
     mStartY = obj().comp().mainCamera().getWorldRect()._0 - param._2C;
     mGoalY = param._28 + obj().basePos().y;
     mGoalX = obj().basePos().x + 0.5f * sign * param._24;
@@ -86,14 +90,14 @@ void StateTackleGlide::procAnim() {
 
 void StateTackleGlide::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector2 pos;
-    f32 cos = hel::math::Math::CosDegF(180.0f * t);
+    Vector2 pos;
+    f32 cos = Math::CosDegF(180.0f * t);
     f32 rateX = 0.5f * (1.0f + cos);
-    pos.x = hel::math::Math::LinearInterpolation(mStartX, mGoalX, rateX);
-    f32 sin = hel::math::Math::SinDegF(180.0f * t);
+    pos.x = Math::LinearInterpolation(mStartX, mGoalX, rateX);
+    f32 sin = Math::SinDegF(180.0f * t);
     f32 rateY = 1.0f - sin;
-    pos.y = hel::math::Math::LinearInterpolation(mGoalY, mStartY, rateY);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    pos.y = Math::LinearInterpolation(mGoalY, mStartY, rateY);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.waftMoveCtrl().setMoveIntpRate(param._30);
     custom.waftMoveCtrl().setWaveWidth(0.0f);

@@ -16,6 +16,9 @@
 #include "scn/step/enemy/babut/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -58,12 +61,12 @@ void StateStandBack::procMove() {
     const ParamData& param = obj().param().babut();
     const gobj::MoveParamFall& fall = gobj::MoveParamFall::Zero();
     obj().move().airAccelFall(obj().target().isRightDir(), param.mStandBackAccel, fall);
-    hel::math::Vector2 heroPos = Utility::GetNearestPlayerPos(obj());
+    Vector2 heroPos = Utility::GetNearestPlayerPos(obj());
     obj().target().setIsRightDir(heroPos.x > obj().location().pos().x);
 }
 
 void StateStandBack::procFixPos() {
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     if (t_IsHitWall(obj().mapColl().result())) {
         velocity.x = -velocity.x;
     }

@@ -4,31 +4,35 @@
 #include "hel/math/Matrix44.h"
 #include "hel/math/Vector3.h"
 
+using hel::math::Matrix34;
+using hel::math::Matrix44;
+using hel::math::Vector3;
+
 namespace g3d {
 
-hel::math::Matrix34 CameraAccessor::viewMtx() const {
-    hel::math::Matrix34 mtx;
+Matrix34 CameraAccessor::viewMtx() const {
+    Matrix34 mtx;
     GetCameraMtx(reinterpret_cast<nw4r::math::MTX34*>(&mtx));
     return mtx;
 }
 
-void CameraAccessor::setViewMtx(const hel::math::Matrix34& mtx) const {
+void CameraAccessor::setViewMtx(const Matrix34& mtx) const {
     const_cast<CameraAccessor*>(this)->SetCameraMtxDirectly(reinterpret_cast<const nw4r::math::MTX34&>(mtx));
 }
 
-hel::math::Matrix44 CameraAccessor::projectionMtx() const {
-    hel::math::Matrix44 mtx;
+Matrix44 CameraAccessor::projectionMtx() const {
+    Matrix44 mtx;
     GetProjectionMtx(&mtx.m);
     return mtx;
 }
 
-hel::math::Vector3 CameraAccessor::getPosition() const {
+Vector3 CameraAccessor::getPosition() const {
     nw4r::math::VEC3 pos;
     GetPosition(&pos);
-    return hel::math::Vector3(pos);
+    return Vector3(pos);
 }
 
-void CameraAccessor::setPosition(const hel::math::Vector3& pos) const {
+void CameraAccessor::setPosition(const Vector3& pos) const {
     if (&pos == 0) {
         return;
     }

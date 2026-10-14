@@ -26,6 +26,8 @@
 #include "scn/step/enemy/pacto/StateSpit.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,14 +40,14 @@ StateEat::StateEat(Enemy* enemy) : StateBase(enemy), mFrame(0), mDamageWait(0) {
         mDamageWait = param.mEatDamageIntervalSuper;
     }
     obj().model().reqScript(9);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enableResistCaptureHero();
     custom.setDamageCaptureHero(obj().param().pacto().mEatFirstDamage, false);
     obj().soundSEState().start(0x2f2);
 }
 
 StateEat::~StateEat() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).disableResistCaptureHero();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).disableResistCaptureHero();
 }
 
 void StateEat::procAnim() {
@@ -57,7 +59,7 @@ void StateEat::procAnim() {
         if (obj().kind() == 0x4c) {
             mDamageWait = param.mEatDamageIntervalSuper;
         }
-        Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+        Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
         if (custom.chkReleaseHero()) {
             custom.setSuccessCaptureHero();
             obj().stateChanger().setNextState<StateSpit, Enemy*>(objPtr());

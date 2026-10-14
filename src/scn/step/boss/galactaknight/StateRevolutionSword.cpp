@@ -57,6 +57,10 @@
 #include "scn/step/weapon/galactarevolutionsword/Custom.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -81,7 +85,7 @@ namespace boss {
 namespace galactaknight {
 
 StateRevolutionSword::StateRevolutionSword(Boss* boss) : StateBase(boss), mWeapon(), mIsRequested(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x20);
     obj().guard().setType(static_cast<GuardType>(1));
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
@@ -105,19 +109,19 @@ void StateRevolutionSword::procMove() {}
 void StateRevolutionSword::procFixPos() {}
 
 void StateRevolutionSword::reqRevolutionSword() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mIsRequested = true;
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos.x += -0.1f;
     pos.y += 2.8f;
-    weapon::Desc desc(static_cast<weapon::Kind>(0x86), 0, static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO,
+    weapon::Desc desc(static_cast<weapon::Kind>(0x86), 0, static_cast<ostop::Flag>(8), pos, Vector2::ZERO,
                       obj().objColl().owner());
     desc._24 = Utility::GetHatedHeroPos(obj()).getXY();
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
         mWeapon = weapon;
         weapon::galactarevolutionsword::Custom& weaponCustom =
-            hel::common::DynamicCastToRef<weapon::galactarevolutionsword::Custom, weapon::ICustom>(weapon->custom());
+            DynamicCastToRef<weapon::galactarevolutionsword::Custom, weapon::ICustom>(weapon->custom());
         weaponCustom.setFloorPosY(custom.landCtrl().getFloorY());
     }
 }

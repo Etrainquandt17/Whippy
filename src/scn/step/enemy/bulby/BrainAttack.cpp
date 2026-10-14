@@ -25,13 +25,15 @@
 #include "scn/step/enemy/bulby/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace bulby {
 
 BrainAttack::BrainAttack(Enemy& enemy) : BrainBase(enemy) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsBuried(true);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsBuried(true);
 }
 
 bool BrainAttack::onStart() {

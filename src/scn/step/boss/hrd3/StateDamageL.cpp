@@ -58,6 +58,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -65,7 +69,7 @@ namespace hrd3 {
 
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss), mCount(0), mWaitCount(0) {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::StagingBossDamageL(obj());
     obj().comp().enemyManager().reqDeadAllEnemyForBoss();
     obj().comp().weaponManager().reqDeadByTeamNo(ocoll::TEAM_NO_1);
@@ -83,7 +87,7 @@ StateDamageL::StateDamageL(Boss* boss) : StateBase(boss), mCount(0), mWaitCount(
 }
 
 StateDamageL::~StateDamageL() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).partsCtrl().startDrillSubAnim();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).partsCtrl().startDrillSubAnim();
 }
 
 void StateDamageL::procAnim() {
@@ -101,12 +105,12 @@ void StateDamageL::procMove() {
     const Param& param = obj().param().hrd3();
     f32 rate;
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._50);
-    f32 fall = 1.0f - hel::math::Math::CosDegF(90.0f * t);
+    f32 fall = 1.0f - Math::CosDegF(90.0f * t);
     rate = fall * fall;
-    hel::math::Vector3 pos;
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalPos.y, rate);
-    pos.z = hel::math::Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t);
+    Vector3 pos;
+    pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
+    pos.y = Math::LinearInterpolation(mStartPos.y, mGoalPos.y, rate);
+    pos.z = Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t);
     obj().location().setPos(pos);
 }
 

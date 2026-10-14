@@ -72,13 +72,15 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateRain::StateRain(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x16);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -89,7 +91,7 @@ StateRain::StateRain(Boss* boss) : StateBase(boss) {
 StateRain::~StateRain() {}
 
 void StateRain::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateFall, Boss*>(objPtr());
         return;

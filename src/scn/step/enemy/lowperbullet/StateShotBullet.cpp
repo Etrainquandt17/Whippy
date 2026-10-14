@@ -26,6 +26,8 @@
 #include "scn/step/enemy/lowperbullet/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -55,7 +57,7 @@ void StateShotBullet::procMove() {
 void StateShotBullet::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
     if (result.isHit()) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponLandHit();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponLandHit();
         obj().deadWithEffect();
     }
 }

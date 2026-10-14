@@ -55,13 +55,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateSummonBarrier::StateSummonBarrier(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x15);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -72,7 +74,7 @@ StateSummonBarrier::~StateSummonBarrier() {}
 
 void StateSummonBarrier::procAnim() {
     if (obj().scriptTrigger().get(0)) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyCtrl().requestBarrier();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyCtrl().requestBarrier();
     }
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());

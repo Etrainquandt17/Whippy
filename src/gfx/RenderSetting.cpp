@@ -12,6 +12,8 @@
 #include "revolution/gx/GXTexture.h"
 #include "revolution/gx/GXTransform.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace {
 
 static const f32 VIEWPORT_NEAR = 0;
@@ -29,7 +31,7 @@ void t_setCopyClear() {
 namespace gfx {
 
 RenderSetting::RenderSetting()
-    : mVISetting(hel::common::ExplicitSingleton<VISetting>::object_)
+    : mVISetting(ExplicitSingleton<VISetting>::object_)
     , mType(TYPE_NORMAL)
     , mPass(0)
     , mIsDirty(true)

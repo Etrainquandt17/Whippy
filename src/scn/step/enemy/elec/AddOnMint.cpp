@@ -17,6 +17,8 @@
 #include "scn/step/enemy/elec/ParamData.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -29,7 +31,7 @@ inline Enemy& obj() {
 }
 
 void t_Custom_SetViewOffset(f32 x, f32 y) {
-    obj().model().setViewOffset(hel::math::Vector3(x, y, 0.0f));
+    obj().model().setViewOffset(Vector3(x, y, 0.0f));
 }
 
 void t_Custom_AttackEffect0() {

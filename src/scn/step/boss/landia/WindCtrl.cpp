@@ -10,6 +10,10 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/core/AreaOperation.h"
 
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -31,9 +35,9 @@ WindCtrl::~WindCtrl() {
 
 void WindCtrl::update() {
     mSpeed += mAccel;
-    mSpeed = mSpeedMax > 0.0f ? hel::math::Math::Min(mSpeed, mSpeedMax) : hel::math::Math::Max(mSpeed, mSpeedMax);
+    mSpeed = mSpeedMax > 0.0f ? Math::Min(mSpeed, mSpeedMax) : Math::Max(mSpeed, mSpeedMax);
     for (u32 i = 0; i < 7; i++) {
-        hel::math::Vector2 velocity(mSpeed * T_AREA_RATE[i], 0.0f);
+        Vector2 velocity(mSpeed * T_AREA_RATE[i], 0.0f);
         mBoss.comp().areaOperation().setAdditionalVelocity(mAreaIds[i], velocity);
     }
 }
@@ -43,10 +47,10 @@ void WindCtrl::set(f32 speed, f32 accel, f32 speedMax) {
     mAccel = accel;
     mSpeedMax = speedMax;
     mBoss.comp().areaOperation().clearAllAdditionalVelocity();
-    hel::math::Vector2 pos = mBoss.location().pos().getXY();
+    Vector2 pos = mBoss.location().pos().getXY();
     pos.x -= 3.5f * mBoss.target().getSign();
     for (u32 i = 0; i < 7; i++) {
-        hel::geo::Rect rect;
+        Rect rect;
         if (mBoss.target().isRightDir()) {
             rect.set(8.0f, -8.0f, -3.6f, 0.0f);
         } else {

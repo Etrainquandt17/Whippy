@@ -56,19 +56,25 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace galactaknight {
 
 StateFlyZ::StateFlyZ(Boss* boss, f32 margin)
-    : StateBase(boss), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mSign(1.0f), mDir(hel::math::Direction3::BASIS) {
+    : StateBase(boss), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mSign(1.0f), mDir(Direction3::BASIS) {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = custom.landCtrl().getFarEdgeX(margin);
     mGoalPos.y = param._D0 + custom.landCtrl().getFloorY();
     mSign = mStartPos.x < mGoalPos.x ? 1.0f : -1.0f;
-    mDir.mFront = hel::math::Vector3::BASIS_X * mSign;
+    mDir.mFront = Vector3::BASIS_X * mSign;
     mDir.restructFrontUp();
     obj().target().setIsRightDir(mSign < 0.0f);
     obj().model().reqScript(0xB);
@@ -97,38 +103,38 @@ void StateFlyZ::procAnim() {
 
 void StateFlyZ::procMove() {
     const Param& param = obj().param().galactaknight();
-    hel::math::Vector3 prevPos = obj().location().pos();
+    Vector3 prevPos = obj().location().pos();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._C8);
-    f32 sin = hel::math::Math::SinDegF(90.0f * t);
-    f32 cos = hel::math::Math::CosDegF(90.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    pos.x += -0.15f * ((mGoalPos.x - mStartPos.x) * hel::math::Math::SinDegF(360.0f * t));
-    pos.y += param._D8 * (sin * hel::math::Math::CosDegF(270.0f * sin));
-    pos.z += param._DC * (sin * hel::math::Math::CosDegF(270.0f * sin));
+    f32 sin = Math::SinDegF(90.0f * t);
+    f32 cos = Math::CosDegF(90.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    pos.x += -0.15f * ((mGoalPos.x - mStartPos.x) * Math::SinDegF(360.0f * t));
+    pos.y += param._D8 * (sin * Math::CosDegF(270.0f * sin));
+    pos.z += param._DC * (sin * Math::CosDegF(270.0f * sin));
     obj().location().setPos(pos);
-    hel::math::Vector3 diff = pos - prevPos;
+    Vector3 diff = pos - prevPos;
     if (!diff.isZeroLoose(0.00001f)) {
         diff.normalize();
         mDir.mFront = mDir.mFront.slerp(diff, 0.1f);
         mDir.restructFrontUp();
     }
-    f32 roll = 0.5f * (32.0f * mSign) * (1.0f + hel::math::Math::CosDegF(360.0f * t));
+    f32 roll = 0.5f * (32.0f * mSign) * (1.0f + Math::CosDegF(360.0f * t));
     mDir.mUp.rotate(mDir.mFront, 0.017453292f * roll);
     mDir.restructUpFront();
     if (mDir.mFront.z < 0.0f) {
         f32 r = 1.0f - cos;
         f32 rate = r * (r * r);
-        mDir.mUp = mDir.mUp.slerp(hel::math::Vector3::BASIS_Y, rate);
+        mDir.mUp = mDir.mUp.slerp(Vector3::BASIS_Y, rate);
         mDir.mUp.normalize();
         mDir.restructUpLeft();
         rate *= rate;
-        hel::math::Vector3 front = hel::math::Vector3::BASIS_Z;
-        front.rotate(hel::math::Vector3::AXIS_Y, -mSign * (0.017453292f * param._D4));
+        Vector3 front = Vector3::BASIS_Z;
+        front.rotate(Vector3::AXIS_Y, -mSign * (0.017453292f * param._D4));
         mDir.mFront = mDir.mFront.slerp(front, rate);
         mDir.mFront.normalize();
         mDir.restructFrontUp();
     }
-    hel::math::Matrix34 mtx(mDir, hel::math::Vector3::ZERO);
+    Matrix34 mtx(mDir, Vector3::ZERO);
     obj().model().model().nodes().at(1).localMtx().setRTMtx(mtx);
 }
 

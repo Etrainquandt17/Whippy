@@ -18,6 +18,8 @@
 #include "scn/step/hero/stone/Utility.h"
 #include "std/tr1/reference_wrapper.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -41,7 +43,7 @@ StateStartJump::StateStartJump(Hero* hero, Context& context)
     obj().objColl().setXlu();
     int max = obj().param().stone()._C;
     int min = obj().param().stone()._8;
-    u32 frame = min + app::Random::Rand(max - min);
+    u32 frame = min + Random::Rand(max - min);
     mContext.setMaxRotFrame(frame);
 }
 

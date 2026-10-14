@@ -18,13 +18,15 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/sfx/ScreenFade.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateSeparation::StateSeparation(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(32);
     custom.waftCtrl().setWaveWidthZero();
     obj().guard().setType(GUARD_TYPE_1);
@@ -34,7 +36,7 @@ StateSeparation::StateSeparation(Boss* boss) : StateBase(boss) {
 StateSeparation::~StateSeparation() {}
 
 void StateSeparation::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         obj().model().setVisibility(false);
         obj().shadow().setVisibility(false);

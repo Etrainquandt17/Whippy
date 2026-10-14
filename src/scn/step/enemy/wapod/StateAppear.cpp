@@ -27,6 +27,8 @@
 #include "scn/step/enemy/wapod/StateStay.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,11 +40,11 @@ StateAppear::StateAppear(Enemy* enemy) : StateBase(enemy) {
 }
 
 StateAppear::~StateAppear() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosInValid();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosInValid();
 }
 
 void StateAppear::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         custom.fixPosInValid();
         obj().nururi().setValid(true);
@@ -58,7 +60,7 @@ void StateAppear::procAnim() {
 void StateAppear::procMove() {}
 
 void StateAppear::procFixPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).landHitDead();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).landHitDead();
 }
 
 }}}}  // namespace scn::step::enemy::wapod

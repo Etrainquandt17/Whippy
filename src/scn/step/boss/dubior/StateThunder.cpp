@@ -13,6 +13,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -29,7 +31,7 @@ StateThunder::~StateThunder() {
 }
 
 void StateThunder::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         custom.reqThunderGroundEffect();
     }

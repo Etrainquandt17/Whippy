@@ -27,6 +27,9 @@
 #include "scn/step/enemy/common/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -48,8 +51,8 @@ void StateGrandLowperAppear::procAnim() {
     mAlgorithm.procAnim();
     if (!mAlgorithm.isHoldEnd()) {
         f32 rate = mAlgorithm.getHoldFrameRate();
-        f32 cos = hel::math::Math::CosDegF(90.0f * rate);
-        hel::math::Vector3 rot(0.0f, 0.0f, 720.0f * (1.0f - cos) * obj().target().getSign());
+        f32 cos = Math::CosDegF(90.0f * rate);
+        Vector3 rot(0.0f, 0.0f, 720.0f * (1.0f - cos) * obj().target().getSign());
         Utility::SetCustomMtxRotate(obj(), rot);
     }
 }

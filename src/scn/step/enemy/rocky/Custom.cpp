@@ -6,6 +6,9 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/rocky/ParamData.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -29,8 +32,8 @@ bool Custom::isFallSpeedUp() {
     return mIsFallSpeedUp;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -27,6 +27,8 @@
 #include "scn/step/enemy/walf/StateMoveInWater.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,7 +40,7 @@ StateMoveOnGround::StateMoveOnGround(Enemy* enemy) : StateBase(enemy) {
 }
 
 void StateMoveOnGround::procAnim() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater()) {
         obj().stateChanger().setNextState<StateMoveInWater, Enemy*>(objPtr());
     }
 }

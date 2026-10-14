@@ -50,6 +50,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,7 +64,7 @@ StateVomit::StateVomit(Boss* boss, bool isSoft) : StateBase(boss), mIsSoft(isSof
 StateVomit::~StateVomit() {}
 
 void StateVomit::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         if (mIsSoft) {
             custom.captureCtrl().vomitSoft();

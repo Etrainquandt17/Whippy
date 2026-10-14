@@ -21,6 +21,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -41,11 +44,11 @@ StateThrow::StateThrow(Hero* hero)
     obj().model().weapon().setVisibility(false);
     obj().model().script().start(0x135);
     f32 sign = obj().target().getSign();
-    hel::math::Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
-    hel::math::Vector2 pos(heroPos.x, heroPos.y);
+    Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
+    Vector2 pos(heroPos.x, heroPos.y);
     pos.y += 0.5f;
-    hel::math::Vector2 weaponPos = pos;
-    hel::math::Vector2 speed(sign * obj().param().hammer()._28, obj().param().hammer()._2C);
+    Vector2 weaponPos = pos;
+    Vector2 speed(sign * obj().param().hammer()._28, obj().param().hammer()._2C);
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(0x20);
     desc.mVariation = 0;

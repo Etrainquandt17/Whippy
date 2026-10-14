@@ -13,6 +13,8 @@
 #include "scn/step/hero/mike/utility/Mike.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -30,8 +32,8 @@ Mike::~Mike() {
 }
 
 void Mike::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/mike/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/mike/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0x17, motion);
     mHero.model().hat().set(modeldesc::Mike::HatPath(), modeldesc::Mike::HatModel());

@@ -10,6 +10,9 @@
 #include "scn/step/ostop/Manager.h"
 #include "sfx/Manager.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace xdata {
 
 inline bool XData::isValidData() const {
@@ -31,7 +34,7 @@ namespace {
 // TODO: what the original has here is not known. For the outer ring the vector's address is taken ahead of the
 // angle, which this compiler does for an inline function expanded once that converts the angle itself; for the
 // inner ring hel::math::Math::DegToRad gives the original's order.
-inline void t_rotateDeg(hel::math::Vector2& v, f32 deg) {
+inline void t_rotateDeg(Vector2& v, f32 deg) {
     v.rotate(0.017453292f * deg);
 }
 
@@ -166,18 +169,18 @@ void SpiralScreen::update() {
         center.y = 0.5f;
         for (u32 n = 0; n < 20; n++) {
             f32 rate;
-            if (hel::math::Math::EqZero(_128[n])) {
+            if (Math::EqZero(_128[n])) {
                 rate = 0.0f;
             } else {
                 rate = _D8[n] / _128[n];
             }
-            hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(mCenter, reinterpret_cast<const hel::math::Vector2&>(center), rate);
+            Vector2 pos = Math::LinearInterpolation(mCenter, reinterpret_cast<const Vector2&>(center), rate);
             for (u32 m = 0; m < 40; m++) {
-                hel::math::Vector2 outer(_128[n], 0.0f);
+                Vector2 outer(_128[n], 0.0f);
                 t_rotateDeg(outer, angle * m);
                 _1A78[n][m] = outer + pos;
-                hel::math::Vector2 inner(_D8[n], 0.0f);
-                inner.rotate(hel::math::Math::DegToRad(angle * m + _38[n]));
+                Vector2 inner(_D8[n], 0.0f);
+                inner.rotate(Math::DegToRad(angle * m + _38[n]));
                 _178[n][m] = inner + pos;
             }
         }
@@ -358,7 +361,7 @@ void SpiralScreen::startAnim(ostop::Flag flag, u32 a, f32 b, f32 c) {
 }
 #undef MF_FUNCTION
 
-void SpiralScreen::setCenter(const hel::math::Vector2& center) {
+void SpiralScreen::setCenter(const Vector2& center) {
     mCenter = center;
 }
 

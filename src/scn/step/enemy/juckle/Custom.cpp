@@ -24,6 +24,11 @@
 #include "scn/step/enemy/juckle/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -139,18 +144,18 @@ f32 Custom::getViewVectorRot() {
 }
 
 f32 Custom::playerAnger() {
-    hel::math::Vector2 pos = Utility::GetNearestPlayerPos(obj());
+    Vector2 pos = Utility::GetNearestPlayerPos(obj());
     pos -= obj().location().pos().getXY();
-    return hel::math::Math::Atan2DegF(pos.x, pos.y);
+    return Math::Atan2DegF(pos.x, pos.y);
 }
 
 bool Custom::isPlayerInArea() {
     const ParamData& param = obj().param().juckle();
     bool result = true;
     f32 anger = mAnger;
-    if (!(hel::math::Math::Abs(playerAnger() - anger) <= param.mNearAngle)) {
+    if (!(Math::Abs(playerAnger() - anger) <= param.mNearAngle)) {
         f32 anger2 = mAnger;
-        bool isFar = hel::math::Math::Abs(playerAnger() - anger2) >= param.mFarAngle;
+        bool isFar = Math::Abs(playerAnger() - anger2) >= param.mFarAngle;
         if (!isFar) {
             result = false;
         }
@@ -158,8 +163,8 @@ bool Custom::isPlayerInArea() {
     return result;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

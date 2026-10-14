@@ -5,9 +5,11 @@
 #include "nrel/mem/ExpHeapAccessor.h"
 #include "std/tr1/reference_wrapper.h"
 
+using hel::common::FixedString;
+
 namespace mem {
 
-HeapExp::HeapExp(const hel::common::FixedString<32>& name, const MemBlock& block, bool noHeapMap, bool noFill)
+HeapExp::HeapExp(const FixedString<32>& name, const MemBlock& block, bool noHeapMap, bool noFill)
     : mName(name)
     , mBlock(block)
     , mUsingBlockCount(0)

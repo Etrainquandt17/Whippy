@@ -15,6 +15,10 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -26,9 +30,9 @@ StateJumpBig::StateJumpBig(Boss* boss) : StateBase(boss), mCount(0), mStartPos()
     obj().model().reqScript(10);
     Utility::ControlHateOnAction(obj());
     mStartPos = obj().location().pos().getXY();
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
     mDistance = heroPos.x - mStartPos.x;
-    if (hel::math::Math::Abs(mDistance) > param.mJumpBigDistanceMax) {
+    if (Math::Abs(mDistance) > param.mJumpBigDistanceMax) {
         mDistance = param.mJumpBigDistanceMax * (mDistance < 0.0f ? -1 : 1);
     }
     obj().target().setIsRightDir(mDistance > 0.0f);
@@ -45,8 +49,8 @@ void StateJumpBig::procAnim() {
         mCount++;
         return;
     }
-    hel::math::Vector2 pos = param.mJumpBigStarPos;
-    hel::math::Vector2 speed = param.mJumpBigStarSpeed;
+    Vector2 pos = param.mJumpBigStarPos;
+    Vector2 speed = param.mJumpBigStarSpeed;
     Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
     obj().effect().normal().requestP(static_cast<effect::Kind>(0xA0), obj().location().pos() + pos.toVector3());
     pos.x *= -1.0f;
@@ -58,10 +62,10 @@ void StateJumpBig::procAnim() {
 
 void StateJumpBig::procMove() {
     const Param& param = obj().param().bonkers();
-    hel::math::Vector2 pos = mStartPos;
+    Vector2 pos = mStartPos;
     f32 rate = static_cast<f32>(mCount) / static_cast<f32>(param.mJumpBigTime);
     pos.x += mDistance * rate;
-    pos.y += param.mJumpBigHeight * hel::math::Math::SinDegF(180.0f * rate);
+    pos.y += param.mJumpBigHeight * Math::SinDegF(180.0f * rate);
     obj().location().setPos(pos.toVector3());
 }
 

@@ -18,6 +18,12 @@
 #include "scn/step/weapon/mahoroaicicle/StateFall.h"
 #include "util/StateChanger.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -26,10 +32,10 @@ namespace mahoroaicicle {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mStartPos(weapon->location().pos()), mRot(0.0f) {
     obj().model().rotCtrl().setValid(false);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x207));
-    obj().objColl().addAttack(0, 1.0f, hel::math::Vector2(0.0f, 4.0f), hel::math::Vector2(0.0f, 1.0f));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
-    mRot = app::Random::RandF(0.0f, 360.0f);
-    obj().model().model().nodes().at(0).localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot, 0.0f)));
+    obj().objColl().addAttack(0, 1.0f, Vector2(0.0f, 4.0f), Vector2(0.0f, 1.0f));
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
+    mRot = Random::RandF(0.0f, 360.0f);
+    obj().model().model().nodes().at(0).localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot, 0.0f)));
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x40E), 0);
 }
 
@@ -45,8 +51,8 @@ void StateMain::procAnim() {
 
 void StateMain::procMove() {
     f32 t = static_cast<f32>(mFrame) / 30.0f;
-    hel::math::Vector3 pos = mStartPos;
-    pos.y -= 2.0f * hel::math::Math::SinDegF(90.0f * t);
+    Vector3 pos = mStartPos;
+    pos.y -= 2.0f * Math::SinDegF(90.0f * t);
     obj().location().setPos(pos);
 }
 

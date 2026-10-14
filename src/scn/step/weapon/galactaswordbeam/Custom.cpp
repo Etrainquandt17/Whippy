@@ -4,6 +4,9 @@
 #include "scn/step/weapon/galactaswordbeam/StateFar.h"
 #include "scn/step/weapon/galactaswordbeam/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -28,8 +31,8 @@ bool Custom::isReqStarEffect() const {
     return mIsReqStarEffect;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::galactaswordbeam

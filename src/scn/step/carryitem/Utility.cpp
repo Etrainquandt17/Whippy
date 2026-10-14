@@ -15,6 +15,10 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Manager.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -27,7 +31,7 @@ bool Utility::IsSearchCollide(CarryItem& carryItem) {
     for (u32 i = 0; i < searchHit.getCollidedNum(); i++) {
         u64 uid = searchHit.getCollidedHitOwnerUid(i);
         bool isEnemy = false;
-        util::ObjRefHandle<enemy::Enemy> enemy = carryItem.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
+        ObjRefHandle<enemy::Enemy> enemy = carryItem.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
         if (enemy.isAlive()) {
             isEnemy = enemy->kind() != 0x64;
         }
@@ -40,12 +44,12 @@ bool Utility::IsSearchCollide(CarryItem& carryItem) {
 }
 
 bool Utility::InScreen(CarryItem& carryItem, f32 margin) {
-    hel::geo::Rect rect = carryItem.comp().mainCamera().getViewRect();
+    Rect rect = carryItem.comp().mainCamera().getViewRect();
     rect._8 -= margin;
     rect._C += margin;
     rect._0 += margin;
     rect._4 -= margin;
-    hel::math::Vector2 pos = carryItem.location().pos().getXY();
+    Vector2 pos = carryItem.location().pos().getXY();
     return rect.isInclude(pos.x, pos.y);
 }
 

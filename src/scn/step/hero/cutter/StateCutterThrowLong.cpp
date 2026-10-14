@@ -25,6 +25,9 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -35,12 +38,12 @@ StateCutterThrowLong::StateCutterThrowLong(Hero* hero)
     , mFrame(0) {
     obj().model().setFixDir(true);
     obj().model().script().start(0x98);
-    hel::math::Vector3 scale = hel::math::Vector3::ALL_ONE * obj().param().cutter()._7C;
+    Vector3 scale = Vector3::ALL_ONE * obj().param().cutter()._7C;
     obj().model().model().nodes().at(4).localMtx().setScale(scale);
 }
 
 StateCutterThrowLong::~StateCutterThrowLong() {
-    hel::math::Vector3 scale = hel::math::Vector3::ALL_ONE;
+    Vector3 scale = Vector3::ALL_ONE;
     obj().model().model().nodes().at(4).localMtx().setScale(scale);
 }
 
@@ -49,12 +52,12 @@ void StateCutterThrowLong::procAnim() {
     mFrame++;
     if (mFrame == param._80._0) {
         f32 sign = obj().model().isRightDir() ? 1.0f : -1.0f;
-        hel::math::Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
-        hel::math::Vector2 pos(heroPos.x, heroPos.y);
+        Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
+        Vector2 pos(heroPos.x, heroPos.y);
         pos.y += param._80._4;
-        hel::math::Vector2 weaponPos = pos;
+        Vector2 weaponPos = pos;
         weaponPos.x += sign * param._80._8;
-        hel::math::Vector2 speed(param._80._C * sign, 0.0f);
+        Vector2 speed(param._80._C * sign, 0.0f);
         if (obj().hid().isHold(8)) {
             speed.y = param._80._10;
         }

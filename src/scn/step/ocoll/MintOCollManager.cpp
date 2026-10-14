@@ -4,13 +4,15 @@
 #include "metafortress.h"
 #include "types.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace ocoll {
 
 namespace {
 
-hel::common::PointerWrapper< ::ocoll::Manager> t_manager;
+PointerWrapper< ::ocoll::Manager> t_manager;
 
 }
 

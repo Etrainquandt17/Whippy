@@ -9,6 +9,8 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -18,8 +20,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0) {
     obj().model().rotCtrl().setValid(false);
     obj().mapColl().setValid(false);
     if (obj().variation() == 1) {
-        obj().location().setPos(obj().location().pos() + hel::math::Vector3(0.0f, 0.0f, -2.5f));
-        obj().model().setScale(hel::math::Vector3::ALL_ONE * 0.65f);
+        obj().location().setPos(obj().location().pos() + Vector3(0.0f, 0.0f, -2.5f));
+        obj().model().setScale(Vector3::ALL_ONE * 0.65f);
     }
     obj().model().reqScript(2);
     obj().model().anim().subAnimSet(0, 4, 2);

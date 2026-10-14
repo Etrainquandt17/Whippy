@@ -3,6 +3,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/mahoroasuperfire/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -15,7 +19,7 @@ bool Custom::onInit() {
     return true;
 }
 
-void Custom::setMoveLimitRect(const hel::geo::Rect& rect) {
+void Custom::setMoveLimitRect(const Rect& rect) {
     // TODO: the original assigns the Rect, whose assignment hel/geo/Rect.h only declares.
     mMoveLimitRect._0 = rect._0;
     mMoveLimitRect._4 = rect._4;
@@ -28,12 +32,12 @@ bool Custom::isMoveLimitRectValid() const {
     return mIsMoveLimitRectValid;
 }
 
-hel::geo::Rect Custom::getMoveLimitRect() const {
+Rect Custom::getMoveLimitRect() const {
     return mMoveLimitRect;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::mahoroasuperfire

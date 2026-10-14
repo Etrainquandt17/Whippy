@@ -34,6 +34,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,7 +57,7 @@ void StateShot::procAnim() {
 
 void StateShot::procMove() {
     const common::ParamData& param = obj().param().common();
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isFixPos() && obj().footState().isAir()) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).isFixPos() && obj().footState().isAir()) {
         obj().move().airDecelFall(param.mDecel, param.mFall);
     } else {
         obj().move().resetSpeedV();
@@ -76,9 +80,9 @@ void StateShot::shot() {
     desc.mKind = static_cast<weapon::Kind>(0xf);
     desc.mVariation = 0;
     desc.mFlag = static_cast<ostop::Flag>(4);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(2);
+    NodeAccessor node = obj().model().model().nodes().at(2);
     desc.mPos = node.worldMtx().getT().getXY();
-    desc._14 = obj().location().pos().getXY() + hel::math::Vector2(0.0f, 0.5f);
+    desc._14 = obj().location().pos().getXY() + Vector2(0.0f, 0.5f);
     desc._1c = node.worldMtx().getZ().getXY() * speed;
     desc.mOwner = &obj().objColl().owner();
     obj().comp().weaponManager().request(desc);

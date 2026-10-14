@@ -10,6 +10,12 @@
 #include "storage/StorageManager.h"
 #include "storage/VolatileData.h"
 
+using app::Application;
+using hel::common::DynamicCastToRef;
+using hel::common::ExplicitSingleton;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace hel {
 namespace common {
 
@@ -137,7 +143,7 @@ SequenceStep::SequenceStep(const Recipe& recipe)
     u32 hash;
 
     hash = 0x811C9DDB;
-    hel::common::ExplicitSingleton<app::Application>::object_->storageManager().volatileData().onEnterStage();
+    ExplicitSingleton<Application>::object_->storageManager().volatileData().onEnterStage();
     asm {
         bl      after1
         opword  MF_WORD(0x70)
@@ -331,7 +337,7 @@ std::auto_ptr<scn::IScene> SequenceStep::createScene() const {
 }
 #undef MF_FUNCTION
 void SequenceStep::onSceneEnd(scn::IScene& scene) {
-    mResult = hel::common::DynamicCastToRef<scn::step::SceneStep, scn::IScene>(&scene).result();
+    mResult = DynamicCastToRef<scn::step::SceneStep, scn::IScene>(&scene).result();
     _FC8 = mResult._0 == 1;
     if (_FC8) {
         mContext = mResult.mContext;
@@ -438,8 +444,8 @@ scn::step::SceneStep::Result SequenceStep::result() const {
 }
 #undef MF_FUNCTION
 
-const hel::common::RuntimeTypeInfo& SequenceStep::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SequenceStep>();
+const RuntimeTypeInfo& SequenceStep::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SequenceStep>();
 }
 
 SequenceStep::~SequenceStep() {

@@ -10,6 +10,11 @@
 #include "scn/step/boss/Boss.h"
 #include "scn/step/chara/Model.h"
 
+using g3d::NodeAccessor;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -18,10 +23,10 @@ namespace fattybuffer {
 PostureCtrl::PostureCtrl(Boss& boss) : mBoss(boss), mAngle(0.0f), mTargetAngle(0.0f), mRate(0.1f) {}
 
 void PostureCtrl::update() {
-    if (!hel::math::Math::Equals(mAngle, mTargetAngle, 0.00001f)) {
-        mAngle = hel::math::Math::Interpolate(mAngle, mTargetAngle, mRate);
-        g3d::NodeAccessor node = mBoss.model().model().nodes().at(3);
-        node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, mAngle)));
+    if (!Math::Equals(mAngle, mTargetAngle, 0.00001f)) {
+        mAngle = Math::Interpolate(mAngle, mTargetAngle, mRate);
+        NodeAccessor node = mBoss.model().model().nodes().at(3);
+        node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, mAngle)));
     }
 }
 

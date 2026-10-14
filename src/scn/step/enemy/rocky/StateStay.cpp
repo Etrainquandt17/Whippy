@@ -20,6 +20,10 @@
 #include "scn/step/enemy/rocky/StateFall.h"
 #include "scn/step/hero/Manager.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,7 +34,7 @@ StateStay::StateStay(Enemy* enemy) : StateBase(enemy), mFrame(0), mAttackFrame(0
     obj().model().reqScript(0);
     obj().model().anim().setFrameRate(0.0f);
     obj().move().resetSpeedH();
-    mFrame = app::Random::Rand(obj().param().rocky().mStayRandFrame) + obj().param().rocky().mStayBaseFrame;
+    mFrame = Random::Rand(obj().param().rocky().mStayRandFrame) + obj().param().rocky().mStayBaseFrame;
     mAttackFrame = mFrame - obj().param().rocky().mStayAttackWait;
 }
 
@@ -45,8 +49,8 @@ void StateStay::procAnim() {
         bool isRight = obj().target().isRightDir();
         u32 count = obj().comp().heroManager().getPlayerCount();
         for (u32 i = 0; i < count; i++) {
-            hel::math::Vector3 diff = obj().comp().heroManager().getPlayerPosByIndex(i) - obj().location().pos();
-            f32 x = hel::math::Math::Abs(diff.x);
+            Vector3 diff = obj().comp().heroManager().getPlayerPosByIndex(i) - obj().location().pos();
+            f32 x = Math::Abs(diff.x);
             if (x < obj().param().rocky().mStayAttackRangeX && diff.y < obj().param().rocky().mStayAttackRangeTop &&
                 diff.y > obj().param().rocky().mStayAttackRangeBottom) {
                 isFound = true;

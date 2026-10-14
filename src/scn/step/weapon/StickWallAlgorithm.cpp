@@ -7,6 +7,8 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -37,7 +39,7 @@ void StickWallAlgorithm::procFixPos() {
 void StickWallAlgorithm::pressToWall() {
     MapColl& mapColl = mObj.mapColl();
     if (mapColl.isHit()) {
-        hel::math::Vector3 velocity = mapColl.normal().toVector3();
+        Vector3 velocity = mapColl.normal().toVector3();
         velocity *= -0.1f;
         mObj.move().setVelocity(velocity);
     }

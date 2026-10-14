@@ -57,6 +57,10 @@
 #include "scn/step/weapon/galactathunderspine/Custom.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -103,19 +107,19 @@ bool ThunderSpineCtrl::isEmpty() const {
 // TODO: two registers differ in the expanded mWeapons.add(): the original keeps the array element in r30 and the
 // handle's list in r29; this gives them swapped.
 void ThunderSpineCtrl::request() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(mBoss.custom());
-    hel::math::Vector2 base(custom.landCtrl().getCenterX(), custom.landCtrl().getFloorY());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(mBoss.custom());
+    Vector2 base(custom.landCtrl().getCenterX(), custom.landCtrl().getFloorY());
     cleanup();
     while (!isEmpty()) {
         if (mWeapons.isFull()) {
             return;
         }
         ReqData data = pick();
-        hel::math::Vector2 pos = base;
+        Vector2 pos = base;
         pos.x += data._0;
-        weapon::Desc desc(static_cast<weapon::Kind>(0x85), 0, static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO,
+        weapon::Desc desc(static_cast<weapon::Kind>(0x85), 0, static_cast<ostop::Flag>(8), pos, Vector2::ZERO,
                           mBoss.objColl().owner());
-        util::ObjRefHandle<weapon::Weapon> weapon = mBoss.comp().weaponManager().request(desc);
+        ObjRefHandle<weapon::Weapon> weapon = mBoss.comp().weaponManager().request(desc);
         if (weapon.isAlive()) {
             mWeapons.add(weapon);
         }
@@ -127,7 +131,7 @@ void ThunderSpineCtrl::attack() {
     for (u32 i = 0; i < mWeapons.count(); i++) {
         if (mWeapons[i].isAlive()) {
             weapon::galactathunderspine::Custom& custom =
-                hel::common::DynamicCastToRef<weapon::galactathunderspine::Custom, weapon::ICustom>(mWeapons[i]->custom());
+                DynamicCastToRef<weapon::galactathunderspine::Custom, weapon::ICustom>(mWeapons[i]->custom());
             custom.attack();
         }
     }

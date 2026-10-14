@@ -12,6 +12,8 @@
 #include "nw4r/lyt/lyt_textBox.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace info {
@@ -85,7 +87,7 @@ void HeroStatus::updateFrame(bool flag) {
     }
 }
 
-bool HeroStatus::hitTest(const hel::math::Vector2& a, const hel::math::Vector2& b) {
+bool HeroStatus::hitTest(const Vector2& a, const Vector2& b) {
     return ::info::hitTest(_1364, a, b);
 }
 

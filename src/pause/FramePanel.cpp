@@ -10,6 +10,8 @@
 #include "pause/ManualData.h"
 #include "util/ObjList.h"
 
+using hel::common::FixedStringIN;
+
 namespace pause {
 
 namespace {
@@ -103,7 +105,7 @@ void FramePanel::setTotalPageCount(u32 count) {
     mFrame.paneByName(digit1).setVisibility(isOneDigit);
     mFrame.paneByName(digit2).setVisibility(!isOneDigit);
     mFrame.paneByName(isOneDigit ? digit1 : digit2)
-        .setText(hel::common::FixedStringIN<char, 16>::FromFormat("%lu", count));
+        .setText(FixedStringIN<char, 16>::FromFormat("%lu", count));
     mFrame.paneByName("PageN").setVisibility(count >= 2);
 }
 
@@ -166,7 +168,7 @@ void FramePanel::changeNow(u32 page, FrameIconKind icon, const wchar_t* title) {
     mFrame.paneByName(digit1).setVisibility(isOneDigit);
     mFrame.paneByName(digit2).setVisibility(!isOneDigit);
     mFrame.paneByName(isOneDigit ? digit1 : digit2)
-        .setText(hel::common::FixedStringIN<char, 16>::FromFormat("%lu", number));
+        .setText(FixedStringIN<char, 16>::FromFormat("%lu", number));
     mFrame.paneByName("TitleText").setText(title);
     _330 = icon;
 }

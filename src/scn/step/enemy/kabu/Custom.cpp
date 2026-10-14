@@ -5,6 +5,9 @@
 #include "scn/step/enemy/damage/StateDeadInWater.h"
 #include "scn/step/enemy/kabu/ParamData.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -28,8 +31,8 @@ int Custom::setJumpWaitTime() {
     return obj().param().kabu().mJumpWaitTime - level * obj().param().kabu().mJumpWaitTimeStep;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -16,6 +16,9 @@
 #include "scn/step/enemy/kabu/ParamData.h"
 #include "scn/step/enemy/kabu/StateTeleport.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,7 +56,7 @@ void StateJump::procMove() {
         if (obj().footState().isGround()) {
             obj().footState().setAir();
             setSpeed();
-            hel::math::Vector3 velocity = obj().move().velocity();
+            Vector3 velocity = obj().move().velocity();
             mSpeedH = velocity.x;
         }
         const common::ParamData& common = obj().param().common();
@@ -72,7 +75,7 @@ void StateJump::procFixPos() {
 
 void StateJump::setSpeed() {
     const ParamData& param = obj().param().kabu();
-    int type = app::Random::Rand(4);
+    int type = Random::Rand(4);
     if (obj().variation() == 0x68) {
         type = 1;
     }

@@ -24,14 +24,17 @@
 #include "scn/step/enemy/common/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace mahoroahammer {
 
-StateBound::StateBound(Enemy* enemy, const hel::math::Vector2& velocity) : StateBase(enemy) {
+StateBound::StateBound(Enemy* enemy, const Vector2& velocity) : StateBase(enemy) {
     obj().footState().setAir();
-    hel::math::Vector3 v = velocity.toVector3();
+    Vector3 v = velocity.toVector3();
     v.x *= obj().target().getSign();
     obj().move().setVelocity(v);
 }

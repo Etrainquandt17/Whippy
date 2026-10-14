@@ -17,13 +17,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(30);
     custom.waftCtrl().setWaveWidthZero();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
@@ -37,7 +39,7 @@ StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
 }
 
 StateDamageL::~StateDamageL() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).headAngleCtrl().toValid();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).headAngleCtrl().toValid();
 }
 
 void StateDamageL::procAnim() {

@@ -24,6 +24,8 @@
 #include "scn/step/enemy/doubtersnake/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ StateJump::StateJump(Enemy* enemy) : StateBase(enemy) {
     } else {
         speedH = param.mJumpSpeedHHard;
     }
-    obj().move().setVelocity(hel::math::Vector3(speedH * obj().target().getSign(), param.mJumpSpeedV, 0.0f));
+    obj().move().setVelocity(Vector3(speedH * obj().target().getSign(), param.mJumpSpeedV, 0.0f));
 }
 
 StateJump::~StateJump() {}

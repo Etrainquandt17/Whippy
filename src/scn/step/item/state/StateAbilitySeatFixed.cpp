@@ -9,6 +9,9 @@
 #include "scn/step/item/Item.h"
 #include "scn/step/item/RotAnim.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -30,7 +33,7 @@ void StateAbilitySeatFixed::procAnim() {
         if (mRot < 0.0f) {
             mRot += 360.0f;
         }
-        hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_Y, mRot);
+        Matrix34 mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_Y, mRot);
         obj().model().model().g3dModel().nodeByName("FootL").localMtx().setRTMtx(mtx);
     }
 }

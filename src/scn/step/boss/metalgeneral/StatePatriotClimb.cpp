@@ -78,6 +78,11 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -85,7 +90,7 @@ namespace metalgeneral {
 
 StatePatriotClimb::StatePatriotClimb(Boss* boss) : StateBase(boss), mIsSignaled(false) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x24);
     mStartPos = obj().location().pos();
@@ -95,7 +100,7 @@ StatePatriotClimb::StatePatriotClimb(Boss* boss) : StateBase(boss), mIsSignaled(
     custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
     obj().guard().setType(static_cast<GuardType>(5));
     obj().mapColl().setValid(false);
-    if (!hel::math::Math::EqZero(obj().location().pos().z)) {
+    if (!Math::EqZero(obj().location().pos().z)) {
         obj().model().rotCtrl().setRotHTarget(param._1E0);
     } else {
         obj().model().rotCtrl().setRotHTarget(90.0f);
@@ -103,16 +108,16 @@ StatePatriotClimb::StatePatriotClimb(Boss* boss) : StateBase(boss), mIsSignaled(
 }
 
 StatePatriotClimb::~StatePatriotClimb() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().hitPoint().isDead() || !custom.weaponCtrl().isHoldPatriot()) {
         obj().mapColl().setValid(false);
         f32 diff;
         {
-            g3d::NodeAccessor body = obj().model().model().nodes().at(5);
-            g3d::NodeAccessor root = obj().model().model().nodes().at(0);
+            NodeAccessor body = obj().model().model().nodes().at(5);
+            NodeAccessor root = obj().model().model().nodes().at(0);
             diff = body.worldTrans().x - root.worldTrans().x;
         }
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.x += diff;
         obj().location().setPos(pos);
         obj().mapColl().setValid(true);
@@ -121,7 +126,7 @@ StatePatriotClimb::~StatePatriotClimb() {
 
 void StatePatriotClimb::procAnim() {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         if (!mIsSignaled) {
             mIsSignaled = true;
@@ -132,7 +137,7 @@ void StatePatriotClimb::procAnim() {
         }
     }
     if (!custom.weaponCtrl().isHoldPatriot()) {
-        hel::math::Vector3 velocity = param._2B4;
+        Vector3 velocity = param._2B4;
         velocity.x *= obj().target().getSign();
         obj().move().setVelocity(velocity);
         obj().stateChanger().setNextState<StateFall, Boss*>(objPtr());
@@ -142,8 +147,8 @@ void StatePatriotClimb::procAnim() {
 void StatePatriotClimb::procMove() {
     f32 total = static_cast<f32>(obj().model().anim().totalFrame());
     f32 t = obj().model().anim().frame() / total;
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
     obj().location().setPos(pos);
 }
 

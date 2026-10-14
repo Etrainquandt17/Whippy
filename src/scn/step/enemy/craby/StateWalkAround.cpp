@@ -29,6 +29,9 @@
 #include "scn/step/enemy/craby/StateAttack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -56,13 +59,13 @@ StateWalkAround::StateWalkAround(Enemy* enemy) : StateBase(enemy) {
     obj().move().resetSpeedH();
     obj().model().reqScript(7);
     obj().model().setFrameRate(mAccel._0 / param.mWalkSpeedBase);
-    mBasePosX = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getBasePosX();
+    mBasePosX = DynamicCastToRef<Custom, ICustom>(obj().custom()).getBasePosX();
 }
 
 StateWalkAround::~StateWalkAround() {}
 
 void StateWalkAround::procAnim() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea()) {
         obj().stateChanger().setNextState<StateAttack, Enemy*>(objPtr());
     }
 }
@@ -78,10 +81,10 @@ void StateWalkAround::procFixPos() {
         obj().move().resetSpeedH();
         obj().target().setIsRightDir(!obj().target().isRightDir());
         mBasePosX = obj().location().pos().x + param.mAroundDist * obj().target().getSign();
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBasePosX(mBasePosX);
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).setBasePosX(mBasePosX);
     } else {
         f32 diff = obj().location().pos().x - mBasePosX;
-        if (hel::math::Math::AbsF32(diff) > param.mAroundRange) {
+        if (Math::AbsF32(diff) > param.mAroundRange) {
             obj().target().setIsRightDir(diff < 0.0f);
         }
     }
@@ -89,7 +92,7 @@ void StateWalkAround::procFixPos() {
     if (result.mIsHitFloor) {
         obj().move().resetSpeedV();
     } else {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).reset();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).reset();
         obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());
     }
 }

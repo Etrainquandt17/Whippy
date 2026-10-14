@@ -23,6 +23,8 @@
 #include "scn/step/hero/fire/StateFireBurning.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -40,12 +42,12 @@ StateFireBurningWallHit::StateFireBurningWallHit(Hero* hero)
     if (obj().model().isRightDir()) {
         speedH = -speedH;
     }
-    hel::math::Vector3 velocity(speedH, speedV, 0.0f);
+    Vector3 velocity(speedH, speedV, 0.0f);
     obj().move().setVelocity(velocity);
     obj().invincible().set(param._98);
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(5));
     obj().hitStop().set(10);
-    hel::math::Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
+    Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
     pos.y += param._9C;
     f32 sign = obj().model().isRightDir() ? 1.0f : -1.0f;
     pos.x += param._A0 * sign;

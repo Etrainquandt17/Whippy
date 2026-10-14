@@ -72,6 +72,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -79,7 +83,7 @@ namespace metalgeneral {
 
 StateCenterJump::StateCenterJump(Boss* boss) : StateBase(boss), mCount(0) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xB);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -106,8 +110,8 @@ void StateCenterJump::procAnim() {
 void StateCenterJump::procMove() {
     const Param& param = obj().param().metalgeneral();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._130);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    f32 height = hel::math::Math::SinDegF(180.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    f32 height = Math::SinDegF(180.0f * t);
     pos.y += height * param._138;
     obj().location().setPos(pos);
 }

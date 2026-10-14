@@ -18,6 +18,9 @@
 #include "snd/SERequestor.h"
 #include "util/StateChanger.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -36,7 +39,7 @@ void StateFall::procAnim() {
     if (mRot >= 360.0f) {
         mRot -= 360.0f;
     }
-    obj().model().model().nodes().at(0).localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot, 0.0f)));
+    obj().model().model().nodes().at(0).localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot, 0.0f)));
 }
 
 void StateFall::procMove() {

@@ -17,6 +17,8 @@
 #include "scn/step/enemy/como/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,7 +32,7 @@ StateCutLanding::StateCutLanding(Enemy* enemy) : StateBase(enemy), mFrame(0) {
     obj().soundSE().start(0x29B);
     obj().model().shake().request(static_cast<chara::ShakeKind>(4));
     obj().objCollReact().setDamageState();
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, obj().param().como().mCutLandingViewOffsetY, 0.0f));
+    obj().model().setViewOffset(Vector3(0.0f, obj().param().como().mCutLandingViewOffsetY, 0.0f));
     obj().effect().normal().requestP(static_cast<effect::Kind>(0x9F), obj().location().pos());
 }
 

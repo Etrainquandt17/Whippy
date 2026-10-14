@@ -5,6 +5,9 @@
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/ObjColl.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -20,8 +23,8 @@ Custom::Custom(Hero& hero)
 Custom::~Custom() {
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 ::ocoll::Attack& Custom::barrier() {

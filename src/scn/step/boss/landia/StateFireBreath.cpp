@@ -22,13 +22,16 @@
 #include "scn/step/weapon/Desc.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateFireBreath::StateFireBreath(Boss* boss, Config config) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     switch (config._0) {
     case 0:
         obj().model().reqScript(11);
@@ -73,7 +76,7 @@ void StateFireBreath::procMove() {
 void StateFireBreath::procFixPos() {}
 
 void StateFireBreath::reqFireBreath(MouthKind kind) {
-    hel::math::Vector2 pos = hel::math::Vector2::ZERO;
+    Vector2 pos = Vector2::ZERO;
     switch (kind) {
     case MOUTH_KIND_0:
         pos = obj().model().model().nodes().at(7).worldTrans().getXY();
@@ -88,7 +91,7 @@ void StateFireBreath::reqFireBreath(MouthKind kind) {
         pos = obj().model().model().nodes().at(10).worldTrans().getXY();
         break;
     }
-    hel::math::Vector2 dir = hel::math::Vector2::BASIS_X * obj().target().getSign();
+    Vector2 dir = Vector2::BASIS_X * obj().target().getSign();
     weapon::Desc desc(static_cast<weapon::Kind>(0x66), 0, static_cast<ostop::Flag>(8), pos, dir, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
 }

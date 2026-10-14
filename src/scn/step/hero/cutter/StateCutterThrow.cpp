@@ -23,6 +23,9 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -60,12 +63,12 @@ void StateCutterThrow::procAnim() {
     mFrame++;
     if (mFrame == param._0) {
         f32 sign = obj().model().isRightDir() ? 1.0f : -1.0f;
-        hel::math::Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
-        hel::math::Vector2 pos(heroPos.x, heroPos.y);
+        Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
+        Vector2 pos(heroPos.x, heroPos.y);
         pos.y += param._4;
-        hel::math::Vector2 weaponPos = pos;
+        Vector2 weaponPos = pos;
         weaponPos.x += sign * param._8;
-        hel::math::Vector2 speed(param._C * sign, 0.0f);
+        Vector2 speed(param._C * sign, 0.0f);
         speed.x += obj().move().velocity().x;
         if (obj().hid().isHold(8)) {
             speed.y = param._10;

@@ -40,6 +40,12 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Manager.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -71,7 +77,7 @@ StateSummon::StateSummon(Boss* boss, u32 kind, u32 num, map::BinEnemySize size) 
         script = T_SELECT_SCRIPT_TABLE[num];
     }
     obj().model().reqScript(script);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
 }
 
 StateSummon::~StateSummon() {}
@@ -108,11 +114,11 @@ void StateSummon::reqEnemy() {
     if (size == 2 && mNum > 1) {
         size = static_cast<map::BinEnemySize>(1);
     }
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 offset = param._FC;
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 offset = param._FC;
     offset.x *= obj().target().getSign();
     pos += offset;
-    hel::math::Vector3 speed(param._108 * app::Random::RandNF() + param._104, param._110 * app::Random::RandNF() + param._10C, 0.0f);
+    Vector3 speed(param._108 * Random::RandNF() + param._104, param._110 * Random::RandNF() + param._10C, 0.0f);
     speed.x *= obj().target().getSign();
     if (size == 2) {
         speed.y -= 0.5f * (speed.y - param._10C);
@@ -120,7 +126,7 @@ void StateSummon::reqEnemy() {
     map::BinEnemyDirType dir = obj().target().isRightDir() ? static_cast<map::BinEnemyDirType>(3) : static_cast<map::BinEnemyDirType>(2);
     mNum--;
     enemy::Desc desc(kind, variation, level, dir, size, false, false, pos);
-    util::ObjRefHandle<enemy::Enemy> enemy = obj().comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> enemy = obj().comp().enemyManager().request(desc);
     if (enemy.isAlive()) {
         enemy->move().setVelocity(speed);
         obj().soundSE().normal().start(mSize == 0 ? 0x335 : 0x328);

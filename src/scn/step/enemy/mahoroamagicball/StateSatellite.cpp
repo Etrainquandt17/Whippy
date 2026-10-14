@@ -31,13 +31,17 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace mahoroamagicball {
 
 StateSatellite::StateSatellite(Enemy* enemy) : StateBase(enemy), mAngle(0.0f), mRadius(0.0f) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().nururi().setValid(false);
     obj().mapColl().setValid(false);
@@ -64,18 +68,18 @@ void StateSatellite::procAnim() {
 void StateSatellite::procMove() {}
 
 void StateSatellite::procConstraint() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!custom.isOwnerAlive()) {
         obj().dead();
         return;
     }
-    hel::math::Vector3 pos = custom.owner()->location().pos() + hel::math::Vector3(0.0f, 2.0f, 0.0f);
-    mRadius = hel::math::Math::Interpolate(mRadius, 2.0f, 0.05f);
-    hel::math::Vector3 offset(0.0f, mRadius, 0.0f);
-    offset.rotate(hel::math::Vector3::AXIS_Z, 0.017453292f * mAngle);
-    hel::math::Vector3 newPos = pos + offset;
+    Vector3 pos = custom.owner()->location().pos() + Vector3(0.0f, 2.0f, 0.0f);
+    mRadius = Math::Interpolate(mRadius, 2.0f, 0.05f);
+    Vector3 offset(0.0f, mRadius, 0.0f);
+    offset.rotate(Vector3::AXIS_Z, 0.017453292f * mAngle);
+    Vector3 newPos = pos + offset;
     obj().location().setPos(newPos);
-    if (hel::math::Math::AbsF32(obj().location().pos().z) < 7.0f) {
+    if (Math::AbsF32(obj().location().pos().z) < 7.0f) {
         obj().vacuumReceiver().setIsValid(true);
         obj().objColl().setBodyCollStateHitOnly();
     } else {

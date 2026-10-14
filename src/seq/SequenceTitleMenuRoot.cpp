@@ -16,6 +16,11 @@
 #include "seq/SequenceSubgame.h"
 #include "seq/SequenceTheaterRoomRoot.h"
 
+using hel::common::DynamicCast;
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 // TODO: hel/common/RuntimeTypeInfo.h does not define these yet; the unit holds its own copies.
 namespace hel {
 namespace common {
@@ -382,7 +387,7 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
     hash ^= hash >> 10;
     hash ^= hash << 20;
     if (hash - expected == 0) {
-        SequenceOpeningRoot* opening = hel::common::DynamicCast<SequenceOpeningRoot*, ISequence>(&child);
+        SequenceOpeningRoot* opening = DynamicCast<SequenceOpeningRoot*, ISequence>(&child);
         if (opening != 0) {
             mRecipe.mEntryInfo = opening->result().mEntryInfo;
             switch (opening->result()._0) {
@@ -399,7 +404,7 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
             }
         } else {
             SequenceCallScene<scn::option::SceneOption>* option =
-                hel::common::DynamicCast<SequenceCallScene<scn::option::SceneOption>*, ISequence>(&child);
+                DynamicCast<SequenceCallScene<scn::option::SceneOption>*, ISequence>(&child);
             if (option != 0) {
                 if (option->result()) {
                     _4 = 2;
@@ -413,7 +418,7 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
                     mRecipe._8 = false;
                 }
             } else {
-                SequenceSubgame* subgame = hel::common::DynamicCast<SequenceSubgame*, ISequence>(&child);
+                SequenceSubgame* subgame = DynamicCast<SequenceSubgame*, ISequence>(&child);
                 if (subgame != 0) {
                     for (u32 i = 0; i < 4; i++) {
                         mRecipe.mEntryInfo._0[i] = subgame->result()._4[i]._0;
@@ -423,7 +428,7 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
                     mRecipe._0 = 1;
                     mRecipe._8 = false;
                 } else {
-                    SequenceArenaRoot* arena = hel::common::DynamicCast<SequenceArenaRoot*, ISequence>(&child);
+                    SequenceArenaRoot* arena = DynamicCast<SequenceArenaRoot*, ISequence>(&child);
                     if (arena != 0) {
                         mRecipe.mEntryInfo = arena->result().mPlayer.getEntryInfo();
                         _4 = 2;
@@ -545,9 +550,9 @@ void SequenceTitleMenuRoot::onSceneEnd(scn::IScene& scene) {
     hash += limit;
     limit = expected;
     if (hash == limit) {
-        if (hel::common::DynamicCast<scn::titlemenunew::SceneTitleMenu*, scn::IScene>(&scene) != 0) {
+        if (DynamicCast<scn::titlemenunew::SceneTitleMenu*, scn::IScene>(&scene) != 0) {
             scn::titlemenunew::SceneTitleMenu& menu =
-                hel::common::DynamicCastToRef<scn::titlemenunew::SceneTitleMenu, scn::IScene>(&scene);
+                DynamicCastToRef<scn::titlemenunew::SceneTitleMenu, scn::IScene>(&scene);
             if (menu.result()._C) {
                 mRecipe.mEntryInfo = EntryInfo::Create();
             }
@@ -610,8 +615,8 @@ void SequenceTitleMenuRoot::onSceneEnd(scn::IScene& scene) {
 }
 #undef MF_FUNCTION
 
-const hel::common::RuntimeTypeInfo& SequenceTitleMenuRoot::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SequenceTitleMenuRoot>();
+const RuntimeTypeInfo& SequenceTitleMenuRoot::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SequenceTitleMenuRoot>();
 }
 
 }  // namespace seq

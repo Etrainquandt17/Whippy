@@ -28,6 +28,12 @@
 #include "scn/step/weapon/roahoar/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -48,22 +54,22 @@ StatePursuit::StatePursuit(Weapon* weapon)
     const Param& param = obj().param().roahOar();
     obj().move().resetVelocity();
     obj().model().reqScript(1);
-    mSideDir = hel::math::Vector3::BASIS_Y;
+    mSideDir = Vector3::BASIS_Y;
     f32 angle = 0.017453292f * param._30;
     angle *= obj().target().getSign();
-    mSideDir.rotate(hel::math::Vector3::AXIS_Z, angle);
+    mSideDir.rotate(Vector3::AXIS_Z, angle);
     if (!mSideDir.isZeroLoose(0.00001f)) {
         mSideDir.normalize();
     }
-    hel::math::Vector3 target = hel::math::Vector3::ZERO;
+    Vector3 target = Vector3::ZERO;
     u32 num = obj().comp().bossManager().getBossCount();
     for (u32 i = 0; i < num; i++) {
-        util::ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
+        ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
         if (boss.isAlive() && boss->kind() == 0xE) {
             target = boss::Utility::GetHatedHeroPos(*boss.operator->());
         }
     }
-    hel::math::Vector2 offset(param._34);
+    Vector2 offset(param._34);
     mLeadDir = target + offset.toVector3() - obj().location().pos();
     f32 length = mLeadDir.length();
     mLeadSpeed = length / static_cast<f32>(param._28);
@@ -98,7 +104,7 @@ void StatePursuit::procAnim() {
             mSpin -= 360.0f;
         }
         obj().model().model().nodes().at(0).localMtx().setRTMtx(
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, mSpin))
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, mSpin))
         );
     }
 }
@@ -109,17 +115,17 @@ void StatePursuit::procMove() {
         mLeadPos += mLeadDir * mLeadSpeed;
         mSidePos += mSideDir * mSideSpeed;
         f32 t = static_cast<f32>(mFrame + 1) / static_cast<f32>(param._28);
-        hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mSidePos, mLeadPos, t);
+        Vector3 pos = Math::LinearInterpolation(mSidePos, mLeadPos, t);
         pos.z = mPrevPos.z * (1.0f - t);
-        hel::math::Vector3 velocity = pos - mPrevPos;
+        Vector3 velocity = pos - mPrevPos;
         obj().move().setVelocity(velocity);
         mPrevPos = pos;
     }
     obj().move().decel(gobj::MoveParamDecel::Create(0.0f));
-    hel::math::Vector3 diff = obj().location().pos() - obj().location().prevPos();
-    if (diff.length() > 0.0f && hel::math::Math::Abs(diff.x) > 0.0f) {
-        f32 limit = hel::math::Math::Abs(hel::math::Math::TanF(hel::math::Math::DegToRad(mRotV)));
-        if (hel::math::Math::Abs(diff.y / diff.x) > limit) {
+    Vector3 diff = obj().location().pos() - obj().location().prevPos();
+    if (diff.length() > 0.0f && Math::Abs(diff.x) > 0.0f) {
+        f32 limit = Math::Abs(Math::TanF(Math::DegToRad(mRotV)));
+        if (Math::Abs(diff.y / diff.x) > limit) {
             mRotV += diff.y > 0.0f ? -param._3C : param._3C;
             obj().model().rotCtrl().initRotV(mRotV);
         }

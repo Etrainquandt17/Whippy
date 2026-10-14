@@ -55,18 +55,21 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateTackleFarStart::StateTackleFarStart(Boss* boss) : StateBase(boss), _8(), _14(0), _18(0.0f), _1C(1.0f), _20(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
     Utility::ControlHateOnAction(obj());
-    hel::math::Vector3 pos = obj().basePos().toVector3();
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    hel::math::Vector3 diff = heroPos - obj().basePos().toVector3();
+    Vector3 pos = obj().basePos().toVector3();
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 diff = heroPos - obj().basePos().toVector3();
     pos.y += 3.5f;
     pos.z = -80.0f;
     if (diff.x > 2.0f) {

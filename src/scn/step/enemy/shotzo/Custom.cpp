@@ -29,6 +29,14 @@
 #include "scn/step/enemy/shotzo/ParamData.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -56,16 +64,16 @@ f32 Custom::aimAngle() const {
 
 void Custom::setAimAngle(f32 angle) {
     mAimAngle = angle;
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Matrix34 rotX =
-        hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(1.0f, 0.0f, 0.0f), hel::math::Math::Abs(angle));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Matrix34 rotX =
+        Matrix34::CreateRotAxisDeg(Vector3(1.0f, 0.0f, 0.0f), Math::Abs(angle));
     node.localMtx().setRTMtx(rotX);
     f32 rot = angle >= 45.0f ? 90.0f : (angle <= -45.0f ? -90.0f : 2.0f * angle);
-    hel::math::Matrix34 rotY = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 1.0f, 0.0f), rot);
+    Matrix34 rotY = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 1.0f, 0.0f), rot);
     if (obj().variation() == 0xaf || obj().variation() == 0xb0 || obj().variation() == 0x139) {
-        hel::math::Matrix34 rotZ = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, 1.0f), 180.0f);
-        hel::math::Matrix34 up = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, 0.5f, 0.0f));
-        hel::math::Matrix34 down = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, -0.5f, 0.0f));
+        Matrix34 rotZ = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, 1.0f), 180.0f);
+        Matrix34 up = Matrix34::CreateTrans(Vector3(0.0f, 0.5f, 0.0f));
+        Matrix34 down = Matrix34::CreateTrans(Vector3(0.0f, -0.5f, 0.0f));
         obj().model().setCustomMtx(up * rotY * rotZ * down);
     } else {
         obj().model().setCustomMtx(rotY);
@@ -73,17 +81,17 @@ void Custom::setAimAngle(f32 angle) {
 }
 
 f32 Custom::playerAngle() {
-    hel::math::Vector2 diff = Utility::GetNearestPlayerPos(obj());
+    Vector2 diff = Utility::GetNearestPlayerPos(obj());
     diff -= obj().location().pos().getXY();
-    f32 angle = hel::math::Math::Atan2DegF(diff.x, hel::math::Math::Abs(diff.y));
-    return hel::math::Math::LimitMinMax(angle, -90.0f, 90.0f);
+    f32 angle = Math::Atan2DegF(diff.x, Math::Abs(diff.y));
+    return Math::LimitMinMax(angle, -90.0f, 90.0f);
 }
 
 bool Custom::isPlayerInAimArea() {
     f32 area;
     f32 angle = mAimAngle;
     area = obj().param().shotzo().mAimArea;
-    return hel::math::Math::Abs(playerAngle() - angle) <= area;
+    return Math::Abs(playerAngle() - angle) <= area;
 }
 
 bool Custom::isFixPos() const {
@@ -94,8 +102,8 @@ bool Custom::isFixPos() const {
     return result;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

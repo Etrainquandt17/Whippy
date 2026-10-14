@@ -15,6 +15,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/metashockwave/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -25,8 +29,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), _C(obj().pa
     f32 radius = param._C;
     f32 length = param._10 - radius;
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x135));
-    obj().objColl().addAttack(0, radius, hel::math::Vector2(0.0f, 0.3f), hel::math::Vector2(0.0f, length));
-    obj().effect().normal().requestND(static_cast<effect::Kind>(0x44C), 0, obj().target().getDirection3(), hel::math::Vector3(0.0f, -0.2f, param._14));
+    obj().objColl().addAttack(0, radius, Vector2(0.0f, 0.3f), Vector2(0.0f, length));
+    obj().effect().normal().requestND(static_cast<effect::Kind>(0x44C), 0, obj().target().getDirection3(), Vector3(0.0f, -0.2f, param._14));
 }
 
 StateMain::~StateMain() {}
@@ -46,7 +50,7 @@ void StateMain::procFixPos() {}
 
 void StateMain::procObjCollReact() {
     if (!obj().objColl().attack().isCollide() && !obj().objColl().attack().isCollideGimmick() && obj().mapColl().isHit()) {
-        if (hel::math::Math::Abs(obj().mapColl().normal().x) > 0.75f) {
+        if (Math::Abs(obj().mapColl().normal().x) > 0.75f) {
             obj().dead();
         }
     }

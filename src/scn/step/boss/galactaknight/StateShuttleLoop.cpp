@@ -53,6 +53,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +64,7 @@ namespace galactaknight {
 
 StateShuttleLoop::StateShuttleLoop(Boss* boss, bool isAttack)
     : StateBase(boss), mStartPos(boss->location().pos()) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (isAttack) {
         mGoalPos = Utility::GetHatedHeroPos(obj());
         Utility::ControlHateOnAction(obj());
@@ -79,7 +83,7 @@ StateShuttleLoop::~StateShuttleLoop() {
 
 void StateShuttleLoop::procAnim() {
     if (obj().model().isAllEnd()) {
-        obj().stateChanger().setNextState<StateGlideSword, Boss*, hel::math::Vector3>(objPtr(), mGoalPos);
+        obj().stateChanger().setNextState<StateGlideSword, Boss*, Vector3>(objPtr(), mGoalPos);
     }
 }
 
@@ -90,11 +94,11 @@ void StateShuttleLoop::procMove() {
     f32 total = static_cast<f32>(obj().model().anim().totalFrame());
     f32 t = obj().model().anim().frame() / total;
     f32 rate = 1.5f * t + -0.5f * t * t;
-    hel::math::Vector3 offset;
-    offset.x = param._68 * hel::math::Math::SinDegF(rate * param._64);
+    Vector3 offset;
+    offset.x = param._68 * Math::SinDegF(rate * param._64);
     offset.x += t * param._70;
     offset.x *= obj().target().getSign();
-    offset.y = param._6C * (1.0f - hel::math::Math::CosDegF(rate * param._64));
+    offset.y = param._6C * (1.0f - Math::CosDegF(rate * param._64));
     offset.y += t * param._74;
     offset += mStartPos;
     obj().location().setPos(offset);

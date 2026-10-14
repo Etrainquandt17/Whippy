@@ -19,6 +19,8 @@
 #include "scn/step/enemy/common/StateWalkAround.h"
 #include "scn/step/enemy/common/StateWalkStraight.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,7 +38,7 @@ StateSkinned::StateSkinned(Enemy* enemy) : StateBase(enemy), mFrame(0) {
     obj().move().setSpeedV(param.mSkinnedSpeedV);
     u32 level = obj().vacuumReceiver().getResistLevelTotal();
     obj().vacuumReceiver().setResistLevelInterim(level + 1, 32);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setCap(false);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setCap(false);
 }
 
 StateSkinned::~StateSkinned() {

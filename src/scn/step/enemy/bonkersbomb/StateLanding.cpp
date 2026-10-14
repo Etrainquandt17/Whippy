@@ -26,6 +26,10 @@
 #include "scn/step/enemy/bonkersbomb/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,7 +46,7 @@ StateLanding::StateLanding(Enemy* enemy) : StateBase(enemy), mFrame(0), mRot(0.0
     obj().move().setSpeedH(param.mSpeedH * obj().target().getSign());
     if (obj().size() != 0) {
         obj().model().shake().request(static_cast<chara::ShakeKind>(3));
-        obj().model().setViewOffset(hel::math::Vector3(0.0f, -0.3f, 0.0f));
+        obj().model().setViewOffset(Vector3(0.0f, -0.3f, 0.0f));
     }
     if (obj().size() == 0) {
         obj().soundSE().start(0x5ad);
@@ -57,12 +61,12 @@ void StateLanding::procAnim() {
     const ParamData::Landing& param =
         obj().size() == 0 ? obj().param().bonkersbomb().mLanding : obj().param().bonkersbomb().mLandingBig;
     mRotSpeed -= param.mRotDecel;
-    mRotSpeed = hel::math::Math::Max(mRotSpeed, 0.0f);
+    mRotSpeed = Math::Max(mRotSpeed, 0.0f);
     mRot = obj().model().rotCtrl().calcChangedRot(mRot, obj().target().isRightDir(), -mRotSpeed);
     obj().model().rotCtrl().initRotV(mRot);
     mFrame++;
     if (mFrame == param.mFrame) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).onDamaged();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).onDamaged();
         obj().deadWithEffect();
     }
 }

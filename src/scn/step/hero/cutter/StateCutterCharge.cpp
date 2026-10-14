@@ -20,6 +20,8 @@
 #include "scn/step/hero/cutter/StateCutterThrowLong.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -44,7 +46,7 @@ StateCutterCharge::StateCutterCharge(Hero* hero)
 }
 
 StateCutterCharge::~StateCutterCharge() {
-    hel::math::Vector3 scale = hel::math::Vector3::ALL_ONE;
+    Vector3 scale = Vector3::ALL_ONE;
     obj().model().model().nodes().at(4).localMtx().setScale(scale);
     obj().model().modelRotCtrl().resetRotIntpRate();
 }
@@ -66,7 +68,7 @@ void StateCutterCharge::procAnim() {
     if (mFrame >= 0x2B) {
         rate = 1.5f;
     }
-    hel::math::Vector3 scale = hel::math::Vector3::ALL_ONE * rate;
+    Vector3 scale = Vector3::ALL_ONE * rate;
     obj().model().model().nodes().at(4).localMtx().setScale(scale);
     if (mFrame == 0x28) {
         hero::Effect& effect = obj().effect();

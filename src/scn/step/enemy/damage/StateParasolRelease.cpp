@@ -28,6 +28,11 @@
 #include "scn/step/hero/ObjColl.h"
 #include "util/ObjRefHandle.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,11 +52,11 @@ StateParasolRelease::StateParasolRelease(Enemy* enemy, u64 ownerUid, u32 endFram
     Utility::OnDamageStart(&obj());
     obj().objColl().bodyColl().setStateXlu();
     if (obj().hitPoint().isDead()) {
-        hel::math::Vector3 offset = enemy::Utility::GetDefaultCenterOffset(obj());
+        Vector3 offset = enemy::Utility::GetDefaultCenterOffset(obj());
         obj().effect().state().requestN(static_cast<effect::Kind>(0x125), obj().charaParam()._38, offset);
     }
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
-    hel::math::Vector2 offset = enemy::Utility::GetDefaultCenterOffset(obj()).getXY();
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
+    Vector2 offset = enemy::Utility::GetDefaultCenterOffset(obj()).getXY();
     if (hero.isAlive()) {
         ::ocoll::Owner& owner = hero->objColl().objColl().owner();
         obj().objColl().owner().setParentInterim(owner);
@@ -96,8 +101,8 @@ void StateParasolRelease::procMove() {
 void StateParasolRelease::procFixPos() {
     Utility::EmDamageUtility_ReflectWall(&obj());
     chara::MapCollResult result = obj().mapColl().result();
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    hel::math::Vector3 pos = obj().location().pos();
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    Vector3 pos = obj().location().pos();
     if (mWait != 0) {
         mWait--;
     } else if (result.mIsHitFloor || t_IsHitWall(result) || pos.y > rect._0 || pos.x < rect._8 || pos.x > rect._C) {

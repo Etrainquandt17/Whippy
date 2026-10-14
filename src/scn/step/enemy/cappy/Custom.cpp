@@ -19,6 +19,11 @@
 #include "scn/step/enemy/cappy/StateLostHat.h"
 #include "scn/step/enemy/cappy/StateSkinned.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -54,16 +59,16 @@ bool Custom::onVacuumReceive() {
     if (obj().model().model().nodes().at(2).isVisible()) {
         f32 x = obj().location().pos().x;
         map::BinEnemyDirType dirType;
-        hel::math::Vector2 attackerPos = obj().vacuumReceiver().getAttackerPos();
+        Vector2 attackerPos = obj().vacuumReceiver().getAttackerPos();
         if (attackerPos.x > x) {
             dirType = static_cast<map::BinEnemyDirType>(3);
         } else {
             dirType = static_cast<map::BinEnemyDirType>(2);
         }
         obj().setPotentialCount(1);
-        hel::math::Vector2 pos = obj().location().pos().getXY();
+        Vector2 pos = obj().location().pos().getXY();
         Desc desc(static_cast<map::BinEnemyKind>(0x92), obj().variation(), obj().level(), dirType, obj().size(), false, false, pos);
-        util::ObjRefHandle<Enemy> skinned = obj().comp().enemyManager().request(desc);
+        ObjRefHandle<Enemy> skinned = obj().comp().enemyManager().request(desc);
         if (skinned.isAlive()) {
             if (obj().objGenerator() != 0) {
                 ogen::Generator& generator = *obj().objGenerator();
@@ -156,8 +161,8 @@ bool Custom::isValidTurn() {
     return mIsValidTurn;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::cappy

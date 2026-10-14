@@ -30,6 +30,10 @@
 #include "scn/step/enemy/lowperbullet/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -69,7 +73,7 @@ void StateVortex::procAnim() {
             obj().model().shake().request(static_cast<chara::ShakeKind>(4));
         }
     } else {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponBurst();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponBurst();
         obj().deadWithEffect();
     }
 }
@@ -77,10 +81,10 @@ void StateVortex::procAnim() {
 void StateVortex::procMove() {
     f32 rate = static_cast<f32>(mFrame) / 60.0f;
     mOffset += mVelocity * (1.0f - rate);
-    hel::math::Vector3 pos = mOffset;
-    hel::math::Vector3 axis = hel::math::Vector3::BASIS_Y;
-    axis.rotate(hel::math::Vector3::AXIS_X, 0.34906584f);
-    f32 angle = 1080.0f * hel::math::Math::SinDegF(90.0f * rate);
+    Vector3 pos = mOffset;
+    Vector3 axis = Vector3::BASIS_Y;
+    axis.rotate(Vector3::AXIS_X, 0.34906584f);
+    f32 angle = 1080.0f * Math::SinDegF(90.0f * rate);
     pos.rotate(axis, 0.017453292f * angle);
     pos.z *= 6.0f;
     pos += mCenter;

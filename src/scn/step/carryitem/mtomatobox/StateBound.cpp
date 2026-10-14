@@ -29,6 +29,11 @@
 #include "scn/step/item/Manager.h"
 #include "scn/step/map/KindUtil.h"
 
+using hel::common::Color;
+using hel::math::Math;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 extern "C" double fmod(double, double);
 
 namespace scn {
@@ -58,7 +63,7 @@ StateBound::StateBound(CarryItem* carryItem)
     mBoundAlgorithm.setReduceV(param(obj())._14);
     mBoundAlgorithm.setRateH(param(obj())._18);
     obj().model().reqScript(0);
-    hel::math::Vector3 velocity = obj().move().velocity() * 0.7f;
+    Vector3 velocity = obj().move().velocity() * 0.7f;
     obj().move().setVelocity(velocity);
     mFallAlgorithm.setRotSpeedRate(0.7f);
 }
@@ -153,7 +158,7 @@ void StateBound::crash() {
     obj().soundSE().start(0x108);
     Utility::OnCrash(obj());
     item::Desc desc(static_cast<map::BinItemKind>(2), 0, true, static_cast<map::BinItemVariation>(1), obj().location().pos().getXY());
-    util::ObjRefHandle<item::Item> item = obj().comp().itemManager().request(desc);
+    ObjRefHandle<item::Item> item = obj().comp().itemManager().request(desc);
     if (!item.isNull()) {
         item->culling().setValid(false);
     }
@@ -167,10 +172,10 @@ void StateBound::flash() {
     f32 t = 0.5f * (static_cast<f32>(mWaitFrame) / static_cast<f32>(param(obj())._20)) + 0.5f;
     mFlashAngle += 30.0f;
     mFlashAngle = fmod(mFlashAngle, 360.0);
-    f32 cos = hel::math::Math::CosDegF(mFlashAngle);
+    f32 cos = Math::CosDegF(mFlashAngle);
     f32 rate = 1.5f * t + t * (-0.5f * t * t);
     u8 alpha = static_cast<u8>(256.0f * (0.5f * (1.0f - cos)) * rate);
-    obj().flash().set(hel::common::Color(0xFF, 0xFF, 0xFF, alpha));
+    obj().flash().set(Color(0xFF, 0xFF, 0xFF, alpha));
 }
 
 }}}}  // namespace scn::step::carryitem::mtomatobox

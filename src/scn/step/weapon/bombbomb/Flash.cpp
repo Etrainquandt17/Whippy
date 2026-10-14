@@ -5,6 +5,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/bombbomb/Param.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -57,7 +59,7 @@ void Flash::updateFast() {
 
 ::GXColor Flash::GXColor() {
     const Param& param = mObj.param().bombBomb();
-    f32 sin = hel::math::Math::SinDegF(mAngle);
+    f32 sin = Math::SinDegF(mAngle);
     u8 alpha = sin * param._AC;
     ::GXColor color;
     color.r = param._B0;

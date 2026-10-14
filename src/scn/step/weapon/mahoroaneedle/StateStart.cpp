@@ -16,6 +16,10 @@
 #include "scn/step/weapon/mahoroaneedle/Param.h"
 #include "scn/step/weapon/mahoroaneedle/StateHold.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -36,7 +40,7 @@ StateStart::~StateStart() {
 }
 
 void StateStart::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     updateAttack();
     custom.updateRot(10.0f);
     if (obj().model().isAllEnd()) {
@@ -49,7 +53,7 @@ void StateStart::procMove() {}
 void StateStart::procFixPos() {}
 
 void StateStart::updateAttack() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param::Attack* attacks;
     if (Utility::IsExtra(obj())) {
         attacks = obj().param().mahoroaNeedle()._30;
@@ -59,13 +63,13 @@ void StateStart::updateAttack() {
     obj().objColl().clearAttack();
     f32 total = obj().model().anim().totalFrame();
     f32 rate = obj().model().anim().frame() / total;
-    f32 cos = hel::math::Math::CosDegF(90.0f * rate);
+    f32 cos = Math::CosDegF(90.0f * rate);
     f32 length = 7.0f * (1.0f - cos);
-    hel::math::Vector2 dir = custom.getUpDir().getXY();
+    Vector2 dir = custom.getUpDir().getXY();
     dir *= length;
     for (u32 i = 0; i < 3; i++) {
         if (rate > attacks[i]._0) {
-            obj().objColl().addAttack(0, attacks[i]._8, dir * attacks[i]._4, hel::math::Vector2::ZERO);
+            obj().objColl().addAttack(0, attacks[i]._8, dir * attacks[i]._4, Vector2::ZERO);
         }
     }
 }

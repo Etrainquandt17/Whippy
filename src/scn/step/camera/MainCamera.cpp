@@ -105,7 +105,7 @@ MainCamera::MainCamera(Component& component)
     _3C = a;
     _88 = b;
     _8C = c;
-    _60 = hel::geo::Rect(10.0f, -10.0f, -10.0f, 10.0f);
+    _60 = Rect(10.0f, -10.0f, -10.0f, 10.0f);
     _70 = _60;
     setCameraRect(_60, 1.0f);
 }

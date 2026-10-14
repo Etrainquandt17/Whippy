@@ -59,6 +59,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -67,7 +71,7 @@ namespace hrd3 {
 StateLariat::StateLariat(Boss* boss, u32 frame, f32 distance)
     : StateBase(boss), mCount(0), mFrame(frame), mSpeedMax(0.0f), mSpeed(0.0f), mAccel(0.0f), mDecel(0.0f), mRot(0.0f),
       mRotSpeed(0.0f), mIsMove(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mFrame != 0) {
         mSpeedMax = distance / static_cast<f32>(mFrame);
         mDecel = mSpeedMax / static_cast<f32>(obj().param().hrd3()._BC);
@@ -105,12 +109,12 @@ void StateLariat::procAnim() {
 
 void StateLariat::procMove() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector3 pos = obj().location().pos();
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 pos = obj().location().pos();
     if (mIsMove) {
-        mSpeed = hel::math::Math::Limit(mSpeed + mAccel, mSpeedMax);
+        mSpeed = Math::Limit(mSpeed + mAccel, mSpeedMax);
     } else {
-        if (hel::math::Math::Abs(mSpeed) < mDecel) {
+        if (Math::Abs(mSpeed) < mDecel) {
             mSpeed = 0.0f;
         } else {
             int sign = mSpeed < 0.0f ? -1 : 1;
@@ -132,7 +136,7 @@ void StateLariat::procFixPos() {}
 void StateLariat::updateRotate() {
     const Param& param = obj().param().hrd3();
     mRotSpeed += param._C4;
-    mRotSpeed = hel::math::Math::Limit(mRotSpeed, param._C0);
+    mRotSpeed = Math::Limit(mRotSpeed, param._C0);
     mRot += mRotSpeed;
     if (mRot < -180.0f) {
         mRot += 360.0f;

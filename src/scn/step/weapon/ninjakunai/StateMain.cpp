@@ -25,6 +25,10 @@
 #include "scn/step/weapon/ninjakunai/StateVanish.h"
 #include "scn/step/weapon/ninjakunai/Utility.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -36,12 +40,12 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon) {
     f32 radius = param._10;
     f32 offsetX = sign * param._14;
     mcoll::detail::ShapeDiamondContext shape(
-        hel::math::Vector2(offsetX, 0.0f), -radius, 0.0f, radius, -radius, 0.0f, radius
+        Vector2(offsetX, 0.0f), -radius, 0.0f, radius, -radius, 0.0f, radius
     );
     obj().mapColl().changeActorShape(shape);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xD6));
-    obj().objColl().addAttack(0, param._18, hel::math::Vector2(sign * param._1C, param._20));
-    obj().effect().normal().requestN(static_cast<effect::Kind>(0x49C), 0, hel::math::Vector3(0.0f, param._24, param._28));
+    obj().objColl().addAttack(0, param._18, Vector2(sign * param._1C, param._20));
+    obj().effect().normal().requestN(static_cast<effect::Kind>(0x49C), 0, Vector3(0.0f, param._24, param._28));
 }
 
 StateMain::~StateMain() {
@@ -67,7 +71,7 @@ void StateMain::procObjCollReact() {
             obj().stateChanger().setNextState<StateVanish, Weapon*, VanishKind>(&obj(), VANISH_KIND_REPEL_ROLL);
         } else {
             u64 uid = obj().objColl().attack().result().getData(0).mOwnerID;
-            obj().stateChanger().setNextState<StateStickEnemy, Weapon*, util::ObjRefHandle<enemy::Enemy> >(
+            obj().stateChanger().setNextState<StateStickEnemy, Weapon*, ObjRefHandle<enemy::Enemy> >(
                 &obj(), obj().comp().enemyManager().getEnemyByOCollOwnerUID(uid)
             );
         }
@@ -80,7 +84,7 @@ void StateMain::procObjCollReact() {
             if (!obj().mapColl().result().isHitWall()) {
                 obj().stateChanger().setNextState<StateVanish, Weapon*, VanishKind>(&obj(), VANISH_KIND_DROP_ROLL);
             } else {
-                hel::math::Vector3 velocity = obj().mapColl().normal().toVector3();
+                Vector3 velocity = obj().mapColl().normal().toVector3();
                 velocity *= -0.1f;
                 obj().move().setVelocity(velocity);
                 obj().stateChanger().setNextState<StateStickWall, Weapon*>(&obj());

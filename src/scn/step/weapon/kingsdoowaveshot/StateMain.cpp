@@ -19,6 +19,10 @@
 #include "scn/step/weapon/kingsdoowaveshot/Param.h"
 #include "std/cmath.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -30,13 +34,13 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mIsStar(fal
     obj().worldCage().setIsValid(true);
     obj().mapColl().changeActorShape(mcoll::detail::ShapeDiamondContext::CreateBaseCenter(param._34, param._38, param._3C));
     obj().mapColl().setValid(true);
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x1AF));
     switch (obj().variation()) {
     case 0:
     case 1: {
         mIsStar = true;
-        f32 angle = 57.29578f * static_cast<f32>(acos(velocity.cos(hel::math::Vector3::BASIS_X * obj().target().getSign())));
+        f32 angle = 57.29578f * static_cast<f32>(acos(velocity.cos(Vector3::BASIS_X * obj().target().getSign())));
         if (angle > param._14) {
             velocity *= param._C;
         } else {
@@ -49,7 +53,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mIsStar(fal
         mIsStar = false;
         velocity *= param._C;
         obj().objColl().addAttack(0, param.mAttackRadiusBig);
-        obj().model().setBaseScale(hel::math::Vector3::ALL_ONE * param.mScaleBig);
+        obj().model().setBaseScale(Vector3::ALL_ONE * param.mScaleBig);
         break;
     }
     obj().move().setVelocity(velocity);
@@ -77,15 +81,15 @@ void StateMain::procFixPos() {
             obj().comp().permSoundSE().start(0x58A);
         }
         if (mIsStar) {
-            hel::math::Vector2 offset(param.mStarOffset.x * obj().target().getSign(), param.mStarOffset.y);
-            hel::math::Vector2 velocity = obj().variation() == 1
-                ? hel::math::Vector2(param.mStarVelocity1.x * obj().target().getSign(), param.mStarVelocity1.y)
-                : hel::math::Vector2(param.mStarVelocity.x * obj().target().getSign(), param.mStarVelocity.y);
+            Vector2 offset(param.mStarOffset.x * obj().target().getSign(), param.mStarOffset.y);
+            Vector2 velocity = obj().variation() == 1
+                ? Vector2(param.mStarVelocity1.x * obj().target().getSign(), param.mStarVelocity1.y)
+                : Vector2(param.mStarVelocity.x * obj().target().getSign(), param.mStarVelocity.y);
             if (obj().mapColl().result().mIsHitRoof || (obj().worldCage().isCorrected() && obj().worldCage().getCorrectedDiff().y < 0.0f)) {
                 velocity *= -1.0f;
             }
             Utility::GenerateStarEffect(obj(), offset, velocity, map::BinEnemyVariation_StarPuff);
-            hel::math::Direction3 dir = obj().target().isRightDir() ? hel::math::Direction3::FRONT_TO_LEFT : hel::math::Direction3::FRONT_TO_RIGHT;
+            Direction3 dir = obj().target().isRightDir() ? Direction3::FRONT_TO_LEFT : Direction3::FRONT_TO_RIGHT;
             obj().effect().normal().requestPD(static_cast<effect::Kind>(0xB4), obj().location().pos() + offset.toVector3(), dir);
         }
         obj().dead();

@@ -15,6 +15,9 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -22,12 +25,12 @@ namespace hotheadfire {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0) {
     obj().model().reqScript(0);
-    hel::math::Matrix34 mtx;
+    Matrix34 mtx;
     f32 rot = 90.0f;
     if (obj().target().isRightDir()) {
         rot = -90.0f;
     }
-    mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_Y, rot);
+    mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_Y, rot);
     obj().model().setCustomMtx(mtx);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x237));
     obj().objColl().addAttack(0, 0.35f);

@@ -10,6 +10,8 @@
 #include "scn/step/enemy/walf/StateMoveOnGround.h"
 #include "scn/step/enemy/walf/StateMoveOnWater.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,11 +32,11 @@ void t_SetNextState_MoveOnWater() {
 }
 
 bool t_Custom_IsInWater() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isInWater();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isInWater();
 }
 
 bool t_Custom_IsFloating() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isFloating();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isFloating();
 }
 
 }

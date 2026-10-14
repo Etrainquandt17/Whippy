@@ -8,6 +8,8 @@
 #include "scn/step/enemy/bowby/Custom.h"
 #include "scn/step/enemy/bowby/StateAttack.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,15 +22,15 @@ void t_SetNextState_Attack() {
 }
 
 bool t_Custom_IsPlayerInArea() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInArea();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInArea();
 }
 
 bool t_Custom_IsAnimStart() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isAnimStart();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isAnimStart();
 }
 
 void t_Custom_OffAnimStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setAnimStart(false);
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setAnimStart(false);
 }
 
 }

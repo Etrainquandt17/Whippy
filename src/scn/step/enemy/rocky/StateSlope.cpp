@@ -18,6 +18,10 @@
 #include "scn/step/enemy/rocky/StateFall.h"
 #include "scn/step/enemy/rocky/StateStay.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -28,10 +32,10 @@ StateSlope::StateSlope(Enemy* enemy) : StateBase(enemy), mNormalX(0.0f) {
     obj().model().reqScript(11);
     obj().move().resetSpeedV();
     obj().move().resetSpeedH();
-    hel::math::Vector2 normal = obj().mapColl().floorNormal();
+    Vector2 normal = obj().mapColl().floorNormal();
     mNormalX = normal.x;
-    obj().model().rotCtrl().setRotVTarget(hel::math::Math::Atan2DegF(-normal.x, normal.y));
-    obj().model().rotCtrl().setRotV(hel::math::Math::Atan2DegF(-normal.x, normal.y));
+    obj().model().rotCtrl().setRotVTarget(Math::Atan2DegF(-normal.x, normal.y));
+    obj().model().rotCtrl().setRotV(Math::Atan2DegF(-normal.x, normal.y));
 }
 
 StateSlope::~StateSlope() {}
@@ -49,18 +53,18 @@ void StateSlope::procMove() {
 
 void StateSlope::procFixPos() {
     if (!obj().mapColl().result().mIsHitFloor) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(true);
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).setFallSpeedUp(true);
         obj().stateChanger().setNextState<StateFall, Enemy*>(objPtr());
         return;
     }
-    hel::math::Vector2 normal = obj().mapColl().floorNormal();
-    f32 x = hel::math::Math::Abs(normal.x);
+    Vector2 normal = obj().mapColl().floorNormal();
+    f32 x = Math::Abs(normal.x);
     if (x < obj().param().rocky().mSlopeStayNormalX) {
         obj().model().rotCtrl().setRotV(0.0f);
         obj().stateChanger().setNextState<StateStay, Enemy*>(objPtr());
     } else {
         mNormalX = normal.x;
-        obj().model().rotCtrl().setRotVTarget(hel::math::Math::Atan2DegF(-normal.x, normal.y));
+        obj().model().rotCtrl().setRotVTarget(Math::Atan2DegF(-normal.x, normal.y));
     }
 }
 

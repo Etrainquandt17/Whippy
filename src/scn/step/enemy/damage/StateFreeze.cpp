@@ -55,6 +55,11 @@
 #include "scn/step/weapon/Param.h"
 #include "scn/step/weapon/Weapon.h"
 
+using app::Random;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -81,10 +86,10 @@ StateFreeze::StateFreeze(Enemy* enemy, u64 ownerUid) : StateBase(enemy), mFrame(
     Utility::EmDamageUtility_StopAnimRandomFrame(&obj());
     int total = obj().model().anim().totalFrame();
     if (total != 0) {
-        obj().model().anim().setFrame(app::Random::Rand(0, total));
+        obj().model().anim().setFrame(Random::Rand(0, total));
         obj().model().anim().setFrameRate(0.0f);
     }
-    hel::math::Vector3 offset = hel::math::Vector2(obj().charaParam()._4).toVector3();
+    Vector3 offset = Vector2(obj().charaParam()._4).toVector3();
     offset.y += Utility::EmDamageUtility_GetEffectOffsetY(&obj());
     obj().effect().normal().releaseAndVanish();
     obj().effect().super().releaseAndVanish();
@@ -99,13 +104,13 @@ StateFreeze::StateFreeze(Enemy* enemy, u64 ownerUid) : StateBase(enemy), mFrame(
     obj().objColl().bodyColl().setStateXlu();
     obj().objCollReact().setDamageState();
     obj().model().setDynamicsDisable();
-    hel::math::Vector2 center = obj().location().toCenter().getXY();
+    Vector2 center = obj().location().toCenter().getXY();
     center.y += Utility::EmDamageUtility_GetOCollOffsetY(&obj());
     obj().objColl().clearSearchHit();
     obj().objColl().addSearchHit(node, 0.7f * scale, center);
     obj().objColl().clearSearchAttack();
     obj().objColl().addSearchAttack(node, 0.7f * scale, center);
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
     if (hero.isAlive()) {
         createWeapon(hero);
     }
@@ -124,7 +129,7 @@ void StateFreeze::procAnim() {
     if (mFrame == 30 && !obj().isSuper() && mWeapon.isAlive()) {
         mWeapon->objColl().attack().setValid(true);
         f32 radius = reinterpret_cast<const t_IceCubeParam&>(mWeapon->param().iceCube()).mRadius * Utility::EmDamageUtility_GetModelScale(&obj());
-        hel::math::Vector2 offset = hel::math::Vector2::ZERO;
+        Vector2 offset = Vector2::ZERO;
         offset.y += Utility::EmDamageUtility_GetOCollOffsetY(&obj());
         if (obj().kind() == 0x65) {
             offset.y += 0.4f;
@@ -161,11 +166,11 @@ void StateFreeze::procFixPos() {
     if (mFrame > 10 && searchHit.isCollide() && !obj().isSuper()) {
         for (u32 i = 0; i < searchHit.getCollidedNum(); i++) {
             u64 uid = searchHit.getCollidedHitOwnerUid(i);
-            util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(uid);
+            ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(uid);
             if (hero.isAlive()) {
-                hel::math::Vector3 enemyPos = obj().location().pos();
-                hel::math::Vector3 heroPos = hero->location().pos();
-                hel::math::Vector3 diff = heroPos - enemyPos;
+                Vector3 enemyPos = obj().location().pos();
+                Vector3 heroPos = hero->location().pos();
+                Vector3 diff = heroPos - enemyPos;
                 hero->target().setIsRightDir(diff.x < 0.0f);
                 hero->stateChecker().set_1e(true);
                 obj().stateChanger().setNextState<StateFreezeMove, Enemy*, u64>(objPtr(), uid);
@@ -177,7 +182,7 @@ void StateFreeze::procFixPos() {
     if (mFrame > 10 && searchAttack.isCollide() && !obj().isSuper()) {
         for (u32 i = 0; i < searchAttack.getCollidedNum(); i++) {
             u64 uid = searchAttack.getCollidedAttackOwnerRootUid(i);
-            util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(uid);
+            ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(uid);
             if (hero.isAlive()) {
                 u32 element = searchAttack.getCollidedAttackElement(i);
                 if (searchAttack.getCollidedAttackType(i) != 0xc5 && element != 3) {
@@ -195,11 +200,11 @@ void StateFreeze::procObjCollReact() {
     }
 }
 
-void StateFreeze::createWeapon(const util::ObjRefHandle<hero::Hero>& hero) {
-    hel::math::Vector3 centerOffset = enemy::Utility::GetDefaultCenterOffset(obj());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 center = pos + centerOffset.getXY();
-    hel::math::Vector2 zero;
+void StateFreeze::createWeapon(const ObjRefHandle<hero::Hero>& hero) {
+    Vector3 centerOffset = enemy::Utility::GetDefaultCenterOffset(obj());
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 center = pos + centerOffset.getXY();
+    Vector2 zero;
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(0x21);
     desc.mVariation = 0;

@@ -12,6 +12,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,7 +27,7 @@ StateShot::StateShot(Boss* boss, Config config) : StateBase(boss), mConfig(confi
 StateShot::~StateShot() {}
 
 void StateShot::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         custom.reqSwordShot(mConfig._0);
     }

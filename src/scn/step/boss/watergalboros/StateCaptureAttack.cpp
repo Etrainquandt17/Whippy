@@ -51,6 +51,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -83,10 +86,10 @@ void StateCaptureAttack::procAnim() {
         mIsSearch = false;
     }
     if (obj().scriptTrigger().get(0)) {
-        hel::math::Vector2 offset;
+        Vector2 offset;
         offset.x = param.mCaptureSearchOffset.x * obj().target().getSign();
         offset.y = param.mCaptureSearchOffset.y;
-        hel::math::Vector2 offset2;
+        Vector2 offset2;
         offset2.x = param.mCaptureSearchOffset2.x * obj().target().getSign();
         offset2.y = param.mCaptureSearchOffset2.y;
         obj().objColl().addSearchHit(0, param.mCaptureSearchRadius, offset, offset2);
@@ -103,7 +106,7 @@ void StateCaptureAttack::procMove() {
 }
 
 void StateCaptureAttack::procObjCollReact() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.captureCtrl().checkCapture()) {
         mIsCapture = true;
     }

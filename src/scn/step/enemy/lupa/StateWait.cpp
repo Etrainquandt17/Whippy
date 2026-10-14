@@ -11,6 +11,8 @@
 #include "scn/step/enemy/lupa/Custom.h"
 #include "scn/step/enemy/lupa/ParamData.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -29,7 +31,7 @@ void StateWait::procAnim() {
 
 void StateWait::procMove() {
     const ParamData& param = obj().param().lupa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().move().decel(param.mWaitDecel);
     custom.approachMap();
 }

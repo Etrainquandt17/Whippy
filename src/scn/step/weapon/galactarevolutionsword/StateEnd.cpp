@@ -10,6 +10,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/galactarevolutionsword/Param.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,7 +26,7 @@ void StateEnd::procAnim() {
         obj().dead();
     } else {
         f32 rate = mFrame / static_cast<f32>(param._20);
-        hel::math::Vector3 scale = hel::math::Vector3::ALL_ONE * (1.0f - rate) * param._C;
+        Vector3 scale = Vector3::ALL_ONE * (1.0f - rate) * param._C;
         obj().model().model().nodes().at(2).localMtx().setScale(scale);
         obj().model().model().nodes().at(3).localMtx().setScale(scale);
     }

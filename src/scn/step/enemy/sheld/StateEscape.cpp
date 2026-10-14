@@ -18,6 +18,8 @@
 #include "scn/step/enemy/sheld/Custom.h"
 #include "scn/step/enemy/sheld/StateFall.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -28,7 +30,7 @@ StateEscape::StateEscape(Enemy* enemy) : StateBase(enemy) {
     obj().model().reqScript(13);
     obj().model().model().nodes().at(2).setVisibility(false);
     obj().objColl().bodyColl().unsetAttackTypeOver();
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).initEscape();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).initEscape();
     obj().brainCtrl().toValid();
 }
 

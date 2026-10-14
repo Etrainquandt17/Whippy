@@ -18,6 +18,8 @@
 #include "scn/step/info/Manager.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -55,7 +57,7 @@ void StateShipRepairDemoAfter::procAnim() {
 
 void StateShipRepairDemoAfter::procMove() {
     if (!mCounter.isEnd()) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.z = mPos.z - 0.1f * (59 - mCounter.frame());
         obj().location().setPos(pos);
     }

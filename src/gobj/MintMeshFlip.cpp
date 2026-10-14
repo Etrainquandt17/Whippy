@@ -3,11 +3,13 @@
 #include "gobj/MeshFlip.h"
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<MeshFlip> t_obj;
+PointerWrapper<MeshFlip> t_obj;
 
 }
 

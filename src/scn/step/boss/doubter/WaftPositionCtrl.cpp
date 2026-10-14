@@ -8,6 +8,9 @@
 #include "scn/step/boss/doubter/Param.h"
 #include "scn/step/chara/Location.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,12 +28,12 @@ void WaftPositionCtrl::update() {
     }
 }
 
-hel::math::Vector3 WaftPositionCtrl::getNextPos() const {
+Vector3 WaftPositionCtrl::getNextPos() const {
     const Param& param = mBoss.param().doubter();
-    hel::math::Vector3 goal = mBoss.location().pos();
+    Vector3 goal = mBoss.location().pos();
     goal.y = param._58 + mBoss.basePos().y;
-    goal.y += param._64 * hel::math::Math::SinDegF(mTheta);
-    return hel::math::Math::LinearInterpolation(mBoss.location().pos(), goal, param._5C);
+    goal.y += param._64 * Math::SinDegF(mTheta);
+    return Math::LinearInterpolation(mBoss.location().pos(), goal, param._5C);
 }
 
 }}}}  // namespace scn::step::boss::doubter

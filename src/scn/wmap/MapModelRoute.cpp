@@ -16,6 +16,14 @@
 #include "scn/wmap/effect/Manager.h"
 #include "std/tr1/reference_wrapper.h"
 
+using g3d::CharaModelContext;
+using g3d::ModelContext;
+using g3d::ResFileAccessor;
+using g3d::ResModelContext;
+using g3d::Root;
+using g3d::StdModel;
+using g3d::StdModelContext;
+
 namespace scn {
 namespace wmap {
 
@@ -79,12 +87,12 @@ MapModelRoute::MapModelRoute(Component& component)
     : mComponent(component)
     , _4(component.resFileRepos().get("wmap/map/popstar/PopstarRoute", false))
     , _8(component.resFileRepos().get("wmap/map/halcandora/HalcandoraRoute", false))
-    , _C(static_cast<const g3d::StdModelContext&>(
-          g3d::ModelContext(g3d::ResModelContext(_4, "TopL"), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-                            g3d::CharaModelContext::DefaultNumView(), mComponent.heap().obj(), true)))
-    , _1B8(static_cast<const g3d::StdModelContext&>(
-          g3d::ModelContext(g3d::ResModelContext(_8, "TopL"), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-                            g3d::CharaModelContext::DefaultNumView(), mComponent.heap().obj(), true)))
+    , _C(static_cast<const StdModelContext&>(
+          ModelContext(ResModelContext(_4, "TopL"), CharaModelContext::DefaultModelBufferOption(), 0,
+                       CharaModelContext::DefaultNumView(), mComponent.heap().obj(), true)))
+    , _1B8(static_cast<const StdModelContext&>(
+          ModelContext(ResModelContext(_8, "TopL"), CharaModelContext::DefaultModelBufferOption(), 0,
+                       CharaModelContext::DefaultNumView(), mComponent.heap().obj(), true)))
     , mEffect(component.effectManager().native())
     , mMapKind(MAP_KIND_2)
     , _384(UNLOCK_KIND_0)
@@ -210,7 +218,7 @@ void MapModelRoute::procAnim() {
     }
 }
 
-void MapModelRoute::registerToRoot(g3d::Root& root) {
+void MapModelRoute::registerToRoot(Root& root) {
     mfGetModel().registerToRoot(root);
 }
 
@@ -497,11 +505,11 @@ bool MapModelRoute::isEndUnlockAnim() const {
 }
 #undef MF_FUNCTION
 
-g3d::StdModel& MapModelRoute::mfGetModel() {
+StdModel& MapModelRoute::mfGetModel() {
     return mfGetModel(mMapKind);
 }
 
-g3d::ResFileAccessor& MapModelRoute::mfGetResFile(MapKind kind) {
+ResFileAccessor& MapModelRoute::mfGetResFile(MapKind kind) {
     switch (kind) {
     case MAP_KIND_0:
         return _4;
@@ -512,7 +520,7 @@ g3d::ResFileAccessor& MapModelRoute::mfGetResFile(MapKind kind) {
     }
 }
 
-g3d::StdModel& MapModelRoute::mfGetModel(MapKind kind) {
+StdModel& MapModelRoute::mfGetModel(MapKind kind) {
     switch (kind) {
     case MAP_KIND_0:
         return _C;

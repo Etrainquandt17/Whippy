@@ -42,6 +42,12 @@
 #include "snd/SERequestor.h"
 #include "std/cmath.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -102,14 +108,14 @@ bool Custom::isExistHeroInAttackRange() {
 }
 
 // TODO: differs by one instruction: the original keeps the address of the negated BASIS_X in a register across the loop.
-hel::math::Vector2 Custom::getNearestHeroInAttackRange() {
+Vector2 Custom::getNearestHeroInAttackRange() {
     const ParamData& param = obj().param().liepa();
-    hel::math::Vector2 result = hel::math::Vector2::ZERO;
+    Vector2 result = Vector2::ZERO;
     u32 count = obj().comp().heroManager().getPlayerCount();
     for (u32 i = 0; i < count; i++) {
-        hel::math::Vector2 heroPos = obj().comp().heroManager().getPlayerByIndex(i).location().pos().getXY();
-        hel::math::Vector2 diff = heroPos - obj().location().pos().getXY();
-        f32 angle = 57.29578f * static_cast<f32>(acos((-hel::math::Vector2::BASIS_X).cos(diff)));
+        Vector2 heroPos = obj().comp().heroManager().getPlayerByIndex(i).location().pos().getXY();
+        Vector2 diff = heroPos - obj().location().pos().getXY();
+        f32 angle = 57.29578f * static_cast<f32>(acos((-Vector2::BASIS_X).cos(diff)));
         if (angle < param.mAttackAngle) {
             if (result.isZeroLoose(0.00001f)) {
                 result = heroPos;
@@ -125,15 +131,15 @@ hel::math::Vector2 Custom::getNearestHeroInAttackRange() {
 }
 
 void Custom::reqShot() {
-    hel::math::Vector2 pos = Utility::GetCenterPos(obj()).getXY();
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
+    Vector2 pos = Utility::GetCenterPos(obj()).getXY();
+    Rect rect = obj().comp().mainCamera().getViewRect();
     if (!rect.isInclude(pos.x, pos.y)) {
         return;
     }
-    hel::math::Vector3 target = getNearestHeroInAttackRange().toVector3();
-    hel::math::Vector2 dir = target.getXY() - obj().location().pos().getXY();
+    Vector3 target = getNearestHeroInAttackRange().toVector3();
+    Vector2 dir = target.getXY() - obj().location().pos().getXY();
     if (target.isZeroLoose(0.00001f)) {
-        dir = -hel::math::Vector2::BASIS_X;
+        dir = -Vector2::BASIS_X;
     }
     weapon::Desc desc(static_cast<weapon::Kind>(0x79), 0, static_cast<ostop::Flag>(4), pos, dir, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
@@ -146,12 +152,12 @@ void Custom::setSubAnimTexture() {
 }
 
 void Custom::setBodyColl() {
-    hel::math::Vector2 offset(obj().charaParam()._4.x, obj().charaParam()._4.y);
+    Vector2 offset(obj().charaParam()._4.x, obj().charaParam()._4.y);
     obj().objColl().addBodyColl(0, obj().charaParam()._2c, offset);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

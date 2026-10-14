@@ -11,6 +11,11 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/map/LandManager.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,20 +35,20 @@ void Custom::onProcFixPos() {
 }
 
 bool Custom::chkCulling() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     if (pos.x < 0.0f || obj().comp().mapLandManager().native().gridWidth() < pos.x) {
         return true;
     }
-    hel::geo::Rect rect = calcCullingRect();
+    Rect rect = calcCullingRect();
     return !rect.isInclude(pos.x, pos.y);
 }
 
-hel::geo::Rect Custom::calcCullingRect() {
-    hel::geo::Rect base(14.0f, -10.0f, -8.0f * obj().comp().mainCamera().getAspect() - 2.0f,
-                        8.0f * obj().comp().mainCamera().getAspect() + 2.0f);
-    hel::geo::Rect rect(base);
+Rect Custom::calcCullingRect() {
+    Rect base(14.0f, -10.0f, -8.0f * obj().comp().mainCamera().getAspect() - 2.0f,
+              8.0f * obj().comp().mainCamera().getAspect() + 2.0f);
+    Rect rect(base);
     rect.trans(obj().comp().mainCamera().getCenterCulling().x, obj().comp().mainCamera().getCenterCulling().y);
-    hel::geo::Rect current(base);
+    Rect current(base);
     current.trans(obj().comp().mainCamera().getCenter().x, obj().comp().mainCamera().getCenter().y);
     rect.margeUnion(current);
     f32 margin = 0.5f * obj().comp().cameraController().getCullingMarginHeight();
@@ -55,8 +60,8 @@ hel::geo::Rect Custom::calcCullingRect() {
     return rect;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

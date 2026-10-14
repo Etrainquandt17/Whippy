@@ -31,6 +31,9 @@
 #include "scn/step/boss/doubter/StateTornadoStart.h"
 #include "scn/step/map/BinEnemySize.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -42,17 +45,17 @@ namespace doubter {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_Bound(f32 x, f32 y, int kind) {
-    MintBoss::Obj().stateChanger().setNextState<StateBoundStart, Boss*, hel::math::Vector2, u32>(&MintBoss::Obj(),
-                                                                                                 hel::math::Vector2(x, y), kind);
+    MintBoss::Obj().stateChanger().setNextState<StateBoundStart, Boss*, Vector2, u32>(&MintBoss::Obj(),
+                                                                                      Vector2(x, y), kind);
 }
 
 void t_SetNextState_Jump(f32 x, f32 y, int kind) {
-    MintBoss::Obj().stateChanger().setNextState<StateJumpStart, Boss*, hel::math::Vector2, u32>(&MintBoss::Obj(),
-                                                                                                hel::math::Vector2(x, y), kind);
+    MintBoss::Obj().stateChanger().setNextState<StateJumpStart, Boss*, Vector2, u32>(&MintBoss::Obj(),
+                                                                                     Vector2(x, y), kind);
 }
 
 void t_SetNextState_JumpCenter(f32 speed, int kind) {

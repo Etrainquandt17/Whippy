@@ -25,6 +25,9 @@
 #include "scn/step/enemy/VacuumReceiver.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,8 +49,8 @@ void StateGrandLowperAppear::procAnim() {
     mAlgorithm.procAnim();
     if (!mAlgorithm.isHoldEnd()) {
         f32 rate = mAlgorithm.getHoldFrameRate();
-        f32 rotY = 720.0f * (1.0f - hel::math::Math::CosDegF(90.0f * rate));
-        hel::math::Vector3 rot(90.0f * (1.0f - hel::math::Math::CosDegF(90.0f * rate)), rotY, 0.0f);
+        f32 rotY = 720.0f * (1.0f - Math::CosDegF(90.0f * rate));
+        Vector3 rot(90.0f * (1.0f - Math::CosDegF(90.0f * rate)), rotY, 0.0f);
         Utility::SetCustomMtxRotate(obj(), rot);
     }
 }

@@ -54,6 +54,10 @@
 #include "scn/step/weapon/Param.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -79,7 +83,7 @@ inline bool t_IsHitWall(const chara::MapCollResult& result) {
 
 StateFreezeMove::StateFreezeMove(Enemy* enemy, const u64& ownerUid)
     : StateBase(enemy), mFrame(0), mRot(obj().model().rotCtrl().getRotH()), mOwnerUid(ownerUid), mWeapon(), _28(false) {
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
     obj().worldCage().setIsValid(false);
     obj().vacuumReceiver().setIsValid(false);
     obj().nururi().setCanNururi(false);
@@ -87,9 +91,9 @@ StateFreezeMove::StateFreezeMove(Enemy* enemy, const u64& ownerUid)
     obj().objColl().bodyColl().setStateXlu();
     obj().model().setDynamicsDisable();
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(1));
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 heroPos = hero->location().pos();
-    hel::math::Vector3 diff = heroPos - pos;
+    Vector3 pos = obj().location().pos();
+    Vector3 heroPos = hero->location().pos();
+    Vector3 diff = heroPos - pos;
     f32 speed = diff.x > 0.0f ? -0.2f : 0.2f;
     obj().move().setSpeedH(speed);
     obj().target().setIsRightDir(diff.x <= 0.0f);
@@ -149,11 +153,11 @@ void StateFreezeMove::procFixPos() {
     }
 }
 
-void StateFreezeMove::createWeapon(const util::ObjRefHandle<hero::Hero>& hero) {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector3 toCenter = obj().location().toCenter();
-    hel::math::Vector2 center = pos + toCenter.getXY();
-    hel::math::Vector2 zero;
+void StateFreezeMove::createWeapon(const ObjRefHandle<hero::Hero>& hero) {
+    Vector2 pos = obj().location().pos().getXY();
+    Vector3 toCenter = obj().location().toCenter();
+    Vector2 center = pos + toCenter.getXY();
+    Vector2 zero;
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(0x21);
     desc.mVariation = 0;
@@ -166,7 +170,7 @@ void StateFreezeMove::createWeapon(const util::ObjRefHandle<hero::Hero>& hero) {
     if (mWeapon.isAlive()) {
         mWeapon->objColl().setAttackType(static_cast<ocoll::AttackType>(0xc6));
         f32 scale = Utility::EmDamageUtility_GetModelScale(&obj());
-        hel::math::Vector2 offset = hel::math::Vector2::ZERO;
+        Vector2 offset = Vector2::ZERO;
         offset.y += Utility::EmDamageUtility_GetOCollOffsetY(&obj());
         if (obj().kind() == 0x65) {
             offset.y += 0.4f;

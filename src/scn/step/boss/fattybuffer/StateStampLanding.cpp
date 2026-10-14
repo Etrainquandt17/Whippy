@@ -38,6 +38,9 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -46,11 +49,11 @@ namespace fattybuffer {
 StateStampLanding::StateStampLanding(Boss* boss) : StateBase(boss) {
     obj().footState().setGround();
     obj().model().reqScript(0xF);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().move().resetSpeedV();
     const Param& param = obj().param().fattybuffer();
-    hel::math::Vector2 pos = param._28;
-    hel::math::Vector2 speed = param._30;
+    Vector2 pos = param._28;
+    Vector2 speed = param._30;
     pos.scale(obj().model().getTotalScale().getXY());
     Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
     pos.x *= -1.0f;

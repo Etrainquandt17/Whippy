@@ -22,6 +22,9 @@
 #include "scn/step/boss/landia/StateWindCutter.h"
 #include "scn/step/boss/landia/StateZGlide.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -33,13 +36,13 @@ namespace landia {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_Move(int kind, f32 x, f32 y) {
     StateMove::Config config;
     config._0 = kind;
-    config._4 = hel::math::Vector2(x, y);
+    config._4 = Vector2(x, y);
     MintBoss::Obj().stateChanger().setNextState<StateMove, Boss*, StateMove::Config>(&MintBoss::Obj(), config);
 }
 
@@ -92,7 +95,7 @@ void t_SetNextState_TwinBreathContinuity() {
 void t_SetNextState_MoveTwinBreathContinuity(f32 time, f32 x, f32 y, bool flag) {
     StateMoveTwinBreathContinuity::Config config;
     config._0 = time;
-    config._4 = hel::math::Vector2(x, y);
+    config._4 = Vector2(x, y);
     config._C = flag;
     MintBoss::Obj().stateChanger().setNextState<StateMoveTwinBreathContinuity, Boss*, StateMoveTwinBreathContinuity::Config>(&MintBoss::Obj(), config);
 }

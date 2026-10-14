@@ -33,6 +33,10 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +49,7 @@ const f32 T_VVEL_TABLE[6] = { 0.08f, -0.08f, 0.14f, -0.14f, 0.18f, -0.18f };
 }
 
 StateVerticalShotFollow::StateVerticalShotFollow(Enemy* enemy) : StateBase(enemy), mFrame(0), mOffset(), mVelocity() {
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isOwnerAlive()) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).isOwnerAlive()) {
         obj().dead();
         return;
     }
@@ -86,15 +90,15 @@ void StateVerticalShotFollow::procAnim() {
 void StateVerticalShotFollow::procMove() {}
 
 void StateVerticalShotFollow::procConstraint() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isOwnerAlive()) {
         f32 rate = static_cast<f32>(mFrame) / 80.0f;
-        hel::math::Vector3 center = custom.owner()->location().pos();
+        Vector3 center = custom.owner()->location().pos();
         mOffset += mVelocity * (1.0f - rate);
-        hel::math::Vector3 pos = mOffset;
-        hel::math::Vector3 axis = hel::math::Vector3::BASIS_Y;
-        axis.rotate(hel::math::Vector3::AXIS_X, 0.34906584f);
-        f32 angle = 1080.0f * hel::math::Math::SinDegF(90.0f * rate);
+        Vector3 pos = mOffset;
+        Vector3 axis = Vector3::BASIS_Y;
+        axis.rotate(Vector3::AXIS_X, 0.34906584f);
+        f32 angle = 1080.0f * Math::SinDegF(90.0f * rate);
         pos.rotate(axis, 0.017453292f * angle);
         pos.z *= 2.5f;
         pos += center;

@@ -17,6 +17,9 @@
 #include "scn/step/enemy/lupa/Custom.h"
 #include "scn/step/enemy/lupa/ParamData.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,7 +37,7 @@ inline bool t_IsHitWall(const chara::MapCollResult& result) {
 StateMoveAroundAttack::StateMoveAroundAttack(Enemy* enemy)
     : StateBase(enemy), mWaitFrame(0), mAttackFrame(0), mIsRight(false), mRange(0.0f), mWaitLength(0) {
     const ParamData& param = obj().param().lupa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(3);
     custom.cliffChecker().setAccelDirRight(mIsRight);
     mRange = obj().variation() == 0xf3 ? param.mMoveRangeFar : param.mMoveRange;
@@ -55,7 +58,7 @@ StateMoveAroundAttack::~StateMoveAroundAttack() {}
 
 void StateMoveAroundAttack::procAnim() {
     const ParamData& param = obj().param().lupa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::TurnHero(obj());
     if (obj().model().getCurrentScriptIndex() == 7) {
         mAttackFrame++;
@@ -78,7 +81,7 @@ void StateMoveAroundAttack::procAnim() {
 
 void StateMoveAroundAttack::procMove() {
     const ParamData& param = obj().param().lupa();
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).approachMap();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).approachMap();
     if (obj().model().getCurrentScriptIndex() == 7) {
         obj().move().groundDecel(param.mWaitDecel);
     } else {
@@ -87,14 +90,14 @@ void StateMoveAroundAttack::procMove() {
 }
 
 void StateMoveAroundAttack::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (t_IsHitWall(obj().mapColl().result())) {
         obj().move().resetSpeedH();
         mIsRight = !mIsRight;
     } else {
         f32 heroX = obj().getBasePos().x;
         f32 diff = obj().location().pos().x - heroX;
-        if (hel::math::Math::Abs(diff) > mRange) {
+        if (Math::Abs(diff) > mRange) {
             if ((diff > 0.0f && mIsRight) || (diff < 0.0f && !mIsRight)) {
                 mIsRight = !mIsRight;
             }

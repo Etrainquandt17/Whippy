@@ -23,6 +23,10 @@
 #include "scn/step/enemy/pierce/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -32,8 +36,8 @@ Custom::Custom(Enemy& enemy) : CustomBase(enemy), mTurnFrame(0) {}
 
 bool Custom::isPlayerInAimArea() {
     const ParamData& param = obj().param().pierce();
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    Vector2 pos = obj().location().pos().getXY();
     f32 left = pos.x + param.mAimFront * obj().target().getSign();
     f32 right = pos.x + param.mAimBack;
     f32 top = pos.y + param.mAimV;
@@ -61,8 +65,8 @@ void Custom::turnHeroWithTime(u32 time) {
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

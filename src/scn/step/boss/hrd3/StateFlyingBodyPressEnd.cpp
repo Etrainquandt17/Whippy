@@ -59,6 +59,11 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -66,7 +71,7 @@ namespace hrd3 {
 
 StateFlyingBodyPressEnd::StateFlyingBodyPressEnd(Boss* boss)
     : StateBase(boss), mCount(0), mStartPos(boss->location().pos()), mGoalY(0.0f), mIsMove(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalY = custom.landCtrl().getFloorY();
     obj().model().reqScript(0x1D);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
@@ -78,7 +83,7 @@ StateFlyingBodyPressEnd::~StateFlyingBodyPressEnd() {}
 
 void StateFlyingBodyPressEnd::procAnim() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         mIsMove = true;
     }
@@ -93,7 +98,7 @@ void StateFlyingBodyPressEnd::procAnim() {
         }
     }
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._EC);
-    f32 rot = 1.0f - hel::math::Math::SinDegF(90.0f * t);
+    f32 rot = 1.0f - Math::SinDegF(90.0f * t);
     rot *= -custom.partsCtrl().getMaxRotV() * obj().target().getSign();
     obj().model().rotCtrl().initRotV(rot);
 }
@@ -102,11 +107,11 @@ void StateFlyingBodyPressEnd::procMove() {
     if (mIsMove) {
         const Param& param = obj().param().hrd3();
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._EC);
-        f32 rate = hel::math::Math::SinDegF(90.0f * t);
-        hel::math::Vector3 pos = mStartPos;
-        pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalY, rate);
+        f32 rate = Math::SinDegF(90.0f * t);
+        Vector3 pos = mStartPos;
+        pos.y = Math::LinearInterpolation(mStartPos.y, mGoalY, rate);
         f32 slide = param._DC * -obj().target().getSign();
-        pos.x += hel::math::Math::LinearInterpolation(0.0f, slide, rate);
+        pos.x += Math::LinearInterpolation(0.0f, slide, rate);
         obj().location().setPos(pos);
     }
 }
@@ -115,11 +120,11 @@ void StateFlyingBodyPressEnd::procFixPos() {}
 
 void StateFlyingBodyPressEnd::reqStar() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
     pos.y = custom.landCtrl().getFloorY();
-    hel::math::Vector2 speed(param._F0, 0.0f);
-    hel::math::Vector2 accel(param._F4, param._1C.y);
+    Vector2 speed(param._F0, 0.0f);
+    Vector2 accel(param._F4, param._1C.y);
     Utility::GenerateStarEffect(obj(), pos, speed, accel, static_cast<map::BinEnemyVariation>(0x19B));
     speed.x *= -1.0f;
     accel.x *= -1.0f;

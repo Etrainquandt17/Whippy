@@ -29,6 +29,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -60,8 +62,8 @@ void StateShot::procMove() {
 void StateShot::procFixPos() {}
 
 void StateShot::reqBeam() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 offset = hel::math::Vector2::ZERO;
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 offset = Vector2::ZERO;
     weapon::Desc desc(static_cast<weapon::Kind>(0x3f), 0, static_cast<ostop::Flag>(8), pos, offset, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
     obj().soundSE().start(0x1cc);

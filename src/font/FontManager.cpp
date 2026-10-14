@@ -5,10 +5,12 @@
 #include "mem/Memory.h"
 #include "std/tr1/reference_wrapper.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace font {
 
 FontManager::FontManager()
-    : mem::AutoHeapExp(hel::common::ExplicitSingleton<mem::Memory>::object_->mem2FixHeap(), 0x800, "Font")
+    : mem::AutoHeapExp(ExplicitSingleton<mem::Memory>::object_->mem2FixHeap(), 0x800, "Font")
     , mFonts(obj()) {}
 
 void FontManager::setup() {

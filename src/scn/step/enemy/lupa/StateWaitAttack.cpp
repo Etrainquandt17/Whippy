@@ -11,6 +11,8 @@
 #include "scn/step/enemy/lupa/ParamData.h"
 #include "scn/step/enemy/lupa/StateWait.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -24,7 +26,7 @@ StateWaitAttack::~StateWaitAttack() {}
 
 void StateWaitAttack::procAnim() {
     const ParamData& param = obj().param().lupa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     Utility::TurnHero(obj());
     if (mFrame == param.mWaitAttackShotFrame) {
@@ -37,7 +39,7 @@ void StateWaitAttack::procAnim() {
 
 void StateWaitAttack::procMove() {
     const ParamData& param = obj().param().lupa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().move().decel(param.mWaitDecel);
     custom.approachMap();
 }

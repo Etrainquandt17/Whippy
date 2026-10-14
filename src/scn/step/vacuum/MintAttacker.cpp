@@ -3,13 +3,15 @@
 #include "hel/common/PointerWrapper.h"
 #include "scn/step/vacuum/Attacker.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace vacuum {
 
 namespace {
 
-hel::common::PointerWrapper<Attacker> t_obj;
+PointerWrapper<Attacker> t_obj;
 
 }
 

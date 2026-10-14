@@ -20,6 +20,10 @@
 #include "scn/step/hero/Manager.h"
 #include "snd/SERequestor.h"
 
+using app::Application;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -29,12 +33,12 @@ StateChase::StateChase(Enemy* enemy) : StateBase(enemy), mFrame(0), mAccel(), mS
     const degout::ParamData& param = obj().param().degout();
     obj().footState().setAir();
     obj().model().reqScript(7);
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 heroPos = obj().comp().heroManager().getKeyCarryingNearestPlayerPos(pos);
+    Vector3 pos = obj().location().pos();
+    Vector3 heroPos = obj().comp().heroManager().getKeyCarryingNearestPlayerPos(pos);
     heroPos.y += param.mChaseTargetOffsetY;
-    hel::math::Vector3 dir = heroPos - pos;
+    Vector3 dir = heroPos - pos;
     if (dir.isZeroLoose(0.00001f)) {
-        dir = hel::math::Vector3::ZERO;
+        dir = Vector3::ZERO;
     } else {
         dir.normalize();
     }
@@ -66,8 +70,8 @@ void StateChase::procAnim() {
     if (Utility::IsExistKeyCarryingHero(obj())) {
         mFrame++;
         if (mFrame == mChaseFrame) {
-            hel::math::Vector3 pos = obj().location().pos();
-            hel::math::Vector3 heroPos = obj().comp().heroManager().getKeyCarryingNearestPlayerPos(pos);
+            Vector3 pos = obj().location().pos();
+            Vector3 heroPos = obj().comp().heroManager().getKeyCarryingNearestPlayerPos(pos);
             if (heroPos.x >= pos.x) {
                 obj().target().setIsRightDir(true);
             } else {
@@ -77,18 +81,18 @@ void StateChase::procAnim() {
             obj().stateChanger().setNextState<common::StateFly, Enemy*>(objPtr());
         }
     } else {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setFirstChase(true);
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).setFirstChase(true);
         obj().move().resetVelocity();
         obj().stateChanger().setNextState<common::StateFly, Enemy*>(objPtr());
     }
 }
 
 void StateChase::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const degout::ParamData& param = obj().param().degout();
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     if (!custom.isFirstChase() || mFrame >= param.mFirstChaseStartFrame) {
-        hel::math::Vector3 accel = mAccel;
+        Vector3 accel = mAccel;
         if (Utility::ChkNururiByDir(obj(), 0.0f)) {
             velocity.x = mAccel.x = accel.x = 0.7f * obj().target().getSign();
             velocity.y = mAccel.y = accel.y = 0.7f;
@@ -111,8 +115,8 @@ void StateChase::procMove() {
         if (mFrame == param.mFirstChaseShakeFrame) {
             obj().soundSE().start(0x51f);
         }
-        hel::math::Vector3 offset(0.0f, 0.0f, 0.0f);
-        switch (static_cast<u32>(app::Application::Object().random().rand(5))) {
+        Vector3 offset(0.0f, 0.0f, 0.0f);
+        switch (static_cast<u32>(Application::Object().random().rand(5))) {
         case 0:
             offset.y += param.mFirstChaseShakeWidth;
             break;

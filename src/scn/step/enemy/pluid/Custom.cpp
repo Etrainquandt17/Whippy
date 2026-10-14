@@ -26,6 +26,12 @@
 #include "scn/step/enemy/Utility.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +39,7 @@ namespace pluid {
 
 Custom::Custom(Enemy& enemy) : CustomBase(enemy), mRotate(0.0f), mRotateTarget(0.0f), mIsRandomFall(false) {
     for (int i = 0; i < 3; i++) {
-        mJumpNum[i] = app::Random::Rand(3);
+        mJumpNum[i] = Random::Rand(3);
     }
     switch (obj().variation()) {
     case 0x74:
@@ -69,7 +75,7 @@ bool Custom::onHitPointIsZero() {
         return false;
     }
     if (obj().damageInfo().element() == 3) {
-        hel::math::Matrix34 mtx;
+        Matrix34 mtx;
         setRotate(0.0f);
         mRotate = mRotateTarget;
         mtx = rotateForce(mRotate);
@@ -80,7 +86,7 @@ bool Custom::onHitPointIsZero() {
 }
 
 void Custom::onCaptured() {
-    hel::math::Matrix34 mtx;
+    Matrix34 mtx;
     setRotate(0.0f);
     mRotate = mRotateTarget;
     mtx = rotateForce(mRotate);
@@ -94,9 +100,9 @@ void Custom::setRotate(f32 rotate) {
 }
 
 int Custom::setJumpNum() {
-    int num = app::Random::Rand(3);
+    int num = Random::Rand(3);
     while (mJumpNum[0] == mJumpNum[1] && mJumpNum[1] == mJumpNum[2] && mJumpNum[2] == num) {
-        num = app::Random::Rand(3);
+        num = Random::Rand(3);
     }
     mJumpNum[0] = mJumpNum[1];
     mJumpNum[1] = mJumpNum[2];
@@ -104,11 +110,11 @@ int Custom::setJumpNum() {
     return num;
 }
 
-hel::math::Matrix34 Custom::rotateForce(f32 rotate) {
-    hel::math::Matrix34 up = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, 0.5f, 0.0f));
-    hel::math::Matrix34 down = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, -0.5f, 0.0f));
-    hel::math::Matrix34 rot = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, -1.0f), rotate);
-    hel::math::Matrix34 mtx = up * rot * down;
+Matrix34 Custom::rotateForce(f32 rotate) {
+    Matrix34 up = Matrix34::CreateTrans(Vector3(0.0f, 0.5f, 0.0f));
+    Matrix34 down = Matrix34::CreateTrans(Vector3(0.0f, -0.5f, 0.0f));
+    Matrix34 rot = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, -1.0f), rotate);
+    Matrix34 mtx = up * rot * down;
     obj().model().setCustomMtx(mtx);
     return mtx;
 }
@@ -123,8 +129,8 @@ f32 Custom::normalizeAngle(f32 angle) const {
     return angle;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

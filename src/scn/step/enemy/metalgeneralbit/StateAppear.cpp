@@ -25,6 +25,8 @@
 #include "scn/step/enemy/metalgeneralbit/StateFly.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,9 +37,9 @@ StateAppear::StateAppear(Enemy* enemy) : StateBase(enemy), mFrame(0), mWaitFrame
     obj().footState().setAir();
     obj().model().reqScript(7);
     if (obj().level() == 0) {
-        mWaitFrame = param.mWaitFrameBase + app::Random::Rand(param.mWaitFrameRand);
+        mWaitFrame = param.mWaitFrameBase + Random::Rand(param.mWaitFrameRand);
     } else {
-        mWaitFrame = app::Random::Rand(param.mWaitFrameSuper);
+        mWaitFrame = Random::Rand(param.mWaitFrameSuper);
     }
     obj().soundSE().start(0x3f2);
 }

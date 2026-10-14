@@ -36,13 +36,15 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace doubter {
 
 StateJugglingStart::StateJugglingStart(Boss* boss) : StateBase(boss), _8(0.0f), mCount(0), mIsCapture(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(28);
     custom.bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
@@ -56,7 +58,7 @@ StateJugglingStart::StateJugglingStart(Boss* boss) : StateBase(boss), _8(0.0f), 
 StateJugglingStart::~StateJugglingStart() {}
 
 void StateJugglingStart::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         custom.jugglingCtrl().reqEnemy();
     }
@@ -79,7 +81,7 @@ void StateJugglingStart::procAnim() {
 }
 
 void StateJugglingStart::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!mIsCapture) {
         obj().location().setPos(custom.waftPositionCtrl().getNextPos());
     } else {

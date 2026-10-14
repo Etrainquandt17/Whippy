@@ -15,13 +15,15 @@
 #include "scn/step/enemy/sheld/Custom.h"
 #include "scn/step/enemy/sheld/ParamData.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace sheld {
 
 StateJump::StateJump(Enemy* enemy) : StateBase(enemy) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(7);
     obj().move().setSpeedV(obj().param().sheld().mJumpSpeedV);

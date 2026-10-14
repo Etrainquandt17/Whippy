@@ -50,6 +50,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -85,8 +87,8 @@ void StateTornadoRise::procAnim() {
 void StateTornadoRise::procMove() {
     const Param& param = obj().param().moundeath();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._140);
-    f32 rate = 1.0f - hel::math::Math::CosDegF(90.0f * t);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
+    f32 rate = 1.0f - Math::CosDegF(90.0f * t);
+    obj().location().setPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
 }
 
 void StateTornadoRise::procFixPos() {}

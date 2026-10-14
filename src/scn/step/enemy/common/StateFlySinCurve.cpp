@@ -11,6 +11,10 @@
 #include "scn/step/enemy/MapColl.h"
 #include "scn/step/enemy/Nururi.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -44,19 +48,19 @@ void StateFlySinCurve::procMove() {
     if (mAngle >= 360.0f) {
         mAngle -= 360.0f;
     }
-    f32 offset = 1.5f * hel::math::Math::SinDegF(mAngle);
-    hel::math::Vector3 pos = obj().location().pos();
+    f32 offset = 1.5f * Math::SinDegF(mAngle);
+    Vector3 pos = obj().location().pos();
     pos.y = mBaseY + offset;
     pos.x += mSpeedX;
     obj().location().setPos(pos);
 }
 
 void StateFlySinCurve::procFixPos() {
-    hel::math::Vector2 dir = obj().nururi().getNururiDir();
+    Vector2 dir = obj().nururi().getNururiDir();
     if ((dir.x > 0.0f && !obj().target().isRightDir()) || (dir.x < 0.0f && obj().target().isRightDir())) {
         obj().target().invert();
         mSpeedX = -mSpeedX;
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.x += 2.0f * mSpeedX;
         obj().location().setPos(pos);
     }

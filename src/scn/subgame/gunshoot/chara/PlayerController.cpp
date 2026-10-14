@@ -5,6 +5,8 @@
 #include "nw4r/math/math_geometry.h"
 #include "scn/subgame/common/coll/CollisionNode.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace subgame {
 namespace gunshoot {
@@ -67,7 +69,7 @@ void PlayerController::shot(bool charged) {
         }
         for (Bullet** it = mBullets.begin(); it != mBullets.end(); ++it) {
             if (!(*it)->isSet()) {
-                (*it)->set(hel::math::Vector3(segment.P0), segment, charged);
+                (*it)->set(Vector3(segment.P0), segment, charged);
                 _310 = *it;
                 return;
             }

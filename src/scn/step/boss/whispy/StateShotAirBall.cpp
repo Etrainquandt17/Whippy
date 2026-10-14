@@ -17,6 +17,10 @@
 #include "snd/SERequestor.h"
 #include "util/ObjList.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -31,16 +35,16 @@ StateShotAirBall::StateShotAirBall(Boss* boss, u32 count, u32 intervalFirst, u32
 
 void StateShotAirBall::reqAirBall() {
     const Param& param = obj().param().whispy();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos += param.mAirBallOffset;
-    hel::math::Vector2 speed = param.mAirBallSpeed;
+    Vector2 speed = param.mAirBallSpeed;
     weapon::Desc desc(static_cast<weapon::Kind>(0xC), 0, static_cast<ostop::Flag>(8), pos, speed, obj().objColl().owner());
     desc._24 = mTargetPos;
     obj().comp().weaponManager().request(desc);
     obj().soundSE().normal().start(0x320);
-    hel::math::Vector3 effectPos = obj().location().pos();
-    effectPos += hel::math::Vector3(param.mAirBallEffectOffset);
-    obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, hel::math::Direction3::FRONT_TO_LEFT);
+    Vector3 effectPos = obj().location().pos();
+    effectPos += Vector3(param.mAirBallEffectOffset);
+    obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, Direction3::FRONT_TO_LEFT);
 }
 
 }}}}  // namespace scn::step::boss::whispy

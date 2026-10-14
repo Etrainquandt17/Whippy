@@ -17,6 +17,9 @@
 #include "scn/step/hero/SoundSE.h"
 #include "scn/step/hero/Utility.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -27,11 +30,11 @@ StateSpine::StateSpine(Hero* hero)
     obj().footState().setAir();
     obj().model().script().start(0x49);
     obj().comp().permEffect().powerful().requestP(static_cast<effect::Kind>(0xD8),
-                                                  obj().location().pos() + hel::math::Vector3(0.0f, 0.5f, 0.0f));
-    hel::math::Vector3 velocity = hel::math::Vector3::BASIS_X;
+                                                  obj().location().pos() + Vector3(0.0f, 0.5f, 0.0f));
+    Vector3 velocity = Vector3::BASIS_X;
     f32 angle = 60.0f;
-    angle += 10.0f * app::Random::RandAF();
-    velocity.rotate(hel::math::Vector3::BASIS_Z, 0.017453292f * angle);
+    angle += 10.0f * Random::RandAF();
+    velocity.rotate(Vector3::BASIS_Z, 0.017453292f * angle);
     velocity.x *= -1.0f * obj().target().getSign();
     velocity *= 0.125f;
     obj().move().setVelocity(velocity);

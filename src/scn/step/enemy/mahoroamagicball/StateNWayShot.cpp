@@ -26,6 +26,8 @@
 #include "scn/step/enemy/mahoroamagicball/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ const ParamData::NWay& t_param(const Enemy& enemy) {
 
 }
 
-StateNWayShot::StateNWayShot(Enemy* enemy, const hel::math::Vector3& dir) : StateBase(enemy), mFrame(1), mDir(dir) {
+StateNWayShot::StateNWayShot(Enemy* enemy, const Vector3& dir) : StateBase(enemy), mFrame(1), mDir(dir) {
     obj().footState().setAir();
     obj().nururi().setValid(false);
     obj().model().reqScript(8);
@@ -51,7 +53,7 @@ StateNWayShot::~StateNWayShot() {}
 
 void StateNWayShot::procAnim() {
     if (mFrame != 0 && --mFrame == 0) {
-        hel::math::Vector3 velocity = mDir * t_param(obj()).mSpeed;
+        Vector3 velocity = mDir * t_param(obj()).mSpeed;
         obj().move().setVelocity(velocity);
         obj().soundSE().start(0x436);
     }

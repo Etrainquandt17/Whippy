@@ -33,6 +33,8 @@
 #include "scn/step/boss/galactaknight/SwordBeamCtrl.h"
 #include "scn/step/boss/galactaknight/ThunderSpineCtrl.h"
 
+using hel::common::DynamicCastToRef;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -44,7 +46,7 @@ namespace galactaknight {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_BackStep(f32 a, f32 b, int c) {

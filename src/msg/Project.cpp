@@ -3,12 +3,14 @@
 #include "hel/common/FixedStringIN.h"
 #include "libms/projfile.h"
 
+using hel::common::FixedStringIN;
+
 namespace msg {
 
 Project::Project(mem::IAllocator& allocator, const char* name)
     : mFileLoader()
     , mProjectInfo(0) {
-    mFileLoader.load(hel::common::FixedStringIN<char, 80>::FromFormat("msg/%s.msbp", name), allocator, false, 0);
+    mFileLoader.load(FixedStringIN<char, 80>::FromFormat("msg/%s.msbp", name), allocator, false, 0);
     mProjectInfo = LMS_InitProject(mFileLoader.data().startAddress());
 }
 

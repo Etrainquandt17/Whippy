@@ -27,6 +27,8 @@
 #include "scn/step/enemy/common/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,7 +49,7 @@ void StateLanding::procAnim() {
 
 void StateLanding::procMove() {
     obj().move().groundDecel(obj().param().common().mDecel);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosKey();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosKey();
 }
 
 void StateLanding::procFixPos() {

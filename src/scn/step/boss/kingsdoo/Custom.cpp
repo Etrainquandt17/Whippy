@@ -23,6 +23,9 @@
 #include "scn/step/chara/WorldCage.h"
 #include "std/min.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -85,8 +88,8 @@ void Custom::onProcAnim() {}
 
 void Custom::onProcFixPos() {}
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::kingsdoo

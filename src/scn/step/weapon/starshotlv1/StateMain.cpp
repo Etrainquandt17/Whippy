@@ -26,6 +26,12 @@
 #include "scn/step/weapon/starshotlv1/Custom.h"
 #include "scn/step/weapon/starshotlv1/Param.h"
 
+using hel::common::DynamicCast;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace {
 
 const scn::step::ocoll::AttackType ATTACK_TYPE_TABLE[] = {
@@ -55,11 +61,11 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mRot(0.0f), _C(), mSca
     obj().objColl().setAttackTypeSub(ATTACK_SUB_TYPE_TABLE[obj().variation()]);
     obj().objColl().addAttack(0, param.mAttackRadius);
     obj().objColl().addAttackSub(
-        0, param.mAttackRadius, hel::math::Vector2(0.0f, -param.mAttackSubOffset),
-        hel::math::Vector2(0.0f, param.mAttackSubOffset));
+        0, param.mAttackRadius, Vector2(0.0f, -param.mAttackSubOffset),
+        Vector2(0.0f, param.mAttackSubOffset));
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x4B3), 0);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x4B5), 2);
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, 0.0f, 0.55f));
+    obj().model().setViewOffset(Vector3(0.0f, 0.0f, 0.55f));
 }
 
 StateMain::~StateMain() {
@@ -67,7 +73,7 @@ StateMain::~StateMain() {
 }
 
 void StateMain::procAnim() {
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
     if (custom->isHeroDisappeared()) {
         deadWithEffect();
         return;
@@ -77,7 +83,7 @@ void StateMain::procAnim() {
     if (mRot >= 360.0f) {
         mRot -= 360.0f;
     }
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_X, mRot);
+    Matrix34 mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_X, mRot);
     obj().model().model().nodes().at(1).localMtx().setRTMtx(mtx);
     if (obj().water().isInWater()) {
         obj().move().setMoveRate(param.mWaterMoveRate);
@@ -86,9 +92,9 @@ void StateMain::procAnim() {
     }
     u32 frame = obj().param().starShotLv1().mScaleFrame;
     if (frame != 0) {
-        mScale = hel::math::Math::LimitMax(mScale + 1.0f / frame, 1.0f);
+        mScale = Math::LimitMax(mScale + 1.0f / frame, 1.0f);
     }
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * mScale);
+    obj().model().setScale(Vector3::ALL_ONE * mScale);
 }
 
 void StateMain::procMove() {
@@ -103,8 +109,8 @@ void StateMain::procObjCollReact() {
     const Param& param = obj().param().starShotLv1();
     if (obj().objColl().isAttackCollide()) {
         u32 resistLv = obj().objColl().attack().getCollidedHitResistLv();
-        hel::math::Vector3 velocity = obj().move().velocity();
-        hel::math::Vector2 hitPos = obj().objColl().attack().getCollidedHitPos();
+        Vector3 velocity = obj().move().velocity();
+        Vector2 hitPos = obj().objColl().attack().getCollidedHitPos();
         f32 diff = hitPos.y - obj().location().pos().y;
         if (resistLv == 6) {
             velocity.x *= param.mResistSpeedRateH;
@@ -132,7 +138,7 @@ void StateMain::procObjCollReact() {
 }
 
 void StateMain::deadWithEffect() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     obj().comp().permEffect().normal().requestPD(static_cast<effect::Kind>(0x4B1), pos, obj().target().getDirection3());
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x78), pos);
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x4B0), pos);

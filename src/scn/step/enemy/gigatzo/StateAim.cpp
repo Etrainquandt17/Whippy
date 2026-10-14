@@ -27,6 +27,8 @@
 #include "scn/step/enemy/gigatzo/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ namespace gigatzo {
 StateAim::StateAim(Enemy* enemy) : StateBase(enemy), mFrame(0), mFrame2(0), mFrame3(0), mAngle(0.0f) {
     obj().footState().setGround();
     const ParamData& param = obj().param().gigatzo();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 angle = roundAngle(custom.aimAngle());
     mStartAngle = angle;
     mMidAngle = angle;
@@ -68,7 +70,7 @@ void StateAim::procAnim() {
     } else {
         obj().brainCtrl().toValid();
     }
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(mAngle);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(mAngle);
 }
 
 void StateAim::procMove() {

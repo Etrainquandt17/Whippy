@@ -26,6 +26,8 @@
 #include "scn/step/enemy/parasol/StateRise.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +43,7 @@ StateLink::StateLink(Enemy* enemy) : StateBase(enemy) {
 }
 
 void StateLink::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isStateChange() == true) {
         obj().stateChanger().setNextState<StateRise, Enemy*>(objPtr());
         custom.offStateChange();

@@ -27,6 +27,8 @@
 #include "scn/step/enemy/metalgeneralball/StateMove.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +43,7 @@ StateWait::StateWait(Enemy* enemy) : StateBase(enemy), mWaitFrame(0) {
 StateWait::~StateWait() {}
 
 void StateWait::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().signal().isValid()) {
         switch (obj().signal().get()) {
         case 1:

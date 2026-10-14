@@ -3,6 +3,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/rollexp/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -39,8 +42,8 @@ u32 Custom::getAttackFrame() const {
     return mAttackFrame;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::rollexp

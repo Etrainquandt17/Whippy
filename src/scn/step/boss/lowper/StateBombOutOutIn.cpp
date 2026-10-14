@@ -57,6 +57,12 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -67,7 +73,7 @@ StateBombOutOutIn::StateBombOutOutIn(Boss* boss)
       mRotH(0.0f) {
     mRotH = obj().model().rotCtrl().getRotH();
     obj().model().reqScript(0xE);
-    hel::geo::Rect rect = obj().comp().mainCamera().getWorldRect();
+    Rect rect = obj().comp().mainCamera().getWorldRect();
     f32 baseX = obj().basePos().x;
     f32 sign = obj().location().pos().x >= baseX ? 1.0f : -1.0f;
     mInY = rect._0 - 1.5f;
@@ -98,7 +104,7 @@ void StateBombOutOutIn::procAnim() {
 
 // TODO: the original keeps the time rate in f30 and the phase rate in f31; here they are the other way round.
 void StateBombOutOutIn::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mIntpRate += 0.05f;
     if (mIntpRate > 1.0f) {
         mIntpRate = 1.0f;
@@ -108,7 +114,7 @@ void StateBombOutOutIn::procMove() {
         mXRate = 1.0f;
     }
     f32 t = static_cast<f32>(mCount) / 260.0f;
-    hel::math::Vector2 pos;
+    Vector2 pos;
     f32 rate = 0.0f;
     switch (mPhase) {
     case 0:
@@ -124,7 +130,7 @@ void StateBombOutOutIn::procMove() {
     f32 x = obj().location().pos().x;
     f32 targetX = mStartX * (1.0f - rate) + mGoalX * rate;
     pos.x = x * (1.0f - mXRate) + targetX * mXRate;
-    f32 rateY = hel::math::Math::AbsF32(hel::math::Math::SinDegF(720.0f * t));
+    f32 rateY = Math::AbsF32(Math::SinDegF(720.0f * t));
     pos.y = mOutY * (1.0f - rateY) + mInY * rateY;
     custom.waftMoveCtrl().setMoveIntpRate(mIntpRate);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
@@ -134,10 +140,10 @@ void StateBombOutOutIn::procMove() {
 void StateBombOutOutIn::procFixPos() {}
 
 void StateBombOutOutIn::reqBomb() {
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 speed(0.0f, -1.0f, 0.0f);
+    Vector3 pos = obj().location().pos();
+    Vector3 speed(0.0f, -1.0f, 0.0f);
     speed *= 0.1f;
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(1), pos, speed, 0);
 }
 

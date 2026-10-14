@@ -13,6 +13,9 @@
 #include "scn/step/core/SceneChanger.h"
 #include "scn/step/sfx/ScreenFade.h"
 
+using hel::common::Color;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -32,12 +35,12 @@ void StateRepairThrow::procAnim() {
     mFrame++;
     if (mFrame == obj().param().repairparts()._1C) {
         obj().soundSE().start(0x14B);
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += 1.0f;
         obj().effect().requestP(static_cast<effect::Kind>(0x33F), pos);
     }
     if (mFrame == obj().param().repairparts()._20) {
-        obj().comp().screenFade().setColor(hel::common::Color(0xFF, 0xFF, 0xFF, 0xFF));
+        obj().comp().screenFade().setColor(Color(0xFF, 0xFF, 0xFF, 0xFF));
         obj().comp().screenFade().setFadeOut(obj().param().repairparts()._24);
     }
     if (mFrame >= obj().param().repairparts()._20 + obj().param().repairparts()._24 + 5) {

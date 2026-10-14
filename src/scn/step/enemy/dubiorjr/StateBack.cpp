@@ -24,6 +24,8 @@
 #include "scn/step/enemy/dubiorjr/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Direction3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ StateBack::StateBack(Enemy* enemy, f32 rot) : StateBase(enemy) {
     obj().model().reqScript(4);
     obj().model().rotCtrl().setRotVTarget(rot * obj().target().getSign());
     obj().brainCtrl().toValid();
-    hel::math::Direction3 dir = obj().target().getDirection3();
+    Direction3 dir = obj().target().getDirection3();
     dir.mFront.rotate(dir.mLeft, 0.017453292f * -rot);
     dir.restructFrontLeft();
     obj().move().setVelocity(dir.mFront * -param.mBackSpeed);

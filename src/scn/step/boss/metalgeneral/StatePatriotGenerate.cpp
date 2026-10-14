@@ -72,6 +72,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -79,7 +83,7 @@ namespace metalgeneral {
 
 StatePatriotGenerate::StatePatriotGenerate(Boss* boss, Config config) : StateBase(boss), mConfig(config) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     if (mConfig._4) {
         obj().model().reqScript(0x23);
@@ -88,7 +92,7 @@ StatePatriotGenerate::StatePatriotGenerate(Boss* boss, Config config) : StateBas
     }
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().move().resetVelocity();
-    if (!hel::math::Math::EqZero(obj().location().pos().z)) {
+    if (!Math::EqZero(obj().location().pos().z)) {
         obj().model().rotCtrl().setRotHTarget(param._1E0);
     }
 }
@@ -97,7 +101,7 @@ StatePatriotGenerate::~StatePatriotGenerate() {}
 
 void StatePatriotGenerate::procAnim() {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         if (mConfig._4) {
             obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
@@ -107,7 +111,7 @@ void StatePatriotGenerate::procAnim() {
         return;
     }
     if (obj().scriptTrigger().get(0)) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.x += param._1E4 * obj().target().getSign();
         pos.y += param._1E8;
         custom.weaponCtrl().reqPatriot(pos, mConfig._0, mConfig._4, mConfig._8);

@@ -11,6 +11,8 @@
 #include "scn/step/enemy/MapColl.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -54,7 +56,7 @@ void StateWalkAround::procFixPos() {
         mBaseX = x + 2.5f * obj().target().getSign();
     } else {
         f32 diff = obj().location().pos().x - mBaseX;
-        if (hel::math::Math::Abs(diff) > 2.0f) {
+        if (Math::Abs(diff) > 2.0f) {
             obj().target().setIsRightDir(diff < 0.0f);
         }
     }

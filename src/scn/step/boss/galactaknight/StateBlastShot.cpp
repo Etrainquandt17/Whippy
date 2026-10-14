@@ -52,13 +52,16 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace galactaknight {
 
 StateBlastShot::StateBlastShot(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x16);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
@@ -81,11 +84,11 @@ void StateBlastShot::procFixPos() {}
 
 void StateBlastShot::generateBlastShot() {
     const Param& param = obj().param().galactaknight();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos.y += param._B4;
-    hel::math::Vector2 start = pos;
+    Vector2 start = pos;
     start.x += param._B0 * obj().target().getSign();
-    hel::math::Vector2 dir = hel::math::Vector2::BASIS_X;
+    Vector2 dir = Vector2::BASIS_X;
     dir.x *= obj().target().getSign();
     dir *= param._AC;
     weapon::Desc desc(static_cast<weapon::Kind>(0x89), 0, static_cast<ostop::Flag>(8), start, pos, dir,

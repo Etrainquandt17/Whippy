@@ -10,6 +10,8 @@
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Manager.h"
 
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -21,7 +23,7 @@ StateUse::StateUse(CarryItem* carryItem)
     , mIsHeroUser(false)
     , mFlash(*carryItem) {
     if (obj().getUser().wasSet()) {
-        util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().getUser()->owner().uid());
+        ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().getUser()->owner().uid());
         if (hero.isAlive()) {
             mIsHeroUser = true;
         }

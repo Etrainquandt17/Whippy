@@ -4,6 +4,10 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/weapon/Weapon.h"
 
+using g3d::ColorAnimFlash;
+using g3d::ColorAnimFlashOp;
+using g3d::ColorAnimFlashOp_0;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -14,9 +18,9 @@ Flash::Flash(Weapon& weapon, mem::IAllocator& allocator, bool isValid) : mColorA
         // TODO: gobj::GearModel is a gobj::IG3DModel; its header does not say so yet.
         gobj::IG3DModel& model = *reinterpret_cast<gobj::IG3DModel*>(&weapon.model().model());
         mColorAnim.construct<gobj::ColorAnimDesc, mem::IAllocator&, gobj::IG3DModel&>(gobj::ColorAnimDesc(), allocator, model);
-        g3d::ColorAnimFlash flash;
+        ColorAnimFlash flash;
         flash.setColor((GXColor){ 0, 0, 0, 0 });
-        flash.setOperation(g3d::ColorAnimFlashOp_0);
+        flash.setOperation(ColorAnimFlashOp_0);
         mColorAnim->setFlash(flash);
     }
 }
@@ -31,9 +35,9 @@ void Flash::updateUseGPU() {
     }
 }
 
-void Flash::set(const GXColor& color, g3d::ColorAnimFlashOp op) {
+void Flash::set(const GXColor& color, ColorAnimFlashOp op) {
     if (mColorAnim.isConstruct()) {
-        g3d::ColorAnimFlash flash = mColorAnim->flash();
+        ColorAnimFlash flash = mColorAnim->flash();
         flash.setColor(color);
         flash.setOperation(op);
         mColorAnim->setFlash(flash);

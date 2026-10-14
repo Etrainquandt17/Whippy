@@ -18,6 +18,11 @@
 #include "scn/step/enemy/babut/StateAttack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,17 +52,17 @@ void StateFlySinCurve::procMove() {
         mFrame++;
         mBaseY -= param.mSinCurveDescendHeight / param.mSinCurveDescendFrame;
     }
-    f32 offsetY = param.mSinCurveHeight * hel::math::Math::SinDegF(mAngle);
-    hel::math::Vector3 pos = obj().location().pos();
+    f32 offsetY = param.mSinCurveHeight * Math::SinDegF(mAngle);
+    Vector3 pos = obj().location().pos();
     pos.y = mBaseY + offsetY;
     pos.x += mSpeedX;
     obj().location().setPos(pos);
     obj().objColl().clearSearchHit();
-    obj().objColl().addSearchHit(0, param.mSearchRadius, hel::math::Vector2(mSpeedX, param.mSearchOffsetY));
+    obj().objColl().addSearchHit(0, param.mSearchRadius, Vector2(mSpeedX, param.mSearchOffsetY));
 }
 
 void StateFlySinCurve::procFixPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).startWingSound();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).startWingSound();
     if (obj().mapColl().result()._2 || Utility::ChkNururiByDir(obj(), 0.0f)) {
         mSpeedX = -mSpeedX;
         obj().target().setIsRightDir(mSpeedX >= 0.0f);
@@ -71,7 +76,7 @@ void StateFlySinCurve::procFixPos() {
 }
 
 void StateFlySinCurve::procObjCollReact() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).chkCaptureHero()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).chkCaptureHero()) {
         obj().soundSE().start(0x309);
         obj().stateChanger().setNextState<StateAttack, Enemy*>(objPtr());
     }

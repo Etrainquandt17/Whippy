@@ -27,6 +27,8 @@
 #include "scn/step/enemy/sodory/StateFly.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,7 +38,7 @@ BrainFly::BrainFly(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainFly::onStart() {
     obj().target().setIsRightDir(true);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
     obj().stateChanger().setNextState<StateFly, Enemy*>(&obj());
     return true;
 }

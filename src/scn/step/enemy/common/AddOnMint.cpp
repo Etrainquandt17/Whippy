@@ -15,6 +15,9 @@
 #include "scn/step/enemy/common/StateWalkAround.h"
 #include "scn/step/enemy/common/StateWalkStraight.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,7 +50,7 @@ void t_SetNextState_Mahoroa1Disappear() {
 }
 
 int t_Random_Rand(int max) {
-    return hel::common::ExplicitSingleton<app::Application>::object_->random().rand(max);
+    return ExplicitSingleton<Application>::object_->random().rand(max);
 }
 
 }

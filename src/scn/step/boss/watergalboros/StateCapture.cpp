@@ -51,13 +51,15 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace watergalboros {
 
 StateCapture::StateCapture(Boss* boss) : StateBase(boss), mCount(0), mIsFirst(true) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x12);
     custom.captureCtrl().setInvisibility();
 }
@@ -66,7 +68,7 @@ StateCapture::~StateCapture() {}
 
 void StateCapture::procAnim() {
     const Param& param = obj().param().watergalboros();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         custom.captureCtrl().setDamage(mIsFirst ? param.mCaptureDamageFirst : param.mCaptureDamage);
         mIsFirst = false;

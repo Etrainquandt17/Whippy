@@ -12,6 +12,9 @@
 #include "scn/step/enemy/Param.h"
 #include "scn/step/enemy/common/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,11 +40,11 @@ void StateShootingFly::procAnim() {}
 
 void StateShootingFly::procMove() {
     const ParamData& param = obj().param().common();
-    if (hel::math::Math::EqZero(_8)) {
+    if (Math::EqZero(_8)) {
         obj().move().decel(param._4c);
     } else {
-        hel::math::Vector3 velocity = hel::math::Vector3::ZERO;
-        if (!hel::math::Math::EqZero(_8)) {
+        Vector3 velocity = Vector3::ZERO;
+        if (!Math::EqZero(_8)) {
             velocity.x += obj().comp().mainCamera().getCenter().x - _8;
             obj().move().setVelocity(velocity);
             gobj::MoveParamDecel decel = gobj::MoveParamDecel::Zero();

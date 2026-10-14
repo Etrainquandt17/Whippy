@@ -27,6 +27,9 @@
 #include "scn/step/enemy/lowperbullet/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -56,14 +59,14 @@ void StateBombFar::procMove() {
     mFallAccel += param.mBombFallAccelStep;
     gobj::MoveParamFall fall = gobj::MoveParamFall::Create(param._8, mFallAccel, param._10);
     obj().move().airDecelFall(param.mBombDecel, fall);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.z *= param.mBombFarDepthRate;
     obj().location().setPos(pos);
-    if (hel::math::Math::Abs(obj().location().pos().z) < param.mBombFarCollDepth) {
+    if (Math::Abs(obj().location().pos().z) < param.mBombFarCollDepth) {
         obj().objColl().bodyColl().setStateNormal();
         obj().vacuumReceiver().setIsValid(true);
     }
-    if (hel::math::Math::Abs(obj().location().pos().z) < param.mBombFarMapCollDepth) {
+    if (Math::Abs(obj().location().pos().z) < param.mBombFarMapCollDepth) {
         obj().mapColl().setValid(true);
     }
 }

@@ -2,6 +2,8 @@
 
 #include "hel/math/Vector3.h"
 
+using hel::math::Vector3;
+
 namespace g3d {
 
 ResNode::ResNode() : nw4r::g3d::ResNode(0) {}
@@ -26,16 +28,16 @@ nw4r::g3d::ResNode ResNode::child() const {
     return const_cast<ResNode*>(this)->GetChildNode();
 }
 
-hel::math::Vector3 ResNode::translate() const {
-    return hel::math::Vector3(GetTranslate());
+Vector3 ResNode::translate() const {
+    return Vector3(GetTranslate());
 }
 
-hel::math::Vector3 ResNode::rotate() const {
-    return hel::math::Vector3(GetRotate());
+Vector3 ResNode::rotate() const {
+    return Vector3(GetRotate());
 }
 
-hel::math::Vector3 ResNode::scale() const {
-    return hel::math::Vector3(GetScale());
+Vector3 ResNode::scale() const {
+    return Vector3(GetScale());
 }
 
 ResNode::ResNode(const nw4r::g3d::ResNode& node) : nw4r::g3d::ResNode(node) {}

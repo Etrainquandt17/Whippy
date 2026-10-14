@@ -13,6 +13,8 @@
 #include "scn/step/hero/crash/StateCharge.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -31,8 +33,8 @@ Crash::~Crash() {
 }
 
 void Crash::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/crash/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/crash/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0x16, motion);
     mHero.model().hat().set(modeldesc::Crash::HatPath(), modeldesc::Crash::HatModel());

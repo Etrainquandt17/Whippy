@@ -9,6 +9,8 @@
 #include "scn/step/enemy/common/ParamData.h"
 #include "scn/step/enemy/common/StatePursuit.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -24,7 +26,7 @@ void StateFlush::procMove() {
     const ParamData& param = obj().param().common();
     mCount++;
     if (mCount < param.mFlushFrame) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         f32 height = param.mFlushHeight;
         f32 frame = param.mFlushFrame;
         pos.y += 6.0f * height * mCount * (frame - mCount) / frame / frame / frame;

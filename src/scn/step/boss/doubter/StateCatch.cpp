@@ -36,6 +36,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -48,14 +50,14 @@ StateCatch::StateCatch(Boss* boss) : StateBase(boss), mDecel(boss->param().doubt
     obj().move().setSpeedH(punch._0 * obj().target().getSign());
     mDecel = punch._4;
     obj().model().reqScript(19);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
     obj().guard().setType(static_cast<GuardType>(5));
 }
 
 StateCatch::~StateCatch() {}
 
 void StateCatch::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(4)) {
         custom.punchCtrlR().catchEnd();
     }
@@ -77,7 +79,7 @@ void StateCatch::procMove() {
 void StateCatch::procFixPos() {}
 
 void StateCatch::procObjCollReact() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
 }
 
 }}}}  // namespace scn::step::boss::doubter

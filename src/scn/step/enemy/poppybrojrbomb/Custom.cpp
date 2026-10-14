@@ -35,6 +35,12 @@
 #include "scn/step/weapon/rollexp/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -57,12 +63,12 @@ bool Custom::onDamaged() {
     desc.mVariation = 1;
     desc.mFlag = static_cast<ostop::Flag>(4);
     desc.mPos = desc._14 =
-        obj().location().pos().getXY() + hel::math::Vector2(0.0f, obj().param().poppybrojrbomb().mExplosionOffsetY);
-    desc._1c = hel::math::Vector2(0.0f, 0.0f);
+        obj().location().pos().getXY() + Vector2(0.0f, obj().param().poppybrojrbomb().mExplosionOffsetY);
+    desc._1c = Vector2(0.0f, 0.0f);
     desc.mOwner = &obj().objColl().owner();
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
-        hel::common::DynamicCastToRef<weapon::rollexp::Custom, weapon::ICustom>(weapon->custom())
+        DynamicCastToRef<weapon::rollexp::Custom, weapon::ICustom>(weapon->custom())
             .changeAttackType(static_cast<ocoll::AttackType>(0x242));
     }
     obj().dead();
@@ -80,8 +86,8 @@ bool Custom::onInWater() {
     return true;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

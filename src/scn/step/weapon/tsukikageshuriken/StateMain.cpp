@@ -25,6 +25,11 @@
 #include "scn/step/weapon/tsukikageshuriken/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Direction3;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -35,25 +40,25 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mHitFrame(0
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x19F));
     obj().objColl().addAttack(0, param._0);
     obj().objColl().addHit(0, param._4);
-    hel::math::Direction3 dir1;
-    hel::math::Direction3 dir2;
-    hel::math::Matrix34 mtx;
+    Direction3 dir1;
+    Direction3 dir2;
+    Matrix34 mtx;
     if (obj().target().isRightDir()) {
-        dir1 = hel::math::Direction3(
-            hel::math::Vector3(0.0f, 1.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, -1.0f), hel::math::Vector3(1.0f, 0.0f, 0.0f)
+        dir1 = Direction3(
+            Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, -1.0f), Vector3(1.0f, 0.0f, 0.0f)
         );
-        dir2 = hel::math::Direction3(
-            hel::math::Vector3(0.0f, 1.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, 1.0f), hel::math::Vector3(-1.0f, 0.0f, 0.0f)
+        dir2 = Direction3(
+            Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(-1.0f, 0.0f, 0.0f)
         );
-        mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_X, -90.0f);
+        mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_X, -90.0f);
     } else {
-        dir1 = hel::math::Direction3(
-            hel::math::Vector3(0.0f, -1.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, 1.0f), hel::math::Vector3(1.0f, 0.0f, 0.0f)
+        dir1 = Direction3(
+            Vector3(0.0f, -1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(1.0f, 0.0f, 0.0f)
         );
-        dir2 = hel::math::Direction3(
-            hel::math::Vector3(0.0f, -1.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, 1.0f), hel::math::Vector3(1.0f, 0.0f, 0.0f)
+        dir2 = Direction3(
+            Vector3(0.0f, -1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(1.0f, 0.0f, 0.0f)
         );
-        mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_X, 90.0f);
+        mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_X, 90.0f);
     }
     obj().effect().normal().requestND(static_cast<effect::Kind>(0x4A7), 0, dir1);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x4A1), 0);
@@ -81,8 +86,8 @@ void StateMain::procFixPos() {
     }
     if (mIsHit) {
         mHitFrame++;
-        hel::math::Vector3 pos = obj().location().pos();
-        bool isExistLand = obj().comp().mapLandManager().native().isExistLand(hel::math::Vector2(pos.x, pos.y));
+        Vector3 pos = obj().location().pos();
+        bool isExistLand = obj().comp().mapLandManager().native().isExistLand(Vector2(pos.x, pos.y));
         if (mHitFrame == 30 || isExistLand) {
             obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x127), pos);
             obj().dead();
@@ -96,7 +101,7 @@ void StateMain::procObjCollReact() {
         if (mFrame == 250 || obj().objColl().hit().isCollide() || obj().objColl().attack().isCollideGimmick() ||
             obj().objColl().attack().isCollide()) {
             obj().effect().normal().release();
-            hel::math::Vector3 pos = obj().location().pos();
+            Vector3 pos = obj().location().pos();
             obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x127), pos);
             obj().dead();
         }

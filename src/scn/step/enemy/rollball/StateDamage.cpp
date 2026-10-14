@@ -32,18 +32,22 @@
 #include "scn/step/enemy/rollball/Custom.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace rollball {
 
 StateDamage::StateDamage(Enemy* enemy) : StateBase(enemy) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().comp().permSoundSE().start(0x51c);
     obj().footState().setGround();
     obj().model().reqScript(5);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Vector3 pos = node.worldTrans();
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Vector3 pos = node.worldTrans();
     f32 radius = custom.getRadius();
     switch (obj().kind()) {
     case 0x26:

@@ -17,6 +17,12 @@
 #include "storage/StorageManager.h"
 #include "storage/VolatileData.h"
 
+using app::Application;
+using app::HIDErrorMenu;
+using app::Message;
+using hel::common::ExplicitSingleton;
+using hel::math::Vector3;
+
 namespace scn {
 namespace arena {
 namespace title {
@@ -31,7 +37,7 @@ namespace {
 // TODO: stands in for an inline accessor of ExplicitSingleton, which its header does not have yet.
 template <class T>
 inline T& tInstance() {
-    return *hel::common::ExplicitSingleton<T>::object_;
+    return *ExplicitSingleton<T>::object_;
 }
 
 // TODO: the later functions bind a hel::common::Color to Fade::setColor, so this most likely returns one.
@@ -69,7 +75,7 @@ Title::Title(Component& component)
     u32 hash;
     u32 i;
 
-    app::HIDErrorMenu& hidErrorMenu = tInstance<app::Application>().hidErrorMenu();
+    HIDErrorMenu& hidErrorMenu = tInstance<Application>().hidErrorMenu();
     asm {
         bl      after1
         opword  MF_WORD(0x17C)
@@ -98,8 +104,8 @@ Title::Title(Component& component)
         lwz     r21, 0x0(r29)
         stw     r21, expected
     }
-    tInstance<app::Application>().storageManager().volatileData().mStepStageData.clearIgnoreObj();
-    tInstance<app::Application>().storageManager().volatileData()._1518 = 0;
+    tInstance<Application>().storageManager().volatileData().mStepStageData.clearIgnoreObj();
+    tInstance<Application>().storageManager().volatileData()._1518 = 0;
     hash = 0x811C9DC5;
     comp().setMenuState(MENU_STATE_0);
     fade().setColor(tFadeColor());
@@ -120,8 +126,8 @@ Title::Title(Component& component)
     comp().context()._E4[0x254 - 0xE4] = false;
     mButtonLayout.setParent(mLayout.pane("TitleButtonN"));
     hash += hash << 3;
-    mButtonLayout.pane("Text").setText(app::Message::TextArena("TitleStart"));
-    mButtonLayout.pane("Text_00").setText(app::Message::TextArena("TitleBestTime"));
+    mButtonLayout.pane("Text").setText(Message::TextArena("TitleStart"));
+    mButtonLayout.pane("Text_00").setText(Message::TextArena("TitleBestTime"));
     hash ^= hash >> 11;
     if (component.getNoTitleAnimFlag()) {
         mLayout.play("Wait");
@@ -149,8 +155,8 @@ Title::Title(Component& component)
     }
     switch (reinterpret_cast<ArenaData&>(component.context()._B0).gameKind()) {
     case storage::ARENA_GAME_KIND_0:
-        mRenderSet.camera().setPos(hel::math::Vector3(-30.0f, 10.0f, 225.0f));
-        mRenderSet.camera().setTargetPos(hel::math::Vector3(-30.0f, 10.0f, 200.0f));
+        mRenderSet.camera().setPos(Vector3(-30.0f, 10.0f, 225.0f));
+        mRenderSet.camera().setTargetPos(Vector3(-30.0f, 10.0f, 200.0f));
         break;
     case storage::ARENA_GAME_KIND_1:
         mRenderSet.camera().setCameraAnimFlag(expected == hash);

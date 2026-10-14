@@ -10,6 +10,9 @@
 #include "scn/step/enemy/como/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,8 +38,8 @@ void StateAppear::procMove() {
     if (rate > 1.0f) {
         rate = 1.0f;
     }
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    f32 length = param.mAppearLength * hel::math::Math::SinDegF(90.0f * rate);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    f32 length = param.mAppearLength * Math::SinDegF(90.0f * rate);
     custom.threadCtrl().setLength(length);
 }
 

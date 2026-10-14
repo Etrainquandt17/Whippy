@@ -31,6 +31,15 @@
 #include "scn/step/weapon/Manager.h"
 #include "scn/step/weapon/buraburarope/Custom.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace hel {
 namespace common {
 
@@ -52,7 +61,7 @@ Custom::Custom(Enemy& enemy)
     obj().mapColl().setValid(false);
     obj().model().rotCtrl().initRotH(0.0f);
     f32 size = 0.8f * obj().charaParam()._2c;
-    hel::geo::Rect rect(size, -size, -size, size);
+    Rect rect(size, -size, -size, size);
     rect.trans(0.0f, -1.0f);
     obj().vacuumReceiver().setCustomCollideRect(rect);
 }
@@ -76,10 +85,10 @@ void Custom::onProcFixPos() {
 void Custom::ropeFixAnim() {
     if (mIsReceiver && mRope.isAlive()) {
         weapon::Weapon* rope = mRope.operator->();
-        hel::math::Matrix34 mtx;
+        Matrix34 mtx;
         for (u32 i = 2; i <= 8; i++) {
-            g3d::NodeAccessor node = rope->model().model().nodes().at(i);
-            hel::math::Matrix34 local = node.localMtx().rtMtx();
+            NodeAccessor node = rope->model().model().nodes().at(i);
+            Matrix34 local = node.localMtx().rtMtx();
             mtx = local * mtx;
         }
         obj().model().setCustomMtx(mtx);
@@ -88,8 +97,8 @@ void Custom::ropeFixAnim() {
 
 void Custom::ropeFixMove() {
     if (mIsReceiver && mRope.isAlive()) {
-        g3d::NodeAccessor node = mRope->model().model().nodes().at(9);
-        hel::math::Vector3 pos = node.worldMtx().getT();
+        NodeAccessor node = mRope->model().model().nodes().at(9);
+        Vector3 pos = node.worldMtx().getT();
         obj().location().setPos(pos);
     }
 }
@@ -97,7 +106,7 @@ void Custom::ropeFixMove() {
 void Custom::deeAnimDecide() {
     if (mRope.isAlive()) {
         weapon::buraburarope::Custom& rope =
-            hel::common::DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(mRope->custom());
+            DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(mRope->custom());
         if (rope.getState() != rope.getPrevState()) {
             switch (rope.getState()) {
             case weapon::buraburarope::Custom::STATE_0: {
@@ -172,11 +181,11 @@ void Custom::ropeSmallOn() {
     if (mRope.isAlive()) {
         weapon::Weapon* rope = mRope.operator->();
         weapon::buraburarope::Custom& custom =
-            hel::common::DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(rope->custom());
+            DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(rope->custom());
         if (!custom.isSmall()) {
             custom.smallOn();
             rope->model().reqScript(0);
-            hel::math::Vector3 pos = rope->model().model().nodes().at(8).worldMtx().getT();
+            Vector3 pos = rope->model().model().nodes().at(8).worldMtx().getT();
             obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x127), pos);
         }
     }
@@ -198,7 +207,7 @@ void Custom::releaseRopeIfExist() {
 }
 
 void Custom::revertSetting() {
-    hel::math::Matrix34 mtx;
+    Matrix34 mtx;
     obj().model().setCustomMtx(mtx);
     obj().mapColl().setValid(true);
 }
@@ -206,16 +215,16 @@ void Custom::revertSetting() {
 void Custom::requestRope() {
     if (!mIsRopeRequested) {
         mIsRopeRequested = true;
-        hel::math::Vector3 p = obj().location().pos();
-        hel::math::Vector2 pos(p.x, p.y);
+        Vector3 p = obj().location().pos();
+        Vector2 pos(p.x, p.y);
         pos.y -= 0.1f;
-        weapon::Desc desc(weapon::KIND_BURABURAROPE, 0, static_cast<ostop::Flag>(4), pos, hel::math::Vector2::ZERO,
+        weapon::Desc desc(weapon::KIND_BURABURAROPE, 0, static_cast<ostop::Flag>(4), pos, Vector2::ZERO,
                           obj().objColl().owner());
         mRope = obj().comp().weaponManager().request(desc);
         if (mRope.isAlive()) {
             weapon::Weapon* rope = mRope.operator->();
-            hel::common::DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(rope->custom()).setReceiver(*this);
-            hel::math::Matrix34 rot = hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, 0.0f));
+            DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(rope->custom()).setReceiver(*this);
+            Matrix34 rot = Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, 0.0f));
             for (u32 i = 2; i <= 8; i++) {
                 rope->model().model().nodes().at(i).localMtx().setRTMtx(rot);
                 rope->model().model().updateWorldMtx();
@@ -227,7 +236,7 @@ void Custom::requestRope() {
 
 void Custom::unsetReceiverRope() {
     if (mRope.isAlive()) {
-        hel::common::DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(mRope->custom()).unsetReceiver(*this);
+        DynamicCastToRef<weapon::buraburarope::Custom, weapon::ICustom>(mRope->custom()).unsetReceiver(*this);
     }
 }
 
@@ -238,8 +247,8 @@ void Custom::onRopeRequireUnsetReceiver(weapon::buraburarope::Custom& rope) {
     mIsReceiver = false;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::buraburadee

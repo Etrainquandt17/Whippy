@@ -6,11 +6,13 @@
 #include "mem/Memory.h"
 #include "revolution/vi.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace gfx {
 
 XFBManager::XFBManager(const VISetting& setting)
-    : mTarget1(setting.fbSize(), 0x20, hel::common::ExplicitSingleton<mem::Memory>::object_->mem2FixHeap())
-    , mTarget2(setting.fbSize(), 0x20, hel::common::ExplicitSingleton<mem::Memory>::object_->mem2FixHeap())
+    : mTarget1(setting.fbSize(), 0x20, ExplicitSingleton<mem::Memory>::object_->mem2FixHeap())
+    , mTarget2(setting.fbSize(), 0x20, ExplicitSingleton<mem::Memory>::object_->mem2FixHeap())
     , mIsDrawTarget1(false) {
     VISetNextFrameBuffer(drawTargetXFB());
     VIWaitForRetrace();

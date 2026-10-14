@@ -17,6 +17,11 @@
 #include "storage/StoryData.h"
 #include "util/ObjList.h"
 
+using app::Application;
+using app::Message;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedStringIN;
+
 namespace pause {
 
 namespace {
@@ -26,7 +31,7 @@ const char* T_PARTS_NAMES[] = {
 };
 
 storage::StoryData& tStoryData(Component& component) {
-    return hel::common::ExplicitSingleton<app::Application>::Object()
+    return ExplicitSingleton<Application>::Object()
         .storageManager()
         .selectedBackupFileData()
         .storyData(component.contextInit().storyMode());
@@ -60,9 +65,9 @@ PageShip::PageShip(Component& component)
         mParts.add(std::tr1::ref(component), std::tr1::ref(mLayout), i);
     }
     mSphere.paneByName("MolecularText")
-        .setText(hel::common::FixedStringIN<char, 16>::FromFormat("%lu", tSphereCount(component)));
+        .setText(FixedStringIN<char, 16>::FromFormat("%lu", tSphereCount(component)));
     mSphere.paneByName("DenominatorText")
-        .setText(hel::common::FixedStringIN<char, 16>::FromFormat("%lu", scn::step::StageKindUtil::SphereTotalNum()));
+        .setText(FixedStringIN<char, 16>::FromFormat("%lu", scn::step::StageKindUtil::SphereTotalNum()));
     mShip.setParent(mLayout.paneByName("ShipN"));
     mShipPoint.setParent(mLayout.paneByName("ShipPointN"));
     mSphere.setParent(mLayout.paneByName("SphereN"));
@@ -94,7 +99,7 @@ PageShip::PageShip(Component& component)
 }
 
 const wchar_t* PageShip::pageFrameTitle() const {
-    return app::Message::TextPause("PageTitleShip");
+    return Message::TextPause("PageTitleShip");
 }
 
 lyt::Layout& PageShip::pageMainLayout() {

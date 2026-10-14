@@ -30,6 +30,8 @@
 #include "scn/step/enemy/shotzo/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ BrainFix::BrainFix(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainFix::onStart() {
     obj().stateChanger().setNextState<StateWait, Enemy*>(&obj());
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(Utility::GetRotByDirType(obj()));
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(Utility::GetRotByDirType(obj()));
     return true;
 }
 

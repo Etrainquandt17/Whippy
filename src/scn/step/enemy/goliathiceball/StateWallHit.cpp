@@ -26,6 +26,8 @@
 #include "scn/step/enemy/goliathiceball/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,7 +48,7 @@ void StateWallHit::procAnim() {
     mFrame++;
     if (mFrame == mEndFrame) {
         if (obj().variation() == 0x176) {
-            hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).reqExplode();
+            DynamicCastToRef<Custom, ICustom>(obj().custom()).reqExplode();
         }
         obj().deadWithEffect();
     }

@@ -22,6 +22,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandleInline.h"
 
+using g3d::NodeAccessor;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -118,7 +121,7 @@ void FinalBattleShadow::update() {
                     if (range > 0.0f) {
                         f32 rate = 1.0f - t_min(height / range, 1.0f);
                         f32 scale = rate * (param._4E0 - param._4E4) + param._4E4;
-                        mEffectLocator->model().setScale(hel::math::Vector3::ALL_ONE * scale);
+                        mEffectLocator->model().setScale(Vector3::ALL_ONE * scale);
                     }
                     mEffectLocator->location().setPos(mHero.groundChecker().getFloorPosVector3());
                     mEffectLocator->model().updateMtx();
@@ -232,7 +235,7 @@ void FinalBattleShadow::killEffectLocator() {
     }
 }
 
-g3d::NodeAccessor FinalBattleShadow::node() {
+NodeAccessor FinalBattleShadow::node() {
     return mEffectLocator->model().model().nodes().at(0);
 }
 

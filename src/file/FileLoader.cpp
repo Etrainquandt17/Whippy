@@ -12,6 +12,10 @@
 #include "revolution/os/OSCache.h"
 #include "std/cstring.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedString;
+
 namespace file {
 
 namespace {
@@ -58,7 +62,7 @@ void FileLoader::unload() {
             mAllocator.obj()->allocatorFree(data().startAddress());
         }
         mBlock = mem::MemBlock::EmptyBlock();
-        mPath = hel::common::FixedString<80>();
+        mPath = FixedString<80>();
         mNode = mem::HeapCompactionNodeHandle();
         mCompaction = 0;
         mAllocator = mem::AllocatorHandle();
@@ -89,12 +93,12 @@ void FileLoader::loadIN(const char* path, mem::IAllocator& allocator, mem::HeapC
         if (compaction != 0) {
             mCompaction = compaction;
         }
-        mPath = hel::common::FixedString<80>(path);
+        mPath = FixedString<80>(path);
         mLatestUpdateDate = Utility::LatestUpdateDateOnUSB(path, true);
         preload::PreLoadManager::FindResult found;
         if (!hasBlock) {
-            if (hel::common::ExplicitSingleton<app::Application>::IsExist()) {
-                found = hel::common::ExplicitSingleton<app::Application>::object_->preLoadManager().find(path);
+            if (ExplicitSingleton<Application>::IsExist()) {
+                found = ExplicitSingleton<Application>::object_->preLoadManager().find(path);
             }
             if (!found.isValid()) {
                 Utility::IsFileLoadWarningEnable();
@@ -109,7 +113,7 @@ void FileLoader::loadIN(const char* path, mem::IAllocator& allocator, mem::HeapC
                 } else {
                     // TODO: mem::Memory::sceneHeap() returns the HeapExp; mem/Memory.h declares it as its base.
                     mem::IAllocator& tail =
-                        static_cast<mem::HeapExp&>(hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap()).allocFromTailAllocator();
+                        static_cast<mem::HeapExp&>(ExplicitSingleton<mem::Memory>::object_->sceneHeap()).allocFromTailAllocator();
                     mem::MemBlock loaded = Utility::LoadFromUsbOrDvd(path, tail);
                     mBlock = Utility::UncompressedFile(loaded, allocator);
                     tail.allocatorFree(loaded.address());

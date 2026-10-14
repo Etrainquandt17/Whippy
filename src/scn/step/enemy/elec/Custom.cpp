@@ -28,6 +28,13 @@
 #include "scn/step/enemy/Utility.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,15 +45,15 @@ Custom::Custom(Enemy& enemy) : CustomBase(enemy) {
 }
 
 void Custom::onProcFixPos() {
-    hel::math::Vector3 dir = Utility::GetNearestPlayerPos(obj()).toVector3() - obj().location().pos();
-    f32 angle = hel::math::Math::Atan2DegF(dir.y, dir.x);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(2);
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, angle, 0.0f));
+    Vector3 dir = Utility::GetNearestPlayerPos(obj()).toVector3() - obj().location().pos();
+    f32 angle = Math::Atan2DegF(dir.y, dir.x);
+    NodeAccessor node = obj().model().model().nodes().at(2);
+    Matrix34 mtx = Matrix34::CreateRotXYZDeg(Vector3(0.0f, angle, 0.0f));
     node.localMtx().setRTMtx(mtx);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -50,6 +50,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -61,7 +65,7 @@ StateTornadoChase::StateTornadoChase(Boss* boss) : StateBase(boss), mCount(0), m
     obj().move().resetVelocity();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().objColl().bodyColl().initAttackType(static_cast<ocoll::AttackType>(0x1AC));
-    mDir = hel::math::Vector3::BASIS_X * obj().target().getSign();
+    mDir = Vector3::BASIS_X * obj().target().getSign();
 }
 
 StateTornadoChase::~StateTornadoChase() {
@@ -86,15 +90,15 @@ void StateTornadoChase::procAnim() {
 
 void StateTornadoChase::procMove() {
     const Param& param = obj().param().moundeath();
-    hel::math::Vector3 target = Utility::GetHatedHeroPos(obj());
-    target.y = hel::math::Math::Min(target.y, param._150 + obj().basePos().y);
+    Vector3 target = Utility::GetHatedHeroPos(obj());
+    target.y = Math::Min(target.y, param._150 + obj().basePos().y);
     target.y -= param._14C;
     if (target.squareDistance(obj().location().pos()) > param._154 && mWait == 0) {
         mDir = target - obj().location().pos();
         if (!mDir.isZeroLoose(0.00001f)) {
             mDir.normalize();
         } else {
-            mDir = hel::math::Vector3::BASIS_X * obj().target().getSign();
+            mDir = Vector3::BASIS_X * obj().target().getSign();
         }
     }
     obj().move().accel(mDir, param._160);
@@ -105,7 +109,7 @@ void StateTornadoChase::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
     if (result.mIsHitFloor) {
         f32 speedX = obj().move().velocity().x;
-        hel::math::Vector2 velocity(0.5f * speedX, param._158);
+        Vector2 velocity(0.5f * speedX, param._158);
         obj().move().setVelocity(velocity.toVector3());
         mWait = param._16C;
         if (mDir.y > 0.0f) {
@@ -114,7 +118,7 @@ void StateTornadoChase::procFixPos() {
     }
     f32 top = param._150 + obj().basePos().y;
     if (obj().location().pos().y > top) {
-        hel::math::Vector2 velocity = obj().move().velocity().getXY();
+        Vector2 velocity = obj().move().velocity().getXY();
         velocity.y *= param._15C;
         obj().move().setVelocity(velocity.toVector3());
     }

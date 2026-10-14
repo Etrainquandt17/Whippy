@@ -18,6 +18,8 @@
 #include "scn/step/enemy/rocky/StateFall.h"
 #include "scn/step/enemy/rocky/StateLanding.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -27,7 +29,7 @@ StateFall::StateFall(Enemy* enemy) : StateBase(enemy) {
     obj().footState().setAir();
     obj().model().reqScript(1);
     obj().model().anim().setFrameRate(1.0f);
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isFallSpeedUp()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isFallSpeedUp()) {
         obj().move().setSpeedV(obj().param().rocky().mFallSpeedUpSpeedV);
     }
     obj().move().resetSpeedH();
@@ -42,7 +44,7 @@ StateFall::~StateFall() {
 
 void StateFall::procMove() {
     gobj::MoveParamFall fall = obj().param().rocky().mFall;
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isFallSpeedUp()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isFallSpeedUp()) {
         fall = obj().param().rocky().mFallSpeedUp;
     }
     obj().move().airDecelFall(gobj::MoveParamDecel::Zero(), fall);

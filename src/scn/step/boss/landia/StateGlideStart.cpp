@@ -18,6 +18,10 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,7 +29,7 @@ namespace landia {
 
 StateGlideStart::StateGlideStart(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mGoalPos() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(13);
     custom.waftCtrl().setWaveWidthZero();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -48,18 +52,18 @@ void StateGlideStart::procAnim() {
         obj().stateChanger().setNextState<StateGlide, Boss*>(objPtr());
         return;
     }
-    f32 sin = hel::math::Math::SinDegF(90.0f * (static_cast<f32>(mCount) / static_cast<f32>(param.mGlideStartFrame)));
+    f32 sin = Math::SinDegF(90.0f * (static_cast<f32>(mCount) / static_cast<f32>(param.mGlideStartFrame)));
     f32 rot = 360.0f * sin * obj().target().getSign();
     obj().model().rotCtrl().initRotD(rot);
 }
 
 void StateGlideStart::procMove() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mGlideStartFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
-    pos.y += param.mGlideStartSwing * hel::math::Math::SinDegF(180.0f * rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector2 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    pos.y += param.mGlideStartSwing * Math::SinDegF(180.0f * rate);
     custom.waftCtrl().setRefPos(pos.toVector3());
 }
 

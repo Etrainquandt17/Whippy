@@ -25,6 +25,8 @@
 #include "scn/step/enemy/gemra/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +43,7 @@ StateFly::StateFly(Enemy* enemy) : StateBase(enemy), mWaitFrame(0) {
 StateFly::~StateFly() {}
 
 void StateFly::procAnim() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).updateDir();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).updateDir();
     if (mWaitFrame == 0) {
         obj().brainCtrl().toValid();
     } else {
@@ -50,11 +52,11 @@ void StateFly::procAnim() {
 }
 
 void StateFly::procMove() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).updatePos();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).updatePos();
 }
 
 void StateFly::procFixPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).updateFixPos();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).updateFixPos();
 }
 
 }}}}  // namespace scn::step::enemy::gemra

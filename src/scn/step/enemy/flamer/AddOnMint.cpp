@@ -18,6 +18,10 @@
 #include "scn/step/enemy/flamer/StateChase.h"
 #include "scn/step/enemy/flamer/StateMove.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +39,7 @@ void SetNextState() {
 }
 
 void t_SetNextState_ChaseOrAgony() {
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isAttackEnd()) {
+    if (!DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isAttackEnd()) {
         SetNextState<StateChase>();
     } else {
         SetNextState<StateAgony>();
@@ -43,15 +47,15 @@ void t_SetNextState_ChaseOrAgony() {
 }
 
 bool t_Custom_IsMove() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isMove();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isMove();
 }
 
 void t_Custom_Dead() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).dead();
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).dead();
 }
 
 void t_Custom_SetViewOffset(f32 x, f32 y) {
-    obj().model().setViewOffset(hel::math::Vector3(x, y, 0.0f));
+    obj().model().setViewOffset(Vector3(x, y, 0.0f));
 }
 
 void t_Custom_ChaseEffect() {
@@ -59,12 +63,12 @@ void t_Custom_ChaseEffect() {
 }
 
 void t_Custom_AttackREffect() {
-    hel::math::Direction3 dir(hel::math::Vector3(1.0f, 0.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, 1.0f), hel::math::Vector3(0.0f, 1.0f, 0.0f));
+    Direction3 dir(Vector3(1.0f, 0.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(0.0f, 1.0f, 0.0f));
     obj().effect().state().requestND(static_cast<effect::Kind>(0x192), 2, dir);
 }
 
 void t_Custom_AttackLEffect() {
-    hel::math::Direction3 dir(hel::math::Vector3(-1.0f, 0.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, 1.0f), hel::math::Vector3(0.0f, -1.0f, 0.0f));
+    Direction3 dir(Vector3(-1.0f, 0.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(0.0f, -1.0f, 0.0f));
     obj().effect().state().requestND(static_cast<effect::Kind>(0x192), 2, dir);
 }
 

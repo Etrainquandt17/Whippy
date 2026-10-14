@@ -19,6 +19,11 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjList.h"
 
+using app::Application;
+using app::Message;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedStringIN;
+
 namespace pause {
 
 namespace {
@@ -222,7 +227,7 @@ PageDropout::PageDropout(Component& component)
         // A reference to a temporary: as a named local the value takes a register that moves this and component.
         const u32& entry = context.mEntries[n];
         mButtons.add(std::tr1::ref(mComponent), "Button", mLayout.paneByName(tButtonPaneName(context.mCount, n)),
-                     app::Message::TextPause(hel::common::FixedStringIN<char, 32>::FromFormat("Dropout%s", T_LABELS[entry])),
+                     Message::TextPause(FixedStringIN<char, 32>::FromFormat("Dropout%s", T_LABELS[entry])),
                      true);
     }
     mButtons[mSelected].setSelected();
@@ -230,7 +235,7 @@ PageDropout::PageDropout(Component& component)
 #undef MF_FUNCTION
 
 const wchar_t* PageDropout::pageFrameTitle() const {
-    return app::Message::TextPause("PageTitleDropout");
+    return Message::TextPause("PageTitleDropout");
 }
 
 lyt::Layout& PageDropout::pageMainLayout() {
@@ -505,16 +510,16 @@ void PageDropout::procHIDItemDecide() {
                 label = "DropoutBattleKing2";
                 break;
             default:
-                if (hel::common::ExplicitSingleton<app::Application>::object_->nandManager().isDisable()) {
+                if (ExplicitSingleton<Application>::object_->nandManager().isDisable()) {
                     label = "ConfirmNotSaved2";
                 } else {
                     label = "ConfirmNotSaved";
                 }
                 break;
             }
-            mConfirm.setText(app::Message::TextPause(label));
-            mConfirm.setText0(app::Message::TextPause(hel::common::FixedStringIN<char, 32>::FromFormat("%s_Yes", label)));
-            mConfirm.setText1(app::Message::TextPause(hel::common::FixedStringIN<char, 32>::FromFormat("%s_No", label)));
+            mConfirm.setText(Message::TextPause(label));
+            mConfirm.setText0(Message::TextPause(FixedStringIN<char, 32>::FromFormat("%s_Yes", label)));
+            mConfirm.setText1(Message::TextPause(FixedStringIN<char, 32>::FromFormat("%s_No", label)));
             mConfirm.open(mComponent.hid().padChan());
             _BBC = 2;
             break;

@@ -49,6 +49,9 @@
 #include "scn/step/hero/Manager.h"
 #include "snd/MintSERequestor.h"
 
+using g3d::ColorAnimFlashOp;
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -136,7 +139,7 @@ void t_CustomFlash_SetColor(int r, int g, int b, int a) {
 }
 
 void t_CustomFlash_SetOperation(int op) {
-    MintBoss::Obj().flash().custom().setOperation(static_cast<g3d::ColorAnimFlashOp>(op));
+    MintBoss::Obj().flash().custom().setOperation(static_cast<ColorAnimFlashOp>(op));
 }
 
 bool t_Angry_Check() {
@@ -197,12 +200,12 @@ bool t_Utility_IsVariationBossRush() {
 
 void t_Utility_GenerateStarEffectPuff(f32 x, f32 y, f32 speedX, f32 speedY, int count) {
     Boss& obj = MintBoss::Obj();
-    Utility::GenerateStarEffect(obj, hel::math::Vector2(x, y), hel::math::Vector2(speedX, speedY), map::BinEnemyVariation_StarPuff, count);
+    Utility::GenerateStarEffect(obj, Vector2(x, y), Vector2(speedX, speedY), map::BinEnemyVariation_StarPuff, count);
 }
 
 void t_Utility_GenerateStarEffectBound(f32 x, f32 y, f32 speedX, f32 speedY, int count) {
     Boss& obj = MintBoss::Obj();
-    Utility::GenerateStarEffect(obj, hel::math::Vector2(x, y), hel::math::Vector2(speedX, speedY), map::BinEnemyVariation_StarBound, count);
+    Utility::GenerateStarEffect(obj, Vector2(x, y), Vector2(speedX, speedY), map::BinEnemyVariation_StarBound, count);
 }
 
 void t_Utility_LoadBasePos() {
@@ -233,12 +236,12 @@ int t_Utility_GetRetryCount() {
 
 void t_StagingCtrl_InitZoom(f32 x, f32 y, f32 zoom) {
     Boss& obj = MintBoss::Obj();
-    obj.stagingCtrl().initZoom(hel::math::Vector2(x, y), zoom);
+    obj.stagingCtrl().initZoom(Vector2(x, y), zoom);
 }
 
 void t_StagingCtrl_SetZoom(f32 x, f32 y, f32 zoom) {
     Boss& obj = MintBoss::Obj();
-    obj.stagingCtrl().setZoom(hel::math::Vector2(x, y), zoom);
+    obj.stagingCtrl().setZoom(Vector2(x, y), zoom);
 }
 
 void t_StagingCtrl_SetZoom(f32 zoom) {

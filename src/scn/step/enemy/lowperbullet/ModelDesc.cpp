@@ -4,6 +4,8 @@
 #include "hel/common/FixedString.h"
 #include "scn/step/enemy/ModelDescUtil.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,13 +38,13 @@ namespace ModelDesc {
 
 chara::ModelDesc& CreateLv1() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<102, 0>("step/weapon/lowper/LowperShot", "LowperBullet", 1, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 8, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 
 chara::ModelDesc& CreateLv2() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<103, 0>("step/weapon/lowperlv2/LowperShotLv2", "LowperBullet", 1, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 8, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     desc._8 = "step/weapon/lowper/LowperShot";
     return desc;
 }
@@ -55,7 +57,7 @@ chara::ModelDesc& CreateLv3() {
 
 chara::ModelDesc& CreateLv4() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<105, 0>("step/weapon/lowperlv3/LowperShotLv3", "LowperBullet", 1, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 8, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     desc._8 = "step/weapon/lowper/LowperShot";
     return desc;
 }

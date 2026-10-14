@@ -59,6 +59,11 @@
 #include "util/ObjList.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -91,7 +96,7 @@ void EnemyCtrl::update() {
     if (mBarrierRot >= 360.0f) {
         mBarrierRot -= 360.0f;
     }
-    mBarrierAngle = hel::math::Math::Interpolate(mBarrierAngle, mBarrierAngleTarget, 0.05f);
+    mBarrierAngle = Math::Interpolate(mBarrierAngle, mBarrierAngleTarget, 0.05f);
     bool isExist = false;
     for (u32 i = 0; i < 3; i++) {
         if (mBarriers[i].isValid()) {
@@ -120,12 +125,12 @@ void EnemyCtrl::cleanup() {
     }
 }
 
-void EnemyCtrl::request(enemy::lowperbullet::VariationKind kind, hel::math::Vector3 pos, hel::math::Vector3 speed, u32 _4) {
+void EnemyCtrl::request(enemy::lowperbullet::VariationKind kind, Vector3 pos, Vector3 speed, u32 _4) {
     cleanup();
     if (mEnemies.isFull()) {
         return;
     }
-    hel::math::Vector3 reqPos = pos;
+    Vector3 reqPos = pos;
     for (u32 i = 0; i < 3; i++) {
         if (mBarriers[i].isValid()) {
             reqPos += mBarriers[i].obj().location().pos() - mBoss.location().pos();
@@ -139,12 +144,12 @@ void EnemyCtrl::request(enemy::lowperbullet::VariationKind kind, hel::math::Vect
         mBoss.target().isRightDir() ? static_cast<map::BinEnemyDirType>(3) : static_cast<map::BinEnemyDirType>(2);
     enemy::Desc desc(enemyKind, static_cast<map::BinEnemyVariation>(kind), _4, dirType, static_cast<map::BinEnemySize>(0), false, false,
                      reqPos.getXY());
-    util::ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
     if (enemy.isAlive()) {
         enemy->move().setVelocity(speed);
         enemy->location().setPos(reqPos);
         enemy::lowperbullet::Custom& custom =
-            hel::common::DynamicCastToRef<enemy::lowperbullet::Custom, enemy::ICustom>(enemy->custom());
+            DynamicCastToRef<enemy::lowperbullet::Custom, enemy::ICustom>(enemy->custom());
         custom.setTargetHero(mBoss.hateCtrl().getMostHatedHero());
     }
     if (enemy.isAlive()) {
@@ -160,9 +165,9 @@ void EnemyCtrl::requestBarrier() {
                      static_cast<map::BinEnemySize>(0), false, false, getBarrierFollowCenter().getXY());
     for (u32 i = 0; i < 3; i++) {
         if (!mBarriers[i].isValid()) {
-            util::ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
+            ObjRefHandle<enemy::Enemy> enemy = mBoss.comp().enemyManager().request(desc);
             if (enemy.isAlive()) {
-                hel::common::DynamicCastToRef<enemy::lowperbullet::Custom, enemy::ICustom>(enemy->custom()).setParent(mBoss, i);
+                DynamicCastToRef<enemy::lowperbullet::Custom, enemy::ICustom>(enemy->custom()).setParent(mBoss, i);
                 mBarriers[i] = enemy::Accessor(enemy.operator->());
             }
             break;
@@ -206,19 +211,19 @@ void EnemyCtrl::resetBarrierRotSpeed() {
     mBarrierRotSpeed = 8.0f;
 }
 
-hel::math::Vector3 EnemyCtrl::getBarrierFollowPos(u32 index) {
+Vector3 EnemyCtrl::getBarrierFollowPos(u32 index) {
     f32 rot = 120.0f * index + mBarrierRot;
     if (rot >= 360.0f) {
         rot -= 360.0f;
     }
-    hel::math::Vector3 offset = hel::math::Vector3::BASIS_Y * mBarrierRadius;
-    offset.rotate(hel::math::Vector3::AXIS_Z, 0.017453292f * rot);
-    offset.rotate(hel::math::Vector3::AXIS_X, 0.017453292f * mBarrierAngle);
+    Vector3 offset = Vector3::BASIS_Y * mBarrierRadius;
+    offset.rotate(Vector3::AXIS_Z, 0.017453292f * rot);
+    offset.rotate(Vector3::AXIS_X, 0.017453292f * mBarrierAngle);
     return getBarrierFollowCenter() + offset;
 }
 
-hel::math::Vector3 EnemyCtrl::getBarrierFollowCenter() {
-    return mBoss.location().pos() + hel::math::Vector3(0.0f, 0.25f, 0.0f);
+Vector3 EnemyCtrl::getBarrierFollowCenter() {
+    return mBoss.location().pos() + Vector3(0.0f, 0.25f, 0.0f);
 }
 
 u32 EnemyCtrl::getBarrierCount() const {

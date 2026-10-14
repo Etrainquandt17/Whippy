@@ -34,6 +34,9 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -44,7 +47,7 @@ StateTornadoChase::StateTornadoChase(Boss* boss, u32 frame) : StateBase(boss), m
     obj().move().resetVelocity();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(0xF);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
 }
 
 StateTornadoChase::~StateTornadoChase() {}
@@ -59,7 +62,7 @@ void StateTornadoChase::procAnim() {
 
 void StateTornadoChase::procMove() {
     const TornadoChaseParam& param = Utility::IsVariationExtra(obj()) ? obj().param().doubter().mTornadoChaseExtra : obj().param().doubter().mTornadoChase;
-    hel::math::Vector3 target = Utility::GetHatedHeroPos(obj());
+    Vector3 target = Utility::GetHatedHeroPos(obj());
     target.y -= param._0;
     if (target.squareDistance(obj().location().pos()) > param._4) {
         mDir = target - obj().location().pos();

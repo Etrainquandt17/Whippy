@@ -15,6 +15,8 @@
 #include "scn/step/weapon/hammerhammer/Param.h"
 #include "scn/step/weapon/hammerhammer/StateExplosion.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -22,7 +24,7 @@ namespace hammerhammer {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(-45.0f * obj().target().getSign()), _C(0.0f) {
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xC2));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
     obj().objColl().addAttack(0, obj().param().hammerHammer()._0);
     obj().setDarknessLightVisibility(false);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x2C4), 2);

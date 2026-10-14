@@ -9,6 +9,8 @@
 #include "scn/step/enemy/hothead/StateAttackBreath.h"
 #include "scn/step/enemy/hothead/StateAttackShot.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,15 +27,15 @@ void t_SetNextState_AttackShot() {
 }
 
 bool t_Custom_IsPlayerPosNear() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerPosNear();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerPosNear();
 }
 
 bool t_Custom_IsInViewRect() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isInViewRect();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isInViewRect();
 }
 
 int t_Custom_SetAfterAttackFrame() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setAfterAttackFrame();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setAfterAttackFrame();
 }
 
 }

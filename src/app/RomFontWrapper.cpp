@@ -5,11 +5,13 @@
 #include "mem/Memory.h"
 #include "metafortress.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace app {
 
 #define MF_FUNCTION __ct__Q23app14RomFontWrapperFv
 RomFontWrapper::RomFontWrapper()
-    : mBlock(nw4r::ut::RomFont::GetRequireBufferSize(), 0x20, hel::common::ExplicitSingleton<mem::Memory>::object_->mem2FixHeap())
+    : mBlock(nw4r::ut::RomFont::GetRequireBufferSize(), 0x20, ExplicitSingleton<mem::Memory>::object_->mem2FixHeap())
     , mFont() {
     volatile u32 start;
     volatile u32 end;

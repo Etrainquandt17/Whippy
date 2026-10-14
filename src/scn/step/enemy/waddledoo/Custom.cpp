@@ -12,6 +12,11 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Utility.h"
 
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,16 +25,16 @@ namespace waddledoo {
 Custom::Custom(Enemy& enemy) : CustomBase(enemy) {}
 
 void Custom::setupSuperEnemyEffect() {
-    hel::math::Vector3 center = obj().location().toCenter();
+    Vector3 center = obj().location().toCenter();
     obj().effect().super().requestN(effect::KIND_132, 0, center);
     obj().effect().super().requestN(effect::KIND_37, 10);
     f32 scale = 1.0f / Utility::GetModelScaleBySizeType(obj());
-    g3d::NodeAccessor node = obj().model().model().nodes().at(2);
-    node.localMtx().setScale(hel::math::Vector3(scale, scale, scale));
+    NodeAccessor node = obj().model().model().nodes().at(2);
+    node.localMtx().setScale(Vector3(scale, scale, scale));
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

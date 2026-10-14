@@ -35,6 +35,9 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -49,11 +52,11 @@ StateTornadoSearchCharge::StateTornadoSearchCharge(Boss* boss, u32 frame, u32 se
     obj().move().setSpeedH(speed);
     obj().move().resetSpeedV();
     if (mFrame != 0) {
-        mDecel = hel::math::Math::AbsF32(speed) / static_cast<f32>(mFrame);
+        mDecel = Math::AbsF32(speed) / static_cast<f32>(mFrame);
     }
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(14);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
     obj().soundSE().loop().start(0x336);
 }
 

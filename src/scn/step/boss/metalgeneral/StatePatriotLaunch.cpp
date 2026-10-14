@@ -78,6 +78,11 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -85,10 +90,10 @@ namespace metalgeneral {
 
 StatePatriotLaunch::StatePatriotLaunch(Boss* boss) : StateBase(boss), mCount(0), mIsSignaled(false) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x25);
-    if (!hel::math::Math::EqZero(obj().location().pos().z)) {
+    if (!Math::EqZero(obj().location().pos().z)) {
         obj().model().rotCtrl().setRotHTarget(param._1E0);
     } else {
         obj().model().rotCtrl().setRotHTarget(90.0f);
@@ -98,16 +103,16 @@ StatePatriotLaunch::StatePatriotLaunch(Boss* boss) : StateBase(boss), mCount(0),
 }
 
 StatePatriotLaunch::~StatePatriotLaunch() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().hitPoint().isDead() || !custom.weaponCtrl().isHoldPatriot()) {
         obj().mapColl().setValid(false);
         f32 diff;
         {
-            g3d::NodeAccessor body = obj().model().model().nodes().at(5);
-            g3d::NodeAccessor root = obj().model().model().nodes().at(0);
+            NodeAccessor body = obj().model().model().nodes().at(5);
+            NodeAccessor root = obj().model().model().nodes().at(0);
             diff = body.worldTrans().x - root.worldTrans().x;
         }
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.x += diff;
         obj().location().setPos(pos);
         obj().mapColl().setValid(true);
@@ -116,10 +121,10 @@ StatePatriotLaunch::~StatePatriotLaunch() {
 
 void StatePatriotLaunch::procAnim() {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mCount++;
     if (!custom.weaponCtrl().isHoldPatriot()) {
-        hel::math::Vector3 velocity = param._2B4;
+        Vector3 velocity = param._2B4;
         velocity.x *= obj().target().getSign();
         obj().move().setVelocity(velocity);
         obj().stateChanger().setNextState<StateFall, Boss*>(objPtr());
@@ -128,20 +133,20 @@ void StatePatriotLaunch::procAnim() {
 
 void StatePatriotLaunch::procMove() {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount > param._200) {
         if (!mIsSignaled) {
             mIsSignaled = true;
             custom.weaponCtrl().signalPatriot(enemy::metalgeneralpatriot::SIGNAL_KIND_3);
         }
-        obj().move().accel(hel::math::Vector3::BASIS_Y, param._204);
+        obj().move().accel(Vector3::BASIS_Y, param._204);
     } else {
         if (mCount % 5 == 0) {
             obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(1));
             obj().model().shake().request(static_cast<chara::ShakeKind>(0));
             custom.weaponCtrl().signalPatriot(enemy::metalgeneralpatriot::SIGNAL_KIND_2);
         }
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += param._1FC;
         obj().location().setPos(pos);
     }
@@ -149,7 +154,7 @@ void StatePatriotLaunch::procMove() {
 
 void StatePatriotLaunch::procFixPos() {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().location().pos().y > param._1F8 + obj().basePos().y) {
         custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
         custom.weaponCtrl().signalPatriot(enemy::metalgeneralpatriot::SIGNAL_KIND_4);

@@ -19,6 +19,8 @@
 #include "scn/step/boss/common/StateMoveForward.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -50,8 +52,8 @@ void t_SetNextState_AttackHammer() {
 void t_SetNextState_AttackFireHammer() {
     common::StateAttackDesc desc(
         MintBoss::Obj().param().bonkers()._24,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         0.0f,
         0.0f
     );
@@ -68,14 +70,14 @@ void t_SetNextState_MoveForward() {
 }
 
 void t_SetNextState_StampFoot(f32 x, f32 y) {
-    hel::math::Vector2 v(x, y);
+    Vector2 v(x, y);
     common::StateJumpDesc desc(
         v,
         MintBoss::Obj().param().bonkers()._24,
         MintBoss::Obj().param().bonkers()._28,
         MintBoss::Obj().param().bonkers()._64,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         true,
         static_cast<common::StateJumpDesc::LandingAnimType>(2),
         false,
@@ -104,7 +106,7 @@ void t_SetNextState_BombStart() {
 
 void t_SetNextState_Bomb(f32 x, f32 y, bool a, bool b) {
     StateBomb::Config config;
-    config._0 = hel::math::Vector2(x, y);
+    config._0 = Vector2(x, y);
     config._8 = a;
     config._9 = b;
     MintBoss::Obj().stateChanger().setNextState<StateBomb, Boss*, StateBomb::Config>(&MintBoss::Obj(), config);

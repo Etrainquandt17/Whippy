@@ -17,6 +17,10 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -24,11 +28,11 @@ namespace landia {
 
 StateTailStart::StateTailStart(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mGoalPos() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(21);
     custom.waftCtrl().setWaveWidthZero();
     obj().move().resetVelocity();
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
     if (obj().location().pos().x < heroPos.x) {
         obj().target().setIsRightDir(true);
     } else {
@@ -53,10 +57,10 @@ void StateTailStart::procAnim() {
 
 void StateTailStart::procMove() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mTailStartFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    custom.waftCtrl().setRefPos(hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
+    f32 rate = Math::SinDegF(90.0f * t);
+    custom.waftCtrl().setRefPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
 }
 
 void StateTailStart::procFixPos() {}

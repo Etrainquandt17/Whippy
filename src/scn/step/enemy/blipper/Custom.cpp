@@ -19,6 +19,10 @@
 #include "scn/step/enemy/blipper/StateMove.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +37,7 @@ bool Custom::onInit() {
     }
     f32 scale = Utility::GetModelScaleBySizeType(obj());
     obj().objColl().addBodyColl(1, 0.55f * scale);
-    obj().nururi().changeSetting(hel::math::Vector2(0.0f, 0.0f), 2.0f * obj().charaParam()._2c, 2.0f * obj().charaParam()._2c,
+    obj().nururi().changeSetting(Vector2(0.0f, 0.0f), 2.0f * obj().charaParam()._2c, 2.0f * obj().charaParam()._2c,
                                  nururi::MODE_1);
     return false;
 }
@@ -81,8 +85,8 @@ void Custom::onCaptured() {
     obj().model().unsetCustomMtx();
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

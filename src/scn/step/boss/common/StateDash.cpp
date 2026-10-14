@@ -18,6 +18,8 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -67,7 +69,7 @@ void StateDash::procFixPos() {
     }
     if (mCount > 10 && mDesc._54) {
         f32 diff = obj().comp().mainCamera().getCenter().x - obj().location().pos().x;
-        hel::math::Vector2 center = obj().comp().mainCamera().getCenter();
+        Vector2 center = obj().comp().mainCamera().getCenter();
         f32 moved = center.x - mStartX;
         if (moved * diff < 0.0f) {
             obj().stateChanger().setNextState<StateDashEnd, Boss*, StateDashDesc, unsigned long>(objPtr(), mDesc, mScriptKindEnd);

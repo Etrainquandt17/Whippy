@@ -30,6 +30,10 @@
 #include "scn/step/enemy/lowperbullet/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -54,7 +58,7 @@ void StateStill::procAnim() {
     if (mFrame < mEndFrame) {
         mFrame++;
     } else {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponBurst();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponBurst();
         obj().deadWithEffect();
         return;
     }
@@ -74,11 +78,11 @@ void StateStill::procMove() {
     if (rate > 1.0f) {
         rate = 1.0f;
     }
-    hel::math::Vector3 offset;
-    offset.x = hel::math::Math::CosDegF(1800.0f * rate);
-    offset.y = hel::math::Math::SinDegF(1800.0f * rate);
-    offset.z = hel::math::Math::SinDegF(1800.0f * rate);
-    offset *= 0.65f * hel::math::Math::CosDegF(90.0f * rate);
+    Vector3 offset;
+    offset.x = Math::CosDegF(1800.0f * rate);
+    offset.y = Math::SinDegF(1800.0f * rate);
+    offset.z = Math::SinDegF(1800.0f * rate);
+    offset *= 0.65f * Math::CosDegF(90.0f * rate);
     obj().location().setPos(mBasePos + offset);
 }
 

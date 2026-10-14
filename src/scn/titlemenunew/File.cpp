@@ -7,12 +7,14 @@
 #include "metafortress.h"
 #include "util/ObjList.h"
 
+using app::BackupFileAccessor;
+using app::Message;
 using hel::debug::Print;
 
 namespace {
 
 bool isExtra(u32 file) {
-    app::BackupFileAccessor accessor(file);
+    BackupFileAccessor accessor(file);
     return accessor.extraModeOpened();
 }
 
@@ -52,7 +54,7 @@ File::File(mem::IAllocator& allocator, const lyt::PaneAccessor& parent, No no, i
         stw     r18, start
     }
     mLayout.setParent(parent);
-    mLayout.pane("FileN").setText(app::Message::TextTitleMenu("File"));
+    mLayout.pane("FileN").setText(Message::TextTitleMenu("File"));
     // Bound to a reference so that it is a compiler temporary. As a named local it
     // lands in another saved register, in every order of the declarations.
     const u32& size = end - start;
@@ -76,7 +78,7 @@ File::File(mem::IAllocator& allocator, const lyt::PaneAccessor& parent, No no, i
         stw     r21, expected
     }
     hash += hash << 3;
-    if (app::BackupFileAccessor(no).completed()) {
+    if (BackupFileAccessor(no).completed()) {
         mCompleteMark.show();
     }
     hash ^= hash >> 11;

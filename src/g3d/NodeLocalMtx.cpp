@@ -2,6 +2,9 @@
 
 #include "revolution/mtx.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace g3d {
 
 NodeLocalMtx::NodeLocalMtx()
@@ -12,8 +15,8 @@ NodeLocalMtx::NodeLocalMtx()
 
 void NodeLocalMtx::reset() {
     mIsEnable = false;
-    mRTMtx = hel::math::Matrix34();
-    mScale = hel::math::Vector3::ALL_ONE;
+    mRTMtx = Matrix34();
+    mScale = Vector3::ALL_ONE;
     mCalcOp = NODE_LOCAL_MTX_CALC_OP_0;
 }
 
@@ -21,20 +24,20 @@ bool NodeLocalMtx::isEnable() const {
     return mIsEnable;
 }
 
-hel::math::Matrix34 NodeLocalMtx::rtMtx() const {
+Matrix34 NodeLocalMtx::rtMtx() const {
     return mRTMtx;
 }
 
-void NodeLocalMtx::setRTMtx(const hel::math::Matrix34& mtx) {
+void NodeLocalMtx::setRTMtx(const Matrix34& mtx) {
     mRTMtx = mtx;
     mIsEnable = true;
 }
 
-hel::math::Vector3 NodeLocalMtx::scale() const {
+Vector3 NodeLocalMtx::scale() const {
     return mScale;
 }
 
-void NodeLocalMtx::setScale(const hel::math::Vector3& scale) {
+void NodeLocalMtx::setScale(const Vector3& scale) {
     mScale = scale;
     mIsEnable = true;
 }

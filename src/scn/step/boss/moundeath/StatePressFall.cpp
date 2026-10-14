@@ -49,6 +49,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -75,7 +78,7 @@ StatePressFall::StatePressFall(Boss* boss, JumpKind kind) : StateBase(boss), mKi
         obj().objColl().bodyColl().initAttackType(static_cast<ocoll::AttackType>(0x1B4));
         break;
     }
-    obj().move().setVelocity(hel::math::Vector3(0.0f, speed, 0.0f));
+    obj().move().setVelocity(Vector3(0.0f, speed, 0.0f));
 }
 
 StatePressFall::~StatePressFall() {
@@ -93,8 +96,8 @@ void StatePressFall::procFixPos() {
     const Param& param = obj().param().moundeath();
     chara::MapCollResult result = obj().mapColl().result();
     if (result.mIsHitFloor) {
-        hel::math::Vector2 pos(param._44.x * obj().target().getSign(), param._44.y);
-        hel::math::Vector2 speed(param._4C.x * obj().target().getSign(), param._4C.y);
+        Vector2 pos(param._44.x * obj().target().getSign(), param._44.y);
+        Vector2 speed(param._4C.x * obj().target().getSign(), param._4C.y);
         Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xA0), obj().location().pos() + pos.toVector3());
         pos.x *= -1.0f;

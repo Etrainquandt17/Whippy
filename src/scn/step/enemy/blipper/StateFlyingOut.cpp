@@ -15,6 +15,8 @@
 #include "scn/step/enemy/blipper/ParamData.h"
 #include "scn/step/enemy/blipper/StateFall.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -24,7 +26,7 @@ StateFlyingOut::StateFlyingOut(Enemy* enemy) : StateBase(enemy) {
     obj().footState().setAir();
     obj().model().reqScript(0);
     obj().move().setSpeedV(obj().param().blipper().mFlyingOutSpeedV);
-    hel::math::Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
+    Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
     obj().target().setIsRightDir(diff.x >= 0.0f);
 }
 

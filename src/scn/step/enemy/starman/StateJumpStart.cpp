@@ -28,6 +28,8 @@
 #include "scn/step/enemy/starman/StateJump.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -63,14 +65,14 @@ void StateJumpStart::procAnim() {
     u32 index = obj().model().anim().currentG3DAnimIndex();
     if (obj().model().isAllEnd()) {
         if (index == 6 && mFrame == param.mJumpStartFrame) {
-            hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setHighJumpMode(false);
+            DynamicCastToRef<Custom, ICustom>(obj().custom()).setHighJumpMode(false);
             obj().stateChanger().setNextState<StateJump, Enemy*>(objPtr());
         } else if (index == 8 && mFrame == param.mHighJumpStartFrame) {
             if (obj().variation() == 0x5e) {
                 obj().effect().normal().requestP(static_cast<effect::Kind>(0x124), obj().location().pos());
                 obj().stateChanger().setNextState<StateFly, Enemy*>(objPtr());
             } else {
-                hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setHighJumpMode(true);
+                DynamicCastToRef<Custom, ICustom>(obj().custom()).setHighJumpMode(true);
                 obj().stateChanger().setNextState<StateJump, Enemy*>(objPtr());
             }
         } else {

@@ -22,6 +22,10 @@
 #include "scn/step/enemy/common/StateFall.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,10 +46,10 @@ void StateWalk::procAnim() {
         obj().move().setSpeedH(mSpeed * obj().target().getSign());
     }
     if (mFrame == param.mWalkEffectFrame) {
-        g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-        hel::math::Vector3 pos = node.worldMtx().getT();
+        NodeAccessor node = obj().model().model().nodes().at(1);
+        Vector3 pos = node.worldMtx().getT();
         pos.y -= param.mWalkEffectOffsetY;
-        hel::math::Direction3 dir;
+        Direction3 dir;
         dir.mLeft *= obj().target().getSign();
         obj().effect().normal().requestPD(static_cast<effect::Kind>(0x4b), pos, dir);
         obj().soundSE().start(0x302);

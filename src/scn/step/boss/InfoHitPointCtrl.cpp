@@ -4,6 +4,8 @@
 #include "scn/step/boss/Boss.h"
 #include "scn/step/chara/HitPoint.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -19,7 +21,7 @@ f32 InfoHitPointCtrl::getHitPointRate() const {
     u32 full = mFull != 0 ? mFull : mBoss.hitPoint().getMax();
     u32 zero = mZero;
     f32 rate = (static_cast<f32>(mBoss.hitPoint().get()) - static_cast<f32>(zero)) / static_cast<f32>(full - zero);
-    return hel::math::Math::LimitMinMax(rate, 0.0f, 1.0f);
+    return Math::LimitMinMax(rate, 0.0f, 1.0f);
 }
 
 // TODO: the link dropped this function; the body is a guess of the right size.

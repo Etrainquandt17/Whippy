@@ -13,6 +13,9 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -51,11 +54,11 @@ void StateRainBombStart::procAnim() {
 void StateRainBombStart::procMove() {
     const Param& param = obj().param().bonkers();
     if (mIsJump) {
-        f32 rate = hel::math::Math::SinDegF(90.0f * (static_cast<f32>(mCount) / static_cast<f32>(param.mRainBombJumpTime)));
-        hel::math::Vector2 pos;
-        pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mEndPos.x, rate);
-        pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mEndPos.y, hel::math::Math::SinDegF(90.0f * rate));
-        pos.y += param.mRainBombJumpHeight * hel::math::Math::SinDegF(180.0f * rate);
+        f32 rate = Math::SinDegF(90.0f * (static_cast<f32>(mCount) / static_cast<f32>(param.mRainBombJumpTime)));
+        Vector2 pos;
+        pos.x = Math::LinearInterpolation(mStartPos.x, mEndPos.x, rate);
+        pos.y = Math::LinearInterpolation(mStartPos.y, mEndPos.y, Math::SinDegF(90.0f * rate));
+        pos.y += param.mRainBombJumpHeight * Math::SinDegF(180.0f * rate);
         obj().location().setPos(pos.toVector3());
     }
 }

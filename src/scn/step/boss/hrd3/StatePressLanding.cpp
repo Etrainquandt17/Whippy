@@ -52,13 +52,16 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
 StatePressLanding::StatePressLanding(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::TurnHatedHero(obj());
     Utility::ControlHateOnAction(obj());
     u32 scriptKind = 0x15;
@@ -85,8 +88,8 @@ void StatePressLanding::procFixPos() {}
 
 void StatePressLanding::reqStar() {
     const Param& param = obj().param().hrd3();
-    hel::math::Vector2 pos = param._14;
-    hel::math::Vector2 speed = param._24;
+    Vector2 pos = param._14;
+    Vector2 speed = param._24;
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
     pos.x *= -1.0f;
     speed.x *= -1.0f;

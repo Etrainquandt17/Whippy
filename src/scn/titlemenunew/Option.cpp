@@ -4,6 +4,8 @@
 #include "info/AnimSyncer.h"
 #include "metafortress.h"
 
+using app::Message;
+
 namespace scn {
 namespace titlemenunew {
 
@@ -274,24 +276,24 @@ void Option::selectPanel(Kind kind, bool flag) {
         _194.pane("SoundN").show();
         _194.pane("SoundNormalN").setVisibility(!flag);
         _194.pane("SoundCompN").setVisibility(flag);
-        _194.pane("SoundTitle").setText(app::Message::TextTitleMenu("ButtonSound"));
-        _194.pane("Titlehadow").setText(app::Message::TextTitleMenu("ButtonSound"));
-        _194.pane("SoundTitleComp").setText(app::Message::TextTitleMenu("ButtonSound"));
-        _194.pane("ShadowText01").setText(app::Message::TextTitleMenu("ButtonSound"));
+        _194.pane("SoundTitle").setText(Message::TextTitleMenu("ButtonSound"));
+        _194.pane("Titlehadow").setText(Message::TextTitleMenu("ButtonSound"));
+        _194.pane("SoundTitleComp").setText(Message::TextTitleMenu("ButtonSound"));
+        _194.pane("ShadowText01").setText(Message::TextTitleMenu("ButtonSound"));
         break;
     case KIND_1:
         _194.pane("TheaterN").show();
         _194.pane("TheaterNormalN").setVisibility(!flag);
         _194.pane("TheaterCompN").setVisibility(flag);
-        _194.pane("TheaterTitle").setText(app::Message::TextTitleMenu("ButtonTheater"));
-        _194.pane("Titlehadow02").setText(app::Message::TextTitleMenu("ButtonTheater"));
-        _194.pane("TheaterTitleComp").setText(app::Message::TextTitleMenu("ButtonTheater"));
-        _194.pane("ShadowText03").setText(app::Message::TextTitleMenu("ButtonTheater"));
+        _194.pane("TheaterTitle").setText(Message::TextTitleMenu("ButtonTheater"));
+        _194.pane("Titlehadow02").setText(Message::TextTitleMenu("ButtonTheater"));
+        _194.pane("TheaterTitleComp").setText(Message::TextTitleMenu("ButtonTheater"));
+        _194.pane("ShadowText03").setText(Message::TextTitleMenu("ButtonTheater"));
         break;
     case KIND_2:
         _194.pane("OptionN").show();
-        _194.pane("OptionTitleN").setText(app::Message::TextTitleMenu("ButtonOption"));
-        _194.pane("Titlehadow04").setText(app::Message::TextTitleMenu("ButtonOption"));
+        _194.pane("OptionTitleN").setText(Message::TextTitleMenu("ButtonOption"));
+        _194.pane("Titlehadow04").setText(Message::TextTitleMenu("ButtonOption"));
         break;
     }
     hash ^= hash >> 17;

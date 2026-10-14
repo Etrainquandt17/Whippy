@@ -3,6 +3,10 @@
 #include "app/Locale.h"
 #include "libms/msgfile.h"
 
+using app::Locale;
+using hel::common::FixedString;
+using hel::common::FixedStringIN;
+
 namespace {
 
 // Indexed by the language app::Locale::GetLanguage returns.
@@ -24,14 +28,14 @@ namespace msg {
 namespace {
 
 // TODO: most likely an operator+ of hel::common::FixedString; the name is made up.
-inline hel::common::FixedString<80> Join(const hel::common::FixedString<80>& path, const hel::common::FixedStringIN<char, 80>& extension) {
-    return hel::common::FixedStringIN<char, 80>::FromFormat("%s%s", static_cast<const char*>(path), static_cast<const char*>(extension));
+inline FixedString<80> Join(const FixedString<80>& path, const FixedStringIN<char, 80>& extension) {
+    return FixedStringIN<char, 80>::FromFormat("%s%s", static_cast<const char*>(path), static_cast<const char*>(extension));
 }
 
 }
 
 Message::Message(const char* name)
-    : mFileAccessor(Join(FilePath(name), hel::common::FixedStringIN<char, 80>(".msbt")), false)
+    : mFileAccessor(Join(FilePath(name), FixedStringIN<char, 80>(".msbt")), false)
     , mMessageInfo(0) {
     mMessageInfo = LMS_InitMessage(mFileAccessor.block().startAddress());
 }
@@ -41,10 +45,10 @@ Message::~Message() {
     mMessageInfo = 0;
 }
 
-hel::common::FixedString<80> Message::FilePath(const char* name) {
-    int language = app::Locale::GetLanguage();
+FixedString<80> Message::FilePath(const char* name) {
+    int language = Locale::GetLanguage();
     const char* dir = 0;
-    switch (app::Locale::GetRegion()) {
+    switch (Locale::GetRegion()) {
     case 0:
         dir = DIRS_JP[language];
         break;
@@ -60,7 +64,7 @@ hel::common::FixedString<80> Message::FilePath(const char* name) {
         break;
 #endif
     }
-    return hel::common::FixedStringIN<char, 80>::FromFormat("msg/%s/%s", dir, name);
+    return FixedStringIN<char, 80>::FromFormat("msg/%s/%s", dir, name);
 }
 
 const wchar_t* Message::text(const char* label) {

@@ -11,6 +11,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -23,7 +25,7 @@ bool Utility::IsSearchCollide(Weapon& weapon) {
     }
     for (u32 i = 0; i < searchHit.getCollidedNum(); i++) {
         u64 uid = searchHit.getCollidedHitOwnerUid(i);
-        util::ObjRefHandle<enemy::Enemy> enemy = weapon.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
+        ObjRefHandle<enemy::Enemy> enemy = weapon.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
         bool isEnemy = false;
         if (enemy.isAlive()) {
             isEnemy = enemy->kind() != 0x64;

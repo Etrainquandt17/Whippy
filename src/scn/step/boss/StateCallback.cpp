@@ -12,13 +12,15 @@
 #include "scn/step/chara/HitStop.h"
 #include "scn/step/chara/ObjColl.h"
 
+using util::IStateChanger;
+
 namespace scn {
 namespace step {
 namespace boss {
 
 StateCallback::StateCallback(Boss& boss) : mBoss(boss), mCanClearAttack(true) {}
 
-void StateCallback::onStateChanged(const util::IStateChanger&) {
+void StateCallback::onStateChanged(const IStateChanger&) {
     if (mCanClearAttack) {
         mBoss.objColl().clearAttack();
     }

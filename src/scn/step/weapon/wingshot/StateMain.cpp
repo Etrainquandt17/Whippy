@@ -16,6 +16,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/wingshot/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,13 +28,13 @@ namespace wingshot {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mRotV(0.0f) {
     obj().model().reqScript(0);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xCE));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
     obj().objColl().addAttack(
-        0, obj().param().wingShot()._0, hel::math::Vector2(obj().target().getSign() * (obj().param().wingShot()._4 - 0.2f), 0.0f),
-        hel::math::Vector2(-1.0f * obj().target().getSign() * obj().param().wingShot()._4, 0.0f)
+        0, obj().param().wingShot()._0, Vector2(obj().target().getSign() * (obj().param().wingShot()._4 - 0.2f), 0.0f),
+        Vector2(-1.0f * obj().target().getSign() * obj().param().wingShot()._4, 0.0f)
     );
-    hel::math::Vector3 velocity = obj().move().velocity();
-    mRotV = 90.0f + -hel::math::Math::Atan2DegF(velocity.x, velocity.y);
+    Vector3 velocity = obj().move().velocity();
+    mRotV = 90.0f + -Math::Atan2DegF(velocity.x, velocity.y);
 }
 
 StateMain::~StateMain() {}

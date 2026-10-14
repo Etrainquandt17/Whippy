@@ -31,6 +31,10 @@
 #include "scn/step/enemy/fattybufferstalactite/StateFall.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,10 +46,10 @@ StateAppear::StateAppear(Enemy* enemy) : StateBase(enemy), mRot(0.0f) {
     obj().model().reqScript(0);
     obj().mapColl().setValid(false);
     obj().model().rotCtrl().setValid(false);
-    mRot = app::Random::RandF(0.0f, 360.0f);
+    mRot = Random::RandF(0.0f, 360.0f);
     obj().model().model().nodes().at(0).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot, 0.0f)));
-    hel::math::Vector3 pos = obj().location().pos();
+        Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot, 0.0f)));
+    Vector3 pos = obj().location().pos();
     pos.y += param.mEffectOffsetY;
     obj().effect().state().requestP(static_cast<effect::Kind>(0x13e), pos);
     obj().soundSE().start(0x35d);
@@ -53,7 +57,7 @@ StateAppear::StateAppear(Enemy* enemy) : StateBase(enemy), mRot(0.0f) {
 
 void StateAppear::procAnim() {
     const ParamData& param = obj().param().fattybufferstalactite();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     if (obj().signal().isValid()) {
         switch (obj().signal().get()) {
         case 1:

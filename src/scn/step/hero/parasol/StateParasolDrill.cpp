@@ -25,6 +25,8 @@
 #include "scn/step/hero/parasol/StateParasolDrillEnd.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -83,7 +85,7 @@ void StateParasolDrill::procAnim() {
     if (mIsAir) {
         limit *= 2.0f;
     }
-    if (hel::math::Math::AbsF32(obj().move().velocity().x) <= limit) {
+    if (Math::AbsF32(obj().move().velocity().x) <= limit) {
         obj().stateChanger().setNextState<StateParasolDrillEnd, Hero*>(objPtr());
     }
 }

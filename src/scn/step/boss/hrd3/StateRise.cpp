@@ -52,6 +52,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +64,7 @@ namespace hrd3 {
 StateRise::StateRise(Boss* boss, bool isHigh)
     : StateBase(boss), mCount(0), mFrame(boss->param().hrd3()._9C), mStartPos(boss->location().pos()), mGoalY(0.0f),
       mIsMove(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().location().pos().z < -6.0 || isHigh) {
         mGoalY = obj().param().hrd3()._A4;
     } else {
@@ -90,11 +94,11 @@ void StateRise::procAnim() {
 void StateRise::procMove() {
     if (mIsMove) {
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-        f32 rate = 1.0f - hel::math::Math::CosDegF(90.0f * t);
+        f32 rate = 1.0f - Math::CosDegF(90.0f * t);
         f32 rateSquare = rate * rate;
-        f32 easing = hel::math::Math::LinearInterpolation(rate, rateSquare, 0.5f);
-        hel::math::Vector3 pos = mStartPos;
-        pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalY, easing);
+        f32 easing = Math::LinearInterpolation(rate, rateSquare, 0.5f);
+        Vector3 pos = mStartPos;
+        pos.y = Math::LinearInterpolation(mStartPos.y, mGoalY, easing);
         obj().location().setPos(pos);
     }
 }

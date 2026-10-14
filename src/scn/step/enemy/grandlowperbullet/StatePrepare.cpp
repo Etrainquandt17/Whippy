@@ -29,6 +29,8 @@
 #include "scn/step/enemy/grandlowperbullet/StateHoming.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +47,7 @@ StatePrepare::StatePrepare(Enemy* enemy) : StateBase(enemy) {
 }
 
 StatePrepare::~StatePrepare() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).reqImageEffect();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).reqImageEffect();
     obj().shadow().setVisibility(true);
     obj().model().setVisibility(true);
     obj().objColl().bodyColl().setStateNormal();

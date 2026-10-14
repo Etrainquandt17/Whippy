@@ -10,6 +10,8 @@
 #include "scn/step/item/Param.h"
 #include "scn/step/item/RotAnim.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -44,7 +46,7 @@ void StateFall::procFixPos() {
             if (!mCliffEdgeBoundCtrl.chkBound()) {
                 isGround = true;
             }
-        } else if (0.5f < hel::math::Math::AbsF32(obj().mapColl().normal().x)) {
+        } else if (0.5f < Math::AbsF32(obj().mapColl().normal().x)) {
             obj().move().setSpeedH(0.0f);
         }
     }

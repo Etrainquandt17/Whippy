@@ -50,6 +50,9 @@
 #include "scn/step/boss/lowper/StateWarpOut.h"
 #include "scn/step/enemy/lowperbullet/VariationKind.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -61,18 +64,18 @@ namespace lowper {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 // TODO: the original passes the temporary to setNextState by value without copying it; the reference stands in
 // for that (see util/StateChanger.h), here and in every state change below that names the vector as one.
 void t_SetNextState_Wait(f32 x, f32 y) {
-    MintBoss::Obj().stateChanger().setNextState<StateWait, Boss*, const hel::math::Vector3&>(&MintBoss::Obj(), hel::math::Vector3(x, y, 0.0f));
+    MintBoss::Obj().stateChanger().setNextState<StateWait, Boss*, const Vector3&>(&MintBoss::Obj(), Vector3(x, y, 0.0f));
 }
 
 void t_SetNextState_Move(f32 x, f32 y, int a) {
-    MintBoss::Obj().stateChanger().setNextState<StateMove, Boss*, const hel::math::Vector3&, u32>(&MintBoss::Obj(),
-                                                                                           hel::math::Vector3(x, y, 0.0f), a);
+    MintBoss::Obj().stateChanger().setNextState<StateMove, Boss*, const Vector3&, u32>(&MintBoss::Obj(),
+                                                                                Vector3(x, y, 0.0f), a);
 }
 
 void t_SetNextState_MoveToFar(f32 a) {
@@ -176,13 +179,13 @@ void t_SetNextState_Sprinkler() {
 }
 
 void t_SetNextState_RainBomb(f32 x, f32 y, int a, int b, int c) {
-    MintBoss::Obj().stateChanger().setNextState<StateRainBomb, Boss*, const hel::math::Vector3&, u32, u32, u32>(
-        &MintBoss::Obj(), hel::math::Vector3(x, y, 0.0f), a, b, c);
+    MintBoss::Obj().stateChanger().setNextState<StateRainBomb, Boss*, const Vector3&, u32, u32, u32>(
+        &MintBoss::Obj(), Vector3(x, y, 0.0f), a, b, c);
 }
 
 void t_SetNextState_RainBombDouble(f32 x, f32 y, int a, int b, int c) {
-    MintBoss::Obj().stateChanger().setNextState<StateRainBombDouble, Boss*, const hel::math::Vector3&, u32, u32, u32>(
-        &MintBoss::Obj(), hel::math::Vector3(x, y, 0.0f), a, b, c);
+    MintBoss::Obj().stateChanger().setNextState<StateRainBombDouble, Boss*, const Vector3&, u32, u32, u32>(
+        &MintBoss::Obj(), Vector3(x, y, 0.0f), a, b, c);
 }
 
 void t_SetNextState_SummonBarrier() {
@@ -194,8 +197,8 @@ void t_SetNextState_WarpIn() {
 }
 
 void t_SetNextState_WarpOut(f32 x, f32 y) {
-    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const hel::math::Vector3&>(&MintBoss::Obj(),
-                                                                                         hel::math::Vector3(x, y, 0.0f));
+    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const Vector3&>(&MintBoss::Obj(),
+                                                                              Vector3(x, y, 0.0f));
 }
 
 void t_SetNextState_Laugh() {

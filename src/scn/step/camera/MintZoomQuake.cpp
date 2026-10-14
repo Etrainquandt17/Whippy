@@ -2,13 +2,15 @@
 
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace camera {
 
 namespace {
 
-hel::common::PointerWrapper<ZoomQuake> t_obj;
+PointerWrapper<ZoomQuake> t_obj;
 
 }
 

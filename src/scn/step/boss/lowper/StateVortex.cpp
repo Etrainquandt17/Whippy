@@ -55,13 +55,16 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateVortex::StateVortex(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x24);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -70,7 +73,7 @@ StateVortex::StateVortex(Boss* boss) : StateBase(boss) {
 }
 
 StateVortex::~StateVortex() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).dataBuff().clearVortexBulletSpeedData();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).dataBuff().clearVortexBulletSpeedData();
 }
 
 void StateVortex::procAnim() {
@@ -87,10 +90,10 @@ void StateVortex::procMove() {}
 void StateVortex::procFixPos() {}
 
 void StateVortex::reqBullet() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.dataBuff().isExistVortexBulletSpeedData()) {
-        hel::math::Vector3 pos = obj().location().pos();
-        hel::math::Vector3 speed(custom.dataBuff().shiftVortexBulletSpeedData(), 0.0f, 0.0f);
+        Vector3 pos = obj().location().pos();
+        Vector3 speed(custom.dataBuff().shiftVortexBulletSpeedData(), 0.0f, 0.0f);
         custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(6), pos, speed, 0);
     }
 }

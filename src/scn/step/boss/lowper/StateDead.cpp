@@ -64,13 +64,17 @@
 #include "scn/step/sfx/ScreenFade.h"
 #include "util/ObjRefHandle.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateDead::StateDead(Boss* boss) : StateBase(boss), mCount(0), mRotV(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().reqScript(0x17);
     custom.waftMoveCtrl().setIsValid(false);
@@ -87,7 +91,7 @@ StateDead::~StateDead() {}
 void StateDead::procAnim() {
     mCount++;
     if (mCount == 60) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += 1.0f;
         obj().comp().permEffect().powerful().requestP(static_cast<effect::Kind>(0x55), pos);
         u32 se[] = { 0x571, 0x571, 0x565 };
@@ -100,17 +104,17 @@ void StateDead::procAnim() {
         return;
     }
     if (mCount % 8 == 0) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += 1.0f;
-        pos.x += 3.0f * app::Random::RandAF();
-        pos.y += 3.0f * app::Random::RandAF();
+        pos.x += 3.0f * Random::RandAF();
+        pos.y += 3.0f * Random::RandAF();
         obj().comp().permEffect().powerful().requestP(static_cast<effect::Kind>(0x7A), pos);
         obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(4));
         obj().soundSE().normal().start(0x29B);
     }
     mRotV += obj().target().getSign();
     obj().model().rotCtrl().initRotV(mRotV);
-    hel::math::Vector3 offset(0.0f, 0.5f * app::Random::RandAF(), 0.0f);
+    Vector3 offset(0.0f, 0.5f * Random::RandAF(), 0.0f);
     obj().model().setViewOffset(offset);
 }
 

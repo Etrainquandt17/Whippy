@@ -28,14 +28,21 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjRefHandleInline.h"
 
+using app::Random;
+using g3d::NodeAccessor;
+using g3d::Root;
+using hel::common::FixedString;
+using hel::common::FixedStringIN;
+using hel::common::MutableArray;
 using hel::math::Vector2;
 using hel::math::Vector3;
+using util::ObjRefHandle;
 
 namespace {
 
 // TODO: what g3d::NodeAccessor holds; g3d/NodeAccessor.h has it opaque.
 struct NodeAccessorMembers {
-    util::ObjRefHandle<g3d::Model> model;
+    ObjRefHandle<g3d::Model> model;
     u32 index;
 };
 
@@ -43,12 +50,12 @@ struct NodeAccessorMembers {
 
 namespace {
 
-hel::common::FixedString<40> getConnectString(const char* a, const char* b) {
-    return hel::common::FixedStringIN<char, 40>::FromFormat("%s%s", a, b);
+FixedString<40> getConnectString(const char* a, const char* b) {
+    return FixedStringIN<char, 40>::FromFormat("%s%s", a, b);
 }
 
 #define MF_FUNCTION getConnectString__27_unnamed_PopFlower_prt_cpp_FPCcPCcPCc
-hel::common::FixedString<40> getConnectString(const char* a, const char* b, const char* c) {
+FixedString<40> getConnectString(const char* a, const char* b, const char* c) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -144,7 +151,7 @@ hel::common::FixedString<40> getConnectString(const char* a, const char* b, cons
             blr
         }
     } else {
-        return hel::common::FixedStringIN<char, 40>::FromFormat("%s%s%s", a, b, c);
+        return FixedStringIN<char, 40>::FromFormat("%s%s%s", a, b, c);
     }
 }
 #undef MF_FUNCTION
@@ -161,7 +168,7 @@ PopFlower::PopFlower(const map::BinGmkGeneralEntry& entry, Component& component,
     : mParam(param)
     , mComponent(component)
     , mItemGen(itemGen)
-    , mName(app::Random::Rand(4) == 0 ? "A" : "B")
+    , mName(Random::Rand(4) == 0 ? "A" : "B")
     , mPos(entry._4.toMaproPos().toWorldPos())
     , mModel(component, mfGetResFileName(), getConnectString(mName, "TopL"), true, true)
     , mOwner(component.objCollManager(), 2, component.mapMemManager().allocator())
@@ -184,7 +191,7 @@ PopFlower::PopFlower(const map::BinGmkGeneralEntry& entry, Component& component,
     u32 word;
     u32 last;
 
-    u32 random = app::Random::Rand(100);
+    u32 random = Random::Rand(100);
     u32 size = 0;
     u32 sum = 0;
     for (u32 i = 0; i < 4; i++) {
@@ -217,7 +224,7 @@ PopFlower::PopFlower(const map::BinGmkGeneralEntry& entry, Component& component,
     } else {
         scale = mParam.obj()._2C[size];
     }
-    g3d::NodeAccessor node = mModel.model().nodeByName(getConnectString(mName, "FlowerL"));
+    NodeAccessor node = mModel.model().nodeByName(getConnectString(mName, "FlowerL"));
     node.localMtx().setScale(Vector3(scale, scale, scale));
     hash = 0;
     mModel.setIsAutoUpdateWorldMtx(false);
@@ -397,7 +404,7 @@ PopFlower::~PopFlower() {
 }
 #undef MF_FUNCTION
 
-void PopFlower::registerToRoot(g3d::Root& root) {
+void PopFlower::registerToRoot(Root& root) {
     if (mfIsInScreen()) {
         mModel.registerToRoot(root);
     }
@@ -574,7 +581,7 @@ ocoll::NodeDesc PopFlower::mfGetOCollNodeDesc() {
     u32 word;
     u32 hash;
 
-    g3d::NodeAccessor node = mModel.model().nodeByName(getConnectString(mName, "FlowerL"));
+    NodeAccessor node = mModel.model().nodeByName(getConnectString(mName, "FlowerL"));
     ocoll::NodeDesc desc;
     asm {
         bl      after1
@@ -952,7 +959,7 @@ void PopFlower::mfObjCollReactWait() {
     if (mfChkDeadBySuperAttack()) {
         return;
     }
-    util::ObjRefHandle<hero::Hero> hero = mfGetAttackHero(true);
+    ObjRefHandle<hero::Hero> hero = mfGetAttackHero(true);
     if (hero.isAlive()) {
         mHeroKind = hero->kind();
         mModel.setAnimByName(getConnectString(mName, "Open", mfHeroKindToAlphabet(mHeroKind)));
@@ -977,7 +984,7 @@ void PopFlower::mfObjCollReactOpenWait() {
         mFrameRate = mParam.obj()._8;
         _C6C = mParam.obj()._C;
     } else {
-        util::ObjRefHandle<hero::Hero> hero = mfGetAttackHero(false);
+        ObjRefHandle<hero::Hero> hero = mfGetAttackHero(false);
         if (hero.isAlive() || _CC0) {
             mFrameRate = mParam.obj()._10;
             _C6C = mParam.obj()._14;
@@ -1002,11 +1009,11 @@ bool PopFlower::mfChkDeadBySuperAttack() {
     return false;
 }
 
-util::ObjRefHandle<hero::Hero> PopFlower::mfGetAttackHero(bool includeBody) const {
+ObjRefHandle<hero::Hero> PopFlower::mfGetAttackHero(bool includeBody) const {
     u32 num = mSearchAttack.getCollidedNum();
     for (u32 i = 0; i < num; i++) {
         u64 id = mSearchAttack.getCollidedAttackOwnerRootUid(i);
-        util::ObjRefHandle<hero::Hero> hero = mComponent.heroManager().searchHeroFromObjCollOwnerID(id);
+        ObjRefHandle<hero::Hero> hero = mComponent.heroManager().searchHeroFromObjCollOwnerID(id);
         if (hero.isAlive()) {
             u32 type = mSearchAttack.getCollidedAttackType(i);
             if (includeBody || !mfIsAttackBody(type)) {
@@ -1014,7 +1021,7 @@ util::ObjRefHandle<hero::Hero> PopFlower::mfGetAttackHero(bool includeBody) cons
             }
         }
     }
-    return util::ObjRefHandle<hero::Hero>();
+    return ObjRefHandle<hero::Hero>();
 }
 
 void PopFlower::mfUpdateHeroBodyAttacks() {
@@ -1022,11 +1029,11 @@ void PopFlower::mfUpdateHeroBodyAttacks() {
         mfClearHeroBodyAttacks();
         return;
     }
-    hel::common::MutableArray<HeroBodyAttack, 4> attacks;
+    MutableArray<HeroBodyAttack, 4> attacks;
     u32 num = mSearchAttack.getCollidedNum();
     for (u32 i = 0; i < num && i < 4; i++) {
         u64 id = mSearchAttack.getCollidedAttackOwnerRootUid(i);
-        util::ObjRefHandle<hero::Hero> hero = mComponent.heroManager().searchHeroFromObjCollOwnerID(id);
+        ObjRefHandle<hero::Hero> hero = mComponent.heroManager().searchHeroFromObjCollOwnerID(id);
         u32 type = mSearchAttack.getCollidedAttackType(i);
         if (hero.isAlive() && mfIsAttackBody(type)) {
             attacks.add(HeroBodyAttack(id, mSearchAttack.getCollidedAttackPos(i)));

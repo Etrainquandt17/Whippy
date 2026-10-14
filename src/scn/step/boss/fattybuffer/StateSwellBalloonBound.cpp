@@ -42,6 +42,8 @@
 #include "scn/step/chara/Shake.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -49,7 +51,7 @@ namespace fattybuffer {
 
 StateSwellBalloonBound::StateSwellBalloonBound(Boss* boss, Kind kind, u32 count)
     : StateBase(boss), mKind(kind), mCount(count), mVelocity(boss->move().velocity()) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().move().resetVelocity();
     obj().guard().setType(static_cast<GuardType>(4));

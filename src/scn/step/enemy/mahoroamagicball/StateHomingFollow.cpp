@@ -31,6 +31,10 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +49,7 @@ const ParamData::Follow& t_param(const Enemy& enemy) {
 }
 
 StateHomingFollow::StateHomingFollow(Enemy* enemy) : StateBase(enemy), mAngle(0.0f), mRadius(0.0f) {
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isOwnerAlive()) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).isOwnerAlive()) {
         obj().dead();
         return;
     }
@@ -83,14 +87,14 @@ void StateHomingFollow::procAnim() {
 void StateHomingFollow::procMove() {}
 
 void StateHomingFollow::procConstraint() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isOwnerAlive()) {
-        hel::math::Vector3 pos = custom.owner()->location().pos();
+        Vector3 pos = custom.owner()->location().pos();
         pos.y += t_param(obj()).mOffsetY;
         pos.z = 0.0f;
-        pos.x += mRadius * hel::math::Math::CosDegF(mAngle);
-        pos.z += mRadius * hel::math::Math::SinDegF(mAngle);
-        pos.y -= 0.4f * (mRadius * hel::math::Math::SinDegF(mAngle));
+        pos.x += mRadius * Math::CosDegF(mAngle);
+        pos.z += mRadius * Math::SinDegF(mAngle);
+        pos.y -= 0.4f * (mRadius * Math::SinDegF(mAngle));
         obj().location().setPos(pos);
     }
 }

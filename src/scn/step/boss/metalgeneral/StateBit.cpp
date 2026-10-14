@@ -72,13 +72,16 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateBit::StateBit(Boss* boss, u32 num) : StateBase(boss), mNum(num) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x1E);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -95,9 +98,9 @@ void StateBit::procAnim() {
         return;
     }
     if (obj().scriptTrigger().get(0)) {
-        hel::math::Vector2 pos = obj().location().pos().getXY();
-        pos += hel::math::Vector2(param._1A0 * obj().target().getSign(), param._1A4);
-        Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+        Vector2 pos = obj().location().pos().getXY();
+        pos += Vector2(param._1A0 * obj().target().getSign(), param._1A4);
+        Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
         custom.weaponCtrl().reqBit(pos, mNum);
     }
 }

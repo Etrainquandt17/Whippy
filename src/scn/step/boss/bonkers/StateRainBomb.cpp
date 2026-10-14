@@ -16,6 +16,10 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
 
+using app::Random;
+using hel::common::DynamicCast;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -29,7 +33,7 @@ StateRainBomb::StateRainBomb(Boss* boss, Config config)
     obj().move().resetVelocity();
     obj().objColl().bodyColl().initAttackType(static_cast<ocoll::AttackType>(0x1AC));
     if (config._0) {
-        mBigBombIndex = app::Random::Rand(1, param.mRainBombNum);
+        mBigBombIndex = Random::Rand(1, param.mRainBombNum);
     }
 }
 
@@ -60,11 +64,11 @@ void StateRainBomb::procFixPos() {}
 
 void StateRainBomb::reqBomb() {
     const Param& param = obj().param().bonkers();
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
     pos.y += param.mRainBombThrowOffsetY;
-    hel::math::Vector2 speed(0.0f, param.mRainBombSpeedV);
-    f32 sign = app::Random::Rand(10) < 5 ? 1.0f : -1.0f;
+    Vector2 speed(0.0f, param.mRainBombSpeedV);
+    f32 sign = Random::Rand(10) < 5 ? 1.0f : -1.0f;
     switch (mBombNum) {
     case 1:
         speed.x = param.mRainBombSpeedSide * -obj().target().getSign();

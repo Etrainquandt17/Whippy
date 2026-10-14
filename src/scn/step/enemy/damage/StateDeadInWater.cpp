@@ -26,6 +26,10 @@
 #include "snd/SERequestor.h"
 #include "std/min.h"
 
+using hel::common::ColorF;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,14 +45,14 @@ StateDeadInWater::StateDeadInWater(Enemy* enemy)
     , mFlashRate(1.0f) {
     obj().footState().setAir();
     if (obj().move().velocity().y > 0.0f) {
-        obj().move().setVelocity(hel::math::Vector3(0.0f, 0.02f, 0.0f));
+        obj().move().setVelocity(Vector3(0.0f, 0.02f, 0.0f));
         mIsSink = false;
     } else if (obj().mapColl().floorNormal().x != 0.0f) {
-        obj().move().setVelocity(hel::math::Vector3(0.0f, -0.02f, 0.0f));
+        obj().move().setVelocity(Vector3(0.0f, -0.02f, 0.0f));
         mFrameRate = 0.8f;
         mIsSink = false;
     } else {
-        obj().move().setVelocity(hel::math::Vector3(0.0f, -0.03f, 0.0f));
+        obj().move().setVelocity(Vector3(0.0f, -0.03f, 0.0f));
     }
     obj().vacuumReceiver().setIsValid(false);
     obj().nururi().setCanNururi(false);
@@ -68,7 +72,7 @@ void StateDeadInWater::procAnim() {
     deadFlash();
     if ((mFrame == 30 || mFrame == 60) && mIsSink) {
         f32 scale = enemy::Utility::GetModelScaleBySizeType(obj());
-        hel::math::Vector3 pos = obj().location().centerPos() - hel::math::Vector3(0.0f, 0.45f, 0.0f) * scale;
+        Vector3 pos = obj().location().centerPos() - Vector3(0.0f, 0.45f, 0.0f) * scale;
         obj().effect().normal().requestP(static_cast<effect::Kind>(0x133), pos, scale);
     }
     if (5 < mFrame && mFrame <= 30) {
@@ -98,9 +102,9 @@ void StateDeadInWater::deadFlash() {
         mFlashAngle -= 360.0f;
     }
     mFlashRate = 0.95f * mFlashRate + 0.0375f;
-    f32 rate = mFlashRate * (0.5f * (1.0f + hel::math::Math::CosDegF(mFlashAngle)));
+    f32 rate = mFlashRate * (0.5f * (1.0f + Math::CosDegF(mFlashAngle)));
     u32 alpha = 255.0f * rate;
-    obj().flash().setEnf1F(hel::common::ColorF(192.0f, 180.0f, 180.0f, alpha).toGXColor());
+    obj().flash().setEnf1F(ColorF(192.0f, 180.0f, 180.0f, alpha).toGXColor());
 }
 
 }}}}  // namespace scn::step::enemy::damage

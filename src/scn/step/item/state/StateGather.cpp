@@ -10,6 +10,10 @@
 #include "scn/step/item/Param.h"
 #include "scn/step/item/RotAnim.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -23,7 +27,7 @@ StateGather::StateGather(Item* item, Catcher& catcher)
     obj().rotAnim().setSpeed(RotAnim::SPEED_KIND_FAST);
     obj().setCanCatch(false);
     obj().setCanGather(false);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 0.5f;
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x77), pos);
 }
@@ -40,10 +44,10 @@ void StateGather::procAnim() {
 void StateGather::procMove() {
     f32 t = mFrame / 20.0f;
     f32 rate = 1.0f - (1.0f - t) * (1.0f - t);
-    hel::math::Vector2 catcherPos = mCatcher.getPos();
-    hel::math::Vector2 pos = catcherPos * rate;
+    Vector2 catcherPos = mCatcher.getPos();
+    Vector2 pos = catcherPos * rate;
     pos += mStartPos * (1.0f - rate);
-    pos.y += hel::math::Math::SinDegF(180.0f * t);
+    pos.y += Math::SinDegF(180.0f * t);
     obj().location().setPos(pos.toVector3());
 }
 

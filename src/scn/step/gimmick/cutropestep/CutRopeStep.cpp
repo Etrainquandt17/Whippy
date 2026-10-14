@@ -11,6 +11,13 @@
 #include "scn/step/Component.h"
 #include "scn/step/map/MemManager.h"
 
+using g3d::CharaModelContext;
+using g3d::ModelBufferOption;
+using g3d::ModelContext;
+using g3d::ResModelContext;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace gimmick {
@@ -19,7 +26,7 @@ namespace cutropestep {
 namespace {
 
 // TODO: define. With `flip` the matrix is also turned 180 degrees around Z.
-hel::math::Matrix34 GetPosMtx(const hel::math::Vector3& pos, bool flip);
+Matrix34 GetPosMtx(const Vector3& pos, bool flip);
 
 }
 
@@ -28,8 +35,8 @@ CutRopeStep::RestRope::RestRope(CutRopeStep& owner, u32 index)
     : mOwner(owner)
     , _4(owner.ropeLength() - index)
     , _8(owner.pos().x, owner.pos().y + owner.ropeLength() + 1.0f)
-    , _10(g3d::ModelContext(g3d::ResModelContext(owner.resFile(), "TopL2"), g3d::ModelBufferOption(), 0, g3d::CharaModelContext::DefaultNumView(),
-                            owner.comp().mapMemManager().allocator(), false))
+    , _10(ModelContext(ResModelContext(owner.resFile(), "TopL2"), ModelBufferOption(), 0, CharaModelContext::DefaultNumView(),
+                       owner.comp().mapMemManager().allocator(), false))
     , _1BC() {
     volatile u32 start;
     volatile u32 end;
@@ -39,7 +46,7 @@ CutRopeStep::RestRope::RestRope(CutRopeStep& owner, u32 index)
     u32 limit;
     u32 last;
 
-    hel::math::Vector3 pos(_8.x, _8.y - (f32)_4, mOwner.mParam.obj()._0);
+    Vector3 pos(_8.x, _8.y - (f32)_4, mOwner.mParam.obj()._0);
     asm {
         bl      after1
         opword  MF_WORD(0x12C)

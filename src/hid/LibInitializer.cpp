@@ -7,6 +7,8 @@
 #include "revolution/kpad.h"
 #include "types.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace {
 
 #define MF_FUNCTION t_wpadAlloc__32_unnamed_LibInitializer_prt_cpp_FUl
@@ -108,13 +110,13 @@ void* t_wpadAlloc(u32 size) {
             blr
         }
     } else {
-        return hel::common::ExplicitSingleton<mem::Memory>::object_->mem2FixHeap().alloc(size);
+        return ExplicitSingleton<mem::Memory>::object_->mem2FixHeap().alloc(size);
     }
 }
 #undef MF_FUNCTION
 
 int t_wpadFree(void* ptr) {
-    hel::common::ExplicitSingleton<mem::Memory>::object_->mem2FixHeap().free(ptr);
+    ExplicitSingleton<mem::Memory>::object_->mem2FixHeap().free(ptr);
     return 1;
 }
 

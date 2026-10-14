@@ -57,6 +57,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -64,7 +66,7 @@ namespace lowper {
 
 StateFreezeAttackHold::StateFreezeAttackHold(Boss* boss, u32 frame)
     : StateBase(boss), mFrame(frame), mCount(0), mShakeWait(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x20);
     obj().model().rotCtrl().setRotHTarget(0.0f);

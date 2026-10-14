@@ -2,11 +2,13 @@
 
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<GearAnim> t_obj;
+PointerWrapper<GearAnim> t_obj;
 
 }
 

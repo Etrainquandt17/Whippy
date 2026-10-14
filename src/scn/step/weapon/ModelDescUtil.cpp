@@ -4,6 +4,9 @@
 #include "hel/common/FixedString.h"
 #include "metafortress.h"
 
+using g3d::ResModelContext;
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -34,7 +37,7 @@ void ModelDescUtil::Set(chara::ModelDesc& desc, gobj::AnimDesc& animDesc, gobj::
         lwz     r22, 0x0(r21)
         stw     r22, expected
     }
-    *reinterpret_cast<hel::common::FixedString<24>*>(&desc.mModel._0[0]) = hel::common::FixedString<24>(name);
+    *reinterpret_cast<FixedString<24>*>(&desc.mModel._0[0]) = FixedString<24>(name);
     asm {
         bl      after2
         opword  MF_WORD(0xC0)
@@ -52,7 +55,7 @@ void ModelDescUtil::Set(chara::ModelDesc& desc, gobj::AnimDesc& animDesc, gobj::
         add     r24, r24, r18
         stw     r24, end
     }
-    desc.mModel._18 = hel::common::FixedString<40>(g3d::ResModelContext::DefaultEntryName());
+    desc.mModel._18 = FixedString<40>(ResModelContext::DefaultEntryName());
     desc.mModel._44[0] = 0x800;
     hash = 0xBF;
     desc.mModel._44[3] = nodeNameCount;

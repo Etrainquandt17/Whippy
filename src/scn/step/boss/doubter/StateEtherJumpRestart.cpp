@@ -34,6 +34,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -43,7 +45,7 @@ StateEtherJumpRestart::StateEtherJumpRestart(Boss* boss, u32 count) : StateBase(
     obj().footState().setGround();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(35);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
 }
 
 StateEtherJumpRestart::~StateEtherJumpRestart() {}

@@ -10,6 +10,9 @@
 #include "scn/step/chara/SoundSE.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -245,7 +248,7 @@ void BoundAlgorithm::procFixPos() {
         mWallSEInterval--;
     }
     if (result.isHitRoof()) {
-        obj().move().setSpeedV(-mRateVRoof * hel::math::Math::Abs(obj().move().velocity().y));
+        obj().move().setSpeedV(-mRateVRoof * Math::Abs(obj().move().velocity().y));
         obj().move().setSpeedH(mRateH * obj().move().velocity().x);
         if (mRoofSEInterval == 0) {
             mObj.soundSE().start(mBoundSE);
@@ -255,14 +258,14 @@ void BoundAlgorithm::procFixPos() {
         mRoofSEInterval--;
     }
     if (mObj.worldCage().isCorrected()) {
-        hel::math::Vector2 diff = mObj.worldCage().getCorrectedDiff();
-        if (hel::math::Math::Abs(diff.x) > 0.0001f) {
+        Vector2 diff = mObj.worldCage().getCorrectedDiff();
+        if (Math::Abs(diff.x) > 0.0001f) {
             int sign = diff.x < 0.0f ? -1 : 1;
             // TODO: the original multiplies in the other order (fmuls f31, f1, f0: the absolute value first).
-            obj().move().setSpeedH(hel::math::Math::Abs(obj().move().velocity().x) * static_cast<f32>(sign));
+            obj().move().setSpeedH(Math::Abs(obj().move().velocity().x) * static_cast<f32>(sign));
         }
         if (diff.y < -0.0001f) {
-            obj().move().setSpeedV(-hel::math::Math::Abs(obj().move().velocity().y));
+            obj().move().setSpeedV(-Math::Abs(obj().move().velocity().y));
             if (mCageSEInterval == 0) {
                 mObj.soundSE().start(mBoundSE);
                 mCageSEInterval = 5;

@@ -4,12 +4,14 @@
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace common {
 
-void CollUtil::SetBodyCollDefault(Boss& boss, u32 id, f32 radius, hel::math::Vector2 offset) {
+void CollUtil::SetBodyCollDefault(Boss& boss, u32 id, f32 radius, Vector2 offset) {
     chara::BodyColl& bodyColl = boss.objColl().bodyColl();
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1AB));
@@ -17,7 +19,7 @@ void CollUtil::SetBodyCollDefault(Boss& boss, u32 id, f32 radius, hel::math::Vec
     bodyColl.setResistLv(ocoll::HIT_RESIST_LV_2);
 }
 
-void CollUtil::SetBodyCollDefault(Boss& boss, u32 id, f32 radius, hel::math::Vector2 offset, hel::math::Vector2 offset2) {
+void CollUtil::SetBodyCollDefault(Boss& boss, u32 id, f32 radius, Vector2 offset, Vector2 offset2) {
     chara::BodyColl& bodyColl = boss.objColl().bodyColl();
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1AB));

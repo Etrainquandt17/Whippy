@@ -14,6 +14,10 @@
 #include "scn/step/weapon/roahbullet/Param.h"
 #include "scn/step/weapon/roahbullet/StateWait.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -27,7 +31,7 @@ StateAppear::StateAppear(Weapon* weapon) : StateBase(weapon), mWaitFrame(0), mFr
 
 void StateAppear::procAnim() {
     const Param& param = obj().param().roahBullet();
-    if (mWaitFrame < 6 - hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).generateNum()) {
+    if (mWaitFrame < 6 - DynamicCastToRef<Custom, ICustom>(obj().custom()).generateNum()) {
         mWaitFrame++;
     } else if (mFrame < param._8) {
         mFrame++;
@@ -56,17 +60,17 @@ void StateAppear::procAnim() {
 void StateAppear::procMove() {
     const Param& param = obj().param().roahBullet();
     f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param._8);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mEndPos, rate);
-    f32 t = hel::math::Math::InterpolationParamMinToMin(rate);
-    hel::math::Vector3 offset = pos - mStartPos;
-    offset.rotate(hel::math::Vector3::AXIS_X, 0.017453292f * (360.0f * t));
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mEndPos, rate);
+    f32 t = Math::InterpolationParamMinToMin(rate);
+    Vector3 offset = pos - mStartPos;
+    offset.rotate(Vector3::AXIS_X, 0.017453292f * (360.0f * t));
     offset.z *= param._C;
-    hel::math::Vector3 newPos = mStartPos + offset;
+    Vector3 newPos = mStartPos + offset;
     obj().location().setPos(newPos);
 }
 
 void StateAppear::procFixPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).procFixPos();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).procFixPos();
 }
 
 }}}}  // namespace scn::step::weapon::roahbullet

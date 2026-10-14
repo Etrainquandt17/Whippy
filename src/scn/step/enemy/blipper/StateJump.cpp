@@ -12,6 +12,8 @@
 #include "scn/step/enemy/blipper/ParamData.h"
 #include "scn/step/enemy/blipper/StateFall.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -21,7 +23,7 @@ StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mFrame(0) {
     const ParamData& param = obj().param().blipper();
     obj().footState().setAir();
     obj().model().reqScript(0);
-    switch (app::Random::Rand(5)) {
+    switch (Random::Rand(5)) {
     case 0:
     case 1:
         obj().move().setSpeedV(param.mJumpSpeedV[0]);
@@ -34,7 +36,7 @@ StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mFrame(0) {
         obj().move().setSpeedV(param.mJumpSpeedV[2]);
         break;
     }
-    switch (app::Random::Rand(5)) {
+    switch (Random::Rand(5)) {
     case 0:
     case 1:
     case 2:
@@ -42,12 +44,12 @@ StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mFrame(0) {
         obj().move().setSpeedH(0.0f);
         break;
     default: {
-        f32 dir = app::Random::Rand(2) == 0 ? 1.0f : -1.0f;
+        f32 dir = Random::Rand(2) == 0 ? 1.0f : -1.0f;
         obj().move().setSpeedH(param.mJumpSpeedH * dir);
         break;
     }
     }
-    obj().target().setIsRightDir(app::Random::Rand(2) == 0);
+    obj().target().setIsRightDir(Random::Rand(2) == 0);
 }
 
 void StateJump::procAnim() {

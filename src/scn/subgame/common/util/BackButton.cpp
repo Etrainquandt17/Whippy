@@ -5,6 +5,9 @@
 #include "mem/Memory.h"
 #include "metafortress.h"
 
+using app::Message;
+using hel::common::ExplicitSingleton;
+
 namespace scn {
 namespace subgame {
 namespace common {
@@ -12,7 +15,7 @@ namespace util {
 
 #define MF_FUNCTION __ct__Q53scn7subgame6common4util10BackButtonFRCQ23lyt12PaneAccessorbbUl
 BackButton::BackButton(const lyt::PaneAccessor& pane, bool blinks, bool isTwo, u32 seId)
-    : info::common::ButtonHelp(hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap(), pane,
+    : info::common::ButtonHelp(ExplicitSingleton<mem::Memory>::object_->sceneHeap(), pane,
                                isTwo ? info::common::WiiButton::KIND_2 : info::common::WiiButton::KIND_0)
     , mSE()
     , mSEId(seId) {
@@ -67,7 +70,7 @@ BackButton::BackButton(const lyt::PaneAccessor& pane, bool blinks, bool isTwo, u
     if (hash - expected != 0 || blinks) {
         blink();
     }
-    setText(app::Message::TextCommon("Back"));
+    setText(Message::TextCommon("Back"));
 }
 #undef MF_FUNCTION
 

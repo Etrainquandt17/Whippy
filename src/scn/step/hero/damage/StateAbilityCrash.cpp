@@ -17,6 +17,8 @@
 #include "scn/step/hero/Utility.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -35,7 +37,7 @@ StateAbilityCrash::StateAbilityCrash(Hero* hero)
     : StateBase(hero) {
     obj().footState().setAir();
     obj().model().script().start(0x49);
-    obj().move().setVelocity(hel::math::Vector3(-0.075f * obj().target().getSign(), 0.125f, 0.0f));
+    obj().move().setVelocity(Vector3(-0.075f * obj().target().getSign(), 0.125f, 0.0f));
     obj().invincible().setPerm();
     obj().effect()._58.requestN(static_cast<effect::Kind>(0xE0), 1);
     obj().soundSE()._160.start(0xD4);

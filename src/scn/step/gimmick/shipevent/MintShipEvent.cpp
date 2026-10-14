@@ -2,6 +2,8 @@
 
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace gimmick {
@@ -9,7 +11,7 @@ namespace shipevent {
 
 namespace {
 
-hel::common::PointerWrapper<ShipEvent> t_obj;
+PointerWrapper<ShipEvent> t_obj;
 
 }
 

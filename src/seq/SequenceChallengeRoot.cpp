@@ -14,6 +14,12 @@
 #include "storage/StorageManager.h"
 #include "storage/StoryData.h"
 
+using app::Application;
+using hel::common::DynamicCastToRef;
+using hel::common::ExplicitSingleton;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 // TODO: hel/common/RuntimeTypeInfo.h does not define this yet; the unit holds its own copy.
 namespace hel {
 namespace common {
@@ -40,7 +46,7 @@ namespace {
 // hel::common::DynamicCastToRef cannot take it.
 template <typename T>
 inline T* t_sceneCast(scn::IScene* scene) {
-    const hel::common::RuntimeTypeInfo& info = hel::common::RuntimeTypeInfoImpl<T>();
+    const RuntimeTypeInfo& info = RuntimeTypeInfoImpl<T>();
     if (scene != 0 && scene->GetRuntimeTypeInfo().isDerivedFrom(info)) {
         return reinterpret_cast<T*>(scene);
     }
@@ -410,7 +416,7 @@ std::auto_ptr<ISequence> SequenceChallengeRoot::createChildSequence() const {
     switch (_130) {
     case 1:
     case 2: {
-        hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData().storyData(
+        ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData().storyData(
             mContextMode._C);
         scn::step::Context context = {};
         context.mHero = scn::step::ContextHero::Create();
@@ -494,9 +500,9 @@ std::auto_ptr<scn::IScene> SequenceChallengeRoot::createScene() const {
     }
     switch (_130) {
     case 0: {
-        storage::StoryData& storyData = hel::common::ExplicitSingleton<app::Application>::object_->storageManager()
-                                            .selectedBackupFileData()
-                                            .storyData(mContextMode._C);
+        storage::StoryData& storyData = ExplicitSingleton<Application>::object_->storageManager()
+                               .selectedBackupFileData()
+                               .storyData(mContextMode._C);
         scn::challengetutorial::SceneChallengeTutorial::Recipe recipe =
             scn::challengetutorial::SceneChallengeTutorial::Recipe::Create(
                 (scn::step::ChallengeKind)mContextChallenge._0, mContextMode.isExtraMode(), hash - expected != 0,
@@ -506,9 +512,9 @@ std::auto_ptr<scn::IScene> SequenceChallengeRoot::createScene() const {
     case 3: {
         scn::step::ChallengeKind kind = (scn::step::ChallengeKind)mContextChallenge._0;
         int score = mContextChallenge.mScore.getTotalScore();
-        storage::StoryData& storyData = hel::common::ExplicitSingleton<app::Application>::object_->storageManager()
-                                            .selectedBackupFileData()
-                                            .storyData(mContextMode._C);
+        storage::StoryData& storyData = ExplicitSingleton<Application>::object_->storageManager()
+                               .selectedBackupFileData()
+                               .storyData(mContextMode._C);
         storage::StoryData::ChallengeData oldData = storyData.challengeData(kind);
         int scoreNum = storyData.challengeData(kind).scoreNum;
         for (int n = 0; n < scoreNum + 1; n++) {
@@ -537,9 +543,9 @@ std::auto_ptr<scn::IScene> SequenceChallengeRoot::createScene() const {
     }
     case 4:
     case 5: {
-        storage::StoryData& storyData = hel::common::ExplicitSingleton<app::Application>::object_->storageManager()
-                                            .selectedBackupFileData()
-                                            .storyData(mContextMode._C);
+        storage::StoryData& storyData = ExplicitSingleton<Application>::object_->storageManager()
+                               .selectedBackupFileData()
+                               .storyData(mContextMode._C);
         scn::challengetutorial::DialogKind dialog =
             (hash - expected == 0 && _130 == 5) ? scn::challengetutorial::DIALOG_KIND_1 : scn::challengetutorial::DIALOG_KIND_2;
         scn::challengetutorial::SceneChallengeTutorial::Recipe recipe =
@@ -661,7 +667,7 @@ void SequenceChallengeRoot::onSceneEnd(scn::IScene& scene) {
         }
         case 4:
         case 5:
-            if (hel::common::DynamicCastToRef<scn::challengetutorial::SceneChallengeTutorial, scn::IScene>(&scene).result()._0) {
+            if (DynamicCastToRef<scn::challengetutorial::SceneChallengeTutorial, scn::IScene>(&scene).result()._0) {
                 _130 = 1;
             } else {
                 _130 = 6;
@@ -677,7 +683,7 @@ scn::step::ContextChallenge SequenceChallengeRoot::result() const {
 }
 
 void SequenceChallengeRoot::onChildSequenceEndForStep(ISequence& child) {
-    scn::step::SceneStep::Result result = hel::common::DynamicCastToRef<SequenceStep, ISequence>(&child).result();
+    scn::step::SceneStep::Result result = DynamicCastToRef<SequenceStep, ISequence>(&child).result();
     mContextChallenge = result.mContext.mChallenge;
     mContextChallenge.mScore.calcBonus();
     switch (result._0) {
@@ -839,8 +845,8 @@ void SequenceChallengeRoot::keepHighScore() {
 }
 #undef MF_FUNCTION
 
-const hel::common::RuntimeTypeInfo& SequenceChallengeRoot::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SequenceChallengeRoot>();
+const RuntimeTypeInfo& SequenceChallengeRoot::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SequenceChallengeRoot>();
 }
 
 }  // namespace seq

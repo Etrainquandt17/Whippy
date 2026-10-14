@@ -34,6 +34,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -43,7 +45,7 @@ StatePunch::StatePunch(Boss* boss, ScriptKind kind) : StateBase(boss), mDecel(bo
     obj().footState().setGround();
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(kind);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_1);
     obj().guard().setType(static_cast<GuardType>(4));
 }
 

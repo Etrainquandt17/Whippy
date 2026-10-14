@@ -37,6 +37,8 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -45,7 +47,7 @@ namespace fattybuffer {
 StateSwellWait::StateSwellWait(Boss* boss) : StateBase(boss) {
     obj().footState().setGround();
     obj().model().reqScript(0x13);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_4);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_4);
     obj().brainCtrl().toValid();
 }
 

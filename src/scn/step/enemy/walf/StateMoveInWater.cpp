@@ -27,6 +27,10 @@
 #include "scn/step/enemy/walf/StateMoveOnWater.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,7 +46,7 @@ StateMoveInWater::StateMoveInWater(Enemy* enemy)
 }
 
 void StateMoveInWater::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mMoveCounter.advanceIfNotEnd();
     if (mMoveCounter.isEnd()) {
         if (mIsFloating) {
@@ -62,21 +66,21 @@ void StateMoveInWater::procMove() {
     const ParamData& param = obj().param().walf();
     mJumpCounter.advanceIfNotEnd();
     if (mJumpCounter.frame() == param.mInWaterJumpFrame) {
-        obj().move().setVelocity(hel::math::Vector3(param.mInWaterSpeedH * obj().target().getSign(), param.mInWaterSpeedV, 0.0f));
+        obj().move().setVelocity(Vector3(param.mInWaterSpeedH * obj().target().getSign(), param.mInWaterSpeedV, 0.0f));
     }
     obj().move().decel(gobj::MoveParamDecel::Zero());
 }
 
 void StateMoveInWater::procFixPos() {
     const ParamData& param = obj().param().walf();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector2 offset = param.mInWaterWallOffset;
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 offset = param.mInWaterWallOffset;
     offset.x *= obj().target().getSign();
     offset.y -= 0.3f;
     if (obj().mapColl().result()._2 || !obj().water().isPosInWater(offset) || Utility::ChkNururiByDir(obj(), 0.1f)) {
         f32 x = obj().move().velocity().x * -1.0f;
         f32 y = obj().move().velocity().y;
-        obj().move().setVelocity(hel::math::Vector3(x, y, 0.0f));
+        obj().move().setVelocity(Vector3(x, y, 0.0f));
         obj().target().setIsRightDir(!obj().target().isRightDir());
     }
     if (custom.isFloating()) {
@@ -86,7 +90,7 @@ void StateMoveInWater::procFixPos() {
 }
 
 void StateMoveInWater::setBubbleEffect() {
-    if (!mIsFloating && obj().water().isPosInWater(hel::math::Vector2(0.0f, 1.0f))) {
+    if (!mIsFloating && obj().water().isPosInWater(Vector2(0.0f, 1.0f))) {
         obj().effect().normal().requestP(static_cast<effect::Kind>(0x133), obj().location().centerPos());
     }
 }

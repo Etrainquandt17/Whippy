@@ -23,6 +23,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -51,7 +53,7 @@ StateGuard::~StateGuard() {
 }
 
 void StateGuard::procAnim() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollGuard();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollGuard();
     Utility::TurnHatedHero(obj());
 }
 

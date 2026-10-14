@@ -5,6 +5,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/metalgeneralpatriotfire/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -28,8 +31,8 @@ bool Custom::onInit() {
     return true;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::metalgeneralpatriotfire

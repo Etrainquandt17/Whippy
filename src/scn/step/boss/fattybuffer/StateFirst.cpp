@@ -39,6 +39,8 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -48,7 +50,7 @@ namespace {
 
 // TODO: a stand-in. The original reads the two members at once into temporaries ranked in text order, as it does for
 // const value parameters of an inline function.
-inline void t_Trans(hel::geo::Rect& rect, const f32 x, const f32 y) {
+inline void t_Trans(Rect& rect, const f32 x, const f32 y) {
     rect.trans(x, y);
 }
 
@@ -72,7 +74,7 @@ void StateFirst::procFixPos() {
     if (mCount < 60) {
         mCount++;
     } else {
-        hel::geo::Rect viewRect = obj().comp().mainCamera().getViewRect();
+        Rect viewRect = obj().comp().mainCamera().getViewRect();
         bool canStart;
         if (Utility::IsStagingFirstAppear(obj())) {
             canStart = Utility::CanStartAppearance(obj(), -param._58);
@@ -80,8 +82,8 @@ void StateFirst::procFixPos() {
             canStart = Utility::CanStartAppearance(obj(), -param._5C, -param._60);
         }
         if (canStart) {
-            hel::geo::Rect rect(param.mAppearCameraLockTop, param.mAppearCameraLockBottom,
-                                param.mAppearCameraLockLeft, param.mAppearCameraLockRight);
+            Rect rect(param.mAppearCameraLockTop, param.mAppearCameraLockBottom,
+                      param.mAppearCameraLockLeft, param.mAppearCameraLockRight);
             t_Trans(rect, obj().basePos().x, obj().basePos().y);
             obj().comp().cameraController().setLock(rect);
             obj().stateChanger().setNextState<StateAppear, Boss*>(objPtr());

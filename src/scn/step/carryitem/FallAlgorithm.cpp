@@ -31,6 +31,11 @@
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/map/KindUtil.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -76,7 +81,7 @@ void FallAlgorithm::init() {
         setAttack();
     } else {
         mObj.footState().setGround();
-        hel::math::Vector3 velocity = mObj.move().velocity();
+        Vector3 velocity = mObj.move().velocity();
         velocity.y -= 0.0001f;
         mObj.move().setVelocity(velocity);
     }
@@ -85,7 +90,7 @@ void FallAlgorithm::init() {
         mObj.setIsEnableCarry(false);
     }
     mObj.vacuumReceiver().setIsValid(true);
-    mObj.objColl().addSearchHit(0, 0.5f, hel::math::Vector2(0.0f, 0.5f));
+    mObj.objColl().addSearchHit(0, 0.5f, Vector2(0.0f, 0.5f));
     if (mObj.kind() == 2 && mObj.comp().arenaManager().isArena()) {
         if (map::KindUtil::IsArenaRoomMap(mObj.comp().context().mapKind)) {
             mObj.comp().arenaManager().setBoxState(static_cast<scn::arena::ArenaData::BoxState>(3));
@@ -135,12 +140,12 @@ void FallAlgorithm::procAnim() {
 void FallAlgorithm::procMove() {
     if (mObj.water().isInWater()) {
         f32 max = t_param(mObj)._1C;
-        hel::math::Vector3 velocity = mObj.move().velocity();
-        if (max < hel::math::Math::Abs(velocity.x)) {
-            mObj.move().setSpeedH(max * static_cast<f32>(hel::math::Math::Sign(velocity.x)));
+        Vector3 velocity = mObj.move().velocity();
+        if (max < Math::Abs(velocity.x)) {
+            mObj.move().setSpeedH(max * static_cast<f32>(Math::Sign(velocity.x)));
         }
-        if (max < hel::math::Math::Abs(velocity.y)) {
-            mObj.move().setSpeedV(max * static_cast<f32>(hel::math::Math::Sign(velocity.y)));
+        if (max < Math::Abs(velocity.y)) {
+            mObj.move().setSpeedV(max * static_cast<f32>(Math::Sign(velocity.y)));
         }
     }
     gobj::MoveParamDecel decel = t_param(mObj)._20;
@@ -227,7 +232,7 @@ void FallAlgorithm::setIsBounded(bool isBounded) {
 }
 
 bool FallAlgorithm::isBreakEnemy(u64 uid) {
-    util::ObjRefHandle<enemy::Enemy> enemy = mObj.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
+    ObjRefHandle<enemy::Enemy> enemy = mObj.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
     if (enemy.isAlive()) {
         map::BinEnemyKind kind = enemy->kind();
         switch (kind) {
@@ -250,7 +255,7 @@ bool FallAlgorithm::isCollideBossOrEnemy() {
     }
     for (u32 i = 0; i < result.dataNum(); i++) {
         u64 uid = result.getData(i).mOwnerID;
-        util::ObjRefHandle<enemy::Enemy> enemy = mObj.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
+        ObjRefHandle<enemy::Enemy> enemy = mObj.comp().enemyManager().getEnemyByOCollOwnerUID(uid);
         bool isEnemy = false;
         if (enemy.isAlive()) {
             isEnemy = enemy->kind() != 0x64;
@@ -266,7 +271,7 @@ bool FallAlgorithm::isCollideBossOrEnemy() {
 void FallAlgorithm::setAttack() {
     mObj.objColl().clearAttack();
     if (mObj.isCatched()) {
-        obj().objColl().addAttack(0, t_param(mObj)._0, hel::math::Vector2(0.0f, 0.5f), hel::math::Vector2(0.0f, 0.5f), true);
+        obj().objColl().addAttack(0, t_param(mObj)._0, Vector2(0.0f, 0.5f), Vector2(0.0f, 0.5f), true);
         mObj.objColl().renewAttack();
     }
 }

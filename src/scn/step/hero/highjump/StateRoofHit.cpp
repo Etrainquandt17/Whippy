@@ -16,6 +16,9 @@
 #include "scn/step/hero/Utility.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -27,8 +30,8 @@ StateRoofHit::StateRoofHit(Hero* hero)
     obj().invincible().setPerm();
     f32 maxSpeedH = obj().param().highjump()._DC;
     f32 maxSpeedV = obj().param().highjump()._E0;
-    hel::math::Vector2 velocity = obj().move().velocity().getXY();
-    if (hel::math::Math::AbsF32(velocity.x) > maxSpeedH) {
+    Vector2 velocity = obj().move().velocity().getXY();
+    if (Math::AbsF32(velocity.x) > maxSpeedH) {
         obj().move().setSpeedH(maxSpeedH * obj().target().getSign());
     }
     if (velocity.y > maxSpeedV) {

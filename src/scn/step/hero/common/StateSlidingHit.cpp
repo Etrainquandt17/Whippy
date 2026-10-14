@@ -10,6 +10,8 @@
 #include "scn/step/hero/common/StateFall.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -19,8 +21,8 @@ StateSlidingHit::StateSlidingHit(Hero* hero)
     : StateBase(hero) {
     obj().footState().setAir();
     obj().model().script().start(0xD);
-    obj().move().setVelocity(hel::math::Vector3(-obj().target().getSign() * obj().param().common()._1B8,
-                                                obj().param().common()._1BC, 0.0f));
+    obj().move().setVelocity(Vector3(-obj().target().getSign() * obj().param().common()._1B8,
+                                     obj().param().common()._1BC, 0.0f));
 }
 
 StateSlidingHit::~StateSlidingHit() {}

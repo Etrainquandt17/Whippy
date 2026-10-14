@@ -19,6 +19,8 @@
 #include "scn/step/hero/common/StateFall.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -30,7 +32,7 @@ StateDashAttackWallHit::StateDashAttackWallHit(Hero* hero)
     obj().model().setFixDir(true);
     obj().model().script().start(0x153);
     const hel::math::Vec2& paramSpeed = obj().param().wing()._B0;
-    hel::math::Vector2 speed(paramSpeed.x, paramSpeed.y);
+    Vector2 speed(paramSpeed.x, paramSpeed.y);
     speed.x *= obj().model().getSign();
     obj().move().setVelocity(speed.toVector3());
     obj().invincible().set(0x14);

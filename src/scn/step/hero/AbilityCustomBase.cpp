@@ -1,5 +1,8 @@
 #include "scn/step/hero/AbilityCustomBase.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace hel {
 namespace common {
 
@@ -18,8 +21,8 @@ AbilityCustomBase::AbilityCustomBase(Hero& hero) : mHero(hero) {}
 
 AbilityCustomBase::~AbilityCustomBase() {}
 
-const hel::common::RuntimeTypeInfo& AbilityCustomBase::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<AbilityCustomBase>();
+const RuntimeTypeInfo& AbilityCustomBase::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<AbilityCustomBase>();
 }
 
 }}}  // namespace scn::step::hero

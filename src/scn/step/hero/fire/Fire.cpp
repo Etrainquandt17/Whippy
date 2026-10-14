@@ -18,6 +18,9 @@
 #include "scn/step/hero/fire/StateFireSpiral.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using g3d::ResFileAccessor;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -37,8 +40,8 @@ Fire::~Fire() {
 }
 
 void Fire::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/fire/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/fire/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(5, motion);
     mHero.model().hat().set(modeldesc::Fire::HatPath(), modeldesc::Fire::HatModel());
@@ -103,7 +106,7 @@ void Fire::requestHatFire() {
         mHero.model().hat().effect().requestN(static_cast<effect::Kind>(0x176), 1);
         Hero& hero = mHero;
         mHero.model().hat().effectWarp().requestN(static_cast<effect::Kind>(0x5CF), 2,
-            hel::math::Vector3(0.0f, mHero.param().fire()._E0, hero.param().fire()._DC), hero.param().fire()._E4);
+            Vector3(0.0f, mHero.param().fire()._E0, hero.param().fire()._DC), hero.param().fire()._E4);
         mIsHatFire = true;
     }
 }

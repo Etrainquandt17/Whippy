@@ -30,6 +30,8 @@
 #include "scn/step/map/MoveGroupAccessor.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -54,7 +56,7 @@ StateJumpStart::StateJumpStart(Hero* hero)
     obj().footState().setAir();
     mSpeedV = obj().param().common()._158;
     if (obj().mapColl().result().groupFloor().isValid()) {
-        obj().inertialMove().setVelocity(hel::math::Vector3(
+        obj().inertialMove().setVelocity(Vector3(
             obj().comp().mapLandManager().mgAccessor().deltaSafe(obj().mapColl().result().groupFloor().no())
                 .x,
             0.0f, 0.0f));

@@ -26,6 +26,9 @@
 #include "scn/step/enemy/doubtersnake/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +38,7 @@ StateEscapeNear::StateEscapeNear(Enemy* enemy) : StateBase(enemy), mFrame(0), mS
     const ParamData& param = obj().param().doubtersnake();
     obj().footState().setAir();
     mStartY = obj().groundChecker().getFloorPos().y;
-    obj().move().setVelocity(hel::math::Vector3(0.0f, 0.0f, param.mEscapeSpeedZ));
+    obj().move().setVelocity(Vector3(0.0f, 0.0f, param.mEscapeSpeedZ));
     obj().mapColl().setValid(false);
     obj().objColl().bodyColl().setStateXlu();
     obj().model().reqScript(3);
@@ -53,7 +56,7 @@ void StateEscapeNear::procAnim() {
     if (mAngle >= 360.0f) {
         mAngle -= 360.0f;
     }
-    f32 sin = hel::math::Math::SinDegF(mAngle);
+    f32 sin = Math::SinDegF(mAngle);
     obj().model().rotCtrl().setRotHTarget(30.0f * sin);
     if (mFrame == param.mEscapeJumpFrame) {
         mIsJump = true;

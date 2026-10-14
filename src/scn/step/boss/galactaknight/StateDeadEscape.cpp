@@ -56,6 +56,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,10 +68,10 @@ namespace galactaknight {
 
 StateDeadEscape::StateDeadEscape(Boss* boss)
     : StateBase(boss), mCount(0), mStartPos(boss->location().pos()), mVelocity(), mDir() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_0);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().reqScript(0x2C);
     obj().model().rotCtrl().initRotH(0.0f);
-    mDir.mFront = hel::math::Vector3::BASIS_X * obj().target().getSign();
+    mDir.mFront = Vector3::BASIS_X * obj().target().getSign();
     mDir.restructFrontUp();
     obj().worldCage().setIsValid(false);
 }
@@ -90,46 +95,46 @@ void StateDeadEscape::procAnim() {
 void StateDeadEscape::procMove() {
     const Param& param = obj().param().galactaknight();
     if (mCount > param._15C) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos += mVelocity;
         obj().location().setPos(pos);
         return;
     }
-    hel::math::Vector3 prevPos = obj().location().pos();
+    Vector3 prevPos = obj().location().pos();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._15C);
-    f32 ease = 1.0f - hel::math::Math::CosDegF(90.0f * t);
-    t = hel::math::Math::LinearInterpolation(t, ease, 0.85f);
-    f32 sin = hel::math::Math::SinDegF(90.0f * t);
-    f32 u = hel::math::Math::LinearInterpolation(t, sin, 0.8f);
-    hel::math::Vector3 pos = mStartPos;
-    pos.x += param._164 * hel::math::Math::SinDegF(180.0f * t) * obj().target().getSign();
-    pos.y += param._168 * (1.0f - hel::math::Math::CosDegF(90.0f * t));
-    f32 z = param._170 * (1.0f - hel::math::Math::CosDegF(90.0f * u));
-    pos.z += -param._16C * hel::math::Math::SinDegF(270.0f * u) + z;
+    f32 ease = 1.0f - Math::CosDegF(90.0f * t);
+    t = Math::LinearInterpolation(t, ease, 0.85f);
+    f32 sin = Math::SinDegF(90.0f * t);
+    f32 u = Math::LinearInterpolation(t, sin, 0.8f);
+    Vector3 pos = mStartPos;
+    pos.x += param._164 * Math::SinDegF(180.0f * t) * obj().target().getSign();
+    pos.y += param._168 * (1.0f - Math::CosDegF(90.0f * t));
+    f32 z = param._170 * (1.0f - Math::CosDegF(90.0f * u));
+    pos.z += -param._16C * Math::SinDegF(270.0f * u) + z;
     obj().location().setPos(pos);
     mVelocity = pos - prevPos;
-    hel::math::Vector3 dir = mVelocity;
+    Vector3 dir = mVelocity;
     if (!dir.isZeroLoose(0.00001f)) {
         dir.z *= 0.4f;
         dir.normalize();
         mDir.mFront = mDir.mFront.slerp(dir, 0.1f);
-        mDir.mUp = hel::math::Vector3::BASIS_Y;
+        mDir.mUp = Vector3::BASIS_Y;
         mDir.restructFrontUp();
     }
     f32 rot;
     if (t < 0.5f) {
-        f32 r = 1.0f - hel::math::Math::SinDegF(90.0f * (2.0f * t));
+        f32 r = 1.0f - Math::SinDegF(90.0f * (2.0f * t));
         rot = param._174 * (1.0f - r * r);
     } else {
         f32 v = 2.0f * (t - 0.5f);
         f32 v2 = v * v;
         f32 rate = 3.0f * v2 - 2.0f * v * v2;
-        rot = hel::math::Math::LinearInterpolation(param._174, param._178, rate);
+        rot = Math::LinearInterpolation(param._174, param._178, rate);
     }
     rot *= -obj().target().getSign();
     mDir.mUp.rotate(mDir.mFront, 0.017453292f * rot);
     mDir.restructUpFront();
-    hel::math::Matrix34 mtx(mDir, hel::math::Vector3::ZERO);
+    Matrix34 mtx(mDir, Vector3::ZERO);
     obj().model().model().nodes().at(1).localMtx().setRTMtx(mtx);
 }
 

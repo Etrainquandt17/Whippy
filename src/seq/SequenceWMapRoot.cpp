@@ -13,6 +13,12 @@
 #include "storage/StorageManager.h"
 #include "storage/StoryData.h"
 
+using app::Application;
+using hel::common::DynamicCastToRef;
+using hel::common::ExplicitSingleton;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace hel {
 namespace common {
 
@@ -37,7 +43,7 @@ inline scn::wmap::ItemKind t_shipItemKind(storage::BackupFileData& file, storage
 inline u32 t_latestLevel(storage::StoryMode mode) {
     for (u32 i = 0; i < 7; i++) {
         u32 level = 6 - i;
-        if (t_levelData(hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData().storyData(mode), level)._4) {
+        if (t_levelData(ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData().storyData(mode), level)._4) {
             return level;
         }
     }
@@ -79,13 +85,13 @@ SequenceWMapRoot::SequenceWMapRoot(const Recipe& recipe)
     , mContext(recipe.mContext)
     , mContextMode(scn::step::ContextMode::Create())
     , mLevelKind(scn::step::LEVEL_KIND_0) {
-    mItemKind = t_shipItemKind(hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData(),
+    mItemKind = t_shipItemKind(ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData(),
                                recipe.mContext.mStoryMode);
     _4AC = false;
     mMode = MODE_WMAP;
     for (u32 i = 0; i < 4; i++) {
         if (i != 0 && mContext.mHero.getIndivi(i)._0 != 0 && mContext.mHero.getIndivi(i)._0 != 1 &&
-            !hel::common::ExplicitSingleton<hid::HIDManager>::object_->gameWR(i).isConnected()) {
+            !ExplicitSingleton<hid::HIDManager>::object_->gameWR(i).isConnected()) {
             mContext.mHero.mIndivi[i]._0 = 1;
         }
     }
@@ -419,7 +425,7 @@ void SequenceWMapRoot::onSceneEndForWMap(scn::IScene& scene) {
     u32 last;
     u32 hash;
 
-    scn::wmap::SceneWMap::Result result = hel::common::DynamicCastToRef<scn::wmap::SceneWMap, scn::IScene>(&scene).result();
+    scn::wmap::SceneWMap::Result result = DynamicCastToRef<scn::wmap::SceneWMap, scn::IScene>(&scene).result();
     hash = 0x811C9DC5;
     asm {
         bl      after1
@@ -520,9 +526,9 @@ SequenceWMapRoot::Result SequenceWMapRoot::result() const {
 }
 
 void SequenceWMapRoot::onChildSequenceEndForLvMap(ISequence& child) {
-    SequenceLvMapRoot::Result result = hel::common::DynamicCastToRef<SequenceLvMapRoot, ISequence>(&child).result();
+    SequenceLvMapRoot::Result result = DynamicCastToRef<SequenceLvMapRoot, ISequence>(&child).result();
     mContext = result.mContext;
-    hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData().storyData(mContext.mStoryMode);
+    ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData().storyData(mContext.mStoryMode);
     if (result._480 == 3) {
         mfSetupClearDemo();
     } else {
@@ -554,7 +560,7 @@ void SequenceWMapRoot::onChildSequenceEndForShipMap(ISequence& child) {
     u32 size;
     u32 hash;
 
-    SequenceShipMapRoot::Result result = hel::common::DynamicCastToRef<SequenceShipMapRoot, ISequence>(&child).result();
+    SequenceShipMapRoot::Result result = DynamicCastToRef<SequenceShipMapRoot, ISequence>(&child).result();
     asm {
         bl      after1
         opword  MF_WORD(0x94)
@@ -627,7 +633,7 @@ void SequenceWMapRoot::mfSetupClearDemo() {
 }
 
 void SequenceWMapRoot::mfSetupClearDemoConnectToRepair() {
-    storage::StoryData& data = hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData().storyData(mContext.mStoryMode);
+    storage::StoryData& data = ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData().storyData(mContext.mStoryMode);
     mContextMode._0 = 1;
     mContextMode._10 = mLevelKind;
     mContext.mHero._C = 13;
@@ -646,7 +652,7 @@ void SequenceWMapRoot::mfSetupClearDemoConnectToRepair() {
 }
 
 void SequenceWMapRoot::mfSetupClearDemoConnectToLandiaInfo() {
-    storage::StoryData& data = hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData().storyData(mContext.mStoryMode);
+    storage::StoryData& data = ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData().storyData(mContext.mStoryMode);
     mContextMode = scn::step::ContextMode::Create();
     mContextMode._C = mContext.mStoryMode;
     mContextMode._10 = mLevelKind;
@@ -659,8 +665,8 @@ void SequenceWMapRoot::mfSetupClearDemoConnectToLandiaInfo() {
     }
 }
 
-const hel::common::RuntimeTypeInfo& SequenceWMapRoot::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SequenceWMapRoot>();
+const RuntimeTypeInfo& SequenceWMapRoot::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SequenceWMapRoot>();
 }
 
 }  // namespace seq

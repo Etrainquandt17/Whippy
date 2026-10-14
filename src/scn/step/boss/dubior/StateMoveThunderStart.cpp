@@ -13,6 +13,9 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -44,7 +47,7 @@ void StateMoveThunderStart::procAnim() {
 void StateMoveThunderStart::procMove() {
     const Param& param = obj().param().dubior();
     f32 rate = static_cast<f32>(mCount) / static_cast<f32>(param.mMoveThunderStartTime);
-    hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(mStartPos, mTargetPos, rate);
+    Vector2 pos = Math::LinearInterpolation(mStartPos, mTargetPos, rate);
     obj().location().setPos(pos.toVector3());
 }
 

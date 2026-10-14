@@ -22,6 +22,8 @@
 #include "scn/step/info/Manager.h"
 #include "scn/step/sfx/Wipe.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -62,7 +64,7 @@ void StateClearDance::procAnim() {
         mFrame++;
         if (InitiativeUtil::IsMine(obj())) {
             if (mFrame == 40) {
-                hel::math::Vector2 center = obj().comp().mainCamera().getWorldRect().getCenter();
+                Vector2 center = obj().comp().mainCamera().getWorldRect().getCenter();
                 center.y = 0.75f + obj().location().pos().y;
                 obj().comp().wipe().requestWipeOut(static_cast<sfx::WipeKind>(1), center.toVector3(), 0, 100);
             }

@@ -12,6 +12,8 @@
 #include "scn/step/hero/sleep/StateSleepSleep.h"
 #include "util/StateChanger.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -29,8 +31,8 @@ Sleep::~Sleep() {
 }
 
 void Sleep::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/sleep/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/sleep/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0xA, motion);
     mHero.model().hat().set(modeldesc::Sleep::HatPath(), modeldesc::Sleep::HatModel());

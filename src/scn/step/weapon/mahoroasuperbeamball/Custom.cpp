@@ -4,6 +4,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/mahoroasuperbeamball/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -17,13 +21,13 @@ bool Custom::onInit() {
     return true;
 }
 
-void Custom::reqStartGlide(const hel::math::Vector3& pos, u32 frame) {
+void Custom::reqStartGlide(const Vector3& pos, u32 frame) {
     mTargetPos = pos;
     mGlideTotalFrame = frame;
     mIsRequestedStartGlide = true;
 }
 
-hel::math::Vector3 Custom::getTargetPos() const {
+Vector3 Custom::getTargetPos() const {
     return mTargetPos;
 }
 
@@ -35,8 +39,8 @@ bool Custom::isRequestedStartGlide() const {
     return mIsRequestedStartGlide;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::mahoroasuperbeamball

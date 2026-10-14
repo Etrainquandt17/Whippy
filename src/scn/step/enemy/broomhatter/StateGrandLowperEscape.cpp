@@ -14,6 +14,8 @@
 #include "scn/step/enemy/VacuumReceiver.h"
 #include "scn/step/enemy/broomhatter/ParamData.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -23,7 +25,7 @@ StateGrandLowperEscape::StateGrandLowperEscape(Enemy* enemy) : StateBase(enemy) 
     const ParamData& param = obj().param().broomhatter();
     obj().footState().setAir();
     obj().model().reqScript(10);
-    hel::math::Vector3 velocity = param.mEscapeVelocity;
+    Vector3 velocity = param.mEscapeVelocity;
     obj().move().setVelocity(velocity);
     obj().mapColl().setValid(false);
     obj().objColl().bodyColl().setStateXlu();

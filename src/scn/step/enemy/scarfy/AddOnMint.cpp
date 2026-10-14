@@ -8,6 +8,8 @@
 #include "scn/step/enemy/scarfy/Custom.h"
 #include "scn/step/enemy/scarfy/StateEscape.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -16,7 +18,7 @@ namespace scarfy {
 namespace {
 
 bool t_IsAnger() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isAngerFlag();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isAngerFlag();
 }
 
 template <typename S>

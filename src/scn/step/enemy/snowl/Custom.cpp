@@ -29,6 +29,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,14 +46,14 @@ bool Custom::onInit() {
 }
 
 void Custom::requestBall() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     weapon::Desc desc(static_cast<weapon::Kind>(0x43), 0, static_cast<ostop::Flag>(4), pos, pos, obj().param().snowl().mBallVelocity,
                       obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

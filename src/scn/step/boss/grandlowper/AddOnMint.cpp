@@ -35,6 +35,9 @@
 #include "scn/step/boss/grandlowper/StateWarpIn.h"
 #include "scn/step/boss/grandlowper/StateWarpOut.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -46,7 +49,7 @@ namespace grandlowper {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_Wait() {
@@ -98,11 +101,11 @@ void t_SetNextState_WarpIn() {
 // TODO: the original passes the temporary to setNextState by value without copying it; the reference stands in
 // for that (see util/StateChanger.h), here and in every state change below that names the vector as one.
 void t_SetNextState_WarpOut(f32 x, f32 y, f32 z, bool _3) {
-    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const hel::math::Vector3&, bool>(&MintBoss::Obj(), hel::math::Vector3(x, y, z), _3);
+    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const Vector3&, bool>(&MintBoss::Obj(), Vector3(x, y, z), _3);
 }
 
 void t_SetNextState_WarpOutSpMove(f32 x, f32 y, f32 z) {
-    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const hel::math::Vector3&, bool, bool>(&MintBoss::Obj(), hel::math::Vector3(x, y, z), false, true);
+    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const Vector3&, bool, bool>(&MintBoss::Obj(), Vector3(x, y, z), false, true);
 }
 
 void t_SetNextState_DimensionSearch() {
@@ -134,8 +137,8 @@ void t_SetNextState_MoveToFar() {
 }
 
 void t_SetNextState_ShotBulletFar(f32 x, f32 y, bool _2) {
-    hel::math::Vector3 pos(x, y, 0.5f);
-    MintBoss::Obj().stateChanger().setNextState<StateShotBulletFar, Boss*, hel::math::Vector3, bool>(&MintBoss::Obj(), pos, _2);
+    Vector3 pos(x, y, 0.5f);
+    MintBoss::Obj().stateChanger().setNextState<StateShotBulletFar, Boss*, Vector3, bool>(&MintBoss::Obj(), pos, _2);
 }
 
 void t_SetNextState_HomingShot(int _0) {
@@ -151,8 +154,8 @@ void t_SetNextState_FireTackle(int _0, int _1) {
 }
 
 void t_SetNextState_FreezeAttack(f32 x, f32 y, int _2) {
-    hel::math::Vector3 pos(x, y, 0.0f);
-    MintBoss::Obj().stateChanger().setNextState<StateFreezeAttackStart, Boss*, hel::math::Vector3, u32>(&MintBoss::Obj(), pos, _2);
+    Vector3 pos(x, y, 0.0f);
+    MintBoss::Obj().stateChanger().setNextState<StateFreezeAttackStart, Boss*, Vector3, u32>(&MintBoss::Obj(), pos, _2);
 }
 
 void t_SetNextState_CoveredWait() {
@@ -164,7 +167,7 @@ void t_SetNextState_CoveredWarpIn() {
 }
 
 void t_SetNextState_CoveredWarpOut(f32 x, f32 y, f32 z) {
-    MintBoss::Obj().stateChanger().setNextState<StateCoveredWarpOut, Boss*, const hel::math::Vector3&>(&MintBoss::Obj(), hel::math::Vector3(x, y, z));
+    MintBoss::Obj().stateChanger().setNextState<StateCoveredWarpOut, Boss*, const Vector3&>(&MintBoss::Obj(), Vector3(x, y, z));
 }
 
 void t_SetNextState_Heal() {

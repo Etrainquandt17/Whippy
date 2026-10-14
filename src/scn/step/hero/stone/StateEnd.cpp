@@ -14,6 +14,8 @@
 #include "scn/step/hero/Utility.h"
 #include "scn/step/hero/Water.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -23,7 +25,7 @@ StateEnd::StateEnd(Hero* hero)
     : StateBase(hero) {
     obj().model().script().start(0xE1);
     f32 speed = obj().move().velocity().x;
-    if (!hel::math::Math::EqZero(speed)) {
+    if (!Math::EqZero(speed)) {
         obj().target().setIsRightDir(speed > 0.0f);
     }
     const StoneParam& param = obj().param().stone();

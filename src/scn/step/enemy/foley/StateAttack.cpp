@@ -38,6 +38,12 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -52,7 +58,7 @@ StateAttack::StateAttack(Enemy* enemy) : StateBase(enemy), _8(false), mFrame(0) 
     mAnimFrame = static_cast<u32>(static_cast<f32>(obj().model().anim().totalFrame()) / param.mAttackFrameRate);
     obj().model().model().nodes().at(1).setVisibility(false);
     obj().model().model().nodes().at(2).setVisibility(false);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setAttack(true);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setAttack(true);
     obj().effect().state().requestN(static_cast<effect::Kind>(0x43), 3);
 }
 
@@ -63,16 +69,16 @@ void StateAttack::procAnim() {
     mFrame++;
     if (obj().model().anim().currentG3DAnimIndex() == 3) {
         if (mFrame == 6) {
-            g3d::NodeAccessor node = obj().model().model().nodes().at(3);
-            hel::math::Vector2 pos = node.worldMtx().getT().getXY()
-                                     + hel::math::Vector2(obj().target().getSign() * obj().param().foley().mWeaponOffsetX, 0.0f);
+            NodeAccessor node = obj().model().model().nodes().at(3);
+            Vector2 pos = node.worldMtx().getT().getXY()
+                          + Vector2(obj().target().getSign() * obj().param().foley().mWeaponOffsetX, 0.0f);
             bool isRight = obj().target().isRightDir();
-            weapon::Desc desc(static_cast<weapon::Kind>(0x36), isRight, static_cast<ostop::Flag>(4), pos, hel::math::Vector2::ZERO,
+            weapon::Desc desc(static_cast<weapon::Kind>(0x36), isRight, static_cast<ostop::Flag>(4), pos, Vector2::ZERO,
                               obj().objColl().owner());
-            util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+            ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
             if (weapon.isAlive()) {
                 f32 scale = Utility::GetModelScaleBySizeType(obj());
-                weapon->model().setScale(hel::math::Vector3(scale, scale, scale));
+                weapon->model().setScale(Vector3(scale, scale, scale));
             }
         }
         if (obj().model().isAllEnd()) {
@@ -94,7 +100,7 @@ void StateAttack::procMove() {
 
 void StateAttack::procFixPos() {
     if (obj().mapColl().result().mIsHitFloor) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestRollExp();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).requestRollExp();
     }
 }
 

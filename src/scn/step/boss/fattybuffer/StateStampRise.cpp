@@ -40,6 +40,10 @@
 #include "scn/step/chara/WorldCage.h"
 #include "scn/step/hero/Manager.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -55,13 +59,13 @@ const StampParam& t_param(Boss& boss) {
 }
 
 StateStampRise::StateStampRise(Boss* boss, bool isChase) : StateBase(boss), mCount(0), mStartX(0.0f), mGoalX(0.0f), mIsChase(isChase) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xD);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().move().resetVelocity();
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 heroPos = obj().comp().heroManager().getNearestPlayerPos(pos);
+    Vector3 pos = obj().location().pos();
+    Vector3 heroPos = obj().comp().heroManager().getNearestPlayerPos(pos);
     mStartX = pos.x;
     mGoalX = heroPos.x;
     bool isRightDir = mStartX < mGoalX;
@@ -82,11 +86,11 @@ void StateStampRise::procAnim() {
 void StateStampRise::procMove() {
     const StampParam& param = t_param(obj());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mRiseFrame);
-    f32 s = 1.0f - hel::math::Math::SinDegF(90.0f * t);
+    f32 s = 1.0f - Math::SinDegF(90.0f * t);
     f32 rate = 1.0f - s * (s * s);
     f32 y = rate * param.mRiseHeight;
-    f32 x = hel::math::Math::Interpolate(mStartX, mGoalX, t);
-    obj().location().setPos(hel::math::Vector3(x, y + obj().basePos().y, 0.0f));
+    f32 x = Math::Interpolate(mStartX, mGoalX, t);
+    obj().location().setPos(Vector3(x, y + obj().basePos().y, 0.0f));
 }
 
 void StateStampRise::procFixPos() {}

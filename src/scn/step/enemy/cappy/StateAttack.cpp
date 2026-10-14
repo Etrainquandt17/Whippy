@@ -28,6 +28,10 @@
 #include "scn/step/enemy/common/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +44,7 @@ StateAttack::StateAttack(Enemy* enemy) : StateBase(enemy), mFrame(0) {
 }
 
 void StateAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const ParamData& param = obj().param().cappy();
     mFrame++;
     if (mFrame == param.mAttackStopFrame) {
@@ -57,16 +61,16 @@ void StateAttack::procAnim() {
 }
 
 void StateAttack::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const ParamData& param = obj().param().cappy();
     if (mFrame == param.mAttackThrowFrame + param.mAttackStopLength) {
         obj().model().model().nodes().at(3).setVisibility(true);
-        hel::math::Vector2 pos = obj().location().pos().getXY();
+        Vector2 pos = obj().location().pos().getXY();
         pos.y += param.mHatOffsetY * Utility::GetModelScaleBySizeType(obj());
         obj().setPotentialCount(1);
         Desc desc(static_cast<map::BinEnemyKind>(0x65), map::BinEnemyVariation_0, obj().level(), obj().dirType(), obj().size(), false,
                   false, pos);
-        util::ObjRefHandle<Enemy> hat = obj().comp().enemyManager().request(desc);
+        ObjRefHandle<Enemy> hat = obj().comp().enemyManager().request(desc);
         if (hat.isAlive()) {
             if (obj().objGenerator() != 0) {
                 ogen::Generator& generator = *obj().objGenerator();

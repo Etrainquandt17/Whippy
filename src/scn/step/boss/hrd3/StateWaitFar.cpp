@@ -52,13 +52,17 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
 StateWaitFar::StateWaitFar(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().brainCtrl().toValid();
     obj().target().setIsRightDir(false);
     obj().model().reqScript(0);
@@ -72,9 +76,9 @@ void StateWaitFar::procAnim() {}
 
 void StateWaitFar::procMove() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector3 goal(custom.landCtrl().getCenterX(), param._F8 + custom.landCtrl().getFloorY(), param._FC);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(obj().location().pos(), goal, 0.05f));
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 goal(custom.landCtrl().getCenterX(), param._F8 + custom.landCtrl().getFloorY(), param._FC);
+    obj().location().setPos(Math::LinearInterpolation(obj().location().pos(), goal, 0.05f));
 }
 
 void StateWaitFar::procFixPos() {}

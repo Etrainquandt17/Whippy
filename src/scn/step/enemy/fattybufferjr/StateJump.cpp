@@ -26,16 +26,19 @@
 #include "scn/step/enemy/fattybufferjr/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace fattybufferjr {
 
-StateJump::StateJump(Enemy* enemy, const hel::math::Vector3& velocity) : StateBase(enemy) {
+StateJump::StateJump(Enemy* enemy, const Vector3& velocity) : StateBase(enemy) {
     obj().footState().setAir();
     obj().model().reqScript(8);
     obj().move().setVelocity(velocity);
-    obj().target().setIsRightDir(app::Random::RandBool(0.5f));
+    obj().target().setIsRightDir(Random::RandBool(0.5f));
 }
 
 void StateJump::procAnim() {}

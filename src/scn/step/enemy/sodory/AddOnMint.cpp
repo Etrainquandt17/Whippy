@@ -17,6 +17,10 @@
 #include "scn/step/enemy/sodory/StateWait.h"
 #include "scn/step/enemy/sodory/StateWalkAround.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,12 +57,12 @@ const effect::Kind t_attackEffectKind = static_cast<effect::Kind>(0x64E);
 
 void t_Custom_AttackEffect() {
     f32 sign = MintEnemy::Obj()->target().getSign();
-    hel::math::Direction3 dir(hel::math::Vector3(sign, 0.0f, 0.0f), hel::math::Vector3(0.0f, 1.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, -sign));
+    Direction3 dir(Vector3(sign, 0.0f, 0.0f), Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, -sign));
     MintEnemy::Obj()->effect().state().requestND(t_attackEffectKind, 0, dir);
 }
 
 void t_Custom_SetDirection() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setDirection();
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setDirection();
 }
 
 }

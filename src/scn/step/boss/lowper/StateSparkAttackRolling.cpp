@@ -70,6 +70,14 @@
 #include "scn/step/weapon/lowperrollingspark/Custom.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -95,10 +103,10 @@ namespace lowper {
 
 StateSparkAttackRolling::StateSparkAttackRolling(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(), mGoalPos(), mRot(0.0f), mWeapons() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    f32 width = hel::math::Math::AbsF32(rect._C - rect._8);
-    f32 sign = hel::math::Math::Sign(obj().location().pos().x - obj().basePos().x);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    f32 width = Math::AbsF32(rect._C - rect._8);
+    f32 sign = Math::Sign(obj().location().pos().x - obj().basePos().x);
     mStartPos = obj().location().pos();
     mGoalPos.x = obj().basePos().x - sign * (0.5f * width - 0.5f);
     mGoalPos.y = mStartPos.y;
@@ -129,15 +137,15 @@ void StateSparkAttackRolling::procAnim() {
     f32 rotX = 360.0f * rate;
     mRot += 20.0f;
     {
-        g3d::NodeAccessor node = obj().model().model().nodes().at(3);
-        node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(rotX, 0.0f, 0.0f)) *
-                                 hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot, 0.0f)));
+        NodeAccessor node = obj().model().model().nodes().at(3);
+        node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(rotX, 0.0f, 0.0f)) *
+                                 Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot, 0.0f)));
     }
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos.y += 0.65f;
     for (int i = 0; i < 8; i++) {
         if (mWeapons[i].isAlive()) {
-            hel::common::DynamicCastToRef<weapon::lowperrollingspark::Custom, weapon::ICustom>(mWeapons[i].ref().custom())
+            DynamicCastToRef<weapon::lowperrollingspark::Custom, weapon::ICustom>(mWeapons[i].ref().custom())
                 .setCenterPos(pos);
         }
     }
@@ -145,8 +153,8 @@ void StateSparkAttackRolling::procAnim() {
 
 void StateSparkAttackRolling::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);
@@ -156,7 +164,7 @@ void StateSparkAttackRolling::procFixPos() {}
 
 void StateSparkAttackRolling::setAttack() {
     obj().objColl().clearAttack(1);
-    obj().objColl().addAttack(1, 0, 0.7f, hel::math::Vector2(0.0f, 0.65f));
+    obj().objColl().addAttack(1, 0, 0.7f, Vector2(0.0f, 0.65f));
     obj().effect().state().requestN(static_cast<effect::Kind>(0x39E), 3);
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(5));
     obj().soundSE().loop().start(0x1B2);
@@ -164,14 +172,14 @@ void StateSparkAttackRolling::setAttack() {
 }
 
 void StateSparkAttackRolling::reqWeapon() {
-    f32 sign = hel::math::Math::Sign(obj().location().pos().x - obj().basePos().x);
-    hel::math::Vector3 pos = obj().location().pos();
+    f32 sign = Math::Sign(obj().location().pos().x - obj().basePos().x);
+    Vector3 pos = obj().location().pos();
     pos.y += 0.65f;
-    weapon::Desc desc(static_cast<weapon::Kind>(0x82), 0, static_cast<ostop::Flag>(8), pos.getXY(), hel::math::Vector2::ZERO,
+    weapon::Desc desc(static_cast<weapon::Kind>(0x82), 0, static_cast<ostop::Flag>(8), pos.getXY(), Vector2::ZERO,
                       obj().objColl().owner());
     for (int i = 0; i < 4; i++) {
         f32 y = 1.25f * (i + 1);
-        hel::math::Vector2 offset(0.0f, y);
+        Vector2 offset(0.0f, y);
         desc._24 = offset;
         mWeapons[i * 2] = obj().comp().weaponManager().request(desc);
         desc._24 = -offset;
@@ -180,7 +188,7 @@ void StateSparkAttackRolling::reqWeapon() {
     for (int i = 0; i < 8; i++) {
         if (mWeapons[i].isAlive()) {
             weapon::lowperrollingspark::Custom& custom =
-                hel::common::DynamicCastToRef<weapon::lowperrollingspark::Custom, weapon::ICustom>(mWeapons[i].ref().custom());
+                DynamicCastToRef<weapon::lowperrollingspark::Custom, weapon::ICustom>(mWeapons[i].ref().custom());
             custom.setTotalFrame(mFrame);
             custom.setDelayFrame(i / 2 * 5);
             custom.setRotAngle(360.0f * sign);

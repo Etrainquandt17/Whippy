@@ -39,6 +39,8 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -46,7 +48,7 @@ namespace fattybuffer {
 
 StateStalactiteLanding::StateStalactiteLanding(Boss* boss, StalactiteJumpKind kind) : StateBase(boss), mKind(kind) {
     const Param& param = obj().param().fattybuffer();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().move().resetSpeedV();
@@ -85,7 +87,7 @@ StateStalactiteLanding::StateStalactiteLanding(Boss* boss, StalactiteJumpKind ki
 StateStalactiteLanding::~StateStalactiteLanding() {}
 
 void StateStalactiteLanding::procAnim() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).stalactiteCtrl().requestUpdate();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).stalactiteCtrl().requestUpdate();
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
     }

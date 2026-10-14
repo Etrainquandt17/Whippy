@@ -3,13 +3,15 @@
 #include "hel/common/PointerWrapper.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace chara {
 
 namespace {
 
-hel::common::PointerWrapper<ModelRotCtrl> t_obj;
+PointerWrapper<ModelRotCtrl> t_obj;
 
 }
 

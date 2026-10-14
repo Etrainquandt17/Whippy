@@ -25,6 +25,8 @@
 #include "scn/step/enemy/brontoburt/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -58,7 +60,7 @@ void StateFly::procMove() {
 
 void StateFly::procFixPos() {
     Utility::ChkNururiTurn(obj());
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     if (obj().mapColl().result().isHitWallFront()) {
         velocity.x = -velocity.x * 0.5f;
         obj().target().setIsRightDir(velocity.x > 0.0f);

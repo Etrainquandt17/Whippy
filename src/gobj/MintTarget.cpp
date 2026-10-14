@@ -4,11 +4,13 @@
 #include "hel/common/PointerWrapper.h"
 #include "hel/mint/AddOnMathDirection3.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<Target> t_obj;
+PointerWrapper<Target> t_obj;
 
 }
 

@@ -56,13 +56,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateAppear::StateAppear(Boss* boss) : StateBase(boss), mZoomHandle(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().setVisibility(true);
     if (custom.itemCtrl().isItemExist()) {

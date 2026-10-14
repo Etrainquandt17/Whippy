@@ -21,6 +21,9 @@
 #include "scn/step/hero/wing/StateShuttleLoopEnd.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -64,11 +67,11 @@ void StateShuttleLoop::procMove() {
     const WingParam& param = obj().param().wing();
     f32 t = obj().model().anim().frame() / obj().model().anim().totalFrame();
     f32 rate = 1.5f * t + -0.5f * t * t;
-    hel::math::Vector2 pos;
-    pos.x = param._C8 * hel::math::Math::SinDegF(rate * param._C4);
+    Vector2 pos;
+    pos.x = param._C8 * Math::SinDegF(rate * param._C4);
     pos.x *= obj().model().getSign();
-    pos.y = param._CC * (1.0f - hel::math::Math::CosDegF(rate * param._C4));
-    hel::math::Vector2 velocity = pos - mPrevPos;
+    pos.y = param._CC * (1.0f - Math::CosDegF(rate * param._C4));
+    Vector2 velocity = pos - mPrevPos;
     mPrevPos = pos;
     obj().move().setVelocity(velocity.toVector3());
     obj().move().decel(gobj::MoveParamDecel::Zero());

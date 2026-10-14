@@ -4,13 +4,15 @@
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace galactathunderspine {
 
 StateReady::StateReady(Weapon* weapon) : StateBase(weapon), mFrame(0) {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 5.5f;
     obj().effect().normal().requestP(static_cast<effect::Kind>(0x19E), pos);
 }

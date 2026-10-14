@@ -25,6 +25,8 @@
 #include "scn/step/hero/hammer/StateThrow.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -114,7 +116,7 @@ bool StateSpin::procObjCollReact() {
 }
 
 void StateSpin::turn() {
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     velocity.x *= -1.0f;
     obj().move().setVelocity(velocity);
     obj().target().invert();

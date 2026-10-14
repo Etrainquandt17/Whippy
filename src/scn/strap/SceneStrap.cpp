@@ -18,6 +18,12 @@
 #include "mem/Memory.h"
 #include "metafortress.h"
 
+using app::Application;
+using hel::common::Color;
+using hel::common::ExplicitSingleton;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 // TODO: hel/common/RuntimeTypeInfo.h does not define this yet; the unit holds its own copy.
 namespace hel {
 namespace common {
@@ -52,13 +58,13 @@ const char* T_LYT_RES = "strap/Main";
 SceneStrap::SceneStrap()
     : _4((GXColor){0xFF, 0xFF, 0xFF, 0xFF})
 #ifdef VERSION_SUKK01
-    , _C(lyt::LayoutContext(t_lytRes(), "Strap", hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
-    , _19C(lyt::LayoutContext(t_lytRes(), "Sideways", hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
+    , _C(lyt::LayoutContext(t_lytRes(), "Strap", ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
+    , _19C(lyt::LayoutContext(t_lytRes(), "Sideways", ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
 #else
-    , _C(lyt::LayoutContext(T_LYT_RES, "Strap", hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
-    , _19C(lyt::LayoutContext(T_LYT_RES, "Sideways", hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
+    , _C(lyt::LayoutContext(T_LYT_RES, "Strap", ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
+    , _19C(lyt::LayoutContext(T_LYT_RES, "Sideways", ExplicitSingleton<mem::Memory>::object_->sceneHeap()))
 #endif
-    , _32C(hel::common::Color::BLACK)
+    , _32C(Color::BLACK)
     , _334(0)
     , _338()
     , _340(false) {
@@ -116,13 +122,13 @@ SceneStrap::SceneStrap()
         lwz     r15, 0x0(r19)
         stw     r15, expected
     }
-    if (!hel::common::ExplicitSingleton<gfx::VISetting>::object_->_8) {
-        hel::common::ExplicitSingleton<app::Application>::object_->gameScreen().setScreenType(gfx::GameScreen::SCREEN_TYPE_0);
+    if (!ExplicitSingleton<gfx::VISetting>::object_->_8) {
+        ExplicitSingleton<Application>::object_->gameScreen().setScreenType(gfx::GameScreen::SCREEN_TYPE_0);
     }
     hash += hash << 3;
     hash ^= hash >> 11;
     hash += hash << 15;
-    hel::common::ExplicitSingleton<hbm::HomeButtonMenu>::object_->setIgnore(expected == hash);
+    ExplicitSingleton<hbm::HomeButtonMenu>::object_->setIgnore(expected == hash);
 }
 #undef MF_FUNCTION
 
@@ -177,7 +183,7 @@ SceneStrap::~SceneStrap() {
     hash += hash << 5;
     hash -= expected;
     if (hash == 0) {
-        hel::common::ExplicitSingleton<hbm::HomeButtonMenu>::object_->setIgnore(false);
+        ExplicitSingleton<hbm::HomeButtonMenu>::object_->setIgnore(false);
     } else {
         asm {
             bl      after3
@@ -220,8 +226,8 @@ void SceneStrap::updateUseGPU() {
 
 void SceneStrap::updateMain() {
     _19C.updateFrame();
-    if (!_340 && !hel::common::ExplicitSingleton<app::Application>::object_->residentFile().isLoading()) {
-        hel::common::ExplicitSingleton<app::Application>::Object().fdgManager().preLoad("StepCommon.dn", file::DNOption());
+    if (!_340 && !ExplicitSingleton<Application>::object_->residentFile().isLoading()) {
+        ExplicitSingleton<Application>::Object().fdgManager().preLoad("StepCommon.dn", file::DNOption());
         _340 = true;
     }
     switch (_334) {
@@ -231,7 +237,7 @@ void SceneStrap::updateMain() {
         if (_338.isEnd()) {
             _338.reset(60);
             _334 = 1;
-            _32C.setColor(hel::common::Color::WHITE);
+            _32C.setColor(Color::WHITE);
         }
         break;
     case 1:
@@ -239,7 +245,7 @@ void SceneStrap::updateMain() {
         if (_338.isEnd()) {
             _338.reset(1140);
             _334 = 2;
-            hel::common::ExplicitSingleton<hbm::HomeButtonMenu>::object_->setIgnore(false);
+            ExplicitSingleton<hbm::HomeButtonMenu>::object_->setIgnore(false);
         }
         break;
     case 2:
@@ -314,12 +320,12 @@ bool SceneStrap::isSceneEnd() const {
 }
 
 bool SceneStrap::isButtonReceived() const {
-    hid::SimpleWRHID wr = hel::common::ExplicitSingleton<hid::HIDManager>::object_->gameWR(0);
+    hid::SimpleWRHID wr = ExplicitSingleton<hid::HIDManager>::object_->gameWR(0);
     return wr.button().isTrigger(0x1F1F) || wr.buttonClassic().isTrigger(0xF6FF);
 }
 
-const hel::common::RuntimeTypeInfo& SceneStrap::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SceneStrap>();
+const RuntimeTypeInfo& SceneStrap::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SceneStrap>();
 }
 
 }}  // namespace scn::strap

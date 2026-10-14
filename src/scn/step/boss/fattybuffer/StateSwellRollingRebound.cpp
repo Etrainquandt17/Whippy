@@ -38,6 +38,9 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -48,9 +51,9 @@ StateSwellRollingRebound::StateSwellRollingRebound(Boss* boss) : StateBase(boss)
     obj().target().invert();
     obj().model().rotCtrl().setRotHIntoTarget();
     obj().model().reqScript(0x1A);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_4);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_4);
     const Param& param = obj().param().fattybuffer();
-    obj().move().setVelocity(hel::math::Vector3(param._104 * obj().target().getSign(), param._108, 0.0f));
+    obj().move().setVelocity(Vector3(param._104 * obj().target().getSign(), param._108, 0.0f));
 }
 
 StateSwellRollingRebound::~StateSwellRollingRebound() {}

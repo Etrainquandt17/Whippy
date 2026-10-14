@@ -33,6 +33,12 @@
 #include "scn/step/hero/ObjColl.h"
 #include "util/ObjRefHandle.h"
 
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +47,7 @@ namespace damage {
 namespace {
 
 // TODO: hel::math::Vector2::normalize(), which the original expands here and the shared header only declares.
-inline f32 t_Normalize(hel::math::Vector2& v) {
+inline f32 t_Normalize(Vector2& v) {
     f32 len = v.length();
     if (len == 0.0f) {
         return len;
@@ -63,26 +69,26 @@ StateThrownFighter::StateThrownFighter(Enemy* enemy, u64 ownerUid)
     obj().model().reqScript(6);
     obj().objColl().bodyColl().setStateXlu();
     obj().damageFlash().set(ocoll::ELEMENT_0);
-    bool isBackThrow = hel::math::Math::Abs(obj().move().velocity().x) == 0.3f;
+    bool isBackThrow = Math::Abs(obj().move().velocity().x) == 0.3f;
     if (isBackThrow) {
         obj().effect().state().requestN(static_cast<effect::Kind>(0x16a), 0);
     }
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
     if (hero.isAlive()) {
         ::ocoll::Owner& owner = hero->objColl().objColl().owner();
         obj().objColl().owner().setParentInterim(owner);
         ocoll::AttackType type = isBackThrow ? static_cast<ocoll::AttackType>(0x102) : static_cast<ocoll::AttackType>(0x100);
         obj().objColl().setAttackType(0, type);
-        hel::math::Vector2 offset = enemy::Utility::GetDefaultCenterOffset(obj()).getXY();
+        Vector2 offset = enemy::Utility::GetDefaultCenterOffset(obj()).getXY();
         obj().objColl().addAttack(0, 0, 0.8f, offset, offset, true);
     }
     if (!isBackThrow) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += 0.3f;
         obj().location().setPos(pos);
     }
     if (obj().move().velocity().isZeroLoose(0.00001f)) {
-        obj().move().setVelocity(hel::math::Vector3(0.05f * obj().target().getSign(), 0.1f, 0.0f));
+        obj().move().setVelocity(Vector3(0.05f * obj().target().getSign(), 0.1f, 0.0f));
     }
 }
 
@@ -111,9 +117,9 @@ void StateThrownFighter::procAnim() {
             mRot += 360.0f;
         }
         if (!mIsReflected) {
-            hel::math::Vector2 dir = obj().move().velocity().getXY();
+            Vector2 dir = obj().move().velocity().getXY();
             t_Normalize(dir);
-            f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(dir);
+            f32 angle = Vector2::BASIS_Y.signedAngle(dir);
             obj().model().rotCtrl().setRotV(57.29578f * angle);
             obj().model().rotCtrl().setRotH(mRot);
         } else {
@@ -134,8 +140,8 @@ void StateThrownFighter::procFixPos() {
         mIsReflected = isReflect;
     }
     chara::MapCollResult result = obj().mapColl().result();
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    hel::math::Vector3 pos = obj().location().pos();
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    Vector3 pos = obj().location().pos();
     if (mWait != 0) {
         mWait--;
     } else if (result.mIsHitFloor || t_IsHitWall(result) || pos.y > rect._0 || pos.x < rect._8 || pos.x > rect._C) {

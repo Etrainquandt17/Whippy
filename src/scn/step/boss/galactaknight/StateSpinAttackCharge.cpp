@@ -53,6 +53,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +62,7 @@ namespace galactaknight {
 
 StateSpinAttackCharge::StateSpinAttackCharge(Boss* boss, u32 frame, f32 distance, u32 count)
     : StateBase(boss), mFrame(frame), mIsStart(false), mDistance(distance), mCount(count) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().guard().setType(static_cast<GuardType>(1));
     obj().model().reqScript(0x19);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);

@@ -9,6 +9,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/roahboomerang/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -27,8 +30,8 @@ void Custom::reqCustomDeadEffect() {
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x7A), obj().location().pos());
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::roahboomerang

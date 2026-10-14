@@ -11,6 +11,9 @@
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/camera/MainCamera.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -28,9 +31,9 @@ void CameraCtrl::update() {
 
 void CameraCtrl::setMain() {
     const Param& param = mBoss.param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(mBoss.custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(mBoss.custom());
     f32 width = param._2C * mBoss.comp().mainCamera().getAspect();
-    hel::geo::Rect rect(param._2C + param._30, param._30, -0.5f * width, 0.5f * width);
+    Rect rect(param._2C + param._30, param._30, -0.5f * width, 0.5f * width);
     rect.trans(custom.landCtrl().getCenterX(), custom.landCtrl().getFloorY());
     mBoss.comp().cameraController().unsetLock();
     mBoss.comp().cameraController().setLock(rect);
@@ -40,10 +43,10 @@ void CameraCtrl::setMain() {
 
 void CameraCtrl::setZoomOut() {
     const Param& param = mBoss.param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(mBoss.custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(mBoss.custom());
     mCount = param._3C;
     f32 width = param._34 * mBoss.comp().mainCamera().getAspect();
-    hel::geo::Rect rect(param._34 + param._38, param._38, -0.5f * width, 0.5f * width);
+    Rect rect(param._34 + param._38, param._38, -0.5f * width, 0.5f * width);
     rect.trans(custom.landCtrl().getCenterX(), custom.landCtrl().getFloorY());
     mBoss.comp().cameraController().unsetLock();
     mBoss.comp().cameraController().setLock(rect);

@@ -14,6 +14,10 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/scarfy/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -27,13 +31,13 @@ StateEscape::StateEscape(Enemy* enemy) : StateBase(enemy) {
 void StateEscape::procMove() {
     const ParamData& param = obj().param().scarfy();
     if (Utility::IsPlayerExist(obj())) {
-        hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+        Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
         obj().target().setIsRightDir(obj().location().pos().x > playerPos.x);
-        hel::math::Vector3 velocity = obj().move().velocity();
+        Vector3 velocity = obj().move().velocity();
         velocity.x += param.mEscapeAccelX * getSpd() * obj().target().getSign();
-        velocity.x = hel::math::Math::Limit(velocity.x, param.mEscapeSpeedLimitX * getSpdLimit());
+        velocity.x = Math::Limit(velocity.x, param.mEscapeSpeedLimitX * getSpdLimit());
         velocity.y += param.mEscapeAccelY * getSpd();
-        velocity.y = hel::math::Math::Limit(velocity.y, param.mEscapeSpeedLimitY * getSpdLimit());
+        velocity.y = Math::Limit(velocity.y, param.mEscapeSpeedLimitY * getSpdLimit());
         obj().move().setVelocity(velocity);
     }
     obj().move().airDecelFall(gobj::MoveParamDecel::Zero(), gobj::MoveParamFall::Zero());

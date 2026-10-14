@@ -22,6 +22,9 @@
 #include "scn/step/boss/watergalboros/StateQuivery.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::common::DynamicCast;
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -33,7 +36,7 @@ namespace watergalboros {
 namespace {
 
 Custom* t_custom() {
-    return hel::common::DynamicCast<Custom*, ICustom>(MintBoss::Obj().custom());
+    return DynamicCast<Custom*, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_JumpSmall() {
@@ -43,8 +46,8 @@ void t_SetNextState_JumpSmall() {
         param._24,
         gobj::MoveParamDecel::Create(0.0f),
         param._2C,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         false,
         static_cast<common::StateJumpDesc::LandingAnimType>(1),
         false,
@@ -64,8 +67,8 @@ void t_SetNextState_Jump() {
         param._24,
         gobj::MoveParamDecel::Create(0.0f),
         param._2C,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         true,
         static_cast<common::StateJumpDesc::LandingAnimType>(1),
         false,

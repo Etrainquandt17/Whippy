@@ -19,6 +19,8 @@
 #include "scn/step/enemy/tsukikage/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ void StateAttack::procAnim() {
     mFrame++;
     if (mFrame == param.mShurikenFrame + 1) {
         obj().soundSE().start(0x2ee);
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestShuriken();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).requestShuriken();
     }
     if (obj().model().isAllEnd()) {
         obj().brainCtrl().toValid();

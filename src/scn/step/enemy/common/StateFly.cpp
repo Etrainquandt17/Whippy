@@ -10,6 +10,8 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Utility.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,7 +32,7 @@ void StateFly::procMove() {
     const gobj::MoveParamFall& fall = gobj::MoveParamFall::Create(0.0f, 0.0f, 0.02f);
     obj().move().airDecelFall(decel, fall);
     if (Utility::IsPlayerExist(obj())) {
-        hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+        Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
         bool isRight = playerPos.x > obj().location().pos().x;
         if (isRight != obj().target().isRightDir()) {
             mCount++;

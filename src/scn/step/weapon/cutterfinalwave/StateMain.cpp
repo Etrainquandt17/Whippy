@@ -14,6 +14,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/cutterfinalwave/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -22,7 +25,7 @@ namespace cutterfinalwave {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0) {
     const Param& param = obj().param().cutterFinalWave();
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x37));
-    obj().objColl().addAttack(0, param._0, hel::math::Vector2(param._4, param._8), hel::math::Vector2(param._C, param._10));
+    obj().objColl().addAttack(0, param._0, Vector2(param._4, param._8), Vector2(param._C, param._10));
     obj().effect().normal().requestND(static_cast<effect::Kind>(0xCD), 0, obj().target().getDirection3());
 }
 
@@ -48,7 +51,7 @@ void StateMain::procFixPos() {
 
 void StateMain::procObjCollReact() {
     if (!obj().objColl().attack().isCollide() && !obj().objColl().attack().isCollideGimmick() && obj().mapColl().isHit()) {
-        if (hel::math::Math::Abs(obj().mapColl().normal().x) > 0.75f) {
+        if (Math::Abs(obj().mapColl().normal().x) > 0.75f) {
             obj().dead();
         }
     }

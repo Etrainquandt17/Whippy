@@ -15,13 +15,16 @@
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateMove::StateMove(Boss* boss, Config config) : StateBase(boss), mCount(0), mStartPos(), mGoalPos(), mConfig(config) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     custom.waftCtrl().setWaveWidthZero();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -43,10 +46,10 @@ void StateMove::procAnim() {
 }
 
 void StateMove::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mConfig._0);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    custom.waftCtrl().setRefPos(hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
+    f32 rate = Math::SinDegF(90.0f * t);
+    custom.waftCtrl().setRefPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
 }
 
 void StateMove::procFixPos() {}

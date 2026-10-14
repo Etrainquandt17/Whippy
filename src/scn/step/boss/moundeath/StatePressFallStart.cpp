@@ -50,6 +50,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -77,7 +79,7 @@ StatePressFallStart::StatePressFallStart(Boss* boss, JumpKind kind) : StateBase(
         obj().objColl().bodyColl().initAttackType(static_cast<ocoll::AttackType>(0x1AC));
         break;
     }
-    obj().move().setVelocity(hel::math::Vector3(0.0f, speed, 0.0f));
+    obj().move().setVelocity(Vector3(0.0f, speed, 0.0f));
 }
 
 StatePressFallStart::~StatePressFallStart() {

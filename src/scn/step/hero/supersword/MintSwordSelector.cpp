@@ -3,6 +3,8 @@
 #include "hel/common/PointerWrapper.h"
 #include "scn/step/hero/supersword/SwordSelector.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -10,7 +12,7 @@ namespace supersword {
 
 namespace {
 
-hel::common::PointerWrapper<SwordSelector> t_obj;
+PointerWrapper<SwordSelector> t_obj;
 
 }
 

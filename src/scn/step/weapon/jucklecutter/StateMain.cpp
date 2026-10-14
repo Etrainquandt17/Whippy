@@ -24,6 +24,9 @@
 #include "scn/step/weapon/jucklecutter/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -42,7 +45,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(0.0f) {
 
 void StateMain::procAnim() {
     _C += obj().param().juckleCutter()._8;
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_X, _C);
+    Matrix34 mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_X, _C);
     obj().model().model().nodes().at(2).localMtx().setRTMtx(mtx);
 }
 
@@ -53,7 +56,7 @@ void StateMain::procMove() {
 void StateMain::procFixPos() {
     if (++_8 == 250 || obj().mapColl().isHit() || obj().objColl().attack().isCollide() || obj().objColl().attack().isCollideGimmick() ||
         obj().objColl().hit().isCollide()) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += 0.5f;
         obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0xCF), pos);
         obj().soundSE().stop();

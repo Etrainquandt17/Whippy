@@ -8,6 +8,12 @@
 #include "lyt/LayoutContext.h"
 #include "metafortress.h"
 
+using app::Application;
+using app::BackupFileAccessor;
+using app::Message;
+using app::SAVE_INFO_LAYOUT_KIND_1;
+using hel::common::ExplicitSingleton;
+
 namespace scn {
 namespace titlemenunew {
 
@@ -54,7 +60,7 @@ FileNumber::FileNumber(mem::IAllocator& allocator, const lyt::PaneAccessor& pare
         stw     r24, expected
     }
     hash = 0xB3;
-    mLayout.pane("FileN").setText(app::Message::TextTitleMenu("File"));
+    mLayout.pane("FileN").setText(Message::TextTitleMenu("File"));
     i = -1;
     while (i != size - 1) {
         i += 2;
@@ -115,7 +121,7 @@ FileNumber::FileNumber(mem::IAllocator& allocator, const lyt::PaneAccessor& pare
 
 FileNumber::~FileNumber() {
     if (_4B4 == 3) {
-        app::BackupFileAccessor::Save(app::SAVE_INFO_LAYOUT_KIND_1);
+        BackupFileAccessor::Save(SAVE_INFO_LAYOUT_KIND_1);
     }
 }
 
@@ -132,12 +138,12 @@ void FileNumber::updateFrame() {
         break;
     case 3:
         if (mLayout.isAnimEnd()) {
-            app::BackupFileAccessor::Save(app::SAVE_INFO_LAYOUT_KIND_1);
+            BackupFileAccessor::Save(SAVE_INFO_LAYOUT_KIND_1);
             _4B4 = 4;
         }
         break;
     case 4:
-        if (!hel::common::ExplicitSingleton<app::Application>::object_->saveInfo().isDisplayNow()) {
+        if (!ExplicitSingleton<Application>::object_->saveInfo().isDisplayNow()) {
             _4B4 = 0;
             if (_4B8) {
                 in();
@@ -192,7 +198,7 @@ void FileNumber::update(u32 file) {
     }
     hash ^= hash >> 10;
     hash ^= hash << 20;
-    if (hash - expected == 0 && app::BackupFileAccessor(file).completed()) {
+    if (hash - expected == 0 && BackupFileAccessor(file).completed()) {
         mCompleteMark.show();
         mCompleteMark.select();
     } else {
@@ -237,7 +243,7 @@ void FileNumber::save() {
 }
 
 void FileNumber::show() {
-    if (hel::common::ExplicitSingleton<app::Application>::object_->saveInfo().isDisplayNow()) {
+    if (ExplicitSingleton<Application>::object_->saveInfo().isDisplayNow()) {
         _4B4 = 4;
     } else {
         mLayout.rootPane().show();

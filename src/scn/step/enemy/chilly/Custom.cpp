@@ -9,6 +9,10 @@
 #include "scn/step/enemy/Effect.h"
 #include "scn/step/enemy/Enemy.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -22,13 +26,13 @@ bool Custom::onInit() {
 }
 
 void Custom::setupSuperEnemyEffect() {
-    hel::math::Vector3 center = obj().location().toCenter();
+    Vector3 center = obj().location().toCenter();
     obj().effect().super().requestN(effect::KIND_132, 0, center);
     obj().effect().super().requestN(static_cast<effect::Kind>(0x30a), 1);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

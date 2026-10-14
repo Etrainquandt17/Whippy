@@ -26,6 +26,8 @@
 #include "scn/step/sfx/DarknessLightSizeKind.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -51,10 +53,10 @@ void StateBeamWaveShot::procAnim() {
     if (mFrame == obj().param().beam()._2C) {
         obj().move().resetSpeedV();
         obj().move().setSpeedH(obj().target().getSign() * obj().param().beam()._30);
-        hel::math::Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
+        Vector2 pos = static_cast<const Hero&>(obj()).location().pos().getXY();
         pos.y += 0.6f;
-        hel::math::Vector2 weaponPos = pos;
-        hel::math::Vector2 speed(obj().param().beam()._34 * obj().target().getSign(), 0.0f);
+        Vector2 weaponPos = pos;
+        Vector2 speed(obj().param().beam()._34 * obj().target().getSign(), 0.0f);
         weapon::Desc desc;
         desc.mKind = static_cast<weapon::Kind>(0x17);
         desc.mVariation = 0;

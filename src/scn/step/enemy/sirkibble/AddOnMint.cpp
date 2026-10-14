@@ -9,6 +9,8 @@
 #include "scn/step/enemy/sirkibble/StateAttack.h"
 #include "scn/step/enemy/sirkibble/StateJump.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,15 +27,15 @@ void t_SetNextState_Jump() {
 }
 
 void t_Custom_ChkPlayerPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).chkPlayerPos();
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).chkPlayerPos();
 }
 
 bool t_Custom_IsPlayerUpPos() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerUpPos();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerUpPos();
 }
 
 bool t_Custom_IsChangeDirType() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isChangeDirType();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isChangeDirType();
 }
 
 }

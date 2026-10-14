@@ -13,6 +13,8 @@
 #include "scn/step/hero/sword/StateSwordChopping.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -25,7 +27,7 @@ StateSwordChoppingHit::StateSwordChoppingHit(Hero* hero)
     obj().model().setFixDir(true);
     obj().model().script().start(0xD);
     f32 sign = obj().model().isRightDir() ? -1.0f : 1.0f;
-    obj().move().setVelocity(hel::math::Vector3(0.05f * sign, 0.275f, 0.0f));
+    obj().move().setVelocity(Vector3(0.05f * sign, 0.275f, 0.0f));
 }
 
 StateSwordChoppingHit::~StateSwordChoppingHit() {

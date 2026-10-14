@@ -16,6 +16,8 @@
 #include "scn/step/hero/tornado/StateGust.h"
 #include "scn/step/hero/tornado/StateScrewTackle.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -35,8 +37,8 @@ Tornado::~Tornado() {
 }
 
 void Tornado::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/tornado/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/tornado/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0xE, motion);
     mHero.model().hat().set(modeldesc::Tornado::HatPath(), modeldesc::Tornado::HatModel());

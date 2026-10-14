@@ -22,13 +22,18 @@
 #include "scn/step/chara/Model.h"
 #include "util/ObjList.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateStormEnd::StateStormEnd(Boss* boss, Config config) : StateBase(boss), mConfig(config) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(18);
     custom.mahoroaCtrl().getCustom().reqMotionStormEnd();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -40,14 +45,14 @@ StateStormEnd::StateStormEnd(Boss* boss, Config config) : StateBase(boss), mConf
 #endif
     if (mConfig.mKind == StormKind_Circle) {
         obj().model().model().nodes().at(1).localMtx().setRTMtx(
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, custom.rotCtrl().getLocalMtxTempRot().z)) *
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mConfig.mRotX, 0.0f, 0.0f)) *
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 90.0f * obj().target().getSign(), 0.0f)));
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, custom.rotCtrl().getLocalMtxTempRot().z)) *
+            Matrix34::CreateRotXYZDeg(Vector3(mConfig.mRotX, 0.0f, 0.0f)) *
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, 90.0f * obj().target().getSign(), 0.0f)));
     }
 }
 
 StateStormEnd::~StateStormEnd() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!obj().model().isAllEnd()) {
         obj().effect().state().releaseAndVanish();
     }
@@ -58,21 +63,21 @@ StateStormEnd::~StateStormEnd() {
 
 void StateStormEnd::procAnim() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
         return;
     }
     if (mConfig.mKind == StormKind_Circle) {
         f32 rate = obj().model().anim().frame() / static_cast<f32>(obj().model().anim().totalFrame());
-        f32 rotX = mConfig.mRotX * hel::math::Math::CosDegF(90.0f * rate);
-        f32 rotY = hel::math::Math::LinearInterpolation(90.0f * obj().target().getSign(), param.mRotYMax * obj().target().getSign(),
-                                                        hel::math::Math::SinDegF(90.0f * rate));
-        f32 rotZ = hel::math::Math::CosDegF(90.0f * rate) * custom.rotCtrl().getLocalMtxTempRot().z;
+        f32 rotX = mConfig.mRotX * Math::CosDegF(90.0f * rate);
+        f32 rotY = Math::LinearInterpolation(90.0f * obj().target().getSign(), param.mRotYMax * obj().target().getSign(),
+                                             Math::SinDegF(90.0f * rate));
+        f32 rotZ = Math::CosDegF(90.0f * rate) * custom.rotCtrl().getLocalMtxTempRot().z;
         obj().model().model().nodes().at(1).localMtx().setRTMtx(
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, rotZ)) *
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(rotX, 0.0f, 0.0f)) *
-            hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, rotY, 0.0f)));
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, rotZ)) *
+            Matrix34::CreateRotXYZDeg(Vector3(rotX, 0.0f, 0.0f)) *
+            Matrix34::CreateRotXYZDeg(Vector3(0.0f, rotY, 0.0f)));
         custom.rotCtrl().setLocalMtxTempRot(rotX, rotY, rotZ);
     }
 }

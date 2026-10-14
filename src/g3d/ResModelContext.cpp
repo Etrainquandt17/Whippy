@@ -1,5 +1,7 @@
 #include "g3d/ResModelContext.h"
 
+using hel::common::FixedStringIN;
+
 namespace g3d {
 
 const char* ResModelContext::DefaultEntryName() {
@@ -8,6 +10,6 @@ const char* ResModelContext::DefaultEntryName() {
 
 ResModelContext::ResModelContext(const ResFileAccessor& resFile, const char* name)
     : mResFile(resFile)
-    , mName(hel::common::FixedStringIN<char, 40>::FromFormat("%s", name)) {}
+    , mName(FixedStringIN<char, 40>::FromFormat("%s", name)) {}
 
 }  // namespace g3d

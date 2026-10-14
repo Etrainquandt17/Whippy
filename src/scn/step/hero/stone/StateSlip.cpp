@@ -22,6 +22,10 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -47,7 +51,7 @@ StateSlip::StateSlip(Hero* hero, Context& context)
 StateSlip::~StateSlip() {
     Utility::OnStateEndChange(obj());
     if (!isSpeedZero()) {
-        hel::math::Vector3 velocity = obj().move().velocity();
+        Vector3 velocity = obj().move().velocity();
         velocity.setLength(param(obj())._10);
         obj().move().setVelocity(velocity);
     }
@@ -69,7 +73,7 @@ void StateSlip::procMove() {
     Utility::ProcMoveChange(obj());
     if (Utility::IsSlope(obj())) {
         mContext.setIsRun(false);
-        hel::math::Vector2 normal = obj().mapColl()._74;
+        Vector2 normal = obj().mapColl()._74;
         f32 rate = 1.0f;
         if (!isSpeedZero() && normal.x * obj().move().velocity().x < 0.0f) {
             rate = param(obj())._C;
@@ -97,7 +101,7 @@ void StateSlip::procFixPos() {
     }
     if (mContext.getRotFrame() == mContext.getMaxRotFrame()) {
         f32 speed = obj().move().velocity().x;
-        if (!hel::math::Math::EqZero(speed)) {
+        if (!Math::EqZero(speed)) {
             bool isStop = false;
             if (obj().target().isRightDir()) {
                 if (obj().mapColl().result().isHitWallFront() && speed > 0.0f) {
@@ -120,7 +124,7 @@ void StateSlip::procFixPos() {
 }
 
 bool StateSlip::isSpeedZero() const {
-    return hel::math::Math::EqZero(obj().move().velocity().length());
+    return Math::EqZero(obj().move().velocity().length());
 }
 
 }}}}  // namespace scn::step::hero::stone

@@ -29,6 +29,8 @@
 #include "scn/step/enemy/needlous/StateIdling.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -60,7 +62,7 @@ StateWalkStraight::~StateWalkStraight() {}
 
 void StateWalkStraight::procAnim() {
     const ParamData& param = obj().param().needlous();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().variation() == 0x1b) {
         custom.updateMoveCount();
     }
@@ -83,7 +85,7 @@ void StateWalkStraight::procMove() {
 }
 
 void StateWalkStraight::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     chara::MapCollResult result = obj().mapColl().result();
     bool isCliff = false;
     if (obj().cliffChecker().isCliff() && obj().footState().isGround()) {

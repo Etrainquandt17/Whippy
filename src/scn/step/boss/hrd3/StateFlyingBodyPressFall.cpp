@@ -53,6 +53,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +64,7 @@ namespace hrd3 {
 
 StateFlyingBodyPressFall::StateFlyingBodyPressFall(Boss* boss)
     : StateBase(boss), mCount(0), mStartPos(boss->location().pos()) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x1C);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().guard().setType(static_cast<GuardType>(2));
@@ -81,12 +85,12 @@ void StateFlyingBodyPressFall::procAnim() {
 
 void StateFlyingBodyPressFall::procMove() {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._E4);
-    f32 rate = 1.0f - hel::math::Math::CosDegF(90.0f * t);
+    f32 rate = 1.0f - Math::CosDegF(90.0f * t);
     f32 goalY = custom.partsCtrl().getFallOverHeightOffset() + custom.landCtrl().getFloorY();
-    hel::math::Vector3 pos = mStartPos;
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, goalY, rate);
+    Vector3 pos = mStartPos;
+    pos.y = Math::LinearInterpolation(mStartPos.y, goalY, rate);
     obj().location().setPos(pos);
 }
 

@@ -6,6 +6,8 @@
 #include "scn/step/core/SceneChanger.h"
 #include "scn/step/sfx/ScreenFade.h"
 
+using hel::common::Color;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -31,7 +33,7 @@ void ArenaCtrl::update() {
         mDelay--;
         if (mDelay == 35) {
             if (mIsFade) {
-                mComponent.screenFade().setColor(hel::common::Color(0, 0, 0, 255));
+                mComponent.screenFade().setColor(Color(0, 0, 0, 255));
                 mComponent.screenFade().setFadeOut(30);
             }
             mComponent.pauseTrigger().setIsEnable(core::PauseTrigger::ENABLE_KIND_8, false);

@@ -27,6 +27,12 @@
 #include "scn/step/enemy/Utility.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,8 +44,8 @@ bool Custom::onInit() {
     mThetaX = 0.0f;
     mThetaY = 0.0f;
     obj().model().anim().setFrameRate(1.0f);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mThetaX, mThetaY, 0.0f)));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(mThetaX, mThetaY, 0.0f)));
     return false;
 }
 
@@ -63,8 +69,8 @@ void Custom::onDead() {
     onInit();
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -77,13 +77,16 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateBeamSwordDash::StateBeamSwordDash(Boss* boss) : StateBase(boss), mPhase(PHASE_0), mCount(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x11);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -146,7 +149,7 @@ void StateBeamSwordDash::procMove() {
 
 void StateBeamSwordDash::procFixPos() {
     const Param& param = obj().param().metalgeneral();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos.x += param._11C * obj().target().getSign();
     if (obj().comp().mapLandManager().native().isExistLand(pos)
         || obj().comp().mapLandManager().native().isExistMoveLandInitialPlacement(pos)) {
@@ -163,8 +166,8 @@ void StateBeamSwordDash::procFixPos() {
 
 void StateBeamSwordDash::reqStar() {
     const Param& param = obj().param().metalgeneral();
-    hel::math::Vector2 pos(param._120 * obj().target().getSign(), param._124);
-    hel::math::Vector2 speed(param._128 * obj().target().getSign(), param._12C);
+    Vector2 pos(param._120 * obj().target().getSign(), param._124);
+    Vector2 speed(param._128 * obj().target().getSign(), param._12C);
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
     obj().effect().normal().requestP(static_cast<effect::Kind>(0xB4), obj().location().pos() + pos.toVector3());
 }

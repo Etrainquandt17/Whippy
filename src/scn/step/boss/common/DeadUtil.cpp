@@ -12,13 +12,15 @@
 #include "scn/step/ostop/Manager.h"
 #include "scn/step/sfx/ScreenFade.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace common {
 
 void DeadUtil::RequestDeadEffect(Boss& boss, bool isWeak) {
-    hel::math::Vector2 offset = boss.param().common().mDeadEffectOffset;
+    Vector2 offset = boss.param().common().mDeadEffectOffset;
     boss.comp().permEffect().powerful().requestP(static_cast<effect::Kind>(0x128), boss.location().pos() + offset.toVector3());
     boss.comp().objStopManager().requestStopPowerful(15);
     boss.comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(7));

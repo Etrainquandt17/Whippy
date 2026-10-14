@@ -14,12 +14,16 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace mahoroasuperbeamball {
 
-StateGlide::StateGlide(Weapon* weapon, const hel::math::Vector3& targetPos, u32 totalFrame)
+StateGlide::StateGlide(Weapon* weapon, const Vector3& targetPos, u32 totalFrame)
     : StateBase(weapon)
     , mStartPos(weapon->location().pos())
     , mTargetPos(targetPos)
@@ -69,13 +73,13 @@ void StateGlide::procAnim() {
             obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(3));
         }
     }
-    bool isAttack = hel::math::Math::Abs(obj().location().pos().z) < 7.0f;
+    bool isAttack = Math::Abs(obj().location().pos().z) < 7.0f;
     if (mIsAttack != isAttack) {
         mIsAttack = isAttack;
         if (isAttack) {
             obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x203));
             obj().objColl().addAttack(0, Utility::IsExtra(obj()) ? 2.5f : 3.0f);
-            obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+            obj().objColl().setAttackCenter(0, Vector2::ZERO);
         } else {
             obj().objColl().clearAttack();
         }
@@ -84,10 +88,10 @@ void StateGlide::procAnim() {
 
 void StateGlide::procMove() {
     f32 t = static_cast<f32>(mFrame) / static_cast<f32>(mTotalFrame);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mTargetPos, t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mTargetPos, t);
     pos.z -= 80.0f
              * (1.0f
-                - (1.0f - hel::math::Math::SinDegF(200.0f * t)) * (1.0f - hel::math::Math::SinDegF(200.0f * t)));
+                - (1.0f - Math::SinDegF(200.0f * t)) * (1.0f - Math::SinDegF(200.0f * t)));
     obj().location().setPos(pos);
 }
 

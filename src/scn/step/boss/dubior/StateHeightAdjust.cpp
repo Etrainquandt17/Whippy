@@ -12,6 +12,8 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -44,7 +46,7 @@ void StateHeightAdjust::procAnim() {
 
 void StateHeightAdjust::procMove() {
     const Param& param = obj().param().dubior();
-    hel::math::Vector2 pos = obj().location().pos().getXY() + mMove / static_cast<f32>(param.mHeightAdjustTime);
+    Vector2 pos = obj().location().pos().getXY() + mMove / static_cast<f32>(param.mHeightAdjustTime);
     obj().location().setPos(pos.toVector3());
 }
 

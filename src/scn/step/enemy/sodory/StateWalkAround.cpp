@@ -27,6 +27,10 @@
 #include "scn/step/enemy/sodory/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,7 +38,7 @@ namespace sodory {
 
 StateWalkAround::StateWalkAround(Enemy* enemy)
     : StateBase(enemy), mFrame(0), mIsTurning(false), mIsRightDir(obj().target().isRightDir()) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     if (obj().model().anim().currentG3DAnimIndex() != 3) {
         obj().model().reqScript(3);
@@ -47,7 +51,7 @@ StateWalkAround::StateWalkAround(Enemy* enemy)
 StateWalkAround::~StateWalkAround() {}
 
 void StateWalkAround::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mFrame < custom.getFrame()) {
         mFrame++;
         if (mFrame >= custom.getFrame()) {
@@ -57,17 +61,17 @@ void StateWalkAround::procAnim() {
 }
 
 void StateWalkAround::procMove() {
-    f32 speed = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed();
+    f32 speed = DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed();
     if (!mIsTurning) {
         obj().move().groundAccel(obj().target().isRightDir(), gobj::MoveParamAccel::Create(speed, speed * 0.5f, speed * 0.5f));
     }
 }
 
 void StateWalkAround::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!mIsTurning) {
-        hel::math::Vector2 nururiDir = obj().nururi().getNururiDir();
-        if (hel::math::Math::Abs(nururiDir.x) >= 0.1f) {
+        Vector2 nururiDir = obj().nururi().getNururiDir();
+        if (Math::Abs(nururiDir.x) >= 0.1f) {
             obj().move().resetSpeedH();
             mIsRightDir = nururiDir.x > 0.0f;
             mIsTurning = true;

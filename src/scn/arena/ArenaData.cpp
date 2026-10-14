@@ -5,6 +5,8 @@
 #include "hid/HIDManager.h"
 #include "metafortress.h"
 
+using app::Random;
+using hel::common::ExplicitSingleton;
 using scn::step::hero::AbilityKind;
 using scn::step::hero::Kind;
 
@@ -102,7 +104,7 @@ seq::EntryInfo ArenaData::Player::getEntryInfo() {
 }
 
 void ArenaData::Player::reset(u32 index) {
-    if (!hel::common::ExplicitSingleton<hid::HIDManager>::object_->gameWR(index).isConnected()) {
+    if (!ExplicitSingleton<hid::HIDManager>::object_->gameWR(index).isConnected()) {
         mEntries[index].mIsEntry = false;
         mEntries[index].mKind = static_cast<Kind>(index);
         mEntries[index].mAbility = step::hero::ABILITY_KIND_NORMAL;
@@ -426,7 +428,7 @@ void ArenaData::BossSet::reset(storage::ArenaGameKind kind) {
         }
     } else if (num != 0) {
         for (int n = 0; n < num; n++) {
-            int count = app::Random::Rand(num - n) + 1;
+            int count = Random::Rand(num - n) + 1;
             do {
                 pos++;
                 pos %= num;
@@ -449,7 +451,7 @@ void ArenaData::BossSet::reset(storage::ArenaGameKind kind) {
         }
         if (kind == storage::ARENA_GAME_KIND_1) {
             for (u32 n = 0; n < mNum; n++) {
-                int index = app::Random::Rand(2);
+                int index = Random::Rand(2);
                 mBosses[n].mAbilities[index] = step::hero::ABILITY_KIND_SLEEP;
             }
         }
@@ -510,7 +512,7 @@ AbilityKind ArenaData::BossSet::getNextAbility() {
     }
     last = end;
     limit = last - start + 1;
-    index = app::Random::Rand(count);
+    index = Random::Rand(count);
     setAbility(candidates[index]);
     i = -1;
     for (;;) {

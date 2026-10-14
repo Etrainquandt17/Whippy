@@ -28,6 +28,8 @@
 #include "scn/step/enemy/sodory/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,7 +49,7 @@ StateFly::StateFly(Enemy* enemy) : StateBase(enemy), mFrame(0), _c(0.0f) {
 StateFly::~StateFly() {}
 
 void StateFly::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mFrame < custom.getFrame()) {
         mFrame++;
         if (mFrame >= custom.getFrame()) {
@@ -57,13 +59,13 @@ void StateFly::procAnim() {
 }
 
 void StateFly::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.addOffsY();
     custom.setPosYR(0.0f);
 }
 
 void StateFly::procFixPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
 }
 
 }}}}  // namespace scn::step::enemy::sodory

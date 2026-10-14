@@ -40,6 +40,10 @@
 #include "scn/step/chara/WorldCage.h"
 #include "scn/step/hero/Manager.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -55,7 +59,7 @@ const StampParam& t_param(Boss& boss) {
 }
 
 StateStampHold::StateStampHold(Boss* boss, bool isChase) : StateBase(boss), mCount(0), mStartY(0.0f), mIsChase(isChase), mSpeed(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().move().resetVelocity();
@@ -76,20 +80,20 @@ void StateStampHold::procAnim() {
 void StateStampHold::procMove() {
     const StampParam& param = t_param(obj());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mHoldFrame);
-    f32 s = 1.0f - hel::math::Math::SinDegF(90.0f * t);
+    f32 s = 1.0f - Math::SinDegF(90.0f * t);
     f32 rate = 1.0f - s * (s * s);
-    hel::math::Vector3 pos = obj().location().pos();
-    pos.y = hel::math::Math::Interpolate(mStartY, mStartY + param.mHoldHeight, rate);
+    Vector3 pos = obj().location().pos();
+    pos.y = Math::Interpolate(mStartY, mStartY + param.mHoldHeight, rate);
     if (mIsChase) {
-        hel::math::Vector3 myPos = obj().location().pos();
+        Vector3 myPos = obj().location().pos();
         f32 diff = obj().comp().heroManager().getNearestPlayerPos(myPos).x - myPos.x;
         int sign = diff < 0.0f ? -1 : 1;
         mSpeed += param.mChaseAccel * static_cast<f32>(sign);
-        mSpeed = hel::math::Math::Limit(mSpeed, param.mChaseSpeedMax);
+        mSpeed = Math::Limit(mSpeed, param.mChaseSpeedMax);
         if (diff > 0.0f) {
-            mSpeed = hel::math::Math::LimitMax(mSpeed, diff);
+            mSpeed = Math::LimitMax(mSpeed, diff);
         } else {
-            mSpeed = hel::math::Math::LimitMin(mSpeed, diff);
+            mSpeed = Math::LimitMin(mSpeed, diff);
         }
         pos.x += mSpeed;
     }

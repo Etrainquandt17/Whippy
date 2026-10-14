@@ -7,6 +7,8 @@
 #include "hel/common/Array.h"
 #include "scn/step/enemy/ModelDescUtil.h"
 
+using hel::common::Array;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,11 +48,11 @@ const gobj::ScriptDesc::Entry T_SCRIPT_ENTRIES[] = {
 // TODO: the name is a guess; chara::ModelDesc holds a pointer to it at 0x7C.
 struct ModelDynamicsDesc {
     u32 mNum;
-    hel::common::Array<dynamics::Desc, 1>* mDescs;
+    Array<dynamics::Desc, 1>* mDescs;
 };
 
 void t_dynamics(chara::ModelDesc& desc) {
-    static hel::common::Array<dynamics::Desc, 1> dynaDesc;
+    static Array<dynamics::Desc, 1> dynaDesc;
     static ModelDynamicsDesc modelDynaDesc;
 
     dynaDesc[0]._0 = 0.02f;

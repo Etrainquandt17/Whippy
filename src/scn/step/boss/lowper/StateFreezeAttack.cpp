@@ -56,15 +56,19 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
-StateFreezeAttack::StateFreezeAttack(Boss* boss) : StateBase(boss), mDir(hel::math::Vector3::BASIS_Y), mCount(0) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    hel::math::Vector3 diff = heroPos - obj().location().pos();
+StateFreezeAttack::StateFreezeAttack(Boss* boss) : StateBase(boss), mDir(Vector3::BASIS_Y), mCount(0) {
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 diff = heroPos - obj().location().pos();
     if (!diff.isZeroLoose(0.00001f)) {
         mDir = diff.getNormalized();
     }
@@ -87,16 +91,16 @@ void StateFreezeAttack::procAnim() {
 }
 
 void StateFreezeAttack::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    hel::math::Vector3 diff = heroPos - obj().location().pos();
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 diff = heroPos - obj().location().pos();
     if (diff.length() > 1.0f) {
         mDir = diff.getNormalized();
     }
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._74);
-    f32 speed = param._78 * hel::math::Math::CosDegF(90.0f * t);
-    hel::math::Vector3 center = custom.waftMoveCtrl().getCenter();
+    f32 speed = param._78 * Math::CosDegF(90.0f * t);
+    Vector3 center = custom.waftMoveCtrl().getCenter();
     center += mDir * speed;
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);

@@ -10,6 +10,8 @@
 #include "scn/step/enemy/lupa/StateWait.h"
 #include "scn/step/enemy/lupa/StateWaitAttack.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ void t_SetNextState_MoveTurnCliffAttack() {
 }
 
 bool t_SetNextState_CheckExistLand() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).checkExistLand();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).checkExistLand();
 }
 
 }

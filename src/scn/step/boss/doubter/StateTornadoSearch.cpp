@@ -34,6 +34,10 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -48,7 +52,7 @@ StateTornadoSearch::StateTornadoSearch(Boss* boss, u32 frame, f32 rate)
     obj().move().resetVelocity();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(14);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
 }
 
 StateTornadoSearch::~StateTornadoSearch() {}
@@ -60,8 +64,8 @@ void StateTornadoSearch::procAnim() {
         obj().stateChanger().setNextState<StateTornadoFall, Boss*>(objPtr());
         return;
     }
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    f32 distance = hel::math::Math::AbsF32(heroPos.x - obj().location().pos().x);
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    f32 distance = Math::AbsF32(heroPos.x - obj().location().pos().x);
     if (distance > obj().param().doubter()._AC) {
         Utility::TurnHatedHero(obj());
     }

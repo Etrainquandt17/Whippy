@@ -9,6 +9,8 @@
 #include "scn/step/enemy/sisterbound/StateJumpStart.h"
 #include "scn/step/enemy/sisterbound/StateLanding.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,7 +27,7 @@ void t_SetNextState_Landing() {
 }
 
 bool t_Custom_IsChangeDir() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isChangeDir();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isChangeDir();
 }
 
 }

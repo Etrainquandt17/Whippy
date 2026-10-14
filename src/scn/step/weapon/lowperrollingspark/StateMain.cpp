@@ -11,6 +11,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/lowperrollingspark/Custom.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -25,7 +28,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(0) {
 }
 
 void StateMain::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (_C < custom.getDelayFrame()) {
         _C++;
     } else if (_8 < custom.getTotalFrame()) {
@@ -36,11 +39,11 @@ void StateMain::procAnim() {
 }
 
 void StateMain::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(_8) / static_cast<f32>(custom.getTotalFrame());
     f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
     f32 angle = rate * (0.017453292f * custom.getRotAngle());
-    hel::math::Vector2 offset = obj().targetPos();
+    Vector2 offset = obj().targetPos();
     offset.rotate(angle);
     obj().location().setPos((custom.getCenterPos() + offset).toVector3());
 }

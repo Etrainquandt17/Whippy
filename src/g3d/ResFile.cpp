@@ -3,10 +3,12 @@
 
 #include "hel/common/FixedStringIN.h"
 
+using hel::common::FixedStringIN;
+
 namespace g3d {
 
 ResFile::ResFile(const char* name, bool arg)
-    : mFileAccessor(hel::common::FixedStringIN<char, 80>::FromFormat("g3d/%s.brres.cmp", name), true)
+    : mFileAccessor(FixedStringIN<char, 80>::FromFormat("g3d/%s.brres.cmp", name), true)
     , mResAccessor() {
     if (mFileAccessor.isLoaded()) {
         nw4r::g3d::ResFile file(mFileAccessor.block().startAddress());

@@ -55,23 +55,27 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
-StateMove::StateMove(Boss* boss, const hel::math::Vector3& pos, u32 frame)
+StateMove::StateMove(Boss* boss, const Vector3& pos, u32 frame)
     : StateBase(boss), mStartPos(), mGoalPos(), mCount(0), mFrame(frame) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     mStartPos = custom.waftMoveCtrl().getCenter();
     mGoalPos = obj().basePos().toVector3() + pos;
     if (mStartPos.z > 10.0f) {
         f32 centerX = obj().comp().mainCamera().getCenter().x;
         if (mGoalPos.x > centerX) {
-            mStartPos.x = hel::math::Math::LimitMin(mStartPos.x, 1.0f + centerX);
+            mStartPos.x = Math::LimitMin(mStartPos.x, 1.0f + centerX);
         } else {
-            mStartPos.x = hel::math::Math::LimitMax(mStartPos.x, centerX - 1.0f);
+            mStartPos.x = Math::LimitMax(mStartPos.x, centerX - 1.0f);
         }
     }
     custom.waftMoveCtrl().setMoveIntpRate(param._20);
@@ -89,10 +93,10 @@ void StateMove::procAnim() {
 }
 
 void StateMove::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = 0.5f * (1.0f + hel::math::Math::CosDegF(180.0f * t));
-    custom.waftMoveCtrl().setCenter(hel::math::Math::LinearInterpolation(mGoalPos, mStartPos, rate));
+    f32 rate = 0.5f * (1.0f + Math::CosDegF(180.0f * t));
+    custom.waftMoveCtrl().setCenter(Math::LinearInterpolation(mGoalPos, mStartPos, rate));
 }
 
 void StateMove::procFixPos() {}

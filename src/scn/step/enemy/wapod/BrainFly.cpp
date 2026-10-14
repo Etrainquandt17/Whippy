@@ -27,6 +27,8 @@
 #include "scn/step/enemy/wapod/StateStay.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ bool BrainFly::onStart() {
 }
 
 bool BrainFly::onRecover() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     u32 variation = custom.wapodpodVariation();
     if (variation == 0xad) {
         obj().stateChanger().setNextState<StateRise, Enemy*>(&obj());

@@ -4,13 +4,16 @@
 #include "hel/mint/AddOnMathVector3.h"
 #include "hel/mint/WrapNative.h"
 
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace hel {
 namespace mint {
 
 namespace {
 
-hel::math::Direction3& t_obj() {
-    static hel::math::Direction3 obj;
+Direction3& t_obj() {
+    static Direction3 obj;
     return obj;
 }
 
@@ -19,20 +22,20 @@ hel::math::Direction3& t_obj() {
 namespace AddOnMathDirection3 {
 
 void RegisterAll(mintvm::VMCore& core) {
-    core.addNativePod("HEL.Math.Direction3", sizeof(hel::math::Direction3));
-    core.addNativePod_Property("HEL.Math.Direction3", "left", MINT_OFFSETOF(hel::math::Direction3, mLeft));
-    core.addNativePod_Property("HEL.Math.Direction3", "up", MINT_OFFSETOF(hel::math::Direction3, mUp));
-    core.addNativePod_Property("HEL.Math.Direction3", "front", MINT_OFFSETOF(hel::math::Direction3, mFront));
+    core.addNativePod("HEL.Math.Direction3", sizeof(Direction3));
+    core.addNativePod_Property("HEL.Math.Direction3", "left", MINT_OFFSETOF(Direction3, mLeft));
+    core.addNativePod_Property("HEL.Math.Direction3", "up", MINT_OFFSETOF(Direction3, mUp));
+    core.addNativePod_Property("HEL.Math.Direction3", "front", MINT_OFFSETOF(Direction3, mFront));
     MINT_NATIVE_POD_CTOR(
         core, "HEL.Math.Direction3", "void this(const ref HEL.Math.Vector3,const ref HEL.Math.Vector3,const ref HEL.Math.Vector3)",
-        hel::math::Direction3, const hel::math::Vector3&, const hel::math::Vector3&, const hel::math::Vector3&
+        Direction3, const Vector3&, const Vector3&, const Vector3&
     );
-    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructFrontUp()", restructFrontUp, &hel::math::Direction3::restructFrontUp);
-    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructFrontLeft()", restructFrontLeft, &hel::math::Direction3::restructFrontLeft);
-    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructUpFront()", restructUpFront, &hel::math::Direction3::restructUpFront);
-    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructUpLeft()", restructUpLeft, &hel::math::Direction3::restructUpLeft);
-    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructLeftFront()", restructLeftFront, &hel::math::Direction3::restructLeftFront);
-    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructLeftUp()", restructLeftUp, &hel::math::Direction3::restructLeftUp);
+    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructFrontUp()", restructFrontUp, &Direction3::restructFrontUp);
+    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructFrontLeft()", restructFrontLeft, &Direction3::restructFrontLeft);
+    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructUpFront()", restructUpFront, &Direction3::restructUpFront);
+    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructUpLeft()", restructUpLeft, &Direction3::restructUpLeft);
+    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructLeftFront()", restructLeftFront, &Direction3::restructLeftFront);
+    MINT_NATIVE_POD_METHOD(core, "HEL.Math.Direction3", "void restructLeftUp()", restructLeftUp, &Direction3::restructLeftUp);
     MINT_NATIVE_FUNCTION(core, "HEL.Math.Direction3", "void LoadLeft()", LoadLeft, LoadLeft);
     MINT_NATIVE_FUNCTION(core, "HEL.Math.Direction3", "void LoadUp()", LoadUp, LoadUp);
     MINT_NATIVE_FUNCTION(core, "HEL.Math.Direction3", "void LoadFront()", LoadFront, LoadFront);
@@ -57,11 +60,11 @@ void RegisterAll(mintvm::VMCore& core) {
     );
 }
 
-hel::math::Direction3 Get() {
+Direction3 Get() {
     return t_obj();
 }
 
-void Set(const hel::math::Direction3& value) {
+void Set(const Direction3& value) {
     t_obj() = value;
 }
 
@@ -90,15 +93,15 @@ void StoreFront() {
 }
 
 void SetBasis() {
-    Set(hel::math::Direction3::BASIS);
+    Set(Direction3::BASIS);
 }
 
 void SetFrontToRight() {
-    Set(hel::math::Direction3::FRONT_TO_RIGHT);
+    Set(Direction3::FRONT_TO_RIGHT);
 }
 
 void SetFrontToLeft() {
-    Set(hel::math::Direction3::FRONT_TO_LEFT);
+    Set(Direction3::FRONT_TO_LEFT);
 }
 
 void RestructFrontUp() {
@@ -125,12 +128,12 @@ void RestructLeftUp() {
     t_obj().restructLeftUp();
 }
 
-hel::math::Direction3 Basis() {
-    return hel::math::Direction3::BASIS;
+Direction3 Basis() {
+    return Direction3::BASIS;
 }
 
-hel::math::Direction3 Create(const hel::math::Vector3& front, const hel::math::Vector3& up, const hel::math::Vector3& left) {
-    return hel::math::Direction3(front, up, left);
+Direction3 Create(const Vector3& front, const Vector3& up, const Vector3& left) {
+    return Direction3(front, up, left);
 }
 
 }

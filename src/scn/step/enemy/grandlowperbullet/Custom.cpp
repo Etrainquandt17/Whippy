@@ -33,6 +33,11 @@
 #include "scn/step/hero/Hero.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -66,19 +71,19 @@ bool Custom::reqCustomDeadEffect() {
     return true;
 }
 
-void Custom::setTargetPos(const hel::math::Vector3& pos) {
+void Custom::setTargetPos(const Vector3& pos) {
     mTargetPos = pos;
 }
 
-hel::math::Vector3 Custom::getTargetPos() const {
+Vector3 Custom::getTargetPos() const {
     return mTargetPos;
 }
 
-void Custom::setTargetHero(util::ObjRefHandle<hero::Hero> hero) {
+void Custom::setTargetHero(ObjRefHandle<hero::Hero> hero) {
     mTargetHero = hero;
 }
 
-util::ObjRefHandle<hero::Hero> Custom::getTargetHero() const {
+ObjRefHandle<hero::Hero> Custom::getTargetHero() const {
     return mTargetHero;
 }
 
@@ -86,8 +91,8 @@ void Custom::reqImageEffect() {
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x2aa), 1);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

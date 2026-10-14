@@ -8,6 +8,8 @@
 #include "scn/step/boss/whispy/StateWait.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -15,12 +17,12 @@ namespace whispy {
 
 StateFallEnemy::StateFallEnemy(Boss* boss, ScriptKind kind, u32 interval)
     : StateBase(boss), mInterval(interval), mTimer(boss->param().whispy().mFallEnemyInterval) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyCtrl().initXOffsTable();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyCtrl().initXOffsTable();
     obj().model().reqScript(kind);
 }
 
 StateFallEnemy::~StateFallEnemy() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyReqBuff().clear();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyReqBuff().clear();
 }
 
 void StateFallEnemy::procAnim() {
@@ -44,7 +46,7 @@ void StateFallEnemy::procMove() {}
 void StateFallEnemy::procFixPos() {}
 
 bool StateFallEnemy::reqEnemy() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.enemyReqBuff().isEmpty()) {
         return false;
     }

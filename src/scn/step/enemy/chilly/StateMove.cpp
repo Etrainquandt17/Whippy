@@ -16,6 +16,9 @@
 #include "scn/step/enemy/chilly/ParamData.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,7 +28,7 @@ StateMove::StateMove(Enemy* enemy) : StateBase(enemy), mFrame(0), mTurnWait(0) {
     const ParamData& param = obj().param().chilly();
     obj().footState().setGround();
     bool isRight = Utility::IsNearestPlayerRight(obj());
-    isRight = app::Random::RandU32(100) > param.mMoveReversePercent ? isRight : !isRight;
+    isRight = Random::RandU32(100) > param.mMoveReversePercent ? isRight : !isRight;
     if (isRight != obj().target().isRightDir()) {
         mTurnWait = param.mMoveTurnFrame;
         obj().model().reqScript(0);
@@ -52,7 +55,7 @@ void StateMove::procAnim() {
 void StateMove::procMove() {
     const ParamData& param = obj().param().chilly();
     if (mTurnWait == 0 && !obj().cliffChecker().isCliff()) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         if (mFrame > param.mMoveStartFrame) {
             int total = obj().model().anim().totalFrame();
             pos.x += param.mMoveDistance * (2.0f * ((total - (mFrame - param.mMoveStartFrame)) * obj().target().getSign())) / total / total;

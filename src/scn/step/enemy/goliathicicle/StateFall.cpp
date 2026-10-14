@@ -31,6 +31,11 @@
 #include "scn/step/enemy/goliathicicle/StateFloorHit.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using g3d::NodeAccessor;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +46,7 @@ StateFall::StateFall(Enemy* enemy, f32 rot) : StateBase(enemy), mFall(0.0f), mFa
     obj().model().shake().request(static_cast<chara::ShakeKind>(3));
     obj().soundSE().start(0x37d);
     obj().nururi().setCanNururi(false);
-    mWaitFrame = app::Random::RandU32(15);
+    mWaitFrame = Random::RandU32(15);
 }
 
 StateFall::~StateFall() {}
@@ -54,9 +59,9 @@ void StateFall::procAnim() {
         if (mRot >= 360.0f) {
             mRot -= 360.0f;
         }
-        g3d::NodeAccessor node = obj().model().model().nodes().at(0);
-        hel::math::Vector3 rot(0.0f, mRot, 0.0f);
-        node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+        NodeAccessor node = obj().model().model().nodes().at(0);
+        Vector3 rot(0.0f, mRot, 0.0f);
+        node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(rot));
     }
 }
 

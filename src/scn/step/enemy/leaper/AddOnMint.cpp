@@ -11,6 +11,8 @@
 #include "scn/step/enemy/leaper/StateBackAndForthAttack.h"
 #include "scn/step/enemy/leaper/StateFlyAttack.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +47,7 @@ void t_SetNextState_ComeInZNear() {
 }
 
 void t_Custom_SetBodyColl() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setBodyColl();
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setBodyColl();
 }
 
 }

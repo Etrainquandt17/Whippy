@@ -12,20 +12,24 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/needleshot/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace needleshot {
 
-StateStickEnemy::StateStickEnemy(Weapon* weapon, const util::ObjRefHandle<enemy::Enemy>& enemy)
+StateStickEnemy::StateStickEnemy(Weapon* weapon, const ObjRefHandle<enemy::Enemy>& enemy)
     : StateBase(weapon), mAlgorithm(*weapon, enemy), mFrame(0) {
     if (enemy.isAlive()) {
-        hel::math::Vector3 offset;
+        Vector3 offset;
         offset = obj().location().pos() - static_cast<const enemy::Enemy*>(enemy.operator->())->location().pos();
         f32 rot = obj().model().rotCtrl().getRotV();
         f32 length = obj().param().needleShot()._4;
-        offset.x += length * hel::math::Math::CosDegF(rot);
-        offset.y += length * hel::math::Math::SinDegF(rot);
+        offset.x += length * Math::CosDegF(rot);
+        offset.y += length * Math::SinDegF(rot);
         mAlgorithm.setOffset(offset);
     }
 }

@@ -23,6 +23,10 @@
 #include "scn/step/enemy/squishy/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,15 +57,15 @@ void Custom::setJumpFromWater(bool flag) {
 
 bool Custom::isInWater(bool flag) {
     const ParamData& param = obj().param().squishy();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     if (!flag) {
         pos.y += param.mWaterCheckOffsetY;
     }
     return Utility::IsWaterGrid(obj(), pos.x, pos.y);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

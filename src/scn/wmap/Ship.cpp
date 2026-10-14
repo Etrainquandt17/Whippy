@@ -13,6 +13,11 @@
 #include "scn/wmap/RouteTrans.h"
 #include "scn/wmap/UnlockManager.h"
 
+using g3d::CharaModelContext;
+using g3d::ModelContext;
+using g3d::ResModelContext;
+using hel::math::Matrix34;
+
 namespace scn {
 namespace wmap {
 
@@ -29,8 +34,8 @@ const char* UNLOCKED_ACTION_NAME_TABLE[] = {
 Ship::Ship(Component& component)
     : mComponent(component)
     , mResFile(component.resFileRepos().get("wmap/chara/Roah", false))
-    , mModel(g3d::ModelContext(g3d::ResModelContext(mResFile, "TopL"), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-                               g3d::CharaModelContext::DefaultNumView(), reinterpret_cast<mem::IAllocator&>(component.heap().obj()), false))
+    , mModel(ModelContext(ResModelContext(mResFile, "TopL"), CharaModelContext::DefaultModelBufferOption(), 0,
+                          CharaModelContext::DefaultNumView(), reinterpret_cast<mem::IAllocator&>(component.heap().obj()), false))
     , mUnlockKind(UNLOCK_KIND_0) {
     volatile u32 start;
     volatile u32 end;
@@ -123,7 +128,7 @@ void Ship::procFixPos() {
     u32 x24;
     u32 x24_1;
 
-    hel::math::Matrix34 mtx;
+    Matrix34 mtx;
 
     asm {
         bl      after1

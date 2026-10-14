@@ -17,6 +17,12 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,14 +31,14 @@ namespace roah {
 StateBullet::StateBullet(Boss* boss, Config config)
     : StateBase(boss), mCount(0), mBasePos(), mIsMove(false), mIsRequest(false), mConfig(config) {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mBasePos = obj().location().pos().getXY();
     obj().model().reqScript(22);
     custom.mahoroaCtrl().getCustom().reqMotionBullet(mConfig._4);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
-    hel::math::Vector3 pos = obj().location().pos() + hel::math::Vector2(param.mBulletEffectOffset).toVector3();
-    hel::math::Direction3 dir;
-    dir.mUp = hel::math::Vector3::BASIS_X;
+    Vector3 pos = obj().location().pos() + Vector2(param.mBulletEffectOffset).toVector3();
+    Direction3 dir;
+    dir.mUp = Vector3::BASIS_X;
     dir.restructUpFront();
     dir.restructUpLeft();
     switch (mConfig._0) {
@@ -56,7 +62,7 @@ StateBullet::StateBullet(Boss* boss, Config config)
 StateBullet::~StateBullet() {}
 
 void StateBullet::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mCount++;
     if (obj().scriptTrigger().get(0)) {
         mIsRequest = true;
@@ -80,8 +86,8 @@ void StateBullet::procMove() {
     if (mIsMove) {
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mOarMoveFrame);
         f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-        hel::math::Vector2 pos = mBasePos;
-        pos.x -= param.mOarMoveDistance * hel::math::Math::SinDegF(180.0f * rate);
+        Vector2 pos = mBasePos;
+        pos.x -= param.mOarMoveDistance * Math::SinDegF(180.0f * rate);
         obj().location().setPos(pos.toVector3());
         if (mCount == param.mOarMoveFrame) {
             mIsMove = false;

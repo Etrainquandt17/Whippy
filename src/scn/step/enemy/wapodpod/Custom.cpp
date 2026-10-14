@@ -40,6 +40,13 @@
 #include "scn/step/enemy/wapodpod/StateVomit.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -52,8 +59,8 @@ Custom::Custom(Enemy& enemy)
 bool Custom::onInit() {
     f32 scale = Utility::GetModelScaleBySizeType(obj());
     obj().objColl().clearBodyColl();
-    obj().objColl().addBodyColl(0, 0.45f * scale, hel::math::Vector2(0.0f, 0.4f * scale));
-    obj().vacuumReceiver().setCustomCollideRect(hel::geo::Rect(0.5f, -0.3f, -0.4f, 0.4f));
+    obj().objColl().addBodyColl(0, 0.45f * scale, Vector2(0.0f, 0.4f * scale));
+    obj().vacuumReceiver().setCustomCollideRect(Rect(0.5f, -0.3f, -0.4f, 0.4f));
     return false;
 }
 
@@ -120,7 +127,7 @@ void Custom::onProcFixPos() {
 }
 
 void Custom::requestWapod() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     f32 offset = 0.7f;
     if (obj().size() == 1) {
         offset += 0.7f;
@@ -135,7 +142,7 @@ void Custom::requestWapod() {
             ogen::Generator& generator = *obj().objGenerator();
             mWapod->setObjGenerator(generator);
         }
-        hel::common::DynamicCastToRef<wapod::Custom, ICustom>(mWapod->custom()).setWapodpodUid(obj().objColl().owner().uid());
+        DynamicCastToRef<wapod::Custom, ICustom>(mWapod->custom()).setWapodpodUid(obj().objColl().owner().uid());
         mWapod->nururi().setValid(false);
     }
 }
@@ -168,7 +175,7 @@ void Custom::setIsWait(bool isWait) {
 void Custom::fixWapodPos() {
     if (mIsExist && mWapod.isAlive() && mIsFixPos) {
         Enemy* wapod = mWapod.operator->();
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         mRise += obj().param().wapod().mPodRiseSpeed;
         f32 offset = 0.7f;
         if (obj().size() == 1) {
@@ -179,8 +186,8 @@ void Custom::fixWapodPos() {
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::wapodpod

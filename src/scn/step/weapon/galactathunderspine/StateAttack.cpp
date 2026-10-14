@@ -6,6 +6,8 @@
 #include "scn/step/core/PermEffect.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -13,8 +15,8 @@ namespace galactathunderspine {
 
 StateAttack::StateAttack(Weapon* weapon) : StateBase(weapon), mFrame(0) {
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x221));
-    hel::math::Vector2 start(0.0f, 0.0f);
-    hel::math::Vector2 end(0.0f, 8.0f);
+    Vector2 start(0.0f, 0.0f);
+    Vector2 end(0.0f, 8.0f);
     obj().objColl().addAttack(0, 0.2f, start, end);
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x19B), obj().location().pos());
 }

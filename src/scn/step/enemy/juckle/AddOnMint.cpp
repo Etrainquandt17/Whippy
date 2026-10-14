@@ -9,6 +9,8 @@
 #include "scn/step/enemy/juckle/StateAttack.h"
 #include "scn/step/enemy/juckle/StateFollow.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,7 +27,7 @@ void t_SetNextState_Follow() {
 }
 
 bool t_Custom_IsPlayerInArea() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInArea();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInArea();
 }
 
 }

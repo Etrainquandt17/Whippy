@@ -29,6 +29,9 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -50,10 +53,10 @@ void StateFly::procMove() {
 }
 
 void StateFly::procFixPos() {
-    hel::math::Vector3 targetPos = hel::math::Vector3::ZERO;
+    Vector3 targetPos = Vector3::ZERO;
     u32 num = obj().comp().bossManager().getBossCount();
     for (u32 i = 0; i < num; i++) {
-        util::ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
+        ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(i);
         if (boss.operator->() != 0 && boss->kind() == static_cast<map::BinBossKind>(0xb)) {
             targetPos = boss::Utility::GetHatedHeroPos(*boss.operator->());
         }

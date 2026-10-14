@@ -15,6 +15,9 @@
 #include "scn/step/enemy/lanzer/StateWalk.h"
 #include "scn/step/enemy/lanzer/StateWalkAround.h"
 
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +43,7 @@ void t_SetNextState_Attack() {
 
 void t_Custom_AttackEffect() {
     f32 sign = MintEnemy::Obj()->target().getSign();
-    hel::math::Direction3 dir(hel::math::Vector3(sign, 0.0f, 0.0f), hel::math::Vector3(0.0f, 1.0f, 0.0f), hel::math::Vector3(0.0f, 0.0f, -sign));
+    Direction3 dir(Vector3(sign, 0.0f, 0.0f), Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, -sign));
     MintEnemy::Obj()->effect().state().requestND(static_cast<effect::Kind>(0x50F), 3, dir);
 }
 

@@ -3,13 +3,15 @@
 #include "hel/common/FixedStringIN.h"
 #include "metafortress.h"
 
+using hel::common::FixedStringIN;
+
 namespace scn {
 namespace step {
 namespace hero {
 
 Heap::Heap(mem::HeapExpArrayUser& user, u32 index)
     : mUser(user)
-    , mHeapGear(mUser.obj(), 0x20800, hel::common::FixedStringIN<char, 32>::FromFormat("HeroGear%02lu", index))
+    , mHeapGear(mUser.obj(), 0x20800, FixedStringIN<char, 32>::FromFormat("HeroGear%02lu", index))
     , mUseHeapGear(false)
     , mIsGearAllocFromHead(true) {
 }

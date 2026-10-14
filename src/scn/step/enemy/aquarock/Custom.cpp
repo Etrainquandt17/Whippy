@@ -12,6 +12,11 @@
 #include "scn/step/enemy/aquarock/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,12 +51,12 @@ Custom::Custom(Enemy& enemy) : CustomBase(enemy), mRadius(0.0f), mCircumference(
         mSpeed = obj().param().aquarock().mSpeedLevel2;
         break;
     }
-    obj().model().setCustomMtx(hel::math::Matrix34::CreateScale(hel::math::Vector3(mRadius, mRadius, mRadius)));
+    obj().model().setCustomMtx(Matrix34::CreateScale(Vector3(mRadius, mRadius, mRadius)));
     mCircumference = 3.1415927f * mRadius;
     mRadius *= 0.5f;
     mAngleSpeed = 360.0f / (mCircumference / mSpeed) * obj().param().aquarock().mAngleSpeedRate;
     obj().culling().setValid(false);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y -= mRadius;
     obj().location().setPos(pos);
     obj().cliffChecker().setValid(false);
@@ -63,8 +68,8 @@ bool Custom::onInWater() {
     return false;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -55,13 +55,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateWaitFar::StateWaitFar(Boss* boss) : StateBase(boss), mPos(), _10(0.0f), _14(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     mPos = obj().basePos();

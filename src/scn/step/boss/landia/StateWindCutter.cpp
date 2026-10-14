@@ -24,6 +24,9 @@
 #include "scn/step/weapon/Desc.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -31,7 +34,7 @@ namespace landia {
 
 StateWindCutter::StateWindCutter(Boss* boss, Config config) : StateBase(boss), mConfig(config) {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     switch (mConfig._0) {
     case 0:
         obj().model().reqScript(16);
@@ -49,18 +52,18 @@ StateWindCutter::StateWindCutter(Boss* boss, Config config) : StateBase(boss), m
         obj().model().reqScript(20);
         break;
     }
-    custom.waftCtrl().setWaveWidth(hel::math::Vector2(param._124));
-    custom.waftCtrl().setWaveThetaVel(hel::math::Vector2(param._12C, param._12C));
+    custom.waftCtrl().setWaveWidth(Vector2(param._124));
+    custom.waftCtrl().setWaveThetaVel(Vector2(param._12C, param._12C));
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
 }
 
 StateWindCutter::~StateWindCutter() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).windCtrl().clear();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).windCtrl().clear();
 }
 
 void StateWindCutter::procAnim() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         if (mConfig._0 == 3) {
             obj().stateChanger().setNextState<StateWindCutterTurn, Boss*>(objPtr());
@@ -92,9 +95,9 @@ void StateWindCutter::procMove() {
 void StateWindCutter::procFixPos() {}
 
 void StateWindCutter::reqWindCutter(bool isBig) {
-    hel::math::Vector2 pos = hel::math::Vector2::ZERO;
+    Vector2 pos = Vector2::ZERO;
     pos = obj().model().model().nodes().at(2).worldTrans().getXY();
-    hel::math::Vector2 dir = hel::math::Vector2::BASIS_X * obj().target().getSign();
+    Vector2 dir = Vector2::BASIS_X * obj().target().getSign();
     // TODO: the original normalises the bool into its own saved register ahead of the owner() call (one instruction more).
     weapon::Desc desc(static_cast<weapon::Kind>(0x68), isBig != false, static_cast<ostop::Flag>(8), pos, dir, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);

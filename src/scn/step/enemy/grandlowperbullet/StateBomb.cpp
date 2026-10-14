@@ -29,6 +29,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,8 +49,8 @@ void StateBomb::procAnim() {
         if (mFrame != 0) {
             mFrame--;
         } else {
-            hel::math::Vector2 pos = Utility::GetCenterPos(obj()).getXY();
-            hel::math::Vector2 offset = hel::math::Vector2::ZERO;
+            Vector2 pos = Utility::GetCenterPos(obj()).getXY();
+            Vector2 offset = Vector2::ZERO;
             weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 2, static_cast<ostop::Flag>(4), pos, offset,
                               obj().objColl().owner());
             obj().comp().weaponManager().request(desc);

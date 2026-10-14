@@ -11,6 +11,8 @@
 #include "scn/step/hero/superice/Custom.h"
 #include "scn/step/hero/superice/StateAttack.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -29,8 +31,8 @@ SuperIce::~SuperIce() {
 }
 
 void SuperIce::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/superice/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/superice/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0x1C, motion);
     gobj::GearModelDesc desc;

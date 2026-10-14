@@ -4,6 +4,8 @@
 #include "hel/common/ExplicitSingleton.h"
 #include "metafortress.h"
 
+using hel::common::ExplicitSingleton;
+
 // TODO: there is no header for the Mobiclip library yet.
 extern "C" void MOUninit(void);
 
@@ -38,7 +40,7 @@ SceneMovie::~SceneMovie() {
     mAllocator.destruct();
     last = end;
     word = start;
-    hel::common::ExplicitSingleton<hbm::HomeButtonMenu>::object_->enableMenu();
+    ExplicitSingleton<hbm::HomeButtonMenu>::object_->enableMenu();
     for (;;) {
         if (word == last) {
             break;

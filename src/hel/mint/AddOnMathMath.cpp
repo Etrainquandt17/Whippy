@@ -3,37 +3,39 @@
 #include "hel/math/Math.h"
 #include "hel/mint/WrapNative.h"
 
+using hel::math::Math;
+
 namespace hel {
 namespace mint {
 
 namespace {
 
 float t_SinRadF(float rad) {
-    return hel::math::Math::SinF(rad);
+    return Math::SinF(rad);
 }
 
 float t_CosRadF(float rad) {
-    return hel::math::Math::CosF(rad);
+    return Math::CosF(rad);
 }
 
 float t_TanRadF(float rad) {
-    return hel::math::Math::TanF(rad);
+    return Math::TanF(rad);
 }
 
 float t_SinDegF(float deg) {
-    return hel::math::Math::SinF(hel::math::Math::DegToRad(deg));
+    return Math::SinF(Math::DegToRad(deg));
 }
 
 float t_CosDegF(float deg) {
-    return hel::math::Math::CosF(hel::math::Math::DegToRad(deg));
+    return Math::CosF(Math::DegToRad(deg));
 }
 
 float t_TanDegF(float deg) {
-    return hel::math::Math::TanF(hel::math::Math::DegToRad(deg));
+    return Math::TanF(Math::DegToRad(deg));
 }
 
 bool t_EqZero(float value) {
-    return hel::math::Math::EqZero(value);
+    return Math::EqZero(value);
 }
 
 }

@@ -39,6 +39,12 @@
 #include "scn/step/enemy/poppybrojrbomb/StateShot.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -57,8 +63,8 @@ void Custom::onCaptured() {
 
 void Custom::requestBomb() {
     if (!mIsThrowValid) {
-        g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-        hel::math::Vector2 pos = node.worldMtx().getT().getXY();
+        NodeAccessor node = obj().model().model().nodes().at(1);
+        Vector2 pos = node.worldMtx().getT().getXY();
         Desc desc(static_cast<map::BinEnemyKind>(0x73), static_cast<map::BinEnemyVariation>(0x19c), obj().level(), obj().dirType(),
                   obj().size(), false, false, pos);
         mBomb = obj().comp().enemyManager().request(desc);
@@ -88,9 +94,9 @@ void Custom::changeBombState() {
         const ParamData& param = obj().param().poppybrojr();
         if (mBomb.isAlive()) {
             Enemy* bomb = mBomb.operator->();
-            g3d::NodeAccessor node = obj().model().model().nodes().at(1);
+            NodeAccessor node = obj().model().model().nodes().at(1);
             bomb->location().setPos(node.worldMtx().getT());
-            bomb->move().setVelocity(hel::math::Vector3(param.mThrowSpeedX * obj().target().getSign(), param.mThrowSpeedY, 0.0f));
+            bomb->move().setVelocity(Vector3(param.mThrowSpeedX * obj().target().getSign(), param.mThrowSpeedY, 0.0f));
             bomb->mapColl().setValid(true);
             bomb->model().setVisibility(true);
             bomb->nururi().setCanNururi(true);
@@ -128,8 +134,8 @@ bool Custom::isThrowValid() {
     return mIsThrowValid;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::poppybrojr

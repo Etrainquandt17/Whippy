@@ -2,6 +2,8 @@
 
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace gimmick {
@@ -9,7 +11,7 @@ namespace monitor {
 
 namespace {
 
-hel::common::PointerWrapper<Monitor> t_obj;
+PointerWrapper<Monitor> t_obj;
 
 }
 

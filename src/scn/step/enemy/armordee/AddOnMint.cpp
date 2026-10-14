@@ -7,6 +7,8 @@
 #include "scn/step/enemy/MintEnemy.h"
 #include "scn/step/enemy/armordee/Custom.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -15,7 +17,7 @@ namespace armordee {
 namespace {
 
 f32 t_GetFrameRate() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).getFrameRate();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).getFrameRate();
 }
 
 }

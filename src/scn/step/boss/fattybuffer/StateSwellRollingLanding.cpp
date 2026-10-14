@@ -38,6 +38,9 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -46,11 +49,11 @@ namespace fattybuffer {
 StateSwellRollingLanding::StateSwellRollingLanding(Boss* boss) : StateBase(boss) {
     obj().footState().setGround();
     obj().model().reqScript(0x1B);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_4);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_4);
     obj().move().resetSpeedV();
     const Param& param = obj().param().fattybuffer();
-    hel::math::Vector2 pos(param._28.x * obj().target().getSign(), param._28.y);
-    hel::math::Vector2 speed(param._30.x * obj().target().getSign(), param._30.y);
+    Vector2 pos(param._28.x * obj().target().getSign(), param._28.y);
+    Vector2 speed(param._30.x * obj().target().getSign(), param._30.y);
     pos.scale(obj().model().getTotalScale().getXY());
     Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(1));

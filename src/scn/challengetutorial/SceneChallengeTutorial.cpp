@@ -17,6 +17,17 @@
 #include "snd/BgmPlayer.h"
 #include "snd/SoundManager.h"
 
+using app::Application;
+using app::HIDErrorMenu;
+using g3d::RootContext;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedString;
+using hel::common::MutableArray;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 // TODO: hel/common/RuntimeTypeInfo.h does not define this yet; the unit holds its own copy.
 namespace hel {
 namespace common {
@@ -142,9 +153,9 @@ done:;
 #define MF_FUNCTION __ct__Q33scn17challengetutorial22SceneChallengeTutorialFRCQ43scn17challengetutorial22SceneChallengeTutorial6Recipe
 SceneChallengeTutorial::SceneChallengeTutorial(const Recipe& recipe)
     : mRecipe(recipe)
-    , mRoot(g3d::RootContext(g3d::RootContext::DefaultAllocator(), g3d::RootContext::DefaultMaxNumChildren(),
-                             g3d::RootContext::DefaultMaxNumScnObj(), g3d::RootContext::DefaultNumLightObj(),
-                             g3d::RootContext::DefaultNumLightSet()))
+    , mRoot(RootContext(RootContext::DefaultAllocator(), RootContext::DefaultMaxNumChildren(),
+                        RootContext::DefaultMaxNumScnObj(), RootContext::DefaultNumLightObj(),
+                        RootContext::DefaultNumLightSet()))
     , mState(0)
     , mKind(recipe.mKind)
     , mScore()
@@ -161,7 +172,7 @@ SceneChallengeTutorial::SceneChallengeTutorial(const Recipe& recipe)
     u32 base;
 
     {
-        hel::common::MutableArray<hel::common::FixedString<64>, 24> paths;
+        MutableArray<FixedString<64>, 24> paths;
         paths.add(step::ChallengeKindUtil::TutorialDNPath(recipe.mKind));
         hash = 0xBF;
         file::Utility::DNProcess(paths, true);
@@ -183,13 +194,13 @@ SceneChallengeTutorial::SceneChallengeTutorial(const Recipe& recipe)
         stw     r23, start
         stw     r29, end
     }
-    hel::common::ExplicitSingleton<app::Application>::object_->hidErrorMenu().setup(app::HIDErrorMenu::DISCONNECT_MENU_MODE_0);
+    ExplicitSingleton<Application>::object_->hidErrorMenu().setup(HIDErrorMenu::DISCONNECT_MENU_MODE_0);
     mInfo.construct(recipe.mIsExtraMode);
     limit = end - start + 1;
     i = 1;
     base = end;
     mState = 0;
-    hel::common::ExplicitSingleton<snd::SoundManager>::object_->bgm().stop();
+    ExplicitSingleton<snd::SoundManager>::object_->bgm().stop();
     asm {
         bl      after2
         opword  MF_WORD(0x220)
@@ -217,14 +228,14 @@ SceneChallengeTutorial::SceneChallengeTutorial(const Recipe& recipe)
     mFade->setFadeIn(25);
     mFade->update();
     hash ^= hash >> 11;
-    mRoot.currentCamera().setViewMtx(hel::math::Matrix34::CreateLookAt(
-        hel::math::Vector3(0.0f, 0.0f, 40.0f), hel::math::Vector3::BASIS_Y, hel::math::Vector3::BASIS_Z * -1.0f));
+    mRoot.currentCamera().setViewMtx(Matrix34::CreateLookAt(
+        Vector3(0.0f, 0.0f, 40.0f), Vector3::BASIS_Y, Vector3::BASIS_Z * -1.0f));
     mRoot.currentCamera().setProjPerspective(60.0f, 16.0f / 9.0f, 0.1f, 1000.0f);
     hash += hash << 15;
     if (hash - expected == 0 && !mRecipe._5) {
-        hel::common::ExplicitSingleton<snd::SoundManager>::object_->bgm().start(0x3F);
+        ExplicitSingleton<snd::SoundManager>::object_->bgm().start(0x3F);
     } else {
-        hel::common::ExplicitSingleton<snd::SoundManager>::object_->bgm().start(0x5A);
+        ExplicitSingleton<snd::SoundManager>::object_->bgm().start(0x5A);
     }
 }
 #undef MF_FUNCTION
@@ -304,8 +315,8 @@ bool SceneChallengeTutorial::isSceneEnd() const {
     return mState == 3;
 }
 
-const hel::common::RuntimeTypeInfo& SceneChallengeTutorial::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SceneChallengeTutorial>();
+const RuntimeTypeInfo& SceneChallengeTutorial::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SceneChallengeTutorial>();
 }
 
 }}  // namespace scn::challengetutorial

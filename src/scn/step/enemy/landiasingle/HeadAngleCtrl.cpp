@@ -33,6 +33,11 @@
 #include "scn/step/enemy/landiasingle/ParamData.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,14 +47,14 @@ HeadAngleCtrl::HeadAngleCtrl(Enemy& enemy) : mObj(enemy), mAngleX(0.0f), mAngleY
 
 void HeadAngleCtrl::update() {
     const ParamData& param = mObj.param().landiasingle();
-    hel::math::Vector3 playerPos = Utility::GetNearestPlayerPos(mObj).toVector3();
+    Vector3 playerPos = Utility::GetNearestPlayerPos(mObj).toVector3();
     f32 height = playerPos.y - (param._14 + mObj.location().pos().y);
-    f32 angleX = hel::math::Math::LimitMinMax(height * param._18, param._20, param._1c);
+    f32 angleX = Math::LimitMinMax(height * param._18, param._20, param._1c);
     f32 angleY = 0.0f;
-    if (hel::math::Math::Equals(angleX, param._1c, 0.00001f) || hel::math::Math::Equals(angleX, param._20, 0.00001f)) {
-        f32 distance = hel::math::Math::AbsF32(playerPos.x - mObj.location().pos().x);
+    if (Math::Equals(angleX, param._1c, 0.00001f) || Math::Equals(angleX, param._20, 0.00001f)) {
+        f32 distance = Math::AbsF32(playerPos.x - mObj.location().pos().x);
         if (distance < param._24) {
-            angleY = hel::math::Math::LimitMinMax(param._28 * (param._24 - distance), param._30, param._2c);
+            angleY = Math::LimitMinMax(param._28 * (param._24 - distance), param._30, param._2c);
             if (angleX < 0.0f) {
                 angleY *= -1.0f;
             }
@@ -75,9 +80,9 @@ void HeadAngleCtrl::toInvalid() {
 }
 
 void HeadAngleCtrl::setMtx(NodeKind kind, f32 angle) {
-    g3d::NodeAccessor node = mObj.model().model().nodes().at(kind);
-    hel::math::Vector3 rot(-angle, 0.0f, 0.0f);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+    NodeAccessor node = mObj.model().model().nodes().at(kind);
+    Vector3 rot(-angle, 0.0f, 0.0f);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(rot));
 }
 
 }}}}  // namespace scn::step::enemy::landiasingle

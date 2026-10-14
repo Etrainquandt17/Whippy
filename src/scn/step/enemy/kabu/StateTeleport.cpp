@@ -24,6 +24,11 @@
 #include "scn/step/enemy/kabu/ParamData.h"
 #include "scn/step/enemy/kabu/StateFall.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -32,13 +37,13 @@ namespace kabu {
 StateTeleport::StateTeleport(Enemy* enemy)
     : StateBase(enemy), mStep(0), mSpeedH(0.0f), mSpeedV(0.0f), mAngle(0.0f), mFrame(0), mMoveFrame(0), mIsHit(false) {
     const ParamData& param = obj().param().kabu();
-    int rand = app::Random::Rand(0, 4);
+    int rand = Random::Rand(0, 4);
     mWaitFrame = param.mTeleportWaitFrame + rand * param.mTeleportWaitFrameStep;
     obj().footState().setAir();
     obj().model().reqScript(1);
-    f32 x = app::Random::RandF(param.mTeleportDistXMin, param.mTeleportDistXMax);
-    f32 y = app::Random::RandF(param.mTeleportDistYMin, param.mTeleportDistYMax);
-    if (app::Random::Rand(0, 2) == 0) {
+    f32 x = Random::RandF(param.mTeleportDistXMin, param.mTeleportDistXMax);
+    f32 y = Random::RandF(param.mTeleportDistYMin, param.mTeleportDistYMax);
+    if (Random::Rand(0, 2) == 0) {
         x *= -1.0f;
     }
     mSpeedH = x / param.mTeleportMoveFrame;
@@ -49,7 +54,7 @@ StateTeleport::~StateTeleport() {}
 
 void StateTeleport::procAnim() {
     const ParamData& param = obj().param().kabu();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     u32 index = obj().model().anim().currentG3DAnimIndex();
     mFrame++;
     switch (mStep) {
@@ -112,11 +117,11 @@ void StateTeleport::procMove() {
         if (mAngle >= 360.0f) {
             mAngle -= 360.0f;
         }
-        f32 speed = param.mTeleportFloatSpeed * hel::math::Math::CosDegF(mAngle);
+        f32 speed = param.mTeleportFloatSpeed * Math::CosDegF(mAngle);
         obj().move().setSpeedV(speed);
     } else {
         if (mMoveFrame == 0) {
-            hel::math::Vector3 pos = Utility::GetNearestPlayerPos(obj()).toVector3();
+            Vector3 pos = Utility::GetNearestPlayerPos(obj()).toVector3();
             obj().location().setPos(pos);
         } else if (mMoveFrame == 1) {
             obj().mapColl().setValid(true);

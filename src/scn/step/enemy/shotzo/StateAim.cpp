@@ -31,13 +31,15 @@
 #include "scn/step/enemy/shotzo/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace shotzo {
 
 StateAim::StateAim(Enemy* enemy) : StateBase(enemy), mFrame(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 angle = roundAngle(custom.aimAngle());
     mStartAngle = angle;
     mEndAngle = angle;
@@ -53,12 +55,12 @@ void StateAim::procAnim() {
         obj().brainCtrl().toValid();
     }
     f32 angle = mStartAngle + static_cast<f32>(mFrame) * (mEndAngle - mStartAngle) / static_cast<f32>(param.mAimFrame);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(angle);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setAimAngle(angle);
 }
 
 void StateAim::procMove() {
     const common::ParamData& param = obj().param().common();
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isFixPos() && obj().footState().isAir()) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).isFixPos() && obj().footState().isAir()) {
         obj().move().airDecelFall(param.mDecel, param.mFall);
     } else {
         obj().move().resetSpeedV();

@@ -38,6 +38,13 @@
 #include "std/cmath.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -45,12 +52,12 @@ namespace roah {
 
 StateDead::StateDead(Boss* boss) : StateBase(boss), _8(false), mIsStaged(false), mIsFirst(true), mRot() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().hitStop().clear();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     stagingBossDead();
-    hel::math::Vector3 velocity = hel::math::Vector3::BASIS_Y * -1.0f;
-    velocity.rotate(static_cast<hel::math::Vector3::AxisKind>(2), 0.017453292f * (param.mDeadAngle * obj().target().getSign()));
+    Vector3 velocity = Vector3::BASIS_Y * -1.0f;
+    velocity.rotate(static_cast<Vector3::AxisKind>(2), 0.017453292f * (param.mDeadAngle * obj().target().getSign()));
     velocity.x *= param.mDeadSpeed;
     velocity.y *= param.mDeadSpeed;
     velocity.z = param.mDeadSpeedZ;
@@ -66,9 +73,9 @@ StateDead::StateDead(Boss* boss) : StateBase(boss), _8(false), mIsStaged(false),
             mRot.z = custom.rotCtrl().getLocalMtxTempRot().z;
         }
     } else if (obj().model().anim().currentG3DAnimIndex() == 4) {
-        hel::math::Matrix34 mtx = obj().model().model().nodes().at(1).localMtx().rtMtx();
-        hel::math::Vector2 dir = mtx.getVecFront().getXY();
-        f32 rotZ = acos(dir.cos(hel::math::Vector2::BASIS_X * obj().target().getSign()));
+        Matrix34 mtx = obj().model().model().nodes().at(1).localMtx().rtMtx();
+        Vector2 dir = mtx.getVecFront().getXY();
+        f32 rotZ = acos(dir.cos(Vector2::BASIS_X * obj().target().getSign()));
         if (dir.y > 0.0f) {
             rotZ *= -1.0f;
         }
@@ -81,15 +88,15 @@ StateDead::StateDead(Boss* boss) : StateBase(boss), _8(false), mIsStaged(false),
         mRot.z = 0.0f;
     }
     custom.rotCtrl().toInvalid();
-    obj().model().model().nodes().at(1).localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, mRot.z)) *
-                                                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRot.x, 0.0f, 0.0f)) *
-                                                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot.y, 0.0f)));
+    obj().model().model().nodes().at(1).localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, mRot.z)) *
+                                                  Matrix34::CreateRotXYZDeg(Vector3(mRot.x, 0.0f, 0.0f)) *
+                                                  Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot.y, 0.0f)));
     obj().model().reqScript(4);
 }
 
 StateDead::~StateDead() {
     for (u32 i = 0; i < 4; i++) {
-        util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
+        ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
         if (hero.isAlive()) {
             hero->stateChecker().setDemo(false);
         }
@@ -97,7 +104,7 @@ StateDead::~StateDead() {
 }
 
 void StateDead::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!mIsStaged) {
         stagingBossDead();
         return;
@@ -149,17 +156,17 @@ void StateDead::procMove() {
 
 void StateDead::procFixPos() {
     const Param& param = obj().param().roah();
-    mRot.x = hel::math::Math::LinearInterpolation(mRot.x, param.mDeadRotX, param.mDeadRotXRate);
-    mRot.y = hel::math::Math::LinearInterpolation(mRot.y, param.mRotYMax * obj().target().getSign(), param.mDeadRotYRate);
-    mRot.z = hel::math::Math::LinearInterpolation(mRot.z, param.mDeadRotZ * obj().target().getSign(), param.mDeadRotZRate);
-    obj().model().model().nodes().at(1).localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, mRot.z)) *
-                                                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRot.x, 0.0f, 0.0f)) *
-                                                             hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot.y, 0.0f)));
+    mRot.x = Math::LinearInterpolation(mRot.x, param.mDeadRotX, param.mDeadRotXRate);
+    mRot.y = Math::LinearInterpolation(mRot.y, param.mRotYMax * obj().target().getSign(), param.mDeadRotYRate);
+    mRot.z = Math::LinearInterpolation(mRot.z, param.mDeadRotZ * obj().target().getSign(), param.mDeadRotZRate);
+    obj().model().model().nodes().at(1).localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, mRot.z)) *
+                                                  Matrix34::CreateRotXYZDeg(Vector3(mRot.x, 0.0f, 0.0f)) *
+                                                  Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot.y, 0.0f)));
 }
 
 void StateDead::stagingBossDead() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!mIsStaged && !Utility::IsHeroDeadStop(obj())) {
         mIsStaged = true;
         obj().model().model().nodes().at(12).setVisibilityBelow(true);
@@ -170,12 +177,12 @@ void StateDead::stagingBossDead() {
             obj().comp().heroManager().setHidDisable();
         }
         for (u32 i = 0; i < 4; i++) {
-            util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
+            ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
             if (hero.isAlive()) {
                 hero->stateChecker().setDemo(true);
             }
         }
-        Utility::StagingBossDead(obj(), hel::math::Vector3(param.mDeadOffset), 0x43D);
+        Utility::StagingBossDead(obj(), Vector3(param.mDeadOffset), 0x43D);
         obj().effect().state().releaseAndVanish();
         obj().effect().normal().releaseAndVanish();
         obj().effect().super().releaseAndVanish();

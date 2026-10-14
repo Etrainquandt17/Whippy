@@ -49,6 +49,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -74,7 +76,7 @@ void StateMoveForward::procMove() {
     f32 total = obj().model().anim().totalFrame();
     f32 t = obj().model().anim().frame() / total;
     int deg = static_cast<int>(70.0f + 720.0f * t) % 360;
-    f32 rate = 0.5f * (1.0f + hel::math::Math::SinDegF(deg));
+    f32 rate = 0.5f * (1.0f + Math::SinDegF(deg));
     rate *= rate;
     obj().move().groundAccel(obj().target().isRightDir(), gobj::MoveParamAccel::Create(param._54 * rate, param._58 * rate, param._5C));
 }

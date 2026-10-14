@@ -19,6 +19,9 @@
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Manager.h"
 
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -30,7 +33,7 @@ StateUse::StateUse(CarryItem* carryItem, f32 flashAngle)
     , _34(false)
     , _35(false)
     , mFlashAngle(flashAngle) {
-    mUseAlgorithm.setOffset(hel::math::Vector3::ZERO);
+    mUseAlgorithm.setOffset(Vector3::ZERO);
     obj().getUser()->resetStepShoeInfo();
     setScale();
     obj().model().procFixPos();
@@ -40,7 +43,7 @@ StateUse::StateUse(CarryItem* carryItem, f32 flashAngle)
 }
 
 StateUse::~StateUse() {
-    obj().model().setScale(hel::math::Vector3::ALL_ONE);
+    obj().model().setScale(Vector3::ALL_ONE);
 }
 
 void StateUse::procAnim() {
@@ -113,10 +116,10 @@ void StateUse::setScale() {
         return;
     }
     if (_35) {
-        obj().model().model().nodes().at(2).localMtx().setScale(hel::math::Vector3::ALL_ONE);
+        obj().model().model().nodes().at(2).localMtx().setScale(Vector3::ALL_ONE);
         return;
     }
-    util::ObjRefHandle<hero::Hero> hero =
+    ObjRefHandle<hero::Hero> hero =
         obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().getUser()->getOCOwner().uid());
     if (!hero.isNull()) {
         hero::AbilityKind kind = hero->abilityManager().abilityKind();
@@ -133,14 +136,14 @@ void StateUse::setScale() {
             rate = param._10;
             break;
         }
-        hel::math::Vector3 scale = hel::math::Vector3::ALL_ONE;
+        Vector3 scale = Vector3::ALL_ONE;
         scale *= rate;
         obj().model().model().nodes().at(2).localMtx().setScale(scale);
     }
 }
 
 void StateUse::reqEffect() {
-    hel::math::Vector3 pos = obj().model().model().nodes().at(1).worldTrans();
+    Vector3 pos = obj().model().model().nodes().at(1).worldTrans();
     obj().effect().requestP(static_cast<effect::Kind>(0x9F), pos, 0.85f);
     obj().effect().requestP(static_cast<effect::Kind>(0xB4), pos, 0.7f);
 }

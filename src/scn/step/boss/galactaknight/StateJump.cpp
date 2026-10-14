@@ -52,6 +52,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,7 +63,7 @@ namespace galactaknight {
 
 StateJump::StateJump(Boss* boss, const JumpDesc& desc)
     : StateBase(boss), mFrame(desc._C), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mIsStart(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (desc._10) {
         Utility::TurnHatedHero(obj());
     }
@@ -88,7 +92,7 @@ StateJump::~StateJump() {
 }
 
 void StateJump::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(1)) {
         mIsStart = true;
         if (custom.landCtrl().isGround()) {
@@ -110,12 +114,12 @@ void StateJump::procAnim() {
 void StateJump::procMove() {
     if (mIsStart) {
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-        f32 sin = hel::math::Math::SinDegF(90.0f * t);
+        f32 sin = Math::SinDegF(90.0f * t);
         f32 ease = 1.0f - (1.0f - sin) * (1.0f - sin);
-        f32 rate = hel::math::Math::LinearInterpolation(sin, ease, 0.5f);
-        hel::math::Vector3 pos;
-        pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
-        pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalPos.y, rate);
+        f32 rate = Math::LinearInterpolation(sin, ease, 0.5f);
+        Vector3 pos;
+        pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
+        pos.y = Math::LinearInterpolation(mStartPos.y, mGoalPos.y, rate);
         pos.z = mGoalPos.z;
         obj().location().setPos(pos);
     }

@@ -10,6 +10,10 @@
 #include "scn/step/core/BGMController.h"
 #include "scn/step/sfx/BGFade.h"
 
+using hel::common::Color;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace gimmick {
@@ -118,9 +122,9 @@ DoorUnlockStar::DoorUnlockStar(Component& component)
 
 DoorUnlockStar::~DoorUnlockStar() {}
 
-void DoorUnlockStar::setPos(const hel::math::Vector2& from, const hel::math::Vector2& to, const hel::math::Vector2& door) {
-    mFrom = hel::math::Vector3(from.x, from.y, -2.5f);
-    mTo = hel::math::Vector3(to.x, to.y, -2.5f);
+void DoorUnlockStar::setPos(const Vector2& from, const Vector2& to, const Vector2& door) {
+    mFrom = Vector3(from.x, from.y, -2.5f);
+    mTo = Vector3(to.x, to.y, -2.5f);
     mDoorPos.x = door.x;
     mDoorPos.y = door.y;
 }
@@ -185,12 +189,12 @@ void DoorUnlockStar::procAnim() {
 }
 
 void DoorUnlockStar::start() {
-    mPos = hel::math::Vector3(mFrom.x, mFrom.y, -2.5f);
+    mPos = Vector3(mFrom.x, mFrom.y, -2.5f);
     mModel.setTrans(mPos);
     mModel.setVisibility(true);
     mModel.setAnimByName("Start");
     mModel.start(false);
-    mComponent.bgFade().setColor(hel::common::Color(0, 0, 0, 150));
+    mComponent.bgFade().setColor(Color(0, 0, 0, 150));
     mComponent.bgFade().setFadeOut(10);
     mSE.start(0x4BC);
     mState = STATE_START;
@@ -224,7 +228,7 @@ void DoorUnlockStar::setZoom(bool flag, f32 frame) {
     }
     _28 = flag;
     hash = 0xB3;
-    hel::math::Vector2 center;
+    Vector2 center;
     asm {
         bl      after2
         opword  MF_WORD(0x5C)
@@ -308,7 +312,7 @@ void DoorUnlockStar::setZoom(bool flag, f32 frame) {
 #undef MF_FUNCTION
 
 void DoorUnlockStar::updateZoom() {
-    hel::math::Vector2 center;
+    Vector2 center;
     f32 zoom;
     getCameraSetting(center, zoom);
     mComponent.cameraController().updateZoom(mZoomHandle, center, zoom);
@@ -470,7 +474,7 @@ bool DoorUnlockStar::isFlyEnd() const {
 // TODO: only the game's own part, 90 of 1060 instructions. The original also decodes four hidden objects here
 // (docs/metafortress.md): it reads dcpl_0x064d085b, dcpl_0x1e29fd13 and dcpl_0xd33c62e7 and rewrites
 // dcpl_0xd622c6e3, with its statements spread among these. ChallengeDoor::isUnlockEnd shows the form of one.
-void DoorUnlockStar::getCameraSetting(hel::math::Vector2& center, f32& zoom) {
+void DoorUnlockStar::getCameraSetting(Vector2& center, f32& zoom) {
     f32 aspect = mComponent.cameraAccessor().projAspect(camera::KIND_0);
     f32 left = mPos.x - 3.0f;
     f32 right = 3.0f + mPos.x;

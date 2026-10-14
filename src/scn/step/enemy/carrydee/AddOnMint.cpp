@@ -7,6 +7,8 @@
 #include "scn/step/enemy/MintEnemy.h"
 #include "scn/step/enemy/carrydee/Custom.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -15,7 +17,7 @@ namespace carrydee {
 namespace {
 
 bool t_Custom_IsHaveKey() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isHaveKey();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isHaveKey();
 }
 
 }

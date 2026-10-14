@@ -31,6 +31,10 @@
 #include "scn/step/ocoll/AttackType.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -63,8 +67,8 @@ bool Custom::onHitPointIsZero() {
 
 bool Custom::onVacuumResist() {
     if (obj().size() != 2 && obj().vacuumReceiver().isResist()) {
-        hel::math::Vector2 center = Utility::GetCenterPos(obj()).getXY();
-        hel::math::Vector2 attacker = obj().vacuumReceiver().getResistAttackerPos();
+        Vector2 center = Utility::GetCenterPos(obj()).getXY();
+        Vector2 attacker = obj().vacuumReceiver().getResistAttackerPos();
         int sign;
         if (attacker.x - center.x < 0.0f) {
             sign = -1;
@@ -80,8 +84,8 @@ bool Custom::onVacuumResist() {
 
 void Custom::onProcFixPos() {}
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::whispyapple

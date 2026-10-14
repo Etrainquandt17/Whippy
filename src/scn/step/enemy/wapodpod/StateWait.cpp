@@ -25,19 +25,21 @@
 #include "scn/step/enemy/wapodpod/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace wapodpod {
 
 StateWait::StateWait(Enemy* enemy) : StateBase(enemy) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsWait(true);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsWait(true);
     obj().footState().setGround();
     obj().brainCtrl().toValid();
 }
 
 StateWait::~StateWait() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsWait(false);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsWait(false);
 }
 
 void StateWait::procMove() {

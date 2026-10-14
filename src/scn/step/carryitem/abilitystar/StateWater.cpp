@@ -21,6 +21,11 @@ extern "C" double fmod(double, double);
 #include "scn/step/chara/ModelRotCtrl.h"
 #include "scn/step/chara/Water.h"
 
+using hel::common::Color;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -64,11 +69,11 @@ void StateWater::procAnim() {
         f32 t = static_cast<f32>(obj().lifetime().get()) / 180.0f;
         mFlashAngle += 60.0f * (1.0f - t);
         mFlashAngle = fmod(mFlashAngle, 360.0);
-        f32 cos = hel::math::Math::CosDegF(mFlashAngle);
+        f32 cos = Math::CosDegF(mFlashAngle);
         u8 alpha = static_cast<u8>(192.0f * (0.5f * (1.0f - cos)));
-        obj().flash().set(hel::common::Color(0xFF, 0xFF, 0xFF, alpha));
+        obj().flash().set(Color(0xFF, 0xFF, 0xFF, alpha));
     }
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_X, mRot);
+    Matrix34 mtx = Matrix34::CreateRotAxisDeg(Vector3::BASIS_X, mRot);
     obj().model().model().nodes().at(1).localMtx().setRTMtx(mtx);
 }
 

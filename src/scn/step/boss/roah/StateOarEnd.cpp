@@ -16,13 +16,16 @@
 #include "scn/step/core/PermEffect.h"
 #include "util/ObjList.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateOarEnd::StateOarEnd(Boss* boss) : StateBase(boss), mIsTriggered(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(20);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     custom.resetSubAnimOar();
@@ -30,10 +33,10 @@ StateOarEnd::StateOarEnd(Boss* boss) : StateBase(boss), mIsTriggered(false) {
 }
 
 StateOarEnd::~StateOarEnd() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setSubAnimOar();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setSubAnimOar();
     if (!mIsTriggered) {
         for (u32 i = 0; i < 6; i++) {
-            hel::math::Vector3 pos = obj().model().model().nodes().at(i + 13).worldTrans();
+            Vector3 pos = obj().model().model().nodes().at(i + 13).worldTrans();
             obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x7A), pos);
         }
     }

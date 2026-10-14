@@ -18,6 +18,10 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -35,26 +39,26 @@ StateThunderStart::StateThunderStart(Boss* boss) : StateBase(boss), mTargets(), 
     obj().model().reqScript(9);
     Utility::ControlHateOnAction(obj());
     Utility::TurnHatedHero(obj());
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     f32 targetY = param.mFirstOffsY + obj().basePos().y;
-    hel::math::Vector3 target(Utility::GetHatedHeroPos(obj()).x, targetY, 0.0f);
+    Vector3 target(Utility::GetHatedHeroPos(obj()).x, targetY, 0.0f);
     f32 sign = -1.0f;
     for (u32 i = 0; i < 2; i++) {
         f32 rate = (i + 1) / 2.0f;
-        hel::math::Vector3 point = pos * (1.0f - rate) + target * rate;
+        Vector3 point = pos * (1.0f - rate) + target * rate;
         if (i + 1 < 2) {
-            point.y += sign * (param.mThunderRandRange * app::Random::RandNF()) + param.mThunderOffsetY;
+            point.y += sign * (param.mThunderRandRange * Random::RandNF()) + param.mThunderOffsetY;
         }
         mTargets.add(point);
         sign *= -1.0f;
     }
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollFastMove();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollFastMove();
     obj().soundSE().normal().start(0x59D);
     obj().effect().normal().requestP(static_cast<effect::Kind>(0x4F5), obj().location().pos());
 }
 
 StateThunderStart::~StateThunderStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
 }
 
 void StateThunderStart::procAnim() {
@@ -72,8 +76,8 @@ void StateThunderStart::procAnim() {
 }
 
 void StateThunderStart::procMove() {
-    hel::math::Vector3 target = mTargets[mIndex];
-    hel::math::Vector3 pos = obj().location().pos() * 0.5f + target * 0.5f;
+    Vector3 target = mTargets[mIndex];
+    Vector3 pos = obj().location().pos() * 0.5f + target * 0.5f;
     obj().location().setPos(pos);
 }
 

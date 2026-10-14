@@ -22,6 +22,10 @@
 #include "scn/step/enemy/sheld/StateFall.h"
 #include "scn/step/enemy/sheld/StateJumpStart.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,11 +50,11 @@ StateChase::StateChase(Enemy* enemy) : StateBase(enemy), mAccel(0.0f), mAccelMax
     obj().footState().setGround();
     obj().model().reqScript(9);
     obj().model().anim().setFrameRate(param.mDashFrameRate * mAccel);
-    hel::math::Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
+    Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
     bool isRight = !(diff.x < 0.0f);
     obj().target().setIsRightDir(isRight);
     obj().move().setSpeedH(0.5f * (mAccel * obj().target().getSign()));
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).resetNuru();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).resetNuru();
     obj().brainCtrl().toValid();
 }
 
@@ -63,7 +67,7 @@ void StateChase::procMove() {
 }
 
 void StateChase::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().mapColl().result()._2) {
         custom.resetNuru();
         obj().stateChanger().setNextState<StateJumpStart, Enemy*>(objPtr());
@@ -75,9 +79,9 @@ void StateChase::procFixPos() {
         obj().stateChanger().setNextState<StateFall, Enemy*>(objPtr());
         return;
     }
-    hel::math::Vector2 dir = obj().nururi().getNururiDir();
-    if (hel::math::Math::Abs(dir.x) < 0.1f) {
-        hel::math::Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
+    Vector2 dir = obj().nururi().getNururiDir();
+    if (Math::Abs(dir.x) < 0.1f) {
+        Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
         bool isRight = !(diff.x < 0.0f);
         obj().target().setIsRightDir(isRight);
     } else {

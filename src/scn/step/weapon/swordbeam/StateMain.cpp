@@ -14,6 +14,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/swordbeam/Param.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -23,11 +27,11 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0) {
     const Param& param = obj().param().swordBeam();
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x20));
     obj().objColl().addAttack(
-        0, param._0, hel::math::Vector2(param._4 * obj().target().getSign(), param._8),
-        hel::math::Vector2(param._C * obj().target().getSign(), param._10)
+        0, param._0, Vector2(param._4 * obj().target().getSign(), param._8),
+        Vector2(param._C * obj().target().getSign(), param._10)
     );
-    hel::math::Direction3 dir;
-    dir.mFront = hel::math::Vector3::BASIS_X;
+    Direction3 dir;
+    dir.mFront = Vector3::BASIS_X;
     dir.mFront *= obj().target().getSign();
     dir.restructFrontUp();
     obj().effect().normal().requestND(static_cast<effect::Kind>(0x529), 0, dir);

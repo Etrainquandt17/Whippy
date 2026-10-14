@@ -15,6 +15,11 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/info/BossPanel.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -41,14 +46,14 @@ void StateGrow::procAnim() {
     if (rate > 1.0f) {
         rate = 1.0f;
     }
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.tsctrl().setTrunkScale(hel::math::Math::LinearInterpolation(1.0f, param.mGrowTrunkScale, rate));
-    hel::math::Vector3 trans = hel::math::Vector3(param.mGrowBaseTrans) * rate;
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    custom.tsctrl().setTrunkScale(Math::LinearInterpolation(1.0f, param.mGrowTrunkScale, rate));
+    Vector3 trans = Vector3(param.mGrowBaseTrans) * rate;
     custom.tsctrl().setBaseTrans(trans);
-    hel::math::Vector3 scale =
-        hel::math::Math::LinearInterpolation(hel::math::Vector3::ALL_ONE, hel::math::Vector3(param.mGrowBaseScale), rate);
+    Vector3 scale =
+        Math::LinearInterpolation(Vector3::ALL_ONE, Vector3(param.mGrowBaseScale), rate);
     custom.tsctrl().setBaseScale(scale);
-    hel::geo::Rect rect(param.mLockRect[0], param.mLockRect[1], param.mLockRect[2], param.mLockRect[3]);
+    Rect rect(param.mLockRect[0], param.mLockRect[1], param.mLockRect[2], param.mLockRect[3]);
     rect.trans(param.mGrowLockTransX * rate, param.mGrowLockTransY * rate);
     obj().comp().cameraController().setLock(rect);
 }

@@ -21,6 +21,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -55,23 +57,23 @@ void StateChargeAttack::procFixPos() {
 
 void StateChargeAttack::reqWaveShot() {
     const Param& param = obj().param().kingsdoo();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mWaveShotOffset.x * obj().target().getSign(), param.mWaveShotOffset.y);
-    hel::math::Vector2 dir = hel::math::Vector2::ZERO;
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mWaveShotOffset.x * obj().target().getSign(), param.mWaveShotOffset.y);
+    Vector2 dir = Vector2::ZERO;
     if (mConfig._1) {
         dir = Utility::GetHatedHeroPos(obj()).getXY() - obj().location().pos().getXY();
         if (dir.isZeroLoose(0.00001f)) {
-            dir = hel::math::Vector2::BASIS_X * obj().target().getSign();
+            dir = Vector2::BASIS_X * obj().target().getSign();
         } else {
-            f32 angle = acos(dir.cos(hel::math::Vector2::BASIS_X * obj().target().getSign()));
+            f32 angle = acos(dir.cos(Vector2::BASIS_X * obj().target().getSign()));
             if (angle > 0.017453292f * param.mWaveShotAngleMax) {
-                dir = hel::math::Vector2::BASIS_X * obj().target().getSign();
+                dir = Vector2::BASIS_X * obj().target().getSign();
                 dir.rotate(0.017453292f * param.mWaveShotAngleMax * obj().target().getSign());
             }
         }
         dir.normalize();
     } else {
-        dir = hel::math::Vector2::BASIS_X * obj().target().getSign();
+        dir = Vector2::BASIS_X * obj().target().getSign();
     }
     bool isNormal = !mConfig._0;
     weapon::Desc desc(static_cast<weapon::Kind>(0x32), isNormal, static_cast<ostop::Flag>(8), pos, dir, obj().objColl().owner());

@@ -28,6 +28,14 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using g3d::CharaModelContext;
+using g3d::ResModelContext;
+using g3d::Root;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace g3d {
 class Model;
 }
@@ -123,9 +131,9 @@ ChallengeDoor::ChallengeDoor(const map::BinGmkGeneralEntry& entry, Component& co
     , mResult(CreateResult(this, entry, ChallengeKind(entry._14 - 1)))
     , mPos(entry._4.toMaproPos().toWorldPos())
     , mResFile(component.resFileRepos().get("step/gimmick/DoorChallenge", false))
-    , mModelMain(g3d::CharaModelContext(g3d::ResModelContext(mResFile, "TopL"), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-                                        g3d::CharaModelContext::DefaultNumView(), 1, component.mapMemManager().allocator(), true,
-                                        g3d::CharaModelContext::DefaultOneAnimSlotWorkMemSize(), "GmkDoorChallenge"))
+    , mModelMain(CharaModelContext(ResModelContext(mResFile, "TopL"), CharaModelContext::DefaultModelBufferOption(), 0,
+                                   CharaModelContext::DefaultNumView(), 1, component.mapMemManager().allocator(), true,
+                                   CharaModelContext::DefaultOneAnimSlotWorkMemSize(), "GmkDoorChallenge"))
     , mIcon(component, "step/gimmick/ChallengeIcon", "TopL", true, false)
     , mBoard(component, "step/gimmick/ChallengeBoard", "TopL", true, false)
     , _4F4(0)
@@ -149,7 +157,7 @@ ChallengeDoor::ChallengeDoor(const map::BinGmkGeneralEntry& entry, Component& co
     if (mResult.mKind < 0 || mResult.mKind > 9) {
         mResult.mKind = CHALLENGE_KIND_SWORD;
     }
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateTrans(hel::math::Vector3(mPos.x, mPos.y, -2.5f));
+    Matrix34 mtx = Matrix34::CreateTrans(Vector3(mPos.x, mPos.y, -2.5f));
     mModelMain.setModelRTMtx(mtx);
     mModelMain.model().setVisibility(true);
     if (StorageAccessor::GetSphereUnlockExecutedDemo(mComponent, ChallengeKindUtil::ToSphereUnlockKind(mResult.mKind)) &&
@@ -171,7 +179,7 @@ ChallengeDoor::ChallengeDoor(const map::BinGmkGeneralEntry& entry, Component& co
     }
     mIcon.setAnimByName("Main");
     mIcon.setFrame(T_ICONFRAME_LIST[mResult.mKind]);
-    mBoard.setTrans(hel::math::Vector3(mPos.x, 2.5f + mPos.y, -2.5f));
+    mBoard.setTrans(Vector3(mPos.x, 2.5f + mPos.y, -2.5f));
     mBoard.setVisibility(true);
     const char* name = "Normal";
     if (_5D4) {
@@ -214,7 +222,7 @@ ChallengeDoor::~ChallengeDoor() {
     mStop.remove(mSe);
 }
 
-void ChallengeDoor::registerToRoot(g3d::Root& root) {
+void ChallengeDoor::registerToRoot(Root& root) {
     mModelMain.updateWorldMtx();
     mModelMain.registerToRoot(root);
     mIcon.registerToRoot(root);
@@ -222,7 +230,7 @@ void ChallengeDoor::registerToRoot(g3d::Root& root) {
     mfSphereCounterRegisterToRoot(root);
 }
 
-void ChallengeDoor::mfSphereCounterRegisterToRoot(g3d::Root& root) {
+void ChallengeDoor::mfSphereCounterRegisterToRoot(Root& root) {
     if (_4F4 == 0 && !_5D4) {
         mSphereCounter.registerToRoot(root);
     } else if (!_1130.isEnd()) {
@@ -234,8 +242,8 @@ void ChallengeDoor::mfSphereCounterRegisterToRoot(g3d::Root& root) {
 }
 
 void ChallengeDoor::procAnim() {
-    hel::math::Vector3 pos = mComponent.heroManager().getMainPlayer().location().pos();
-    hel::math::Vector2 heroPos(pos.x, pos.y);
+    Vector3 pos = mComponent.heroManager().getMainPlayer().location().pos();
+    Vector2 heroPos(pos.x, pos.y);
     mModelMain.updateFrame();
     mBoard.updateFrame();
     mfUpdateCover();
@@ -298,7 +306,7 @@ void ChallengeDoor::procAnim() {
     if (_5D5) {
         hero::Hero& hero = mComponent.heroManager().getMainPlayer();
         if (!hero.stateChecker().is_44()) {
-            hero.stateChanger().setNextState<hero::gimmick::StateEnterChallengeDoor, hero::Hero*, hel::math::Vector2, ChallengeKind, bool>(
+            hero.stateChanger().setNextState<hero::gimmick::StateEnterChallengeDoor, hero::Hero*, Vector2, ChallengeKind, bool>(
                 &hero, mResult.mPos, mResult.mKind, true);
             _5D5 = false;
             _4F4 = 6;
@@ -309,33 +317,33 @@ void ChallengeDoor::procAnim() {
     MintChallengeDoor::Unregister(*this);
 }
 
-bool ChallengeDoor::searchAir(const hel::math::Vector2& pos) const {
+bool ChallengeDoor::searchAir(const Vector2& pos) const {
     if (_4F4 == 6) {
         return true;
     }
     if (!_5D4) {
         return false;
     }
-    if (hel::math::Math::Abs(pos.x - mResult.mPos.x) < 2.0f && pos.y > mResult.mPos.y - 1.0f && pos.y < 2.0f + mResult.mPos.y) {
+    if (Math::Abs(pos.x - mResult.mPos.x) < 2.0f && pos.y > mResult.mPos.y - 1.0f && pos.y < 2.0f + mResult.mPos.y) {
         return true;
     }
     return false;
 }
 
-bool ChallengeDoor::search(const hel::math::Vector2& pos) const {
+bool ChallengeDoor::search(const Vector2& pos) const {
     if (_4F4 == 6) {
         return true;
     }
     if (!_5D4) {
         return false;
     }
-    if (hel::math::Math::Abs(pos.x - mResult.mPos.x) < 1.0f && pos.y > mResult.mPos.y - 0.1f && pos.y < 0.1f + mResult.mPos.y) {
+    if (Math::Abs(pos.x - mResult.mPos.x) < 1.0f && pos.y > mResult.mPos.y - 0.1f && pos.y < 0.1f + mResult.mPos.y) {
         return true;
     }
     return false;
 }
 
-Result ChallengeDoor::check(const hel::math::Vector2& pos) const {
+Result ChallengeDoor::check(const Vector2& pos) const {
     Result result;
     if (!_5D5 && search(pos)) {
         result = mResult;
@@ -499,14 +507,14 @@ bool ChallengeDoor::isUnlockEnd() const {
 #undef MF_FUNCTION
 
 void ChallengeDoor::setZoom(f32 zoom, f32 frame) {
-    hel::math::Vector3 pos = mComponent.heroManager().getMainPlayerPos();
-    hel::math::Vector2 center(pos.x, 1.0f + pos.y);
+    Vector3 pos = mComponent.heroManager().getMainPlayerPos();
+    Vector2 center(pos.x, 1.0f + pos.y);
     mComponent.cameraController().setZoom(center, zoom, frame, true, camera::ZOOM_PRIORITY_1);
 }
 
 void ChallengeDoor::updateZoom(u32 handle, f32 zoom) {
-    hel::math::Vector3 pos = mComponent.heroManager().getMainPlayerPos();
-    hel::math::Vector2 center(pos.x, 1.0f + pos.y);
+    Vector3 pos = mComponent.heroManager().getMainPlayerPos();
+    Vector2 center(pos.x, 1.0f + pos.y);
     mComponent.cameraController().updateZoom(handle, center, zoom);
 }
 
@@ -643,16 +651,16 @@ bool ChallengeDoor::mfModelMainIsAnimEnd() {
 }
 
 void ChallengeDoor::mfUpdateCover() {
-    hel::math::Vector3 trans = mModelMain.model().nodeByName("IconConstL").worldTrans();
+    Vector3 trans = mModelMain.model().nodeByName("IconConstL").worldTrans();
     mModelMain.model().nodeByName("IconConstL").worldTrans();
-    hel::math::Vector3 scale = mModelMain.model().nodeByName("IconConstL").worldScale();
+    Vector3 scale = mModelMain.model().nodeByName("IconConstL").worldScale();
     trans.z += -0.1f;
     mIcon.setTrans(trans);
     mIcon.setScale(scale);
 }
 
 void ChallengeDoor::mfEffectSetupDoorRing() {
-    hel::math::Vector3 pos = mPos.toVector3();
+    Vector3 pos = mPos.toVector3();
     pos.z = -2.5f;
     mEffectDoorRing.requestP(static_cast<effect::Kind>(0x4D2), pos, false);
 }

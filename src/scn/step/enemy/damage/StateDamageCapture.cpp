@@ -25,6 +25,11 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/damage/Utility.h"
 
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +38,7 @@ namespace damage {
 namespace {
 
 // TODO: hel::math::Vector2::normalize(), which the original expands here and the shared header only declares.
-inline f32 t_Normalize(hel::math::Vector2& v) {
+inline f32 t_Normalize(Vector2& v) {
     f32 len = v.length();
     if (len == 0.0f) {
         return len;
@@ -54,7 +59,7 @@ StateDamageCapture::StateDamageCapture(Enemy* enemy)
     Utility::OnDamageStart(&obj());
     obj().model().reqScript(6);
     if (obj().hitPoint().isDead()) {
-        hel::math::Vector3 offset = enemy::Utility::GetDefaultCenterOffset(obj());
+        Vector3 offset = enemy::Utility::GetDefaultCenterOffset(obj());
         effect::Kind kind = static_cast<effect::Kind>(0x125);
         if (obj().water().isInWater()) {
             kind = static_cast<effect::Kind>(0x131);
@@ -89,9 +94,9 @@ void StateDamageCapture::procAnim() {
             mRot += 360.0f;
         }
         if (!mIsLanded) {
-            hel::math::Vector2 dir = obj().move().velocity().getXY();
+            Vector2 dir = obj().move().velocity().getXY();
             t_Normalize(dir);
-            f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(dir);
+            f32 angle = Vector2::BASIS_Y.signedAngle(dir);
             obj().model().rotCtrl().setRotV(57.29578f * angle);
             obj().model().rotCtrl().setRotH(mRot);
         } else {
@@ -110,21 +115,21 @@ void StateDamageCapture::procMove() {
 
 void StateDamageCapture::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    hel::math::Vector3 velocity = obj().move().velocity();
-    hel::math::Vector3 pos = obj().location().pos();
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    Vector3 velocity = obj().move().velocity();
+    Vector3 pos = obj().location().pos();
     if (result.mIsHitFloor) {
         mIsLanded = true;
-        obj().move().setSpeedV(0.5f * hel::math::Math::Abs(velocity.y));
+        obj().move().setSpeedV(0.5f * Math::Abs(velocity.y));
     }
     if (result.mIsHitRoof) {
-        obj().move().setSpeedV(-1.0f * hel::math::Math::Abs(velocity.y));
+        obj().move().setSpeedV(-1.0f * Math::Abs(velocity.y));
     }
     if (t_IsHitWall(result)) {
         obj().move().setSpeedH(-0.95f * velocity.x);
     }
     if (pos.y > rect._0) {
-        obj().move().setSpeedV(-1.0f * hel::math::Math::Abs(velocity.y));
+        obj().move().setSpeedV(-1.0f * Math::Abs(velocity.y));
     }
     if (pos.x < rect._8 || pos.x > rect._C) {
         obj().move().setSpeedH(-0.95f * velocity.x);

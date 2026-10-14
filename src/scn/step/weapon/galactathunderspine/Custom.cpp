@@ -4,6 +4,9 @@
 #include "scn/step/weapon/galactathunderspine/StateAttack.h"
 #include "scn/step/weapon/galactathunderspine/StateReady.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -20,8 +23,8 @@ void Custom::attack() {
     obj().stateChanger().setNextState<StateAttack, Weapon*>(&obj());
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::galactathunderspine

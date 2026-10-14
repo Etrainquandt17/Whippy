@@ -17,6 +17,9 @@
 #include "scn/step/enemy/VacuumReceiver.h"
 #include "scn/step/enemy/blipper/ParamData.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -26,11 +29,11 @@ StateFattyBufferEscapeNear::StateFattyBufferEscapeNear(Enemy* enemy) : StateBase
     const ParamData& param = obj().param().blipper();
     obj().footState().setAir();
     obj().model().reqScript(0);
-    hel::math::Vector3 velocity = param.mFattyBufferEscapeVelocity;
+    Vector3 velocity = param.mFattyBufferEscapeVelocity;
     obj().move().setVelocity(velocity);
     obj().mapColl().setValid(false);
     obj().objColl().bodyColl().setStateXlu();
-    obj().target().setIsRightDir(app::Random::RandBool(0.5f));
+    obj().target().setIsRightDir(Random::RandBool(0.5f));
     obj().nururi().setCanNururi(false);
 }
 

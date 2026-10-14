@@ -15,6 +15,8 @@
 #include "scn/step/enemy/common/ParamData.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ void StateAttack::procMove() {
         f32 speed = param.mAttackSpeed * obj().target().getSign();
         obj().move().setSpeedH(speed);
     }
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getWalkFlag() && mFrame == param.mAttackBackFrame) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).getWalkFlag() && mFrame == param.mAttackBackFrame) {
         f32 speed = -param.mAttackSpeed * obj().target().getSign();
         obj().move().setSpeedH(speed);
     }

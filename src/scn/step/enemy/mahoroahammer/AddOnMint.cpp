@@ -10,6 +10,8 @@
 #include "scn/step/enemy/mahoroahammer/StateAttack.h"
 #include "scn/step/enemy/mahoroahammer/StateBound.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -22,7 +24,7 @@ void t_SetNextState_Attack(f32 speed, int count) {
 }
 
 void t_SetNextState_Bound(f32 x, f32 y) {
-    MintEnemy::Obj()->stateChanger().setNextState<StateBound, Enemy*, hel::math::Vector2>(MintEnemy::Obj(), hel::math::Vector2(x, y));
+    MintEnemy::Obj()->stateChanger().setNextState<StateBound, Enemy*, Vector2>(MintEnemy::Obj(), Vector2(x, y));
 }
 
 }

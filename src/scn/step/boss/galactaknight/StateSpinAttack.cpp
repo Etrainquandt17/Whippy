@@ -52,6 +52,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,7 +64,7 @@ namespace galactaknight {
 
 StateSpinAttack::StateSpinAttack(Boss* boss, f32 distance, u32 frame)
     : StateBase(boss), mFrame(frame), mCount(0), mStartPos(boss->location().pos()), mGoalPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = distance * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     Utility::ControlHateOnAction(obj());
@@ -70,7 +75,7 @@ StateSpinAttack::StateSpinAttack(Boss* boss, f32 distance, u32 frame)
 }
 
 StateSpinAttack::~StateSpinAttack() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().clearCapture();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().clearCapture();
     obj().soundSE().loop().stop();
 }
 
@@ -79,7 +84,7 @@ void StateSpinAttack::procAnim() {
         generateStar();
     }
     if (obj().scriptTrigger().get(4)) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().reqStateFinish();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().reqStateFinish();
     }
     if (mCount < mFrame) {
         mCount++;
@@ -90,26 +95,26 @@ void StateSpinAttack::procAnim() {
 
 void StateSpinAttack::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
     obj().location().setPos(pos);
 }
 
 void StateSpinAttack::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector3 pos = obj().location().pos();
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 pos = obj().location().pos();
     pos.y += obj().param().galactaknight()._C0;
     custom.captureCtrl().setConstraintPos(pos);
 }
 
 void StateSpinAttack::procObjCollReact() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
 }
 
 void StateSpinAttack::generateStar() {
     const Param& param = obj().param().galactaknight();
-    hel::math::Vector2 pos = param._C;
-    hel::math::Vector2 speed = param._24;
+    Vector2 pos = param._C;
+    Vector2 speed = param._24;
     pos.x *= obj().target().getSign();
     speed.x *= obj().target().getSign();
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));

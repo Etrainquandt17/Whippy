@@ -9,6 +9,8 @@
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjList.h"
 
+using app::Message;
+
 namespace scn {
 namespace arena {
 namespace select {
@@ -152,7 +154,7 @@ SelectPanel::SelectPanel(SelectSet& set, SelectPanelType type)
     } else {
         switch (type) {
         case SELECT_PANEL_TYPE_0:
-            mLayout.pane("Text").setText(app::Message::TextArena("MemberSelectDecide"));
+            mLayout.pane("Text").setText(Message::TextArena("MemberSelectDecide"));
             mLayout.pane("DecideN").show();
             mLayout.play("NoChoiceGray");
             mButton.construct(lyt::LayoutContext("arena/Main", "Select2Button", set.heap().obj()));
@@ -162,7 +164,7 @@ SelectPanel::SelectPanel(SelectSet& set, SelectPanelType type)
             }
             break;
         case SELECT_PANEL_TYPE_1:
-            mLayout.pane("Text_00").setText(app::Message::TextArena("MemberSelectWiiRemoteAdd"));
+            mLayout.pane("Text_00").setText(Message::TextArena("MemberSelectWiiRemoteAdd"));
             mLayout.pane("AddN").show();
             mLayout.play("Choice");
             mLayout.setFrame(static_cast<f32>(mSet.getFrame() % static_cast<u32>(mLayout.totalFrame())));

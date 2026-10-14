@@ -47,13 +47,18 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::ColorAnimFlashOp;
+using hel::common::Color;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace landiasingle {
 
 StatePreDead::StatePreDead(Enemy* enemy) : StateBase(enemy), mFlashFrame(0), mFrame(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x13);
     obj().move().resetVelocity();
     f32 x = obj().location().pos().x;
@@ -79,7 +84,7 @@ void StatePreDead::procAnim() {
             rate = 1.0f;
         }
         u8 value = static_cast<u8>(255.0f * rate);
-        obj().flash().setEnf1F(hel::common::Color(value, value, value, 0xff), static_cast<g3d::ColorAnimFlashOp>(2));
+        obj().flash().setEnf1F(Color(value, value, value, 0xff), static_cast<ColorAnimFlashOp>(2));
         mFlashFrame--;
     }
     mFrame++;
@@ -96,7 +101,7 @@ void StatePreDead::procAnim() {
 // slots: the original has the difference at 0x3c and the copy of the centre at 0x24.
 void StatePreDead::procMove() {
     const ParamData& param = obj().param().landiasingle();
-    f32 distance = hel::math::Math::SqrtF(
+    f32 distance = Math::SqrtF(
         obj().location().pos().squareDistance(obj().comp().mainCamera().getCenter().toVector3()));
     if (distance > param._190) {
         obj().location().setPos(obj().comp().mainCamera().getCenter().toVector3() * param._18c

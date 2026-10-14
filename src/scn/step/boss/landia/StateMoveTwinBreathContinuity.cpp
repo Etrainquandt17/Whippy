@@ -17,6 +17,10 @@
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -24,7 +28,7 @@ namespace landia {
 
 StateMoveTwinBreathContinuity::StateMoveTwinBreathContinuity(Boss* boss, Config config)
     : StateBase(boss), mCount(0), mStartPos(), mGoalPos(), mConfig(config), mIsWaitAnim(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mConfig._C) {
         obj().model().reqScript(23);
         mIsWaitAnim = true;
@@ -53,12 +57,12 @@ void StateMoveTwinBreathContinuity::procAnim() {
 
 void StateMoveTwinBreathContinuity::procMove() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().anim().currentG3DAnimIndex() != 1) {
         f32 t = obj().model().anim().frame() / static_cast<f32>(obj().model().anim().totalFrame());
-        f32 rate = hel::math::Math::SinDegF(90.0f * t);
-        hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
-        pos.y += param.mTwinBreathMoveSwing * hel::math::Math::SinDegF(180.0f * rate);
+        f32 rate = Math::SinDegF(90.0f * t);
+        Vector2 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+        pos.y += param.mTwinBreathMoveSwing * Math::SinDegF(180.0f * rate);
         custom.waftCtrl().setRefPos(pos.toVector3());
     }
 }

@@ -15,6 +15,8 @@
 #include "scn/step/hero/wing/StateShot.h"
 #include "scn/step/hero/wing/StateUnderAttack.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -42,8 +44,8 @@ void Wing::setup() {
     u32 last;
     u32 limit;
 
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/wing/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/wing/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0x13, motion);
     asm {

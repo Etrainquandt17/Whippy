@@ -25,6 +25,12 @@
 #include "scn/step/enemy/walf/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -53,7 +59,7 @@ bool Custom::isInWater() {
     return obj().water().isPosInWater(obj().param().walf().mInWaterOffset);
 }
 
-bool Custom::isFloating(hel::math::Vector2 offset) {
+bool Custom::isFloating(Vector2 offset) {
     if (!obj().water().isPosInWater(obj().param().walf().mInWaterOffset + offset) &&
         obj().water().isPosInWater(obj().param().walf().mFloatingOffset + offset)) {
         return true;
@@ -71,7 +77,7 @@ bool Custom::isFloating() {
 
 bool Custom::checkTurn(bool isRight) {
     if (isRight == obj().target().isRightDir()) {
-        if (hel::math::Math::Abs(mTurnStep) == 2) {
+        if (Math::Abs(mTurnStep) == 2) {
             mTurnStep = static_cast<int>(obj().target().getSign()) * -1;
             return true;
         } else {
@@ -79,7 +85,7 @@ bool Custom::checkTurn(bool isRight) {
             return false;
         }
     } else {
-        if (hel::math::Math::Abs(mTurnStep) == 2) {
+        if (Math::Abs(mTurnStep) == 2) {
             mTurnStep = static_cast<int>(obj().target().getSign()) * -1;
             return false;
         } else {
@@ -90,7 +96,7 @@ bool Custom::checkTurn(bool isRight) {
 }
 
 bool Custom::checkJump() {
-    s32 rand = app::Random::Rand(3);
+    s32 rand = Random::Rand(3);
     bool wasJump = true;
     if (mJumpRand == 0) {
         wasJump = false;
@@ -126,8 +132,8 @@ bool Custom::checkTurnAfterJump() {
     return checkTurn(mDirBeforeJump);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

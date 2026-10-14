@@ -7,6 +7,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/metalgeneralneedle/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,8 +27,8 @@ void Custom::reqCustomDeadEffect() {
     obj().comp().permSoundSE().start(0x3E5);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::metalgeneralneedle

@@ -23,6 +23,8 @@
 #include "scn/step/hero/damage/Utility.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -63,10 +65,10 @@ void StateFireLv2::procAnim() {
         mRot += 360.0f;
     }
     if (!mIsLanded) {
-        hel::math::Vector2 dir = obj().move().velocity().getXY();
+        Vector2 dir = obj().move().velocity().getXY();
         if (!dir.isZero()) {
             dir.normalize();
-            f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(dir);
+            f32 angle = Vector2::BASIS_Y.signedAngle(dir);
             obj().model().modelRotCtrl().setRotV(57.29578f * angle);
         }
         obj().model().modelRotCtrl().setRotH(mRot);

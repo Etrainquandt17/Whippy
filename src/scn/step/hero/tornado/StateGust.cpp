@@ -26,6 +26,9 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -73,7 +76,7 @@ void StateGust::procMove() {
 
 void StateGust::procConstraint() {
     if (mWeapon.isAlive() && !mIsWeaponHit) {
-        hel::math::Vector3 pos = mWeapon->location().pos();
+        Vector3 pos = mWeapon->location().pos();
         pos.x = static_cast<const Hero&>(obj()).location().pos().x;
         mWeapon->location().setPos(pos);
     }
@@ -90,17 +93,17 @@ void StateGust::procFixPos() {
 
 void StateGust::createWeapon() {
     const TornadoParam& param = obj().param().tornado();
-    hel::math::Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
-    hel::math::Vector2 pos = heroPos.getXY();
-    hel::math::Vector2 offset = mIsUp ? hel::math::Vector2::BASIS_Y * param._D4 : hel::math::Vector2::BASIS_Y * param._D8;
-    hel::math::Vector2 weaponPos = pos + offset;
+    Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
+    Vector2 pos = heroPos.getXY();
+    Vector2 offset = mIsUp ? Vector2::BASIS_Y * param._D4 : Vector2::BASIS_Y * param._D8;
+    Vector2 weaponPos = pos + offset;
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(0x5B);
     desc.mVariation = !mIsUp;
     desc.mFlag = static_cast<ostop::Flag>(1);
     desc.mPos = weaponPos;
     desc._14 = pos;
-    desc._1c = hel::math::Vector2::ZERO;
+    desc._1c = Vector2::ZERO;
     desc.mOwner = &obj().objColl().objColl().owner();
     mWeapon = obj().comp().weaponManager().request(desc);
 }

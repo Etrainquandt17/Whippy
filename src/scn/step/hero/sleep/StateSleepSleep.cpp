@@ -32,6 +32,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -170,14 +174,14 @@ void StateSleepSleep::wakeUpWithBubbleBurst() {
 
 void StateSleepSleep::decideWeaponScale() {
     mScale = static_cast<f32>(obj().shakeCharge().power()) / 500.0f;
-    mScale = hel::math::Math::LimitMinMax(mScale, param(obj())._4, param(obj())._0);
+    mScale = Math::LimitMinMax(mScale, param(obj())._4, param(obj())._0);
 }
 
 f32 StateSleepSleep::shakeScale() {
     const SleepParam& p = obj().param().sleep();
     f32 speed = mScale / 3.0f;
     speed = speed * (speed * speed);
-    speed = hel::math::Math::Max(speed, p._8);
+    speed = Math::Max(speed, p._8);
     mShakeAngle += speed;
     if (mShakeAngle > 3.1415927f) {
         mShakeAngle -= 6.2831855f;
@@ -188,19 +192,19 @@ f32 StateSleepSleep::shakeScale() {
 
 void StateSleepSleep::updateWeapon(f32 scale) {
     if (mWeapon.isAlive()) {
-        hel::math::Vector3 s(scale, scale, scale);
+        Vector3 s(scale, scale, scale);
         mWeapon->model().model().nodes().at(0).localMtx().setScale(s);
-        hel::math::Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
+        Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
         mWeapon->location().setPos(pos);
     }
 }
 
 void StateSleepSleep::createWeapon() {
-    hel::math::Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
-    hel::math::Vector2 dir(heroPos.x, heroPos.y);
-    hel::math::Vector2 pos = dir;
+    Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
+    Vector2 dir(heroPos.x, heroPos.y);
+    Vector2 pos = dir;
     pos.y += obj().param().sleep()._30;
-    hel::math::Vector2 zero(0.0f, 0.0f);
+    Vector2 zero(0.0f, 0.0f);
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(0x12);
     desc.mVariation = 0;

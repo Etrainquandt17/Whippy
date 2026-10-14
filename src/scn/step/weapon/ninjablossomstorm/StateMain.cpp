@@ -18,6 +18,10 @@
 #include "scn/step/weapon/ninjablossomstorm/Param.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -44,10 +48,10 @@ void StateMain::procAnim() {
         return;
     }
     if (mFrame == param._0) {
-        obj().objColl().setAttackCenter(0, hel::math::Vector2(0.0f, param._14));
+        obj().objColl().setAttackCenter(0, Vector2(0.0f, param._14));
         obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xD8));
-        obj().objColl().addAttack(0, param._C, hel::math::Vector2(param._10, param._14), hel::math::Vector2(-param._10, param._14));
-        obj().objColl().addAttack(0, param._18, hel::math::Vector2(0.0f, param._1C));
+        obj().objColl().addAttack(0, param._C, Vector2(param._10, param._14), Vector2(-param._10, param._14));
+        obj().objColl().addAttack(0, param._18, Vector2(0.0f, param._1C));
     }
     if (mFrame == param._4) {
         obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xD9));
@@ -58,9 +62,9 @@ void StateMain::procAnim() {
 void StateMain::procMove() {}
 
 void StateMain::procConstraint() {
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().objColl().owner().rootUid());
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().objColl().owner().rootUid());
     if (hero.isAlive()) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         const hero::Hero& owner = *hero.operator->();
         pos.x = owner.location().pos().x;
         obj().location().setPos(pos);

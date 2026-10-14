@@ -57,13 +57,17 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateReflectHomingShot::StateReflectHomingShot(Boss* boss) : StateBase(boss), mCount(0), mPhase(0), _10(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x27);
@@ -76,11 +80,11 @@ StateReflectHomingShot::~StateReflectHomingShot() {
 }
 
 void StateReflectHomingShot::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount != 0) {
         mCount--;
         if (mCount == 15) {
-            hel::math::Vector3 center = custom.waftMoveCtrl().getCenter();
+            Vector3 center = custom.waftMoveCtrl().getCenter();
             switch (mPhase) {
             case 0: {
                 center.x = obj().basePos().x - (center.x - obj().basePos().x);
@@ -96,9 +100,9 @@ void StateReflectHomingShot::procAnim() {
             mPhase++;
         }
         f32 t = mCount / 30.0f;
-        f32 rate = 1.0f - hel::math::Math::AbsF32(hel::math::Math::CosDegF(180.0f * t));
-        hel::math::Vector3 scale =
-            hel::math::Math::LinearInterpolation(hel::math::Vector3::ALL_ONE, hel::math::Vector3(0.01f, 2.0f, 0.01f), rate);
+        f32 rate = 1.0f - Math::AbsF32(Math::CosDegF(180.0f * t));
+        Vector3 scale =
+            Math::LinearInterpolation(Vector3::ALL_ONE, Vector3(0.01f, 2.0f, 0.01f), rate);
         obj().model().setScale(scale);
     }
     if (obj().scriptTrigger().get(0)) {
@@ -117,8 +121,8 @@ void StateReflectHomingShot::procMove() {}
 void StateReflectHomingShot::procFixPos() {}
 
 void StateReflectHomingShot::reqShotBullet() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(7), obj().location().pos(), hel::math::Vector3::ZERO, _10);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(7), obj().location().pos(), Vector3::ZERO, _10);
     _10++;
 }
 

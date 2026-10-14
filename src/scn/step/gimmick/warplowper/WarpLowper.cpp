@@ -39,6 +39,13 @@ class Model;
 template util::ObjListNode<g3d::Model, util::ObjListDummyType>::~ObjListNode();
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
+using g3d::CharaModelContext;
+using g3d::MaterialAccessor;
+using g3d::ModelAccessor;
+using g3d::ResFileAccessor;
+using g3d::ResModelContext;
+using g3d::Root;
+using hel::common::FixedString;
 using hel::math::Matrix34;
 using hel::math::Matrix44;
 using hel::math::Vector2;
@@ -88,19 +95,19 @@ WarpLowper::WarpLowper(const map::BinGmkGeneralEntry& entry, Component& componen
     , _875(false) {
     if (_7E4) {
         mResFile.construct(component.resFileRepos().get("step/gimmick/WarpLowperExit", false));
-        const g3d::ResFileAccessor& resFile = mResFile.ref();
-        mModel.construct(g3d::CharaModelContext(
-            g3d::ResModelContext(resFile, "TopL"), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-            g3d::CharaModelContext::DefaultNumView(), 2, component.mapMemManager().allocator(), false,
-            g3d::CharaModelContext::DefaultOneAnimSlotWorkMemSize(), hel::common::FixedString<32>("GmkWarpLowperExit")));
+        const ResFileAccessor& resFile = mResFile.ref();
+        mModel.construct(CharaModelContext(
+            ResModelContext(resFile, "TopL"), CharaModelContext::DefaultModelBufferOption(), 0,
+            CharaModelContext::DefaultNumView(), 2, component.mapMemManager().allocator(), false,
+            CharaModelContext::DefaultOneAnimSlotWorkMemSize(), FixedString<32>("GmkWarpLowperExit")));
     } else {
         mResFile.construct(component.resFileRepos().get("step/gimmick/WarpLowper", false));
         const char* name = component.context()._524.isExtraMode() ? "TopLEx" : "TopL";
-        const g3d::ResFileAccessor& resFile = mResFile.ref();
-        mModel.construct(g3d::CharaModelContext(
-            g3d::ResModelContext(resFile, name), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-            g3d::CharaModelContext::DefaultNumView(), 2, component.mapMemManager().allocator(), false,
-            g3d::CharaModelContext::DefaultOneAnimSlotWorkMemSize(), hel::common::FixedString<32>("GmkWarpLowper")));
+        const ResFileAccessor& resFile = mResFile.ref();
+        mModel.construct(CharaModelContext(
+            ResModelContext(resFile, name), CharaModelContext::DefaultModelBufferOption(), 0,
+            CharaModelContext::DefaultNumView(), 2, component.mapMemManager().allocator(), false,
+            CharaModelContext::DefaultOneAnimSlotWorkMemSize(), FixedString<32>("GmkWarpLowper")));
     }
     Vector3 pos = mPos.toVector3();
     pos.z = mParam->_8;
@@ -109,7 +116,7 @@ WarpLowper::WarpLowper(const map::BinGmkGeneralEntry& entry, Component& componen
     _30.changeLayer(core::DRAW_LAYER_KIND_4);
     _3CC.changeLayer(static_cast<core::DrawLayerKind>(2));
     if (!_7E3 && _7E2) {
-        const g3d::ResFileAccessor& resFile = mResFile.ref();
+        const ResFileAccessor& resFile = mResFile.ref();
         mModel->setAnim(0, resFile, "End");
         mModel->anim(0).start(false);
         mModel->model().setVisibility(true);
@@ -131,13 +138,13 @@ WarpLowper::~WarpLowper() {
     mStop.remove(_30);
 }
 
-void WarpLowper::registerToRoot(g3d::Root& root) {
+void WarpLowper::registerToRoot(Root& root) {
     if (!_874 && Util::InScreen(mComponent, mPos, 6.0f)) {
         mModel->registerToRoot(root);
     }
 }
 
-void WarpLowper::registerToRootFore(g3d::Root& root) {
+void WarpLowper::registerToRootFore(Root& root) {
     if (_874 && Util::InScreen(mComponent, mPos, 6.0f)) {
         mModel->registerToRoot(root);
     }
@@ -165,7 +172,7 @@ void WarpLowper::updateFrame() {
     }
     mModel->updateFrame();
     {
-        g3d::ModelAccessor model = mModel->model();
+        ModelAccessor model = mModel->model();
         _30.native().autoRequestOnUpdateFrame(model, mModel->anim(0));
     }
     mfProcessDemo();
@@ -430,7 +437,7 @@ void WarpLowper::onAnimStart() {
             blr
         }
     } else {
-        g3d::ModelAccessor model = mModel->model();
+        ModelAccessor model = mModel->model();
         _30.native().autoRequestOnSetFrame(model, mModel->anim(0));
     }
 }
@@ -605,7 +612,7 @@ void WarpLowper::mfUpdateSRT() {
     Vector2 scaled(screen.x * scale, screen.y * scale);
     Matrix34 mtx;
     mtx.setT(scaled.toVector3());
-    const g3d::MaterialAccessor& material = mModel->model().materialByName("RipC");
+    const MaterialAccessor& material = mModel->model().materialByName("RipC");
     material.texSRTSetEffectMtx(0, mtx);
     material.texSRTEndEdit();
 }

@@ -20,6 +20,9 @@
 #include "scn/step/enemy/tsukikage/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -72,7 +75,7 @@ void StateJump::setJumpSpeed() {
         dir = -1.0f;
     }
     const ParamData& param = obj().param().tsukikage();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 speedX;
     f32 speedY;
     switch (custom.getJumpNum()) {
@@ -93,7 +96,7 @@ void StateJump::setJumpSpeed() {
         speedX = param.mJumpSpeedX * dir;
         break;
     }
-    obj().move().setVelocity(hel::math::Vector3(speedX, speedY, 0.0f));
+    obj().move().setVelocity(Vector3(speedX, speedY, 0.0f));
 }
 
 }}}}  // namespace scn::step::enemy::tsukikage

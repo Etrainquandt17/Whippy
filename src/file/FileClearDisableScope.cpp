@@ -3,14 +3,17 @@
 #include "app/Application.h"
 #include "file/FileManager.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+
 namespace file {
 
 FileClearDisableScope::FileClearDisableScope() {
-    hel::common::ExplicitSingleton<app::Application>::object_->fileManager().disableClearInc();
+    ExplicitSingleton<Application>::object_->fileManager().disableClearInc();
 }
 
 FileClearDisableScope::~FileClearDisableScope() {
-    hel::common::ExplicitSingleton<app::Application>::object_->fileManager().disableClearDec();
+    ExplicitSingleton<Application>::object_->fileManager().disableClearDec();
 }
 
 }  // namespace file

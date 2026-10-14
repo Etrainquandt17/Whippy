@@ -34,6 +34,10 @@
 #include "std/min.h"
 #include "util/ObjList.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -96,9 +100,9 @@ void Custom::onProcAnim() {}
 
 void Custom::onProcFixPos() {}
 
-hel::math::Vector2 Custom::getFirstOffs() const {
+Vector2 Custom::getFirstOffs() const {
     const Param& param = obj().param().dubior();
-    return hel::math::Vector2(0.0f, param.mFirstOffsY);
+    return Vector2(0.0f, param.mFirstOffsY);
 }
 
 void Custom::setBodyCollDefault() {
@@ -125,8 +129,8 @@ void Custom::setBodyCollDash() {
 }
 
 void Custom::reqThunderGroundEffect() {
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 step = hel::math::Vector2::BASIS_Y * -0.1f;
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 step = Vector2::BASIS_Y * -0.1f;
     u32 i = 0;
     while (++i < 100) {
         obj().comp().debugGeneralDrawer().addArrow(pos, pos + step);
@@ -149,7 +153,7 @@ void Custom::reqThunderGroundEffect() {
     }
 }
 
-mcoll::detail::DetectResult Custom::detect(const hel::math::Vector2& pos, const hel::math::Vector2& move) {
+mcoll::detail::DetectResult Custom::detect(const Vector2& pos, const Vector2& move) {
     mcoll::detail::DetectArg arg;
     arg.setVelocity(move);
     return obj().comp().mapLandManager().native().rayCheck(pos, arg);
@@ -159,8 +163,8 @@ EnemyCtrl& Custom::enemyCtrl() {
     return mEnemyCtrl;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::dubior

@@ -28,6 +28,10 @@
 #include "scn/step/ocoll/AttackType.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,17 +39,17 @@ namespace starman {
 
 StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mIsEnd(false) {
     const ParamData& param = obj().param().starman();
-    mSpeedH = hel::math::Math::AbsF32(obj().move().velocity().x);
+    mSpeedH = Math::AbsF32(obj().move().velocity().x);
     obj().footState().setAir();
     obj().model().reqScript(8);
-    mIsHighJump = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isHighJumpMode();
+    mIsHighJump = DynamicCastToRef<Custom, ICustom>(obj().custom()).isHighJumpMode();
     if (mIsHighJump) {
         obj().move().setSpeedV(param.mHighJumpSpeed);
         obj().effect().state().requestN(static_cast<effect::Kind>(0x2e3), 0);
         obj().effect().normal().requestN(static_cast<effect::Kind>(0x2e4), 0);
         obj().objColl().clearAttack();
         obj().objColl().setAttackType(0, static_cast<ocoll::AttackType>(0x199));
-        obj().objColl().addAttack(0, 1, param.mAttackRadius, hel::math::Vector2(0.0f, param.mAttackOffsetY));
+        obj().objColl().addAttack(0, 1, param.mAttackRadius, Vector2(0.0f, param.mAttackOffsetY));
         obj().soundSE().start(0x2e6);
     } else {
         obj().move().setSpeedV(param.mJumpSpeed);

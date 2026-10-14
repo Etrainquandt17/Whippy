@@ -4,13 +4,15 @@
 #include "metafortress.h"
 #include "types.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace camera {
 
 namespace {
 
-hel::common::PointerWrapper<CameraController> t_obj;
+PointerWrapper<CameraController> t_obj;
 
 }
 

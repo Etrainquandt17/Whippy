@@ -25,6 +25,8 @@
 #include "scn/step/enemy/gemra/StateFly.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,7 +40,7 @@ bool BrainWait::onStart() {
 }
 
 bool BrainWait::onRecover() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).resetPos();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).resetPos();
     obj().stateChanger().setNextState<StateFly, Enemy*>(&obj());
     return true;
 }

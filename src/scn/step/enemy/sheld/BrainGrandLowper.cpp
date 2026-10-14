@@ -7,6 +7,8 @@
 #include "scn/step/enemy/sheld/StateEscape.h"
 #include "scn/step/enemy/sheld/StateGrandLowperAppear.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,7 +22,7 @@ bool BrainGrandLowper::onStart() {
 }
 
 bool BrainGrandLowper::onLanding() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isEscape()) {
         obj().stateChanger().setNextState<StateEscape, Enemy*>(&obj());
     } else {

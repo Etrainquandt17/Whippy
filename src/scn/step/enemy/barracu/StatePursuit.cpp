@@ -21,6 +21,11 @@
 #include "scn/step/enemy/barracu/ParamData.h"
 #include "scn/step/enemy/barracu/StateAttack.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -64,10 +69,10 @@ void StatePursuit::procAnim() {
 
 void StatePursuit::procMove() {
     const ParamData& param = obj().param().barracu();
-    u32 level = hel::math::Math::LimitMinMax<u32>(obj().level(), 0, 2);
-    hel::math::Vector3 pos = obj().location().pos();
+    u32 level = Math::LimitMinMax<u32>(obj().level(), 0, 2);
+    Vector3 pos = obj().location().pos();
     if (obj().model().getCurrentScriptIndex() == 7) {
-        if (!obj().water().isPosInWater(hel::math::Vector2(0.0f, 0.5f))) {
+        if (!obj().water().isPosInWater(Vector2(0.0f, 0.5f))) {
             pos.y -= 0.02f;
             obj().location().setPos(pos);
         }
@@ -87,28 +92,28 @@ void StatePursuit::procMove() {
             }
             f32 rate = 1.0f - mTurnFrame / 80.0f;
             pos.x += rate * (param.mLevel[level].mSpeed * obj().target().getSign());
-            pos.y += 0.02f * hel::math::Math::LimitMinMax<f32>(Utility::GetNearestPlayerPos(obj()).y - pos.y, -1.0f, 1.0f);
+            pos.y += 0.02f * Math::LimitMinMax<f32>(Utility::GetNearestPlayerPos(obj()).y - pos.y, -1.0f, 1.0f);
         } else {
             pos.x += param.mLevel[level].mSpeed * obj().target().getSign();
         }
-    } else if (obj().water().isPosInWater(hel::math::Vector2(0.5f * obj().target().getSign(), 0.0f))) {
+    } else if (obj().water().isPosInWater(Vector2(0.5f * obj().target().getSign(), 0.0f))) {
         pos.x += param.mTurnSpeed * obj().target().getSign();
     }
-    hel::math::Vector2 diff = pos.getXY() - obj().location().pos().getXY();
-    if (!obj().water().isPosInWater(diff + hel::math::Vector2(0.0f, 0.5f))) {
+    Vector2 diff = pos.getXY() - obj().location().pos().getXY();
+    if (!obj().water().isPosInWater(diff + Vector2(0.0f, 0.5f))) {
         pos.y -= 0.02f;
     }
     obj().location().setPos(pos);
     obj().objColl().clearSearchHit();
     if (obj().model().getCurrentScriptIndex() == 7) {
-        obj().objColl().addSearchHit(1, param.mSearchRadius, hel::math::Vector2(param.mSearchOffset * obj().target().getSign(), 0.0f));
+        obj().objColl().addSearchHit(1, param.mSearchRadius, Vector2(param.mSearchOffset * obj().target().getSign(), 0.0f));
     }
 }
 
 void StatePursuit::procFixPos() {
     if (obj().model().getCurrentScriptIndex() == 7) {
         if (obj().mapColl().result()._2 || Utility::ChkNururiByDir(obj(), 0.1f) ||
-            !obj().water().isPosInWater(hel::math::Vector2(0.5f * obj().target().getSign(), 0.0f))) {
+            !obj().water().isPosInWater(Vector2(0.5f * obj().target().getSign(), 0.0f))) {
             Utility::Turn(obj());
             obj().objColl().clearSearchHit();
             obj().model().reqScript(obj().target().isRightDir() ? SCRIPT_TURN_RIGHT : SCRIPT_TURN_LEFT);
@@ -119,7 +124,7 @@ void StatePursuit::procFixPos() {
 }
 
 void StatePursuit::procObjCollReact() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).chkCaptureHero()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).chkCaptureHero()) {
         obj().stateChanger().setNextState<StateAttack, Enemy*>(objPtr());
     }
 }

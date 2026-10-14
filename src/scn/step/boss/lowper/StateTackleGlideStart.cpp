@@ -56,18 +56,22 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateTackleGlideStart::StateTackleGlideStart(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
-    hel::math::Vector3 pos;
+    Vector3 pos;
     f32 baseX = obj().basePos().x;
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - baseX);
+    f32 sign = Math::SignF32(obj().location().pos().x - baseX);
     pos.x = obj().basePos().x + 0.5f * sign * param._24;
     pos.y = obj().comp().mainCamera().getWorldRect()._0 - param._2C;
     custom.waftMoveCtrl().setMoveIntpRate(0.075f);

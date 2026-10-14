@@ -43,13 +43,19 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace fattybuffer {
 
 StateCannonEnd::StateCannonEnd(Boss* boss, f32 angle) : StateBase(boss), mAngle(angle) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x11);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_13);
@@ -63,10 +69,10 @@ StateCannonEnd::~StateCannonEnd() {
 
 void StateCannonEnd::procAnim() {
     if (obj().scriptTrigger().get(0)) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_2);
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_2);
     }
-    if (!hel::math::Math::EqZero(mAngle)) {
-        mAngle = hel::math::Math::Interpolate(mAngle, 0.0f, obj().param().fattybuffer()._A8);
+    if (!Math::EqZero(mAngle)) {
+        mAngle = Math::Interpolate(mAngle, 0.0f, obj().param().fattybuffer()._A8);
         updateSRT();
     }
     if (obj().model().isAllEnd()) {
@@ -82,9 +88,9 @@ void StateCannonEnd::procMove() {
 void StateCannonEnd::procFixPos() {}
 
 void StateCannonEnd::updateSRT() {
-    hel::math::Vector3 rot(-mAngle, 0.0f, 0.0f);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(3);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+    Vector3 rot(-mAngle, 0.0f, 0.0f);
+    NodeAccessor node = obj().model().model().nodes().at(3);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(rot));
 }
 
 }}}}  // namespace scn::step::boss::fattybuffer

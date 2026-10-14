@@ -27,6 +27,9 @@
 #include "scn/step/enemy/needlous/StateIdling.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -43,7 +46,7 @@ StateAttack::~StateAttack() {
 }
 
 void StateAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().variation() == 0x1b) {
         custom.updateMoveCount();
     }
@@ -51,7 +54,7 @@ void StateAttack::procAnim() {
 
 void StateAttack::procMove() {
     const ParamData& param = obj().param().needlous();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().footState().isAir()) {
         obj().move().airDecelFall(param.mDecel, param.mFall);
     }
@@ -62,12 +65,12 @@ void StateAttack::procMove() {
 void StateAttack::procFixPos() {
     const ParamData& param = obj().param().needlous();
     chara::MapCollResult result = obj().mapColl().result();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (result.mIsHitFloor) {
         if (obj().footState().isAir()) {
             f32 speed = obj().move().velocity().y;
             speed *= param.mAttackBoundRate;
-            if (hel::math::Math::Abs(speed) < param.mAttackBoundMin) {
+            if (Math::Abs(speed) < param.mAttackBoundMin) {
                 speed = 0.0f;
             }
             obj().move().setSpeedV(-speed);

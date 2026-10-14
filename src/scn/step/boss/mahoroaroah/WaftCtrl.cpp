@@ -43,6 +43,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Vec3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -50,20 +54,20 @@ namespace mahoroaroah {
 
 namespace {
 
-const hel::math::Vec3 T_DEFAULT_THETAVEL = { 1.1f, 1.7f, 0.6f };
+const Vec3 T_DEFAULT_THETAVEL = { 1.1f, 1.7f, 0.6f };
 
 }
 
 WaftCtrl::WaftCtrl(Boss& boss)
-    : mBoss(boss), mRefPos(boss.location().pos()), mTheta(hel::math::Vector3::ZERO), mThetaVel(T_DEFAULT_THETAVEL), mIsValid(false) {}
+    : mBoss(boss), mRefPos(boss.location().pos()), mTheta(Vector3::ZERO), mThetaVel(T_DEFAULT_THETAVEL), mIsValid(false) {}
 
 WaftCtrl::~WaftCtrl() {}
 
-hel::math::Vector3 WaftCtrl::getRefPos() const {
+Vector3 WaftCtrl::getRefPos() const {
     return mRefPos;
 }
 
-void WaftCtrl::setRefPos(const hel::math::Vector3& pos) {
+void WaftCtrl::setRefPos(const Vector3& pos) {
     mRefPos = pos;
 }
 
@@ -89,8 +93,8 @@ void WaftCtrl::update() {
         while (mTheta.z < 0.0f) {
             mTheta.z += 360.0f;
         }
-        hel::math::Vector3 pos(hel::math::Math::SinDegF(mTheta.x), hel::math::Math::SinDegF(mTheta.y), hel::math::Math::SinDegF(mTheta.z));
-        pos.scale(hel::math::Vector3(param.mWaftWidth));
+        Vector3 pos(Math::SinDegF(mTheta.x), Math::SinDegF(mTheta.y), Math::SinDegF(mTheta.z));
+        pos.scale(Vector3(param.mWaftWidth));
         pos += mRefPos;
         mBoss.location().setPos(pos);
     }

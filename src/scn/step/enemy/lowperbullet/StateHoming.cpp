@@ -29,12 +29,15 @@
 #include "scn/step/enemy/lowperbullet/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace lowperbullet {
 
-StateHoming::StateHoming(Enemy* enemy) : StateBase(enemy), mFrame(0), mDir(-hel::math::Vector3::BASIS_Y) {
+StateHoming::StateHoming(Enemy* enemy) : StateBase(enemy), mFrame(0), mDir(-Vector3::BASIS_Y) {
     obj().footState().setAir();
     obj().model().reqScript(0);
     if (!obj().move().velocity().isZeroLoose(0.00001f)) {
@@ -46,7 +49,7 @@ StateHoming::~StateHoming() {}
 
 void StateHoming::procAnim() {
     const ParamData& param = obj().param().lowperbullet();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().water().isInWater()) {
         obj().move().setMoveRate(param.mWaterMoveRate);
     } else {
@@ -57,8 +60,8 @@ void StateHoming::procAnim() {
         obj().model().shake().request(static_cast<chara::ShakeKind>(3));
     }
     if (mFrame == param.mHomingFrame) {
-        hel::math::Vector3 target = custom.getTargetHeroPos();
-        hel::math::Vector3 dir = target - obj().location().pos();
+        Vector3 target = custom.getTargetHeroPos();
+        Vector3 dir = target - obj().location().pos();
         if (!dir.isZeroLoose(0.00001f)) {
             mDir = dir.getNormalized();
         }
@@ -78,7 +81,7 @@ void StateHoming::procMove() {
 void StateHoming::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
     if (result.isHit()) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponLandHit();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWeaponLandHit();
         obj().deadWithEffect();
     }
 }

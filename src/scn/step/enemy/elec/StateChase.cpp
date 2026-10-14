@@ -24,6 +24,8 @@
 #include "scn/step/enemy/elec/StateAttack.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,11 +44,11 @@ void StateChase::procMove() {
         if (level > 2) {
             level = 2;
         }
-        hel::math::Vector3 pos = obj().location().pos();
-        hel::math::Vector3 dir = Utility::GetNearestPlayerPos(obj()).toVector3() - pos;
+        Vector3 pos = obj().location().pos();
+        Vector3 dir = Utility::GetNearestPlayerPos(obj()).toVector3() - pos;
         f32 length = dir.length();
         if (dir.isZeroLoose(0.00001f)) {
-            dir = hel::math::Vector3::ZERO;
+            dir = Vector3::ZERO;
         } else {
             dir.normalize();
         }

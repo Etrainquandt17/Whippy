@@ -31,6 +31,11 @@
 #include "scn/step/map/LandManager.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -43,7 +48,7 @@ Custom::Custom(Enemy& enemy)
 
 bool Custom::onInit() {
     obj().objColl().clearBodyColl();
-    obj().objColl().addBodyColl(1, 0.5f, hel::math::Vector2(0.35f, 0.0f), hel::math::Vector2(-0.35f, 0.0f));
+    obj().objColl().addBodyColl(1, 0.5f, Vector2(0.35f, 0.0f), Vector2(-0.35f, 0.0f));
     return false;
 }
 
@@ -90,7 +95,7 @@ void Custom::onCaptured() {
 }
 
 void Custom::onProcFixPos() {
-    hel::math::Vector3 pos = obj().model().model().nodes().at(2).worldMtx().getT();
+    Vector3 pos = obj().model().model().nodes().at(2).worldMtx().getT();
     pos.y -= 0.5f;
     mAttacker.setConstraintPos(pos);
     if (mAttacker.isCapture()) {
@@ -130,7 +135,7 @@ void Custom::vomitCaptureHero() {
     if (mAttacker.isCapture()) {
         mAttacker.heroObj()->damageFlash().unset();
         mAttacker.heroObj()->mapColl().setValid(true);
-        mAttacker.heroObj()->move().setVelocity(hel::math::Vector3(obj().target().getSign(), 0.225f, 0.0f));
+        mAttacker.heroObj()->move().setVelocity(Vector3(obj().target().getSign(), 0.225f, 0.0f));
         mAttacker.reqChangeState(hero::CAPTURE_HERO_STATE_KIND_10);
         mAttacker.clearCapture();
         mIsHitMap = false;
@@ -139,7 +144,7 @@ void Custom::vomitCaptureHero() {
 
 void Custom::releaseCaptureHero() {
     if (mAttacker.isCapture()) {
-        hel::math::Vector2 velocity(0.0f, 0.1f);
+        Vector2 velocity(0.0f, 0.1f);
         mAttacker.heroObj()->damageFlash().unset();
         mAttacker.heroObj()->mapColl().setValid(true);
         mAttacker.heroObj()->move().setVelocity(velocity.toVector3());
@@ -186,7 +191,7 @@ void Custom::setSuccessCaptureHero() {
     }
 }
 
-bool Custom::mfMapCheckPoint(hel::math::Vector2 pos, hel::math::Vector2 offset) {
+bool Custom::mfMapCheckPoint(Vector2 pos, Vector2 offset) {
     bool result = false;
     mcoll::detail::DetectArg arg;
     arg.setVelocity(offset);
@@ -209,8 +214,8 @@ bool Custom::mfMapCheckPoint(hel::math::Vector2 pos, hel::math::Vector2 offset) 
 
 void Custom::mfMapCheck() {
     const ParamData& param = obj().param().barracu();
-    hel::math::Vector2 pos = obj().model().model().nodes().at(1).worldMtx().getT().getXY();
-    hel::math::Vector2 offset(param.mMapCheckX * obj().target().getSign(), param.mMapCheckY);
+    Vector2 pos = obj().model().model().nodes().at(1).worldMtx().getT().getXY();
+    Vector2 offset(param.mMapCheckX * obj().target().getSign(), param.mMapCheckY);
     mIsHitMap = mfMapCheckPoint(pos, offset);
     GXColor red = { 0xFF, 0x00, 0x00, 0xFF };
     obj().comp().debugGeneralDrawer().addPoint(pos, red);
@@ -218,15 +223,15 @@ void Custom::mfMapCheck() {
     obj().comp().debugGeneralDrawer().addPoint(pos + offset, blue);
     if (!mIsHitMap) {
         pos = obj().model().model().nodes().at(1).worldMtx().getT().getXY();
-        offset = hel::math::Vector2(param.mMapCheckX * obj().target().getSign(), -param.mMapCheckY);
+        offset = Vector2(param.mMapCheckX * obj().target().getSign(), -param.mMapCheckY);
         mIsHitMap = mfMapCheckPoint(pos, offset);
         GXColor blue2 = { 0x00, 0x00, 0xFF, 0xFF };
         obj().comp().debugGeneralDrawer().addPoint(pos + offset, blue2);
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::enemy::barracu

@@ -42,6 +42,10 @@
 #include "scn/step/boss/mahoroabattle1/StormCtrl.h"
 #include "scn/step/boss/mahoroabattle1/WarpHoleCtrl.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -53,7 +57,7 @@ namespace mahoroabattle1 {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_WarpIn() {
@@ -63,7 +67,7 @@ void t_SetNextState_WarpIn() {
 // TODO: the original passes the temporary to setNextState by value without copying it; the reference stands in
 // for that (see util/StateChanger.h), here and in every state change below that names the vector as one.
 void t_SetNextState_WarpOut(f32 x, f32 y, f32 z) {
-    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const hel::math::Vector3&>(&MintBoss::Obj(), hel::math::Vector3(x, y, z));
+    MintBoss::Obj().stateChanger().setNextState<StateWarpOut, Boss*, const Vector3&>(&MintBoss::Obj(), Vector3(x, y, z));
 }
 
 void t_SetNextState_NeedleAttackCharge() {
@@ -87,8 +91,8 @@ void t_SetNextState_NeedleAttackEnd() {
 }
 
 void t_SetNextState_Tackle(f32 x, f32 y, f32 z, int a, f32 b) {
-    MintBoss::Obj().stateChanger().setNextState<StateTackleStart, Boss*, const hel::math::Vector3&, u32, f32>(
-        &MintBoss::Obj(), hel::math::Vector3(x, y, z), a, b);
+    MintBoss::Obj().stateChanger().setNextState<StateTackleStart, Boss*, const Vector3&, u32, f32>(
+        &MintBoss::Obj(), Vector3(x, y, z), a, b);
 }
 
 void t_SetNextState_MagicBallCharge() {
@@ -104,8 +108,8 @@ void t_SetNextState_MagicBallAttackWarpIn() {
 }
 
 void t_SetNextState_MagicBallAttackWarpOut(f32 x, f32 y, f32 z) {
-    MintBoss::Obj().stateChanger().setNextState<StateMagicBallAttackWarpOut, Boss*, const hel::math::Vector3&>(
-        &MintBoss::Obj(), hel::math::Vector3(x, y, z));
+    MintBoss::Obj().stateChanger().setNextState<StateMagicBallAttackWarpOut, Boss*, const Vector3&>(
+        &MintBoss::Obj(), Vector3(x, y, z));
 }
 
 void t_SetNextState_RevolutionAttackStart() {
@@ -113,7 +117,7 @@ void t_SetNextState_RevolutionAttackStart() {
 }
 
 void t_SetNextState_RevolutionAttack(f32 x, f32 y) {
-    MintBoss::Obj().stateChanger().setNextState<StateRevolutionAttack, Boss*, hel::math::Vector2>(&MintBoss::Obj(), hel::math::Vector2(x, y));
+    MintBoss::Obj().stateChanger().setNextState<StateRevolutionAttack, Boss*, Vector2>(&MintBoss::Obj(), Vector2(x, y));
 }
 
 void t_SetNextState_RevolutionAttackEnd() {
@@ -138,11 +142,11 @@ void t_SetNextState_SummonLowper(int type, int a, int b) {
 }
 
 void t_SetNextState_Move(f32 x, f32 y, f32 z, u32 time) {
-    MintBoss::Obj().stateChanger().setNextState<StateMove, Boss*, const hel::math::Vector3&, u32>(&MintBoss::Obj(), hel::math::Vector3(x, y, z), time);
+    MintBoss::Obj().stateChanger().setNextState<StateMove, Boss*, const Vector3&, u32>(&MintBoss::Obj(), Vector3(x, y, z), time);
 }
 
 void t_SetNextState_MoveFar(f32 x, f32 y, f32 z, u32 time) {
-    MintBoss::Obj().stateChanger().setNextState<StateMoveFar, Boss*, const hel::math::Vector3&, u32>(&MintBoss::Obj(), hel::math::Vector3(x, y, z), time);
+    MintBoss::Obj().stateChanger().setNextState<StateMoveFar, Boss*, const Vector3&, u32>(&MintBoss::Obj(), Vector3(x, y, z), time);
 }
 
 void t_SetNextState_AbilityOffAttack() {
@@ -158,8 +162,8 @@ void t_SetNextState_StormStart() {
 }
 
 void t_SetNextState_WarpHoleAttack(f32 x, f32 y, f32 z) {
-    MintBoss::Obj().stateChanger().setNextState<StateWarpHoleAttackStart, Boss*, const hel::math::Vector3&>(
-        &MintBoss::Obj(), hel::math::Vector3(x, y, z));
+    MintBoss::Obj().stateChanger().setNextState<StateWarpHoleAttackStart, Boss*, const Vector3&>(
+        &MintBoss::Obj(), Vector3(x, y, z));
 }
 
 void t_SetNextState_WarpHoleAttackNeedle() {
@@ -219,7 +223,7 @@ void t_Custom_StormEnd() {
 }
 
 void t_Custom_ReqWarpHoleWithMagicBall(f32 x, f32 y) {
-    t_custom().warpHoleCtrl().requestWithMagicBall(hel::math::Vector2(x, y));
+    t_custom().warpHoleCtrl().requestWithMagicBall(Vector2(x, y));
 }
 
 }

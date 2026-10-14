@@ -27,6 +27,8 @@
 #include "scn/step/enemy/carrydee/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,13 +48,13 @@ void StateWait::procAnim() {
         f32 playerX = Utility::GetNearestPlayerPos(obj()).x;
         f32 x = obj().location().pos().x;
         obj().target().setIsRightDir(playerX <= x);
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).onCarryStart();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).onCarryStart();
         obj().stateChanger().setNextState<StateCarry, Enemy*>(objPtr());
     }
 }
 
 void StateWait::procMove() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosKey();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).fixPosKey();
 }
 
 void StateWait::procFixPos() {

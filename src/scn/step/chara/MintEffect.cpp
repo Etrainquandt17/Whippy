@@ -6,13 +6,17 @@
 #include "hel/mint/AddOnMathVector3.h"
 #include "scn/step/chara/Effect.h"
 
+using hel::common::PointerWrapper;
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace chara {
 
 namespace {
 
-hel::common::PointerWrapper<Effect> t_obj;
+PointerWrapper<Effect> t_obj;
 
 }
 
@@ -84,19 +88,19 @@ void MintEffect::ReleaseAndVanish() {
     t_obj->releaseAndVanish();
 }
 
-void MintEffect::RequestP(u32 kind, const hel::math::Vector3& pos) {
+void MintEffect::RequestP(u32 kind, const Vector3& pos) {
     t_obj->requestP(static_cast<effect::Kind>(kind), pos);
 }
 
-void MintEffect::RequestP(u32 kind, const hel::math::Vector3& pos, f32 scale) {
+void MintEffect::RequestP(u32 kind, const Vector3& pos, f32 scale) {
     t_obj->requestP(static_cast<effect::Kind>(kind), pos, scale);
 }
 
-void MintEffect::RequestPD(u32 kind, const hel::math::Vector3& pos, const hel::math::Direction3& dir) {
+void MintEffect::RequestPD(u32 kind, const Vector3& pos, const Direction3& dir) {
     t_obj->requestPD(static_cast<effect::Kind>(kind), pos, dir);
 }
 
-void MintEffect::RequestPD(u32 kind, const hel::math::Vector3& pos, const hel::math::Direction3& dir, f32 scale) {
+void MintEffect::RequestPD(u32 kind, const Vector3& pos, const Direction3& dir, f32 scale) {
     t_obj->requestPD(static_cast<effect::Kind>(kind), pos, dir, scale);
 }
 
@@ -104,27 +108,27 @@ void MintEffect::RequestN(u32 kind, u32 node, f32 scale) {
     t_obj->requestN(static_cast<effect::Kind>(kind), node, scale);
 }
 
-void MintEffect::RequestN(u32 kind, u32 node, const hel::math::Vector3& offset) {
+void MintEffect::RequestN(u32 kind, u32 node, const Vector3& offset) {
     t_obj->requestN(static_cast<effect::Kind>(kind), node, offset);
 }
 
-void MintEffect::RequestN(u32 kind, u32 node, const hel::math::Vector3& offset, f32 scale) {
+void MintEffect::RequestN(u32 kind, u32 node, const Vector3& offset, f32 scale) {
     t_obj->requestN(static_cast<effect::Kind>(kind), node, offset, scale);
 }
 
-void MintEffect::RequestND(u32 kind, u32 node, const hel::math::Direction3& dir) {
+void MintEffect::RequestND(u32 kind, u32 node, const Direction3& dir) {
     t_obj->requestND(static_cast<effect::Kind>(kind), node, dir);
 }
 
-void MintEffect::RequestND(u32 kind, u32 node, const hel::math::Direction3& dir, f32 scale) {
+void MintEffect::RequestND(u32 kind, u32 node, const Direction3& dir, f32 scale) {
     t_obj->requestND(static_cast<effect::Kind>(kind), node, dir, scale);
 }
 
-void MintEffect::RequestND(u32 kind, u32 node, const hel::math::Direction3& dir, const hel::math::Vector3& offset) {
+void MintEffect::RequestND(u32 kind, u32 node, const Direction3& dir, const Vector3& offset) {
     t_obj->requestND(static_cast<effect::Kind>(kind), node, dir, offset);
 }
 
-void MintEffect::RequestND(u32 kind, u32 node, const hel::math::Direction3& dir, const hel::math::Vector3& offset, f32 scale) {
+void MintEffect::RequestND(u32 kind, u32 node, const Direction3& dir, const Vector3& offset, f32 scale) {
     t_obj->requestND(static_cast<effect::Kind>(kind), node, dir, offset, scale);
 }
 

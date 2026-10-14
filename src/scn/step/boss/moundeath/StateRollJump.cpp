@@ -49,6 +49,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,7 +65,7 @@ StateRollJump::StateRollJump(Boss* boss, Config config) : StateBase(boss), mCoun
     obj().objColl().bodyColl().initAttackType(static_cast<ocoll::AttackType>(0x1AC));
     mStartPos = obj().location().pos().getXY();
     mDistance = Utility::GetHatedHeroPos(obj()).x - mStartPos.x;
-    mDistance = mDistance > 0.0f ? hel::math::Math::Min(mDistance, param._D0) : hel::math::Math::Max(mDistance, -param._D0);
+    mDistance = mDistance > 0.0f ? Math::Min(mDistance, param._D0) : Math::Max(mDistance, -param._D0);
     obj().target().setIsRightDir(mDistance > 0.0f);
     if (config._0) {
         mFrame = param._C4;
@@ -80,8 +83,8 @@ void StateRollJump::procAnim() {
     if (mCount < mFrame) {
         mCount++;
     } else if (!obj().brainCtrl().isValid()) {
-        hel::math::Vector2 pos(param._44);
-        hel::math::Vector2 speed(param._4C);
+        Vector2 pos(param._44);
+        Vector2 speed(param._4C);
         Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
         obj().effect().normal().requestP(static_cast<effect::Kind>(0xA0), obj().location().pos() + pos.toVector3());
         pos.x *= -1.0f;
@@ -97,10 +100,10 @@ void StateRollJump::procAnim() {
 void StateRollJump::procMove() {
     const Param& param = obj().param().moundeath();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector2 pos = mStartPos;
-    pos.x += mDistance * hel::math::Math::SinDegF(90.0f * t);
-    pos.y += param._CC * (1.0f - (1.0f - hel::math::Math::SinDegF(180.0f * t)) *
-                                     ((1.0f - hel::math::Math::SinDegF(180.0f * t)) * (1.0f - hel::math::Math::SinDegF(180.0f * t))));
+    Vector2 pos = mStartPos;
+    pos.x += mDistance * Math::SinDegF(90.0f * t);
+    pos.y += param._CC * (1.0f - (1.0f - Math::SinDegF(180.0f * t)) *
+                                     ((1.0f - Math::SinDegF(180.0f * t)) * (1.0f - Math::SinDegF(180.0f * t))));
     obj().location().setPos(pos.toVector3());
 }
 

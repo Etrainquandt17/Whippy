@@ -2,6 +2,9 @@
 
 #include "app/Random.h"
 
+using app::Random;
+using hel::common::MutableArray;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -35,11 +38,11 @@ f32 DataBuff::shiftSprinklerBulletSpeedData() {
 }
 
 void DataBuff::shuffleSprinklerBulletSpeedData() {
-    hel::common::MutableArray<f32, 10> data;
+    MutableArray<f32, 10> data;
     data = mSprinklerBulletSpeedData;
     mSprinklerBulletSpeedData.clear();
     while (data.count() != 0) {
-        u32 index = app::Random::RandU32(data.count());
+        u32 index = Random::RandU32(data.count());
         mSprinklerBulletSpeedData.add(data[index]);
         data.removeAtIndex(index);
     }
@@ -95,11 +98,11 @@ bool DataBuff::isExistVortexBulletSpeedData() const {
 }
 
 void DataBuff::shuffleVortexBulletSpeedData() {
-    hel::common::MutableArray<f32, 10> data;
+    MutableArray<f32, 10> data;
     data = mVortexBulletSpeedData;
     mVortexBulletSpeedData.clear();
     while (data.count() != 0) {
-        u32 index = app::Random::RandU32(data.count());
+        u32 index = Random::RandU32(data.count());
         mVortexBulletSpeedData.add(data[index]);
         data.removeAtIndex(index);
     }

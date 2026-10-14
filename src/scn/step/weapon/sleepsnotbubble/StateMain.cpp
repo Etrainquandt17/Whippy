@@ -21,6 +21,10 @@
 #include "scn/step/weapon/sleepsnotbubble/Param.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -29,10 +33,10 @@ namespace sleepsnotbubble {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon) {
     const Param& param = obj().param().sleepSnotBubble();
     f32 size = param._8;
-    mcoll::detail::ShapeDiamondContext shape(hel::math::Vector2(0.0f, param._4), -size, 0.0f, size, -size, 0.0f, size);
+    mcoll::detail::ShapeDiamondContext shape(Vector2(0.0f, param._4), -size, 0.0f, size, -size, 0.0f, size);
     obj().mapColl().changeActorShape(shape);
     obj().model().rotCtrl().setRotH(param._C);
-    hel::math::Vector3 scale(param._0, param._0, param._0);
+    Vector3 scale(param._0, param._0, param._0);
     obj().model().model().nodes().at(0).localMtx().setScale(scale);
     obj().water().setForbidEffect(true);
 }
@@ -46,9 +50,9 @@ void StateMain::procAnim() {
 void StateMain::procMove() {}
 
 void StateMain::procConstraint() {
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().objColl().owner().rootUid());
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().objColl().owner().rootUid());
     const hero::Hero& owner = *hero.operator->();
-    hel::math::Vector3 pos = owner.location().pos();
+    Vector3 pos = owner.location().pos();
     pos.y -= obj().param().sleepSnotBubble()._10;
     obj().location().setPos(pos);
     obj().model().updateMtx();

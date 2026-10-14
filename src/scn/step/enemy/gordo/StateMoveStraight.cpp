@@ -10,6 +10,8 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/gordo/ParamData.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -31,7 +33,7 @@ StateMoveStraight::StateMoveStraight(Enemy* enemy)
 }
 
 void StateMoveStraight::procMove() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos += mDir * obj().param().gordo().mStraightSpeed;
     if (obj().dirType() == 4 || obj().dirType() == 5) {
         pos.x = mBaseX;

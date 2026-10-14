@@ -17,6 +17,8 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -40,7 +42,7 @@ StateWait::~StateWait() {
 
 void StateWait::procConstraint() {
     if (mHero.isAlive()) {
-        hel::math::Vector3 pos = static_cast<const hero::Hero*>(mHero.operator->())->location().pos();
+        Vector3 pos = static_cast<const hero::Hero*>(mHero.operator->())->location().pos();
         pos.y += mOffsetY;
         obj().location().setPos(pos);
     }

@@ -2,6 +2,8 @@
 
 #include "scn/step/weapon/ModelDescUtil.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -21,7 +23,7 @@ namespace ModelDesc {
 
 chara::ModelDesc& Create() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<90>("step/weapon/dee/CombinationDeeShot", "CombinationDeeShot", 3, T_NODE_NAMES, 0, 0, 0, 0);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 

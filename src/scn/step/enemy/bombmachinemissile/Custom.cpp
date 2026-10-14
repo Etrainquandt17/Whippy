@@ -32,6 +32,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -46,9 +50,9 @@ bool Custom::onInit() {
 }
 
 bool Custom::onDamaged() {
-    hel::math::Vector2 pos = obj().model().model().nodes().at(1).worldMtx().getT().getXY();
+    Vector2 pos = obj().model().model().nodes().at(1).worldMtx().getT().getXY();
     u32 variation = obj().level() == 1;
-    weapon::Desc desc(static_cast<weapon::Kind>(0x4b), variation, static_cast<ostop::Flag>(4), pos, pos, hel::math::Vector2::ZERO,
+    weapon::Desc desc(static_cast<weapon::Kind>(0x4b), variation, static_cast<ostop::Flag>(4), pos, pos, Vector2::ZERO,
                       obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
     obj().dead();
@@ -59,8 +63,8 @@ bool Custom::onHitPointIsZero() {
     return onDamaged();
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

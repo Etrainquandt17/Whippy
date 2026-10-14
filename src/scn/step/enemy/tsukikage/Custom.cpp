@@ -19,6 +19,13 @@
 #include "scn/step/weapon/Desc.h"
 #include "scn/step/weapon/Manager.h"
 
+using app::Random;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,7 +37,7 @@ Custom::Custom(Enemy& enemy)
 
 bool Custom::onInit() {
     if (obj().variation() == 0x88) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         if (obj().dirType() == static_cast<map::BinEnemyDirType>(3)) {
             pos.x -= 0.1f;
         } else if (obj().dirType() == static_cast<map::BinEnemyDirType>(2)) {
@@ -83,18 +90,18 @@ bool Custom::isWall() {
 
 void Custom::requestShuriken() {
     const ParamData& param = obj().param().tsukikage();
-    hel::math::Vector3 p = obj().location().pos();
-    hel::math::Vector2 pos(p.x, p.y);
-    hel::math::Vector2 velocity;
+    Vector3 p = obj().location().pos();
+    Vector2 pos(p.x, p.y);
+    Vector2 velocity;
     pos.x += param.mShurikenOffsetX * obj().target().getSign();
     pos.y += param.mShurikenOffsetY;
-    velocity = hel::math::Vector2(param.mShurikenSpeed * obj().target().getSign(), 0.0f);
+    velocity = Vector2(param.mShurikenSpeed * obj().target().getSign(), 0.0f);
     weapon::Desc desc(static_cast<weapon::Kind>(0x3b), 0, static_cast<ostop::Flag>(4), pos, pos, velocity, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
 }
 
 s32 Custom::getJumpNum() {
-    f32 distance = hel::math::Math::Abs(Utility::GetNearestPlayerPos(obj()).x - obj().location().pos().x);
+    f32 distance = Math::Abs(Utility::GetNearestPlayerPos(obj()).x - obj().location().pos().x);
     if (distance <= obj().param().tsukikage().mJumpNearDistance) {
         mIsNear = true;
     } else {
@@ -113,7 +120,7 @@ bool Custom::isJumpAttack() {
     const ParamData& param = obj().param().tsukikage();
     f32 y = obj().location().pos().y;
     f32 playerY = Utility::GetNearestPlayerPos(obj()).y;
-    s32 rand = app::Random::Rand(param.mJumpAttackRand);
+    s32 rand = Random::Rand(param.mJumpAttackRand);
     bool result = false;
     if (playerY >= y + param.mJumpAttackHeight) {
         if (rand >= param.mJumpAttackRateHigh) {
@@ -134,8 +141,8 @@ bool Custom::isWallAttack() {
         dir = 1;
     }
     bool result = false;
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    Vector3 pos = obj().location().pos();
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
     f32 left = pos.x + param.mWallAttackRangeNear * dir;
     f32 right = pos.x + param.mWallAttackRangeFar * dir;
     f32 top = pos.y + param.mWallAttackRangeTop;
@@ -166,7 +173,7 @@ void Custom::setFirstAppear(bool isFirstAppear) {
     mIsFirstAppear = isFirstAppear;
 }
 
-hel::math::Vector3 Custom::getBasePos() {
+Vector3 Custom::getBasePos() {
     return mBasePos;
 }
 
@@ -174,9 +181,9 @@ s32 Custom::setJumpNum() {
     s32 num = 0;
     s32 rand;
     if (mIsNear) {
-        rand = app::Random::Rand(7);
+        rand = Random::Rand(7);
     } else {
-        rand = app::Random::Rand(8);
+        rand = Random::Rand(8);
     }
     if (rand >= 0 && rand <= 1) {
         num = 0;
@@ -190,8 +197,8 @@ s32 Custom::setJumpNum() {
     return num;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

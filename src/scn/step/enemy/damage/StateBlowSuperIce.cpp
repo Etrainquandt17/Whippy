@@ -24,6 +24,10 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/damage/Utility.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -32,7 +36,7 @@ namespace damage {
 namespace {
 
 // TODO: hel::math::Vector2::normalize(), which the original expands here and the shared header only declares.
-inline f32 t_Normalize(hel::math::Vector2& v) {
+inline f32 t_Normalize(Vector2& v) {
     f32 len = v.length();
     if (len == 0.0f) {
         return len;
@@ -54,7 +58,7 @@ StateBlowSuperIce::StateBlowSuperIce(Enemy* enemy)
     obj().model().reqScript(6);
     obj().damageFlash().set(mElement);
     if (obj().hitPoint().isDead()) {
-        hel::math::Vector3 offset = enemy::Utility::GetDefaultCenterOffset(obj());
+        Vector3 offset = enemy::Utility::GetDefaultCenterOffset(obj());
         obj().effect().state().requestN(static_cast<effect::Kind>(0x125), obj().charaParam()._38, offset);
     }
 }
@@ -74,9 +78,9 @@ void StateBlowSuperIce::procAnim() {
         mRot += 360.0f;
     }
     if (mReflectCount < mReflectMax) {
-        hel::math::Vector2 dir = obj().move().velocity().getXY();
+        Vector2 dir = obj().move().velocity().getXY();
         t_Normalize(dir);
-        f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(dir);
+        f32 angle = Vector2::BASIS_Y.signedAngle(dir);
         obj().model().rotCtrl().setRotV(57.29578f * angle);
         obj().model().rotCtrl().setRotH(mRot);
     } else {
@@ -94,9 +98,9 @@ void StateBlowSuperIce::procMove() {
 
 void StateBlowSuperIce::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    hel::math::Vector3 velocity = obj().move().velocity();
-    hel::math::Vector3 pos = obj().location().pos();
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    Vector3 velocity = obj().move().velocity();
+    Vector3 pos = obj().location().pos();
     bool isReflect = false;
     if (result.mIsHitFloor) {
         obj().move().setSpeedV(-1.0f * velocity.y);

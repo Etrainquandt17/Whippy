@@ -30,6 +30,10 @@
 #include "scn/step/enemy/goliathiceball/StateWallHit.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,9 +51,9 @@ void StateRollingFall::procAnim() {
     if (mRot < 0.0f) {
         mRot += 360.0f;
     }
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Vector3 rot(mRot, 0.0f, 0.0f);
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Vector3 rot(mRot, 0.0f, 0.0f);
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(rot));
 }
 
 void StateRollingFall::procMove() {

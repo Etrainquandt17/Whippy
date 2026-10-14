@@ -20,6 +20,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -54,9 +58,9 @@ void StateJumpMachinegun::procMove() {
     const Param& param = obj().param().kingsdoo();
     f32 height;
     f32 rate = static_cast<f32>(mCount) / static_cast<f32>(param.mJumpMachinegunTime);
-    height = 1.0f - (1.0f - hel::math::Math::SinDegF(180.0f * rate)) *
-                            ((1.0f - hel::math::Math::SinDegF(180.0f * rate)) * (1.0f - hel::math::Math::SinDegF(180.0f * rate)));
-    hel::math::Vector2 pos = mStartPos;
+    height = 1.0f - (1.0f - Math::SinDegF(180.0f * rate)) *
+                            ((1.0f - Math::SinDegF(180.0f * rate)) * (1.0f - Math::SinDegF(180.0f * rate)));
+    Vector2 pos = mStartPos;
     pos.y += height * param.mJumpMachinegunHeight;
     obj().location().setPos(pos.toVector3());
 }
@@ -89,10 +93,10 @@ void StateJumpMachinegun::procFixPos() {
 
 void StateJumpMachinegun::reqMachinegun() {
     const Param& param = obj().param().kingsdoo();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mMachinegunOffset.x * obj().target().getSign(), param.mMachinegunOffset.y);
-    hel::math::Vector2 dir = hel::math::Vector2::BASIS_Y * -1.0f;
-    f32 angle = app::Random::RandF32(param.mMachinegunAngleMin, param.mMachinegunAngleMax) * obj().target().getSign();
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mMachinegunOffset.x * obj().target().getSign(), param.mMachinegunOffset.y);
+    Vector2 dir = Vector2::BASIS_Y * -1.0f;
+    f32 angle = Random::RandF32(param.mMachinegunAngleMin, param.mMachinegunAngleMax) * obj().target().getSign();
     dir.rotate(0.017453292f * angle);
     weapon::Desc desc(static_cast<weapon::Kind>(0x32), 2, static_cast<ostop::Flag>(8), pos, dir, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);

@@ -24,6 +24,12 @@
 #include "scn/step/info/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -31,27 +37,27 @@ namespace roah {
 
 StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(0), mStartRect(), mGoalRect() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(5);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().target().setIsRightDir(false);
-    obj().location().setPos((obj().basePos() + hel::math::Vector2(param.mFirstOffset)).toVector3());
+    obj().location().setPos((obj().basePos() + Vector2(param.mFirstOffset)).toVector3());
     {
         f32 width = param.mFirstLockStart.mHeight * obj().comp().mainCamera().getAspect();
-        mStartRect = hel::geo::Rect(param.mFirstLockStart.mHeight + param.mFirstLockStart.mBaseY, param.mFirstLockStart.mBaseY,
-                                    -0.5f * width + param.mFirstLockStart.mCenterX, 0.5f * width + param.mFirstLockStart.mCenterX);
+        mStartRect = Rect(param.mFirstLockStart.mHeight + param.mFirstLockStart.mBaseY, param.mFirstLockStart.mBaseY,
+                          -0.5f * width + param.mFirstLockStart.mCenterX, 0.5f * width + param.mFirstLockStart.mCenterX);
     }
     {
         f32 width = param.mFirstLockGoal.mHeight * obj().comp().mainCamera().getAspect();
-        mGoalRect = hel::geo::Rect(param.mFirstLockGoal.mHeight + param.mFirstLockGoal.mBaseY, param.mFirstLockGoal.mBaseY,
-                                   -0.5f * width + param.mFirstLockGoal.mCenterX, 0.5f * width + param.mFirstLockGoal.mCenterX);
+        mGoalRect = Rect(param.mFirstLockGoal.mHeight + param.mFirstLockGoal.mBaseY, param.mFirstLockGoal.mBaseY,
+                         -0.5f * width + param.mFirstLockGoal.mCenterX, 0.5f * width + param.mFirstLockGoal.mCenterX);
     }
     obj().comp().cameraController().setLock(mStartRect);
     obj().comp().cameraController().setIntpRateLockMode(1.0f);
     obj().comp().heroManager().setHidDisable();
     for (u32 i = 0; i < 4; i++) {
-        util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
+        ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
         if (hero.isAlive()) {
             hero->stateChecker().setDemo(true);
         }
@@ -64,7 +70,7 @@ StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(0), mStartRect(), m
 StateFirst::~StateFirst() {
     obj().comp().heroManager().setHidEnable();
     for (u32 i = 0; i < 4; i++) {
-        util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
+        ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromPadChan(i);
         if (hero.isAlive()) {
             hero->stateChecker().setDemo(false);
         }
@@ -85,10 +91,10 @@ void StateFirst::procMove() {
     const Param& param = obj().param().roah();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mFirstFrame);
     f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-    hel::geo::Rect rect(hel::math::Math::LinearInterpolation(mStartRect._0, mGoalRect._0, rate),
-                        hel::math::Math::LinearInterpolation(mStartRect._4, mGoalRect._4, rate),
-                        hel::math::Math::LinearInterpolation(mStartRect._8, mGoalRect._8, rate),
-                        hel::math::Math::LinearInterpolation(mStartRect._C, mGoalRect._C, rate));
+    Rect rect(Math::LinearInterpolation(mStartRect._0, mGoalRect._0, rate),
+              Math::LinearInterpolation(mStartRect._4, mGoalRect._4, rate),
+              Math::LinearInterpolation(mStartRect._8, mGoalRect._8, rate),
+              Math::LinearInterpolation(mStartRect._C, mGoalRect._C, rate));
     obj().comp().cameraController().setLock(rect);
 }
 

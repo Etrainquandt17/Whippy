@@ -10,6 +10,11 @@
 #include "scn/wmap/Component.h"
 #include "scn/wmap/effect/Manager.h"
 
+using g3d::CharaModelContext;
+using g3d::ModelContext;
+using g3d::ResModelContext;
+using g3d::StdModelContext;
+
 namespace scn {
 namespace wmap {
 
@@ -31,9 +36,9 @@ MapModelRouteEffect::MapModelRouteEffect(Component& component, MapModelRouteKind
     , _8(false)
     , _9(false)
     , mResFile(component.resFileRepos().get(mfGetResFileName(), false))
-    , mModel(static_cast<const g3d::StdModelContext&>(
-          g3d::ModelContext(g3d::ResModelContext(mResFile, mfGetTopLName()), g3d::CharaModelContext::DefaultModelBufferOption(), 0,
-                            g3d::CharaModelContext::DefaultNumView(), mComponent.heap().obj(), true)))
+    , mModel(static_cast<const StdModelContext&>(
+          ModelContext(ResModelContext(mResFile, mfGetTopLName()), CharaModelContext::DefaultModelBufferOption(), 0,
+                       CharaModelContext::DefaultNumView(), mComponent.heap().obj(), true)))
     , mEffect(component.effectManager().native()) {
     volatile u32 start;
     volatile u32 end;

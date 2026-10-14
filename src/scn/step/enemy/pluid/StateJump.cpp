@@ -28,6 +28,9 @@
 #include "scn/step/enemy/pluid/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,11 +42,11 @@ StateJump::StateJump(Enemy* enemy)
     obj().model().reqScript(7);
     f32 rate = 1.0f;
     mSpeedV = obj().param().pluid().mJumpSpeedV;
-    if (app::Random::Rand(4) == 3) {
+    if (Random::Rand(4) == 3) {
         rate = obj().param().pluid().mHighJumpRate;
         mSpeedV = obj().param().pluid().mHighJumpSpeedV;
     }
-    int num = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setJumpNum();
+    int num = DynamicCastToRef<Custom, ICustom>(obj().custom()).setJumpNum();
     switch (num) {
     case 0:
         mSpeedH = 0.0f;

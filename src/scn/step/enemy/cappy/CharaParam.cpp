@@ -3,6 +3,8 @@
 #include "hel/math/Vector2.h"
 #include "scn/step/enemy/common/ParamBase.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -13,7 +15,7 @@ namespace CharaParam {
 enemy::CharaParam Create() {
     enemy::CharaParam param = common::ParamBase::Create();
     hel::math::Vec2 v = { 0.0f, 0.5f };
-    reinterpret_cast<hel::math::Vector2&>(param._4) = reinterpret_cast<hel::math::Vector2&>(v);
+    reinterpret_cast<Vector2&>(param._4) = reinterpret_cast<Vector2&>(v);
     param._2c = 0.45f;
     param._14 = 12;
     param._40 = 2;
@@ -23,7 +25,7 @@ enemy::CharaParam Create() {
 enemy::CharaParam CreateSkinned() {
     enemy::CharaParam param = common::ParamBase::Create();
     hel::math::Vec2 v = { 0.0f, 0.5f };
-    reinterpret_cast<hel::math::Vector2&>(param._4) = reinterpret_cast<hel::math::Vector2&>(v);
+    reinterpret_cast<Vector2&>(param._4) = reinterpret_cast<Vector2&>(v);
     param._2c = 0.45f;
     param._14 = 12;
     param._40 = 1;

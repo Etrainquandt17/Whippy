@@ -27,13 +27,16 @@
 #include "scn/step/enemy/stareffect/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace stareffect {
 
 StatePuff::StatePuff(Enemy* enemy) : StateBase(enemy) {
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * obj().param().stareffect().mPuffScale);
+    obj().model().setScale(Vector3::ALL_ONE * obj().param().stareffect().mPuffScale);
     obj().model().rotCtrl().initRotH(0.0f);
     obj().objColl().setBodyCollStateCaptureOnly();
     obj().model().updateMtx();
@@ -46,7 +49,7 @@ StatePuff::~StatePuff() {
 }
 
 void StatePuff::procAnim() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).procAnim();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).procAnim();
 }
 
 void StatePuff::procMove() {

@@ -15,6 +15,8 @@
 #include "scn/step/weapon/deespear/Utility.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -48,8 +50,8 @@ void StateStickWall::procFixPos() {
     } else {
         mAlgorithm.procFixPos();
         f32 rot = obj().target().isRightDir() ? mRot : mRot - 180.0f;
-        if (hel::math::Math::Abs(obj().move().velocity().y) > 0.095f
-            && (hel::math::Math::Abs(rot) < 20.0f || hel::math::Math::Abs(rot) > 160.0f)) {
+        if (Math::Abs(obj().move().velocity().y) > 0.095f
+            && (Math::Abs(rot) < 20.0f || Math::Abs(rot) > 160.0f)) {
             obj().stateChanger().setNextState<StateVanish, Weapon*, f32>(&obj(), mRot);
         }
     }

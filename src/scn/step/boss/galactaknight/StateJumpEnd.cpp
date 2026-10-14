@@ -52,6 +52,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,7 +63,7 @@ namespace galactaknight {
 
 StateJumpEnd::StateJumpEnd(Boss* boss, ScriptKind kind, f32 distance, u32 frame)
     : StateBase(boss), mFrame(frame), mCount(0), mStartPos(boss->location().pos()), mGoalPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ControlHateOnAction(obj());
     mGoalPos.x = distance * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
@@ -86,12 +90,12 @@ void StateJumpEnd::procAnim() {
 
 void StateJumpEnd::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 sin = hel::math::Math::SinDegF(90.0f * t + 90.0f);
+    f32 sin = Math::SinDegF(90.0f * t + 90.0f);
     f32 ease = 1.0f - (1.0f - sin) * (1.0f - sin);
-    f32 rate = hel::math::Math::LinearInterpolation(sin, ease, 0.5f);
-    hel::math::Vector3 pos;
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
-    pos.y = hel::math::Math::LinearInterpolation(mGoalPos.y, mStartPos.y, rate);
+    f32 rate = Math::LinearInterpolation(sin, ease, 0.5f);
+    Vector3 pos;
+    pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, t);
+    pos.y = Math::LinearInterpolation(mGoalPos.y, mStartPos.y, rate);
     pos.z = 0.0f;
     obj().location().setPos(pos);
 }

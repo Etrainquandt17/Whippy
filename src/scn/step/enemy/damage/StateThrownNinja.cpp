@@ -20,6 +20,9 @@
 #include "scn/step/hero/ObjColl.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,12 +33,12 @@ StateThrownNinja::StateThrownNinja(Enemy* enemy, u64 ownerUid, f32 speedRate) : 
     obj().model().reqScript(6);
     obj().objColl().bodyColl().setStateXlu();
     obj().damageFlash().set(ocoll::ELEMENT_0);
-    util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
+    ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(ownerUid);
     if (hero.isAlive()) {
         ::ocoll::Owner& owner = hero->objColl().objColl().owner();
         obj().objColl().owner().setParentInterim(owner);
         obj().objColl().setAttackType(0, static_cast<ocoll::AttackType>(0xe2));
-        hel::math::Vector2 offset = enemy::Utility::GetDefaultCenterOffset(obj()).getXY();
+        Vector2 offset = enemy::Utility::GetDefaultCenterOffset(obj()).getXY();
         obj().objColl().addAttack(0, 0, 0.9f, offset, offset, true);
     }
     obj().move().setSpeedH(0.1f * speedRate);

@@ -5,6 +5,8 @@
 #include "metafortress.h"
 #include "util/ObjList.h"
 
+using app::Message;
+
 namespace scn {
 namespace wmap {
 namespace info {
@@ -66,12 +68,12 @@ void LevelTitle::setMapKind(MapKind kind) {
     mMapKind = kind;
     switch (kind) {
     case MAP_KIND_0:
-        mLayout.paneByName("TitleText").setText(app::Message::TextWMap("PopStar"));
-        mLayout.paneByName("TitleTextSh").setText(app::Message::TextWMap("PopStar"));
+        mLayout.paneByName("TitleText").setText(Message::TextWMap("PopStar"));
+        mLayout.paneByName("TitleTextSh").setText(Message::TextWMap("PopStar"));
         break;
     case MAP_KIND_1:
-        mLayout.paneByName("TitleText").setText(app::Message::TextWMap("Halcandra"));
-        mLayout.paneByName("TitleTextSh").setText(app::Message::TextWMap("Halcandra"));
+        mLayout.paneByName("TitleText").setText(Message::TextWMap("Halcandra"));
+        mLayout.paneByName("TitleTextSh").setText(Message::TextWMap("Halcandra"));
         break;
     }
 }
@@ -332,14 +334,14 @@ void LevelTitle::mfSetText() {
         }
     } else {
         if (mTextType == TEXT_TYPE_0) {
-            mLayout.paneByName("AllSphereText").setText(app::Message::TextWMap("SphereNumDisplay"));
-            mLayout.paneByName("AllSphereTextSh").setText(app::Message::TextWMap("SphereNumDisplay"));
+            mLayout.paneByName("AllSphereText").setText(Message::TextWMap("SphereNumDisplay"));
+            mLayout.paneByName("AllSphereTextSh").setText(Message::TextWMap("SphereNumDisplay"));
         } else if (mMapKind == MAP_KIND_0) {
-            mLayout.paneByName("AllSphereText").setText(app::Message::TextWMap("ToHalcandraDisplay"));
-            mLayout.paneByName("AllSphereTextSh").setText(app::Message::TextWMap("ToHalcandraDisplay"));
+            mLayout.paneByName("AllSphereText").setText(Message::TextWMap("ToHalcandraDisplay"));
+            mLayout.paneByName("AllSphereTextSh").setText(Message::TextWMap("ToHalcandraDisplay"));
         } else {
-            mLayout.paneByName("AllSphereText").setText(app::Message::TextWMap("ToPopstarDisplay"));
-            mLayout.paneByName("AllSphereTextSh").setText(app::Message::TextWMap("ToPopstarDisplay"));
+            mLayout.paneByName("AllSphereText").setText(Message::TextWMap("ToPopstarDisplay"));
+            mLayout.paneByName("AllSphereTextSh").setText(Message::TextWMap("ToPopstarDisplay"));
         }
     }
 }

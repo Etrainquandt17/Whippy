@@ -24,6 +24,8 @@
 #include "scn/step/enemy/Utility.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,7 +39,7 @@ StateFloorHit::StateFloorHit(Enemy* enemy) : StateBase(enemy), mFrame(0), mEndFr
     obj().move().resetVelocity();
     obj().model().shake().request(static_cast<chara::ShakeKind>(3));
     obj().soundSE().start(0x37e);
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, -0.5f, 0.0f));
+    obj().model().setViewOffset(Vector3(0.0f, -0.5f, 0.0f));
 }
 
 StateFloorHit::~StateFloorHit() {

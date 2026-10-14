@@ -35,6 +35,12 @@
 #include "std/min.h"
 #include "util/ObjList.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -103,9 +109,9 @@ void Custom::setBodyCollGuard() {
     bodyColl.clear();
     bodyColl.initAttackType(static_cast<ocoll::AttackType>(0x1AB));
     obj().objColl().addBodyColl(0, param.mBodyCollRadius, param.mBodyCollOffset);
-    hel::math::Vector2 offset = param.mGuardCollOffset;
+    Vector2 offset = param.mGuardCollOffset;
     offset.x *= obj().target().getSign();
-    hel::math::Vector2 offset2 = param.mGuardCollOffset2;
+    Vector2 offset2 = param.mGuardCollOffset2;
     offset2.x *= obj().target().getSign();
     obj().objColl().addBodyColl(3, param.mGuardCollRadius, offset, offset2);
     bodyColl.setResistLv(ocoll::HIT_RESIST_LV_6);
@@ -113,27 +119,27 @@ void Custom::setBodyCollGuard() {
 
 void Custom::reqSwordShot(bool isTriple) {
     const Param& param = obj().param().gigantedge();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 offset(param.mSwordShotOffset.x * obj().target().getSign(), param.mSwordShotOffset.y);
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 offset(param.mSwordShotOffset.x * obj().target().getSign(), param.mSwordShotOffset.y);
     u32 num = isTriple ? 3 : 1;
     u32 i = 0;
     if (num != 0) {
         for (; i < num; i++) {
-            hel::math::Vector2 speed = hel::math::Vector2::BASIS_X * obj().target().getSign();
-            speed.rotate(i * hel::math::Math::DegToRad(param.mSwordShotAngle * obj().target().getSign()));
+            Vector2 speed = Vector2::BASIS_X * obj().target().getSign();
+            speed.rotate(i * Math::DegToRad(param.mSwordShotAngle * obj().target().getSign()));
             speed.normalize();
             speed *= param.mSwordShotSpeed;
             // TODO: the original keeps the address of this sum in a saved register, loaded ahead of the loop (one instruction
             // more); everything else is the same.
             weapon::Desc desc(static_cast<weapon::Kind>(0x2C), isTriple, static_cast<ostop::Flag>(8), pos + offset, speed, obj().objColl().owner());
-            util::ObjRefHandle<weapon::Weapon> shot = obj().comp().weaponManager().request(desc);
+            ObjRefHandle<weapon::Weapon> shot = obj().comp().weaponManager().request(desc);
         }
     }
     obj().effect().normal().requestP(static_cast<effect::Kind>(0x531), obj().location().pos() + offset.toVector3());
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::gigantedge

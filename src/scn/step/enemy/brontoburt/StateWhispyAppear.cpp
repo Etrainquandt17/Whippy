@@ -26,6 +26,9 @@
 #include "scn/step/enemy/common/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -73,15 +76,15 @@ void StateWhispyAppear::procMove() {
     switch (mStep) {
     case 0: {
         f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param.mWhispyAppearFrame);
-        hel::math::Vector3 pos = obj().location().pos();
-        pos.y = mBaseY - param.mWhispyDownHeight * hel::math::Math::SinDegF(90.0f * rate);
+        Vector3 pos = obj().location().pos();
+        pos.y = mBaseY - param.mWhispyDownHeight * Math::SinDegF(90.0f * rate);
         obj().location().setPos(pos);
         break;
     }
     case 1: {
         f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param.mWhispyWaitFrame);
-        hel::math::Vector3 pos = obj().location().pos();
-        pos.y = mBaseY + param.mWhispyUpHeight * hel::math::Math::SinDegF(90.0f * rate);
+        Vector3 pos = obj().location().pos();
+        pos.y = mBaseY + param.mWhispyUpHeight * Math::SinDegF(90.0f * rate);
         obj().location().setPos(pos);
         break;
     }

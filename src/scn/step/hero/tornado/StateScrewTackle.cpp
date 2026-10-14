@@ -18,6 +18,8 @@
 #include "scn/step/hero/Utility.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -46,7 +48,7 @@ StateScrewTackle::StateScrewTackle(Hero* hero, u32 count)
     , mAccelVRate(1.0f) {
     obj().model().script().start(0x127);
     if (obj().footState().isAir()) {
-        int index = hel::math::Math::LimitMinMax<int>(count, 0, 2);
+        int index = Math::LimitMinMax<int>(count, 0, 2);
         mGravityRate = GRAVITY_RATE_TABLE[index];
         mAccelVRate = ACCEL_V_RATE_TABLE[index];
     }
@@ -89,7 +91,7 @@ void StateScrewTackle::procMove() {
     const TornadoParam& param = obj().param().tornado();
     if (mSubState == 1) {
         f32 speedV = obj().move().velocity().y;
-        speedV = hel::math::Math::LimitMinMax(speedV + mSpeedV, -param._B0, param._B0 * mAccelVRate);
+        speedV = Math::LimitMinMax(speedV + mSpeedV, -param._B0, param._B0 * mAccelVRate);
         obj().move().setSpeedV(speedV);
         obj().move().airDecelFall(param._B8, gobj::MoveParamFall::Zero());
     } else if (mSubState == 2) {

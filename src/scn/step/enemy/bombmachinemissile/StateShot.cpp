@@ -29,6 +29,10 @@
 #include "scn/step/ocoll/AttackType.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,12 +44,12 @@ StateShot::StateShot(Enemy* enemy) : StateBase(enemy), mFrame(0) {
     obj().footState().setAir();
     obj().model().reqScript(0);
     obj().model().rotCtrl().setValid(false);
-    obj().model().setCustomMtx(hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3::BASIS_Y,
-                                                                     obj().move().velocity().x > 0.0f ? 90.0f : -90.0f));
+    obj().model().setCustomMtx(Matrix34::CreateRotAxisDeg(Vector3::BASIS_Y,
+                                                          obj().move().velocity().x > 0.0f ? 90.0f : -90.0f));
     if (obj().level() == 1) {
         scale = param.mSuperScale;
-        obj().model().setBaseScale(hel::math::Vector3::ALL_ONE * scale);
-        hel::math::Vector3 pos = obj().location().pos();
+        obj().model().setBaseScale(Vector3::ALL_ONE * scale);
+        Vector3 pos = obj().location().pos();
         pos.x += obj().move().velocity().x > 0.0f ? 1.0f : -1.0f;
         pos.y += -0.4f;
         obj().location().setPos(pos);
@@ -73,7 +77,7 @@ void StateShot::procMove() {
 }
 
 void StateShot::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const ParamData& param = obj().param().bombmachinemissile();
     if (mFrame == param.mLifeFrame || obj().mapColl().isHitAll()) {
         obj().effect().state().releaseAndVanish();

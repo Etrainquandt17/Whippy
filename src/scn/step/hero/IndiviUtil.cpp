@@ -7,6 +7,9 @@
 #include "scn/step/hero/Param.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 // TODO: inline in the original; they belong in xdata/XData.h, which declares them out of line for the
 // units that call them.
 namespace xdata {
@@ -79,8 +82,8 @@ f32 IndiviUtil::CenterOffset(Kind kind) {
     }
 }
 
-hel::math::Vector2 IndiviUtil::VacuumAttackerOffset() {
-    return hel::math::Vector2(0.0f, 0.75f);
+Vector2 IndiviUtil::VacuumAttackerOffset() {
+    return Vector2(0.0f, 0.75f);
 }
 
 void IndiviUtil::InitNodeAttach(NodeAttach& nodeAttach, Kind kind) {
@@ -88,24 +91,24 @@ void IndiviUtil::InitNodeAttach(NodeAttach& nodeAttach, Kind kind) {
     case KIND_META: {
         param::JITParam param("step/hero/nodeattach/Meta");
         const NodeAttachParam& data = param.data<NodeAttachParam>();
-        nodeAttach.setOffset(hel::math::Vector3(data.mOffsetX, data.mOffsetY, data.mOffsetZ));
-        nodeAttach.setRotate(hel::math::Vector3(data.mRotateX, data.mRotateY, data.mRotateZ));
+        nodeAttach.setOffset(Vector3(data.mOffsetX, data.mOffsetY, data.mOffsetZ));
+        nodeAttach.setRotate(Vector3(data.mRotateX, data.mRotateY, data.mRotateZ));
         nodeAttach.setScale(data.mScale);
         break;
     }
     case KIND_DEDEDE: {
         param::JITParam param("step/hero/nodeattach/Dedede");
         const NodeAttachParam& data = param.data<NodeAttachParam>();
-        nodeAttach.setOffset(hel::math::Vector3(data.mOffsetX, data.mOffsetY, data.mOffsetZ));
-        nodeAttach.setRotate(hel::math::Vector3(data.mRotateX, data.mRotateY, data.mRotateZ));
+        nodeAttach.setOffset(Vector3(data.mOffsetX, data.mOffsetY, data.mOffsetZ));
+        nodeAttach.setRotate(Vector3(data.mRotateX, data.mRotateY, data.mRotateZ));
         nodeAttach.setScale(data.mScale);
         break;
     }
     case KIND_DEE: {
         param::JITParam param("step/hero/nodeattach/Dee");
         const NodeAttachParam& data = param.data<NodeAttachParam>();
-        nodeAttach.setOffset(hel::math::Vector3(data.mOffsetX, data.mOffsetY, data.mOffsetZ));
-        nodeAttach.setRotate(hel::math::Vector3(data.mRotateX, data.mRotateY, data.mRotateZ));
+        nodeAttach.setOffset(Vector3(data.mOffsetX, data.mOffsetY, data.mOffsetZ));
+        nodeAttach.setRotate(Vector3(data.mRotateX, data.mRotateY, data.mRotateZ));
         nodeAttach.setScale(data.mScale);
         break;
     }

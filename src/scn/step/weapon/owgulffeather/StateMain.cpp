@@ -14,15 +14,19 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace owgulffeather {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0) {
-    f32 angle = hel::math::Math::Abs(hel::math::Math::Atan2DegF(obj().move().velocity().x, -obj().move().velocity().y));
+    f32 angle = Math::Abs(Math::Atan2DegF(obj().move().velocity().x, -obj().move().velocity().y));
     obj().model().setCustomMtx(
-        hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, obj().target().getSign()), angle - 90.0f)
+        Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, obj().target().getSign()), angle - 90.0f)
     );
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x5A4), 0);
     if (obj().variation() == 0) {

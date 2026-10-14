@@ -8,6 +8,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/mahoroaneedle/Custom.h"
 
+using hel::common::DynamicCast;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,7 +26,7 @@ StateEnd::StateEnd(Weapon* weapon) : StateBase(weapon) {
 StateEnd::~StateEnd() {}
 
 void StateEnd::procAnim() {
-    hel::common::DynamicCast<Custom*, ICustom>(obj().custom())->updateRot(10.0f);
+    DynamicCast<Custom*, ICustom>(obj().custom())->updateRot(10.0f);
     if (obj().model().isAllEnd()) {
         obj().dead();
     }

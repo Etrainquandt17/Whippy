@@ -20,6 +20,9 @@
 #include "scn/step/hero/common/StateClearDancePre.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -54,14 +57,14 @@ void StateClearDanceWalk::procAnim() {
 void StateClearDanceWalk::procMove() {
     obj().target().setIsRightDir(obj().location().pos().x < mTargetPos.x);
     obj().move().groundAccel(obj().target().isRightDir(), obj().param().common()._254);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.z = 0.9f * pos.z + 0.1f * mTargetPos.z;
     obj().location().setPos(pos);
 }
 
 void StateClearDanceWalk::procFixPos() {
-    if (hel::math::Math::AbsF32(obj().location().pos().x - mTargetPos.x) < 0.2f) {
-        obj().location().setPos(hel::math::Vector3(mTargetPos.x, obj().location().pos().y, mTargetPos.z));
+    if (Math::AbsF32(obj().location().pos().x - mTargetPos.x) < 0.2f) {
+        obj().location().setPos(Vector3(mTargetPos.x, obj().location().pos().y, mTargetPos.z));
         obj().stateChanger().setNextState<StateClearDancePre, Hero*, u32>(objPtr(), mZoom);
     }
 }

@@ -15,6 +15,11 @@
 #include "storage/VolatileData.h"
 #include "util/ObjList.h"
 
+using app::Application;
+using app::BackupFileAccessor;
+using hel::common::ExplicitSingleton;
+using hel::math::Matrix34;
+using hel::math::Vector2;
 using std::tr1::ref;
 
 namespace {
@@ -210,7 +215,7 @@ void ModePanel::updateFrame() {
 
 void ModePanel::show(u32 file) {
     mLayout.rootPane().show();
-    if (app::BackupFileAccessor(file).theArenaExtraOpened()) {
+    if (BackupFileAccessor(file).theArenaExtraOpened()) {
         mLayout.play("SinKakutouOpen");
     } else {
         mLayout.play("Open");
@@ -222,7 +227,7 @@ void ModePanel::show(u32 file) {
 
 void ModePanel::appear(u32 file) {
     mLayout.rootPane().show();
-    if (app::BackupFileAccessor(file).theArenaExtraOpened()) {
+    if (BackupFileAccessor(file).theArenaExtraOpened()) {
         mLayout.play("SinKakutouOpen");
     } else {
         mLayout.play("Open");
@@ -232,7 +237,7 @@ void ModePanel::appear(u32 file) {
 
 void ModePanel::disappear(u32 file) {
     restoreFrontButton();
-    if (app::BackupFileAccessor(file).theArenaExtraOpened()) {
+    if (BackupFileAccessor(file).theArenaExtraOpened()) {
         mLayout.play("SinKakutouClose");
     } else {
         mLayout.play("Close");
@@ -659,7 +664,7 @@ void ModePanel::updateItemStatus() {
     u32 hash;
 
     hash = 0x811C9E29;
-    app::BackupFileAccessor accessor;
+    BackupFileAccessor accessor;
     asm {
         bl      after1
         opword  MF_WORD(0x34)
@@ -669,7 +674,7 @@ void ModePanel::updateItemStatus() {
         lwz     r19, 0x0(r17)
         stw     r19, expected
     }
-    u32 file = hel::common::ExplicitSingleton<app::Application>::object_->storageManager().volatileData()._0[2];
+    u32 file = ExplicitSingleton<Application>::object_->storageManager().volatileData()._0[2];
     mFileNumber.update(file);
     asm {
         bl      after2
@@ -821,7 +826,7 @@ IModeButton* ModePanel::modeButton(UnlockKind kind) {
 }
 
 IModeButton* ModePanel::modeButton(ModeKind kind) {
-    app::BackupFileAccessor accessor;
+    BackupFileAccessor accessor;
     switch (kind) {
     case MODE_KIND_0:
         if (accessor.extraModeOpened()) {
@@ -861,8 +866,8 @@ void ModePanel::bringToFront(IModeButton& button) {
     _8B8 = button.parent();
     button.setParent(_8A0);
     _8A0.setTrans(_8B8.pos());
-    hel::math::Matrix34 mtx = _8B8.globalMtx();
-    _8A0.setScale(hel::math::Vector2(mtx.m[0][0], mtx.m[1][1]));
+    Matrix34 mtx = _8B8.globalMtx();
+    _8A0.setScale(Vector2(mtx.m[0][0], mtx.m[1][1]));
 }
 
 }}  // namespace scn::titlemenunew

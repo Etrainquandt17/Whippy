@@ -11,6 +11,9 @@
 #include "revolution/gx/GXTransform.h"
 #include "revolution/gx/GXVert.h"
 
+using hel::common::ExplicitSingleton;
+using hel::math::Vector2;
+
 namespace gfx {
 
 TPLTexturePlate::TPLTexturePlate(const char* path)
@@ -30,7 +33,7 @@ void TPLTexturePlate::setAlpha(u8 alpha) {
 
 void TPLTexturePlate::drawForHomeButtonIcon() const {
     if (mIsInitialized) {
-        const VISetting& setting = *hel::common::ExplicitSingleton<VISetting>::object_;
+        const VISetting& setting = *ExplicitSingleton<VISetting>::object_;
         Utility::SetupGXForLayout2D(setting._4, setting._6, 0.0f, 1.0f);
         drawCore();
     }
@@ -77,7 +80,7 @@ void TPLTexturePlate::setupTevRenderModePlane() const {
     GXSetTevAlphaOp(GX_TEVSTAGE0, GX_TEV_ADD, GX_TB_ZERO, GX_CS_SCALE_1, GX_TRUE, GX_TEVPREV);
 }
 
-void TPLTexturePlate::setPos(const hel::math::Vector2& pos) {
+void TPLTexturePlate::setPos(const Vector2& pos) {
     PSMTXTrans(mPos, pos.x, pos.y, 0.0f);
 }
 

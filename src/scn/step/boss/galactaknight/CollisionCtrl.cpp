@@ -10,6 +10,8 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,12 +27,12 @@ CollisionCtrl::~CollisionCtrl() {}
 
 void CollisionCtrl::update() {
     const Param& param = mBoss.param().galactaknight();
-    bool isHit = hel::math::Math::Abs(mBoss.location().pos().z) < param._17C;
+    bool isHit = Math::Abs(mBoss.location().pos().z) < param._17C;
     if (isHit != mIsHit) {
         mIsHit = isHit;
         setHit();
     }
-    bool isAttack = hel::math::Math::Abs(mBoss.location().pos().z) < param._180;
+    bool isAttack = Math::Abs(mBoss.location().pos().z) < param._180;
     if (isAttack != mIsAttack) {
         mIsAttack = isAttack;
         setAttack();
@@ -60,7 +62,7 @@ void CollisionCtrl::setHit() {
     if (mIsHit) {
         const CollParam* coll = param();
         if (coll != 0) {
-            if (!hel::math::Math::EqZero(coll->mBodyRadius)) {
+            if (!Math::EqZero(coll->mBodyRadius)) {
                 mBoss.objColl().addBodyColl(2, coll->mBodyRadius, coll->mBodyOffset, coll->mBodyOffsetEnd);
                 setResistLv();
             }
@@ -73,7 +75,7 @@ void CollisionCtrl::setAttack() {
     if (mIsAttack) {
         const CollParam* coll = param();
         if (coll != 0) {
-            if (!hel::math::Math::EqZero(coll->mAttackRadius)) {
+            if (!Math::EqZero(coll->mAttackRadius)) {
                 mBoss.objColl().addAttack(0, 2, coll->mAttackRadius, coll->mAttackOffset, coll->mAttackOffsetEnd);
                 setAttackType();
             }

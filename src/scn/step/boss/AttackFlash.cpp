@@ -2,6 +2,8 @@
 
 #include "hel/math/Math.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -22,8 +24,8 @@ void AttackFlash::update() {
         if (mAlpha > 200.0f) {
             mAlpha = 200.0f;
         }
-        int alpha = static_cast<int>(mAlpha) + static_cast<int>(40.0f * hel::math::Math::SinDegF(mAngle));
-        mColor.a = hel::math::Math::LimitMinMax(alpha, 0, 255);
+        int alpha = static_cast<int>(mAlpha) + static_cast<int>(40.0f * Math::SinDegF(mAngle));
+        mColor.a = Math::LimitMinMax(alpha, 0, 255);
         break;
     }
     case 2: {

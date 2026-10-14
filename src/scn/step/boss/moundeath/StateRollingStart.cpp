@@ -50,13 +50,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace moundeath {
 
 StateRollingStart::StateRollingStart(Boss* boss) : StateBase(boss), mCount(0), mRot(0.0f), mRotDiff(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x18);
     Utility::ControlHateOnAction(obj());
@@ -69,7 +71,7 @@ StateRollingStart::StateRollingStart(Boss* boss) : StateBase(boss), mCount(0), m
 }
 
 StateRollingStart::~StateRollingStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
 }
 
 void StateRollingStart::procAnim() {

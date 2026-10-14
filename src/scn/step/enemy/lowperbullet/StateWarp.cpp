@@ -24,6 +24,8 @@
 #include "scn/step/enemy/VacuumReceiver.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -48,7 +50,7 @@ void StateWarp::procAnim() {
     }
     f32 rate = static_cast<f32>(mFrame) / 20.0f;
     f32 width = 0.01f + (1.0f - rate);
-    obj().model().setScale(hel::math::Vector3(width, rate * rate + 1.0f, width));
+    obj().model().setScale(Vector3(width, rate * rate + 1.0f, width));
 }
 
 void StateWarp::procMove() {}

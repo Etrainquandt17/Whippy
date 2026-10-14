@@ -52,6 +52,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +65,7 @@ namespace galactaknight {
 StateAttack::StateAttack(Boss* boss, const AttackDesc& desc)
     : StateBase(boss), mFrame(desc._8), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mIsMove(false),
       mIsMoonShot(desc._D) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = desc._4 * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     if (desc._C) {
@@ -102,8 +107,8 @@ void StateAttack::procAnim() {
 void StateAttack::procMove() {
     if (mIsMove) {
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-        f32 rate = hel::math::Math::SinDegF(90.0f * t);
-        hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+        f32 rate = Math::SinDegF(90.0f * t);
+        Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
         obj().location().setPos(pos);
     }
 }
@@ -112,8 +117,8 @@ void StateAttack::procFixPos() {}
 
 void StateAttack::generateStar() {
     const Param& param = obj().param().galactaknight();
-    hel::math::Vector2 pos = param._C;
-    hel::math::Vector2 speed = param._1C;
+    Vector2 pos = param._C;
+    Vector2 speed = param._1C;
     pos.x *= obj().target().getSign();
     speed.x *= obj().target().getSign();
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));
@@ -121,12 +126,12 @@ void StateAttack::generateStar() {
 
 void StateAttack::generateMoonShot() {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
     pos.y += param._A8;
-    hel::math::Vector2 start = pos;
+    Vector2 start = pos;
     start.x += param._A0 * obj().target().getSign();
-    hel::math::Vector2 dir = hel::math::Vector2::BASIS_X;
+    Vector2 dir = Vector2::BASIS_X;
     dir.x *= obj().target().getSign();
     dir *= param._9C;
     u32 variation = 0;

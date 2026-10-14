@@ -52,6 +52,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,22 +62,22 @@ namespace galactaknight {
 
 StateMince::StateMince(Boss* boss) : StateBase(boss) {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x11);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     custom.captureCtrl().setCaptureKind(CaptureCtrl::CAPTURE_KIND_1);
-    hel::math::Vector3 pos = obj().location().centerPos();
+    Vector3 pos = obj().location().centerPos();
     pos.x += param._C4 * obj().target().getSign();
     custom.captureCtrl().setConstraintPos(pos);
 }
 
 StateMince::~StateMince() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().clearCapture();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().clearCapture();
 }
 
 void StateMince::procAnim() {
     if (obj().model().isAllEnd()) {
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().reqStateFinish();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().reqStateFinish();
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
     }
 }
@@ -84,7 +87,7 @@ void StateMince::procMove() {}
 void StateMince::procFixPos() {}
 
 void StateMince::procObjCollReact() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().checkCapture();
 }
 
 }}}}  // namespace scn::step::boss::galactaknight

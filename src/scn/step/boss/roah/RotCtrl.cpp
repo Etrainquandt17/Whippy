@@ -15,6 +15,11 @@
 #include "scn/step/chara/ModelRotCtrl.h"
 #include "util/ObjList.h"
 
+using g3d::NodeAccessor;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -22,7 +27,7 @@ namespace roah {
 
 RotCtrl::RotCtrl(Boss& boss)
     : mBoss(boss), mRotX(0.0f), mRotXMax(0.0f), mFixRotRate(0.0f), mRotY(0.0f), mRotYMax(0.0f), mIsValid(true),
-      mLocalMtxTempRot(hel::math::Vector3::ZERO) {
+      mLocalMtxTempRot(Vector3::ZERO) {
     const Param& param = mBoss.param().roah();
     mRotXMax = param.mRotXMax;
     mRotYMax = param.mRotYMax;
@@ -38,17 +43,17 @@ void RotCtrl::update() {
         return;
     }
     f32 diff = mBoss.location().pos().y - mBoss.location().prevPos().y;
-    if (hel::math::Math::Abs(diff) > param.mRotMoveMargin) {
+    if (Math::Abs(diff) > param.mRotMoveMargin) {
         f32 target = diff > 0.0f ? -mRotXMax : mRotXMax;
-        mRotX = hel::math::Math::LinearInterpolation(mRotX, target, mFixRotRate);
+        mRotX = Math::LinearInterpolation(mRotX, target, mFixRotRate);
     } else {
-        mRotX = hel::math::Math::LinearInterpolation(mRotX, 0.0f, mFixRotRate);
+        mRotX = Math::LinearInterpolation(mRotX, 0.0f, mFixRotRate);
     }
     f32 targetY = mRotYMax * mBoss.target().getSign();
-    mRotY = hel::math::Math::LinearInterpolation(mRotY, targetY, mFixRotRate);
-    g3d::NodeAccessor node = mBoss.model().model().nodes().at(1);
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(mRotX, 0.0f, 0.0f)) *
-                              hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRotY, 0.0f));
+    mRotY = Math::LinearInterpolation(mRotY, targetY, mFixRotRate);
+    NodeAccessor node = mBoss.model().model().nodes().at(1);
+    Matrix34 mtx = Matrix34::CreateRotXYZDeg(Vector3(mRotX, 0.0f, 0.0f)) *
+                   Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRotY, 0.0f));
     node.localMtx().setRTMtx(mtx);
 }
 
@@ -104,12 +109,12 @@ void RotCtrl::setLocalMtxTempRot(f32 x, f32 y, f32 z) {
     mLocalMtxTempRot.set(x, y, z);
 }
 
-hel::math::Vector3 RotCtrl::getLocalMtxTempRot() {
+Vector3 RotCtrl::getLocalMtxTempRot() {
     return mLocalMtxTempRot;
 }
 
 void RotCtrl::resetLocalMtxTempRot() {
-    mLocalMtxTempRot = hel::math::Vector3::ZERO;
+    mLocalMtxTempRot = Vector3::ZERO;
 }
 
 }}}}  // namespace scn::step::boss::roah

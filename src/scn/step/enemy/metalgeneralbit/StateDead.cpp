@@ -26,6 +26,8 @@
 #include "scn/step/enemy/metalgeneralbit/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ StateDead::~StateDead() {}
 
 void StateDead::procAnim() {
     const ParamData& param = obj().param().metalgeneralbit();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     if (mFrame == param.mDeadFrame) {
         custom.reqRollExp();

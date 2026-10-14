@@ -16,6 +16,10 @@
 #include "snd/SERequestor.h"
 #include "util/ObjList.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -26,23 +30,23 @@ StateShotAirBallBig::StateShotAirBallBig(Boss* boss, u32 count, u32 intervalFirs
 
 void StateShotAirBallBig::reqAirBall() {
     const Param& param = obj().param().whispy();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 offset = param.mAirBallBigOffset;
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 offset = param.mAirBallBigOffset;
     pos += offset;
     reqAirBallIN(offset + param.mAirBallBigOffset0, pos + param.mAirBallBigTarget0);
     reqAirBallIN(offset + param.mAirBallBigOffset1, pos + param.mAirBallBigTarget1);
     reqAirBallIN(offset + param.mAirBallBigOffset2, pos + param.mAirBallBigTarget2);
     obj().soundSE().normal().start(0x321);
-    hel::math::Vector3 effectPos = obj().location().pos();
-    effectPos += hel::math::Vector3(param.mAirBallBigEffectOffset);
-    obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, hel::math::Direction3::FRONT_TO_LEFT);
+    Vector3 effectPos = obj().location().pos();
+    effectPos += Vector3(param.mAirBallBigEffectOffset);
+    obj().effect().normal().requestPD(static_cast<effect::Kind>(0x585), effectPos, Direction3::FRONT_TO_LEFT);
 }
 
-void StateShotAirBallBig::reqAirBallIN(const hel::math::Vector2& offset, const hel::math::Vector2& target) {
+void StateShotAirBallBig::reqAirBallIN(const Vector2& offset, const Vector2& target) {
     const Param& param = obj().param().whispy();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos += offset;
-    hel::math::Vector2 speed = param.mAirBallBigSpeed;
+    Vector2 speed = param.mAirBallBigSpeed;
     weapon::Desc desc(static_cast<weapon::Kind>(0xC), 1, static_cast<ostop::Flag>(8), pos, speed, obj().objColl().owner());
     desc._24 = target;
     obj().comp().weaponManager().request(desc);

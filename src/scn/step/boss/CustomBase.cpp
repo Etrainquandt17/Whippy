@@ -4,6 +4,10 @@
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/common/StateWait.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace hel {
 namespace common {
 
@@ -56,12 +60,12 @@ void CustomBase::onProcObjCollReact() {}
 
 void CustomBase::onUpdateUseGPU() {}
 
-hel::math::Vector2 CustomBase::getFirstOffs() const {
-    return hel::math::Vector2(0.0f, 0.0f);
+Vector2 CustomBase::getFirstOffs() const {
+    return Vector2(0.0f, 0.0f);
 }
 
-const hel::common::RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<CustomBase>();
+const RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<CustomBase>();
 }
 
 }}}  // namespace scn::step::boss

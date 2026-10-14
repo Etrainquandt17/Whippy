@@ -2,6 +2,7 @@
 
 #include "hel/math/Math.h"
 
+using hel::math::Math;
 using hel::math::Vector2;
 
 namespace scn {
@@ -16,8 +17,8 @@ GridPos::GridPos(s32 x, s32 y)
     , mY(y) {}
 
 GridPos::GridPos(const Vector2& pos)
-    : mX(static_cast<s32>(hel::math::Math::FloorF(pos.x)))
-    , mY(static_cast<s32>(hel::math::Math::FloorF(pos.y))) {}
+    : mX(static_cast<s32>(Math::FloorF(pos.x)))
+    , mY(static_cast<s32>(Math::FloorF(pos.y))) {}
 
 Vector2 GridPos::toWorldPos() const {
     return Vector2(static_cast<f32>(mX), static_cast<f32>(mY));

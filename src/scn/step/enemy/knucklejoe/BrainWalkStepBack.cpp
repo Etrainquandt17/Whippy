@@ -25,6 +25,8 @@
 #include "scn/step/enemy/knucklejoe/StateWalkStepBack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +35,7 @@ namespace knucklejoe {
 BrainWalkStepBack::BrainWalkStepBack(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainWalkStepBack::onStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setHitWall(false);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setHitWall(false);
     obj().stateChanger().setNextState<StateWalkStepBack, Enemy*>(&obj());
     return true;
 }

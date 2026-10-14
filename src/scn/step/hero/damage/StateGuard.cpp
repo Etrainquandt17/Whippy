@@ -15,6 +15,8 @@
 #include "scn/step/hero/Utility.h"
 #include "scn/step/hero/common/StateGuard.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -23,7 +25,7 @@ namespace damage {
 StateGuard::StateGuard(Hero* hero)
     : StateBase(hero)
     , mFrame(0) {
-    hel::math::Vector2 attackPos = obj().objColl().objColl().bodyColl().damageInfo().attackPos();
+    Vector2 attackPos = obj().objColl().objColl().bodyColl().damageInfo().attackPos();
     obj().target().setIsRightDir(obj().location().pos().x < attackPos.x);
     obj().model().script().start(0x31);
     obj().move().setSpeedH(0.2f * -obj().target().getSign());

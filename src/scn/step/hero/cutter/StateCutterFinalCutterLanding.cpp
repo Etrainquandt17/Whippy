@@ -24,6 +24,9 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -37,12 +40,12 @@ StateCutterFinalCutterLanding::StateCutterFinalCutterLanding(Hero* hero)
     obj().invincible().setPerm();
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(5));
     obj().soundSE()._4.start(0x14F);
-    hel::math::Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
-    hel::math::Vector2 pos(heroPos.x, heroPos.y);
+    Vector3 heroPos = static_cast<const Hero&>(obj()).location().pos();
+    Vector2 pos(heroPos.x, heroPos.y);
     pos.y += 0.15f;
-    hel::math::Vector2 weaponPos = pos;
+    Vector2 weaponPos = pos;
     pos.x += 0.2f * obj().target().getSign();
-    hel::math::Vector2 speed(0.6f * obj().target().getSign(), 0.0f);
+    Vector2 speed(0.6f * obj().target().getSign(), 0.0f);
     weapon::Desc desc;
     desc.mKind = static_cast<weapon::Kind>(8);
     desc.mVariation = 0;

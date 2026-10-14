@@ -8,6 +8,8 @@
 #include "scn/step/StorageAccessor.h"
 #include "scn/step/map/BinGmkGeneralEntry.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace gimmick {
@@ -136,7 +138,7 @@ Monitor::Monitor(const map::BinGmkGeneralEntry& entry, Component& component)
     , mPos(entry._4.toMaproPos().toWorldPos())
     , mModel(mComponent, t_getResName(mComponent.context().mapKind), "TopL", false, false)
     , mSE() {
-    mModel.setTrans(hel::math::Vector3(mPos.x, mPos.y, 0.0f));
+    mModel.setTrans(Vector3(mPos.x, mPos.y, 0.0f));
     LevelKind level = StorageAccessor::GetLevelLastCleared(component);
     switch (level) {
     case LEVEL_KIND_0:

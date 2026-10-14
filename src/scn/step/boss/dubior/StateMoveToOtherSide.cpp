@@ -19,6 +19,10 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -32,12 +36,12 @@ const u32 WaitFrameTable[] = { 10, 30, 10, 10 };
 
 StateMoveToOtherSide::StateMoveToOtherSide(Boss* boss) : StateBase(boss), mTargets(), mCount(0), mIndex(0) {
     const Param& param = obj().param().dubior();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     f32 sign = obj().location().pos().x > obj().comp().mainCamera().getCenter().x ? -1.0f : 1.0f;
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 target(obj().comp().mainCamera().getCenter().x + sign * param.mHeightAdjustDistance,
-                              param.mFirstOffsY + obj().basePos().y, 0.0f);
+    Vector3 pos = obj().location().pos();
+    Vector3 target(obj().comp().mainCamera().getCenter().x + sign * param.mHeightAdjustDistance,
+                   param.mFirstOffsY + obj().basePos().y, 0.0f);
     obj().target().setIsRightDir(sign > 0.0f);
     f32 wave = -1.0f;
     for (u32 i = 0; i < 4; i++) {
@@ -48,9 +52,9 @@ StateMoveToOtherSide::StateMoveToOtherSide(Boss* boss) : StateBase(boss), mTarge
             index = 0;
         }
         f32 rate = (index + 1) / 4.0f;
-        hel::math::Vector3 point = pos * (1.0f - rate) + target * rate;
+        Vector3 point = pos * (1.0f - rate) + target * rate;
         if (index + 1 < 4) {
-            point.y += wave * (param.mMoveWaveRange * app::Random::RandNF() + param.mMoveWaveOffset);
+            point.y += wave * (param.mMoveWaveRange * Random::RandNF() + param.mMoveWaveOffset);
         }
         mTargets.add(point);
         wave *= -1.0f;
@@ -61,7 +65,7 @@ StateMoveToOtherSide::StateMoveToOtherSide(Boss* boss) : StateBase(boss), mTarge
 }
 
 StateMoveToOtherSide::~StateMoveToOtherSide() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
     mTargets.clear();
 }
 
@@ -80,8 +84,8 @@ void StateMoveToOtherSide::procAnim() {
 }
 
 void StateMoveToOtherSide::procMove() {
-    hel::math::Vector3 target = mTargets[mIndex];
-    hel::math::Vector3 pos = obj().location().pos() * 0.5f + target * 0.5f;
+    Vector3 target = mTargets[mIndex];
+    Vector3 pos = obj().location().pos() * 0.5f + target * 0.5f;
     obj().location().setPos(pos);
 }
 

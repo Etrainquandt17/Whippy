@@ -17,13 +17,16 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace mahoroaicethorn {
 
 // TODO: an inline function that takes both coordinates by value; where it lives is not known.
-inline void t_Trans(hel::geo::Rect& rect, f32 x, f32 y) {
+inline void t_Trans(Rect& rect, f32 x, f32 y) {
     rect.trans(x, y);
 }
 
@@ -32,10 +35,10 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mLifetime(), mAreaId(0
     mLifetime.set(240);
     obj().model().rotCtrl().setValid(false);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x206));
-    obj().objColl().addAttack(0, 0.5f, hel::math::Vector2(-0.5f, 0.0f), hel::math::Vector2(0.5f, 0.0f));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+    obj().objColl().addAttack(0, 0.5f, Vector2(-0.5f, 0.0f), Vector2(0.5f, 0.0f));
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x40A), 0);
-    hel::geo::Rect rect(0.5f, -0.5f, -1.2f, 1.2f);
+    Rect rect(0.5f, -0.5f, -1.2f, 1.2f);
     t_Trans(rect, obj().location().pos().x, obj().location().pos().y);
     mAreaId = obj().comp().areaOperation().createFrozenArea(rect);
 }
@@ -49,7 +52,7 @@ void StateMain::procAnim() {
     if (mLifetime.isDead()) {
         obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x409), obj().location().pos());
         ::ocoll::Owner& owner = obj().objColl().owner();
-        Desc desc(static_cast<Kind>(0x98), 0, static_cast<ostop::Flag>(8), obj().location().pos().getXY(), hel::math::Vector2::ZERO, owner);
+        Desc desc(static_cast<Kind>(0x98), 0, static_cast<ostop::Flag>(8), obj().location().pos().getXY(), Vector2::ZERO, owner);
         obj().comp().weaponManager().request(desc);
         obj().dead();
     }

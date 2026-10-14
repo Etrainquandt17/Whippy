@@ -26,12 +26,14 @@
 #include "scn/step/enemy/bouncy/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace bouncy {
 
-StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mSpeedH(hel::math::Math::Abs(enemy->move().velocity().x)), mFrame(0) {
+StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mSpeedH(Math::Abs(enemy->move().velocity().x)), mFrame(0) {
     obj().footState().setAir();
     obj().model().reqScript(7);
     obj().soundSE().start(0x300);

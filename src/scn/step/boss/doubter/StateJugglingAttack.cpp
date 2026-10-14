@@ -35,13 +35,15 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace doubter {
 
 StateJugglingAttack::StateJugglingAttack(Boss* boss, JugglingShotKind kind) : StateBase(boss), mIsFirst(true), mKind(kind) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ControlHateOnAction(obj());
     custom.jugglingCtrl().signalAllEnemyPrepare();
     if (custom.jugglingCtrl().isHoldHero()) {
@@ -54,11 +56,11 @@ StateJugglingAttack::StateJugglingAttack(Boss* boss, JugglingShotKind kind) : St
 }
 
 StateJugglingAttack::~StateJugglingAttack() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().clearCapture();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).captureCtrl().clearCapture();
 }
 
 void StateJugglingAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         if (custom.jugglingCtrl().isHoldHero()) {
             custom.jugglingCtrl().shotHero();

@@ -12,11 +12,14 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
 
-StickEnemyAlgorithm::StickEnemyAlgorithm(Weapon& weapon, const util::ObjRefHandle<enemy::Enemy>& enemy)
+StickEnemyAlgorithm::StickEnemyAlgorithm(Weapon& weapon, const ObjRefHandle<enemy::Enemy>& enemy)
     : mObj(weapon)
     , mEnemy(enemy)
     , mOffset() {
@@ -46,7 +49,7 @@ void StickEnemyAlgorithm::procConstraint() {
     }
 }
 
-void StickEnemyAlgorithm::setOffset(const hel::math::Vector3& offset) {
+void StickEnemyAlgorithm::setOffset(const Vector3& offset) {
     mOffset = offset;
 }
 

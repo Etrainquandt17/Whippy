@@ -3,11 +3,13 @@
 #include "gobj/Anim.h"
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<Anim> t_obj;
+PointerWrapper<Anim> t_obj;
 
 }
 

@@ -28,6 +28,8 @@
 #include "scn/step/enemy/sirkibble/StateJumpAttack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +43,7 @@ StateJump::StateJump(Enemy* enemy) : StateBase(enemy), mFrame(0) {
 StateJump::~StateJump() {}
 
 void StateJump::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     if (obj().model().isAllEnd()) {
         obj().model().reqScript(1);

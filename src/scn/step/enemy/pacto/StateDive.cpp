@@ -26,6 +26,10 @@
 #include "scn/step/enemy/pacto/StateBack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -43,10 +47,10 @@ void StateDive::procMove() {
             mFrame++;
             if (static_cast<f32>(mFrame) < param.mDiveDist / param.mDiveSpeed) {
                 f32 rot = Utility::GetRotByDirType(obj());
-                hel::math::Vector2 dir(hel::math::Math::SinDegF(rot), hel::math::Math::CosDegF(rot));
+                Vector2 dir(Math::SinDegF(rot), Math::CosDegF(rot));
                 dir *= param.mDiveDist
-                       * hel::math::Math::SinDegF(90.0f * static_cast<f32>(mFrame) / (param.mDiveDist / param.mDiveSpeed));
-                dir += hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).initPos();
+                       * Math::SinDegF(90.0f * static_cast<f32>(mFrame) / (param.mDiveDist / param.mDiveSpeed));
+                dir += DynamicCastToRef<Custom, ICustom>(obj().custom()).initPos();
                 obj().location().setPos(dir.toVector3());
             } else {
                 mIsBite = true;
@@ -72,7 +76,7 @@ void StateDive::procMove() {
 }
 
 void StateDive::procObjCollReact() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!mIsBite && custom.chkCaptureHero()) {
         mIsBite = true;
         mFrame = 0;

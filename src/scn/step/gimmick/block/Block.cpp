@@ -27,9 +27,17 @@
 #include "scn/step/hero/Manager.h"
 #include "scn/step/spstop/Manager.h"
 
+using app::Application;
+using g3d::ModelBufferOption;
+using g3d::ModelContext;
+using g3d::ResModelContext;
+using g3d::Root;
+using hel::common::FixedStringIN;
 using hel::math::Matrix34;
 using hel::math::Vector2;
 using hel::math::Vector3;
+using util::ObjRefHandle;
+using util::SIntAABBox;
 
 namespace scn {
 namespace step {
@@ -97,10 +105,10 @@ Block::Block(Component& component, mem::IAllocator& allocator, mcoll::LandManage
     , mPos(pos)
     , mResFiles(resFiles)
     , mResFile(resFiles.get(kind))
-    , mModel(g3d::ModelContext(
-          g3d::ResModelContext(mResFile, resFiles.entryName(kind)),
-          mfIsDefaultBufferOption() ? g3d::ModelContext::DefaultModelBufferOption() : g3d::ModelBufferOption(), 0,
-          g3d::ModelContext::DefaultNumView(), allocator, false))
+    , mModel(ModelContext(
+          ResModelContext(mResFile, resFiles.entryName(kind)),
+          mfIsDefaultBufferOption() ? ModelContext::DefaultModelBufferOption() : ModelBufferOption(), 0,
+          ModelContext::DefaultNumView(), allocator, false))
     , mEffect(effect)
     , mSE()
     , _260(false)
@@ -127,16 +135,16 @@ Block::Block(Component& component, mem::IAllocator& allocator, mcoll::LandManage
 }
 
 s32 Block::width() const {
-    util::SIntAABBox box = aabb();
+    SIntAABBox box = aabb();
     return box.mMaxX - box.mMinX;
 }
 
 s32 Block::height() const {
-    util::SIntAABBox box = aabb();
+    SIntAABBox box = aabb();
     return box.mMaxY - box.mMinY;
 }
 
-util::SIntAABBox Block::aabb() const {
+SIntAABBox Block::aabb() const {
     switch (mKind) {
     case 2:
     case 3:
@@ -160,40 +168,40 @@ util::SIntAABBox Block::aabb() const {
     case 50:
     case 56:
     case 59:
-        return util::SIntAABBox(0, 0, 2, 2);
+        return SIntAABBox(0, 0, 2, 2);
     case 5:
     case 53:
     case 58:
-        return util::SIntAABBox(0, 0, 3, 3);
+        return SIntAABBox(0, 0, 3, 3);
     case 22:
     case 51:
     case 57:
-        return util::SIntAABBox(0, 0, 4, 4);
+        return SIntAABBox(0, 0, 4, 4);
     case 24:
-        return util::SIntAABBox(0, 0, 3, 2);
+        return SIntAABBox(0, 0, 3, 2);
     case 25:
-        return util::SIntAABBox(0, -1, 3, 2);
+        return SIntAABBox(0, -1, 3, 2);
     case 26:
-        return util::SIntAABBox(0, 0, 3, 3);
+        return SIntAABBox(0, 0, 3, 3);
     case 27:
-        return util::SIntAABBox(0, 0, 3, 1);
+        return SIntAABBox(0, 0, 3, 1);
     case 28:
-        return util::SIntAABBox(0, 0, 1, 3);
+        return SIntAABBox(0, 0, 1, 3);
     case 29:
-        return util::SIntAABBox(0, 0, 4, 4);
+        return SIntAABBox(0, 0, 4, 4);
     case 31:
-        return util::SIntAABBox(0, 0, 3, 3);
+        return SIntAABBox(0, 0, 3, 3);
     case 49:
-        return util::SIntAABBox(0, 0, 1, 2);
+        return SIntAABBox(0, 0, 1, 2);
     case 52:
-        return util::SIntAABBox(0, 0, 4, 2);
+        return SIntAABBox(0, 0, 4, 2);
     default:
-        return util::SIntAABBox(0, 0, 1, 1);
+        return SIntAABBox(0, 0, 1, 1);
     }
 }
 
 bool Block::isExistBlock(s32 x, s32 y) const {
-    util::SIntAABBox box = aabb();
+    SIntAABBox box = aabb();
     if (!box.isInclude(x, y)) {
         return false;
     }
@@ -432,8 +440,8 @@ bool Block::onVacuum() {
     _260 = true;
     _261 = true;
     if (isFirst) {
-        if (mModel.tryToSetAnim(mResFile, hel::common::FixedStringIN<char, 40>::FromFormat("%sWaitVacuum", mResFiles.entryName(mKind)))) {
-            mModel.anim().setFrame(static_cast<f32>(app::Application::Object().random().rand(mModel.anim().totalFrame())));
+        if (mModel.tryToSetAnim(mResFile, FixedStringIN<char, 40>::FromFormat("%sWaitVacuum", mResFiles.entryName(mKind)))) {
+            mModel.anim().setFrame(static_cast<f32>(Application::Object().random().rand(mModel.anim().totalFrame())));
             mModel.start(true);
         }
     }
@@ -445,7 +453,7 @@ bool Block::onHit(u64 attackId, u64 ownerId) {
         return false;
     }
     bool isSame = false;
-    util::ObjRefHandle<hero::Hero> handle = mComponent.heroManager().searchHeroFromObjCollOwnerID(ownerId);
+    ObjRefHandle<hero::Hero> handle = mComponent.heroManager().searchHeroFromObjCollOwnerID(ownerId);
     hero::Hero* hero = handle.operator->();
     if (hero == 0) {
         return false;
@@ -627,7 +635,7 @@ void Block::onActEnd() {
     }
 }
 
-void Block::registerToRoot(g3d::Root& root) {
+void Block::registerToRoot(Root& root) {
     if (_263) {
         mModel.registerToRoot(root);
     }

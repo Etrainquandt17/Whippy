@@ -10,6 +10,9 @@ extern "C" double fmod(double, double);
 #include "scn/step/carryitem/Flash.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::Color;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -36,9 +39,9 @@ f32 Utility::UpdateFlash(CarryItem& carryItem, f32 angle) {
     f32 rate = static_cast<f32>(carryItem.useCount() - danger) / static_cast<f32>(param._8 - danger);
     angle += IsBroken(carryItem) ? rate * param._34 : rate * param._30;
     angle = fmod(angle, 360.0);
-    f32 cos = hel::math::Math::CosDegF(angle);
+    f32 cos = Math::CosDegF(angle);
     u8 alpha = static_cast<u8>(144.0f * (0.5f * (1.0f - cos)));
-    carryItem.flash().set(hel::common::Color(
+    carryItem.flash().set(Color(
         static_cast<u8>(128.0f + 127.0f * rate), static_cast<u8>(64.0f * (1.0f - rate)),
         static_cast<u8>(32.0f * (1.0f - rate)), alpha));
     return angle;

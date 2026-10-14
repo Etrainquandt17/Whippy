@@ -4,6 +4,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/lowperrollingspark/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -40,16 +44,16 @@ f32 Custom::getRotAngle() const {
     return mRotAngle;
 }
 
-void Custom::setCenterPos(const hel::math::Vector2& pos) {
+void Custom::setCenterPos(const Vector2& pos) {
     mCenterPos = pos;
 }
 
-const hel::math::Vector2& Custom::getCenterPos() const {
+const Vector2& Custom::getCenterPos() const {
     return mCenterPos;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::lowperrollingspark

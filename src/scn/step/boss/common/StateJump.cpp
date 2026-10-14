@@ -20,6 +20,9 @@
 #include "scn/step/chara/ObjColl.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -29,7 +32,7 @@ StateJump::StateJump(Boss* boss, StateJumpDesc& desc, u32 scriptKind) : StateBas
     obj().footState().setAir();
     obj().model().reqScript(scriptKind);
     obj().objColl().bodyColl().initAttackType(mDesc._38);
-    hel::math::Vector2 speed(mDesc._0.x * obj().target().getSign(), mDesc._0.y);
+    Vector2 speed(mDesc._0.x * obj().target().getSign(), mDesc._0.y);
     obj().move().setVelocity(speed.toVector3());
 }
 
@@ -49,11 +52,11 @@ void StateJump::procMove() {
 
 void StateJump::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     if (velocity.y < 0.0f && result.mIsHitFloor) {
         if (mDesc._34) {
-            hel::math::Vector2 pos = mDesc._1C;
-            hel::math::Vector2 speed = mDesc._24;
+            Vector2 pos = mDesc._1C;
+            Vector2 speed = mDesc._24;
             Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
             obj().effect().normal().requestP(static_cast<effect::Kind>(0xA0), obj().location().pos() + pos.toVector3());
             pos.x *= -1.0f;

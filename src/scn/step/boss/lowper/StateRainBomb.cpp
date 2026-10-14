@@ -56,15 +56,19 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
-StateRainBomb::StateRainBomb(Boss* boss, const hel::math::Vector3& pos, u32 frame, u32 interval, u32 count)
+StateRainBomb::StateRainBomb(Boss* boss, const Vector3& pos, u32 frame, u32 interval, u32 count)
     : StateBase(boss), mStartPos(), mGoalPos(), mCount(0), mFrame(frame), mInterval(0), mIntervalFrame(interval), mShotCount(count),
       mIsShotEnd(false), mIsStarted(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mStartPos = custom.waftMoveCtrl().getCenter();
     mGoalPos = obj().basePos().toVector3() + pos;
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -103,11 +107,11 @@ void StateRainBomb::procAnim() {
 }
 
 void StateRainBomb::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
     f32 intervalRate = static_cast<f32>(mInterval) / static_cast<f32>(mIntervalFrame);
-    f32 wave = hel::math::Math::AbsF32(hel::math::Math::SinDegF(90.0f * intervalRate));
+    f32 wave = Math::AbsF32(Math::SinDegF(90.0f * intervalRate));
     f32 offsetY = 1.5f * (wave - 1.0f);
     pos.y += offsetY;
     custom.waftMoveCtrl().setCenter(pos);
@@ -116,9 +120,9 @@ void StateRainBomb::procMove() {
 void StateRainBomb::procFixPos() {}
 
 void StateRainBomb::reqBullet() {
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 speed(0.0f, 0.01f, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 pos = obj().location().pos();
+    Vector3 speed(0.0f, 0.01f, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(1), pos, speed, 0);
 }
 

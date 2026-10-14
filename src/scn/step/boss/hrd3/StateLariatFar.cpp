@@ -53,6 +53,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +63,7 @@ namespace hrd3 {
 
 StateLariatFar::StateLariatFar(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mRot(0.0f), mRotSpeed(0.0f), mPhase(PHASE_0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::TurnHatedHero(obj());
     obj().model().reqScript(0x19);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
@@ -69,7 +72,7 @@ StateLariatFar::StateLariatFar(Boss* boss, u32 frame)
 StateLariatFar::~StateLariatFar() {}
 
 void StateLariatFar::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     switch (mPhase) {
     case PHASE_0:
         if (obj().scriptTrigger().get(0)) {
@@ -102,7 +105,7 @@ void StateLariatFar::procFixPos() {}
 void StateLariatFar::updateRotate() {
     const Param& param = obj().param().hrd3();
     mRotSpeed += param._C4;
-    mRotSpeed = hel::math::Math::Limit(mRotSpeed, param._C0);
+    mRotSpeed = Math::Limit(mRotSpeed, param._C0);
     mRot += mRotSpeed;
     if (mRot < -180.0f) {
         mRot += 360.0f;

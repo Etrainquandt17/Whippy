@@ -11,15 +11,18 @@
 #include "scn/step/weapon/ninjakunai/Param.h"
 #include "scn/step/weapon/ninjakunai/Utility.h"
 
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
 namespace ninjakunai {
 
-StateStickEnemy::StateStickEnemy(Weapon* weapon, const util::ObjRefHandle<enemy::Enemy>& enemy)
+StateStickEnemy::StateStickEnemy(Weapon* weapon, const ObjRefHandle<enemy::Enemy>& enemy)
     : StateBase(weapon), mAlgorithm(*weapon, enemy), mFrame(0) {
     if (enemy.isAlive()) {
-        hel::math::Vector3 offset;
+        Vector3 offset;
         offset = obj().location().pos() - static_cast<const enemy::Enemy*>(enemy.operator->())->location().pos();
         f32 length = obj().param().ninjaKunai()._0;
         f32 sign = obj().target().getSign();

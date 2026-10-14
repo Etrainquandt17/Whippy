@@ -34,21 +34,24 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace doubter {
 
-StateBoundStart::StateBoundStart(Boss* boss, const hel::math::Vector2& speed, u32 count) : StateBase(boss), mSpeed(speed), mCount(count) {
+StateBoundStart::StateBoundStart(Boss* boss, const Vector2& speed, u32 count) : StateBase(boss), mSpeed(speed), mCount(count) {
     obj().model().reqScript(7);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
 }
 
 StateBoundStart::~StateBoundStart() {}
 
 void StateBoundStart::procAnim() {
     if (obj().model().isAllEnd()) {
-        obj().stateChanger().setNextState<StateBound, Boss*, hel::math::Vector2, u32>(objPtr(), mSpeed, mCount);
+        obj().stateChanger().setNextState<StateBound, Boss*, Vector2, u32>(objPtr(), mSpeed, mCount);
     }
 }
 

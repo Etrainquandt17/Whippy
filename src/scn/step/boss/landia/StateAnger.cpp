@@ -23,13 +23,16 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/info/BossPanel.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateAnger::StateAnger(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mGoalPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(31);
     custom.waftCtrl().setWaveWidthZero();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
@@ -42,13 +45,13 @@ StateAnger::StateAnger(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mG
 }
 
 StateAnger::~StateAnger() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).headAngleCtrl().toValid();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).headAngleCtrl().toValid();
     obj().infoBossPanel().transformEnd();
 }
 
 void StateAnger::procAnim() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount < param.mAngerFrame) {
         mCount++;
     }
@@ -67,10 +70,10 @@ void StateAnger::procAnim() {
 
 void StateAnger::procMove() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mAngerFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    custom.waftCtrl().setRefPos(hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
+    f32 rate = Math::SinDegF(90.0f * t);
+    custom.waftCtrl().setRefPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
 }
 
 void StateAnger::procFixPos() {}

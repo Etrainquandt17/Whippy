@@ -64,6 +64,12 @@
 #include "scn/step/sfx/ScreenFade.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -71,10 +77,10 @@ namespace lowper {
 
 StateSparkAttack::StateSparkAttack(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(), mGoalPos(), mIsAttack(false), mInterval(0), mIntervalFrame(0) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    f32 width = hel::math::Math::AbsF32(rect._C - rect._8);
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - obj().basePos().x);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    f32 width = Math::AbsF32(rect._C - rect._8);
+    f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);
     mStartPos = obj().location().pos();
     mGoalPos.x = obj().basePos().x - sign * (0.5f * width - 0.5f);
     mGoalPos.y = mStartPos.y;
@@ -104,8 +110,8 @@ void StateSparkAttack::procAnim() {
     mIsAttack = !mIsAttack;
     if (mIsAttack) {
         obj().objColl().clearAttack(1);
-        obj().objColl().addAttack(1, 0, 0.7f, hel::math::Vector2(0.0f, 0.65f));
-        obj().objColl().addAttack(1, 0, 0.3f, hel::math::Vector2(0.0f, 7.0f), hel::math::Vector2(0.0f, -7.0f));
+        obj().objColl().addAttack(1, 0, 0.7f, Vector2(0.0f, 0.65f));
+        obj().objColl().addAttack(1, 0, 0.3f, Vector2(0.0f, 7.0f), Vector2(0.0f, -7.0f));
         obj().effect().state().release();
         obj().effect().state().requestN(static_cast<effect::Kind>(0x3A0), 3);
         obj().effect().state().requestN(static_cast<effect::Kind>(0x39F), 3);
@@ -115,7 +121,7 @@ void StateSparkAttack::procAnim() {
         obj().soundSE().normal().start(0x574);
     } else {
         obj().objColl().clearAttack(1);
-        obj().objColl().addAttack(1, 0, 0.7f, hel::math::Vector2(0.0f, 0.65f));
+        obj().objColl().addAttack(1, 0, 0.7f, Vector2(0.0f, 0.65f));
         obj().effect().state().release();
         obj().effect().state().requestN(static_cast<effect::Kind>(0x39E), 3);
         obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(3));
@@ -125,8 +131,8 @@ void StateSparkAttack::procAnim() {
 
 void StateSparkAttack::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

@@ -13,6 +13,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -27,9 +29,9 @@ StateRootAttack::~StateRootAttack() {}
 void StateRootAttack::procAnim() {
     if (obj().scriptTrigger().get(0) || obj().model().isAllEnd()) {
         for (u32 i = 0; i < 4; i++) {
-            hel::math::Vector2 pos = obj().location().pos().getXY();
+            Vector2 pos = obj().location().pos().getXY();
             pos.x -= 2.0f + i;
-            weapon::Desc desc(static_cast<weapon::Kind>(0x56), i, static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO, obj().objColl().owner());
+            weapon::Desc desc(static_cast<weapon::Kind>(0x56), i, static_cast<ostop::Flag>(8), pos, Vector2::ZERO, obj().objColl().owner());
             obj().comp().weaponManager().request(desc);
         }
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());

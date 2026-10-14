@@ -5,6 +5,8 @@
 #include "metafortress.h"
 #include "util/ObjList.h"
 
+using app::BackupFileAccessor;
+
 namespace scn {
 namespace titlemenunew {
 
@@ -213,7 +215,7 @@ void TheArena::updateClearMark() {
     u32 limit;
     u32 hash;
 
-    app::BackupFileAccessor accessor;
+    BackupFileAccessor accessor;
     hash = 0;
     asm {
         bl      after1

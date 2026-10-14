@@ -28,6 +28,9 @@
 #include "scn/step/hero/highjump/StateRoofHit.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -72,14 +75,14 @@ void StateJump::procAnim() {
         mIsEnd = true;
         return;
     }
-    hel::math::Vector2 velocity = obj().move().velocity().getXY();
+    Vector2 velocity = obj().move().velocity().getXY();
     if (!velocity.isZero()) {
         velocity.normalize();
-        f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(velocity);
+        f32 angle = Vector2::BASIS_Y.signedAngle(velocity);
         obj().model().modelRotCtrl().setRotV(57.29578f * angle);
     }
     if (!_1C) {
-        hel::math::Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
+        Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
         if (pos.y - mStartPos.y > param()._C) {
             mFrame += param()._10;
             _1C = true;
@@ -91,7 +94,7 @@ void StateJump::procMove() {
     if (mFrame > param()._14) {
         mSpeedRate *= param()._18;
     }
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     f32 maxSpeedH = param()._0;
     velocity.y = param()._4;
     if (Utility::IsPressHDirKey(obj())) {

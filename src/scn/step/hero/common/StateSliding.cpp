@@ -20,6 +20,8 @@
 #include "scn/step/vacuum/Attacker.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -79,7 +81,7 @@ void StateSliding::procFixPos() {
     }
     f32 max = obj().param().common()._1C4;
     f32 x = obj().move().velocity().x;
-    if (hel::math::Math::AbsF32(x) > max) {
+    if (Math::AbsF32(x) > max) {
         max *= x < 0.0f ? -1 : 1;
         obj().move().setSpeedH(max);
     }

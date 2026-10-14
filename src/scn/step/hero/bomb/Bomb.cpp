@@ -15,6 +15,8 @@
 #include "scn/step/hero/bomb/StateSwing.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -37,8 +39,8 @@ Bomb::~Bomb() {
 }
 
 void Bomb::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/bomb/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/bomb/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0xF, motion);
     mHero.model().hat().set(modeldesc::Bomb::HatPath(), modeldesc::Bomb::HatModel());

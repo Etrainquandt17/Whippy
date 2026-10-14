@@ -57,17 +57,21 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateFreezeAttackStart::StateFreezeAttackStart(Boss* boss, u32 _2, u32 _3, u32 _4)
-    : StateBase(boss), _8(_2), _C(_3), _10(_4), mCount(0), mDir(hel::math::Vector3::BASIS_Y), mSpeed(0.0f) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    : StateBase(boss), _8(_2), _C(_3), _10(_4), mCount(0), mDir(Vector3::BASIS_Y), mSpeed(0.0f) {
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
     Utility::ControlHateOnAction(obj());
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    hel::math::Vector3 diff = heroPos - obj().location().pos();
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 diff = heroPos - obj().location().pos();
     if (!diff.isZeroLoose(0.00001f)) {
         mDir = diff.getNormalized();
     }
@@ -90,16 +94,16 @@ void StateFreezeAttackStart::procAnim() {
 }
 
 void StateFreezeAttackStart::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(_8 + _C);
-    f32 rate = 1.0f - (1.0f - hel::math::Math::CosDegF(90.0f * t)) *
-                          ((1.0f - hel::math::Math::CosDegF(90.0f * t)) * (1.0f - hel::math::Math::CosDegF(90.0f * t)));
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    hel::math::Vector3 diff = heroPos - obj().location().pos();
+    f32 rate = 1.0f - (1.0f - Math::CosDegF(90.0f * t)) *
+                          ((1.0f - Math::CosDegF(90.0f * t)) * (1.0f - Math::CosDegF(90.0f * t)));
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 diff = heroPos - obj().location().pos();
     if (diff.length() > 1.0f) {
         mDir = diff.getNormalized();
     }
-    hel::math::Vector3 center = custom.waftMoveCtrl().getCenter();
+    Vector3 center = custom.waftMoveCtrl().getCenter();
     center += mDir * mSpeed * rate;
     if (mCount >= _8) {
         mSpeed += 0.00075f;

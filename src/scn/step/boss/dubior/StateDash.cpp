@@ -16,6 +16,9 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -23,7 +26,7 @@ namespace dubior {
 
 StateDash::StateDash(Boss* boss) : StateBase(boss), mIsDash(false) {
     const Param& param = obj().param().dubior();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(6);
     obj().move().setSpeedH(param.mDashBackSpeed * -obj().target().getSign());
@@ -31,7 +34,7 @@ StateDash::StateDash(Boss* boss) : StateBase(boss), mIsDash(false) {
 }
 
 StateDash::~StateDash() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
 }
 
 void StateDash::procAnim() {
@@ -45,7 +48,7 @@ void StateDash::procAnim() {
 void StateDash::procMove() {
     const Param& param = obj().param().dubior();
     if (mIsDash) {
-        hel::math::Vector3 dir = hel::math::Vector3::BASIS_X;
+        Vector3 dir = Vector3::BASIS_X;
         dir.x *= obj().target().getSign();
         obj().move().accel(dir, param.mDashAccel);
     } else {

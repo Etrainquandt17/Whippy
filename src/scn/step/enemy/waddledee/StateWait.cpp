@@ -12,6 +12,8 @@
 #include "scn/step/enemy/common/ParamData.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,7 +22,7 @@ namespace waddledee {
 StateWait::StateWait(Enemy* enemy) : StateBase(enemy), mLoopCount(0), mLoopLimit(0), mIsLoop(false) {
     obj().footState().setGround();
     if (obj().variation() == 0x119) {
-        int rand = app::Random::Rand(10);
+        int rand = Random::Rand(10);
         if (0 <= rand && rand <= 4) {
             obj().model().reqScript(0);
         } else if (5 <= rand && rand <= 6) {
@@ -69,7 +71,7 @@ void StateWait::procFixPos() {
 }
 
 void StateWait::setLoopLimit() {
-    switch (app::Random::Rand(3)) {
+    switch (Random::Rand(3)) {
     case 0:
         mLoopLimit = 1;
         break;

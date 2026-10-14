@@ -6,6 +6,8 @@
 #include "scn/step/item/Param.h"
 #include "scn/step/item/RotAnim.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -21,8 +23,8 @@ void StateApproach::procAnim() {}
 
 void StateApproach::procMove() {
     const Param& param = obj().param();
-    hel::math::Vector3 mainPos = obj().comp().heroManager().getMainPlayerPos();
-    hel::math::Vector3 pos = obj().location().pos() * (1.0f - mRate) + mainPos * mRate;
+    Vector3 mainPos = obj().comp().heroManager().getMainPlayerPos();
+    Vector3 pos = obj().location().pos() * (1.0f - mRate) + mainPos * mRate;
     obj().location().setPos(pos);
     mRate += param._64;
     if (mRate > 1.0f) {

@@ -26,6 +26,9 @@
 #include "scn/step/enemy/leaper/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,10 +43,10 @@ StateFlyAttack::~StateFlyAttack() {}
 
 void StateFlyAttack::procAnim() {
     const ParamData& param = obj().param().leaper();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     if (mFrame == param.mShotFrame) {
-        custom.reqShot(hel::math::Vector2::BASIS_X * obj().target().getSign());
+        custom.reqShot(Vector2::BASIS_X * obj().target().getSign());
     }
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<common::StateShootingFly, Enemy*>(objPtr());

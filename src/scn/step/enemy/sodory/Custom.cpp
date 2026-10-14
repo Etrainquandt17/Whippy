@@ -32,6 +32,12 @@
 #include "scn/step/hero/Manager.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -111,33 +117,33 @@ void Custom::setDirection() {
     obj().model().rotCtrl().setRotHIntpRate(1.0f);
 }
 
-void Custom::setEyeMtx(hel::math::Matrix34 mtx) {
+void Custom::setEyeMtx(Matrix34 mtx) {
     obj().model().model().nodes().at(4).localMtx().setRTMtx(mtx);
 }
 
 void Custom::setEyeDirection() {
-    hel::math::Vector3 diff = getPlayerDiff();
-    hel::math::Vector3 rot(0.0f, 0.0f, hel::math::Math::Atan2DegF(diff.y * obj().target().getSign(), -diff.x));
-    setEyeMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+    Vector3 diff = getPlayerDiff();
+    Vector3 rot(0.0f, 0.0f, Math::Atan2DegF(diff.y * obj().target().getSign(), -diff.x));
+    setEyeMtx(Matrix34::CreateRotXYZDeg(rot));
 }
 
 // TODO: the link dropped this one; the body is a guess with the map's size (0x9c bytes).
 void Custom::setEyeDirectionOffs(f32 offs) {
-    hel::math::Vector3 diff = getPlayerDiff();
-    hel::math::Vector3 rot(0.0f, 0.0f, offs + hel::math::Math::Atan2DegF(diff.y * obj().target().getSign(), -diff.x));
-    setEyeMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+    Vector3 diff = getPlayerDiff();
+    Vector3 rot(0.0f, 0.0f, offs + Math::Atan2DegF(diff.y * obj().target().getSign(), -diff.x));
+    setEyeMtx(Matrix34::CreateRotXYZDeg(rot));
 }
 
-hel::math::Vector3 Custom::getPlayerDiff() {
-    hel::math::Vector3 nodePos = obj().model().model().nodes().at(4).worldMtx().getT();
-    hel::math::Vector3 playerPos = obj().comp().heroManager().getNearestPlayerPos(nodePos);
+Vector3 Custom::getPlayerDiff() {
+    Vector3 nodePos = obj().model().model().nodes().at(4).worldMtx().getT();
+    Vector3 playerPos = obj().comp().heroManager().getNearestPlayerPos(nodePos);
     playerPos.y += 0.5f;
     return nodePos - playerPos;
 }
 
 void Custom::addOffsY() {
     if (0.0f != mOffsY) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += mOffsY;
         mOffsY = 0.0f;
         obj().location().setPos(pos);
@@ -145,15 +151,15 @@ void Custom::addOffsY() {
 }
 
 void Custom::setPosYR(f32 rot) {
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, -obj().param().sodory().mBodyOffsY, 0.0f));
-    hel::math::Matrix34 rotMtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, -1.0f), rot);
+    Matrix34 mtx = Matrix34::CreateTrans(Vector3(0.0f, -obj().param().sodory().mBodyOffsY, 0.0f));
+    Matrix34 rotMtx = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, -1.0f), rot);
     obj().model().model().nodes().at(1).localMtx().setRTMtx(mtx * rotMtx);
-    mtx = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, obj().param().sodory().mHeadOffsY, 0.0f));
+    mtx = Matrix34::CreateTrans(Vector3(0.0f, obj().param().sodory().mHeadOffsY, 0.0f));
     obj().model().model().nodes().at(2).localMtx().setRTMtx(mtx);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

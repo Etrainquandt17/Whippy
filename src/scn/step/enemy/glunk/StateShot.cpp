@@ -37,6 +37,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -58,7 +62,7 @@ void StateShot::procAnim() {
 }
 
 void StateShot::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!custom.checkExistLand()) {
         obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());
         custom.setIsCurrentFall(true);
@@ -71,12 +75,12 @@ void StateShot::shot() {
     desc.mKind = static_cast<weapon::Kind>(0x30);
     desc.mVariation = 0;
     desc.mFlag = static_cast<ostop::Flag>(4);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
+    NodeAccessor node = obj().model().model().nodes().at(1);
     desc.mPos = node.worldMtx().getT().getXY();
     desc._14 = obj().location().pos().getXY();
     desc._1c = node.worldMtx().getY().getXY();
     desc.mOwner = &obj().objColl().owner();
-    util::ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<weapon::Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
         weapon->move().setVelocity(node.worldMtx().getZ() * -1.0f);
     }

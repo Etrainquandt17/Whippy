@@ -14,12 +14,15 @@
 #include "scn/step/hero/Water.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
 namespace common {
 
-bool StateWaterPistol::TryToChangeState(Hero* hero, const hel::math::Vector2& dir) {
+bool StateWaterPistol::TryToChangeState(Hero* hero, const Vector2& dir) {
     if (!IndiviUtil::IsKirby(hero->kind())) {
         return false;
     }
@@ -27,36 +30,36 @@ bool StateWaterPistol::TryToChangeState(Hero* hero, const hel::math::Vector2& di
         return false;
     }
     if (hero->water().isInWater() && hero->hid().isTrigger(0x20)) {
-        hero->stateChanger().setNextState<StateWaterPistol, Hero*, hel::math::Vector2>(hero, dir);
+        hero->stateChanger().setNextState<StateWaterPistol, Hero*, Vector2>(hero, dir);
         return true;
     }
     return false;
 }
 
 bool StateWaterPistol::TryToChangeState(Hero* hero) {
-    hel::math::Vector2 dir(hero->target().getSign(), 0.0f);
+    Vector2 dir(hero->target().getSign(), 0.0f);
     if (hero->hid().isHold(1)) {
-        dir = hel::math::Vector2(-1.0f, 0.0f);
+        dir = Vector2(-1.0f, 0.0f);
     } else if (hero->hid().isHold(2)) {
-        dir = hel::math::Vector2(1.0f, 0.0f);
+        dir = Vector2(1.0f, 0.0f);
     } else if (hero->hid().isHold(8)) {
-        dir = hel::math::Vector2(0.0f, 1.0f);
+        dir = Vector2(0.0f, 1.0f);
     } else if (hero->hid().isHold(4)) {
-        dir = hel::math::Vector2(0.0f, -1.0f);
+        dir = Vector2(0.0f, -1.0f);
     }
     return TryToChangeState(hero, dir);
 }
 
-StateWaterPistol::StateWaterPistol(Hero* hero, const hel::math::Vector2& dir)
+StateWaterPistol::StateWaterPistol(Hero* hero, const Vector2& dir)
     : StateBase(hero)
     , mDir(dir) {
-    if (obj().footState().isAir() || !hel::math::Math::EqZero(dir.y)) {
+    if (obj().footState().isAir() || !Math::EqZero(dir.y)) {
         obj().model().script().start(0x1E);
     } else {
         obj().model().script().start(0x1F);
     }
     obj().model().setFixDir(true);
-    if (hel::math::Math::AbsF32(mDir.x) < 0.1f) {
+    if (Math::AbsF32(mDir.x) < 0.1f) {
         obj().model().modelRotCtrl().setRotHTarget(0.0f);
         if (mDir.y > 0.0f) {
             obj().model().modelRotCtrl().setRotDTarget(-50.0f);

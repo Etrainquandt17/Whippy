@@ -16,6 +16,12 @@
 #include "scn/step/map/KindUtil.h"
 #include "storage/StoryMode.h"
 
+using app::Application;
+using app::HIDErrorMenu;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedString;
+using hel::common::MutableArray;
+
 namespace scn {
 namespace subgame {
 
@@ -24,7 +30,7 @@ namespace {
 // TODO: stands in for an inline accessor of ExplicitSingleton, which its header does not have yet.
 template <class T>
 inline T& tInstance() {
-    return *hel::common::ExplicitSingleton<T>::object_;
+    return *ExplicitSingleton<T>::object_;
 }
 
 // TODO: stands in for Context, whose members from 0x34 on are a bool and three words. scn/subgame/Context.h
@@ -272,7 +278,7 @@ SceneSubgameTitle::SceneSubgameTitle(const Recipe& recipe)
         *(u32*)addr = t2;
     }
     {
-        hel::common::MutableArray<hel::common::FixedString<64>, 24> paths;
+        MutableArray<FixedString<64>, 24> paths;
         asm {
             bl      after2
             opword  MF_WORD(0x2B8)
@@ -282,7 +288,7 @@ SceneSubgameTitle::SceneSubgameTitle(const Recipe& recipe)
             lwz     r25, 0x0(r27)
             stw     r25, expected
         }
-        paths.add(hel::common::FixedString<64>(Context::MenuDN(recipe.mContext.mKind)));
+        paths.add(FixedString<64>(Context::MenuDN(recipe.mContext.mKind)));
         asm {
             bl      after3
             opword  MF_WORD(0x368)
@@ -304,7 +310,7 @@ SceneSubgameTitle::SceneSubgameTitle(const Recipe& recipe)
     limit = end - start + 1;
     i = 1;
     base = end;
-    tInstance<app::Application>().hidErrorMenu().setup(app::HIDErrorMenu::DISCONNECT_MENU_MODE_0);
+    tInstance<Application>().hidErrorMenu().setup(HIDErrorMenu::DISCONNECT_MENU_MODE_0);
     for (;;) {
         if (i == limit) {
             break;
@@ -312,13 +318,13 @@ SceneSubgameTitle::SceneSubgameTitle(const Recipe& recipe)
         hash = ((hash << 4) ^ (hash >> 28)) ^ *(u16*)(base - 1 - i);
         i += 2;
     }
-    tInstance<app::Application>().hidErrorMenu().setIsEnable(true);
+    tInstance<Application>().hidErrorMenu().setIsEnable(true);
     hash ^= hash >> 10;
     mMain.reset(new title::Main(recipe.mContext, recipe.mSeq));
     hash ^= hash << 20;
     file::DNOption option;
     if (hash - expected == 0 || (storage::StoryMode)recipe.mContext._34[3] == 2) {
-        tInstance<app::Application>().fdgManager().preLoad("TitleMenuCommon.dn", option);
+        tInstance<Application>().fdgManager().preLoad("TitleMenuCommon.dn", option);
     } else {
         option._0 = (storage::StoryMode)recipe.mContext._34[3] == 1;
         step::map::KindUtil::PreLoadRequest(
@@ -326,7 +332,7 @@ SceneSubgameTitle::SceneSubgameTitle(const Recipe& recipe)
         for (u32 n = 0; n < 4; n++) {
             const Context::Entry& entry = recipe.mContext._4[n];
             if (!*(const bool*)&entry._8 && (int)entry._0 != 7) {
-                tInstance<app::Application>().fdgManager().preLoad(
+                tInstance<Application>().fdgManager().preLoad(
                     step::hero::AbilityKindUtil::FDNName((step::hero::AbilityKind)entry._4), option);
             }
         }
@@ -470,7 +476,7 @@ void SceneSubgameTitle::updateMain() {
     goto done;
 intact:
     if (isSceneEnd() && mMain->nextSeq() != Result::SEQ_8) {
-        tInstance<app::Application>().preLoadManager().cancel();
+        tInstance<Application>().preLoadManager().cancel();
     }
 done:;
 }

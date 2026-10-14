@@ -17,6 +17,8 @@
 #include "scn/step/enemy/sheld/StateFall.h"
 #include "scn/step/enemy/sheld/StateJumpStart.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -51,7 +53,7 @@ void StateDash::procMove() {
 }
 
 void StateDash::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ChkNururiTurn(obj());
     if (obj().mapColl().result()._2) {
         if (custom.isSetPos()) {

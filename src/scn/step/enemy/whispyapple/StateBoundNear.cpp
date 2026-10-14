@@ -27,6 +27,10 @@
 #include "scn/step/enemy/whispyapple/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,7 +41,7 @@ StateBoundNear::StateBoundNear(Enemy* enemy, bool flag) : StateBase(enemy), mRot
     mFloorY = obj().groundChecker().getFloorPos().y;
     mRot = obj().model().rotCtrl().getRotV();
     const ParamData& param = obj().param().whispyapple();
-    hel::math::Vector3 velocity;
+    Vector3 velocity;
     if (flag) {
         velocity = param.mNearVelocityFar;
     } else {
@@ -69,7 +73,7 @@ void StateBoundNear::procAnim() {
     if (mRotX < 0.0f) {
         mRotX += 360.0f;
     }
-    Utility::SetCustomMtxRotate(obj(), hel::math::Vector3(mRotX, 0.0f, 0.0f));
+    Utility::SetCustomMtxRotate(obj(), Vector3(mRotX, 0.0f, 0.0f));
 }
 
 void StateBoundNear::procMove() {
@@ -78,7 +82,7 @@ void StateBoundNear::procMove() {
 }
 
 void StateBoundNear::procFixPos() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     const ParamData& param = obj().param().whispyapple();
     if (pos.z > param.mNearInvalidZ) {
         obj().vacuumReceiver().setIsValid(false);
@@ -86,10 +90,10 @@ void StateBoundNear::procFixPos() {
     if (pos.z < param.mNearBoundZ && pos.y < mFloorY) {
         pos.y = mFloorY;
         obj().location().setPos(pos);
-        hel::math::Vector3 velocity = obj().move().velocity();
-        velocity.y = hel::math::Math::LimitMax(-velocity.y, mSpeedV);
+        Vector3 velocity = obj().move().velocity();
+        velocity.y = Math::LimitMax(-velocity.y, mSpeedV);
         obj().move().setSpeedV(velocity.y);
-        f32 speedH = velocity.x * app::Random::RandF(param.mNearRandMin, param.mNearRandMax);
+        f32 speedH = velocity.x * Random::RandF(param.mNearRandMin, param.mNearRandMax);
         obj().move().setSpeedH(speedH);
     }
 }

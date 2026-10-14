@@ -55,13 +55,16 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateSprinkler::StateSprinkler(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x11);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
@@ -70,7 +73,7 @@ StateSprinkler::StateSprinkler(Boss* boss) : StateBase(boss) {
 }
 
 StateSprinkler::~StateSprinkler() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).dataBuff().clearSprinklerBulletSpeedData();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).dataBuff().clearSprinklerBulletSpeedData();
 }
 
 void StateSprinkler::procAnim() {
@@ -87,10 +90,10 @@ void StateSprinkler::procMove() {}
 void StateSprinkler::procFixPos() {}
 
 void StateSprinkler::reqBullet() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.dataBuff().isExistSprinklerBulletSpeedData()) {
-        hel::math::Vector3 pos = obj().location().pos();
-        hel::math::Vector3 speed(custom.dataBuff().shiftSprinklerBulletSpeedData(), 0.1f, 0.0f);
+        Vector3 pos = obj().location().pos();
+        Vector3 speed(custom.dataBuff().shiftSprinklerBulletSpeedData(), 0.1f, 0.0f);
         custom.enemyCtrl().request(static_cast<enemy::lowperbullet::VariationKind>(1), pos, speed, 0);
     }
 }

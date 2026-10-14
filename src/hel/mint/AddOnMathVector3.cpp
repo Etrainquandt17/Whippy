@@ -3,18 +3,21 @@
 #include "hel/common/Array.h"
 #include "mintglue/VectorInline.h"
 
+using hel::common::Array;
+using hel::math::Vector3;
+
 namespace hel {
 namespace mint {
 
 namespace {
 
-hel::math::Vector3& t_obj() {
-    static hel::math::Vector3 obj;
+Vector3& t_obj() {
+    static Vector3 obj;
     return obj;
 }
 
-hel::math::Vector3& t_slot(unsigned long index) {
-    static hel::common::Array<hel::math::Vector3, 4> objs;
+Vector3& t_slot(unsigned long index) {
+    static Array<Vector3, 4> objs;
     return objs[index];
 }
 
@@ -22,7 +25,7 @@ hel::math::Vector3& t_slot(unsigned long index) {
 
 namespace AddOnMathVector3 {
 
-const hel::math::Vector3 Get() {
+const Vector3 Get() {
     return t_obj();
 }
 
@@ -44,7 +47,7 @@ void SetXYZ(float x, float y, float z) {
     t_obj().z = z;
 }
 
-void Set(const hel::math::Vector3& value) {
+void Set(const Vector3& value) {
     t_obj() = value;
 }
 
@@ -85,8 +88,8 @@ void SlotSub(unsigned long index) {
 }
 
 // Not in the split object: the original link folded it into nw4r::math::VEC3's constructor.
-const hel::math::Vector3 Create(float x, float y, float z) {
-    return hel::math::Vector3(x, y, z);
+const Vector3 Create(float x, float y, float z) {
+    return Vector3(x, y, z);
 }
 
 }

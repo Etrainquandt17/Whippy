@@ -29,6 +29,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -59,10 +64,10 @@ void Custom::onProcFixPos() {
 void Custom::reqWeapon() {
     const ParamData& param = obj().param().sirkibble();
     f32 sign = obj().target().getSign();
-    hel::math::Vector2 center = Utility::GetCenterPos(obj()).getXY();
-    hel::math::Vector2 pos = center;
+    Vector2 center = Utility::GetCenterPos(obj()).getXY();
+    Vector2 pos = center;
     pos.x += sign * param.mWeaponOffsetX;
-    hel::math::Vector2 velocity(sign * param.mWeaponSpeed, 0.0f);
+    Vector2 velocity(sign * param.mWeaponSpeed, 0.0f);
     weapon::Desc desc(static_cast<weapon::Kind>(0xe), 0, static_cast<ostop::Flag>(4), pos, center, velocity, obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
 }
@@ -81,7 +86,7 @@ void Custom::chkNextTurnJump() {
         mIsNextTurnJump = false;
         return;
     }
-    if (app::Random::Rand(3) == 0) {
+    if (Random::Rand(3) == 0) {
         mIsNextTurnJump = true;
     } else {
         mIsNextTurnJump = false;
@@ -99,8 +104,8 @@ void Custom::chkNextTurnJump() {
     mJumpLog0 = mIsNextTurnJump;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

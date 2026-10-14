@@ -13,6 +13,10 @@
 #include "scn/step/camera/CameraAccessor.h"
 #include "util/ObjList.h"
 
+using hel::common::ExplicitSingleton;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace {
 
 #define MF_FUNCTION isGetDemoDebug__29_unnamed_StageSphere_prt_cpp_Fv
@@ -30,10 +34,10 @@ bool isGetDemoDebug() {
     u32 limit;
     u32 last;
 
-    hold = hel::common::ExplicitSingleton<hid::HIDManager>::Object().debugGC(3).button().hold()
-        | (hel::common::ExplicitSingleton<hid::HIDManager>::Object().debugGC(2).button().hold()
-            | (hel::common::ExplicitSingleton<hid::HIDManager>::Object().debugGC(0).button().hold()
-                | hel::common::ExplicitSingleton<hid::HIDManager>::Object().debugGC(1).button().hold()));
+    hold = ExplicitSingleton<hid::HIDManager>::Object().debugGC(3).button().hold()
+        | (ExplicitSingleton<hid::HIDManager>::Object().debugGC(2).button().hold()
+        | (ExplicitSingleton<hid::HIDManager>::Object().debugGC(0).button().hold()
+        | ExplicitSingleton<hid::HIDManager>::Object().debugGC(1).button().hold()));
     hash = 0xC5;
     asm {
         bl      after1
@@ -202,7 +206,7 @@ void StageSphere::updateFrame() {
     }
 }
 
-void StageSphere::bgStartAnim(const hel::math::Vector3& pos, StageKind stage, bool isStart) {
+void StageSphere::bgStartAnim(const Vector3& pos, StageKind stage, bool isStart) {
     if (stage == 0x20 || stage == 0x24) {
         return;
     }
@@ -227,7 +231,7 @@ void StageSphere::bgStartAnim(const hel::math::Vector3& pos, StageKind stage, bo
         normalPanelVisible(false);
         bossPanelVisible(true);
         _568.updateSphereStateForLvMap(stage);
-        _568.setOffset(hel::math::Vector3(-_568.width() / 2.0f, 0.0f, 0.0f));
+        _568.setOffset(Vector3(-_568.width() / 2.0f, 0.0f, 0.0f));
         if (isStart) {
             _3D8.play("Start", "Wait");
         } else {
@@ -237,11 +241,11 @@ void StageSphere::bgStartAnim(const hel::math::Vector3& pos, StageKind stage, bo
     _4 = 3;
 }
 
-void StageSphere::appear(const hel::math::Vector3& pos, StageKind stage) {
+void StageSphere::appear(const Vector3& pos, StageKind stage) {
     bgStartAnim(pos, stage, true);
 }
 
-void StageSphere::wait(const hel::math::Vector3& pos, StageKind stage) {
+void StageSphere::wait(const Vector3& pos, StageKind stage) {
     bgStartAnim(pos, stage, false);
 }
 
@@ -254,7 +258,7 @@ void StageSphere::disappear() {
     _4 = 3;
 }
 
-void StageSphere::getDemo(const hel::math::Vector3& pos, StageKind stage) {
+void StageSphere::getDemo(const Vector3& pos, StageKind stage) {
     if (StageKindUtil::IsBossStage(stage)) {
         appear(pos, stage);
     } else {
@@ -280,8 +284,8 @@ bool StageSphere::isDemoEnd() const {
 }
 
 void StageSphere::constraintPos() {
-    hel::math::Vector2 pos = mComponent.cameraAccessor().toLayoutPos(camera::KIND_0, _720);
-    hel::math::Vector3 trans = pos.toVector3() + hel::math::Vector3(0.0f, 120.0f, 0.0f);
+    Vector2 pos = mComponent.cameraAccessor().toLayoutPos(camera::KIND_0, _720);
+    Vector3 trans = pos.toVector3() + Vector3(0.0f, 120.0f, 0.0f);
     _90.rootPane().setTrans(trans);
     _3D8.rootPane().setTrans(trans);
 }
@@ -687,11 +691,11 @@ void StageSphere::bossPanelVisible(bool visible) {
 
 void StageSphere::adjustBgSize() {
     f32 width = (_220.baseWidth() - _90.pane("WakuCenter").size().x) / 2.0f;
-    hel::math::Vector2 sizeL = _90.pane("WakuL").size();
+    Vector2 sizeL = _90.pane("WakuL").size();
     sizeL.x = width;
     _90.pane("WakuL").setSize(sizeL);
     _90.pane("WakuLSh").setSize(sizeL);
-    hel::math::Vector2 sizeR = _90.pane("WakuR").size();
+    Vector2 sizeR = _90.pane("WakuR").size();
     sizeR.x = width;
     _90.pane("WakuR").setSize(sizeR);
     // The right shadow gets the left frame's size.
@@ -699,7 +703,7 @@ void StageSphere::adjustBgSize() {
 }
 
 void StageSphere::centerBase() {
-    _220.setOffset(hel::math::Vector3(-_220.width() / 2.0f, 0.0f, 0.0f));
+    _220.setOffset(Vector3(-_220.width() / 2.0f, 0.0f, 0.0f));
 }
 
 #define MF_FUNCTION getNextFlashSphere__Q53scn4step4info5lvmap11StageSphereCFUl

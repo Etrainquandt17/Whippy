@@ -29,6 +29,13 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,7 +48,7 @@ Custom::Custom(Enemy& enemy)
 bool Custom::onInit() {
     f32 scale = Utility::GetModelScaleBySizeType(obj());
     obj().objColl().clearBodyColl();
-    obj().objColl().addBodyColl(0, 0.5f * scale, hel::math::Vector2(0.0f, 0.7f * scale));
+    obj().objColl().addBodyColl(0, 0.5f * scale, Vector2(0.0f, 0.7f * scale));
     obj().mapColl().changeActorShape(mcoll::detail::ShapeDiamondContext::CreateBaseBottom(0.35f, 0.49f, 0.5f));
     return false;
 }
@@ -59,18 +66,18 @@ bool Custom::onDamaged() {
 }
 
 void Custom::onDead() {
-    util::ObjRefHandle<Enemy> pod = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mWapodpodUid);
+    ObjRefHandle<Enemy> pod = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mWapodpodUid);
     if (pod.isAlive()) {
         pod->setPotentialCount(2);
-        hel::common::DynamicCastToRef<wapodpod::Custom, ICustom>(pod->custom()).setIsExist(false);
+        DynamicCastToRef<wapodpod::Custom, ICustom>(pod->custom()).setIsExist(false);
     }
 }
 
 void Custom::setWapodpodUid(u64 uid) {
     mWapodpodUid = uid;
-    util::ObjRefHandle<Enemy> pod = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mWapodpodUid);
+    ObjRefHandle<Enemy> pod = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mWapodpodUid);
     if (pod.isAlive()) {
-        hel::common::DynamicCastToRef<wapodpod::Custom, ICustom>(pod->custom()).setIsExist(true);
+        DynamicCastToRef<wapodpod::Custom, ICustom>(pod->custom()).setIsExist(true);
         mWapodpodVariation = pod->variation();
     }
 }
@@ -101,20 +108,20 @@ void Custom::landHitDead() {
     chara::MapCollResult result = obj().mapColl().result();
     if (result.isHit()) {
         obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x556),
-                                                    obj().location().pos() + hel::math::Vector3(0.0f, 0.5f, 0.0f));
+                                                    obj().location().pos() + Vector3(0.0f, 0.5f, 0.0f));
         obj().dead();
     }
 }
 
 void Custom::fixPosInValid() {
-    util::ObjRefHandle<Enemy> pod = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mWapodpodUid);
+    ObjRefHandle<Enemy> pod = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mWapodpodUid);
     if (pod.isAlive()) {
-        hel::common::DynamicCastToRef<wapodpod::Custom, ICustom>(pod->custom()).setIsFixPos(false);
+        DynamicCastToRef<wapodpod::Custom, ICustom>(pod->custom()).setIsFixPos(false);
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

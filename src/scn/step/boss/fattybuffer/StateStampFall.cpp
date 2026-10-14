@@ -39,6 +39,10 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -54,7 +58,7 @@ const StampParam& t_param(Boss& boss) {
 }
 
 StateStampFall::StateStampFall(Boss* boss) : StateBase(boss), mCount(0), mStartY(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xE);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
@@ -76,8 +80,8 @@ void StateStampFall::procAnim() {
 void StateStampFall::procMove() {
     const StampParam& param = t_param(obj());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mFallFrame);
-    hel::math::Vector3 pos = obj().location().pos();
-    pos.y = hel::math::Math::Interpolate(mStartY + param.mHoldHeight, obj().basePos().y, t);
+    Vector3 pos = obj().location().pos();
+    pos.y = Math::Interpolate(mStartY + param.mHoldHeight, obj().basePos().y, t);
     obj().location().setPos(pos);
 }
 

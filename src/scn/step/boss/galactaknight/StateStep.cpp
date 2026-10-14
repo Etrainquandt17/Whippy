@@ -52,6 +52,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,7 +63,7 @@ namespace galactaknight {
 
 StateStep::StateStep(Boss* boss, ScriptKind kind, f32 distance, f32 height, u32 frame)
     : StateBase(boss), mFrame(frame), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mHeight(height) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = distance * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     obj().model().reqScript(kind);
@@ -82,8 +86,8 @@ void StateStep::procAnim() {
 
 void StateStep::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    pos.y += hel::math::Math::SinDegF(180.0f * t) * mHeight;
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    pos.y += Math::SinDegF(180.0f * t) * mHeight;
     obj().location().setPos(pos);
 }
 

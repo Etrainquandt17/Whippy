@@ -6,6 +6,8 @@
 #include "metafortress.h"
 #include "util/ObjList.h"
 
+using hel::common::Color;
+
 namespace scn {
 namespace subgame {
 namespace title {
@@ -145,7 +147,7 @@ void OnGameEndGuide::startWithoutMenu() {
 void OnGameEndGuide::startOnlyFade() {
     mBox.close();
     mLayout.pane("PauseCloseN").setVisibility(false);
-    mFade.setColor(reinterpret_cast<const GXColor&>(hel::common::Color::BLACK));
+    mFade.setColor(reinterpret_cast<const GXColor&>(Color::BLACK));
     mFade.setFadeOut(45);
     _4 = 8;
     _1BA4 = 0;
@@ -273,7 +275,7 @@ void OnGameEndGuide::updateMain() {
     case 6:
         if (mBox.isClosed()) {
             _4 = 8;
-            mFade.setColor(reinterpret_cast<const GXColor&>(hel::common::Color::BLACK));
+            mFade.setColor(reinterpret_cast<const GXColor&>(Color::BLACK));
             mFade.setFadeOut(45);
         }
         break;

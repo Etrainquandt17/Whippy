@@ -35,6 +35,10 @@
 #include "scn/step/hero/gimmick/StateEnterShipDoor.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -59,7 +63,7 @@ StateWaterFloat::StateWaterFloat(Hero* hero)
         obj().model().weapon().model().changeParentNode(0xF);
         obj().model().weapon().setVisibility(true);
         const NinjaParam& param = obj().param().ninja();
-        obj().itemCatcher().setSize(hel::math::Vector2(0.0f, param._B4), param._B0);
+        obj().itemCatcher().setSize(Vector2(0.0f, param._B4), param._B0);
         updateNinjaViewOffset();
     }
     obj().move().resetSpeedV();
@@ -154,8 +158,8 @@ void StateWaterFloat::updateNinjaViewOffset() {
         return;
     }
     f32 floorY = obj().groundChecker().getFloorPos().y;
-    f32 y = hel::math::Math::LimitMin(0.4f - (obj().location().pos().y - floorY), 0.0f);
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, y, 0.0f));
+    f32 y = Math::LimitMin(0.4f - (obj().location().pos().y - floorY), 0.0f);
+    obj().model().setViewOffset(Vector3(0.0f, y, 0.0f));
 }
 
 }}}}  // namespace scn::step::hero::common

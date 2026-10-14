@@ -27,6 +27,8 @@
 #include "scn/step/enemy/common/StateFall.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ StateHide::StateHide(Enemy* enemy) : StateBase(enemy), mFrame(0) {
 
 void StateHide::procAnim() {
     if (++mFrame == obj().param().bulby().mHideFrame) {
-        if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isBuried()) {
+        if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isBuried()) {
             obj().effect().normal().requestN(static_cast<effect::Kind>(0x124), 0);
             obj().soundSE().start(0x2e7);
         }

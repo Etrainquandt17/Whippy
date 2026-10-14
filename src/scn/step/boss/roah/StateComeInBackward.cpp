@@ -12,6 +12,9 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -19,7 +22,7 @@ namespace roah {
 
 StateComeInBackward::StateComeInBackward(Boss* boss, Config config)
     : StateBase(boss), mCount(0), mStartPos(), mGoalPos(), mConfig(config) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().target().setIsRightDir(true);
     obj().model().reqScript(0);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
@@ -40,7 +43,7 @@ void StateComeInBackward::procAnim() {
 void StateComeInBackward::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mConfig._0);
     f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
+    obj().location().setPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
 }
 
 void StateComeInBackward::procFixPos() {}

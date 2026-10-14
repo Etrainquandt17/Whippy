@@ -38,6 +38,8 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -45,7 +47,7 @@ namespace fattybuffer {
 
 StateStalactiteJump::StateStalactiteJump(Boss* boss, StalactiteJumpKind kind) : StateBase(boss), mKind(kind) {
     const Param& param = obj().param().fattybuffer();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     switch (mKind) {

@@ -25,6 +25,8 @@
 #include "scn/step/enemy/pierce/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ StateFlyWait::~StateFlyWait() {}
 
 void StateFlyWait::procAnim() {
     const ParamData& param = obj().param().pierce();
-    bool isInArea = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea();
+    bool isInArea = DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea();
     u32 index = obj().model().anim().currentG3DAnimIndex();
     if (isInArea && index == 0) {
         if (!mIsAttack || ++mFrame == param.mAttackWaitFrame) {
@@ -63,7 +65,7 @@ void StateFlyWait::procAnim() {
 
 void StateFlyWait::procMove() {
     const ParamData& param = obj().param().pierce();
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).turnHeroWithTime(param.mTurnFrame);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).turnHeroWithTime(param.mTurnFrame);
     obj().move().airDecelFall(gobj::MoveParamDecel::Zero(), gobj::MoveParamFall::Zero());
 }
 

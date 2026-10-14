@@ -53,6 +53,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,7 +66,7 @@ StatePressSearch::StatePressSearch(Boss* boss, u32 frame, u32 boundCount)
     : StateBase(boss), mCount(0), mFrame(frame), mBoundCount(boundCount), mStartX(boss->location().pos().x),
       mGoalPos(boss->location().pos()) {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = Utility::GetHatedHeroPos(obj()).x;
     mGoalPos.x = custom.landCtrl().getAdjustX(mGoalPos.x, param._C);
     mGoalPos.y = param._A0 + custom.landCtrl().getFloorY();
@@ -86,9 +90,9 @@ void StatePressSearch::procMove() {
     const Param& param = obj().param().hrd3();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
     f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-    hel::math::Vector3 pos = obj().location().pos();
-    pos.x = hel::math::Math::LinearInterpolation(mStartX, mGoalPos.x, rate);
-    pos.y = hel::math::Math::LinearInterpolation(pos.y, mGoalPos.y, param._B4);
+    Vector3 pos = obj().location().pos();
+    pos.x = Math::LinearInterpolation(mStartX, mGoalPos.x, rate);
+    pos.y = Math::LinearInterpolation(pos.y, mGoalPos.y, param._B4);
     pos.z = mGoalPos.z;
     obj().location().setPos(pos);
 }

@@ -10,6 +10,9 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/gordo/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -18,7 +21,7 @@ namespace gordo {
 // TODO: the cast stands in for whatever made the original load the x coordinate ahead of the temporary's address.
 StateMoveCircle::StateMoveCircle(Enemy* enemy)
     : StateBase(enemy)
-    , mCenter(hel::math::Vector3(static_cast<f32>(enemy->location().pos().x), enemy->location().pos().y - obj().param().gordo().mCircleRadius, 0.0f))
+    , mCenter(Vector3(static_cast<f32>(enemy->location().pos().x), enemy->location().pos().y - obj().param().gordo().mCircleRadius, 0.0f))
     , mAngle(0.0f)
     , mRadius(0.0f)
     , mSpeed(0.0f) {
@@ -51,9 +54,9 @@ StateMoveCircle::StateMoveCircle(Enemy* enemy)
         break;
     }
     f32 x = enemy->location().pos().x;
-    mCenter.x = x - mRadius * hel::math::Math::SinDegF(mAngle);
+    mCenter.x = x - mRadius * Math::SinDegF(mAngle);
     f32 y = enemy->location().pos().y;
-    mCenter.y = y - mRadius * hel::math::Math::CosDegF(mAngle);
+    mCenter.y = y - mRadius * Math::CosDegF(mAngle);
 }
 
 void StateMoveCircle::procMove() {
@@ -61,7 +64,7 @@ void StateMoveCircle::procMove() {
     while (mAngle >= 360.0f) {
         mAngle -= 360.0f;
     }
-    hel::math::Vector3 dir(hel::math::Math::SinDegF(mAngle), hel::math::Math::CosDegF(mAngle), 0.0f);
+    Vector3 dir(Math::SinDegF(mAngle), Math::CosDegF(mAngle), 0.0f);
     if (obj().variation() == 0xd || obj().variation() == 0xd3 || obj().variation() == 0xd5) {
         dir.x = -dir.x;
     }

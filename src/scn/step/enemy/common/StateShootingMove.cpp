@@ -12,6 +12,10 @@
 #include "scn/step/enemy/BrainCtrl.h"
 #include "scn/step/enemy/Enemy.h"
 
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,7 +24,7 @@ namespace common {
 StateShootingMove::StateShootingMove(Enemy* enemy, Config config) : StateBase(enemy), mCenterX(0.0f), mVelocity() {
     obj().model().reqScript(4);
     obj().brainCtrl().toValid();
-    hel::math::Direction3 dir = obj().target().getDirection3();
+    Direction3 dir = obj().target().getDirection3();
     if (obj().dirType() == 0) {
         dir.mFront.rotate(dir.mLeft, 0.017453292f * -config._0);
     } else {
@@ -35,8 +39,8 @@ StateShootingMove::~StateShootingMove() {}
 void StateShootingMove::procAnim() {}
 
 void StateShootingMove::procMove() {
-    hel::math::Vector3 velocity = mVelocity;
-    if (!hel::math::Math::EqZero(mCenterX)) {
+    Vector3 velocity = mVelocity;
+    if (!Math::EqZero(mCenterX)) {
         velocity.x += obj().comp().mainCamera().getCenter().x - mCenterX;
         obj().move().setVelocity(velocity);
         gobj::MoveParamDecel decel = gobj::MoveParamDecel::Zero();

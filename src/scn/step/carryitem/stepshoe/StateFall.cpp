@@ -13,6 +13,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/Shake.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -25,7 +27,7 @@ StateFall::StateFall(CarryItem* carryItem, f32 flashAngle)
     , mShakeFrame(0) {
     obj().mapColl().setValid(true);
     obj().mapColl().setIgnoreInvisibleRoof(true);
-    obj().model().model().nodes().at(2).localMtx().setScale(hel::math::Vector3::ALL_ONE * obj().param().stepShoe()._0);
+    obj().model().model().nodes().at(2).localMtx().setScale(Vector3::ALL_ONE * obj().param().stepShoe()._0);
     obj().model().reqScript(8);
     Utility::SetFlash(obj());
     mFlashAngle = Utility::UpdateBodyFlash(obj(), mFlashAngle);

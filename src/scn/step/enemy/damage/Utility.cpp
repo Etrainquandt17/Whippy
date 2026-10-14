@@ -38,6 +38,14 @@
 #include "scn/step/enemy/sheld/Custom.h"
 #include "scn/step/map/LandManager.h"
 
+using app::Application;
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +53,7 @@ namespace damage {
 
 void Utility::EmDamageUtility_InitTarget(Enemy* enemy) {
     if (enemy->objColl().bodyColl().isCollide()) {
-        hel::math::Vector2 attackPos = enemy->damageInfo().data().mAttackPos;
+        Vector2 attackPos = enemy->damageInfo().data().mAttackPos;
         bool isRight = enemy->location().pos().x < attackPos.x;
         enemy->target().setIsRightDir(isRight);
     }
@@ -53,13 +61,13 @@ void Utility::EmDamageUtility_InitTarget(Enemy* enemy) {
 
 void Utility::EmDamageUtility_InitVelocity(Enemy* enemy) {
     if (enemy->objColl().bodyColl().isCollide() && (enemy->hitPoint().isDead() || !enemy->charaParam()._45)) {
-        hel::math::Vector3 velocity = hel::math::Vector3::BASIS_X;
+        Vector3 velocity = Vector3::BASIS_X;
         chara::DamageInfo info = enemy->damageInfo();
         f32 angle = info.data().mAngle;
         f32 width = info.data().mWidth;
         f32 speed = info.data().mSpeed;
-        f32 rot = angle + width * app::Application::Object().random().randAF();
-        velocity.rotate(hel::math::Vector3::BASIS_Z, 0.017453292f * rot);
+        f32 rot = angle + width * Application::Object().random().randAF();
+        velocity.rotate(Vector3::BASIS_Z, 0.017453292f * rot);
         velocity.x *= -1.0f * enemy->target().getSign();
         velocity *= speed * EmDamageUtility_GetInitVelocityRate(enemy, info);
         enemy->move().setVelocity(velocity);
@@ -80,9 +88,9 @@ void Utility::EmDamageUtility_Move(Enemy* enemy) {
 
 bool Utility::EmDamageUtility_ReflectWall(Enemy* enemy) {
     chara::MapCollResult result = enemy->mapColl().result();
-    hel::geo::Rect rect = enemy->comp().mainCamera().getViewRect();
-    hel::math::Vector3 velocity = enemy->move().velocity();
-    hel::math::Vector3 center = enemy->location().centerPos();
+    Rect rect = enemy->comp().mainCamera().getViewRect();
+    Vector3 velocity = enemy->move().velocity();
+    Vector3 center = enemy->location().centerPos();
     f32 margin = enemy->charaParam()._2c;
     rect._0 -= margin;
     rect._4 += margin;
@@ -126,27 +134,27 @@ bool Utility::EmDamageUtility_ReflectWall(Enemy* enemy) {
         isRight = true;
     }
     if (isRoof) {
-        enemy->move().setSpeedV(-1.0f * hel::math::Math::Abs(velocity.y));
+        enemy->move().setSpeedV(-1.0f * Math::Abs(velocity.y));
     }
     if (isFloor) {
-        enemy->move().setSpeedV(0.5f * hel::math::Math::Abs(velocity.y));
+        enemy->move().setSpeedV(0.5f * Math::Abs(velocity.y));
     }
     if (isLeft) {
-        enemy->move().setSpeedH(0.5f * hel::math::Math::Abs(velocity.x));
+        enemy->move().setSpeedH(0.5f * Math::Abs(velocity.x));
     }
     if (isRight) {
-        enemy->move().setSpeedH(-0.5f * hel::math::Math::Abs(velocity.x));
+        enemy->move().setSpeedH(-0.5f * Math::Abs(velocity.x));
     }
     return isRoof | isFloor | isLeft | isRight;
 }
 
 void Utility::EmDamageUtility_ReqEffectHP0(Enemy* enemy) {
-    hel::math::Vector2 offset = enemy->charaParam()._4;
-    hel::math::Vector2 pos = enemy->location().pos().getXY() + offset;
-    hel::math::Vector2 prevPos = enemy->location().prevPos().getXY() + offset;
+    Vector2 offset = enemy->charaParam()._4;
+    Vector2 pos = enemy->location().pos().getXY() + offset;
+    Vector2 prevPos = enemy->location().prevPos().getXY() + offset;
     bool isWater = enemy->comp().mapLandManager().native().isWaterGrid(pos);
     bool isWaterPrev = enemy->comp().mapLandManager().native().isWaterGrid(prevPos);
-    hel::math::Vector3 effectOffset = offset.toVector3();
+    Vector3 effectOffset = offset.toVector3();
     effectOffset *= enemy::Utility::GetModelScaleBySizeType(*enemy);
     if (isWater != isWaterPrev) {
         enemy->effect().state().release();
@@ -195,7 +203,7 @@ f32 Utility::EmDamageUtility_GetInitVelocityRate(Enemy* enemy, const chara::Dama
         rate *= 0.5f;
     }
     if (enemy->kind() == 0x31) {
-        if (!hel::common::DynamicCastToRef<sheld::Custom, ICustom>(enemy->custom()).isEscape()) {
+        if (!DynamicCastToRef<sheld::Custom, ICustom>(enemy->custom()).isEscape()) {
             rate *= 0.5f;
         }
     }
@@ -326,7 +334,7 @@ void Utility::EmDamageUtility_DeadWithFreezeEffect(Enemy* enemy) {
 void Utility::EmDamageUtility_StopAnimRandomFrame(Enemy* enemy) {
     int total = enemy->model().anim().totalFrame();
     if (total != 0) {
-        enemy->model().anim().setFrame(app::Random::Rand(0, total));
+        enemy->model().anim().setFrame(Random::Rand(0, total));
         enemy->model().anim().setFrameRate(0.0f);
     }
 }

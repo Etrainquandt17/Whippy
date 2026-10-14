@@ -70,6 +70,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -82,7 +86,7 @@ const f32 T_SPINE_ANGLE_TABLE[] = { 65.0f, 115.0f, 245.0f, 295.0f };
 }
 
 StateFreezeAttackSpine::StateFreezeAttackSpine(Boss* boss, u32 frame) : StateBase(boss), mFrame(frame), mCount(0), mWeapons() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x1F);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
@@ -117,13 +121,13 @@ void StateFreezeAttackSpine::procMove() {}
 void StateFreezeAttackSpine::procFixPos() {}
 
 void StateFreezeAttackSpine::reqIceSpine() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 0.5f;
     f32 speed = 0.03f;
-    weapon::Desc desc(static_cast<weapon::Kind>(0x83), 0, static_cast<ostop::Flag>(8), pos.getXY(), hel::math::Vector2::ZERO,
+    weapon::Desc desc(static_cast<weapon::Kind>(0x83), 0, static_cast<ostop::Flag>(8), pos.getXY(), Vector2::ZERO,
                       obj().objColl().owner());
     for (int i = 0; i < 4; i++) {
-        hel::math::Vector2 dir(0.0f, 1.0f);
+        Vector2 dir(0.0f, 1.0f);
         dir.rotate(0.017453292f * T_SPINE_ANGLE_TABLE[i]);
         desc._1c = dir * speed;
         mWeapons[i] = obj().comp().weaponManager().request(desc);
@@ -135,7 +139,7 @@ void StateFreezeAttackSpine::shotIceSpine() {
     f32 speed = obj().param().lowper()._7C;
     for (int i = 0; i < 4; i++) {
         if (mWeapons[i].isAlive()) {
-            hel::math::Vector2 dir(0.0f, 1.0f);
+            Vector2 dir(0.0f, 1.0f);
             dir.rotate(0.017453292f * T_SPINE_ANGLE_TABLE[i]);
             dir *= speed;
             mWeapons[i]->move().setVelocity(dir.toVector3());

@@ -13,6 +13,9 @@
 #include "scn/step/enemy/scarfy/ParamData.h"
 #include "scn/step/enemy/scarfy/StateChase.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -63,15 +66,15 @@ void StateWhispyAppear::procMove() {
     switch (mPhase) {
     case 0: {
         f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param.mWhispyAppearFrame1);
-        hel::math::Vector3 pos = obj().location().pos();
-        pos.y = mBaseY - param.mWhispyAppearHeight1 * hel::math::Math::SinDegF(90.0f * rate);
+        Vector3 pos = obj().location().pos();
+        pos.y = mBaseY - param.mWhispyAppearHeight1 * Math::SinDegF(90.0f * rate);
         obj().location().setPos(pos);
         break;
     }
     case 1: {
         f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(param.mWhispyAppearFrame2);
-        hel::math::Vector3 pos = obj().location().pos();
-        pos.y = mBaseY + param.mWhispyAppearHeight2 * hel::math::Math::SinDegF(90.0f * rate);
+        Vector3 pos = obj().location().pos();
+        pos.y = mBaseY + param.mWhispyAppearHeight2 * Math::SinDegF(90.0f * rate);
         obj().location().setPos(pos);
         break;
     }

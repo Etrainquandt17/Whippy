@@ -14,6 +14,8 @@
 #include "scn/step/chara/WorldCage.h"
 #include "scn/step/map/KindUtil.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -33,7 +35,7 @@ StateUse::StateUse(CarryItem* carryItem)
         mOwnerPos = obj().getUser()->getOwnerPos();
     }
     if (map::KindUtil::IsShootingMap(obj().comp().context().mapKind)) {
-        obj().model().setScale(hel::math::Vector3::ALL_ONE * 0.5f);
+        obj().model().setScale(Vector3::ALL_ONE * 0.5f);
     }
 }
 
@@ -48,15 +50,15 @@ void StateUse::procMove() {
 void StateUse::procFixPos() {
     if (obj().getUser().operator->() == 0) {
         obj().soundSE().start(obj().getReleaseType() == RELEASE_TYPE_THROW ? 0xFE : 0xF2);
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         obj().location().setPos(mOwnerPos);
         obj().location().updatePrevPos();
         obj().mapColl().setValid(true);
         if (obj().getReleaseType() == RELEASE_TYPE_THROW || obj().kind() == 7) {
-            hel::math::Vector3 offset(0.0f, 0.2f, 0.0f);
+            Vector3 offset(0.0f, 0.2f, 0.0f);
             obj().location().setPos(pos + offset);
         } else {
-            hel::math::Vector3 offset(mIsRightDir ? 1.0f : -1.0f, 0.2f, 0.0f);
+            Vector3 offset(mIsRightDir ? 1.0f : -1.0f, 0.2f, 0.0f);
             obj().location().setPos(mOwnerPos + offset);
         }
         obj().mapColl().procMapColl();
@@ -64,7 +66,7 @@ void StateUse::procFixPos() {
         obj().worldCage().proc();
         obj().stateChanger().setNextState<StateBound, CarryItem*, bool, bool>(objPtr(), false, mIsRightDir);
     } else {
-        hel::math::Vector3 constraintPos = obj().getUser()->getConstraintPos();
+        Vector3 constraintPos = obj().getUser()->getConstraintPos();
         obj().location().setPos(constraintPos);
         mIsRightDir = obj().getUser()->isRightDir();
         obj().model().updateMtx();

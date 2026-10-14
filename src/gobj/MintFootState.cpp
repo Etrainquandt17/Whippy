@@ -3,11 +3,13 @@
 #include "gobj/FootState.h"
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<FootState> t_obj;
+PointerWrapper<FootState> t_obj;
 
 }
 

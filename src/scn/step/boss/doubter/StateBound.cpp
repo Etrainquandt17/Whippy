@@ -36,16 +36,20 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace doubter {
 
-StateBound::StateBound(Boss* boss, const hel::math::Vector2& speed, u32 count) : StateBase(boss), mCount(count) {
+StateBound::StateBound(Boss* boss, const Vector2& speed, u32 count) : StateBase(boss), mCount(count) {
     obj().footState().setAir();
     obj().model().reqScript(8);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
-    hel::math::Vector3 velocity = speed.toVector3();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    Vector3 velocity = speed.toVector3();
     velocity.x *= obj().target().getSign();
     obj().move().setVelocity(velocity);
 }

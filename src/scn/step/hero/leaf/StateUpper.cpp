@@ -14,6 +14,8 @@
 #include "scn/step/hero/Utility.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -40,8 +42,8 @@ StateUpper::~StateUpper() {
     obj().abilityManager().setActionInterval(param._50);
     if (!mIsTriggered) {
         obj().effect()._58.releaseAndVanish();
-        hel::math::Vector3 pos = static_cast<const Hero&>(obj()).location().pos() +
-                                 hel::math::Vector3(obj().target().isRightDir() ? 1.0f : -1.3f, 0.0f, 0.0f);
+        Vector3 pos = static_cast<const Hero&>(obj()).location().pos() +
+                      Vector3(obj().target().isRightDir() ? 1.0f : -1.3f, 0.0f, 0.0f);
         obj().effect()._8.requestP(static_cast<effect::Kind>(0x380), pos);
     }
 }

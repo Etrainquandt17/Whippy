@@ -6,6 +6,9 @@
 #include "metafortress.h"
 #include "types.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+
 namespace font {
 
 #define MF_FUNCTION __ct__Q24font10FontLoaderFQ24font8FontKind
@@ -61,7 +64,7 @@ FontLoader::FontLoader(FontKind kind)
     hash += hash << 5;
     while (hash - expected != 0) {
     }
-    hel::common::ExplicitSingleton<app::Application>::object_->fontManager().font(mKind).load();
+    ExplicitSingleton<Application>::object_->fontManager().font(mKind).load();
 }
 #undef MF_FUNCTION
 
@@ -147,7 +150,7 @@ FontLoader::~FontLoader() {
             blr
         }
     } else {
-        hel::common::ExplicitSingleton<app::Application>::object_->fontManager().font(mKind).unload();
+        ExplicitSingleton<Application>::object_->fontManager().font(mKind).unload();
     }
 }
 #undef MF_FUNCTION

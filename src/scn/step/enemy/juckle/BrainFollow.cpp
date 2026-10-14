@@ -25,6 +25,8 @@
 #include "scn/step/enemy/juckle/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +35,7 @@ namespace juckle {
 BrainFollow::BrainFollow(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainFollow::onStart() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.onFollowFlag();
     obj().stateChanger().setNextState<common::StateFly, Enemy*>(&obj());
     return true;

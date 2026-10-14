@@ -11,25 +11,28 @@
 #include "pause/ManualData.h"
 #include "util/ObjList.h"
 
+using app::Message;
+using hel::common::FixedStringIN;
+
 namespace pause {
 
 PageAbility::PageAbility(Component& component, file::FileTree& fileTree, ManualKind kind)
     : mComponent(component)
     , mLayout(lyt::LayoutContext(Constant::LytResPathPage(PAGE_RES_KIND_2), "AbilityWindow", component.allocator()))
     , mImage() {
-    hel::common::FixedStringIN<char, 48> path = ManualData::PathAbilityBG(kind);
+    FixedStringIN<char, 48> path = ManualData::PathAbilityBG(kind);
     {
-        file::FileAccessor accessor(hel::common::FixedStringIN<char, 80>::FromFormat("lyt/%s.arc.cmpbin", static_cast<const char*>(path)), false);
-        fileTree.addFile(accessor.block(), hel::common::FixedStringIN<char, 80>::FromFormat("lyt/%s.arc.cmp", static_cast<const char*>(path)), 0);
+        file::FileAccessor accessor(FixedStringIN<char, 80>::FromFormat("lyt/%s.arc.cmpbin", static_cast<const char*>(path)), false);
+        fileTree.addFile(accessor.block(), FixedStringIN<char, 80>::FromFormat("lyt/%s.arc.cmp", static_cast<const char*>(path)), 0);
     }
     mImage.construct(lyt::LayoutContext(path, "AbImage", component.allocator()));
     mImage->setParent(mLayout.paneByName("ImageN"));
     mLayout.paneByName("AbText").setText(
-        app::Message::TextPause(ManualData::LabelAbilityInfo(kind, component.contextInit().modeKind())));
+        Message::TextPause(ManualData::LabelAbilityInfo(kind, component.contextInit().modeKind())));
 }
 
 const wchar_t* PageAbility::pageFrameTitle() const {
-    return app::Message::TextPause(hel::common::FixedStringIN<char, 32>::FromFormat(
+    return Message::TextPause(FixedStringIN<char, 32>::FromFormat(
         "%s0", static_cast<const char*>(ManualData::LabelFrameAbiilityTitle(mComponent.contextOpen().manualKind()))));
 }
 

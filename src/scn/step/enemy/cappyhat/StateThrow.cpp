@@ -19,6 +19,10 @@
 #include "scn/step/enemy/cappy/Custom.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -32,9 +36,9 @@ StateThrow::StateThrow(Enemy* enemy, u64 ownerUid) : StateBase(enemy), mOwnerUid
 }
 
 StateThrow::~StateThrow() {
-    util::ObjRefHandle<Enemy> owner = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mOwnerUid);
+    ObjRefHandle<Enemy> owner = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mOwnerUid);
     if (owner.isAlive()) {
-        hel::common::DynamicCastToRef<cappy::Custom, ICustom>(owner->custom()).setValidTurn(true);
+        DynamicCastToRef<cappy::Custom, ICustom>(owner->custom()).setValidTurn(true);
     }
 }
 
@@ -43,13 +47,13 @@ void StateThrow::procMove() {
 }
 
 void StateThrow::procFixPos() {
-    util::ObjRefHandle<Enemy> owner = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mOwnerUid);
+    ObjRefHandle<Enemy> owner = obj().comp().enemyManager().getEnemyByOCollOwnerUID(mOwnerUid);
     f32 scale = Utility::GetModelScaleBySizeType(obj());
     if (owner.isAlive()) {
         if (obj().move().velocity().y < 0.0f) {
             if (obj().location().pos().squareDistance(
-                    owner->location().pos() - hel::math::Vector3(0.0f, 0.3f * scale, 0.0f)) < 1.5f * scale * scale) {
-                cappy::Custom& custom = hel::common::DynamicCastToRef<cappy::Custom, ICustom>(owner->custom());
+                    owner->location().pos() - Vector3(0.0f, 0.3f * scale, 0.0f)) < 1.5f * scale * scale) {
+                cappy::Custom& custom = DynamicCastToRef<cappy::Custom, ICustom>(owner->custom());
                 if (custom.isCanHat()) {
                     custom.returnHat();
                     obj().dead();
@@ -59,7 +63,7 @@ void StateThrow::procFixPos() {
     }
     if (obj().mapColl().result().mIsHitFloor) {
         obj().comp().permEffect().normal().requestP(
-            static_cast<effect::Kind>(0x127), obj().location().pos() + hel::math::Vector3(0.0f, 0.2f * scale, 0.0f));
+            static_cast<effect::Kind>(0x127), obj().location().pos() + Vector3(0.0f, 0.2f * scale, 0.0f));
         obj().dead();
     }
 }

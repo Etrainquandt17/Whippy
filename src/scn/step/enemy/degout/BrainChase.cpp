@@ -26,13 +26,15 @@
 #include "scn/step/enemy/degout/StateChase.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace degout {
 
 BrainChase::BrainChase(Enemy& enemy) : BrainBase(enemy) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setChaseFlag(true);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setChaseFlag(true);
 }
 
 bool BrainChase::onStart() {

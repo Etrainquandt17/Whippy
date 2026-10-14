@@ -28,6 +28,8 @@
 #include "scn/step/enemy/parasol/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -64,7 +66,7 @@ void StateRise::procMove() {
 
 void StateRise::procFixPos() {
     if (obj().mapColl().result().isHit()) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += 1.5f;
         obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x127), pos);
         obj().soundSE().start(0x2a5);

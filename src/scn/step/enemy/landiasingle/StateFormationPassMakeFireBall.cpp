@@ -47,6 +47,9 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -56,11 +59,11 @@ StateFormationPassMakeFireBall::StateFormationPassMakeFireBall(Enemy* enemy, Sta
     : StateBase(enemy), mFrame(0), mConfig(config) {
     obj().model().reqScript(0xd);
     obj().move().resetVelocity();
-    util::ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(0);
+    ObjRefHandle<boss::Boss> boss = obj().comp().bossManager().getBossByIndex(0);
     if (boss.isAlive()) {
-        boss::landia::Custom& custom = hel::common::DynamicCastToRef<boss::landia::Custom, boss::ICustom>(boss->custom());
+        boss::landia::Custom& custom = DynamicCastToRef<boss::landia::Custom, boss::ICustom>(boss->custom());
         custom.singleWeaponCtrl().changeStateMoveFormationPass();
-        util::ObjRefHandle<weapon::Weapon> weapon = custom.singleWeaponCtrl().weaponPtr(0);
+        ObjRefHandle<weapon::Weapon> weapon = custom.singleWeaponCtrl().weaponPtr(0);
         weapon->location().setPos(obj().location().centerPos());
     }
     obj().effect().state().requestN(static_cast<effect::Kind>(0x36d), 2);

@@ -9,6 +9,9 @@
 #include "scn/step/item/Param.h"
 #include "scn/step/item/RotAnim.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -36,9 +39,9 @@ void StateWithLowper::procAnim() {
         mAngle -= 360.0f;
     }
     f32 radius = obj().param()._EC;
-    hel::math::Vector3 offs(
-        hel::math::Math::SinDegF(mAngle) / radius, hel::math::Math::CosDegF(mAngle) / radius, 0.0f);
-    obj().move().setVelocity(hel::math::Vector3(mAngle, mAngle, mAngle));
+    Vector3 offs(
+        Math::SinDegF(mAngle) / radius, Math::CosDegF(mAngle) / radius, 0.0f);
+    obj().move().setVelocity(Vector3(mAngle, mAngle, mAngle));
     obj().location().setPos(mBasePos + offs);
 }
 

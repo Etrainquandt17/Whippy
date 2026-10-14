@@ -12,6 +12,8 @@
 #include "seq/SequenceRoot.h"
 #include "snd/SoundSystem.h"
 
+using hel::common::ExplicitSingleton;
+
 // TODO: these are hid::HIDManager::updateMaster() and updateDebug(); declare
 // them in hid/HIDManager.h and call them as members.
 extern "C" {
@@ -90,7 +92,7 @@ void AppImpl::run(bool flag) {
         mFileManager.clearFiles();
         mPreLoadManager.waitToFinishLoading();
         mPreLoadManager.reset();
-        hel::common::ExplicitSingleton<mem::Memory>::object_->externalHeap().compaction();
+        ExplicitSingleton<mem::Memory>::object_->externalHeap().compaction();
         mReset.onSoftReset();
         mHomeButtonMenu.onSoftReset();
         snd::onSoftReset();

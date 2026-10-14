@@ -5,13 +5,15 @@
 #include "mem/HeapExp.h"
 #include "mem/Memory.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace file {
 
 FileManager::FileManager()
-    : FileTree(hel::common::ExplicitSingleton<mem::Memory>::Object().mem1FixHeap(),
-               hel::common::ExplicitSingleton<mem::Memory>::Object().externalHeap(), 0x200, 0x10)
+    : FileTree(ExplicitSingleton<mem::Memory>::Object().mem1FixHeap(),
+               ExplicitSingleton<mem::Memory>::Object().externalHeap(), 0x200, 0x10)
     , mDisableClear(0) {
-    setCompactionHeap(hel::common::ExplicitSingleton<mem::Memory>::Object().externalHeap());
+    setCompactionHeap(ExplicitSingleton<mem::Memory>::Object().externalHeap());
 }
 
 FileTree& FileManager::treeRoot() {

@@ -9,13 +9,15 @@
 #include "scn/step/enemy/buraburadee/Custom.h"
 #include "scn/step/enemy/common/StateFall.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace buraburadee {
 
 StateHang::StateHang(Enemy* enemy) : StateBase(enemy) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     if (obj().kind() == 0x42) {
         u32 script = obj().target().isRightDir() ? 0x17 : 0x19;
@@ -32,7 +34,7 @@ StateHang::StateHang(Enemy* enemy) : StateBase(enemy) {
 }
 
 void StateHang::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.ropeFixAnim();
     custom.deeAnimDecide();
     if (custom.isStateChange()) {
@@ -42,7 +44,7 @@ void StateHang::procAnim() {
 }
 
 void StateHang::procMove() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).ropeFixMove();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).ropeFixMove();
 }
 
 void StateHang::procFixPos() {}

@@ -13,6 +13,8 @@
 #include "scn/step/enemy/waddledee/ParamData.h"
 #include "scn/step/enemy/waddledee/StateGrandLowperLanding.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -44,7 +46,7 @@ void StateGrandLowperAppear::procAnim() {
     if (mRotSpeed < 0.0f) {
         mRotSpeed = 0.0f;
     }
-    hel::math::Vector3 rot(mRot, 0.0f, 0.0f);
+    Vector3 rot(mRot, 0.0f, 0.0f);
     Utility::SetCustomMtxRotate(obj(), rot);
 }
 

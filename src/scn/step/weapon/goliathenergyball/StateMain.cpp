@@ -16,6 +16,10 @@
 #include "scn/step/weapon/goliathenergyball/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -48,7 +52,7 @@ StateMain::~StateMain() {}
 
 void StateMain::procAnim() {
     const Param& param = obj().param().goliathEnergyBall();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mFrame < custom.getScaleUpFrame()) {
         mFrame++;
     }
@@ -59,13 +63,13 @@ void StateMain::procAnim() {
             const ScaleRateDesc& prev = T_SCALE_RATE_DESC[i - 1];
             const ScaleRateDesc& next = T_SCALE_RATE_DESC[i];
             f32 t = (rate - prev.mRate) / (next.mRate - prev.mRate);
-            scale = hel::math::Math::LinearInterpolation(
-                1.0f, param._0, hel::math::Math::LinearInterpolation(prev.mValue, next.mValue, t)
+            scale = Math::LinearInterpolation(
+                1.0f, param._0, Math::LinearInterpolation(prev.mValue, next.mValue, t)
             );
             break;
         }
     }
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * scale);
+    obj().model().setScale(Vector3::ALL_ONE * scale);
     if (mFrame == static_cast<u32>(T_SCALE_RATE_DESC[1].mRate * static_cast<f32>(custom.getScaleUpFrame()))
         || mFrame == static_cast<u32>(T_SCALE_RATE_DESC[3].mRate * static_cast<f32>(custom.getScaleUpFrame()))) {
         obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(5));
@@ -78,7 +82,7 @@ void StateMain::procAnim() {
 
 void StateMain::procMove() {
     const Param& param = obj().param().goliathEnergyBall();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mFrame < custom.getScaleUpFrame()) {
         f32 rate = static_cast<f32>(mFrame) / static_cast<f32>(custom.getScaleUpFrame());
         f32 offset = 0.0f;
@@ -87,13 +91,13 @@ void StateMain::procMove() {
                 const ScaleRateDesc& prev = T_SCALE_RATE_DESC[i - 1];
                 const ScaleRateDesc& next = T_SCALE_RATE_DESC[i];
                 f32 t = (rate - prev.mRate) / (next.mRate - prev.mRate);
-                offset = hel::math::Math::LinearInterpolation(
-                    0.0f, param._0, hel::math::Math::LinearInterpolation(prev.mValue, next.mValue, t)
+                offset = Math::LinearInterpolation(
+                    0.0f, param._0, Math::LinearInterpolation(prev.mValue, next.mValue, t)
                 );
                 break;
             }
         }
-        hel::math::Vector3 pos = mStartPos;
+        Vector3 pos = mStartPos;
         pos.y += offset;
         obj().location().setPos(pos);
     }

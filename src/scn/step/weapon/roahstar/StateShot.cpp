@@ -12,6 +12,9 @@
 #include "scn/step/weapon/roahstar/Custom.h"
 #include "scn/step/weapon/roahstar/Param.h"
 
+using hel::common::DynamicCast;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -21,7 +24,7 @@ StateShot::StateShot(Weapon* weapon) : StateBase(weapon), _8(0) {
     const Param& param = obj().param().roahStar();
     obj().setVisibility(true);
     if (Utility::IsExtra(obj())) {
-        obj().model().setBaseScale(hel::math::Vector3::ALL_ONE * param._10);
+        obj().model().setBaseScale(Vector3::ALL_ONE * param._10);
     }
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x1F5));
     if (Utility::IsExtra(obj())) {
@@ -42,7 +45,7 @@ void StateShot::procMove() {
 
 void StateShot::procFixPos() {
     if (obj().isVisible() && Utility::CheckShootingCulling(obj())) {
-        hel::common::DynamicCast<Custom*, ICustom>(obj().custom())->setInvisible();
+        DynamicCast<Custom*, ICustom>(obj().custom())->setInvisible();
     }
 }
 

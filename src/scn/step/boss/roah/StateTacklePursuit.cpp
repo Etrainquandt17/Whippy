@@ -22,6 +22,10 @@
 #include "scn/step/sfx/ScreenFade.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -29,7 +33,7 @@ namespace roah {
 
 StateTacklePursuit::StateTacklePursuit(Boss* boss, Config config, StateTackle::Config tackleConfig)
     : StateBase(boss), mFadeEndCount(0), mCount(0), mConfig(config), mTackleConfig(tackleConfig) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(21);
     f32 x = obj().location().pos().x;
     if (obj().comp().mainCamera().getCenter().x < x) {
@@ -75,9 +79,9 @@ void StateTacklePursuit::procMove() {
     const Param& param = obj().param().roah();
     f32 heroY = Utility::GetHatedHeroPos(obj()).y;
     f32 diff = heroY - obj().location().pos().y;
-    if (obj().comp().screenFade().isEnd() && hel::math::Math::Abs(diff) > param.mPursuitMargin) {
+    if (obj().comp().screenFade().isEnd() && Math::Abs(diff) > param.mPursuitMargin) {
         bool isUp = heroY > obj().location().pos().y;
-        hel::math::Vector3 dir = hel::math::Vector3::BASIS_Y * (isUp ? 1.0f : -1.0f);
+        Vector3 dir = Vector3::BASIS_Y * (isUp ? 1.0f : -1.0f);
         obj().move().accel(dir, mConfig._4);
     } else {
         obj().move().decel(gobj::MoveParamDecel::Create(mConfig._4._8));

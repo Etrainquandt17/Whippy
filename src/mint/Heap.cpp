@@ -10,6 +10,9 @@
 #include "std/tr1/reference_wrapper.h"
 #include "xdata/XData.h"
 
+using hel::common::ExplicitSingleton;
+using hel::common::FixedStringIN;
+
 // TODO: xdata/XData.h does not define these yet; this unit expands them.
 namespace xdata {
 
@@ -65,12 +68,12 @@ Heap::Heap(mintvm::MintSetting& setting)
     : mParam("mint/Heap")
     , mMap()
     , mSetting(setting)
-    , mHeap(hel::common::ExplicitSingleton<mem::Memory>::object_->sceneHeap(), 0x100000, "Mint")
+    , mHeap(ExplicitSingleton<mem::Memory>::object_->sceneHeap(), 0x100000, "Mint")
     , mUnits(mHeap.obj()) {
     const HeapParam* param = static_cast<const HeapParam*>(mParam.xdata().dataHeadAddress());
     for (u32 i = 0; i < param->count; i++) {
         const HeapParam::Unit& unit = param->units[i];
-        mUnits.add(hel::common::FixedStringIN<char, 32>::FromFormat("MNT%s", mParam.str(unit.name) + 4), std::tr1::ref(mHeap.obj()),
+        mUnits.add(FixedStringIN<char, 32>::FromFormat("MNT%s", mParam.str(unit.name) + 4), std::tr1::ref(mHeap.obj()),
                    unit.blockSize, unit.blockCount, 4);
     }
     t_heapPtr = this;

@@ -13,6 +13,8 @@
 #include "scn/step/enemy/liepa/StateFlyAttack.h"
 #include "scn/step/enemy/liepa/StateMoveAttack.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -21,7 +23,7 @@ namespace liepa {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom());
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom());
 }
 
 void t_SetNextState_Fly() {

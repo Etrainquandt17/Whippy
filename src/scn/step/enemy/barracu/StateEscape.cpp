@@ -16,6 +16,8 @@
 #include "scn/step/enemy/barracu/StatePursuit.h"
 #include "scn/step/enemy/barracu/StateSwimStraight.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -31,7 +33,7 @@ StateEscape::~StateEscape() {
 }
 
 void StateEscape::procMove() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.x += obj().target().getSign() * obj().param().barracu().mEscapeSpeed;
     obj().location().setPos(pos);
     if (++mFrame >= obj().param().barracu().mEscapeFrame) {

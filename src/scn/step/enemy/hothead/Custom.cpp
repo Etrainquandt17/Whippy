@@ -27,6 +27,13 @@
 #include "scn/step/enemy/hothead/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -67,7 +74,7 @@ void Custom::onCaptured() {
 }
 
 void Custom::setupSuperEnemyEffect() {
-    hel::math::Vector3 center = obj().location().toCenter();
+    Vector3 center = obj().location().toCenter();
     obj().effect().super().requestN(static_cast<effect::Kind>(0x132), 0, center);
     obj().effect().super().requestN(static_cast<effect::Kind>(0x190), 4);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x191), 2);
@@ -76,15 +83,15 @@ void Custom::setupSuperEnemyEffect() {
 bool Custom::isPlayerPosNear() {
     f32 playerX = Utility::GetNearestPlayerPos(obj()).x;
     f32 diff = playerX - obj().location().pos().x;
-    if (hel::math::Math::AbsF32(diff) <= obj().param().hothead().mNearDist) {
+    if (Math::AbsF32(diff) <= obj().param().hothead().mNearDist) {
         return true;
     }
     return false;
 }
 
 bool Custom::isInViewRect() {
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    Vector2 pos = obj().location().pos().getXY();
     if (rect._8 <= pos.x && pos.x <= rect._C && rect._4 <= pos.y && pos.y <= rect._0) {
         return true;
     }
@@ -103,8 +110,8 @@ int Custom::setAfterAttackFrame() {
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

@@ -52,14 +52,18 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
-StateMoveFar::StateMoveFar(Boss* boss, u32 frame, const hel::math::Vector3& pos)
+StateMoveFar::StateMoveFar(Boss* boss, u32 frame, const Vector3& pos)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(boss->location().pos()), mGoalPos(pos) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     obj().target().setIsRightDir(false);
     obj().model().rotCtrl().setRotHTarget(0.0f);
@@ -78,8 +82,8 @@ void StateMoveFar::procAnim() {
 
 void StateMoveFar::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
     obj().location().setPos(pos);
 }
 

@@ -17,6 +17,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/ninjawaveshot/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -41,7 +45,7 @@ StateMain::~StateMain() {}
 void StateMain::procAnim() {
     obj().objColl().clearAttack();
     if (mCount == 0) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.y += param(obj())._10;
         obj().effect().normal().requestP(static_cast<effect::Kind>(0x497), pos);
         setAttack();
@@ -64,7 +68,7 @@ void StateMain::procFixPos() {}
 
 void StateMain::procObjCollReact() {
     if (!obj().objColl().attack().isCollide() && !obj().objColl().attack().isCollideGimmick() && obj().mapColl().isHit()) {
-        if (hel::math::Math::Abs(obj().mapColl().normal().x) > 0.75f) {
+        if (Math::Abs(obj().mapColl().normal().x) > 0.75f) {
             obj().dead();
         }
     }
@@ -75,7 +79,7 @@ void StateMain::setAttack() {
     f32 x = obj().target().getSign();
     x *= param(obj())._4;
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xDC));
-    obj().objColl().addAttack(0, param(obj())._C, hel::math::Vector2(x, 0.0f), hel::math::Vector2(x, param(obj())._8));
+    obj().objColl().addAttack(0, param(obj())._C, Vector2(x, 0.0f), Vector2(x, param(obj())._8));
 }
 
 }}}}  // namespace scn::step::weapon::ninjawaveshot

@@ -53,20 +53,23 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
 StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(boss->param().hrd3()._4C) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().setVisibility(false);
     custom.shadowCtrl().setVisibility(false);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
 }
 
 StateFirst::~StateFirst() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().setVisibility(true);
     custom.shadowCtrl().setVisibility(true);
 }
@@ -77,7 +80,7 @@ void StateFirst::procAnim() {
             u32 num = obj().comp().bossManager().getBossCount();
             bool isExist = false;
             for (u32 i = 0; i < num; i++) {
-                util::ObjRefHandle<Boss> boss = obj().comp().bossManager().getBossByIndex(i);
+                ObjRefHandle<Boss> boss = obj().comp().bossManager().getBossByIndex(i);
                 if (boss.operator->() != 0 && boss->kind() == static_cast<map::BinBossKind>(0xB)) {
                     isExist = true;
                 }

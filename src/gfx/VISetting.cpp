@@ -5,6 +5,8 @@
 #include "revolution/sc.h"
 #include "revolution/vi.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace gfx {
 
 namespace {
@@ -203,8 +205,8 @@ void VISetting::set(u32 renderModeNo) {
     if (renderModeNo == RENDER_MODE_RECOMMEND) {
         renderModeNo = recommendRenderModeNo();
     }
-    if (hel::common::ExplicitSingleton<RenderSetting>::IsExist()) {
-        if (hel::common::ExplicitSingleton<RenderSetting>::object_->mType == RenderSetting::TYPE_AA) {
+    if (ExplicitSingleton<RenderSetting>::IsExist()) {
+        if (ExplicitSingleton<RenderSetting>::object_->mType == RenderSetting::TYPE_AA) {
             switch (renderModeNo) {
             case 0:
                 renderModeNo = 1;

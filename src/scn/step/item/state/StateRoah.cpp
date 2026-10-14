@@ -13,6 +13,10 @@
 #include "scn/step/item/Param.h"
 #include "scn/step/item/RotAnim.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -33,22 +37,22 @@ StateRoah::StateRoah(Item* item)
         f32 range = 0.5f * param._114;
         switch (obj().subKind()) {
         case 0:
-            mTargetY += range * app::Random::RandNF() + range;
+            mTargetY += range * Random::RandNF() + range;
             break;
         case 1:
         case 4:
-            mTargetY += range * app::Random::RandNF();
+            mTargetY += range * Random::RandNF();
             break;
         case 2:
-            mTargetY -= range * app::Random::RandNF() + range;
+            mTargetY -= range * Random::RandNF() + range;
             break;
         case 3:
         case 5:
-            mTargetY -= range * app::Random::RandNF();
+            mTargetY -= range * Random::RandNF();
             break;
         }
     } else {
-        mTargetY += param._114 * app::Random::RandAF();
+        mTargetY += param._114 * Random::RandAF();
     }
 }
 
@@ -62,12 +66,12 @@ void StateRoah::procMove() {
     const Param& param = obj().param();
     if (mFrame <= param._118) {
         f32 t = static_cast<f32>(mFrame) / static_cast<f32>(param._118);
-        f32 rate = hel::math::Math::SinDegF(90.0f * t);
+        f32 rate = Math::SinDegF(90.0f * t);
         f32 y = rate * (mTargetY - mStartY) + mStartY;
         obj().move().setSpeedV(y - obj().location().pos().y);
     }
     obj().move().accel(
-        hel::math::Vector3::BASIS_X * -1.0f, gobj::MoveParamAccel::Create(param._11C, param._120, param._124));
+        Vector3::BASIS_X * -1.0f, gobj::MoveParamAccel::Create(param._11C, param._120, param._124));
 }
 
 void StateRoah::procFixPos() {}

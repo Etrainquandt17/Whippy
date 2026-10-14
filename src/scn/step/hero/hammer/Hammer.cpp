@@ -19,6 +19,8 @@
 #include "scn/step/hero/hammer/StateUnderAttack.h"
 #include "scn/step/hero/hammer/StateWaterSpin.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -36,8 +38,8 @@ Hammer::~Hammer() {
 }
 
 void Hammer::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/hammer/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/hammer/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0x11, motion);
     mHero.model().hat().set(modeldesc::Hammer::HatPath());

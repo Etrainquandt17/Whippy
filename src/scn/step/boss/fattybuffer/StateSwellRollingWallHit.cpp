@@ -43,6 +43,11 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -50,18 +55,18 @@ namespace fattybuffer {
 
 StateSwellRollingWallHit::StateSwellRollingWallHit(Boss* boss) : StateBase(boss) {
     const Param& param = obj().param().fattybuffer();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x19);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_8);
     obj().move().resetSpeedH();
-    hel::math::Vector2 pos(param._10C.x * obj().target().getSign(), param._10C.y);
-    hel::math::Vector2 speed(param._114.x * -obj().target().getSign(), param._114.y);
+    Vector2 pos(param._10C.x * obj().target().getSign(), param._10C.y);
+    Vector2 speed(param._114.x * -obj().target().getSign(), param._114.y);
     pos.scale(obj().model().getTotalScale().getXY());
     Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarPuff);
-    hel::math::Vector3 effectPos = obj().model().model().nodes().at(2).worldTrans();
+    Vector3 effectPos = obj().model().model().nodes().at(2).worldTrans();
     obj().effect().state().requestPD(static_cast<effect::Kind>(0x13F), effectPos,
-                                     obj().target().isRightDir() ? hel::math::Direction3::FRONT_TO_RIGHT : hel::math::Direction3::FRONT_TO_LEFT);
+                                     obj().target().isRightDir() ? Direction3::FRONT_TO_RIGHT : Direction3::FRONT_TO_LEFT);
     obj().comp().cameraController().reqQuake(static_cast<camera::QuakeKind>(7));
     custom.stalactiteCtrl().fall();
 }

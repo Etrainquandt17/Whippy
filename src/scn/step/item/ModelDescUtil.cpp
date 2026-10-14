@@ -1,5 +1,7 @@
 #include "scn/step/item/ModelDescUtil.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -24,8 +26,8 @@ void ModelDescUtil::Set(chara::ModelDesc& desc, gobj::AnimDesc& animDesc, gobj::
                         const gobj::ScriptDesc::Entry* scriptEntries) {
     static const char* NODE_NAMES[] = { "TopL" };
     desc._0 = reinterpret_cast<u32>(path);
-    *reinterpret_cast<hel::common::FixedString<24>*>(&desc.mModel._0[0]) = hel::common::FixedString<24>(name);
-    desc.mModel._18 = hel::common::FixedString<40>(topNodeName);
+    *reinterpret_cast<FixedString<24>*>(&desc.mModel._0[0]) = FixedString<24>(name);
+    desc.mModel._18 = FixedString<40>(topNodeName);
     reinterpret_cast<bool*>(&desc.mModel._44[2])[0] = false;
     desc.mModel._44[0] = 0x100;
     reinterpret_cast<bool*>(&desc.mModel._44[2])[1] = false;

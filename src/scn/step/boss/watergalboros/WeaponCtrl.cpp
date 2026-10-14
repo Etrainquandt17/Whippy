@@ -49,6 +49,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -78,8 +80,8 @@ void WeaponCtrl::request() {
     const Param& param = mBoss.param().watergalboros();
     while (!isReqBuffEmpty()) {
         ReqData data = popReqData();
-        hel::math::Vector2 pos = mBoss.location().pos().getXY();
-        hel::math::Vector2 speed(data._4);
+        Vector2 pos = mBoss.location().pos().getXY();
+        Vector2 speed(data._4);
         speed.x *= mBoss.target().getSign();
         switch (data._0) {
         case 0:
@@ -96,7 +98,7 @@ void WeaponCtrl::request() {
     }
 }
 
-void WeaponCtrl::requestBase(weapon::Kind kind, hel::math::Vector2 pos, hel::math::Vector2 speed, u32 variation) {
+void WeaponCtrl::requestBase(weapon::Kind kind, Vector2 pos, Vector2 speed, u32 variation) {
     weapon::Desc desc(kind, variation, static_cast<ostop::Flag>(8), pos, speed, mBoss.objColl().owner());
     mBoss.comp().weaponManager().request(desc);
 }

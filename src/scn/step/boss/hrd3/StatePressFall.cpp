@@ -53,6 +53,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -61,7 +65,7 @@ namespace hrd3 {
 StatePressFall::StatePressFall(Boss* boss, u32 boundCount)
     : StateBase(boss), mCount(0), mFrame(boss->param().hrd3()._A8), mBoundCount(boundCount),
       mStartPos(boss->location().pos()), mGoalY(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mStartPos.z = 0.0f;
     mGoalY = custom.landCtrl().getFloorY();
     obj().model().reqScript(0x13);
@@ -81,9 +85,9 @@ void StatePressFall::procAnim() {
 
 void StatePressFall::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = 1.0f - hel::math::Math::CosDegF(90.0f * t);
-    hel::math::Vector3 pos = mStartPos;
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalY, rate);
+    f32 rate = 1.0f - Math::CosDegF(90.0f * t);
+    Vector3 pos = mStartPos;
+    pos.y = Math::LinearInterpolation(mStartPos.y, mGoalY, rate);
     obj().location().setPos(pos);
 }
 

@@ -25,6 +25,8 @@
 #include "scn/step/enemy/searches/StateAttack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,7 +38,7 @@ StateFly::StateFly(Enemy* enemy) : StateBase(enemy) {
 }
 
 void StateFly::procAnim() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInArea()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInArea()) {
         obj().stateChanger().setNextState<StateAttack, Enemy*>(objPtr());
     }
 }

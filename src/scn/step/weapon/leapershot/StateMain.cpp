@@ -17,6 +17,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/leapershot/Param.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -28,8 +30,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon) {
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x1A9));
     obj().objColl().addAttack(0, param._0);
     obj().objColl().addHit(0, param._4);
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, -0.7f, 0.0f));
-    hel::math::Vector3 velocity = obj().move().velocity();
+    obj().model().setViewOffset(Vector3(0.0f, -0.7f, 0.0f));
+    Vector3 velocity = obj().move().velocity();
     velocity.normalize();
     velocity *= param._8;
     obj().move().setVelocity(velocity);

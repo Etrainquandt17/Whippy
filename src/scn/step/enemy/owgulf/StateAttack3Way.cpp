@@ -29,6 +29,10 @@
 #include "scn/step/enemy/owgulf/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -55,9 +59,9 @@ void StateAttack3Way::procAnim() {
 }
 
 void StateAttack3Way::shot(f32 angle) {
-    f32 sin = hel::math::Math::SinDegF(angle);
-    f32 cos = hel::math::Math::CosDegF(angle);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).shot(obj().location().pos() + hel::math::Vector3(0.0f, 0.5f, 0.0f), hel::math::Vector3(cos * obj().target().getSign(), -sin, 0.0f) * obj().param().owgulf().m3WaySpeed,
+    f32 sin = Math::SinDegF(angle);
+    f32 cos = Math::CosDegF(angle);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).shot(obj().location().pos() + Vector3(0.0f, 0.5f, 0.0f), Vector3(cos * obj().target().getSign(), -sin, 0.0f) * obj().param().owgulf().m3WaySpeed,
         static_cast<weapon::owgulffeather::VariationKind>(1));
 }
 

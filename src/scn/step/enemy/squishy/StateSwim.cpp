@@ -25,6 +25,9 @@
 #include "scn/step/enemy/squishy/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -59,7 +62,7 @@ void StateSwim::procMove() {
     f32 frame = obj().model().anim().frame();
     if (param.mSwimAccelStartFrame <= frame && frame < param.mSwimAccelEndFrame) {
         obj().model().anim().setFrameRate(param.mSwimFrameRate);
-        obj().move().accel(hel::math::Vector3::BASIS_Y, param.mSwimAccel);
+        obj().move().accel(Vector3::BASIS_Y, param.mSwimAccel);
     } else {
         obj().model().anim().setFrameRate(1.0f);
         obj().move().decel(param.mSwimDecel);
@@ -67,7 +70,7 @@ void StateSwim::procMove() {
 }
 
 void StateSwim::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!custom.isInWater(false)) {
         obj().effect().normal().release();
         obj().move().resetSpeedV();

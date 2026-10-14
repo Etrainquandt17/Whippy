@@ -25,13 +25,15 @@
 #include "scn/step/enemy/sisterbound/StateJump.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace sisterbound {
 
 StateJumpStart::StateJumpStart(Enemy* enemy) : StateBase(enemy), mFrame(0) {
-    mSpeedH = hel::math::Math::AbsF32(obj().move().velocity().x);
+    mSpeedH = Math::AbsF32(obj().move().velocity().x);
     obj().footState().setGround();
     obj().model().reqScript(8);
 }

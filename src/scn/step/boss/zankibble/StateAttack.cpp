@@ -24,6 +24,13 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "util/ObjList.h"
 
+using g3d::NodeAccessor;
+using g3d::NodeLocalMtxAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -36,8 +43,8 @@ StateAttack::StateAttack(Boss* boss, Config config) : StateBase(boss), mConfig(c
 }
 
 StateAttack::~StateAttack() {
-    g3d::NodeAccessor node = obj().model().model().nodes().at(NODE_KIND_CUTTER);
-    node.localMtx().setScale(hel::math::Vector3(1.0f, 1.0f, 1.0f));
+    NodeAccessor node = obj().model().model().nodes().at(NODE_KIND_CUTTER);
+    node.localMtx().setScale(Vector3(1.0f, 1.0f, 1.0f));
 }
 
 void StateAttack::procAnim() {
@@ -64,10 +71,10 @@ void StateAttack::procAnim() {
             mCount++;
         }
         f32 rate = static_cast<f32>(mCount) / static_cast<f32>(param.mCutterScaleTime);
-        f32 scale = hel::math::Math::LinearInterpolation(param.mCutterScaleStart, param.mCutterScaleEnd, rate);
-        g3d::NodeAccessor node = obj().model().model().nodes().at(NODE_KIND_CUTTER);
-        g3d::NodeLocalMtxAccessor mtx = node.localMtx();
-        mtx.setScale(hel::math::Vector3(scale, scale, scale));
+        f32 scale = Math::LinearInterpolation(param.mCutterScaleStart, param.mCutterScaleEnd, rate);
+        NodeAccessor node = obj().model().model().nodes().at(NODE_KIND_CUTTER);
+        NodeLocalMtxAccessor mtx = node.localMtx();
+        mtx.setScale(Vector3(scale, scale, scale));
     }
     if (obj().model().isAllEnd()) {
         switch (mConfig._0) {
@@ -96,28 +103,28 @@ void StateAttack::procFixPos() {
 
 void StateAttack::reqCutterStraight() {
     const Param& param = obj().param().zankibble();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mCutterStraightOffset.x * obj().target().getSign(), param.mCutterStraightOffset.y);
-    hel::math::Vector3 velocity(mConfig._4.x * obj().target().getSign(), mConfig._4.y, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mCutterStraightOffset.x * obj().target().getSign(), param.mCutterStraightOffset.y);
+    Vector3 velocity(mConfig._4.x * obj().target().getSign(), mConfig._4.y, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(EnemyCtrl::CUTTER_KIND_STRAIGHT, pos, velocity, false);
 }
 
 void StateAttack::reqCutterCircle() {
     const Param& param = obj().param().zankibble();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mCutterCircleOffset.x * obj().target().getSign(), param.mCutterCircleOffset.y);
-    hel::math::Vector3 velocity(mConfig._4.x * obj().target().getSign(), mConfig._4.y, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mCutterCircleOffset.x * obj().target().getSign(), param.mCutterCircleOffset.y);
+    Vector3 velocity(mConfig._4.x * obj().target().getSign(), mConfig._4.y, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(EnemyCtrl::CUTTER_KIND_CIRCLE, pos, velocity, mConfig._C);
 }
 
 void StateAttack::reqCutterBackCircle() {
     const Param& param = obj().param().zankibble();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mCutterBackCircleOffset.x * obj().target().getSign(), param.mCutterBackCircleOffset.y);
-    hel::math::Vector3 velocity(mConfig._4.x * obj().target().getSign(), mConfig._4.y, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mCutterBackCircleOffset.x * obj().target().getSign(), param.mCutterBackCircleOffset.y);
+    Vector3 velocity(mConfig._4.x * obj().target().getSign(), mConfig._4.y, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(EnemyCtrl::CUTTER_KIND_BACK_CIRCLE, pos, velocity, false);
 }
 

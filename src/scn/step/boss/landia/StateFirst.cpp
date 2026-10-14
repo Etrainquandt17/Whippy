@@ -27,6 +27,11 @@
 #include "scn/step/info/Manager.h"
 #include "scn/step/sfx/ScreenFade.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -36,7 +41,7 @@ namespace {
 
 // TODO: stand-ins. The original reads the two members at once into temporaries ranked in text order, as it does for
 // const value parameters of an inline function.
-inline void t_Trans(hel::geo::Rect& rect, const f32 x, const f32 y) {
+inline void t_Trans(Rect& rect, const f32 x, const f32 y) {
     rect.trans(x, y);
 }
 
@@ -48,17 +53,17 @@ inline void t_StartBossDemoMode(hero::BossDemoCtrl& ctrl, const f32 left, const 
 
 StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(0), mZoomId(0) {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().invincible().setPermNoFlash();
     custom.waftCtrl().setWaveDefault();
     obj().guard().setType(static_cast<GuardType>(6));
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
-    hel::math::Vector3 pos = obj().basePos().toVector3() + hel::math::Vector3(param._138);
+    Vector3 pos = obj().basePos().toVector3() + Vector3(param._138);
     custom.waftCtrl().setRefPos(pos);
     if (obj().level() == 0) {
         {
             f32 width = param._34 * obj().comp().mainCamera().getAspect();
-            hel::geo::Rect rect(param._34 + param._30, param._30, -0.5f * width + param._38, 0.5f * width + param._38);
+            Rect rect(param._34 + param._30, param._30, -0.5f * width + param._38, 0.5f * width + param._38);
             // TODO: the original keeps this y in f30, not f31; everything else is the same.
             t_Trans(rect, obj().basePos().x, obj().basePos().y);
             obj().comp().cameraController().setLock(rect);
@@ -67,7 +72,7 @@ StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(0), mZoomId(0) {
             obj().comp().cameraController().setCameraHeightMax(param._34);
         }
         if (Utility::IsStagingFirstAppear(obj())) {
-            hel::math::Vector2 pos = obj().basePos();
+            Vector2 pos = obj().basePos();
             pos.x += param._138.x;
             pos.y += param._144 + param._148;
             mZoomId = obj().comp().cameraController().setZoom(pos, param._14C, 1.0f);

@@ -1,5 +1,8 @@
 #include "scn/step/weapon/CustomBase.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -22,8 +25,8 @@ void CustomBase::onDead() {}
 
 void CustomBase::reqCustomDeadEffect() {}
 
-const hel::common::RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<CustomBase>();
+const RuntimeTypeInfo& CustomBase::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<CustomBase>();
 }
 
 }}}  // namespace scn::step::weapon

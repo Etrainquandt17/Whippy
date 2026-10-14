@@ -4,6 +4,8 @@
 #include "hel/math/Vector2.h"
 #include "scn/step/boss/Boss.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -40,7 +42,7 @@ f32 LandCtrl::getAdjustX(f32 x, f32 left, f32 right, bool isRight) const {
     if (max <= min) {
         return center;
     }
-    return hel::math::Math::LimitMinMax(x, min, max);
+    return Math::LimitMinMax(x, min, max);
 }
 
 }}}}  // namespace scn::step::boss::hrd3

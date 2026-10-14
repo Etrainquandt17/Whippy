@@ -11,13 +11,15 @@
 #include "scn/step/enemy/common/ParamData.h"
 #include "scn/step/enemy/common/StateLanding.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace kabu {
 
 StateFall::StateFall(Enemy* enemy) : StateBase(enemy) {
-    mSpeed = hel::math::Math::Abs(obj().move().velocity().x);
+    mSpeed = Math::Abs(obj().move().velocity().x);
     obj().footState().setAir();
 }
 

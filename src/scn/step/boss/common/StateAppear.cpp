@@ -24,6 +24,10 @@
 #include "scn/step/hero/Manager.h"
 #include "snd/SERequestor.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -32,11 +36,11 @@ namespace common {
 StateAppear::StateAppear(Boss* boss) : StateBase(boss), mZoomID(0), mCount(0) {
     obj().model().setVisibility(false);
     obj().objColl().bodyColl().setStateXlu();
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 heroPos = obj().comp().heroManager().getMainPlayerPos();
+    Vector3 pos = obj().location().pos();
+    Vector3 heroPos = obj().comp().heroManager().getMainPlayerPos();
     if (!Utility::IsVariationBossRush(obj())) {
         f32 sign = pos.x - heroPos.x < 0.0f ? -1 : 1;
-        hel::math::Vector2 offs = obj().custom()->getFirstOffs();
+        Vector2 offs = obj().custom()->getFirstOffs();
         offs.x *= sign;
         pos += offs.toVector3();
         obj().location().setPos(pos);
@@ -68,7 +72,7 @@ void StateAppear::procAnim() {
             if (canZoom()) {
                 mZoomID = obj().comp().cameraController().setZoom(obj().location().pos().getXY(), 7.5f);
             }
-            hel::math::Vector3 pos = obj().location().pos();
+            Vector3 pos = obj().location().pos();
             pos.y += 1.25f;
             obj().effect().fore().requestP(static_cast<effect::Kind>(0x122), pos);
             obj().soundSE().normal().start(0x5AF);
@@ -129,13 +133,13 @@ bool StateAppear::canZoom() {
     }
     u32 count;
     {
-        hel::geo::Rect rect = obj().comp().cameraController().getLockRectTarget();
+        Rect rect = obj().comp().cameraController().getLockRectTarget();
         rect.margeUnion(obj().comp().mainCamera().getViewRect());
         count = obj().comp().carryItemManager().countExistObjInRect(rect);
     }
     u32 zoomCount;
     {
-        hel::geo::Rect rect = obj().comp().cameraController().getZoomTargetRect(obj().location().pos().getXY(), 7.5f);
+        Rect rect = obj().comp().cameraController().getZoomTargetRect(obj().location().pos().getXY(), 7.5f);
         zoomCount = obj().comp().carryItemManager().countExistObjInRect(rect);
     }
     return count == zoomCount;

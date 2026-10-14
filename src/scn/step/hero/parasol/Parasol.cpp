@@ -21,6 +21,8 @@
 #include "scn/step/hero/parasol/StateParasolWaterDive.h"
 #include "scn/step/hero/parasol/StateParasolWaterDrill.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -40,8 +42,8 @@ Parasol::~Parasol() {
 }
 
 void Parasol::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/parasol/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/parasol/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0xB, motion);
     mHero.model().weapon().set(modeldesc::Parasol::ParasolPath(), modeldesc::Parasol::ParasolModel());

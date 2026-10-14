@@ -9,6 +9,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/landiastar/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,15 +28,15 @@ bool Custom::onInit() {
     return false;
 }
 
-void Custom::reqStart(hel::math::Vector2 pos, hel::math::Vector2 velocity, Variation variation) {
+void Custom::reqStart(Vector2 pos, Vector2 velocity, Variation variation) {
     obj().location().setPos(pos.toVector3());
     obj().move().setVelocity(velocity.toVector3());
     obj().model().updateMtx();
     obj().stateChanger().setNextState<StateMain, Weapon*, Variation>(&obj(), variation);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::landiastar

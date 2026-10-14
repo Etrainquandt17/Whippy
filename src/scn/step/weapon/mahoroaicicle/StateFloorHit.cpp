@@ -12,6 +12,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -22,7 +24,7 @@ StateFloorHit::StateFloorHit(Weapon* weapon) : StateBase(weapon), mWait(20) {
     obj().model().shake().request(static_cast<chara::ShakeKind>(3));
     obj().soundSE().start(0x42A);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x40C), 0);
-    obj().model().setViewOffset(hel::math::Vector3(0.0f, -0.5f, 0.0f));
+    obj().model().setViewOffset(Vector3(0.0f, -0.5f, 0.0f));
 }
 
 StateFloorHit::~StateFloorHit() {

@@ -27,6 +27,11 @@
 #include "scn/step/map/LandManager.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -49,16 +54,16 @@ void Custom::onCaptured() {
 
 void Custom::onProcFixPos() {
     if (mIsBuried) {
-        if (hel::math::Math::AbsF32(obj().nururi().getNururiDir().x) >= 1.0f
-            || !obj().comp().mapLandManager().native().isExistLand(hel::math::Vector2(static_cast<f32>(mX), static_cast<f32>(mY)))
+        if (Math::AbsF32(obj().nururi().getNururiDir().x) >= 1.0f
+            || !obj().comp().mapLandManager().native().isExistLand(Vector2(static_cast<f32>(mX), static_cast<f32>(mY)))
             || obj().mapColl().result().isHitWall()) {
             mIsBuried = false;
         }
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

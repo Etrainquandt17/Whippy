@@ -3,13 +3,15 @@
 #include "hel/common/PointerWrapper.h"
 #include "scn/step/chara/Shake.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace chara {
 
 namespace {
 
-hel::common::PointerWrapper<Shake> t_obj;
+PointerWrapper<Shake> t_obj;
 
 }
 

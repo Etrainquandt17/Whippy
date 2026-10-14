@@ -56,13 +56,16 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateBarrierAttack::StateBarrierAttack(Boss* boss) : StateBase(boss), mCount(0), mIsStarted(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().model().reqScript(0x26);
     obj().model().rotCtrl().setRotHTarget(0.0f);
@@ -71,14 +74,14 @@ StateBarrierAttack::StateBarrierAttack(Boss* boss) : StateBase(boss), mCount(0),
 }
 
 StateBarrierAttack::~StateBarrierAttack() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().resetBarrierAngle();
     custom.enemyCtrl().resetBarrierRadius();
     custom.enemyCtrl().resetBarrierRotSpeed();
 }
 
 void StateBarrierAttack::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mIsStarted) {
         if (mCount < 120) {
             mCount++;
@@ -91,9 +94,9 @@ void StateBarrierAttack::procAnim() {
         mIsStarted = true;
     }
     f32 t = static_cast<f32>(mCount) / 120.0f;
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    f32 wave = hel::math::Math::SinDegF(360.0f * rate);
-    f32 radius = 1.5f * (1.0f - hel::math::Math::SinDegF(180.0f * rate)) + 3.5f * (hel::math::Math::SinDegF(90.0f * rate) * hel::math::Math::AbsF32(wave));
+    f32 rate = Math::SinDegF(90.0f * t);
+    f32 wave = Math::SinDegF(360.0f * rate);
+    f32 radius = 1.5f * (1.0f - Math::SinDegF(180.0f * rate)) + 3.5f * (Math::SinDegF(90.0f * rate) * Math::AbsF32(wave));
     custom.enemyCtrl().setBarrierRadius(radius);
 }
 

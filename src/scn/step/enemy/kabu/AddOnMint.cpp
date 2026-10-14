@@ -11,6 +11,8 @@
 #include "scn/step/enemy/kabu/StateMove.h"
 #include "scn/step/enemy/kabu/StateMoveAround.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ void t_SetNextState_GrandLowperEscape() {
 }
 
 int t_Custom_setJumpWaitTime() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setJumpWaitTime();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setJumpWaitTime();
 }
 
 }

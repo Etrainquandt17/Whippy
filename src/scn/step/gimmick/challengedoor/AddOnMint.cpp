@@ -13,6 +13,10 @@
 #include "util/ObjList.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 // TODO: these belong in the headers of their units, which do not exist yet.
 namespace scn {
 namespace step {
@@ -38,7 +42,7 @@ class Item;
 
 class Desc {
 public:
-    Desc(map::BinItemKind kind, u32, bool, map::BinItemVariation variation, const hel::math::Vector2& pos);
+    Desc(map::BinItemKind kind, u32, bool, map::BinItemVariation variation, const Vector2& pos);
 
 private:
     u32 _0[0xC];
@@ -46,7 +50,7 @@ private:
 
 class Manager {
 public:
-    util::ObjRefHandle<Item> request(const Desc& desc);
+    ObjRefHandle<Item> request(const Desc& desc);
 };
 
 }
@@ -55,12 +59,12 @@ namespace core {
 
 class PermEffectDetail {
 public:
-    void requestP(effect::Kind kind, const hel::math::Vector3& pos);
+    void requestP(effect::Kind kind, const Vector3& pos);
 };
 
 class PermEffect {
 public:
-    void requestP(effect::Kind kind, const hel::math::Vector3& pos) { mDetail.requestP(kind, pos); }
+    void requestP(effect::Kind kind, const Vector3& pos) { mDetail.requestP(kind, pos); }
 
 private:
     u32 _0[2];
@@ -118,7 +122,7 @@ void t_RequestItem() {
             kind = map::BIN_ITEM_KIND_F;
             break;
         }
-        hel::math::Vector2 offs(obj.pos());
+        Vector2 offs(obj.pos());
         offs.y += 3.0f;
         obj.component().itemManager().request(item::Desc(kind, 0, false, map::BIN_ITEM_VARIATION_9, offs));
         core::PermEffect& effect = obj.component().permEffect();

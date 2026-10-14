@@ -18,6 +18,9 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -54,9 +57,9 @@ void StateJumpCenterAttack::procMove() {
         return;
     }
     if (obj().model().anim().currentG3DAnimIndex() == 12) {
-        f32 rate = hel::math::Math::SinDegF(90.0f * (obj().model().anim().frame() / obj().model().anim().totalFrame()));
-        hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(mStartPos, mCenter, rate);
-        pos.y += param.mJumpCenterHeight * hel::math::Math::SinDegF(180.0f * rate);
+        f32 rate = Math::SinDegF(90.0f * (obj().model().anim().frame() / obj().model().anim().totalFrame()));
+        Vector2 pos = Math::LinearInterpolation(mStartPos, mCenter, rate);
+        pos.y += param.mJumpCenterHeight * Math::SinDegF(180.0f * rate);
         obj().location().setPos(pos.toVector3());
     } else {
         obj().move().resetVelocity();

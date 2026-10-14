@@ -25,6 +25,9 @@
 #include "scn/step/enemy/pierce/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,7 +45,7 @@ StateFlySinCurve::~StateFlySinCurve() {}
 
 void StateFlySinCurve::procAnim() {
     const ParamData& param = obj().param().pierce();
-    bool isInArea = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea();
+    bool isInArea = DynamicCastToRef<Custom, ICustom>(obj().custom()).isPlayerInAimArea();
     u32 index = obj().model().anim().currentG3DAnimIndex();
     if (isInArea && !mIsAttack) {
         obj().model().reqScript(9);
@@ -79,7 +82,7 @@ void StateFlySinCurve::procMove() {
         if (mAngle >= 360.0f) {
             mAngle -= 360.0f;
         }
-        f32 speedV = param.mSinSpeedV * hel::math::Math::CosDegF(mAngle);
+        f32 speedV = param.mSinSpeedV * Math::CosDegF(mAngle);
         obj().move().setSpeedV(speedV);
         obj().move().setSpeedH(mSpeedH);
     } else {

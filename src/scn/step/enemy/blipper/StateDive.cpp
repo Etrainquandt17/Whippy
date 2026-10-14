@@ -15,6 +15,10 @@
 #include "scn/step/enemy/Param.h"
 #include "scn/step/enemy/blipper/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -37,7 +41,7 @@ void StateDive::procAnim() {
 
 void StateDive::procMove() {
     const ParamData& param = obj().param().blipper();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     if (mDir < 0.0f || ++mFrame >= param.mDiveTurnFrame) {
         mSpeedV += param.mDiveAccel * mDir;
     }
@@ -53,18 +57,18 @@ void StateDive::procMove() {
 void StateDive::procFixPos() {
     if (obj().mapColl().result().mIsHitFloor) {
         mSpeedV = 0.0f;
-        mDir = hel::math::Math::Abs(mDir);
+        mDir = Math::Abs(mDir);
     } else if (obj().mapColl().result().mIsHitRoof) {
         mSpeedV = 0.0f;
-        mDir = -hel::math::Math::Abs(mDir);
+        mDir = -Math::Abs(mDir);
     } else if (mDir < 0.0f &&
-               obj().water().isPosInWater(hel::math::Vector2(0.0f, obj().param().blipper().mDiveWaterCheckY))) {
+               obj().water().isPosInWater(Vector2(0.0f, obj().param().blipper().mDiveWaterCheckY))) {
         mSpeedV = 0.0f;
-        mDir = hel::math::Math::Abs(mDir);
+        mDir = Math::Abs(mDir);
     }
-    hel::math::Vector3 dir = obj().location().pos() - obj().location().prevPos();
+    Vector3 dir = obj().location().pos() - obj().location().prevPos();
     if (dir.isZeroLoose(0.001f)) {
-        dir = hel::math::Vector3(0.0f, 0.0f, 0.0f);
+        dir = Vector3(0.0f, 0.0f, 0.0f);
     } else {
         dir.normalize();
     }

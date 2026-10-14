@@ -14,6 +14,11 @@
 #include "scn/step/chara/Model.h"
 #include "std/min.h"
 
+using app::Locale;
+using app::Random;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,19 +64,19 @@ DamageInfoCtrl::DamageInfoCtrl(Boss& boss) : mBoss(boss) {}
 void DamageInfoCtrl::set(u32 damage) {
     const Param& param = mBoss.param().metalgeneral();
     u32 value = std::min<u32>(damage, configTable[5].mDamageMax);
-    hel::math::Vector3 pos = mBoss.model().model().nodes().at(5).worldTrans() + hel::math::Vector3(param._2E8);
-    hel::math::Vector2 offset = hel::math::Vector2::ALL_ONE;
-    offset.x *= app::Random::RandF(-param.mDamageInfoRandX, param.mDamageInfoRandX);
-    offset.y *= app::Random::RandF(-param.mDamageInfoRandY, param.mDamageInfoRandY);
+    Vector3 pos = mBoss.model().model().nodes().at(5).worldTrans() + Vector3(param._2E8);
+    Vector2 offset = Vector2::ALL_ONE;
+    offset.x *= Random::RandF(-param.mDamageInfoRandX, param.mDamageInfoRandX);
+    offset.y *= Random::RandF(-param.mDamageInfoRandY, param.mDamageInfoRandY);
     pos += offset.toVector3();
     f32 scale = t_scale(value);
-    scale += app::Random::RandF(-param.mDamageInfoRandScale, param.mDamageInfoRandScale);
-    u32 number = value * 10 + app::Random::Rand(-param.mDamageInfoRandNumber, param.mDamageInfoRandNumber - 1);
+    scale += Random::RandF(-param.mDamageInfoRandScale, param.mDamageInfoRandScale);
+    u32 number = value * 10 + Random::Rand(-param.mDamageInfoRandNumber, param.mDamageInfoRandNumber - 1);
     if (number >= 1000) {
 #ifdef VERSION_SUKK01
         u32 digit = number / 1000;
-        if (app::Locale::GetRegion() == 2) {
-            switch (app::Locale::GetLanguage()) {
+        if (Locale::GetRegion() == 2) {
+            switch (Locale::GetLanguage()) {
             case 1:
                 requestAddCommaDigit4(digit, pos, scale);
                 break;
@@ -97,9 +102,9 @@ void DamageInfoCtrl::set(u32 damage) {
     request(number % 10, 1, pos, scale);
 }
 
-void DamageInfoCtrl::request(u32 digit, u32 place, hel::math::Vector3 pos, f32 scale) {
+void DamageInfoCtrl::request(u32 digit, u32 place, Vector3 pos, f32 scale) {
     const Param& param = mBoss.param().metalgeneral();
-    hel::math::Vector3 effectPos = pos;
+    Vector3 effectPos = pos;
     for (u32 i = 1; i < place; i++) {
         effectPos.x -= param.mDamageInfoDigitWidth * scale;
     }
@@ -107,9 +112,9 @@ void DamageInfoCtrl::request(u32 digit, u32 place, hel::math::Vector3 pos, f32 s
 }
 
 #ifdef VERSION_SUKK01
-void DamageInfoCtrl::requestAddSpaceDigit4(u32 digit, hel::math::Vector3 pos, f32 scale) {
+void DamageInfoCtrl::requestAddSpaceDigit4(u32 digit, Vector3 pos, f32 scale) {
     const Param& param = mBoss.param().metalgeneral();
-    hel::math::Vector3 effectPos = pos;
+    Vector3 effectPos = pos;
     for (u32 i = 0; i < 3; i++) {
         effectPos.x -= param.mDamageInfoDigitWidth * scale;
     }
@@ -117,9 +122,9 @@ void DamageInfoCtrl::requestAddSpaceDigit4(u32 digit, hel::math::Vector3 pos, f3
     mBoss.effect().fore().requestP(EffectName[digit], effectPos, scale);
 }
 
-void DamageInfoCtrl::requestAddCommaDigit4(u32 digit, hel::math::Vector3 pos, f32 scale) {
+void DamageInfoCtrl::requestAddCommaDigit4(u32 digit, Vector3 pos, f32 scale) {
     const Param& param = mBoss.param().metalgeneral();
-    hel::math::Vector3 effectPos = pos;
+    Vector3 effectPos = pos;
     for (u32 i = 0; i < 2; i++) {
         effectPos.x -= param.mDamageInfoDigitWidth * scale;
     }

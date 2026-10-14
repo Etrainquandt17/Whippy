@@ -26,6 +26,8 @@
 #include "scn/step/enemy/flamer/StateChase.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ bool BrainAttack::onStart() {
 }
 
 bool BrainAttack::onRecover() {
-    if (!hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isAttackEnd()) {
+    if (!DynamicCastToRef<Custom, ICustom>(obj().custom()).isAttackEnd()) {
         obj().stateChanger().setNextState<StateChase, Enemy*>(&obj());
     } else {
         obj().stateChanger().setNextState<StateAgony, Enemy*>(&obj());

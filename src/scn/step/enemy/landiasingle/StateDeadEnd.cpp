@@ -23,6 +23,8 @@
 #include "scn/step/enemy/landiasingle/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -32,7 +34,7 @@ StateDeadEnd::StateDeadEnd(Enemy* enemy) : StateBase(enemy) {
     const ParamData& param = obj().param().landiasingle();
     obj().model().reqScript(0x15);
     obj().move().resetVelocity();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y -= param.mDeadEndOffsetY;
     obj().location().setPos(pos);
     obj().soundSE().start(0x47d);

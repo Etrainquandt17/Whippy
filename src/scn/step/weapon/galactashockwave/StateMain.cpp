@@ -18,6 +18,9 @@
 #include "scn/step/weapon/galactashockwave/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::geo::Rect;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -27,7 +30,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(false) {
     const Param& param = obj().param().galactaShockWave();
     obj().target().setIsRightDir(obj().move().velocity().x > 0.0f);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x21F));
-    hel::math::Vector2 center(param._4 * obj().target().getSign(), param._8);
+    Vector2 center(param._4 * obj().target().getSign(), param._8);
     obj().objColl().addAttack(0, param._0, center);
     obj().objColl().setAttackCenter(0, center);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x44C), 0, param._C);
@@ -42,8 +45,8 @@ void StateMain::procMove() {
 
 void StateMain::procFixPos() {
     if (!_C) {
-        hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-        hel::math::Vector2 pos = obj().location().pos().getXY();
+        Rect rect = obj().comp().mainCamera().getViewRect();
+        Vector2 pos = obj().location().pos().getXY();
         if (!rect.isInclude(pos.x, pos.y)) {
             reqStar();
         }
@@ -56,8 +59,8 @@ void StateMain::procFixPos() {
 void StateMain::reqStar() {
     _C = true;
     f32 sign = obj().target().getSign();
-    hel::math::Vector2 offset(-0.5f * sign, 0.0f);
-    hel::math::Vector2 velocity(-0.02f * sign, 0.19f);
+    Vector2 offset(-0.5f * sign, 0.0f);
+    Vector2 velocity(-0.02f * sign, 0.19f);
     Utility::GenerateStarEffect(obj(), offset, velocity, static_cast<map::BinEnemyVariation>(0x19B));
 }
 

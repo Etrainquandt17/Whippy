@@ -6,6 +6,8 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/ObjColl.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -13,8 +15,8 @@ namespace whispy {
 
 CaptureCtrl::CaptureCtrl(Boss& boss) : mBoss(boss), mAttacker(boss.comp(), boss.objColl().searchHit()) {
     const Param& param = mBoss.param().whispy();
-    hel::math::Vector3 pos = mBoss.location().pos();
-    pos += hel::math::Vector3(param.mCaptureOffset);
+    Vector3 pos = mBoss.location().pos();
+    pos += Vector3(param.mCaptureOffset);
     mAttacker.setConstraintPos(pos);
 }
 

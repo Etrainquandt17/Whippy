@@ -52,6 +52,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,7 +62,7 @@ namespace galactaknight {
 
 StateGiantTornado::StateGiantTornado(Boss* boss, u32 frame, f32 speed)
     : StateBase(boss), mFrame(frame), mCount(0), mSpeed(speed) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x1D);
     obj().guard().setType(static_cast<GuardType>(2));
@@ -94,16 +97,16 @@ void StateGiantTornado::procFixPos() {}
 
 void StateGiantTornado::reqTornado() {
     const Param& param = obj().param().galactaknight();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     pos.x += 0.5f * obj().target().getSign();
     weapon::Desc desc(static_cast<weapon::Kind>(0x84), 0, static_cast<ostop::Flag>(8), pos,
-                      hel::math::Vector2(mSpeed * obj().target().getSign(), 0.0f), obj().objColl().owner());
+                      Vector2(mSpeed * obj().target().getSign(), 0.0f), obj().objColl().owner());
     obj().comp().weaponManager().request(desc);
-    hel::math::Vector2 starPosR = param._14;
-    hel::math::Vector2 starPosL = starPosR;
+    Vector2 starPosR = param._14;
+    Vector2 starPosL = starPosR;
     starPosR.x += 0.3f;
     starPosL.x -= 0.3f;
-    hel::math::Vector2 speed = param._24;
+    Vector2 speed = param._24;
     starPosR.x *= obj().target().getSign();
     starPosL.x *= -obj().target().getSign();
     speed.x *= obj().target().getSign();

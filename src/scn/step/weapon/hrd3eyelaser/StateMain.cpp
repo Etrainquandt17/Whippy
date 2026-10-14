@@ -15,6 +15,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/hrd3eyelaser/Custom.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,7 +28,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mBoss(), mLength(0.0f)
     obj().mapColl().setValid(false);
     obj().model().rotCtrl().setValid(false);
     obj().model().reqScript(0);
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * 0.1f);
+    obj().model().setScale(Vector3::ALL_ONE * 0.1f);
 }
 
 StateMain::~StateMain() {
@@ -32,7 +36,7 @@ StateMain::~StateMain() {
 }
 
 void StateMain::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 scale = obj().model().getTotalScale().x;
     f32 max = custom.getLengthMax() / scale;
     mLength += 30.0f;
@@ -44,7 +48,7 @@ void StateMain::procAnim() {
         }
     }
     obj().model().model().nodes().at(2).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, 0.0f, mLength))
+        Matrix34::CreateTrans(Vector3(0.0f, 0.0f, mLength))
     );
 }
 

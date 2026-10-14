@@ -29,6 +29,8 @@
 #include "scn/step/enemy/sirkibble/StateJump.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -45,7 +47,7 @@ StateWait::~StateWait() {}
 
 void StateWait::procAnim() {
     mFrame++;
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().signal().isValid()) {
         if (obj().signal().get() == 1) {
             obj().stateChanger().setNextState<StateCatch, Enemy*>(objPtr());

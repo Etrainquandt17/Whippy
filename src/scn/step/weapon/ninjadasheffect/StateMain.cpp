@@ -14,6 +14,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/ninjadasheffect/Param.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -25,7 +28,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mWait(0), mFrame(0), m
     obj().model().rotCtrl().setValid(false);
     obj().setValidAttackRumble(true);
     if (obj().variation() == 1) {
-        obj().effect().normal().requestND(static_cast<effect::Kind>(0x496), 0, obj().target().getDirection3(), hel::math::Vector3::BASIS_Y * param._14);
+        obj().effect().normal().requestND(static_cast<effect::Kind>(0x496), 0, obj().target().getDirection3(), Vector3::BASIS_Y * param._14);
     }
     switch (obj().variation()) {
     case 0:
@@ -55,9 +58,9 @@ void StateMain::procAnim() {
         if (mWait == 0) {
             const Param& param = obj().param().ninjaDashEffect();
             f32 sign = obj().target().getSign();
-            obj().objColl().setAttackCenter(0, hel::math::Vector2(sign * param._8, param._14));
+            obj().objColl().setAttackCenter(0, Vector2(sign * param._8, param._14));
             obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0xDD));
-            obj().objColl().addAttack(0, param._4, hel::math::Vector2(sign * param._C, param._14), hel::math::Vector2(sign * param._10, param._14));
+            obj().objColl().addAttack(0, param._4, Vector2(sign * param._C, param._14), Vector2(sign * param._10, param._14));
         }
     } else {
         mFrame++;

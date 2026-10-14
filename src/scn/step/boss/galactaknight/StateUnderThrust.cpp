@@ -53,6 +53,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -60,7 +65,7 @@ namespace galactaknight {
 
 StateUnderThrust::StateUnderThrust(Boss* boss)
     : StateBase(boss), mFrame(0), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mIsStart(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mGoalPos.x = mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     mFrame = (obj().location().pos().y - mGoalPos.y) / 0.4f;
@@ -86,7 +91,7 @@ void StateUnderThrust::procAnim() {
 void StateUnderThrust::procMove() {
     if (mIsStart) {
         f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-        hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
+        Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
         obj().location().setPos(pos);
     }
 }
@@ -95,8 +100,8 @@ void StateUnderThrust::procFixPos() {}
 
 void StateUnderThrust::changeStateLanding() {
     const Param& param = obj().param().galactaknight();
-    hel::math::Vector2 pos = param._14;
-    hel::math::Vector2 speed = param._24;
+    Vector2 pos = param._14;
+    Vector2 speed = param._24;
     pos.x *= obj().target().getSign();
     speed.x *= obj().target().getSign();
     Utility::GenerateStarEffect(obj(), pos, speed, static_cast<map::BinEnemyVariation>(0x19B));

@@ -13,6 +13,8 @@
 #include "snd/SERequestor.h"
 #include "util/StateChanger.h"
 
+using hel::common::DynamicCast;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -35,7 +37,7 @@ StateMain::~StateMain() {
 }
 
 void StateMain::procAnim() {
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
     if (obj().model().isAllEnd()) {
         obj().model().reqScript(1);
         custom->reqChild();

@@ -25,13 +25,15 @@
 #include "scn/step/enemy/flamer/StateMove.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace flamer {
 
 BrainMove::BrainMove(Enemy& enemy) : BrainBase(enemy) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsMove(true);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsMove(true);
 }
 
 bool BrainMove::onStart() {
@@ -44,7 +46,7 @@ bool BrainMove::onStart() {
 }
 
 bool BrainMove::onRecover() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsMove(false);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setIsMove(false);
     return false;
 }
 

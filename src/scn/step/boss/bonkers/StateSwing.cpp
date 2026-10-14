@@ -16,6 +16,8 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -27,12 +29,12 @@ StateSwing::StateSwing(Boss* boss) : StateBase(boss), mIsMove(false), mCount(0) 
 }
 
 StateSwing::~StateSwing() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setBodyCollDefault();
 }
 
 void StateSwing::procAnim() {
     const Param& param = obj().param().bonkers();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount < param.mSwingTime) {
         if (mIsMove) {
             mCount++;

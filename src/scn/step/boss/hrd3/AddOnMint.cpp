@@ -26,6 +26,9 @@
 #include "scn/step/boss/hrd3/StateSwingArmFar.h"
 #include "scn/step/boss/hrd3/StateWaitFar.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -37,7 +40,7 @@ namespace hrd3 {
 namespace {
 
 Custom& t_custom() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
+    return DynamicCastToRef<Custom, ICustom>(MintBoss::Obj().custom());
 }
 
 void t_SetNextState_Punch() {
@@ -81,13 +84,13 @@ void t_SetNextState_WaitFar() {
 }
 
 void t_SetNextState_MoveCenterFar(int time, f32 y, f32 z) {
-    hel::math::Vector3 pos(t_custom().landCtrl().getCenterX(), y + t_custom().landCtrl().getFloorY(), z);
-    MintBoss::Obj().stateChanger().setNextState<StateMoveFar, Boss*, u32, hel::math::Vector3>(&MintBoss::Obj(), time, pos);
+    Vector3 pos(t_custom().landCtrl().getCenterX(), y + t_custom().landCtrl().getFloorY(), z);
+    MintBoss::Obj().stateChanger().setNextState<StateMoveFar, Boss*, u32, Vector3>(&MintBoss::Obj(), time, pos);
 }
 
 void t_SetNextState_FallFar(int time, f32 y, f32 z) {
-    hel::math::Vector3 pos(t_custom().landCtrl().getCenterX(), y + t_custom().landCtrl().getFloorY(), z);
-    MintBoss::Obj().stateChanger().setNextState<StateFallFar, Boss*, u32, hel::math::Vector3>(&MintBoss::Obj(), time, pos);
+    Vector3 pos(t_custom().landCtrl().getCenterX(), y + t_custom().landCtrl().getFloorY(), z);
+    MintBoss::Obj().stateChanger().setNextState<StateFallFar, Boss*, u32, Vector3>(&MintBoss::Obj(), time, pos);
 }
 
 void t_SetNextState_PunchFar() {

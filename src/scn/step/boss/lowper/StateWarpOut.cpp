@@ -57,23 +57,28 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
-StateWarpOut::StateWarpOut(Boss* boss, const hel::math::Vector3& pos) : StateBase(boss), mCount(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+StateWarpOut::StateWarpOut(Boss* boss, const Vector3& pos) : StateBase(boss), mCount(0) {
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().reqScript(0x19);
-    hel::geo::Rect rect = obj().comp().mainCamera().getViewRect();
-    f32 width = hel::math::Math::AbsF32(rect._C - rect._8);
-    hel::math::Vector3 offset = pos;
-    offset.x = hel::math::Math::Limit(offset.x, 0.5f * width - 1.5f);
+    Rect rect = obj().comp().mainCamera().getViewRect();
+    f32 width = Math::AbsF32(rect._C - rect._8);
+    Vector3 offset = pos;
+    offset.x = Math::Limit(offset.x, 0.5f * width - 1.5f);
     custom.waftMoveCtrl().setCenter(obj().basePos().toVector3() + offset);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
-    obj().model().setScale(hel::math::Vector3(0.01f, 2.0f, 0.01f));
+    obj().model().setScale(Vector3(0.01f, 2.0f, 0.01f));
     obj().location().setPos(obj().basePos().toVector3() + offset);
     f32 baseX = obj().basePos().x;
     obj().target().setIsRightDir(obj().location().pos().x < baseX);
@@ -94,7 +99,7 @@ void StateWarpOut::procAnim() {
         }
     }
     f32 t = static_cast<f32>(mCount) / 40.0f;
-    hel::math::Vector3 scale(t, (1.0f - t) * (1.0f - t) + 1.0f, t);
+    Vector3 scale(t, (1.0f - t) * (1.0f - t) + 1.0f, t);
     obj().model().setScale(scale);
 }
 

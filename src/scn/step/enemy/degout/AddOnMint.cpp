@@ -8,6 +8,8 @@
 #include "scn/step/enemy/degout/Custom.h"
 #include "scn/step/enemy/degout/StateChase.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,7 +22,7 @@ void t_SetNextState_Chase() {
 }
 
 bool t_Custom_IsChaseFlag() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isChaseFlag();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isChaseFlag();
 }
 
 }

@@ -7,6 +7,8 @@
 #include "scn/step/enemy/MintEnemy.h"
 #include "scn/step/enemy/mahoroamagicball/Custom.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -15,7 +17,7 @@ namespace mahoroamagicball {
 namespace {
 
 bool t_Custom_IsPhase2nd() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPhase2nd();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPhase2nd();
 }
 
 }

@@ -10,6 +10,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -23,7 +25,7 @@ StateChewing::~StateChewing() {}
 
 void StateChewing::procAnim() {
     const Param& param = obj().param().whispy();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().scriptTrigger().get(0)) {
         u32 damage = mIsFirst ? param.mChewingDamageFirst : param.mChewingDamage;
         custom.captureCtrl().setDamage(damage);

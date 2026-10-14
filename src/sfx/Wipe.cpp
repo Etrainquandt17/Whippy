@@ -3,6 +3,8 @@
 #include "hel/math/Vector2.h"
 #include "metafortress.h"
 
+using hel::math::Vector2;
+
 namespace sfx {
 
 Wipe::Wipe()
@@ -36,7 +38,7 @@ bool Wipe::isNeedToDraw() const {
     return mModel.isExistModel();
 }
 
-void Wipe::setLayoutPos(const hel::math::Vector2& pos) {
+void Wipe::setLayoutPos(const Vector2& pos) {
     mModel.setLayoutPos(pos);
 }
 

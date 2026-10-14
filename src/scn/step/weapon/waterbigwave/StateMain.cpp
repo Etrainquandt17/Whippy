@@ -23,6 +23,12 @@
 #include "scn/step/weapon/waterbigwave/Param.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::NodeLocalMtxAccessor;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -63,10 +69,10 @@ void StateMain::procAnim() {
     mFrame++;
     if (mFrame == 1) {
         obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x7F));
-        obj().objColl().setAttackCenter(4, hel::math::Vector2(obj().target().getSign(), 0.0f));
-        obj().objColl().addAttack(2, param._8, hel::math::Vector2(param._C, param._10));
-        obj().objColl().addAttack(3, param._14, hel::math::Vector2(param._18, param._1C));
-        obj().objColl().addAttack(4, param._20, hel::math::Vector2(param._24, param._28));
+        obj().objColl().setAttackCenter(4, Vector2(obj().target().getSign(), 0.0f));
+        obj().objColl().addAttack(2, param._8, Vector2(param._C, param._10));
+        obj().objColl().addAttack(3, param._14, Vector2(param._18, param._1C));
+        obj().objColl().addAttack(4, param._20, Vector2(param._24, param._28));
     }
     if (mFrame > 180) {
         obj().effect().normal().requestP(static_cast<effect::Kind>(0x574), obj().location().pos());
@@ -79,11 +85,11 @@ void StateMain::procMove() {}
 
 void StateMain::procConstraint() {
     {
-        util::ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().objColl().owner().rootUid());
+        ObjRefHandle<hero::Hero> hero = obj().comp().heroManager().searchHeroFromObjCollOwnerID(obj().objColl().owner().rootUid());
         const hero::Hero& owner = *hero.operator->();
-        hel::math::Vector3 heroPos = owner.location().pos();
-        hel::math::Vector3 nodePos = obj().model().model().nodes().at(1).worldTrans();
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 heroPos = owner.location().pos();
+        Vector3 nodePos = obj().model().model().nodes().at(1).worldTrans();
+        Vector3 pos = obj().location().pos();
         obj().location().setPos(heroPos - nodePos + pos);
         obj().model().updateMtx();
     }
@@ -105,14 +111,14 @@ void StateMain::calcJoint() {
     u32 interval = param._0;
     u32 jointNum = param._4;
     for (u32 i = 0; i < jointNum; i++) {
-        hel::math::Vector3 jointPos = mPositions[interval * (jointNum - 1 - i)].toVector3();
-        hel::math::Vector3 diff = jointPos - obj().location().pos();
-        hel::math::Vector3 trans;
+        Vector3 jointPos = mPositions[interval * (jointNum - 1 - i)].toVector3();
+        Vector3 diff = jointPos - obj().location().pos();
+        Vector3 trans;
         f32 z = diff.x * obj().target().getSign();
         trans.y = diff.y;
         trans.z = z + static_cast<f32>(i + 1);
-        hel::math::Matrix34 mtx = hel::math::Matrix34::CreateTrans(trans);
-        g3d::NodeLocalMtxAccessor localMtx = obj().model().model().nodes().at(targetNodes[i]).localMtx();
+        Matrix34 mtx = Matrix34::CreateTrans(trans);
+        NodeLocalMtxAccessor localMtx = obj().model().model().nodes().at(targetNodes[i]).localMtx();
         localMtx.setRTMtx(mtx);
     }
 }

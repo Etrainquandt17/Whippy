@@ -4,6 +4,8 @@
 #include "hel/math/Vector3.h"
 #include "scn/step/boss/ModelDesc.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -132,7 +134,7 @@ chara::ModelDesc& Create(u32 level, bool isExtra) {
         "step/chara/enemy/Galactic", "step/chara/enemy/Galactic", "GalactaKnight", 3, T_NODE_NAMES, 55, T_ANIM_ENTRIES, 45,
         T_SCRIPT_ENTRIES
     );
-    desc._c = hel::math::Vector3(0.0f, 0.5f, 0.0f);
+    desc._c = Vector3(0.0f, 0.5f, 0.0f);
     return desc;
 }
 

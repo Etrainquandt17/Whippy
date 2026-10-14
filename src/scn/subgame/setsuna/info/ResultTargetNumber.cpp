@@ -5,6 +5,8 @@
 #include "metafortress.h"
 #include "util/StringFormat.h"
 
+using util::StringFormat;
+
 namespace scn {
 namespace subgame {
 namespace setsuna {
@@ -183,7 +185,7 @@ void ResultTargetNumber::open(u32 number, u32 last) {
         mLayout->play("FadeInLast");
     } else {
         char name[9];
-        util::StringFormat(name, sizeof(name), "FadeIn%02d", last);
+        StringFormat(name, sizeof(name), "FadeIn%02d", last);
         mLayout->play(name);
     }
 }

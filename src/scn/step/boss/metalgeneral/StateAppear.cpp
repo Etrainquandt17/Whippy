@@ -73,6 +73,9 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -82,14 +85,14 @@ namespace {
 
 // TODO: a stand-in, as in fattybuffer/StateFirst.cpp: the original reads the two members into temporaries ranked in
 // text order, as it does for const value parameters of an inline function.
-inline void t_Trans(hel::geo::Rect& rect, const f32 x, const f32 y) {
+inline void t_Trans(Rect& rect, const f32 x, const f32 y) {
     rect.trans(x, y);
 }
 
 }
 
 StateAppear::StateAppear(Boss* boss) : StateBase(boss), mIsWaitDemo(true), mIsStarted(false), mIsBgmStarted(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     Utility::TurnNearestHero(obj());
     if (!Utility::IsArena(obj())) {
@@ -130,7 +133,7 @@ void StateAppear::procAnim() {
         startBgm();
     }
     if (obj().model().isAllEnd()) {
-        hel::geo::Rect rect(param._88, param._8C, param._90, param._94);
+        Rect rect(param._88, param._8C, param._90, param._94);
         t_Trans(rect, obj().basePos().x, obj().basePos().y);
         obj().comp().cameraController().setLock(rect);
         obj().comp().cameraController().resetIntpRate();

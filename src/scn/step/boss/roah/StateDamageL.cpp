@@ -20,13 +20,15 @@
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/weapon/Manager.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(23);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
     obj().guard().setType(GUARD_TYPE_6);

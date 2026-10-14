@@ -32,6 +32,14 @@
 #include "scn/step/map/LandManager.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -76,7 +84,7 @@ StateMove::StateMove(Enemy* enemy)
     , _40(obj().param().aquarock()._38)
     , mShakeFrame(0)
     , mIsShake(false) {
-    f32 radius = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getRadius();
+    f32 radius = DynamicCastToRef<Custom, ICustom>(obj().custom()).getRadius();
     obj().model().rotCtrl().setValid(false);
     obj().footState().setAir();
     obj().vacuumReceiver().setIsValid(false);
@@ -86,19 +94,19 @@ StateMove::StateMove(Enemy* enemy)
     obj().objColl().bodyColl().setStateHitOnly();
     obj().objColl().clearAttack();
     obj().objColl().addAttack(0, 2, -0.3f + radius);
-    obj().objColl().setAttackCenter(2, hel::math::Vector2(0.0f, 0.0f));
+    obj().objColl().setAttackCenter(2, Vector2(0.0f, 0.0f));
     obj().objColl().setAttackType(0, static_cast<ocoll::AttackType>(0x23D));
-    f32 speed = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed();
+    f32 speed = DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed();
     f32 r = radius / 2.0f;
-    obj().objColl().addAttack(1, 2, r, hel::math::Vector2(0.0f, r + speed));
-    obj().objColl().addAttack(1, 2, r, hel::math::Vector2(0.0f, -r - speed));
-    obj().objColl().addAttack(1, 2, r, hel::math::Vector2(r + speed, 0.0f));
-    obj().objColl().addAttack(1, 2, r, hel::math::Vector2(-r - speed, 0.0f));
+    obj().objColl().addAttack(1, 2, r, Vector2(0.0f, r + speed));
+    obj().objColl().addAttack(1, 2, r, Vector2(0.0f, -r - speed));
+    obj().objColl().addAttack(1, 2, r, Vector2(r + speed, 0.0f));
+    obj().objColl().addAttack(1, 2, r, Vector2(-r - speed, 0.0f));
     obj().objColl().setAttackType(1, static_cast<ocoll::AttackType>(0x233));
     obj().mapColl().setValid(false);
-    mSpeed = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed();
-    mRotSpeed = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getAngleSpeed();
-    hel::math::Vector3 toCenter = hel::math::Vector3::BASIS_Y * radius - hel::math::Vector3(0.0f, 0.5f, 0.0f);
+    mSpeed = DynamicCastToRef<Custom, ICustom>(obj().custom()).getSpeed();
+    mRotSpeed = DynamicCastToRef<Custom, ICustom>(obj().custom()).getAngleSpeed();
+    Vector3 toCenter = Vector3::BASIS_Y * radius - Vector3(0.0f, 0.5f, 0.0f);
     obj().location().setToCenter(toCenter);
 }
 
@@ -129,8 +137,8 @@ void StateMove::procMove() {
     f32 rot = mfGetRotByDirType(mDirType);
     mPos = obj().location().pos();
     if (!mIsShake) {
-        mPos.x += mSpeed * hel::math::Math::SinDegF(rot);
-        mPos.y += mSpeed * hel::math::Math::CosDegF(rot);
+        mPos.x += mSpeed * Math::SinDegF(rot);
+        mPos.y += mSpeed * Math::CosDegF(rot);
     } else {
         mfShake();
         if (++mShakeFrame == obj().param().aquarock().mShakeFrame) {
@@ -144,19 +152,19 @@ void StateMove::procMove() {
 
 void StateMove::procFixPos() {
     f32 margin = obj().param().aquarock()._28;
-    hel::geo::Rect rect = obj().comp().mainCamera().getWorldRect();
+    Rect rect = obj().comp().mainCamera().getWorldRect();
     if (obj().location().pos().x < rect._8 - margin || obj().location().pos().x > rect._C + margin ||
         obj().location().pos().y > rect._0 + margin || obj().location().pos().y < rect._4 - 2.0f * margin) {
         obj().soundSEState().stop();
         obj().dead();
         return;
     }
-    hel::math::Vector2 center = obj().comp().mainCamera().getCenter();
+    Vector2 center = obj().comp().mainCamera().getCenter();
     f32 height = 0.5f * obj().param().aquarock()._20 + obj().param().aquarock()._24;
     f32 width =
         0.5f * obj().param().aquarock()._20 * obj().comp().mainCamera().getAspect() + obj().param().aquarock()._24;
-    hel::math::Vector2 diff = center - obj().location().centerPos().getXY();
-    if (height < hel::math::Math::AbsF32(diff.y) || width < hel::math::Math::AbsF32(diff.x)) {
+    Vector2 diff = center - obj().location().centerPos().getXY();
+    if (height < Math::AbsF32(diff.y) || width < Math::AbsF32(diff.x)) {
         if (!_c) {
             obj().soundSEState().stop();
             _c = true;
@@ -179,11 +187,11 @@ void StateMove::procFixPos() {
 }
 
 void StateMove::mfReqBubbleEffect() {
-    hel::math::Vector2 mapPos = obj().location().pos().getXY();
+    Vector2 mapPos = obj().location().pos().getXY();
     if (obj().comp().mapLandManager().native().isWaterGrid(mapPos)) {
         if (--_40 == 0) {
-            int rand = app::Random::Rand(3);
-            hel::math::Vector3 pos = obj().model().model().nodes().at(2).worldMtx().getT();
+            int rand = Random::Rand(3);
+            Vector3 pos = obj().model().model().nodes().at(2).worldMtx().getT();
             f32 rate;
             f32 rot = mfGetRotByDirType(mDirType);
             mfGetRotByDirType(mDirType);
@@ -211,19 +219,19 @@ void StateMove::mfReqBubbleEffect() {
             case 0xC3:
             case 0xE2:
             case 0xE5:
-                pos.x += -rate * hel::math::Math::SinDegF(rot) * obj().param().aquarock()._2c;
-                pos.y += -rate * hel::math::Math::CosDegF(rot) * obj().param().aquarock()._2c;
+                pos.x += -rate * Math::SinDegF(rot) * obj().param().aquarock()._2c;
+                pos.y += -rate * Math::CosDegF(rot) * obj().param().aquarock()._2c;
                 break;
             case 0xB2:
             case 0xC4:
             case 0xE3:
             case 0xE6:
-                pos.x += -rate * hel::math::Math::SinDegF(rot) * obj().param().aquarock()._30;
-                pos.y += -rate * hel::math::Math::CosDegF(rot) * obj().param().aquarock()._30;
+                pos.x += -rate * Math::SinDegF(rot) * obj().param().aquarock()._30;
+                pos.y += -rate * Math::CosDegF(rot) * obj().param().aquarock()._30;
                 break;
             default:
-                pos.x += -rate * hel::math::Math::SinDegF(rot) * obj().param().aquarock()._34;
-                pos.y += -rate * hel::math::Math::CosDegF(rot) * obj().param().aquarock()._34;
+                pos.x += -rate * Math::SinDegF(rot) * obj().param().aquarock()._34;
+                pos.y += -rate * Math::CosDegF(rot) * obj().param().aquarock()._34;
                 break;
             }
             obj().effect().state().requestP(static_cast<effect::Kind>(0x1FA), pos);
@@ -233,19 +241,19 @@ void StateMove::mfReqBubbleEffect() {
 }
 
 void StateMove::mfSetModelRotate() {
-    hel::math::Matrix34 mtx;
-    mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, 1.0f), mRot);
+    Matrix34 mtx;
+    mtx = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, 1.0f), mRot);
     obj().model().model().nodes().at(2).localMtx().setRTMtx(mtx);
     if (obj().kind() == 0x47) {
-        mtx = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, 1.0f), _34);
+        mtx = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, 1.0f), _34);
         obj().model().model().nodes().at(3).localMtx().setRTMtx(mtx);
     }
 }
 
 void StateMove::mfShake() {
-    f32 radius = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getRadius();
-    hel::math::Vector3 offset(0.0f, 0.0f, 0.0f);
-    switch (app::Random::Rand(5)) {
+    f32 radius = DynamicCastToRef<Custom, ICustom>(obj().custom()).getRadius();
+    Vector3 offset(0.0f, 0.0f, 0.0f);
+    switch (Random::Rand(5)) {
     case 0:
         offset.y += radius * obj().param().aquarock().mShakeRate;
         break;
@@ -324,13 +332,13 @@ f32 StateMove::mfGetRotByDirType(map::BinEnemyDirType dirType) {
     return rot;
 }
 
-map::BinEnemyDirType StateMove::mfNormalToDirType(hel::math::Vector2 normal) {
-    f32 rot = mfCheckRotate360(5.0f + hel::math::Math::Atan2DegF(-normal.x, normal.y));
+map::BinEnemyDirType StateMove::mfNormalToDirType(Vector2 normal) {
+    f32 rot = mfCheckRotate360(5.0f + Math::Atan2DegF(-normal.x, normal.y));
     return static_cast<map::BinEnemyDirType>(dirTypeMapTbl[static_cast<u32>(rot / 10.0f)]);
 }
 
-map::BinEnemyDirType StateMove::mfNormalToDirTypeNururi(hel::math::Vector2 normal) {
-    f32 rot = mfCheckRotate360(22.5f + hel::math::Math::Atan2DegF(-normal.x, normal.y));
+map::BinEnemyDirType StateMove::mfNormalToDirTypeNururi(Vector2 normal) {
+    f32 rot = mfCheckRotate360(22.5f + Math::Atan2DegF(-normal.x, normal.y));
     return static_cast<map::BinEnemyDirType>(dirTypeNururiTbl[static_cast<u32>(rot / 45.0f)]);
 }
 
@@ -350,30 +358,30 @@ f32 StateMove::mfNewRotDir(map::BinEnemyDirType from, map::BinEnemyDirType to) {
     return result;
 }
 
-StateMove::RayCheckData StateMove::mfGetRayCheckData(f32 angle, hel::math::Vector2 pos, f32 length) {
+StateMove::RayCheckData StateMove::mfGetRayCheckData(f32 angle, Vector2 pos, f32 length) {
     RayCheckData data;
     f32 rot = mfGetRotByDirType(mDirType);
-    hel::math::Vector2 dir(length * hel::math::Math::SinDegF(rot + angle), length * hel::math::Math::CosDegF(rot + angle));
-    hel::math::Vector2 back(length * hel::math::Math::SinDegF(180.0f + rot), length * hel::math::Math::CosDegF(180.0f + rot));
+    Vector2 dir(length * Math::SinDegF(rot + angle), length * Math::CosDegF(rot + angle));
+    Vector2 back(length * Math::SinDegF(180.0f + rot), length * Math::CosDegF(180.0f + rot));
     data._0 = pos + back;
     data._8 = dir - back;
     return data;
 }
 
-StateMove::RayCheckData StateMove::mfGetRayCheckData2(f32 angle, f32 angle2, hel::math::Vector2 pos, f32 length) {
+StateMove::RayCheckData StateMove::mfGetRayCheckData2(f32 angle, f32 angle2, Vector2 pos, f32 length) {
     RayCheckData data;
     f32 rot = mfGetRotByDirType(mDirType);
-    hel::math::Vector2 dir(length * hel::math::Math::SinDegF(rot + angle), length * hel::math::Math::CosDegF(rot + angle));
-    hel::math::Vector2 back(length * hel::math::Math::SinDegF(rot + angle2), length * hel::math::Math::CosDegF(rot + angle2));
+    Vector2 dir(length * Math::SinDegF(rot + angle), length * Math::CosDegF(rot + angle));
+    Vector2 back(length * Math::SinDegF(rot + angle2), length * Math::CosDegF(rot + angle2));
     data._0 = pos + back;
     data._8 = dir - back;
     return data;
 }
 
-StateMove::MapHitResult StateMove::mfMapCheckPoint(hel::math::Vector2 pos, hel::math::Vector2 dir) {
+StateMove::MapHitResult StateMove::mfMapCheckPoint(Vector2 pos, Vector2 dir) {
     MapHitResult result;
     result.mIsHit = false;
-    result._4 = hel::math::Vector2(0.0f, 0.0f);
+    result._4 = Vector2(0.0f, 0.0f);
     mcoll::detail::DetectArg arg;
     arg.setVelocity(dir);
     arg.setMoveRetryCountToZeroTime();
@@ -401,16 +409,16 @@ StateMove::MapHitResult StateMove::mfMapCheckPoint(hel::math::Vector2 pos, hel::
 StateMove::MapHitResult StateMove::mfNururiHitCheck() {
     MapHitResult result;
     result.mIsHit = false;
-    result._4 = hel::math::Vector2(0.0f, 0.0f);
+    result._4 = Vector2(0.0f, 0.0f);
     return result;
 }
 
 void StateMove::mfMapCheck() {
-    f32 radius = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getRadius();
-    hel::math::Vector2 pos = obj().model().model().nodes().at(2).worldMtx().getT().getXY();
+    f32 radius = DynamicCastToRef<Custom, ICustom>(obj().custom()).getRadius();
+    Vector2 pos = obj().model().model().nodes().at(2).worldMtx().getT().getXY();
     RayCheckData data;
     MapHitResult result;
-    hel::math::Vector2 normal(0.0f, 0.0f);
+    Vector2 normal(0.0f, 0.0f);
     bool isHit = false;
     data = mfGetRayCheckData(0.0f, pos, radius);
     result = mfMapCheckPoint(data._0, data._8);
@@ -456,7 +464,7 @@ void StateMove::mfMapCheck() {
     }
     if (isHit) {
         if (normal.isZeroLoose(0.00001f)) {
-            normal = hel::math::Vector2(0.0f, 0.0f);
+            normal = Vector2(0.0f, 0.0f);
             isHit = false;
         } else {
             normal.normalize();
@@ -466,7 +474,7 @@ void StateMove::mfMapCheck() {
     if (result.mIsHit) {
         normal += result._4;
         if (normal.isZeroLoose(0.00001f)) {
-            normal = hel::math::Vector2(0.0f, 0.0f);
+            normal = Vector2(0.0f, 0.0f);
             isHit = false;
             result.mIsHit = false;
         } else {
@@ -488,7 +496,7 @@ void StateMove::mfMapCheck() {
         }
         f32 rotDir = mfNewRotDir(mDirType, dirType);
         if (rotDir != 0.0f) {
-            mRotSpeed = rotDir * hel::math::Math::Abs(mRotSpeed);
+            mRotSpeed = rotDir * Math::Abs(mRotSpeed);
         }
         mDirType = mfNewDirType(mDirType, dirType);
     }

@@ -7,13 +7,15 @@
 #include "scn/step/sfx/SuperBackPicture.h"
 #include "types.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace sfx {
 
 namespace {
 
-hel::common::PointerWrapper<SuperBackPicture> t_obj;
+PointerWrapper<SuperBackPicture> t_obj;
 
 }
 

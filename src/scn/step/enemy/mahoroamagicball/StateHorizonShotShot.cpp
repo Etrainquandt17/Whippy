@@ -25,6 +25,8 @@
 #include "scn/step/enemy/Utility.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,7 +38,7 @@ StateHorizonShotShot::StateHorizonShotShot(Enemy* enemy) : StateBase(enemy) {
     f32 centerX = obj().comp().mainCamera().getCenter().x;
     obj().target().setIsRightDir(obj().location().pos().x < centerX);
     obj().model().reqScript(8);
-    obj().move().setVelocity(hel::math::Vector3(0.2f * obj().target().getSign(), 0.0f, 0.0f));
+    obj().move().setVelocity(Vector3(0.2f * obj().target().getSign(), 0.0f, 0.0f));
     obj().soundSE().start(0x436);
 }
 

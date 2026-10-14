@@ -4,12 +4,14 @@
 #include "scn/step/Component.h"
 #include "scn/step/camera/MainCamera.h"
 
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace camera {
 
 #define MF_FUNCTION setLock__Q43scn4step6camera16CameraControllerFRCQ33hel3geo4Rect
-void CameraController::setLock(const hel::geo::Rect& rect) {
+void CameraController::setLock(const Rect& rect) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;

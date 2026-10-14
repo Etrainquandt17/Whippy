@@ -14,6 +14,10 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -44,12 +48,12 @@ void StateCall::procFixPos() {}
 
 void StateCall::reqDubiorJr() {
     const Param& param = obj().param().dubior();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    hel::math::Vector2 pos1 = pos + hel::math::Vector2(param.mCallOffset.x * obj().target().getSign(), param.mCallOffset.y);
-    hel::math::Vector2 pos2 = pos + hel::math::Vector2(param.mCallOffset2.x * obj().target().getSign(), param.mCallOffset2.y);
-    hel::math::Vector2 space(param.mCallSpace * obj().target().getSign(), 0.0f);
-    hel::math::Vector3 velocity(0.0f, 0.0f, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos1 = pos + Vector2(param.mCallOffset.x * obj().target().getSign(), param.mCallOffset.y);
+    Vector2 pos2 = pos + Vector2(param.mCallOffset2.x * obj().target().getSign(), param.mCallOffset2.y);
+    Vector2 space(param.mCallSpace * obj().target().getSign(), 0.0f);
+    Vector3 velocity(0.0f, 0.0f, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     switch (mKind) {
     case 0:
         custom.enemyCtrl().request(static_cast<map::BinEnemyVariation>(0x159), pos1, velocity);

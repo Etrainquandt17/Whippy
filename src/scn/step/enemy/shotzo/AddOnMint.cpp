@@ -9,6 +9,8 @@
 #include "scn/step/enemy/shotzo/StateAim.h"
 #include "scn/step/enemy/shotzo/StateShot.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -17,11 +19,11 @@ namespace shotzo {
 namespace {
 
 bool t_Custom_IsPlayerInAimArea() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInAimArea();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInAimArea();
 }
 
 bool t_Custom_IsFixPos() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isFixPos();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isFixPos();
 }
 
 template <typename S>

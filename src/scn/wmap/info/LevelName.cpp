@@ -29,7 +29,13 @@ extern "C" u32 sphereGetCountAtLevel__Q27storage9StoryDataCFQ33scn4step9LevelKin
 extern "C" u32 SphereTotalNum__Q33scn4step13StageKindUtilFQ33scn4step9LevelKind(scn::step::LevelKind level);
 extern "C" void appearBlink__Q34info6common9WiiButtonFv(info::common::WiiButton* button);
 
+using app::Application;
+using app::Message;
+using hel::common::ExplicitSingleton;
 using hel::debug::Print;
+using hel::math::Matrix44;
+using hel::math::Vector2;
+using hel::math::Vector3;
 
 namespace scn {
 namespace wmap {
@@ -44,10 +50,10 @@ LevelName::LevelName(Component& component)
     , _1C(component.heap().obj())
     , _24(component.heap().obj())
     , _2C(component.heap().obj())
-    , _34(hel::math::Vector3::ZERO)
+    , _34(Vector3::ZERO)
     , _40(false)
     , mItemKind(static_cast<ItemKind>(11))
-    , _48(hel::math::Vector3::ZERO)
+    , _48(Vector3::ZERO)
     , _54(false)
     , _58(0)
     , _5C(false)
@@ -193,13 +199,13 @@ void LevelName::procAnim() {
     }
 }
 
-void LevelName::updateScreenPos(const hel::math::Matrix44& view) {
-    hel::math::Matrix44 proj = hel::math::Matrix44::CreatePerspective(40.0f, 1.7777778f, 0.1f, 1000.0f);
-    hel::math::Matrix44 viewCopy(view);
-    hel::math::Matrix44 viewProj = proj.mulMtx(viewCopy);
-    hel::math::Vector3 projected = viewProj.mulVec(_34);
-    hel::math::Vector2 screen(projected.x, projected.y);
-    hel::math::Vector2 pos(screen.x * lyt::Utility::ScreenHalfWidth(), screen.y * lyt::Utility::ScreenHalfHeight());
+void LevelName::updateScreenPos(const Matrix44& view) {
+    Matrix44 proj = Matrix44::CreatePerspective(40.0f, 1.7777778f, 0.1f, 1000.0f);
+    Matrix44 viewCopy(view);
+    Matrix44 viewProj = proj.mulMtx(viewCopy);
+    Vector3 projected = viewProj.mulVec(_34);
+    Vector2 screen(projected.x, projected.y);
+    Vector2 pos(screen.x * lyt::Utility::ScreenHalfWidth(), screen.y * lyt::Utility::ScreenHalfHeight());
     _4->rootPane().setTrans(pos.toVector3());
 }
 
@@ -212,13 +218,13 @@ void LevelName::draw() {
     _4->draw();
 }
 
-void LevelName::init(ItemKind item, const hel::math::Vector3& pos) {
+void LevelName::init(ItemKind item, const Vector3& pos) {
     mItemKind = item;
     _48 = pos;
     _40 = true;
 }
 
-void LevelName::setItem(ItemKind item, const hel::math::Vector3& pos) {
+void LevelName::setItem(ItemKind item, const Vector3& pos) {
     if (mItemKind != item) {
         mItemKind = item;
         _48 = pos;
@@ -486,7 +492,7 @@ void LevelName::mfStartLevel(step::LevelKind level, bool skip) {
 
     count = sphereGetCountAtLevel__Q27storage9StoryDataCFQ33scn4step9LevelKind(
         storyData__Q27storage14BackupFileDataFQ27storage9StoryMode(
-            &hel::common::ExplicitSingleton<app::Application>::object_->storageManager().selectedBackupFileData(), component.mStoryMode),
+            &ExplicitSingleton<Application>::object_->storageManager().selectedBackupFileData(), component.mStoryMode),
         level);
     total = SphereTotalNum__Q33scn4step13StageKindUtilFQ33scn4step9LevelKind(level);
     asm {
@@ -514,7 +520,7 @@ void LevelName::mfStartLevel(step::LevelKind level, bool skip) {
         _4->reflectFrameToAnim();
     }
     hash = 0x811C9E53;
-    _C->paneByName("MapName").setText(app::Message::TextWMap(Print::HelSPrintfImpl("Lv%uTitle", level + 1)));
+    _C->paneByName("MapName").setText(Message::TextWMap(Print::HelSPrintfImpl("Lv%uTitle", level + 1)));
     asm {
         bl      after3
         opword  MF_WORD(0x11C)
@@ -540,7 +546,7 @@ void LevelName::mfStartLevel(step::LevelKind level, bool skip) {
     _C->play(Print::HelSPrintfImpl("Lv%02d", level + 1));
     hash += hash << 13;
     hash ^= hash >> 7;
-    _C->paneByName("LevelInfo").setText(app::Message::TextWMap("LevelToEnter"));
+    _C->paneByName("LevelInfo").setText(Message::TextWMap("LevelToEnter"));
     hash += hash << 3;
     appearBlink__Q34info6common9WiiButtonFv(_2C.operator->());
     hash ^= hash >> 17;
@@ -598,22 +604,22 @@ void LevelName::mfStartShip(bool skip) {
         stw     r27, expected
     }
     hash += hash << 13;
-    _C->paneByName("ShipName").setText(app::Message::TextWMap("ShipTitle"));
+    _C->paneByName("ShipName").setText(Message::TextWMap("ShipTitle"));
     hash ^= hash >> 7;
     if (mfCanMoveToHalcandra()) {
         if (Util::GetMapKind(mItemKind) == MAP_KIND_0) {
-            _C->paneByName("ShipInfo01").setText(app::Message::TextWMap("ShipToHalcandra"));
+            _C->paneByName("ShipInfo01").setText(Message::TextWMap("ShipToHalcandra"));
         } else {
-            _C->paneByName("ShipInfo01").setText(app::Message::TextWMap("ShipToPopstar"));
+            _C->paneByName("ShipInfo01").setText(Message::TextWMap("ShipToPopstar"));
         }
-        _C->paneByName("ShipInfo02").setText(app::Message::TextWMap("ShipToEnter"));
+        _C->paneByName("ShipInfo02").setText(Message::TextWMap("ShipToEnter"));
         _C->paneByName("ShipInfo01N").setVisibility(true);
         _C->paneByName("ShipInfo02N").setVisibility(true);
         appearBlink__Q34info6common9WiiButtonFv(_14.operator->());
         appearBlink__Q34info6common9WiiButtonFv(_1C.operator->());
         _C->play("Ship");
     } else {
-        _C->paneByName("ShipInfo03").setText(app::Message::TextWMap("ShipToEnter"));
+        _C->paneByName("ShipInfo03").setText(Message::TextWMap("ShipToEnter"));
         _C->play("ShipBefoe");
         _C->paneByName("ShipInfo03N").setVisibility(true);
         appearBlink__Q34info6common9WiiButtonFv(_24.operator->());

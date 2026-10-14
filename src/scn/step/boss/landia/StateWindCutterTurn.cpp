@@ -18,13 +18,17 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 StateWindCutterTurn::StateWindCutterTurn(Boss* boss) : StateBase(boss), mCount(0), mTurnCount(0), mStartPos(), mGoalPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(10);
     custom.waftCtrl().setWaveWidthZero();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -55,16 +59,16 @@ void StateWindCutterTurn::procAnim() {
 
 void StateWindCutterTurn::procMove() {
     const Param& param = obj().param().landia();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mTurnCount) / static_cast<f32>(param.mWindCutterTurnFrame);
-    hel::math::Vector3 pos = hel::math::Vector3::ZERO;
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, hel::math::Math::SinDegF(90.0f * t));
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalPos.y, t);
-    pos.y += param.mWindCutterTurnSwingY * hel::math::Math::SinDegF(180.0f * t);
-    pos.z = hel::math::Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t);
-    f32 swing = hel::math::Math::SinDegF(180.0f * (1.5f * t + t * (-0.5f * t * t)));
+    Vector3 pos = Vector3::ZERO;
+    pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, Math::SinDegF(90.0f * t));
+    pos.y = Math::LinearInterpolation(mStartPos.y, mGoalPos.y, t);
+    pos.y += param.mWindCutterTurnSwingY * Math::SinDegF(180.0f * t);
+    pos.z = Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t);
+    f32 swing = Math::SinDegF(180.0f * (1.5f * t + t * (-0.5f * t * t)));
     pos.z += swing * param.mWindCutterTurnSwingZ;
-    f32 sin = hel::math::Math::SinDegF(90.0f * t);
+    f32 sin = Math::SinDegF(90.0f * t);
     f32 rot = (1.0f - sin) * (360.0f * obj().target().getSign());
     obj().model().rotCtrl().initRotD(rot);
     custom.waftCtrl().setRefPos(pos);

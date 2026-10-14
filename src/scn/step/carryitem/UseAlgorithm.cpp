@@ -22,6 +22,8 @@
 #include "scn/step/chara/WorldCage.h"
 #include "scn/step/map/KindUtil.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -94,7 +96,7 @@ void UseAlgorithm::init() {
         mObj.shadow().setVisibility(false);
     }
     if (map::KindUtil::IsShootingMap(mObj.comp().context().mapKind)) {
-        mObj.model().setScale(hel::math::Vector3::ALL_ONE * 0.5f);
+        mObj.model().setScale(Vector3::ALL_ONE * 0.5f);
     }
 }
 
@@ -215,7 +217,7 @@ bool UseAlgorithm::procConstraint() {
         if (mObj.getReleaseType() == RELEASE_TYPE_THROW) {
             mObj.soundSE().start(mThrowSE);
             f32 rate = mObj.getThrowPowerRate();
-            hel::math::Vector3 velocity(
+            Vector3 velocity(
                 t_param(mObj)._14 + rate * (rate * t_param(mObj)._18), t_param(mObj)._1C + rate * t_param(mObj)._20, 0.0f);
             if (mObj.getThrowPower() == 0) {
                 velocity.x = 0.0f;
@@ -227,15 +229,15 @@ bool UseAlgorithm::procConstraint() {
             mObj.move().resetVelocity();
             mObj.soundSE().start(0xF2);
         }
-        hel::math::Vector3 pos = mObj.location().pos() - mOffset;
+        Vector3 pos = mObj.location().pos() - mOffset;
         mObj.location().setPos(mOwnerPos);
         mObj.location().updatePrevPos();
         mObj.mapColl().setValid(true);
         if (mObj.getReleaseType() == RELEASE_TYPE_THROW || mObj.kind() == 7) {
-            hel::math::Vector3 offset(0.0f, 0.2f, 0.0f);
+            Vector3 offset(0.0f, 0.2f, 0.0f);
             obj().location().setPos(pos + offset);
         } else {
-            hel::math::Vector3 offset(mIsRightDir ? 1.0f : -1.0f, 0.2f, 0.0f);
+            Vector3 offset(mIsRightDir ? 1.0f : -1.0f, 0.2f, 0.0f);
             obj().location().setPos(mOwnerPos + offset);
         }
         mObj.mapColl().procMapColl();
@@ -245,14 +247,14 @@ bool UseAlgorithm::procConstraint() {
     }
     mIsRightDir = mObj.getUser()->isRightDir();
     mIsBackDir = mObj.getUser()->isBackDir();
-    hel::math::Vector3 offset = mOffset;
+    Vector3 offset = mOffset;
     offset.x *= mIsRightDir ? 1.0f : -1.0f;
     obj().location().setPos(mObj.getUser()->getConstraintPos() + offset);
     mOwnerPos = mObj.getUser()->getOwnerPos();
     return false;
 }
 
-void UseAlgorithm::setOffset(const hel::math::Vector3& offset) {
+void UseAlgorithm::setOffset(const Vector3& offset) {
     mOffset = offset;
 }
 

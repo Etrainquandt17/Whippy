@@ -21,6 +21,11 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "util/ObjList.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -58,9 +63,9 @@ void StateJumpAttack::procMove() {
         return;
     }
     if (obj().model().anim().currentG3DAnimIndex() == 19) {
-        f32 rate = hel::math::Math::SinDegF(90.0f * (obj().model().anim().frame() / obj().model().anim().totalFrame()));
-        hel::math::Vector2 pos = hel::math::Math::LinearInterpolation(mStartPos, mTargetPos, rate);
-        pos.y += param.mJumpAttackHeight * hel::math::Math::SinDegF(180.0f * rate);
+        f32 rate = Math::SinDegF(90.0f * (obj().model().anim().frame() / obj().model().anim().totalFrame()));
+        Vector2 pos = Math::LinearInterpolation(mStartPos, mTargetPos, rate);
+        pos.y += param.mJumpAttackHeight * Math::SinDegF(180.0f * rate);
         obj().location().setPos(pos.toVector3());
     } else {
         obj().move().resetVelocity();
@@ -76,10 +81,10 @@ void StateJumpAttack::procFixPos() {
 
 void StateJumpAttack::reqCutterSlant() {
     const Param& param = obj().param().zankibble();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param.mCutterSlantOffset.x * obj().target().getSign(), param.mCutterSlantOffset.y);
-    hel::math::Vector3 velocity(param.mCutterSlantSpeed.x * obj().target().getSign(), param.mCutterSlantSpeed.y, 0.0f);
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param.mCutterSlantOffset.x * obj().target().getSign(), param.mCutterSlantOffset.y);
+    Vector3 velocity(param.mCutterSlantSpeed.x * obj().target().getSign(), param.mCutterSlantSpeed.y, 0.0f);
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.enemyCtrl().request(EnemyCtrl::CUTTER_KIND_SLANT, pos, velocity, false);
 }
 

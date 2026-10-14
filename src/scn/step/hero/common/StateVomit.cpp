@@ -15,6 +15,8 @@
 #include "scn/step/vacuum/Attacker.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -42,7 +44,7 @@ StateVomit::StateVomit(Hero* hero)
         obj().stateChecker().setRun(true);
     }
     if (obj().isMainPlayer()) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         obj().comp().gimmickManager().onVomit(pos);
     }
     obj().water().setForbidChangeState(true);

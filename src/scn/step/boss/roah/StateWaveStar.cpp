@@ -18,13 +18,17 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateWaveStar::StateWaveStar(Boss* boss, Config config) : StateBase(boss), mCount(0), mBasePos(), mConfig(config) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().brainCtrl().toValid();
@@ -49,8 +53,8 @@ void StateWaveStar::procMove() {
     const Param& param = obj().param().roah();
     if (Utility::IsVariationExtra(obj())) {
         f32 rate = static_cast<f32>(mCount) / static_cast<f32>(mConfig._0);
-        hel::math::Vector2 pos = mBasePos;
-        pos.y += param.mWaveStarAmplitude * hel::math::Math::SinDegF(360.0f * rate);
+        Vector2 pos = mBasePos;
+        pos.y += param.mWaveStarAmplitude * Math::SinDegF(360.0f * rate);
         obj().location().setPos(pos.toVector3());
     }
 }

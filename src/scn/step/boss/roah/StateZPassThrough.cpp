@@ -21,6 +21,12 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -28,12 +34,12 @@ namespace roah {
 
 StateZPassThrough::StateZPassThrough(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mGoalPos() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().target().setIsRightDir(true);
     obj().model().reqScript(0);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
-    mStartPos = obj().comp().mainCamera().getCenter().toVector3() + hel::math::Vector3(param.mZPassStartOffset);
-    mGoalPos = obj().comp().mainCamera().getCenter().toVector3() + hel::math::Vector3(param.mZPassGoalOffset);
+    mStartPos = obj().comp().mainCamera().getCenter().toVector3() + Vector3(param.mZPassStartOffset);
+    mGoalPos = obj().comp().mainCamera().getCenter().toVector3() + Vector3(param.mZPassGoalOffset);
     obj().location().setPos(mStartPos);
 }
 
@@ -51,21 +57,21 @@ void StateZPassThrough::procAnim() {
 void StateZPassThrough::procMove() {
     const Param& param = obj().param().roah();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mZPassFrame);
-    hel::math::Vector3 pos;
-    pos.x = hel::math::Math::LinearInterpolation(mStartPos.x, mGoalPos.x, param.mZPassCurve * hel::math::Math::SinDegF(360.0f * t) + t);
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalPos.y, t);
-    pos.z = hel::math::Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t - param.mZPassCurve * hel::math::Math::SinDegF(360.0f * t));
+    Vector3 pos;
+    pos.x = Math::LinearInterpolation(mStartPos.x, mGoalPos.x, param.mZPassCurve * Math::SinDegF(360.0f * t) + t);
+    pos.y = Math::LinearInterpolation(mStartPos.y, mGoalPos.y, t);
+    pos.z = Math::LinearInterpolation(mStartPos.z, mGoalPos.z, t - param.mZPassCurve * Math::SinDegF(360.0f * t));
     obj().location().setPos(pos);
-    hel::math::Vector3 dir = obj().location().pos() - obj().location().prevPos();
+    Vector3 dir = obj().location().pos() - obj().location().prevPos();
     if (dir.length() > 0.0f) {
         dir.normalize();
-        hel::math::Direction3 direction;
+        Direction3 direction;
         direction.mFront = dir;
         direction.restructFrontUp();
         direction.restructFrontLeft();
         // TODO: the two helper objects of restructFrontUp() trade stack slots: the original has its Left at 0x10 and
         // its Up at 0x14, while those of restructFrontLeft() match (Up at 0xC, Left at 0x8).
-        hel::math::Matrix34 mtx(direction, hel::math::Vector3::ZERO);
+        Matrix34 mtx(direction, Vector3::ZERO);
         obj().model().model().nodes().at(1).localMtx().setRTMtx(mtx);
     }
 }

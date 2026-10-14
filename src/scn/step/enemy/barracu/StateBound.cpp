@@ -9,6 +9,8 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/MapColl.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -29,7 +31,7 @@ void StateBound::procMove() {
 void StateBound::procFixPos() {
     if (obj().mapColl().result().mIsHitFloor) {
         obj().move().setSpeedV(0.1f);
-        f32 speed = app::Random::Rand(2) == 0 ? 0.02f : -0.02f;
+        f32 speed = Random::Rand(2) == 0 ? 0.02f : -0.02f;
         obj().move().setSpeedH(speed);
     }
 }

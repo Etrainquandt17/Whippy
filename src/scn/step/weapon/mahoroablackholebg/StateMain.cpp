@@ -7,6 +7,8 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -16,7 +18,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon) {
     obj().model().rotCtrl().setValid(false);
     obj().mapColl().setValid(false);
     obj().culling().setValid(false);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.z = 5.0f;
     obj().location().setPos(pos);
     obj().model().setDrawLayerForce(static_cast<core::DrawLayerKind>(8));

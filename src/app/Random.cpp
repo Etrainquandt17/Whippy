@@ -3,6 +3,8 @@
 #include "app/Application.h"
 #include "hel/math/Random.h"
 
+using hel::common::ExplicitSingleton;
+
 namespace app {
 
 bool Random::RandBool(f32 rate) {
@@ -46,7 +48,7 @@ void Random::Reset() {
 }
 
 hel::math::Random& Random::Obj() {
-    return hel::common::ExplicitSingleton<Application>::object_->random();
+    return ExplicitSingleton<Application>::object_->random();
 }
 
 }  // namespace app

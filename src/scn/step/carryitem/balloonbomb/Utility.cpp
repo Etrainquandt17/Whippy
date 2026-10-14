@@ -6,6 +6,8 @@
 #include "scn/step/carryitem/balloonbomb/StateExplosion.h"
 #include "scn/step/chara/Water.h"
 
+using hel::common::Color;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -45,7 +47,7 @@ void Utility::UpdateFlash(CarryItem& carryItem, f32 wave) {
     }
     u8 base = t_base(rate, 64.0f);
     u8 alpha = base - static_cast<int>(128.0f * (wave * (1.0f - rate)));
-    carryItem.flash().set(hel::common::Color(0x80, 0x00, 0x00, alpha));
+    carryItem.flash().set(Color(0x80, 0x00, 0x00, alpha));
 }
 
 bool Utility::ChangeStateInWater(CarryItem* carryItem) {

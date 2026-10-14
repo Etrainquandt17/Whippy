@@ -38,14 +38,17 @@
 #include "scn/step/chara/Shadow.h"
 #include "scn/step/chara/WorldCage.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace fattybuffer {
 
-StateSwellBalloonStart::StateSwellBalloonStart(Boss* boss, const hel::math::Vector3& speed, u32 count)
+StateSwellBalloonStart::StateSwellBalloonStart(Boss* boss, const Vector3& speed, u32 count)
     : StateBase(boss), mSpeed(speed), mCount(count) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     custom.mapCollCtrl().setBalloon();
     obj().model().reqScript(0x1C);

@@ -15,6 +15,8 @@
 #include "scn/step/enemy/kabu/StateFall.h"
 #include "scn/step/enemy/kabu/StateJump.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -49,7 +51,7 @@ StateMove::StateMove(Enemy* enemy)
         mAccel = param.mAccelLevel3;
         break;
     }
-    int rand = app::Random::Rand(0, 4);
+    int rand = Random::Rand(0, 4);
     mJumpFrame = param.mMoveJumpFrame + rand * param.mMoveJumpFrameStep;
 }
 

@@ -57,21 +57,24 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateFirst::StateFirst(Boss* boss) : StateBase(boss) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_0);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_0);
     obj().model().setVisibility(false);
-    obj().location().setPos(obj().location().pos() + hel::math::Vector3::BASIS_Y * 2.5f);
+    obj().location().setPos(obj().location().pos() + Vector3::BASIS_Y * 2.5f);
 }
 
 StateFirst::~StateFirst() {}
 
 void StateFirst::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.itemCtrl().init();
     if (!custom.itemCtrl().isItemExist()) {
         custom.gearCtrl().setup(static_cast<map::BinItemKind>(0xE), 0);

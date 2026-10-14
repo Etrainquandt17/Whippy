@@ -32,6 +32,11 @@
 #include "scn/step/enemy/goliathicicle/StateFall.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using g3d::NodeAccessor;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -42,11 +47,11 @@ StateFlyWait::StateFlyWait(Enemy* enemy) : StateBase(enemy), mRot(0.0f) {
     obj().nururi().setCanNururi(false);
     obj().mapColl().setValid(false);
     obj().model().reqScript(0);
-    mRot = app::Random::RandF(0.0f, 360.0f);
+    mRot = Random::RandF(0.0f, 360.0f);
     {
-        g3d::NodeAccessor node = obj().model().model().nodes().at(0);
-        hel::math::Vector3 rot(0.0f, mRot, 0.0f);
-        node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+        NodeAccessor node = obj().model().model().nodes().at(0);
+        Vector3 rot(0.0f, mRot, 0.0f);
+        node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(rot));
     }
     obj().model().shake().request(static_cast<chara::ShakeKind>(3));
 }
@@ -61,7 +66,7 @@ void StateFlyWait::procAnim() {
         obj().signal().clear();
         switch (signal) {
         case 2: {
-            hel::math::Vector3 pos = obj().location().pos();
+            Vector3 pos = obj().location().pos();
             pos.y -= 0.6f;
             obj().location().setPos(pos);
             obj().model().shake().request(static_cast<chara::ShakeKind>(3));

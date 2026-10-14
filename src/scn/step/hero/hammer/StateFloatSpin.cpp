@@ -24,6 +24,9 @@
 #include "scn/step/hero/common/StateWaterFloat.h"
 #include "util/StateChanger.h"
 
+using hel::math::Direction3;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -82,9 +85,9 @@ void StateFloatSpin::procFixPos() {
 }
 
 void StateFloatSpin::reqJumpEffect() {
-    hel::math::Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
+    Vector3 pos = static_cast<const Hero&>(obj()).location().pos();
     pos.y += 0.5f;
-    hel::math::Direction3 dir;
+    Direction3 dir;
     dir.mUp = obj().water().getSurfaceUpVec(pos.getXY());
     dir.restructUpFront();
     obj().effect()._8.requestPD(static_cast<effect::Kind>(0x74), pos, dir);

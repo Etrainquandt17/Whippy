@@ -15,6 +15,8 @@
 #include "scn/step/enemy/babut/StateStandBack.h"
 #include "scn/step/enemy/babut/StateTakeOff.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -23,7 +25,7 @@ namespace babut {
 namespace {
 
 bool t_IsPlayerInArea() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInArea();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInArea();
 }
 
 template <typename S>

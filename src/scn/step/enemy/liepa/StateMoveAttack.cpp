@@ -28,13 +28,16 @@
 #include "scn/step/hero/Manager.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace liepa {
 
 StateMoveAttack::StateMoveAttack(Enemy* enemy, Config config)
-    : StateBase(enemy), mFrame(0), mTotalFrame(0), mShotFrame(0), mVelocity(hel::math::Vector3::ZERO), mIsMove(false),
+    : StateBase(enemy), mFrame(0), mTotalFrame(0), mShotFrame(0), mVelocity(Vector3::ZERO), mIsMove(false),
       mConfig(config) {
     obj().model().reqScript(4);
     obj().move().resetVelocity();
@@ -44,7 +47,7 @@ StateMoveAttack::~StateMoveAttack() {}
 
 void StateMoveAttack::procAnim() {
     const ParamData& param = obj().param().liepa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mTotalFrame++;
     if (!mIsMove) {
         if (mTotalFrame < param.mMoveWaitFrame) {
@@ -57,7 +60,7 @@ void StateMoveAttack::procAnim() {
             if (!mVelocity.isZeroLoose(0.00001f)) {
                 mVelocity.normalize();
             } else {
-                mVelocity = -hel::math::Vector3::BASIS_X;
+                mVelocity = -Vector3::BASIS_X;
             }
             mVelocity *= mConfig._0;
         }
@@ -80,7 +83,7 @@ void StateMoveAttack::procAnim() {
 }
 
 void StateMoveAttack::procMove() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     if (obj().model().getCurrentScriptIndex() != 7 || mFrame != 0) {
         pos += mVelocity;
     }

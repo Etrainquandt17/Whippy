@@ -55,6 +55,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,7 +66,7 @@ namespace lowper {
 
 StateTackleFar::StateTackleFar(Boss* boss)
     : StateBase(boss), mCount(0), mSwayCount(0), mStartY(0.0f), mGoalY(0.0f), mX(0.0f), mSway(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
     mStartY = 4.0f + obj().basePos().y;
@@ -91,16 +95,16 @@ void StateTackleFar::procAnim() {
 void StateTackleFar::procMove() {
     const Param& param = obj().param().lowper();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._40);
-    hel::math::Vector3 pos;
+    Vector3 pos;
     pos.x = mX + mSway;
-    f32 sin = hel::math::Math::SinDegF(180.0f * t);
+    f32 sin = Math::SinDegF(180.0f * t);
     f32 rate = 1.0f - sin;
     if (t > 0.5f) {
         rate *= 0.5f;
     }
-    pos.y = hel::math::Math::Interpolate(mGoalY, mStartY, rate);
+    pos.y = Math::Interpolate(mGoalY, mStartY, rate);
     pos.z = -80.0f * (1.0f - t) + 80.0f * t;
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

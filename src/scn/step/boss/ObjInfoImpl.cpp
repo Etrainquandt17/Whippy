@@ -6,6 +6,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/debug/ObjInfoRepos.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -18,9 +20,9 @@ ObjInfoImpl::~ObjInfoImpl() {
     mBoss.comp().debugObjInfoRepos().unregisterObj(*this);
 }
 
-hel::common::FixedString<32> ObjInfoImpl::name() const {
+FixedString<32> ObjInfoImpl::name() const {
     // "Boss" in Shift-JIS katakana.
-    return hel::common::FixedString<32>("\x83\x7B\x83\x58");
+    return FixedString<32>("\x83\x7B\x83\x58");
 }
 
 const gobj::Anim& ObjInfoImpl::anim() const {

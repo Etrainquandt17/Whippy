@@ -15,6 +15,9 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/scarfy/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,21 +38,21 @@ void StateChase::procAnim() {
 }
 
 void StateChase::procMove() {
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector3 target = Utility::GetNearestPlayerPos(obj()).toVector3();
+    Vector3 pos = obj().location().pos();
+    Vector3 target = Utility::GetNearestPlayerPos(obj()).toVector3();
     target.y += obj().param().scarfy().mChaseTargetOffsetY;
-    hel::math::Vector3 dir = target - pos;
-    hel::math::Vector3 accel = hel::math::Vector3::ZERO;
+    Vector3 dir = target - pos;
+    Vector3 accel = Vector3::ZERO;
     if (dir.isZeroLoose(0.00001f)) {
-        dir = hel::math::Vector3::ZERO;
+        dir = Vector3::ZERO;
     } else {
         dir.normalize();
     }
     accel.x = mSpd * dir.x;
     accel.y = mSpd * dir.y;
-    hel::math::Vector3 nururi = obj().nururi().getNururiDir().toVector3();
+    Vector3 nururi = obj().nururi().getNururiDir().toVector3();
     if (mVelocity.dot(nururi) < 0.0f) {
-        if (hel::math::Math::Abs(nururi.x) <= 0.5f) {
+        if (Math::Abs(nururi.x) <= 0.5f) {
             mVelocity.x = nururi.y >= 0.0f ? -mSpdLimit : mSpdLimit;
         } else {
             mVelocity.x *= -1.0f;

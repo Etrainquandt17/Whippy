@@ -19,6 +19,8 @@
 #include "scn/step/enemy/common/StateWalkStraight.h"
 #include "scn/step/enemy/waddledee/ParamData.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -30,7 +32,7 @@ StateSmashedEnd::StateSmashedEnd(Enemy* enemy) : StateBase(enemy), mFrame(obj().
     obj().objColl().bodyColl().setStateHitOnly();
     obj().model().rotCtrl().setRotVIntpRate(1.0f);
     obj().model().rotCtrl().setRotHIntpRate(1.0f);
-    hel::math::Vector3 pos = obj().location().pos() + hel::math::Vector3(0.0f, 0.3f, 0.0f);
+    Vector3 pos = obj().location().pos() + Vector3(0.0f, 0.3f, 0.0f);
     obj().effect().normal().requestP(static_cast<effect::Kind>(0x9F), pos);
 }
 

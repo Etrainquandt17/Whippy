@@ -45,6 +45,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -76,8 +78,8 @@ void StateMoveCenter::procAnim() {
 void StateMoveCenter::procMove() {
     const ParamData& param = obj().param().landiasingle();
     f32 t = static_cast<f32>(mFrame) / static_cast<f32>(param._40);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mStart, mEnd, rate).toVector3());
+    f32 rate = Math::SinDegF(90.0f * t);
+    obj().location().setPos(Math::LinearInterpolation(mStart, mEnd, rate).toVector3());
 }
 
 void StateMoveCenter::procFixPos() {}

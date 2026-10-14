@@ -31,6 +31,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -51,8 +53,8 @@ void StateAttack::procAnim() {
     if (obj().model().isAllEnd() && !mIsExploded) {
         mIsExploded = true;
         mDeadFrame = obj().param().searches().mDeadFrame;
-        hel::math::Vector2 velocity(0.0f, 0.0f);
-        hel::math::Vector2 pos = obj().location().pos().getXY();
+        Vector2 velocity(0.0f, 0.0f);
+        Vector2 pos = obj().location().pos().getXY();
         pos.y += 0.5f;
         weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 3, static_cast<ostop::Flag>(4), pos, pos, velocity,
                           obj().objColl().owner());

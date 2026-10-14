@@ -4,11 +4,14 @@
 #include "hel/common/PointerWrapper.h"
 #include "hel/mint/AddOnMathVector3.h"
 
+using hel::common::PointerWrapper;
+using hel::math::Vector3;
+
 namespace gobj {
 
 namespace {
 
-hel::common::PointerWrapper<Location> t_obj;
+PointerWrapper<Location> t_obj;
 
 }
 
@@ -30,11 +33,11 @@ void LoadPrevPos() {
     hel::mint::AddOnMathVector3::Set(t_obj->prevPos());
 }
 
-const hel::math::Vector3 Pos() {
+const Vector3 Pos() {
     return t_obj->pos();
 }
 
-const hel::math::Vector3 PrevPos() {
+const Vector3 PrevPos() {
     return t_obj->prevPos();
 }
 

@@ -9,6 +9,8 @@
 #include "scn/wmap/info/Manager.h"
 #include "std/tr1/reference_wrapper.h"
 
+using util::IStateCallback;
+
 namespace scn {
 namespace wmap {
 namespace hero {
@@ -73,7 +75,7 @@ InactiveHero::InactiveHero(Component& component, mem::HeapExpArray& heapArray, u
         hash ^= *(u16*)(last - 1 - i);
         hash *= 0x010001A7;
     }
-    mStateChanger.construct(std::tr1::ref<util::IStateCallback>(mStateCallback.ref()));
+    mStateChanger.construct(std::tr1::ref<IStateCallback>(mStateCallback.ref()));
     hash ^= hash >> 10;
     hash ^= hash << 20;
     switch (context._0) {

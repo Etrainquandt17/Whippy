@@ -9,6 +9,8 @@
 #include "scn/step/enemy/gigatzo/StateAim.h"
 #include "scn/step/enemy/gigatzo/StateAttack.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -25,19 +27,19 @@ void t_SetNextState_Aim() {
 }
 
 bool t_Custom_IsPlayerInAimArea() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInAimArea();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).isPlayerInAimArea();
 }
 
 int t_Custom_SetWaitAttackTime() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitAttackTime();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitAttackTime();
 }
 
 int t_Custom_SetWaitBackAttackTime() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitBackAttackTime();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitBackAttackTime();
 }
 
 int t_Custom_SetWaitBackAttackMoreTime() {
-    return hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitBackAttackMoreTime();
+    return DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setWaitBackAttackMoreTime();
 }
 
 }

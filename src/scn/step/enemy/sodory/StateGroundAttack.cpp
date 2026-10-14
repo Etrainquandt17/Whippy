@@ -27,13 +27,15 @@
 #include "scn/step/enemy/sodory/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace sodory {
 
 StateGroundAttack::StateGroundAttack(Enemy* enemy) : StateBase(enemy), mIsRightDir(obj().target().isRightDir()) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(8);
     Utility::TurnHero(obj());
@@ -43,7 +45,7 @@ StateGroundAttack::StateGroundAttack(Enemy* enemy) : StateBase(enemy), mIsRightD
 
 StateGroundAttack::~StateGroundAttack() {
     obj().target().setIsRightDir(mIsRightDir);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirection();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirection();
     obj().objColl().clearAttack();
     obj().soundSE().stop();
     obj().effect().state().releaseAndVanish();

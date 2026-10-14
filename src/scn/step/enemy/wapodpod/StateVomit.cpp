@@ -25,6 +25,8 @@
 #include "scn/step/enemy/wapodpod/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +35,7 @@ namespace wapodpod {
 StateVomit::StateVomit(Enemy* enemy) : StateBase(enemy) {
     obj().footState().setGround();
     obj().model().reqScript(7);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWapod();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).requestWapod();
     obj().effect().state().requestN(static_cast<effect::Kind>(0x557), 1);
     obj().soundSEState().start(0x303);
 }

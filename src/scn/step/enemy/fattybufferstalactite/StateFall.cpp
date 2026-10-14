@@ -30,6 +30,9 @@
 #include "scn/step/enemy/fattybufferstalactite/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -48,7 +51,7 @@ void StateFall::procAnim() {
         mRot -= 360.0f;
     }
     obj().model().model().nodes().at(0).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, mRot, 0.0f)));
+        Matrix34::CreateRotXYZDeg(Vector3(0.0f, mRot, 0.0f)));
 }
 
 void StateFall::procMove() {

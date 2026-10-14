@@ -5,13 +5,15 @@
 #include "scn/step/enemy/bladeknight/Custom.h"
 #include "scn/step/enemy/bladeknight/StateWalk.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace bladeknight {
 
 BrainWalk::BrainWalk(Enemy& enemy) : BrainBase(enemy) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).walkFlagOn();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).walkFlagOn();
 }
 
 bool BrainWalk::onStart() {

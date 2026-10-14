@@ -58,6 +58,12 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using g3d::ColorAnimFlashOp;
+using hel::common::ColorF;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -67,7 +73,7 @@ StateAnger::StateAnger(Boss* boss)
     : StateBase(boss), mFrame(0), mCount(0), mStartPos(boss->location().pos()), mGoalPos(), mPhase(0), mFlashCount(0),
       mFlashFrame(80) {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame = param._130;
     mGoalPos.x = param._134 * -obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
@@ -106,8 +112,8 @@ void StateAnger::procAnim() {
 
 void StateAnger::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
     obj().location().setPos(pos);
 }
 
@@ -115,7 +121,7 @@ void StateAnger::procFixPos() {}
 
 void StateAnger::updateColorFlash() {
     const Param& param = obj().param().galactaknight();
-    hel::common::ColorF color(0.0f, 0.0f, 0.0f, 1.0f);
+    ColorF color(0.0f, 0.0f, 0.0f, 1.0f);
     switch (mPhase) {
     case 0:
         obj().flash().custom().setIsValid(false);
@@ -123,18 +129,18 @@ void StateAnger::updateColorFlash() {
     case 1: {
         mFlashCount++;
         f32 rate = static_cast<f32>(mFlashCount) / static_cast<f32>(mFlashFrame);
-        f32 power = hel::math::Math::Abs(0.5f * hel::math::Math::SinDegF(90.0f * rate));
-        color.set(power * (0.75f * (1.0f + hel::math::Math::SinDegF(720.0f * rate))),
-                  power * (0.25f * (1.0f + hel::math::Math::SinDegF(720.0f * rate + 120.0f))),
-                  power * (0.25f * (1.0f + hel::math::Math::SinDegF(720.0f * rate + 240.0f))), 1.0f);
-        obj().flash().custom().setOperation(static_cast<g3d::ColorAnimFlashOp>(1));
+        f32 power = Math::Abs(0.5f * Math::SinDegF(90.0f * rate));
+        color.set(power * (0.75f * (1.0f + Math::SinDegF(720.0f * rate))),
+                  power * (0.25f * (1.0f + Math::SinDegF(720.0f * rate + 120.0f))),
+                  power * (0.25f * (1.0f + Math::SinDegF(720.0f * rate + 240.0f))), 1.0f);
+        obj().flash().custom().setOperation(static_cast<ColorAnimFlashOp>(1));
         break;
     }
     case 2: {
         mFlashCount++;
         f32 rate = static_cast<f32>(mFlashCount) / static_cast<f32>(mFlashFrame);
-        color.set(1.0f, 1.0f, 1.0f, hel::math::Math::CosDegF(90.0f * rate));
-        obj().flash().custom().setOperation(static_cast<g3d::ColorAnimFlashOp>(0));
+        color.set(1.0f, 1.0f, 1.0f, Math::CosDegF(90.0f * rate));
+        obj().flash().custom().setOperation(static_cast<ColorAnimFlashOp>(0));
         break;
     }
     }

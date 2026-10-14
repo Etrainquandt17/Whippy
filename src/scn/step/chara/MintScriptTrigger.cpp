@@ -3,13 +3,15 @@
 #include "hel/common/PointerWrapper.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace chara {
 
 namespace {
 
-hel::common::PointerWrapper<ScriptTrigger> t_obj;
+PointerWrapper<ScriptTrigger> t_obj;
 
 }
 

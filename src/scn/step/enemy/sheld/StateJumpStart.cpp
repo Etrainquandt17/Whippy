@@ -14,13 +14,15 @@
 #include "scn/step/enemy/sheld/ParamData.h"
 #include "scn/step/enemy/sheld/StateJump.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace sheld {
 
 StateJumpStart::StateJumpStart(Enemy* enemy) : StateBase(enemy), mWait(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0);
     obj().move().resetSpeedV();
@@ -54,7 +56,7 @@ void StateJumpStart::procFixPos() {
         obj().move().resetSpeedV();
     } else {
         obj().stateChanger().setNextState<common::StateFall, Enemy*>(objPtr());
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).resetNuru();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).resetNuru();
     }
 }
 

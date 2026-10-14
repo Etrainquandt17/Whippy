@@ -63,6 +63,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -85,11 +88,11 @@ void MiniBlackHoleCtrl::update() {
 
 void MiniBlackHoleCtrl::set(u32 frame, f32 _2, f32 _3, f32 _4) {
     mFrame = frame;
-    hel::math::Vector3 bossPos = mBoss.location().pos();
-    hel::math::Vector2 pos = bossPos.getXY();
+    Vector3 bossPos = mBoss.location().pos();
+    Vector2 pos = bossPos.getXY();
     pos.y += 0.5f;
     mWindId = mBoss.comp().bossManager().lowperWindCtrl().set(pos, _2, _3, _4);
-    weapon::Desc desc(static_cast<weapon::Kind>(0x81), 0, static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO,
+    weapon::Desc desc(static_cast<weapon::Kind>(0x81), 0, static_cast<ostop::Flag>(8), pos, Vector2::ZERO,
                       mBoss.objColl().owner());
     mWeapon = mBoss.comp().weaponManager().request(desc);
 }

@@ -8,6 +8,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/needleshot/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -17,8 +20,8 @@ StateStickObj::StateStickObj(Weapon* weapon) : StateBase(weapon), mAlgorithm(*we
     f32 rot = obj().model().rotCtrl().getRotV();
     f32 length = obj().param().needleShot()._10;
     mAlgorithm.setOffset(
-        hel::math::Vector3(
-            length * hel::math::Math::CosDegF(rot), length * hel::math::Math::SinDegF(rot), obj().param().needleShot()._14
+        Vector3(
+        length * Math::CosDegF(rot), length * Math::SinDegF(rot), obj().param().needleShot()._14
         )
     );
 }

@@ -4,6 +4,8 @@
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/MintHero.h"
 
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -19,7 +21,7 @@ GatherItem& t_obj() {
 namespace MintGatherItem {
 
 void Add(f32 left, f32 top, f32 right, f32 bottom) {
-    t_obj().add(hel::geo::Rect(left, top, right, bottom));
+    t_obj().add(Rect(left, top, right, bottom));
 }
 
 void Clear() {

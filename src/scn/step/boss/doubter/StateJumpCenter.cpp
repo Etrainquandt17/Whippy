@@ -36,6 +36,10 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -45,7 +49,7 @@ StateJumpCenter::StateJumpCenter(Boss* boss, f32 height, u32 frame)
     : StateBase(boss), mHeight(height), mFrame(frame), mCount(0), mStartPos(), mGoalPos() {
     obj().footState().setAir();
     obj().model().reqScript(10);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();
     mGoalPos = obj().basePos().toVector3();
@@ -65,8 +69,8 @@ void StateJumpCenter::procAnim() {
 
 void StateJumpCenter::procMove() {
     f32 t = static_cast<f32>(mCount + 1) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    f32 fall = 1.0f - hel::math::Math::SinDegF(180.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    f32 fall = 1.0f - Math::SinDegF(180.0f * t);
     fall *= fall;
     f32 rate = 1.0f - fall;
     pos.y += rate * mHeight;

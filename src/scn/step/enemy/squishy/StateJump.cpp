@@ -26,6 +26,9 @@
 #include "scn/step/enemy/squishy/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -34,7 +37,7 @@ namespace squishy {
 StateJump::StateJump(Enemy* enemy)
     : StateBase(enemy), mFrame(0), mWaterFrame(0), mLandFrame(0), mIsFalling(false), mIsRising(false), mIsInWater(false) {
     const ParamData& param = obj().param().squishy();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.setJumpFromWater(false);
     mIsInWater = custom.isInWater(true);
     obj().model().reqScript(8);
@@ -92,7 +95,7 @@ void StateJump::procMove() {
             }
             f32 speedH = obj().variation() == 0x9f ? 0.0f : param.mJumpSpeedH;
             f32 speedV = obj().variation() == 0x9f ? param.mJumpSpeedVStay : param.mJumpSpeedV;
-            obj().move().setVelocity(hel::math::Vector3(speedH * obj().target().getSign(), speedV, 0.0f));
+            obj().move().setVelocity(Vector3(speedH * obj().target().getSign(), speedV, 0.0f));
         }
         if (mIsInWater) {
             if (mIsRising) {
@@ -107,7 +110,7 @@ void StateJump::procMove() {
 }
 
 void StateJump::procFixPos() {
-    mIsInWater = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater(true);
+    mIsInWater = DynamicCastToRef<Custom, ICustom>(obj().custom()).isInWater(true);
     if (obj().mapColl().result().isHitWallFront()) {
         obj().move().setSpeedH(obj().move().velocity().x * -1.0f);
         obj().target().setIsRightDir(!obj().target().isRightDir());

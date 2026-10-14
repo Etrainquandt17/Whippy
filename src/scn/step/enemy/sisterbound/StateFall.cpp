@@ -23,6 +23,8 @@
 #include "scn/step/enemy/sisterbound/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -31,7 +33,7 @@ namespace sisterbound {
 StateFall::StateFall(Enemy* enemy) : StateBase(enemy), mFallAdd(0.0f) {
     obj().footState().setAir();
     obj().move().resetSpeedV();
-    mSpeedH = hel::math::Math::AbsF32(obj().move().velocity().x);
+    mSpeedH = Math::AbsF32(obj().move().velocity().x);
 }
 
 StateFall::~StateFall() {}

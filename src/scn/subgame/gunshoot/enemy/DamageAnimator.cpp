@@ -4,6 +4,8 @@
 #include "scn/subgame/gunshoot/chara/StageConstant.h"
 #include "scn/subgame/gunshoot/enemy/PlayListSetController.h"
 
+using g3d::ModelAnimAccessor;
+
 namespace scn {
 namespace subgame {
 namespace gunshoot {
@@ -182,7 +184,7 @@ void DamageAnimator::initialize(HitAttribute attribute) {
     hash += hash << 3;
     hash ^= hash >> 17;
     model = &mTarget._4.ref();
-    g3d::ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getDamageAnimName(mHitAttribute));
+    ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getDamageAnimName(mHitAttribute));
     hash += hash << 5;
     limit = expected & ~hash;
     hash = limit | (hash & ~expected);
@@ -230,10 +232,10 @@ void DamageAnimator::initializeForStun() {
     _D30 = model->setAnim(0, mAnimParam.getStunDamageModelAnimName());
     _D30.setFrameToHead();
     model = &mTarget._4.ref();
-    g3d::ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getStunDamageModelAnimName());
+    ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getStunDamageModelAnimName());
     anim.setFrameToHead();
     model = &mTarget._8.ref();
-    g3d::ModelAnimAccessor motion = model->setAnim(mAnimParam.getStunDamageMotionAnimName());
+    ModelAnimAccessor motion = model->setAnim(mAnimParam.getStunDamageMotionAnimName());
     motion.setFrameToHead();
 }
 
@@ -243,7 +245,7 @@ void DamageAnimator::initializeForClimaxEx() {
     _D30 = model->setAnim(0, mAnimParam.getClimaxExDamageModelAnimName());
     _D30.setFrameToHead();
     model = &mTarget._4.ref();
-    g3d::ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getClimaxExDamageModelAnimName());
+    ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getClimaxExDamageModelAnimName());
     anim.setFrameToHead();
 }
 
@@ -338,7 +340,7 @@ void DamageAnimator::startDamage() {
     }
     _D30.start(false);
     model = &mTarget._4.ref();
-    g3d::ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getDamageAnimName(mHitAttribute));
+    ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getDamageAnimName(mHitAttribute));
     asm {
         bl      after2
         opword  MF_WORD(0xFC)
@@ -359,10 +361,10 @@ void DamageAnimator::startDamageForStun() {
     _D30 = model->setAnim(0, mAnimParam.getStunDamageModelAnimName());
     _D30.start(false);
     model = &mTarget._4.ref();
-    g3d::ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getStunDamageModelAnimName());
+    ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getStunDamageModelAnimName());
     anim.start(false);
     model = &mTarget._8.ref();
-    g3d::ModelAnimAccessor motion = model->setAnim(mAnimParam.getStunDamageMotionAnimName());
+    ModelAnimAccessor motion = model->setAnim(mAnimParam.getStunDamageMotionAnimName());
     motion.start(false);
 }
 
@@ -372,7 +374,7 @@ void DamageAnimator::startDamageForClimaxEx() {
     _D30 = model->setAnim(0, mAnimParam.getClimaxExDamageModelAnimName());
     _D30.start(false);
     model = &mTarget._4.ref();
-    g3d::ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getClimaxExDamageModelAnimName());
+    ModelAnimAccessor anim = model->setAnim(0, mAnimParam.getClimaxExDamageModelAnimName());
     anim.start(false);
 }
 

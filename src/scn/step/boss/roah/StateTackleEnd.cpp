@@ -15,6 +15,10 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -22,13 +26,13 @@ namespace roah {
 
 StateTackleEnd::StateTackleEnd(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mGoalPos() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().target().setIsRightDir(false);
     obj().model().reqScript(0);
     custom.mahoroaCtrl().getCustom().reqMotionWarpOut();
     custom.mahoroaCtrl().setPhase(static_cast<MahoroaCtrl::Phase>(3));
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
-    obj().location().setPos((obj().comp().mainCamera().getCenter() + hel::math::Vector2(param.mTackleEndOffset)).toVector3());
+    obj().location().setPos((obj().comp().mainCamera().getCenter() + Vector2(param.mTackleEndOffset)).toVector3());
     mStartPos = obj().location().pos().getXY();
     mGoalPos = obj().basePos();
     custom.rotCtrl().setFixRotRate(1.0f);
@@ -36,7 +40,7 @@ StateTackleEnd::StateTackleEnd(Boss* boss) : StateBase(boss), mCount(0), mStartP
 
 StateTackleEnd::~StateTackleEnd() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.mahoroaCtrl().setPhase(static_cast<MahoroaCtrl::Phase>(1));
     custom.rotCtrl().setFixRotRate(param.mFixRotRate);
 }
@@ -53,13 +57,13 @@ void StateTackleEnd::procAnim() {
 void StateTackleEnd::procMove() {
     const Param& param = obj().param().roah();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param.mTackleEndFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
+    f32 rate = Math::SinDegF(90.0f * t);
+    obj().location().setPos(Math::LinearInterpolation(mStartPos, mGoalPos, rate).toVector3());
 }
 
 void StateTackleEnd::procFixPos() {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 x = obj().location().pos().x;
     if (obj().comp().mainCamera().getCenter().x + param.mTackleEndHitX > x) {
         custom.collisionCtrl().setState(CollisionCtrl::STATE_2);

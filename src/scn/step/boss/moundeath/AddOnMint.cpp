@@ -17,6 +17,8 @@
 #include "scn/step/boss/moundeath/States.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::math::Vector2;
+
 // The original holds this instance in every unit that sees ICustom; the link keeps only its name string.
 template const hel::common::RuntimeTypeInfo& hel::common::RuntimeTypeInfoImpl<scn::step::boss::ICustom>();
 
@@ -55,8 +57,8 @@ void t_SetNextState_JumpBack() {
         MintBoss::Obj().param().moundeath()._24,
         MintBoss::Obj().param().moundeath()._28,
         MintBoss::Obj().param().moundeath()._38,
-        hel::math::Vector2::ZERO,
-        hel::math::Vector2::ZERO,
+        Vector2::ZERO,
+        Vector2::ZERO,
         false,
         static_cast<common::StateJumpDesc::LandingAnimType>(1),
         false,

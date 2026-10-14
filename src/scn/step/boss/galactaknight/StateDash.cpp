@@ -52,6 +52,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -59,7 +62,7 @@ namespace galactaknight {
 
 StateDash::StateDash(Boss* boss, f32 speed, f32 distance)
     : StateBase(boss), mSpeed(speed), mDistance(distance), mIsMove(false) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0xA);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
 }
@@ -74,15 +77,15 @@ void StateDash::procAnim() {
 
 void StateDash::procMove() {
     if (mIsMove) {
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.x += mSpeed * obj().target().getSign();
         obj().location().setPos(pos);
     }
 }
 
 void StateDash::procFixPos() {
-    hel::math::Vector3 heroPos = Utility::GetHatedHeroPos(obj());
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 heroPos = Utility::GetHatedHeroPos(obj());
+    Vector3 pos = obj().location().pos();
     if ((heroPos.x - pos.x) * obj().target().getSign() < mDistance) {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
     }

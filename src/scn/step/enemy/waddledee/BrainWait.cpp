@@ -11,6 +11,8 @@
 #include "scn/step/enemy/waddledee/StateWait.h"
 #include "types.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -109,7 +111,7 @@ bool BrainWait::onStart() {
 
 void BrainWait::update() {
     if (!Utility::IsFixDirType(obj()) && obj().model().anim().currentG3DAnimIndex() == 0) {
-        hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+        Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
         bool isRight = playerPos.x > obj().location().pos().x;
         if (isRight != obj().target().isRightDir()) {
             mFrame++;

@@ -17,6 +17,14 @@
 #include "scn/step/weapon/mahoroawarphole2/Custom.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -62,19 +70,19 @@ void Custom::start(u32 readyFrame, u32 mainFrame) {
     mIsStartRequested = true;
 }
 
-const hel::math::Vector3& Custom::startPos() const {
+const Vector3& Custom::startPos() const {
     return mStartPos;
 }
 
-const hel::math::Vector3& Custom::endPos() const {
+const Vector3& Custom::endPos() const {
     return mEndPos;
 }
 
-void Custom::setStartPos(const hel::math::Vector3& pos) {
+void Custom::setStartPos(const Vector3& pos) {
     mStartPos = pos;
 }
 
-void Custom::setEndPos(const hel::math::Vector3& pos) {
+void Custom::setEndPos(const Vector3& pos) {
     mEndPos = pos;
 }
 
@@ -102,7 +110,7 @@ void Custom::setIsEndEdge(bool isEndEdge) {
     mIsEndEdge = isEndEdge;
 }
 
-void Custom::setMoveLimitRect(const hel::geo::Rect& rect) {
+void Custom::setMoveLimitRect(const Rect& rect) {
     // TODO: the original assigns the Rect, whose assignment hel/geo/Rect.h only declares.
     mMoveLimitRect._0 = rect._0;
     mMoveLimitRect._4 = rect._4;
@@ -115,7 +123,7 @@ bool Custom::isMoveLimitRectValid() const {
     return mIsMoveLimitRectValid;
 }
 
-hel::geo::Rect Custom::getMoveLimitRect() const {
+Rect Custom::getMoveLimitRect() const {
     return mMoveLimitRect;
 }
 
@@ -149,8 +157,8 @@ void Custom::startCapture() {
 }
 
 void Custom::endCapture() {
-    hel::math::Vector3 pos = mEndPos;
-    hel::math::Vector3 dir = mEndPos - mStartPos;
+    Vector3 pos = mEndPos;
+    Vector3 dir = mEndPos - mStartPos;
     if (!dir.isZeroLoose(0.00001f)) {
         dir.normalize();
         dir *= 1000.0f;
@@ -190,19 +198,19 @@ void Custom::generateWarpHoleEndPos() {
 
 void Custom::releaseWarpHole() {
     if (mWarpHoleStart.isAlive()) {
-        hel::common::DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleStart->custom()).reqChangeStateEnd();
-        mWarpHoleStart = util::ObjRefHandle<Weapon>();
+        DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleStart->custom()).reqChangeStateEnd();
+        mWarpHoleStart = ObjRefHandle<Weapon>();
     }
     if (mWarpHoleEnd.isAlive()) {
-        hel::common::DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleEnd->custom()).reqChangeStateEnd();
-        mWarpHoleEnd = util::ObjRefHandle<Weapon>();
+        DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleEnd->custom()).reqChangeStateEnd();
+        mWarpHoleEnd = ObjRefHandle<Weapon>();
     }
 }
 
 void Custom::reqFlashWarpHoleStartPos() {
     if (mWarpHoleStart.isAlive()) {
         mahoroawarphole2::Custom& custom =
-            hel::common::DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleStart->custom());
+            DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleStart->custom());
         if (Utility::IsExtra(obj())) {
             custom.reqBlackFlash();
         } else {
@@ -214,7 +222,7 @@ void Custom::reqFlashWarpHoleStartPos() {
 void Custom::reqFlashWarpHoleEndPos() {
     if (mWarpHoleEnd.isAlive()) {
         mahoroawarphole2::Custom& custom =
-            hel::common::DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleEnd->custom());
+            DynamicCastToRef<mahoroawarphole2::Custom, ICustom>(mWarpHoleEnd->custom());
         if (Utility::IsExtra(obj())) {
             custom.reqBlackFlash();
         } else {
@@ -223,13 +231,13 @@ void Custom::reqFlashWarpHoleEndPos() {
     }
 }
 
-util::ObjRefHandle<Weapon> Custom::generateWarpHole(const hel::math::Vector2& pos, const hel::math::Vector2& targetPos) {
+ObjRefHandle<Weapon> Custom::generateWarpHole(const Vector2& pos, const Vector2& targetPos) {
     Desc desc(
-        static_cast<Kind>(0x8E), obj().variation(), static_cast<ostop::Flag>(8), pos, hel::math::Vector2::ZERO,
+        static_cast<Kind>(0x8E), obj().variation(), static_cast<ostop::Flag>(8), pos, Vector2::ZERO,
         obj().objColl().owner()
     );
     desc._24 = targetPos;
-    util::ObjRefHandle<Weapon> weapon = obj().comp().weaponManager().request(desc);
+    ObjRefHandle<Weapon> weapon = obj().comp().weaponManager().request(desc);
     if (weapon.isAlive()) {
         obj().soundSE().start(0x41E);
     }
@@ -237,13 +245,13 @@ util::ObjRefHandle<Weapon> Custom::generateWarpHole(const hel::math::Vector2& po
 }
 
 void Custom::setupLocation() {
-    hel::math::Vector3 pos = startPos();
+    Vector3 pos = startPos();
     pos.z -= 2.5f + 2.0f * static_cast<f32>(obj().variation());
     obj().location().setPos(pos);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::mahoroalaser

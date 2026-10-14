@@ -25,6 +25,8 @@
 #include "scn/step/enemy/lanzer/StateWalkAround.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -33,7 +35,7 @@ namespace lanzer {
 BrainWalkAround::BrainWalkAround(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainWalkAround::onStart() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.resetBasePosX();
     custom.resetTurnFlag();
     obj().stateChanger().setNextState<StateWalkAround, Enemy*>(&obj());
@@ -45,7 +47,7 @@ bool BrainWalkAround::onLanding() {
 }
 
 bool BrainWalkAround::onRecover() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.resetBasePosX();
     custom.resetTurnFlag();
     return false;

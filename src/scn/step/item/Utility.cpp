@@ -10,19 +10,22 @@
 #include "scn/step/item/Item.h"
 #include "scn/step/map/KindUtil.h"
 
+using g3d::ModelAccessor;
+using g3d::NodeAccessor;
+
 namespace scn {
 namespace step {
 namespace item {
 
-void Utility::RequestEffectEnergySphere(Component& component, const g3d::ModelAccessor& model, chara::Effect& effect) {
-    g3d::NodeAccessor node = model.nodeByName("RotControlL");
+void Utility::RequestEffectEnergySphere(Component& component, const ModelAccessor& model, chara::Effect& effect) {
+    NodeAccessor node = model.nodeByName("RotControlL");
     effect.requestN(
         component.sphereAccessor().isGetShipParts() ? static_cast<effect::Kind>(0x343) : static_cast<effect::Kind>(0x342),
         node);
     effect.requestN(static_cast<effect::Kind>(0x341), node);
 }
 
-void Utility::RequestEffectShipParts(Component& component, const g3d::ModelAccessor& model, chara::Effect& effect) {
+void Utility::RequestEffectShipParts(Component& component, const ModelAccessor& model, chara::Effect& effect) {
     // A safety net, as far as the callers show: no boss gives out a ship part in the Arena. If one did, this keeps
     // the Arena from asking the stage's save data, which it doesn't have, whether the part is collected already.
     bool isArena = false;
@@ -35,7 +38,7 @@ void Utility::RequestEffectShipParts(Component& component, const g3d::ModelAcces
     } else {
         isGet = component.sphereAccessor().isGetShipParts();
     }
-    g3d::NodeAccessor node = model.nodeByName("PtclL");
+    NodeAccessor node = model.nodeByName("PtclL");
     effect.requestN(isGet ? static_cast<effect::Kind>(0x345) : static_cast<effect::Kind>(0x344), node);
     effect.requestN(static_cast<effect::Kind>(0x341), node);
 }

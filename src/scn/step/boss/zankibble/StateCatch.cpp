@@ -12,6 +12,8 @@
 #include "scn/step/boss/zankibble/Param.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -23,11 +25,11 @@ StateCatch::StateCatch(Boss* boss) : StateBase(boss), mIsCaught(false) {
 }
 
 StateCatch::~StateCatch() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyCtrl().isCaught();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).enemyCtrl().isCaught();
 }
 
 void StateCatch::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.enemyCtrl().isCaught()) {
         obj().model().reqScript(13);
         obj().soundSE().normal().start(0x595);

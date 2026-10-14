@@ -19,6 +19,10 @@
 #include "scn/step/enemy/blipper/ParamData.h"
 #include "scn/step/enemy/common/StateLanding.h"
 
+using g3d::NodeAccessor;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -41,9 +45,9 @@ StateFattyBufferAppearFall::~StateFattyBufferAppearFall() {
 void StateFattyBufferAppearFall::procAnim() {
     const ParamData& param = obj().param().blipper();
     mRot += param.mFattyBufferAppearRotSpeed;
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Vector3 rot(0.0f, 0.0f, mRot * -obj().target().getSign());
-    node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(rot));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Vector3 rot(0.0f, 0.0f, mRot * -obj().target().getSign());
+    node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(rot));
 }
 
 void StateFattyBufferAppearFall::procMove() {

@@ -56,6 +56,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -70,7 +73,7 @@ WaftMoveCtrl::~WaftMoveCtrl() {}
 void WaftMoveCtrl::update() {
     if (mIsValid) {
         const Param& param = mBoss.param().lowper();
-        mWaveWidth = hel::math::Math::Interpolate(mWaveWidth, mWaveWidthTarget, param._8C);
+        mWaveWidth = Math::Interpolate(mWaveWidth, mWaveWidthTarget, param._8C);
         mPhaseX += param._80;
         mPhaseY += param._84;
         if (mPhaseX >= 360.0f) {
@@ -79,18 +82,18 @@ void WaftMoveCtrl::update() {
         if (mPhaseY >= 360.0f) {
             mPhaseY -= 360.0f;
         }
-        hel::math::Vector3 offset;
-        offset.x = hel::math::Math::SinDegF(mPhaseX);
-        offset.y = hel::math::Math::SinDegF(mPhaseY);
+        Vector3 offset;
+        offset.x = Math::SinDegF(mPhaseX);
+        offset.y = Math::SinDegF(mPhaseY);
         offset *= mWaveWidth;
         offset.y *= param._88;
         offset += mCenter;
-        hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mBoss.location().pos(), offset, mMoveIntpRate);
+        Vector3 pos = Math::LinearInterpolation(mBoss.location().pos(), offset, mMoveIntpRate);
         mBoss.location().setPos(pos);
     }
 }
 
-void WaftMoveCtrl::setCenter(const hel::math::Vector3& center) {
+void WaftMoveCtrl::setCenter(const Vector3& center) {
     mCenter = center;
 }
 
@@ -107,7 +110,7 @@ void WaftMoveCtrl::setWaveWidth(f32 width) {
 }
 
 #define MF_FUNCTION getCenter__Q53scn4step4boss6lowper12WaftMoveCtrlCFv
-hel::math::Vector3 WaftMoveCtrl::getCenter() const {
+Vector3 WaftMoveCtrl::getCenter() const {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;

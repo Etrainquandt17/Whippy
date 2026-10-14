@@ -15,6 +15,9 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCast;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -50,11 +53,11 @@ void StateBomb::procFixPos() {
 
 void StateBomb::reqBomb() {
     const Param& param = obj().param().bonkers();
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
+    Vector2 pos = obj().location().pos().getXY();
     pos.x += param.mBombOffset.x * obj().target().getSign();
     pos.y += param.mBombOffset.y;
-    hel::math::Vector2 speed(mConfig._0.x * obj().target().getSign(), mConfig._0.y);
+    Vector2 speed(mConfig._0.x * obj().target().getSign(), mConfig._0.y);
     map::BinEnemySize size = mConfig._8 ? map::BinEnemySize_Gigant : map::BinEnemySize_Normal;
     custom->reqBomb(pos, speed, size);
 }

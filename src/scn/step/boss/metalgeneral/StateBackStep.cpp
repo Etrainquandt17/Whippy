@@ -47,6 +47,9 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -54,11 +57,11 @@ namespace metalgeneral {
 
 StateBackStep::StateBackStep(Boss* boss) : StateBase(boss) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xA);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
-    obj().move().setVelocity(hel::math::Vector3(param._D4 * obj().target().getSign(), param._D8, 0.0f));
+    obj().move().setVelocity(Vector3(param._D4 * obj().target().getSign(), param._D8, 0.0f));
 }
 
 StateBackStep::~StateBackStep() {}

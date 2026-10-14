@@ -4,13 +4,15 @@
 #include "metafortress.h"
 #include "scn/step/core/BGMController.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace core {
 
 namespace {
 
-hel::common::PointerWrapper<BGMController> t_obj;
+PointerWrapper<BGMController> t_obj;
 
 }
 

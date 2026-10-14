@@ -2,6 +2,8 @@
 
 #include "metafortress.h"
 
+using hel::common::FixedString;
+
 // TODO: replace with the standard library header once the game code has one.
 extern "C" int sprintf(char* str, const char* format, ...);
 
@@ -100,7 +102,7 @@ ChallengeKind ChallengeKindUtil::AbilityKindToChallengeKind(hero::AbilityKind ki
 }
 
 #define MF_FUNCTION TutorialDNPath__Q33scn4step17ChallengeKindUtilFQ33scn4step13ChallengeKind
-hel::common::FixedString<64> ChallengeKindUtil::TutorialDNPath(ChallengeKind kind) {
+FixedString<64> ChallengeKindUtil::TutorialDNPath(ChallengeKind kind) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -187,7 +189,7 @@ hel::common::FixedString<64> ChallengeKindUtil::TutorialDNPath(ChallengeKind kin
             blr
         }
     } else {
-        return hel::common::FixedString<64>::FromFormat("Challengetutorial%s.dn", ChallengeName(kind));
+        return FixedString<64>::FromFormat("Challengetutorial%s.dn", ChallengeName(kind));
     }
 }
 #undef MF_FUNCTION

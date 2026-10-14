@@ -26,6 +26,8 @@
 #include "scn/step/ocoll/AttackType.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -56,7 +58,7 @@ void StateAttack::procAnim() {
         obj().effect().state().requestN(static_cast<effect::Kind>(0x45d), 0);
         obj().soundSE().start(0x4b7);
         obj().objColl().setAttackType(0, static_cast<ocoll::AttackType>(0x1dd));
-        obj().objColl().addAttack(0, 0, param.mAttackRadius, hel::math::Vector2::ZERO, hel::math::Vector2(param.mAttackOffset));
+        obj().objColl().addAttack(0, 0, param.mAttackRadius, Vector2::ZERO, Vector2(param.mAttackOffset));
     }
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateWait, Enemy*>(objPtr());

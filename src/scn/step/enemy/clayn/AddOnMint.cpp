@@ -12,6 +12,8 @@
 #include "scn/step/enemy/clayn/StateHideWait.h"
 #include "scn/step/enemy/clayn/StateWait.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +42,7 @@ void t_SetNextState_Disappear() {
 }
 
 void t_Custom_SetRotate(f32 rotate) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setRotate(rotate);
+    DynamicCastToRef<Custom, ICustom>(MintEnemy::Obj()->custom()).setRotate(rotate);
 }
 
 }

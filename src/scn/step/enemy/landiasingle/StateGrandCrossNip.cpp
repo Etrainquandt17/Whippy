@@ -45,6 +45,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -86,7 +88,7 @@ void StateGrandCrossNip::procAnim() {
 void StateGrandCrossNip::procMove() {
     const ParamData& param = obj().param().landiasingle();
     f32 rate = static_cast<f32>(mMoveFrame) / static_cast<f32>(param._134);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mStart, mEnd, rate).toVector3());
+    obj().location().setPos(Math::LinearInterpolation(mStart, mEnd, rate).toVector3());
 }
 
 void StateGrandCrossNip::procFixPos() {}

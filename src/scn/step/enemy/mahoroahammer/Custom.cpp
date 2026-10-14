@@ -24,6 +24,10 @@
 #include "scn/step/enemy/mahoroahammer/StateBound.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -32,7 +36,7 @@ namespace mahoroahammer {
 Custom::Custom(Enemy& enemy) : CustomBase(enemy) {}
 
 bool Custom::onRecover() {
-    obj().stateChanger().setNextState<StateBound, Enemy*, hel::math::Vector2>(&obj(), hel::math::Vector2::ZERO);
+    obj().stateChanger().setNextState<StateBound, Enemy*, Vector2>(&obj(), Vector2::ZERO);
     return true;
 }
 
@@ -40,8 +44,8 @@ void Custom::setupSuperEnemyEffect() {
     obj().effect().super().requestN(static_cast<effect::Kind>(0x132), 0, obj().location().toCenter());
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

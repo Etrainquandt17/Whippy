@@ -2,13 +2,15 @@
 
 #include "hel/common/PointerWrapper.h"
 
+using hel::common::PointerWrapper;
+
 namespace scn {
 namespace step {
 namespace boss {
 
 namespace {
 
-hel::common::PointerWrapper<Boss> t_obj;
+PointerWrapper<Boss> t_obj;
 
 }
 

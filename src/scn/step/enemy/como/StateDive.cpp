@@ -11,6 +11,8 @@
 #include "scn/step/enemy/como/StateDiveWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -27,7 +29,7 @@ void StateDive::procAnim() {}
 
 void StateDive::procMove() {
     const ParamData& param = obj().param().como();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mSpeed += param.mDiveAccel * (1.0f - mSpeed * mSpeed / (param.mDiveMaxSpeed * param.mDiveMaxSpeed));
     f32 length = custom.threadCtrl().getLength();
     length += mSpeed;
@@ -50,7 +52,7 @@ void StateDive::procFixPos() {
 }
 
 void StateDive::procObjCollReact() {
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).threadCtrl().checkCut()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).threadCtrl().checkCut()) {
         obj().stateChanger().setNextState<StateCutFall, Enemy*>(objPtr());
     }
 }

@@ -7,46 +7,50 @@
 #include "scn/step/boss/landia/Param.h"
 #include "scn/step/chara/Location.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace landia {
 
 WaftCtrl::WaftCtrl(Boss& boss) : mBoss(boss), mRefPos(boss.location().pos()), mTheta(), mThetaVel(), mWidth(), mWidthTarget() {
-    mTheta = hel::math::Vector2::ZERO;
-    mThetaVel = hel::math::Vector2::ZERO;
-    mWidth = hel::math::Vector2::ZERO;
-    mWidthTarget = hel::math::Vector2::ZERO;
+    mTheta = Vector2::ZERO;
+    mThetaVel = Vector2::ZERO;
+    mWidth = Vector2::ZERO;
+    mWidthTarget = Vector2::ZERO;
 }
 
-void WaftCtrl::setWaveWidth(const hel::math::Vector2& width) {
+void WaftCtrl::setWaveWidth(const Vector2& width) {
     mWidthTarget = width;
 }
 
 void WaftCtrl::setWaveWidthZero() {
-    mWidthTarget = hel::math::Vector2::ZERO;
+    mWidthTarget = Vector2::ZERO;
 }
 
-void WaftCtrl::setWaveThetaVel(const hel::math::Vector2& vel) {
+void WaftCtrl::setWaveThetaVel(const Vector2& vel) {
     mThetaVel = vel;
 }
 
 void WaftCtrl::setWaveDefault() {
     const Param& param = mBoss.param().landia();
-    setWaveWidth(hel::math::Vector2(param.mWaftWidth));
-    setWaveThetaVel(hel::math::Vector2(param.mWaftThetaVel, param.mWaftThetaVel));
+    setWaveWidth(Vector2(param.mWaftWidth));
+    setWaveThetaVel(Vector2(param.mWaftThetaVel, param.mWaftThetaVel));
 }
 
-hel::math::Vector3 WaftCtrl::getRefPos() const {
+Vector3 WaftCtrl::getRefPos() const {
     return mRefPos;
 }
 
-void WaftCtrl::setRefPos(const hel::math::Vector3& pos) {
+void WaftCtrl::setRefPos(const Vector3& pos) {
     mRefPos = pos;
 }
 
-void WaftCtrl::setPosEnf(const hel::math::Vector3& pos) {
-    mWidth = hel::math::Vector2::ZERO;
+void WaftCtrl::setPosEnf(const Vector3& pos) {
+    mWidth = Vector2::ZERO;
     mRefPos = pos;
     mBoss.location().setPos(pos);
 }
@@ -66,8 +70,8 @@ void WaftCtrl::update() {
     while (mTheta.y < 0.0f) {
         mTheta.y += 360.0f;
     }
-    mWidth = hel::math::Math::LinearInterpolation(mWidth, mWidthTarget, param.mWaftWidthRate);
-    hel::math::Vector3 pos(hel::math::Math::SinDegF(mTheta.x) * -mBoss.target().getSign(), hel::math::Math::SinDegF(mTheta.y), 0.0f);
+    mWidth = Math::LinearInterpolation(mWidth, mWidthTarget, param.mWaftWidthRate);
+    Vector3 pos(Math::SinDegF(mTheta.x) * -mBoss.target().getSign(), Math::SinDegF(mTheta.y), 0.0f);
     pos.scale(mWidth.toVector3());
     pos += mRefPos;
     mBoss.location().setPos(pos);

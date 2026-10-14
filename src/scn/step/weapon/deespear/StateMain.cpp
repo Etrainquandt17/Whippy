@@ -22,6 +22,8 @@
 #include "scn/step/weapon/deespear/StateVanish.h"
 #include "scn/step/weapon/deespear/Utility.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -34,8 +36,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0) {
     obj().model().reqScript(0);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x10E), 0);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x14D));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2(-2.0f * sign, 0.0f));
-    obj().objColl().addAttack(0, param._4, hel::math::Vector2(sign * param._8, param._C));
+    obj().objColl().setAttackCenter(0, Vector2(-2.0f * sign, 0.0f));
+    obj().objColl().addAttack(0, param._4, Vector2(sign * param._8, param._C));
 }
 
 StateMain::~StateMain() {

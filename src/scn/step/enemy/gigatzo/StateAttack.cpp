@@ -35,13 +35,17 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace gigatzo {
 
 StateAttack::StateAttack(Enemy* enemy) : StateBase(enemy), mFrame(0) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isBackAttack() || custom.isAir()) {
         obj().footState().setAir();
     } else {
@@ -75,7 +79,7 @@ StateAttack::~StateAttack() {
 
 void StateAttack::procAnim() {
     const ParamData& param = obj().param().gigatzo();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     switch (obj().kind()) {
     case 0x22:
@@ -110,7 +114,7 @@ void StateAttack::procAnim() {
 }
 
 void StateAttack::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().footState().isAir() && !custom.isBackAttack() && !custom.isAir()) {
         obj().move().airDecelFall(obj().param().common().mDecel, obj().param().common().mFall);
     } else {
@@ -119,7 +123,7 @@ void StateAttack::procMove() {
 }
 
 void StateAttack::procFixPos() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (!custom.isBackAttack() && !custom.isAir()) {
         if (obj().mapColl().result().mIsHitFloor) {
             obj().footState().setGround();
@@ -131,7 +135,7 @@ void StateAttack::procFixPos() {
 }
 
 void StateAttack::shot() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().soundSE().stop();
     switch (obj().kind()) {
     case 0x22:
@@ -149,10 +153,10 @@ void StateAttack::shot() {
         break;
     }
     weapon::Desc desc;
-    g3d::NodeAccessor node = obj().model().model().nodes().at(2);
-    hel::math::Vector2 pos;
-    hel::math::Vector2 unused1;
-    hel::math::Vector2 unused2;
+    NodeAccessor node = obj().model().model().nodes().at(2);
+    Vector2 pos;
+    Vector2 unused1;
+    Vector2 unused2;
     switch (obj().kind()) {
     case 0x22:
         desc.mKind = static_cast<weapon::Kind>(0x31);
@@ -181,20 +185,20 @@ void StateAttack::shot() {
     }
 }
 
-hel::math::Vector2 StateAttack::setBulletInitVel() {
-    f32 angle = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).aimAngle();
-    hel::math::Vector2 vel;
+Vector2 StateAttack::setBulletInitVel() {
+    f32 angle = DynamicCastToRef<Custom, ICustom>(obj().custom()).aimAngle();
+    Vector2 vel;
     if (0.0f == angle) {
-        vel = hel::math::Vector2(0.0f, 1.0f);
+        vel = Vector2(0.0f, 1.0f);
     } else if (-90.0f == angle || 270.0f == angle) {
-        vel = hel::math::Vector2(-1.0f, 0.0f);
+        vel = Vector2(-1.0f, 0.0f);
     } else if (90.0f == angle) {
-        vel = hel::math::Vector2(1.0f, 0.0f);
+        vel = Vector2(1.0f, 0.0f);
     } else if (-45.0f == angle || 315.0f == angle) {
-        vel = hel::math::Vector2(-1.0f, 1.0f);
+        vel = Vector2(-1.0f, 1.0f);
         vel = vel.getNormalized();
     } else if (45.0f == angle) {
-        vel = hel::math::Vector2(1.0f, 1.0f);
+        vel = Vector2(1.0f, 1.0f);
         vel = vel.getNormalized();
     }
     return vel;

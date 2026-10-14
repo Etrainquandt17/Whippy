@@ -72,13 +72,16 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
 StateMissile::StateMissile(Boss* boss, u32 index) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     switch (index) {
     case 1:
@@ -107,18 +110,18 @@ void StateMissile::procAnim() {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
         return;
     }
-    hel::math::Vector2 pos = obj().location().pos().getXY();
-    pos += hel::math::Vector2(param._150 * obj().target().getSign(), param._154);
+    Vector2 pos = obj().location().pos().getXY();
+    pos += Vector2(param._150 * obj().target().getSign(), param._154);
     if (obj().scriptTrigger().get(1)) {
-        Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+        Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
         custom.weaponCtrl().reqMissile(pos, enemy::metalgeneralmissile::StateSpread::SPREAD_KIND_0);
     }
     if (obj().scriptTrigger().get(2)) {
-        Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+        Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
         custom.weaponCtrl().reqMissile(pos, enemy::metalgeneralmissile::StateSpread::SPREAD_KIND_1);
     }
     if (obj().scriptTrigger().get(3)) {
-        Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+        Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
         custom.weaponCtrl().reqMissile(pos, enemy::metalgeneralmissile::StateSpread::SPREAD_KIND_2);
     }
 }

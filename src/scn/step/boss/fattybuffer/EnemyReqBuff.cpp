@@ -5,6 +5,8 @@
 
 #include "app/Random.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -25,7 +27,7 @@ bool EnemyReqBuff::isEmpty() const {
 }
 
 EnemyReqBuff::ReqData EnemyReqBuff::pick() {
-    u32 index = app::Random::RandU32(mBuff.count());
+    u32 index = Random::RandU32(mBuff.count());
     ReqData data = mBuff[index];
     mBuff.removeAtIndex(index);
     return data;

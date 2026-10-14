@@ -26,6 +26,8 @@
 #include "scn/step/enemy/fattybufferjr/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -38,7 +40,7 @@ StateEscapeNear::StateEscapeNear(Enemy* enemy) : StateBase(enemy) {
     obj().move().setVelocity(param.mEscapeVelocity);
     obj().mapColl().setValid(false);
     obj().objColl().bodyColl().setStateXlu();
-    obj().target().setIsRightDir(app::Random::RandBool(0.5f));
+    obj().target().setIsRightDir(Random::RandBool(0.5f));
 }
 
 void StateEscapeNear::procAnim() {}

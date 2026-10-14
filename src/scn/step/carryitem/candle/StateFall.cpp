@@ -13,6 +13,8 @@
 #include "scn/step/chara/Water.h"
 #include "scn/step/core/PermEffect.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -73,7 +75,7 @@ void StateFall::procObjCollReact() {
 }
 
 void StateFall::mfBreak() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += 0.5f;
     obj().comp().permEffect().normal().requestP(static_cast<effect::Kind>(0x4B0), pos);
     obj().soundSE().start(0x100);

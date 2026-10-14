@@ -14,6 +14,10 @@
 #include "scn/step/map/KindUtil.h"
 #include "scn/subgame/Context.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+using hel::common::FixedStringIN;
+
 namespace scn {
 namespace step {
 namespace core {
@@ -132,7 +136,7 @@ void PreLoadReq::Request(Component& component, const gimmick::StepMoveInfo& info
     u32 limit;
 
     file::DNOption option = t_dnOption(component);
-    file::FDGManager& fdg = hel::common::ExplicitSingleton<app::Application>::object_->fdgManager();
+    file::FDGManager& fdg = ExplicitSingleton<Application>::object_->fdgManager();
     asm {
         bl      after1
         opword  0x6827B093
@@ -210,8 +214,8 @@ void PreLoadReq::Request(Component& component, const gimmick::StepMoveInfo& info
             break;
         case 1:
             fdg.preLoad(
-                hel::common::FixedStringIN<char, 32>::FromFormat(
-                    "GoalgameLv%lu.dn", map::KindUtil::ToLevelIndex(component.context().mapKind) + 1),
+                FixedStringIN<char, 32>::FromFormat(
+                "GoalgameLv%lu.dn", map::KindUtil::ToLevelIndex(component.context().mapKind) + 1),
                 option);
             break;
         case 2:
@@ -228,7 +232,7 @@ void PreLoadReq::Request(Component& component, const gimmick::StepMoveInfo& info
 void PreLoadReq::Request(Component& component, const gimmick::shipdoor::Result& result) {
     file::DNOption option = t_dnOption(component);
     if (result._10 != 2) {
-        app::Application::Object().fdgManager().preLoad(
+        Application::Object().fdgManager().preLoad(
             subgame::Context::MenuDN(static_cast<subgame::Context::Kind>(result._10)), option);
     } else {
         map::KindUtil::PreLoadRequest(result._14, option);
@@ -335,7 +339,7 @@ void PreLoadReq::request(const gimmick::StepMoveInfo& info) {
     } else if (!checkRequest()) {
         mIsRequested = true;
         if (!mComponent.context()._524.isArenaMode()) {
-            hel::common::ExplicitSingleton<app::Application>::object_->preLoadManager().cancel();
+            ExplicitSingleton<Application>::object_->preLoadManager().cancel();
             Request(mComponent, info);
         }
     }
@@ -345,7 +349,7 @@ void PreLoadReq::request(const gimmick::StepMoveInfo& info) {
 void PreLoadReq::request(const gimmick::lvmapdoor::Result& result) {
     if (!checkRequest()) {
         mIsRequested = true;
-        hel::common::ExplicitSingleton<app::Application>::object_->preLoadManager().cancel();
+        ExplicitSingleton<Application>::object_->preLoadManager().cancel();
         map::KindUtil::PreLoadRequest(map::KindUtil::ToKind(result._10, result._14), t_dnOption(mComponent));
     }
 }
@@ -354,7 +358,7 @@ void PreLoadReq::request(const gimmick::shipdoor::Result& result) {
     if (!checkRequest()) {
         mIsRequested = true;
         if (result._10 != 2) {
-            app::Application::Object().fdgManager().preLoad(
+            Application::Object().fdgManager().preLoad(
                 subgame::Context::MenuDN(static_cast<subgame::Context::Kind>(result._10)), t_dnOption(mComponent));
         } else {
             map::KindUtil::PreLoadRequest(result._14, t_dnOption(mComponent));

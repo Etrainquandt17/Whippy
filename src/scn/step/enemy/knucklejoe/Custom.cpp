@@ -30,6 +30,13 @@
 #include "scn/step/weapon/Manager.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -95,8 +102,8 @@ void Custom::setAttack() {
     int attack;
     int near = 4;
     int far = 4;
-    hel::math::Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
-    if (hel::math::Math::Abs(diff.x) >= 3.0f) {
+    Vector2 diff = Utility::GetNearestPlayerPos(obj()) - obj().location().pos().getXY();
+    if (Math::Abs(diff.x) >= 3.0f) {
         near = 8;
     }
     if (obj().level() == 0) {
@@ -104,7 +111,7 @@ void Custom::setAttack() {
     } else if (diff.y > 1.0f) {
         far = 8;
     }
-    int rand = app::Random::Rand(far + near + 8);
+    int rand = Random::Rand(far + near + 8);
     if (rand < near) {
         attack = 1;
     } else if (rand < near + 4) {
@@ -118,7 +125,7 @@ void Custom::setAttack() {
             mAttackCount = 0;
             switch (attack) {
             case 1:
-                rand = app::Random::Rand(far + 8);
+                rand = Random::Rand(far + 8);
                 if (rand < 4) {
                     attack = 3;
                 } else if (rand < 8) {
@@ -128,7 +135,7 @@ void Custom::setAttack() {
                 }
                 break;
             case 2:
-                rand = app::Random::Rand(near + 8);
+                rand = Random::Rand(near + 8);
                 if (rand < near) {
                     attack = 1;
                 } else if (rand < near + 4) {
@@ -138,7 +145,7 @@ void Custom::setAttack() {
                 }
                 break;
             case 3:
-                rand = app::Random::Rand(far + 4 + near);
+                rand = Random::Rand(far + 4 + near);
                 if (rand < near) {
                     attack = 1;
                 } else if (rand < near + 4) {
@@ -148,7 +155,7 @@ void Custom::setAttack() {
                 }
                 break;
             case 4:
-                rand = app::Random::Rand(far + 4 + near);
+                rand = Random::Rand(far + 4 + near);
                 if (rand < near) {
                     attack = 1;
                 } else if (rand < near + 4) {
@@ -170,10 +177,10 @@ void Custom::shot() {
     desc.mKind = static_cast<weapon::Kind>(0x3d);
     desc.mVariation = 0;
     desc.mFlag = static_cast<ostop::Flag>(4);
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    desc.mPos = obj().location().pos().getXY() + hel::math::Vector2(obj().target().getSign(), 0.6f);
-    desc._14 = obj().location().pos().getXY() + hel::math::Vector2(obj().target().getSign(), 0.6f);
-    desc._1c = hel::math::Vector2(obj().target().getSign() * 0.25f, 0.0f);
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    desc.mPos = obj().location().pos().getXY() + Vector2(obj().target().getSign(), 0.6f);
+    desc._14 = obj().location().pos().getXY() + Vector2(obj().target().getSign(), 0.6f);
+    desc._1c = Vector2(obj().target().getSign() * 0.25f, 0.0f);
     desc.mOwner = &obj().objColl().owner();
     obj().comp().weaponManager().request(desc);
 }
@@ -186,8 +193,8 @@ bool Custom::getHitWall() {
     return mHitWall;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

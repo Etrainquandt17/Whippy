@@ -2,6 +2,8 @@
 
 #include "app/Random.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -31,7 +33,7 @@ const Table T_TABLES[] = {
 
 u32 FoodTableKindUtil::RandomFoodKind(FoodTableKind kind) {
     const Table& table = T_TABLES[kind];
-    return table.mKinds[app::Random::RandU32(table.mNum)];
+    return table.mKinds[Random::RandU32(table.mNum)];
 }
 
 }}}  // namespace scn::step::item

@@ -39,6 +39,15 @@
 #include "scn/step/map/LandManager.h"
 #include "snd/SERequestor.h"
 
+using g3d::NodeAccessor;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::geo::Rect;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -81,7 +90,7 @@ bool Custom::onInit() {
     obj().cliffChecker().setValid(false);
     obj().objColl().clearBodyColl();
     if (!mIsBackAttack) {
-        obj().objColl().addBodyColl(0, 0.9f, hel::math::Vector2(0.0f, 1.6f), hel::math::Vector2(0.0f, 0.7f));
+        obj().objColl().addBodyColl(0, 0.9f, Vector2(0.0f, 1.6f), Vector2(0.0f, 0.7f));
         obj().model().model().nodes().at(7).setVisibility(false);
         obj().model().model().nodes().at(8).setVisibility(false);
         if (obj().variation() != 0x4e && obj().variation() != 0x93 && obj().variation() != 0xc8) {
@@ -95,7 +104,7 @@ bool Custom::onInit() {
         obj().nururi().setValid(false);
         obj().vacuumReceiver().setIsValid(false);
         setAimAngle(0.0f);
-        hel::math::Vector3 pos = obj().location().pos();
+        Vector3 pos = obj().location().pos();
         pos.z -= obj().param().gigatzo().mBackZ;
         obj().location().setPos(pos);
     }
@@ -106,12 +115,12 @@ bool Custom::onInit() {
 void Custom::onProcFixPos() {
     setModelColor();
     const ParamData& param = obj().param().gigatzo();
-    hel::math::Vector2 pos = obj().location().pos().getXY();
+    Vector2 pos = obj().location().pos().getXY();
     if (pos.x < 0.0f || static_cast<f32>(obj().comp().mapLandManager().native().gridWidth()) < pos.x) {
         obj().dead();
         return;
     }
-    hel::geo::Rect rect = obj().culling().calcCullingRect();
+    Rect rect = obj().culling().calcCullingRect();
     rect._0 += mIsBackAttack ? param.mCullingMarginBack : param.mCullingMargin;
     rect._4 -= 6.0f;
     rect._8 -= mIsBackAttack ? param.mCullingMarginBack : param.mCullingMargin;
@@ -145,17 +154,17 @@ bool Custom::isAir() {
 
 void Custom::setAimAngle(f32 angle) {
     mAimAngle = angle;
-    g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, 0.0f, -1.0f * angle));
+    NodeAccessor node = obj().model().model().nodes().at(1);
+    Matrix34 mtx = Matrix34::CreateRotXYZDeg(Vector3(0.0f, 0.0f, -1.0f * angle));
     node.localMtx().setRTMtx(mtx);
 }
 
 f32 Custom::playerAngle() {
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
-    g3d::NodeAccessor node = obj().model().model().nodes().at(2);
-    hel::math::Vector2 nodePos = node.worldMtx().getT().getXY();
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    NodeAccessor node = obj().model().model().nodes().at(2);
+    Vector2 nodePos = node.worldMtx().getT().getXY();
     playerPos -= nodePos;
-    f32 angle = hel::math::Math::Atan2DegF(playerPos.x, playerPos.y);
+    f32 angle = Math::Atan2DegF(playerPos.x, playerPos.y);
     if (angle > 90.0f) {
         angle = 90.0f;
     }
@@ -167,7 +176,7 @@ f32 Custom::playerAngle() {
 
 bool Custom::isPlayerInAimArea() {
     f32 aimAngle = mAimAngle;
-    f32 diff = hel::math::Math::AbsF32(playerAngle() - aimAngle);
+    f32 diff = Math::AbsF32(playerAngle() - aimAngle);
     return diff <= obj().param().gigatzo().mAimArea;
 }
 
@@ -270,8 +279,8 @@ void Custom::setModelColor() {
     obj().flash().setEnfAlways(color);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

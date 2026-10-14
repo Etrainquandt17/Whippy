@@ -4,6 +4,8 @@
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/SoundSE.h"
 
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -25,7 +27,7 @@ VacuumSoundCtrl::~VacuumSoundCtrl() {
 }
 
 #define MF_FUNCTION registerObj__Q43scn4step4hero15VacuumSoundCtrlFQ24util35ObjRefHandle_Q43scn4step4hero4Hero_
-void VacuumSoundCtrl::registerObj(util::ObjRefHandle<Hero> obj) {
+void VacuumSoundCtrl::registerObj(ObjRefHandle<Hero> obj) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;
@@ -93,7 +95,7 @@ done:;
 #undef MF_FUNCTION
 
 #define MF_FUNCTION unregisterObj__Q43scn4step4hero15VacuumSoundCtrlFQ24util35ObjRefHandle_Q43scn4step4hero4Hero_
-void VacuumSoundCtrl::unregisterObj(util::ObjRefHandle<Hero> obj) {
+void VacuumSoundCtrl::unregisterObj(ObjRefHandle<Hero> obj) {
     volatile u32 start;
     volatile u32 end;
     volatile u32 expected;

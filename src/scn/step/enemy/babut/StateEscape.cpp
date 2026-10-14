@@ -14,6 +14,9 @@
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/babut/ParamData.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -26,11 +29,11 @@ StateEscape::StateEscape(Enemy* enemy) : StateBase(enemy) {
 
 void StateEscape::procMove() {
     if (Utility::IsPlayerExist(obj())) {
-        hel::math::Vector2 heroPos = Utility::GetNearestPlayerPos(obj());
+        Vector2 heroPos = Utility::GetNearestPlayerPos(obj());
         obj().target().setIsRightDir(obj().location().pos().x > heroPos.x);
         f32 speed = obj().move().velocity().y;
         speed += obj().param().babut().mEscapeAccelV;
-        if (hel::math::Math::Abs(speed) > obj().param().babut().mEscapeSpeedVMax) {
+        if (Math::Abs(speed) > obj().param().babut().mEscapeSpeedVMax) {
             speed = (speed < 0.0f ? -1 : 1) * obj().param().babut().mEscapeSpeedVMax;
         }
         obj().move().setSpeedV(speed);

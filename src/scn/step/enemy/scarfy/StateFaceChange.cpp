@@ -17,6 +17,8 @@
 #include "scn/step/enemy/scarfy/ParamData.h"
 #include "scn/step/enemy/scarfy/StateAngerChase.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ void StateFaceChange::procAnim() {
         obj().model().anim().frame() >= obj().param().scarfy().mFaceChangeFlipFrame && !mIsFlipped) {
         obj().model().meshFlip().flip(1);
         obj().objColl().bodyColl().setAttackTypeOver(static_cast<ocoll::AttackType>(0x19e));
-        hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).onAngerFlag();
+        DynamicCastToRef<Custom, ICustom>(obj().custom()).onAngerFlag();
         mIsFlipped = true;
     }
     if (obj().model().isAllEnd()) {

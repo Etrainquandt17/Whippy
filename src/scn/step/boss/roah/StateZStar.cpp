@@ -25,6 +25,14 @@
 #include "scn/step/chara/Model.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using g3d::NodeAccessor;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -32,7 +40,7 @@ namespace roah {
 
 StateZStar::StateZStar(Boss* boss, Config config) : StateBase(boss), mCount(0), mIndex(0), mBasePos(), mConfig(config) {
     const Param& param = obj().param().roah();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     mBasePos = obj().comp().mainCamera().getCenter().toVector3();
@@ -40,7 +48,7 @@ StateZStar::StateZStar(Boss* boss, Config config) : StateBase(boss), mCount(0), 
     mBasePos.y += param.mZStarOffset.y;
     mBasePos.z += param.mZStarOffset.z;
     obj().location().setPos(mBasePos);
-    hel::math::Vector3 target = mBasePos;
+    Vector3 target = mBasePos;
     if (mConfig._10) {
         target.x = param.mZStarOffset.x + obj().comp().mainCamera().getCenter().x;
     } else {
@@ -51,9 +59,9 @@ StateZStar::StateZStar(Boss* boss, Config config) : StateBase(boss), mCount(0), 
     f32 sign = -1.0f;
     for (u32 i = 0; i < 6; i++) {
         f32 t = static_cast<f32>(i + 1) / 6.0f;
-        t = param.mZStarCurve * hel::math::Math::SinDegF(360.0f * t) + t;
-        hel::math::Vector3 pos = mBasePos * (1.0f - t) + target * t;
-        pos.y += sign * (mConfig._4 * app::Random::RandNF() + mConfig._8);
+        t = param.mZStarCurve * Math::SinDegF(360.0f * t) + t;
+        Vector3 pos = mBasePos * (1.0f - t) + target * t;
+        pos.y += sign * (mConfig._4 * Random::RandNF() + mConfig._8);
         mPoints.add(pos);
         sign *= -1.0f;
     }
@@ -61,7 +69,7 @@ StateZStar::StateZStar(Boss* boss, Config config) : StateBase(boss), mCount(0), 
 }
 
 StateZStar::~StateZStar() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).rotCtrl().toValid();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).rotCtrl().toValid();
     mPoints.clear();
 }
 
@@ -80,8 +88,8 @@ void StateZStar::procAnim() {
     }
     f32 rotY = param.mZStarRotY * ((obj().comp().mainCamera().getCenter().x - obj().location().pos().x) / param.mZStarOffset.x);
     {
-        g3d::NodeAccessor node = obj().model().model().nodes().at(1);
-        node.localMtx().setRTMtx(hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(0.0f, rotY, 0.0f)));
+        NodeAccessor node = obj().model().model().nodes().at(1);
+        node.localMtx().setRTMtx(Matrix34::CreateRotXYZDeg(Vector3(0.0f, rotY, 0.0f)));
     }
     if (mIndex != 0 && mIndex < 5 && mCount % mConfig._C == 0) {
         reqStar();
@@ -91,21 +99,21 @@ void StateZStar::procAnim() {
 }
 
 void StateZStar::procMove() {
-    hel::math::Vector3 target = mPoints[mIndex];
+    Vector3 target = mPoints[mIndex];
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mConfig._0);
     f32 rate = 3.0f * (t * t) - 2.0f * t * (t * t);
-    obj().location().setPos(hel::math::Math::LinearInterpolation(mBasePos, target, rate));
+    obj().location().setPos(Math::LinearInterpolation(mBasePos, target, rate));
 }
 
 void StateZStar::procFixPos() {}
 
 void StateZStar::reqStar() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.weaponCtrl().clearReqBuff();
     WeaponCtrl::ReqData data;
     data._0 = 10;
-    data._4 = hel::math::Vector2::ZERO.x;
-    data._8 = hel::math::Vector2::ZERO.y;
+    data._4 = Vector2::ZERO.x;
+    data._8 = Vector2::ZERO.y;
     custom.weaponCtrl().addReqData(data);
     custom.weaponCtrl().request();
 }

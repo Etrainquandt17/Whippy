@@ -25,6 +25,10 @@
 #include "scn/step/enemy/liepa/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -40,7 +44,7 @@ StateCircleAttack::~StateCircleAttack() {}
 
 void StateCircleAttack::procAnim() {
     const ParamData& param = obj().param().liepa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().model().getCurrentScriptIndex() == 7) {
         mShotFrame++;
         if (mShotFrame == param.mShotFrame) {
@@ -62,9 +66,9 @@ void StateCircleAttack::procMove() {
     const ParamData& param = obj().param().liepa();
     mRadius = 0.95f * mRadius + 0.05f * param.mCircleRadius;
     f32 rate = static_cast<f32>(mFrame % param.mCircleFrame) / static_cast<f32>(param.mCircleFrame);
-    hel::math::Vector2 pos = mCenter;
-    pos.x += mRadius * hel::math::Math::SinDegF(360.0f * rate);
-    pos.y += mRadius * hel::math::Math::CosDegF(360.0f * rate);
+    Vector2 pos = mCenter;
+    pos.x += mRadius * Math::SinDegF(360.0f * rate);
+    pos.y += mRadius * Math::CosDegF(360.0f * rate);
     obj().location().setPos(pos.toVector3());
 }
 

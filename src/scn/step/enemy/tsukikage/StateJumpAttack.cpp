@@ -21,6 +21,9 @@
 #include "scn/step/enemy/tsukikage/StateLanding.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -58,7 +61,7 @@ void StateJumpAttack::procAnim() {
         }
         if (mAttackFrame == param.mShurikenFrame) {
             obj().soundSE().start(0x2ee);
-            hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestShuriken();
+            DynamicCastToRef<Custom, ICustom>(obj().custom()).requestShuriken();
         } else if (mAttackFrame == param.mShurikenFrame + param.mJumpAttackEndFrame) {
             mIsAttackEnd = true;
         }
@@ -75,7 +78,7 @@ void StateJumpAttack::procMove() {
     if (mFrame >= param.mJumpStartFrame) {
         if (obj().footState().isGround()) {
             obj().footState().setAir();
-            obj().move().setVelocity(hel::math::Vector3(0.0f, param.mJumpSpeedYHigh, 0.0f));
+            obj().move().setVelocity(Vector3(0.0f, param.mJumpSpeedYHigh, 0.0f));
         }
         if (!mIsFall || mIsAttackEnd) {
             obj().move().airDecelFall(param.mFallDecel, param.mFall);

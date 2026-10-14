@@ -57,14 +57,18 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace lowper {
 
 StateMoveToFar::StateMoveToFar(Boss* boss, f32 y)
-    : StateBase(boss), mStartPos(), mGoalPos(), mCount(0), mOffset(hel::math::Vector3(0.0f, y, 0.0f)) {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    : StateBase(boss), mStartPos(), mGoalPos(), mCount(0), mOffset(Vector3(0.0f, y, 0.0f)) {
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
     mStartPos = obj().location().pos();
     mGoalPos = obj().basePos().toVector3();
     mGoalPos.y += 4.0f;
@@ -84,20 +88,20 @@ void StateMoveToFar::procAnim() {
 }
 
 void StateMoveToFar::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / 60.0f;
-    hel::math::Vector3 pos;
+    Vector3 pos;
     f32 sign = mStartPos.x > 0.0f ? 1.0f : -1.0f;
-    f32 rateX = t * (-0.3f * hel::math::Math::SinDegF(360.0f * t));
+    f32 rateX = t * (-0.3f * Math::SinDegF(360.0f * t));
     rateX += t;
     pos.x = mStartPos.x * (1.0f - rateX) + mGoalPos.x * rateX;
-    f32 swing = 4.0f * hel::math::Math::SinDegF(180.0f * rateX);
-    swing += (1.0f - t) * ((1.0f - t) * ((1.0f - t) * ((1.0f - t) * (3.0f * hel::math::Math::SinDegF(180.0f * t)))));
+    f32 swing = 4.0f * Math::SinDegF(180.0f * rateX);
+    swing += (1.0f - t) * ((1.0f - t) * ((1.0f - t) * ((1.0f - t) * (3.0f * Math::SinDegF(180.0f * t)))));
     swing *= sign;
     pos.x += swing;
-    f32 rateY = 0.5f * (1.0f - hel::math::Math::CosDegF(180.0f * t));
+    f32 rateY = 0.5f * (1.0f - Math::CosDegF(180.0f * t));
     pos.y = mStartPos.y * (1.0f - rateY) + mGoalPos.y * rateY;
-    f32 rateZ = 0.5f * (1.0f - hel::math::Math::CosDegF(180.0f * t));
+    f32 rateZ = 0.5f * (1.0f - Math::CosDegF(180.0f * t));
     pos.z = mStartPos.z * (1.0f - rateZ) + mGoalPos.z * rateZ;
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);

@@ -14,6 +14,9 @@
 #include "scn/step/weapon/mahoroablackhole/StateEnd.h"
 #include "util/StateChanger.h"
 
+using hel::common::DynamicCast;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -22,7 +25,7 @@ namespace mahoroablackhole {
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(false), mFrameRate(1.0f), mWait(60) {
     obj().model().rotCtrl().setValid(false);
     obj().mapColl().setValid(false);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.z = -20.0f;
     obj().location().setPos(pos);
     obj().model().anim().subAnimSet(0, 3, 2);
@@ -37,7 +40,7 @@ StateMain::~StateMain() {
 }
 
 void StateMain::procAnim() {
-    Custom* custom = hel::common::DynamicCast<Custom*, ICustom>(obj().custom());
+    Custom* custom = DynamicCast<Custom*, ICustom>(obj().custom());
     if (mWait != 0) {
         mWait--;
         if (mWait == 0) {
@@ -52,7 +55,7 @@ void StateMain::procAnim() {
     if (obj().model().isAllEnd()) {
         obj().model().reqScript(1);
         _8 = true;
-        obj().effect().normal().requestN(static_cast<effect::Kind>(0x3BA), 1, hel::math::Vector3(0.0f, -0.75f, 0.0f));
+        obj().effect().normal().requestN(static_cast<effect::Kind>(0x3BA), 1, Vector3(0.0f, -0.75f, 0.0f));
     }
     mFrameRate += 0.05f;
     if (mFrameRate > 5.0f) {

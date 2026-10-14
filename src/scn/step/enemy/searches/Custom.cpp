@@ -30,6 +30,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -47,8 +51,8 @@ bool Custom::isPlayerInArea() {
 
 bool Custom::searchesDamage() {
     if (obj().damageInfo().smashType() == 0) {
-        hel::math::Vector2 pos = obj().location().pos().getXY();
-        weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 2, static_cast<ostop::Flag>(4), pos, pos, hel::math::Vector2(0.0f, 0.0f),
+        Vector2 pos = obj().location().pos().getXY();
+        weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 2, static_cast<ostop::Flag>(4), pos, pos, Vector2(0.0f, 0.0f),
                           obj().objColl().owner());
         obj().comp().weaponManager().request(desc);
         obj().comp().permSoundSE().start(0x50e);
@@ -66,8 +70,8 @@ bool Custom::onHitPointIsZero() {
     return searchesDamage();
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

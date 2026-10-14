@@ -1,5 +1,8 @@
 #include "font/FontKindUtil.h"
 
+using hel::common::FixedString;
+using hel::common::FixedStringIN;
+
 namespace font {
 
 namespace {
@@ -35,9 +38,9 @@ const FontContext t_context(FontKind kind) {
 
 namespace FontKindUtil {
 
-hel::common::FixedString<80> FilePath(FontKind kind) {
+FixedString<80> FilePath(FontKind kind) {
     const FontContext context = t_context(kind);
-    return hel::common::FixedStringIN<char, 80>::FromFormat("font/%s%s", context.dir, context.fileName);
+    return FixedStringIN<char, 80>::FromFormat("font/%s%s", context.dir, context.fileName);
 }
 
 const char* Name(FontKind kind) {

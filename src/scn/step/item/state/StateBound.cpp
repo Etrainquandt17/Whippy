@@ -13,6 +13,10 @@
 #include "scn/step/item/RotAnim.h"
 #include "scn/step/map/KindUtil.h"
 
+using app::Random;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace item {
@@ -29,7 +33,7 @@ StateBound::StateBound(Item* item)
     if (map::KindUtil::IsChallengeStage(obj().comp().context().mapKind)) {
         speedH = param._3C;
     }
-    obj().move().setSpeedH(speedH * app::Random::RandAF());
+    obj().move().setSpeedH(speedH * Random::RandAF());
 }
 
 StateBound::~StateBound() {
@@ -50,7 +54,7 @@ void StateBound::procMove() {
 void StateBound::procFixPos() {
     const Param& param = obj().param();
     if (obj().mapColl().isHit()) {
-        hel::math::Vector3 velocity = obj().move().velocity();
+        Vector3 velocity = obj().move().velocity();
         if (0.0f < obj().mapColl().normal().y) {
             velocity.x *= param._50;
             velocity.y *= -param._54;
@@ -58,11 +62,11 @@ void StateBound::procFixPos() {
                 velocity.y = param._58;
             }
         }
-        if (hel::math::Math::Abs(obj().mapColl().normal().x) > 0.75f) {
+        if (Math::Abs(obj().mapColl().normal().x) > 0.75f) {
             velocity.x *= -1.0f;
         }
         if (obj().mapColl().normal().y < -0.75f) {
-            velocity.y = -1.0f * hel::math::Math::Abs(velocity.y);
+            velocity.y = -1.0f * Math::Abs(velocity.y);
         }
         mCliffEdgeBoundCtrl.chkBound();
         obj().move().setVelocity(velocity);

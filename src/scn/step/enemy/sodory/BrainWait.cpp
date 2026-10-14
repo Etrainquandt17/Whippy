@@ -27,6 +27,8 @@
 #include "scn/step/enemy/sodory/StateWait.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -35,7 +37,7 @@ namespace sodory {
 BrainWait::BrainWait(Enemy& enemy) : BrainBase(enemy) {}
 
 bool BrainWait::onStart() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setDirectionAll();
     obj().stateChanger().setNextState<StateWait, Enemy*>(&obj());
     return true;
 }
@@ -45,7 +47,7 @@ bool BrainWait::onLanding() {
 }
 
 bool BrainWait::onRecover() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.setDirectionAll();
     custom.setFrame();
     return false;

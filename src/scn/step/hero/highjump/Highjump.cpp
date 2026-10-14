@@ -11,6 +11,8 @@
 #include "scn/step/hero/highjump/StateRocketFallStart.h"
 #include "scn/step/hero/modeldesc/ModelDesc.h"
 
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -28,8 +30,8 @@ Highjump::~Highjump() {
 }
 
 void Highjump::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/highjump/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/highjump/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(0xD, motion);
     mHero.model().hat().set(modeldesc::Highjump::HatPath(), modeldesc::Highjump::HatModel());

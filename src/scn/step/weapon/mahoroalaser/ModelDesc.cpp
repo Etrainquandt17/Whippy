@@ -3,6 +3,8 @@
 #include "gobj/AnimScript.h"
 #include "scn/step/weapon/ModelDescUtil.h"
 
+using hel::common::FixedString;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -30,25 +32,25 @@ namespace ModelDesc {
 
 chara::ModelDesc& Create() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<85>("step/weapon/mahoroabattle1/Laser", "MahoroaLaser", 3, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 1, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 
 chara::ModelDesc& CreateEx() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<85>("step/weapon/mahoroabattle1/ExLaser", "MahoroaLaser", 3, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 1, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 
 chara::ModelDesc& CreateWarpHole() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<156>("step/weapon/mahoroabattle2/WarpHoleLaser", "MahoroaWarpHoleLaser", 3, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 1, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 
 chara::ModelDesc& CreateWarpHoleEx() {
     chara::ModelDesc& desc = ModelDescUtil::CreateTmpl<156>("step/weapon/mahoroabattle2/WarpHoleLaserEx", "MahoroaWarpHoleLaser", 3, T_NODE_NAMES, 1, T_ANIM_ENTRIES, 1, T_SCRIPT_ENTRIES);
-    desc.mModel._18 = hel::common::FixedString<40>("TopL");
+    desc.mModel._18 = FixedString<40>("TopL");
     return desc;
 }
 

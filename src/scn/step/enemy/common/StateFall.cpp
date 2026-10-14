@@ -12,6 +12,8 @@
 #include "scn/step/enemy/common/ParamData.h"
 #include "scn/step/enemy/common/StateLanding.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -27,7 +29,7 @@ StateFall::~StateFall() {}
 void StateFall::procAnim() {}
 
 void StateFall::procMove() {
-    hel::math::Vector2 pos = obj().location().centerPos().getXY();
+    Vector2 pos = obj().location().centerPos().getXY();
     const gobj::MoveParamFall& fall =
         !Utility::IsWaterGrid(obj(), pos.x, pos.y) ? obj().param().common().mFall : obj().param().common().mFallWater;
     obj().move().airDecelFall(obj().param().common().mDecel, fall);

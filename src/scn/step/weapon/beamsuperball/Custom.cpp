@@ -3,6 +3,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/beamsuperball/StateMain.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -15,7 +19,7 @@ bool Custom::onInit() {
     return true;
 }
 
-void Custom::setMoveCenter(const hel::math::Vector3& center) {
+void Custom::setMoveCenter(const Vector3& center) {
     mIsSetMoveCenter = true;
     mMoveCenter = center;
 }
@@ -24,12 +28,12 @@ bool Custom::isSetMoveCenter() const {
     return mIsSetMoveCenter;
 }
 
-hel::math::Vector3 Custom::getMoveCenter() const {
+Vector3 Custom::getMoveCenter() const {
     return mMoveCenter;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::weapon::beamsuperball

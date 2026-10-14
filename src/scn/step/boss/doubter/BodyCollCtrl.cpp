@@ -9,6 +9,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/ocoll/AttackType.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -69,7 +71,7 @@ void BodyCollCtrl::setDefaultWithoutHandAttack() {
     mBoss.objColl().clearAttack(0);
     mBoss.objColl().setBodyCollStateHitOnly();
     mBoss.objColl().setAttackType(0, static_cast<ocoll::AttackType>(0x1C9));
-    mBoss.objColl().setAttackCenter(8, hel::math::Vector2::ZERO);
+    mBoss.objColl().setAttackCenter(8, Vector2::ZERO);
     f32 scale = mBoss.angry().isAngry() ? param.mScaleAnger : 1.0f;
     mBoss.objColl().addBodyColl(8, param._198 * scale);
     mBoss.objColl().addBodyColl(9, param._19C * scale);
@@ -89,7 +91,7 @@ void BodyCollCtrl::setTornado() {
     mBoss.objColl().clearAttack(0);
     mBoss.objColl().setBodyCollStateHitOnly();
     mBoss.objColl().setAttackType(0, static_cast<ocoll::AttackType>(0x1CA));
-    mBoss.objColl().setAttackCenter(8, hel::math::Vector2::ZERO);
+    mBoss.objColl().setAttackCenter(8, Vector2::ZERO);
     f32 scale = mBoss.angry().isAngry() ? param.mScaleAnger : 1.0f;
     mBoss.objColl().addBodyColl(8, param._198 * scale);
     mBoss.objColl().addBodyColl(9, param._19C * scale);
@@ -101,7 +103,7 @@ void BodyCollCtrl::setTornado() {
     mBoss.objColl().addAttack(0, 9, param._19C * scale);
     mBoss.objColl().addAttack(0, 10, param._1A0 * scale);
     mBoss.objColl().addAttack(0, 11, param._1A4 * scale);
-    mBoss.objColl().addAttack(0, 0, param._1AC * scale, hel::math::Vector2(0.0f, param._1AC * scale));
+    mBoss.objColl().addAttack(0, 0, param._1AC * scale, Vector2(0.0f, param._1AC * scale));
 }
 
 }}}}  // namespace scn::step::boss::doubter

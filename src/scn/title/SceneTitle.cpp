@@ -7,6 +7,11 @@
 #include "nand/NandManager.h"
 #include "scn/title/Main.h"
 
+using app::Application;
+using hel::common::ExplicitSingleton;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+
 // TODO: hel/common/RuntimeTypeInfo.h does not define this yet; the unit holds its own copy.
 namespace hel {
 namespace common {
@@ -73,7 +78,7 @@ nand::NandManager& tNANDManager() {
     hash = expected ^ hash;
     hash += hash * 30;
     if (hash == 0) {
-        return hel::common::ExplicitSingleton<app::Application>::object_->nandManager();
+        return ExplicitSingleton<Application>::object_->nandManager();
     }
     asm {
         bl      after3
@@ -284,8 +289,8 @@ bool SceneTitle::isSceneEnd() const {
     return mMain->isSceneEnd();
 }
 
-const hel::common::RuntimeTypeInfo& SceneTitle::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<SceneTitle>();
+const RuntimeTypeInfo& SceneTitle::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<SceneTitle>();
 }
 
 }}  // namespace scn::title

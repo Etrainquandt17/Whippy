@@ -72,6 +72,10 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -80,7 +84,7 @@ namespace metalgeneral {
 StatePatriotZJump::StatePatriotZJump(Boss* boss, StatePatriotGenerate::Config config)
     : StateBase(boss), mCount(0), mConfig(config) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xC);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
@@ -110,8 +114,8 @@ void StatePatriotZJump::procAnim() {
 void StatePatriotZJump::procMove() {
     const Param& param = obj().param().metalgeneral();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._1CC);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    f32 height = 1.0f - (1.0f - hel::math::Math::SinDegF(180.0f * t)) * (1.0f - hel::math::Math::SinDegF(180.0f * t));
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    f32 height = 1.0f - (1.0f - Math::SinDegF(180.0f * t)) * (1.0f - Math::SinDegF(180.0f * t));
     pos.y += param._1DC * height;
     obj().location().setPos(pos);
 }

@@ -49,6 +49,8 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -58,7 +60,7 @@ StateJump::StateJump(Boss* boss) : StateBase(boss) {
     const Param& param = obj().param().moundeath();
     obj().footState().setAir();
     obj().model().reqScript(8);
-    obj().move().setVelocity(hel::math::Vector2(param._64.x * obj().target().getSign(), param._64.y).toVector3());
+    obj().move().setVelocity(Vector2(param._64.x * obj().target().getSign(), param._64.y).toVector3());
 }
 
 StateJump::~StateJump() {}

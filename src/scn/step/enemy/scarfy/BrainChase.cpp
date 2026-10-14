@@ -7,6 +7,8 @@
 #include "scn/step/enemy/scarfy/StateChase.h"
 #include "scn/step/enemy/scarfy/StateFaceChange.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -20,7 +22,7 @@ bool BrainChase::onStart() {
 }
 
 bool BrainChase::onRecover() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (custom.isAngerFlag() == true) {
         obj().stateChanger().setNextState<StateAngerChase, Enemy*>(&obj());
     } else {

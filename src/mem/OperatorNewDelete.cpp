@@ -6,10 +6,13 @@
 #include "mem/Memory.h"
 #include "std/new.h"
 
+using hel::common::ExplicitSingleton;
+using hel::common::PointerWrapper;
+
 namespace {
 
-hel::common::PointerWrapper<mem::IAllocator> t_allocator;
-hel::common::PointerWrapper<mem::IAllocator> t_globalNewDeleteAllocator;
+PointerWrapper<mem::IAllocator> t_allocator;
+PointerWrapper<mem::IAllocator> t_globalNewDeleteAllocator;
 
 mem::IAllocator& t_allocatorRef() {
     mem::Memory::SetupIfNotSetup();
@@ -18,7 +21,7 @@ mem::IAllocator& t_allocatorRef() {
     } else if (t_allocator.wasSet()) {
         return t_allocator.ref();
     }
-    return hel::common::ExplicitSingleton<mem::Memory>::object_->mem1FixHeap();
+    return ExplicitSingleton<mem::Memory>::object_->mem1FixHeap();
 }
 
 void* t_operatorNew(u32 size) {

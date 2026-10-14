@@ -7,6 +7,9 @@
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/MapColl.h"
 
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -26,8 +29,8 @@ void StateFlyUpDown::procMove() {
     if (mAngle >= 360.0f) {
         mAngle -= 360.0f;
     }
-    f32 offset = 1.75f * hel::math::Math::SinDegF(mAngle);
-    hel::math::Vector3 pos = obj().location().pos();
+    f32 offset = 1.75f * Math::SinDegF(mAngle);
+    Vector3 pos = obj().location().pos();
     pos.y = mBaseY + offset;
     obj().location().setPos(pos);
 }
@@ -35,12 +38,12 @@ void StateFlyUpDown::procMove() {
 void StateFlyUpDown::procFixPos() {
     if (obj().mapColl().result().mIsHitRoof) {
         mAngle = 90.0f;
-        f32 offset = 1.75f * hel::math::Math::SinDegF(mAngle);
+        f32 offset = 1.75f * Math::SinDegF(mAngle);
         mBaseY = obj().location().pos().y - offset;
     }
     if (obj().mapColl().result().mIsHitFloor) {
         mAngle = 270.0f;
-        f32 offset = 1.75f * hel::math::Math::SinDegF(mAngle);
+        f32 offset = 1.75f * Math::SinDegF(mAngle);
         mBaseY = obj().location().pos().y - offset;
     }
 }

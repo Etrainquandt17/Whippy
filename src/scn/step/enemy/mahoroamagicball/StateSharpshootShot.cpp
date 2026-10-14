@@ -30,6 +30,8 @@
 #include "snd/SERequestor.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,9 +41,9 @@ StateSharpshootShot::StateSharpshootShot(Enemy* enemy) : StateBase(enemy) {
     obj().footState().setAir();
     obj().nururi().setValid(false);
     obj().model().reqScript(8);
-    hel::math::Vector3 target = Utility::GetNearestPlayerPos(obj()).toVector3();
-    hel::math::Vector3 diff = target - obj().location().pos();
-    hel::math::Vector3 dir = -hel::math::Vector3::BASIS_Y;
+    Vector3 target = Utility::GetNearestPlayerPos(obj()).toVector3();
+    Vector3 diff = target - obj().location().pos();
+    Vector3 dir = -Vector3::BASIS_Y;
     if (!diff.isZeroLoose(0.00001f)) {
         dir = diff.getNormalized();
     }

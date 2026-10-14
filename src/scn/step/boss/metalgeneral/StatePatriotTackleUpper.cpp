@@ -78,22 +78,28 @@
 #include "scn/step/weapon/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Direction3;
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace metalgeneral {
 
-StatePatriotTackleUpper::StatePatriotTackleUpper(Boss* boss, hel::math::Direction3 dir)
+StatePatriotTackleUpper::StatePatriotTackleUpper(Boss* boss, Direction3 dir)
     : StateBase(boss), mCount(0), mWaitCount(0), mDir(dir) {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x25);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
     obj().model().rotCtrl().initRotH(0.0f);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();
-    mGoalPos = obj().location().pos() + hel::math::Vector3(param._27C);
+    mGoalPos = obj().location().pos() + Vector3(param._27C);
     f32 slide = param._27C.z * (mDir.mFront.x / mDir.mFront.z);
     mGoalPos.x += slide * param._288;
     custom.weaponCtrl().cleanupPatriotSingle();
@@ -105,7 +111,7 @@ StatePatriotTackleUpper::~StatePatriotTackleUpper() {
 
 void StatePatriotTackleUpper::procAnim() {
     const Param& param = obj().param().metalgeneral();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (mCount < param._274) {
         mCount++;
     } else {
@@ -128,15 +134,15 @@ void StatePatriotTackleUpper::procAnim() {
 void StatePatriotTackleUpper::procMove() {
     const Param& param = obj().param().metalgeneral();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(param._274);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
-    pos.y -= hel::math::Math::SinDegF(180.0f * t) * param._278;
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    pos.y -= Math::SinDegF(180.0f * t) * param._278;
     obj().location().setPos(pos);
-    hel::math::Matrix34 dirMtx(mDir, hel::math::Vector3::ZERO);
-    f32 cos = hel::math::Math::CosDegF(90.0f * t);
+    Matrix34 dirMtx(mDir, Vector3::ZERO);
+    f32 cos = Math::CosDegF(90.0f * t);
     f32 rot = -60.0f * (1.0f - cos);
     obj().model().model().nodes().at(0).localMtx().setRTMtx(
-        hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(rot, 0.0f, 0.0f)) * dirMtx
-        * hel::math::Matrix34::CreateRotXYZDeg(hel::math::Vector3(90.0f, 0.0f, 0.0f))
+        Matrix34::CreateRotXYZDeg(Vector3(rot, 0.0f, 0.0f)) * dirMtx
+        * Matrix34::CreateRotXYZDeg(Vector3(90.0f, 0.0f, 0.0f))
     );
 }
 

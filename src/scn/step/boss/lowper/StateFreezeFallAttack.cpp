@@ -56,6 +56,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,7 +67,7 @@ namespace lowper {
 
 StateFreezeFallAttack::StateFreezeFallAttack(Boss* boss, u32 frame)
     : StateBase(boss), mFrame(frame), mCount(0), mStartPos(boss->location().pos()), mGoalPos() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
     Utility::ControlHateOnAction(obj());
     mGoalPos = mStartPos;
     mGoalPos.y = 0.5f + obj().basePos().y;
@@ -89,11 +93,11 @@ void StateFreezeFallAttack::procAnim() {
 }
 
 void StateFreezeFallAttack::procMove() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 c = 1.0f - hel::math::Math::CosDegF(90.0f * t);
+    f32 c = 1.0f - Math::CosDegF(90.0f * t);
     f32 rate = c * (c * c);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, rate);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, rate);
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

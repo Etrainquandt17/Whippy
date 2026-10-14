@@ -11,6 +11,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/combinationdededebomber/StateExplosion.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -18,7 +20,7 @@ namespace combinationdededebomber {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(0) {
     _C = obj().variation();
-    obj().model().setScale(hel::math::Vector3::ALL_ONE * param()._4);
+    obj().model().setScale(Vector3::ALL_ONE * param()._4);
     f32 scale = param()._8;
     obj().effect().normal().requestN(static_cast<effect::Kind>(0xFA), 0, scale);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0xFC), 0, scale);

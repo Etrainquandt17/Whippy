@@ -17,6 +17,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -28,8 +31,8 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mLifetime(), mPrevPosX
     obj().model().rotCtrl().setValid(false);
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x407), 0);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x205));
-    obj().objColl().addAttack(0, 0.25f, hel::math::Vector2(0.0f, 2.5f), hel::math::Vector2(0.0f, 0.0f));
-    obj().objColl().setAttackCenter(0, hel::math::Vector2::ZERO);
+    obj().objColl().addAttack(0, 0.25f, Vector2(0.0f, 2.5f), Vector2(0.0f, 0.0f));
+    obj().objColl().setAttackCenter(0, Vector2::ZERO);
 }
 
 void StateMain::procAnim() {
@@ -38,9 +41,9 @@ void StateMain::procAnim() {
         obj().dead();
         return;
     }
-    if (hel::math::Math::Abs(obj().location().pos().x - mPrevPosX) >= 2.0f) {
+    if (Math::Abs(obj().location().pos().x - mPrevPosX) >= 2.0f) {
         ::ocoll::Owner& owner = obj().objColl().owner();
-        Desc desc(static_cast<Kind>(0x95), 0, static_cast<ostop::Flag>(8), obj().location().pos().getXY(), hel::math::Vector2::ZERO, owner);
+        Desc desc(static_cast<Kind>(0x95), 0, static_cast<ostop::Flag>(8), obj().location().pos().getXY(), Vector2::ZERO, owner);
         obj().comp().weaponManager().request(desc);
         mPrevPosX = obj().location().pos().x;
     }

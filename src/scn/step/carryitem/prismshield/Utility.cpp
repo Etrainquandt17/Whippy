@@ -8,6 +8,9 @@
 #include "scn/step/carryitem/Flash.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::Color;
+using hel::math::Math;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -55,14 +58,14 @@ f32 Utility::UpdateFlash(CarryItem& carryItem, f32 angle) {
     } else if (IsWarn(carryItem)) {
         angle += param._10;
     }
-    wave = 0.5f * hel::math::Math::SinDegF(angle) + 0.5f;
+    wave = 0.5f * Math::SinDegF(angle) + 0.5f;
     base = static_cast<u8>(param._20);
     u8 alpha = base - static_cast<int>(static_cast<f32>(param._28) * wave);
     if (IsDanger(carryItem) && rate >= 0.7f) {
         base += static_cast<int>((rate - 0.7f) / 0.3f * static_cast<f32>(param._24));
         alpha = base - static_cast<int>((1.5f - rate) * (static_cast<f32>(param._28) * wave));
     }
-    carryItem.flash().set(hel::common::Color(0xFF, 0x10, 0x00, alpha));
+    carryItem.flash().set(Color(0xFF, 0x10, 0x00, alpha));
     return angle;
 }
 

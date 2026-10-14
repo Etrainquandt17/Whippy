@@ -18,6 +18,8 @@
 #include "scn/step/enemy/tsukikage/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -43,11 +45,11 @@ StateWallAttack::~StateWallAttack() {
 
 void StateWallAttack::procAnim() {
     const ParamData& param = obj().param().tsukikage();
-    if (hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).isWall()) {
+    if (DynamicCastToRef<Custom, ICustom>(obj().custom()).isWall()) {
         mFrame++;
         if (mFrame == param.mShurikenFrame) {
             obj().soundSE().start(0x2ee);
-            hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).requestShuriken();
+            DynamicCastToRef<Custom, ICustom>(obj().custom()).requestShuriken();
         }
         if (obj().model().isAllEnd()) {
             obj().brainCtrl().toValid();

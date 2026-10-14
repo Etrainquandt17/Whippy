@@ -26,6 +26,8 @@
 #include "scn/step/enemy/sparky/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -44,7 +46,7 @@ void StateJump::procAnim() {
         if (obj().model().anim().currentG3DAnimIndex() == 6) {
             obj().footState().setAir();
             obj().model().reqScript(7);
-            if (app::Random::Rand(param.mHighJumpRate) == 0) {
+            if (Random::Rand(param.mHighJumpRate) == 0) {
                 obj().move().setSpeedV(param.mJumpSpeedLow);
             } else {
                 obj().move().setSpeedV(param.mJumpSpeedHigh);

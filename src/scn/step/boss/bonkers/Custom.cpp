@@ -38,6 +38,11 @@
 #include "std/min.h"
 #include "util/ObjList.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -97,7 +102,7 @@ void Custom::onAppear() {
     const Param& param = obj().param().bonkers();
     if (obj().isSuper()) {
         obj().effect().super().requestN(static_cast<effect::Kind>(0x2CC), 3);
-        obj().effect().super().requestN(effect::KIND_132, 0, hel::math::Vector2(param.mBodyCollOffset).toVector3());
+        obj().effect().super().requestN(effect::KIND_132, 0, Vector2(param.mBodyCollOffset).toVector3());
     }
     obj().shadow().setVisibility(true);
 }
@@ -134,20 +139,20 @@ void Custom::setBodyCollSwing() {
     bodyColl.setResistLv(ocoll::HIT_RESIST_LV_6);
 }
 
-void Custom::reqBomb(hel::math::Vector2 pos, hel::math::Vector2 speed, map::BinEnemySize size) {
+void Custom::reqBomb(Vector2 pos, Vector2 speed, map::BinEnemySize size) {
     enemy::Desc desc(static_cast<map::BinEnemyKind>(0x76), map::BinEnemyVariation_0, 0, static_cast<map::BinEnemyDirType>(0), size, false, false,
                      pos);
     desc._28 = true;
     desc._20 = obj().location().pos().getXY();
-    util::ObjRefHandle<enemy::Enemy> bomb = obj().comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> bomb = obj().comp().enemyManager().request(desc);
     if (bomb.isAlive()) {
         bomb->move().setVelocity(speed.toVector3());
         bomb->target().setIsRightDir(speed.x > 0.0f);
     }
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 }}}}  // namespace scn::step::boss::bonkers

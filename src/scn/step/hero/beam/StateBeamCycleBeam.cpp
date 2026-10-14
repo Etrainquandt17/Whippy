@@ -24,6 +24,8 @@
 #include "util/ObjList.h"
 #include "util/StateChanger.h"
 
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -75,7 +77,7 @@ void StateBeamCycleBeam::procFixPos() {
 bool StateBeamCycleBeam::procObjCollReact() {
     if (mIsFirst) {
         mIsFirst = false;
-        util::ObjRefHandle<enemy::Enemy> enemy = obj().captureAttacker().chkCaptureEnemy();
+        ObjRefHandle<enemy::Enemy> enemy = obj().captureAttacker().chkCaptureEnemy();
         if (enemy.isAlive()) {
             enemy->stateChanger().setNextState<enemy::captured::StateCapturedBeam, enemy::Enemy*>(enemy.operator->());
             enemy->stateChanger().changeStateIfPossible();

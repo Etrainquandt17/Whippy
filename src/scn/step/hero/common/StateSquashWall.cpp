@@ -31,6 +31,9 @@
 #include "scn/step/map/MoveGroupAccessor.h"
 #include "util/StateChanger.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -41,7 +44,7 @@ bool StateSquashWall::TryToChangeState(Hero* hero) {
         return false;
     }
     f32 nururi = hero->nururi().getNururiDir().x;
-    if (!hel::math::Math::EqZero(nururi)) {
+    if (!Math::EqZero(nururi)) {
         f32 sign = hero->target().getSign();
         if (sign * nururi < 0.0f) {
             return false;
@@ -55,8 +58,8 @@ bool StateSquashWall::TryToChangeState(Hero* hero) {
     }
     bool isFlowRight = false;
     bool isFlowLeft = false;
-    hel::math::Vector2 airFlow = hero->additionalMove().airFlowVector();
-    if (!hel::math::Math::EqZero(airFlow.x)) {
+    Vector2 airFlow = hero->additionalMove().airFlowVector();
+    if (!Math::EqZero(airFlow.x)) {
         bool isPlus = airFlow.x > 0.0f;
         if (isPlus) {
             isFlowRight = true;
@@ -73,7 +76,7 @@ bool StateSquashWall::TryToChangeState(Hero* hero) {
     }
     MapCollResult result = hero->mapColl().result();
     f32 sign = hero->target().getSign();
-    hel::math::Vector2 delta = hel::math::Vector2::ZERO;
+    Vector2 delta = Vector2::ZERO;
     if (mcoll::detail::MoveGridGroupId(result._20).isValid()) {
         delta += hero->comp().mapLandManager().mgAccessor().deltaSafe(mcoll::detail::MoveGridGroupId(result._20));
     }

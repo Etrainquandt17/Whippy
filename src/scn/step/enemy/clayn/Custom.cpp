@@ -27,6 +27,13 @@
 #include "scn/step/enemy/clayn/ParamData.h"
 #include "snd/SERequestor.h"
 
+using app::Random;
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -82,7 +89,7 @@ bool Custom::onHitPointIsZero() {
         return false;
     }
     if (obj().damageInfo().element() == 3) {
-        hel::math::Matrix34 mtx;
+        Matrix34 mtx;
         setRotate(0.0f);
         mRotate = mRotateTarget;
         mtx = rotateForce(mRotate);
@@ -91,17 +98,17 @@ bool Custom::onHitPointIsZero() {
     } else {
         s32 smashType = obj().damageInfo().smashType();
         if (!(6 <= smashType && smashType <= 9)) {
-            hel::math::Vector2 pos = obj().location().pos().getXY();
-            hel::math::Vector2 toCenter = obj().location().toCenter().getXY();
+            Vector2 pos = obj().location().pos().getXY();
+            Vector2 toCenter = obj().location().toCenter().getXY();
             toCenter.rotate(0.017453292f * -mRotate);
-            hel::math::Vector2 center = pos + toCenter;
-            hel::math::Vector2 diff = obj().damageInfo().attackPos() - center;
+            Vector2 center = pos + toCenter;
+            Vector2 diff = obj().damageInfo().attackPos() - center;
             f32 angle = 57.29578f * toCenter.signedAngle(diff);
             if (!mIsDamaged) {
                 if (angle <= 0.0f) {
-                    mRotateTarget -= 15.0f + app::Random::RandF(-5.0f, 5.0f);
+                    mRotateTarget -= 15.0f + Random::RandF(-5.0f, 5.0f);
                 } else {
-                    mRotateTarget += 15.0f + app::Random::RandF(-5.0f, 5.0f);
+                    mRotateTarget += 15.0f + Random::RandF(-5.0f, 5.0f);
                 }
                 mIsDamaged = true;
             }
@@ -111,7 +118,7 @@ bool Custom::onHitPointIsZero() {
 }
 
 void Custom::onCaptured() {
-    hel::math::Matrix34 mtx;
+    Matrix34 mtx;
     setRotate(0.0f);
     mRotate = mRotateTarget;
     mtx = rotateForce(mRotate);
@@ -131,11 +138,11 @@ void Custom::setRotate(f32 rotate) {
     mRotateTarget = normalizeAngle(rotate);
 }
 
-hel::math::Matrix34 Custom::rotateForce(f32 rotate) {
-    hel::math::Matrix34 up = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, 0.5f, 0.0f));
-    hel::math::Matrix34 down = hel::math::Matrix34::CreateTrans(hel::math::Vector3(0.0f, -0.5f, 0.0f));
-    hel::math::Matrix34 rot = hel::math::Matrix34::CreateRotAxisDeg(hel::math::Vector3(0.0f, 0.0f, -1.0f), rotate);
-    hel::math::Matrix34 mtx = up * rot * down;
+Matrix34 Custom::rotateForce(f32 rotate) {
+    Matrix34 up = Matrix34::CreateTrans(Vector3(0.0f, 0.5f, 0.0f));
+    Matrix34 down = Matrix34::CreateTrans(Vector3(0.0f, -0.5f, 0.0f));
+    Matrix34 rot = Matrix34::CreateRotAxisDeg(Vector3(0.0f, 0.0f, -1.0f), rotate);
+    Matrix34 mtx = up * rot * down;
     obj().model().setCustomMtx(mtx);
     return mtx;
 }
@@ -151,7 +158,7 @@ f32 Custom::normalizeAngle(f32 angle) const {
 }
 
 void Custom::setPos() {
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     switch (obj().dirType()) {
     case 4:
     case 5:
@@ -170,8 +177,8 @@ void Custom::setPos() {
     obj().location().setPos(pos);
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

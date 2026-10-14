@@ -54,6 +54,11 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,7 +67,7 @@ namespace galactaknight {
 namespace {
 
 // TODO: a stand-in for a comparison that hel/math/Vector2.h does not have yet.
-inline bool t_Equals(const hel::math::Vector2& a, const hel::math::Vector2& b) {
+inline bool t_Equals(const Vector2& a, const Vector2& b) {
     return a.x == b.x && a.y == b.y;
 }
 
@@ -74,13 +79,13 @@ StateDead::StateDead(Boss* boss)
     : StateBase(boss), _8(false), mIsFirst(true), mIsStaged(false), mCount(0), mFrame(0), mRot(0.0f),
       mStartPos(boss->location().pos()), mGoalPos(), mIsBound(false) {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame = param._138;
     obj().hitStop().clear();
     obj().footState().setAir();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
     if (obj().objColl().bodyColl().hit().isCollide()) {
-        hel::math::Vector2 attackPos = obj().objColl().bodyColl().damageInfo().attackPos();
+        Vector2 attackPos = obj().objColl().bodyColl().damageInfo().attackPos();
         bool isRight = attackPos.x > obj().location().pos().x;
         obj().target().setIsRightDir(isRight);
     }
@@ -91,7 +96,7 @@ StateDead::StateDead(Boss* boss)
 }
 
 StateDead::~StateDead() {
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).setWhiteColorAnim();
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).setWhiteColorAnim();
 }
 
 void StateDead::procAnim() {
@@ -119,8 +124,8 @@ void StateDead::procAnim() {
 void StateDead::procMove() {
     const Param& param = obj().param().galactaknight();
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 sin = hel::math::Math::SinDegF(180.0f * t);
-    hel::math::Vector3 pos = hel::math::Math::LinearInterpolation(mStartPos, mGoalPos, t);
+    f32 sin = Math::SinDegF(180.0f * t);
+    Vector3 pos = Math::LinearInterpolation(mStartPos, mGoalPos, t);
     if (mIsBound) {
         pos.y += param._14C * sin;
     } else {
@@ -152,16 +157,16 @@ void StateDead::updateRotate() {
             if (mRot < 0.0f) {
                 mRot += 360.0f;
             }
-            hel::math::Vector2 velocity = obj().move().velocity().getXY();
-            if (!t_Equals(velocity, hel::math::Vector2::ZERO)) {
+            Vector2 velocity = obj().move().velocity().getXY();
+            if (!t_Equals(velocity, Vector2::ZERO)) {
                 velocity.normalize();
-                f32 angle = hel::math::Vector2::BASIS_Y.signedAngle(velocity);
+                f32 angle = Vector2::BASIS_Y.signedAngle(velocity);
                 obj().model().rotCtrl().setRotV(57.29578f * angle);
             }
             obj().model().rotCtrl().setRotH(mRot);
         } else {
             f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-            f32 rot = hel::math::Math::LinearInterpolation(90.0f, 330.0f, t);
+            f32 rot = Math::LinearInterpolation(90.0f, 330.0f, t);
             rot *= obj().target().getSign();
             obj().model().rotCtrl().setRotH(50.0f);
             obj().model().rotCtrl().setRotV(rot);

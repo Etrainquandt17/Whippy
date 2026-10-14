@@ -25,6 +25,8 @@
 #include "scn/step/enemy/mahoroamagicball/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,8 +41,8 @@ State6WayShot::State6WayShot(Enemy* enemy) : StateBase(enemy) {
     if (index >= 6) {
         index = 5;
     }
-    hel::math::Vector3 velocity = hel::math::Vector3::BASIS_Y;
-    velocity.rotate(hel::math::Vector3::AXIS_Z, 0.017453292f * angles[index]);
+    Vector3 velocity = Vector3::BASIS_Y;
+    velocity.rotate(Vector3::AXIS_Z, 0.017453292f * angles[index]);
     Enemy& self = obj();
     const f32& speed = Utility::IsExtra(self) ? self.param().mahoroamagicball().m6WaySpeedExtra
                                               : self.param().mahoroamagicball().m6WaySpeed;

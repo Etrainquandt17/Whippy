@@ -52,15 +52,19 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace hrd3 {
 
-StateFallFar::StateFallFar(Boss* boss, u32 frame, const hel::math::Vector3& pos)
+StateFallFar::StateFallFar(Boss* boss, u32 frame, const Vector3& pos)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(boss->location().pos()), mGoalY(pos.y) {
     const Param& param = obj().param().hrd3();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mStartPos.x = pos.x;
     mStartPos.y = param._100;
     mStartPos.z = pos.z;
@@ -80,9 +84,9 @@ void StateFallFar::procAnim() {
 
 void StateFallFar::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    f32 rate = hel::math::Math::SinDegF(90.0f * t);
-    hel::math::Vector3 pos = mStartPos;
-    pos.y = hel::math::Math::LinearInterpolation(mStartPos.y, mGoalY, rate);
+    f32 rate = Math::SinDegF(90.0f * t);
+    Vector3 pos = mStartPos;
+    pos.y = Math::LinearInterpolation(mStartPos.y, mGoalY, rate);
     obj().location().setPos(pos);
 }
 

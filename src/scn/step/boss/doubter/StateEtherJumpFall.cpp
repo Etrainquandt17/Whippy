@@ -36,6 +36,9 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -47,7 +50,7 @@ StateEtherJumpFall::StateEtherJumpFall(Boss* boss) : StateBase(boss) {
     obj().hateCtrl().fix();
     obj().guard().setType(static_cast<GuardType>(2));
     obj().model().reqScript(34);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
 }
 
 StateEtherJumpFall::~StateEtherJumpFall() {}
@@ -64,8 +67,8 @@ void StateEtherJumpFall::procFixPos() {
     chara::MapCollResult result = obj().mapColl().result();
     if (result.mIsHitFloor) {
         obj().move().resetSpeedV();
-        hel::math::Vector2 pos = param._24;
-        hel::math::Vector2 speed = param._2C;
+        Vector2 pos = param._24;
+        Vector2 speed = param._2C;
         Utility::GenerateStarEffect(obj(), pos, speed, map::BinEnemyVariation_StarBound);
         pos.x *= -1.0f;
         speed.x *= -1.0f;

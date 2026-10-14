@@ -18,6 +18,10 @@
 #include "snd/AddOnMint.h"
 #include "std/cstring.h"
 
+using hel::common::FixedString;
+using hel::common::FixedStringIN;
+using hel::common::Traits;
+
 namespace mint {
 
 Engine::Engine(Manager& manager) : mManager(manager), mCore(0xA00) {
@@ -44,8 +48,8 @@ const mintvm::VMCore& Engine::core() const {
 
 void Engine::addModuleBellow(const char* name) {
     const ScriptArchive& archive = mManager.scriptArchive();
-    hel::common::FixedString<64> prefix = hel::common::FixedStringIN<char, 64>::FromFormat("%s.", name);
-    u32 length = hel::common::Traits<char>::Strlen(prefix);
+    FixedString<64> prefix = FixedStringIN<char, 64>::FromFormat("%s.", name);
+    u32 length = Traits<char>::Strlen(prefix);
     for (u32 i = 0; i < archive.count(); i++) {
         ScriptArchive::Script script = archive.at(i);
         if (script.name->length >= length && strncmp(script.name->str, prefix, length) == 0) {

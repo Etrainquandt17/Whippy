@@ -2,6 +2,9 @@
 
 #include "hel/common/FixedString.h"
 
+using hel::common::FixedString;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -30,7 +33,7 @@ void ModelDescUtil::Set(chara::ModelDesc& desc, gobj::AnimDesc& animDesc, gobj::
                         const gobj::G3DAnimDataReposDesc::Entry* animEntries, u32 scriptEntryCount,
                         const gobj::ScriptDesc::Entry* scriptEntries) {
     desc._0 = reinterpret_cast<u32>(path);
-    *reinterpret_cast<hel::common::FixedString<24>*>(&desc.mModel._0[0]) = hel::common::FixedString<24>(name);
+    *reinterpret_cast<FixedString<24>*>(&desc.mModel._0[0]) = FixedString<24>(name);
     reinterpret_cast<bool*>(&desc.mModel._44[2])[0] = false;
     desc.mModel._44[0] = 0x100;
     reinterpret_cast<bool*>(&desc.mModel._44[2])[1] = true;
@@ -44,7 +47,7 @@ void ModelDescUtil::Set(chara::ModelDesc& desc, gobj::AnimDesc& animDesc, gobj::
     scriptDesc._0[1] = scriptEntryCount;
     scriptDesc._0[2] = reinterpret_cast<u32>(scriptEntries);
     desc._70[1] = reinterpret_cast<u32>(&scriptDesc);
-    desc._c = hel::math::Vector3(0.0f, 0.5f, 0.0f);
+    desc._c = Vector3(0.0f, 0.5f, 0.0f);
 }
 
 }}}  // namespace scn::step::carryitem

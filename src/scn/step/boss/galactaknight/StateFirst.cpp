@@ -54,6 +54,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::geo::Rect;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -63,7 +67,7 @@ namespace {
 
 // TODO: a stand-in, as in fattybuffer/StateFirst.cpp: the original reads the two members into temporaries ranked in
 // text order, as it does for const value parameters of an inline function.
-inline void t_Trans(hel::geo::Rect& rect, const f32 x, const f32 y) {
+inline void t_Trans(Rect& rect, const f32 x, const f32 y) {
     rect.trans(x, y);
 }
 
@@ -71,15 +75,15 @@ inline void t_Trans(hel::geo::Rect& rect, const f32 x, const f32 y) {
 
 StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(boss->param().galactaknight()._F4) {
     const Param& param = obj().param().galactaknight();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().setVisibility(false);
     obj().shadow().setVisibility(false);
-    hel::math::Vector3 pos = obj().basePos().toVector3();
+    Vector3 pos = obj().basePos().toVector3();
     pos.y += param._F8;
     obj().location().setPos(pos);
     obj().model().reqScript(0x28);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
-    hel::geo::Rect rect(param._40, param._44, param._48, param._4C);
+    Rect rect(param._40, param._44, param._48, param._4C);
     t_Trans(rect, obj().basePos().x, obj().basePos().y);
     obj().comp().cameraController().unsetLock();
     obj().comp().cameraController().setLock(rect);

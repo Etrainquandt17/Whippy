@@ -8,6 +8,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/weapon/Weapon.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -24,7 +26,7 @@ void StateEnd::procAnim() {
         obj().dead();
     } else {
         f32 rate = 1.0f - mFrame / mTotalFrame;
-        hel::math::Vector3 scale(rate, rate, 1.0f);
+        Vector3 scale(rate, rate, 1.0f);
         obj().model().model().nodes().at(1).localMtx().setScale(scale);
         obj().model().model().nodes().at(2).localMtx().setScale(scale);
     }

@@ -12,6 +12,9 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCast;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -21,7 +24,7 @@ StateJumpAttack::StateJumpAttack(Boss* boss, StateJumpAttackDesc& desc, unsigned
     : StateBase(boss), mIsAttack(false), mDesc(desc) {
     obj().footState().setAir();
     obj().model().reqScript(scriptKind);
-    hel::math::Vector2 speed = mDesc._0;
+    Vector2 speed = mDesc._0;
     speed.x *= obj().target().getSign();
     obj().move().setVelocity(speed.toVector3());
 }
@@ -46,7 +49,7 @@ void StateJumpAttack::procMove() {
 void StateJumpAttack::procFixPos() {
     if (obj().mapColl().result().mIsHitFloor) {
         if (obj().kind() == map::BinBossKind_Gigantedge) {
-            gigantedge::Custom* custom = hel::common::DynamicCast<gigantedge::Custom*, ICustom>(obj().custom());
+            gigantedge::Custom* custom = DynamicCast<gigantedge::Custom*, ICustom>(obj().custom());
             custom->reqSwordShot(false);
         }
         obj().stateChanger().setNextState<StateLanding, Boss*, int>(objPtr(), mDesc._18);

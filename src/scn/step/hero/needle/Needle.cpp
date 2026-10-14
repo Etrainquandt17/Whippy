@@ -14,6 +14,9 @@
 #include "scn/step/hero/needle/StateAttackUp.h"
 #include "scn/step/hero/needle/StateDash.h"
 
+using g3d::ModelAccessor;
+using g3d::ResFileAccessor;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -25,7 +28,7 @@ namespace {
 class ModelHolder {
 public:
     virtual void _8();
-    virtual g3d::ModelAccessor model();
+    virtual ModelAccessor model();
 };
 
 inline ModelHolder& t_modelHolder(Model& model) {
@@ -46,8 +49,8 @@ Needle::~Needle() {
 }
 
 void Needle::setup() {
-    g3d::ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
-    g3d::ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/needle/Motion", true);
+    ResFileAccessor base = mComponent.resFileRepos().get("step/chara/hero/kirby/base/Pink", false);
+    ResFileAccessor motion = mComponent.resFileRepos().get("step/chara/hero/kirby/needle/Motion", true);
     motion.bind(base, false);
     mHero.model().mAnim.registerResFile(6, motion);
     mHero.model().hat().set(modeldesc::Needle::HatPath(), modeldesc::Needle::HatModel());

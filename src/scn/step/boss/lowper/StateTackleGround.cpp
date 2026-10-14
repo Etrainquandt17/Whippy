@@ -55,6 +55,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -62,11 +66,11 @@ namespace lowper {
 
 StateTackleGround::StateTackleGround(Boss* boss, u32 frame, f32 distance)
     : StateBase(boss), mCount(0), mFrame(frame), mY(0.0f), mStartX(0.0f), mGoalX(0.0f) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     f32 baseX = obj().basePos().x;
-    f32 sign = hel::math::Math::SignF32(obj().location().pos().x - baseX);
+    f32 sign = Math::SignF32(obj().location().pos().x - baseX);
     mY = param._38 + obj().basePos().y;
     mStartX = obj().location().pos().x;
     mGoalX = obj().basePos().x - sign * distance;
@@ -84,12 +88,12 @@ void StateTackleGround::procAnim() {
 
 void StateTackleGround::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos;
-    f32 cos = hel::math::Math::CosDegF(180.0f * t);
+    Vector3 pos;
+    f32 cos = Math::CosDegF(180.0f * t);
     f32 rate = 0.5f * (1.0f + cos);
-    pos.x = hel::math::Math::Interpolate(mGoalX, mStartX, rate);
+    pos.x = Math::Interpolate(mGoalX, mStartX, rate);
     pos.y = mY;
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     custom.waftMoveCtrl().setCenter(pos);

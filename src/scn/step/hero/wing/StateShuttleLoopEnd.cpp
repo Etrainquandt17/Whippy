@@ -16,6 +16,8 @@
 #include "scn/step/hero/WingParam.h"
 #include "scn/step/hero/wing/StateFlight.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -26,7 +28,7 @@ StateShuttleLoopEnd::StateShuttleLoopEnd(Hero* hero)
     obj().model().script().start(0x156);
     const WingParam& param = obj().param().wing();
     obj().invincible().set(param._D0);
-    hel::math::Vector3 velocity = obj().move().velocity();
+    Vector3 velocity = obj().move().velocity();
     velocity.y = obj().param().wing()._D4;
     obj().move().setVelocity(velocity);
 }

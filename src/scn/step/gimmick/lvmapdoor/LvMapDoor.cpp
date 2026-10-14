@@ -9,6 +9,9 @@
 #include "scn/step/gimmick/lvmapdoor/Manager.h"
 #include "scn/step/gimmick/lvmapdoor/MintLvMapDoor.h"
 
+using hel::common::FixedStringIN;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace gimmick {
@@ -62,7 +65,7 @@ void LvMapDoor::procAnim() {
         }
         if (_398.isAnimEnd()) {
             const char* kind = _24 ? "Boss" : "";
-            _398.setAnimByName(hel::common::FixedStringIN<char, 40>::FromFormat(_1911 ? "ClearWait%sStage%d" : "NormalWait%sStage%d", kind, _1C + 1));
+            _398.setAnimByName(FixedStringIN<char, 40>::FromFormat(_1911 ? "ClearWait%sStage%d" : "NormalWait%sStage%d", kind, _1C + 1));
             _398.start(true);
         }
         if (_54C) {
@@ -281,7 +284,7 @@ void LvMapDoor::setZoom(f32 a, f32 b) {
     u32 limit;
     u32 last;
     u32 hash;
-    hel::math::Vector2 pos(_10);
+    Vector2 pos(_10);
 
     asm {
         bl      after1
@@ -330,7 +333,7 @@ void LvMapDoor::setZoom(f32 a, f32 b) {
 #undef MF_FUNCTION
 
 u32 LvMapDoor::setZoom(f32 a, f32 b, f32 c, f32 d) {
-    hel::math::Vector2 pos = _10;
+    Vector2 pos = _10;
     pos.x += b;
     pos.y += c;
     return mComponent.cameraController().setZoom(pos, a, d, false);

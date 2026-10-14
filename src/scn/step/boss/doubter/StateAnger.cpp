@@ -21,6 +21,12 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/info/BossPanel.h"
 
+using g3d::ColorAnimFlashOp;
+using hel::common::ColorF;
+using hel::common::DynamicCastToRef;
+using hel::math::Math;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -31,7 +37,7 @@ StateAnger::StateAnger(Boss* boss) : StateBase(boss), mScale(1.0f), mIsScaling(f
     obj().invincible().setPermNoFlash();
     obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_6);
     obj().model().reqScript(0x1F);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
     obj().infoBossPanel().transformStart();
 }
 
@@ -39,7 +45,7 @@ StateAnger::~StateAnger() {
     obj().infoBossPanel().transformEnd();
     obj().objColl().bodyColl().setResistLv(ocoll::HIT_RESIST_LV_2);
     obj().flash().custom().setIsValid(false);
-    obj().flash().attack().setEnd(hel::common::ColorF(1.0f, 1.0f, 1.0f, 1.0f).toGXColorAsNormal());
+    obj().flash().attack().setEnd(ColorF(1.0f, 1.0f, 1.0f, 1.0f).toGXColorAsNormal());
 }
 
 void StateAnger::procAnim() {
@@ -48,26 +54,26 @@ void StateAnger::procAnim() {
         mIsScaling = true;
     }
     if (mIsScaling) {
-        mScale = hel::math::Math::LinearInterpolation(mScale, param.mScaleAnger, param.mAngerScaleRate);
-        obj().model().setScale(hel::math::Vector3::ALL_ONE * mScale);
+        mScale = Math::LinearInterpolation(mScale, param.mScaleAnger, param.mAngerScaleRate);
+        obj().model().setScale(Vector3::ALL_ONE * mScale);
     }
     if (obj().model().isAllEnd()) {
         obj().stateChanger().setNextState<StateWait, Boss*>(objPtr());
         return;
     }
-    hel::common::ColorF color(0.0f, 0.0f, 0.0f, 1.0f);
+    ColorF color(0.0f, 0.0f, 0.0f, 1.0f);
     if (obj().model().anim().frame() < 120.0f) {
         f32 rate = obj().model().anim().frame() / 120.0f;
-        f32 power = 0.5f * hel::math::Math::SinDegF(90.0f * rate);
-        color.set(power * (0.5f * (1.0f + hel::math::Math::SinDegF(720.0f * rate))),
-                  power * (0.5f * (1.0f + hel::math::Math::SinDegF(720.0f * rate + 120.0f))),
-                  power * (0.5f * (1.0f + hel::math::Math::SinDegF(720.0f * rate + 240.0f))), 1.0f);
-        obj().flash().custom().setOperation(static_cast<g3d::ColorAnimFlashOp>(1));
+        f32 power = 0.5f * Math::SinDegF(90.0f * rate);
+        color.set(power * (0.5f * (1.0f + Math::SinDegF(720.0f * rate))),
+                  power * (0.5f * (1.0f + Math::SinDegF(720.0f * rate + 120.0f))),
+                  power * (0.5f * (1.0f + Math::SinDegF(720.0f * rate + 240.0f))), 1.0f);
+        obj().flash().custom().setOperation(static_cast<ColorAnimFlashOp>(1));
     } else {
         // TODO: totalFrame() is unsigned in the original.
         f32 rate = (obj().model().anim().frame() - 120.0f) / static_cast<u32>(obj().model().anim().totalFrame() - 120);
-        color.set(1.0f, 1.0f, 1.0f, hel::math::Math::SinDegF(90.0f * (1.0f - rate)));
-        obj().flash().custom().setOperation(static_cast<g3d::ColorAnimFlashOp>(0));
+        color.set(1.0f, 1.0f, 1.0f, Math::SinDegF(90.0f * (1.0f - rate)));
+        obj().flash().custom().setOperation(static_cast<ColorAnimFlashOp>(0));
     }
     obj().flash().custom().setIsValid(true);
     obj().flash().custom().setColor(color.toGXColorAsNormal());

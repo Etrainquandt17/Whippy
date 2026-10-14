@@ -16,23 +16,27 @@
 #include "scn/step/weapon/Manager.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace enemy {
 namespace scarfy {
 
 Custom::Custom(Enemy& enemy) : CustomBase(enemy), mIsAnger(false), mIsFaceChanged(false) {
-    obj().nururi().changeSetting(hel::math::Vector2(0.0f, 0.0f), 2.0f * obj().charaParam()._2c, 2.0f * obj().charaParam()._2c,
+    obj().nururi().changeSetting(Vector2(0.0f, 0.0f), 2.0f * obj().charaParam()._2c, 2.0f * obj().charaParam()._2c,
                                  nururi::MODE_1);
 }
 
 bool Custom::scarfyDamage() {
     int smashType = obj().damageInfo().data().mSmashType;
     if (mIsAnger == true && smashType == 0) {
-        hel::math::Vector2 pos = obj().location().pos().getXY();
-        hel::math::Vector2 genPos = pos;
+        Vector2 pos = obj().location().pos().getXY();
+        Vector2 genPos = pos;
         weapon::Desc desc(static_cast<weapon::Kind>(0x2f), 2, static_cast<ostop::Flag>(4), genPos, pos,
-                          hel::math::Vector2(0.0f, 0.0f), obj().objColl().owner());
+                          Vector2(0.0f, 0.0f), obj().objColl().owner());
         obj().comp().weaponManager().request(desc);
         obj().comp().permSoundSE().start(0x2c8);
         obj().dead();
@@ -70,8 +74,8 @@ bool Custom::isAngerFlag() const {
     return mIsAnger;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}

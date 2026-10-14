@@ -13,6 +13,9 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/ninjakunai/Utility.h"
 
+using app::Random;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -26,15 +29,15 @@ StateVanish::StateVanish(Weapon* weapon, VanishKind kind) : StateBase(weapon), m
     mRotSign = 1.0f;
     obj().mapColl().setValid(false);
     obj().objColl().clearAttack();
-    mRotSign = app::Random::Rand(2) == 0 ? 1.0f : -1.0f;
+    mRotSign = Random::Rand(2) == 0 ? 1.0f : -1.0f;
     f32 speedX = param()._0;
     f32 speedY = param()._4;
     if (isRoll()) {
-        speedX += app::Random::RandF32(-param()._8, param()._8);
-        speedY += app::Random::RandF32(-param()._C, param()._C);
+        speedX += Random::RandF32(-param()._8, param()._8);
+        speedY += Random::RandF32(-param()._C, param()._C);
     }
     f32 sign = obj().target().getSign();
-    obj().move().setVelocity(hel::math::Vector3(speedX * sign, speedY, 0.0f));
+    obj().move().setVelocity(Vector3(speedX * sign, speedY, 0.0f));
 }
 
 StateVanish::~StateVanish() {}

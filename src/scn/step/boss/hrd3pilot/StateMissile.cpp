@@ -46,6 +46,11 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -78,13 +83,13 @@ void StateMissile::procFixPos() {}
 
 // TODO: isRight is in r30 in the original and in r29 here.
 void StateMissile::reqMissile(enemy::metalgeneralmissile::StateSpread::SpreadKind kind) {
-    hel::math::Vector2 pos = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).getMissileLaunchPos().getXY();
+    Vector2 pos = DynamicCastToRef<Custom, ICustom>(obj().custom()).getMissileLaunchPos().getXY();
     enemy::Desc desc(static_cast<map::BinEnemyKind>(0x7B), map::BinEnemyVariation_0, 0, static_cast<map::BinEnemyDirType>(0),
                      static_cast<map::BinEnemySize>(0), false, false, pos);
-    util::ObjRefHandle<enemy::Enemy> missile = obj().comp().enemyManager().request(desc);
+    ObjRefHandle<enemy::Enemy> missile = obj().comp().enemyManager().request(desc);
     if (missile.isAlive()) {
-        hel::math::Vector3 front = obj().model().model().nodes().at(0).worldRotate().mFront;
-        bool isRight = front.cos(hel::math::Vector3::BASIS_X * -1.0f) < 0.0f;
+        Vector3 front = obj().model().model().nodes().at(0).worldRotate().mFront;
+        bool isRight = front.cos(Vector3::BASIS_X * -1.0f) < 0.0f;
         missile->target().setIsRightDir(isRight);
         missile->stateChanger().setNextState<enemy::metalgeneralmissile::StateSpread, enemy::Enemy*,
                                              enemy::metalgeneralmissile::StateSpread::SpreadKind>(missile.operator->(), kind);

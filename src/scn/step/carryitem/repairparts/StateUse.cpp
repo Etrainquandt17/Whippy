@@ -11,6 +11,8 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/SoundSE.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace carryitem {
@@ -55,7 +57,7 @@ void StateUse::procMove() {
 void StateUse::procFixPos() {
     if (obj().getUser().operator->() == 0) {
         obj().soundSE().start(0xFE);
-        hel::math::Vector3 velocity(
+        Vector3 velocity(
             obj().param().repairparts()._0, obj().param().repairparts()._4, obj().param().repairparts()._8);
         velocity.x *= mIsRightDir ? 1.0f : -1.0f;
         obj().move().setVelocity(velocity);

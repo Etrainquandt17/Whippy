@@ -34,6 +34,8 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -43,7 +45,7 @@ StateLanding::StateLanding(Boss* boss, u32 scriptKind) : StateBase(boss) {
     obj().footState().setGround();
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(scriptKind);
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_2);
 }
 
 StateLanding::~StateLanding() {}

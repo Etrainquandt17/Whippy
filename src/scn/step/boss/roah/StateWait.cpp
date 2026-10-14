@@ -10,13 +10,15 @@
 #include "scn/step/boss/roah/Param.h"
 #include "scn/step/chara/Model.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace boss {
 namespace roah {
 
 StateWait::StateWait(Boss* boss) : StateBase(boss) {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
     obj().brainCtrl().toValid();

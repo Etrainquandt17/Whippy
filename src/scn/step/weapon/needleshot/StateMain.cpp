@@ -30,6 +30,11 @@
 #include "scn/step/weapon/needleshot/StateStickObj.h"
 #include "scn/step/weapon/needleshot/StateStickWall.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+using util::ObjRefHandle;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -37,15 +42,15 @@ namespace needleshot {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mIsDead(false), mRot(0.0f) {
     const Param& param = obj().param().needleShot();
-    hel::math::Vector3 velocity = obj().move().velocity();
-    mRot = hel::math::Math::Atan2DegF(velocity.y, velocity.x);
+    Vector3 velocity = obj().move().velocity();
+    mRot = Math::Atan2DegF(velocity.y, velocity.x);
     if (!obj().target().isRightDir()) {
         mRot += 180.0f;
     }
     obj().model().rotCtrl().initRotV(mRot);
     f32 length = param._1C * obj().target().getSign();
     obj().mapColl().setActorOffset(
-        hel::math::Vector2(length * hel::math::Math::CosDegF(mRot), length * hel::math::Math::SinDegF(mRot))
+        Vector2(length * Math::CosDegF(mRot), length * Math::SinDegF(mRot))
     );
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x53));
     obj().objColl().addAttack(0, obj().param().needleShot()._0);
@@ -78,7 +83,7 @@ void StateMain::procObjCollReact() {
             obj().stateChanger().setNextState<StateStickObj, Weapon*>(&obj());
         } else {
             u64 uid = obj().objColl().attack().result().getData(0).mOwnerID;
-            obj().stateChanger().setNextState<StateStickEnemy, Weapon*, util::ObjRefHandle<enemy::Enemy> >(
+            obj().stateChanger().setNextState<StateStickEnemy, Weapon*, ObjRefHandle<enemy::Enemy> >(
                 &obj(), obj().comp().enemyManager().getEnemyByOCollOwnerUID(uid)
             );
         }
@@ -101,12 +106,12 @@ bool StateMain::isHitMap() {
     if (!mapColl.isHit()) {
         return false;
     }
-    hel::math::Vector2 velocity = obj().move().velocity().getXY();
-    if (hel::math::Math::EqZero(velocity.y) && mapColl.result().isHitWallFront()) {
+    Vector2 velocity = obj().move().velocity().getXY();
+    if (Math::EqZero(velocity.y) && mapColl.result().isHitWallFront()) {
         return true;
     }
-    const hel::math::Vector2& normal = mapColl.normal();
-    if (hel::math::Math::Equals(velocity.cos(normal), 0.0f, 0.00001f)) {
+    const Vector2& normal = mapColl.normal();
+    if (Math::Equals(velocity.cos(normal), 0.0f, 0.00001f)) {
         return false;
     }
     return velocity.cos(normal) < 0.0f;
@@ -116,10 +121,10 @@ void StateMain::updateMapColl() {
     f32 length = obj().param().needleShot()._1C;
     f32 sign = obj().target().getSign();
     f32 signedLength = sign * length;
-    hel::math::Vector3 offset(
-        signedLength * hel::math::Math::CosDegF(mRot), signedLength * hel::math::Math::SinDegF(mRot), 0.0f
+    Vector3 offset(
+        signedLength * Math::CosDegF(mRot), signedLength * Math::SinDegF(mRot), 0.0f
     );
-    hel::math::Vector3 pos = obj().mapColl().intersectPos().toVector3() - offset;
+    Vector3 pos = obj().mapColl().intersectPos().toVector3() - offset;
     if (obj().mapColl().result().isHitFloor()) {
         pos.y += 0.1f;
     } else if (obj().mapColl().result().isHitRoof()) {
@@ -129,7 +134,7 @@ void StateMain::updateMapColl() {
     }
     obj().location().setPos(pos);
     obj().mapColl().reset();
-    hel::math::Vector3 velocity = obj().mapColl().normal().toVector3();
+    Vector3 velocity = obj().mapColl().normal().toVector3();
     velocity *= -0.1f;
     obj().move().setVelocity(velocity);
     obj().move().decel(gobj::MoveParamDecel::Zero());

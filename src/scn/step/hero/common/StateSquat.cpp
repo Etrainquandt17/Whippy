@@ -25,6 +25,8 @@
 #include "scn/step/hero/common/StateWait.h"
 #include "util/StateChanger.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -72,7 +74,7 @@ void StateSquat::procAnim() {
         return;
     }
     obj().mapColl().setTriggerPassThroughLand();
-    if (obj().mapColl().precheck(hel::math::Vector2(0.0f, -0.1f)).mIsHitFloor) {
+    if (obj().mapColl().precheck(Vector2(0.0f, -0.1f)).mIsHitFloor) {
         obj().mapColl().resetTriggerPassThroughLand();
         return;
     }

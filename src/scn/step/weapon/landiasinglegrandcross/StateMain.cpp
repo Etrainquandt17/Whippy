@@ -14,6 +14,8 @@
 #include "scn/step/weapon/landiasinglegrandcross/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -43,10 +45,10 @@ void StateMain::procFixPos() {
     const Param& param = obj().param().landiaSingleGrandCross();
     if (mIsLoop) {
         obj().objColl().clearAttack();
-        hel::math::Vector2 node2 = obj().model().model().nodes().at(2).worldTrans().getXY();
-        hel::math::Vector2 node3 = obj().model().model().nodes().at(3).worldTrans().getXY();
-        hel::math::Vector2 offset2 = node2 - obj().location().pos().getXY();
-        hel::math::Vector2 offset3 = node3 - obj().location().pos().getXY();
+        Vector2 node2 = obj().model().model().nodes().at(2).worldTrans().getXY();
+        Vector2 node3 = obj().model().model().nodes().at(3).worldTrans().getXY();
+        Vector2 offset2 = node2 - obj().location().pos().getXY();
+        Vector2 offset3 = node3 - obj().location().pos().getXY();
         obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x211));
         obj().objColl().addAttack(0, param._0, offset2);
         obj().objColl().addAttack(0, param._0, offset3);

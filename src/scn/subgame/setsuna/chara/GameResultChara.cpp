@@ -2,6 +2,9 @@
 
 #include "metafortress.h"
 
+using g3d::ModelAnimAccessor;
+using hel::math::Vector3;
+
 // TODO: remove once the unit's other callers of these inline functions exist.
 #pragma dont_inline on
 
@@ -97,8 +100,8 @@ void GameResultChara::reset() {
     hash = 0x811C9E29;
     for (u32 n = 0; n < _8; n++) {
         _8C[n].setVisibility(false);
-        _1F8[n] = g3d::ModelAnimAccessor();
-        _274[n] = g3d::ModelAnimAccessor();
+        _1F8[n] = ModelAnimAccessor();
+        _274[n] = ModelAnimAccessor();
         _334[n] = false;
     }
     _348 = 0;
@@ -121,7 +124,7 @@ void GameResultChara::reset() {
         hash ^= *(u16*)(base + i - 1);
         hash *= 0x010001AB;
     }
-    _388 = g3d::ModelAnimAccessor();
+    _388 = ModelAnimAccessor();
     hash += hash << 13;
     setMyCharaVisibility(false);
     _390.setVisibility(false);
@@ -131,7 +134,7 @@ void GameResultChara::reset() {
     hash += hash << 3;
     _3A8.clearAnim();
     hash ^= hash >> 17;
-    _3D8 = hel::math::Vector3();
+    _3D8 = Vector3();
     hash += hash << 5;
     _330 = hash - expected != 0;
 }

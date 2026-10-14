@@ -14,6 +14,8 @@
 #include "scn/step/hero/Manager.h"
 #include "scn/step/hero/MoveLimitResponseCtrl.h"
 
+using hel::geo::Rect;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -22,7 +24,7 @@ namespace whispy {
 StateFirst::StateFirst(Boss* boss) : StateBase(boss), mStep(0), mCount(0), mSpeed(0.0f) {
     const Param& param = obj().param().whispy();
     {
-        hel::geo::Rect rect(param.mFirstWorldRect[0], param.mFirstWorldRect[1], param.mFirstWorldRect[2], param.mFirstWorldRect[3]);
+        Rect rect(param.mFirstWorldRect[0], param.mFirstWorldRect[1], param.mFirstWorldRect[2], param.mFirstWorldRect[3]);
         obj().comp().mainCamera().setWorldRect(rect);
         obj().comp().cameraController().setMainTargetOnlyMode();
     }
@@ -47,12 +49,12 @@ void StateFirst::procFixPos() {
         mCount++;
         return;
     }
-    hel::geo::Rect worldRect = obj().comp().mainCamera().getWorldRect();
-    hel::geo::Rect viewRect = obj().comp().mainCamera().getViewRect();
+    Rect worldRect = obj().comp().mainCamera().getWorldRect();
+    Rect viewRect = obj().comp().mainCamera().getViewRect();
     switch (mStep) {
     case 0:
         if (viewRect._4 <= param.mLockRect[1]) {
-            hel::geo::Rect rect(param.mLockRect[0], param.mLockRect[1], param.mFirstWorldRect[2], param.mFirstWorldRect[3]);
+            Rect rect(param.mLockRect[0], param.mLockRect[1], param.mFirstWorldRect[2], param.mFirstWorldRect[3]);
             obj().comp().mainCamera().setWorldRect(rect);
             mStep++;
         }
@@ -70,7 +72,7 @@ void StateFirst::procFixPos() {
         obj().comp().mainCamera().setWorldRect(worldRect);
         distance -= obj().basePos().x;
         if (Utility::CanStartAppearance(obj(), distance)) {
-            hel::geo::Rect rect(param.mLockRect[0], param.mLockRect[1], param.mLockRect[2], param.mLockRect[3]);
+            Rect rect(param.mLockRect[0], param.mLockRect[1], param.mLockRect[2], param.mLockRect[3]);
             obj().comp().cameraController().setLock(rect);
             obj().stateChanger().setNextState<StateAppear, Boss*>(objPtr());
             return;

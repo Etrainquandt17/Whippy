@@ -42,6 +42,10 @@
 #include "scn/step/enemy/Manager.h"
 #include "util/ObjRefHandle.h"
 
+using hel::math::Math;
+using hel::math::Matrix34;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -73,8 +77,8 @@ void TailCtrl::update() {
         mBoss.effect().normal().release();
     }
     f32 t = (f32)mCount / 30.0f;
-    f32 scale = hel::math::Math::LinearInterpolation(1.0f, T_STORAGE_SCALE, t);
-    hel::math::Matrix34 mtx = hel::math::Matrix34::CreateScale(hel::math::Vector3(1.0f, scale, 1.0f));
+    f32 scale = Math::LinearInterpolation(1.0f, T_STORAGE_SCALE, t);
+    Matrix34 mtx = Matrix34::CreateScale(Vector3(1.0f, scale, 1.0f));
     mBoss.model().model().nodes().at(6).localMtx().setRTMtx(mtx);
 }
 

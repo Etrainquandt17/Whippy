@@ -15,6 +15,8 @@
 #include "scn/step/enemy/owgulf/StateFlyStraight.h"
 #include "scn/step/enemy/owgulf/StateFlyWaitFix.h"
 
+using app::Random;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -23,7 +25,7 @@ namespace owgulf {
 namespace {
 
 void t_SetNextState_Attack() {
-    if (app::Random::RandU32(100) < MintEnemy::Obj()->param().owgulf()._1c) {
+    if (Random::RandU32(100) < MintEnemy::Obj()->param().owgulf()._1c) {
         MintEnemy::Obj()->stateChanger().setNextState<StateAttack1Way, Enemy*>(MintEnemy::Obj());
     } else {
         MintEnemy::Obj()->stateChanger().setNextState<StateAttack3Way, Enemy*>(MintEnemy::Obj());

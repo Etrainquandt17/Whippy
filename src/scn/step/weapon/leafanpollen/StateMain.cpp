@@ -20,6 +20,10 @@
 #include "scn/step/weapon/leafanpollen/Param.h"
 #include "snd/SERequestor.h"
 
+using hel::math::Direction3;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -27,11 +31,11 @@ namespace leafanpollen {
 
 StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(0.0f) {
     const Param& param = obj().param().leafanPollen();
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.y += param._4;
     obj().location().setPos(pos);
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(0x19B));
-    obj().objColl().addAttack(0, param._8, hel::math::Vector2(0.0f, 0.0f), hel::math::Vector2(0.0f, 0.0f));
+    obj().objColl().addAttack(0, param._8, Vector2(0.0f, 0.0f), Vector2(0.0f, 0.0f));
     obj().objColl().addHit(0, param._C);
     obj().move().resetSpeedH();
     obj().move().setSpeedV(param._0);
@@ -75,7 +79,7 @@ void StateMain::procMove() {
 
 void StateMain::procFixPos() {
     if (obj().mapColl().isHit()) {
-        obj().comp().permEffect().normal().requestPD(static_cast<effect::Kind>(0x124), obj().location().pos(), hel::math::Direction3::BASIS);
+        obj().comp().permEffect().normal().requestPD(static_cast<effect::Kind>(0x124), obj().location().pos(), Direction3::BASIS);
         obj().soundSE().stop();
         obj().comp().permSoundSE().start(0x2B1);
         obj().dead();
@@ -84,7 +88,7 @@ void StateMain::procFixPos() {
 
 void StateMain::procObjCollReact() {
     if (obj().objColl().attack().isCollide() || obj().objColl().attack().isCollideGimmick() || obj().objColl().hit().isCollide()) {
-        obj().comp().permEffect().normal().requestPD(static_cast<effect::Kind>(0x124), obj().location().pos(), hel::math::Direction3::BASIS);
+        obj().comp().permEffect().normal().requestPD(static_cast<effect::Kind>(0x124), obj().location().pos(), Direction3::BASIS);
         obj().soundSE().stop();
         obj().comp().permSoundSE().start(0x2B1);
         obj().dead();

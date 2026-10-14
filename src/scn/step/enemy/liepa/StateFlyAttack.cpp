@@ -26,6 +26,8 @@
 #include "scn/step/enemy/liepa/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -39,7 +41,7 @@ StateFlyAttack::~StateFlyAttack() {}
 
 void StateFlyAttack::procAnim() {
     const ParamData& param = obj().param().liepa();
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mFrame++;
     if (mFrame == param.mShotFrame) {
         custom.reqShot();

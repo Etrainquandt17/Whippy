@@ -20,6 +20,9 @@
 #include "scn/step/enemy/VacuumReceiver.h"
 #include "scn/step/enemy/damage/Utility.h"
 
+using app::Application;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -29,11 +32,11 @@ StateDeadCaptureRelease::StateDeadCaptureRelease(Enemy* enemy, bool isRight) : S
     obj().footState().setAir();
     obj().model().reqScript(6);
     obj().target().setIsRightDir(!isRight);
-    hel::math::Vector3 velocity = hel::math::Vector3::BASIS_X;
+    Vector3 velocity = Vector3::BASIS_X;
     f32 angle = 50.0f;
     f32 width = 10.0f;
-    angle += width * app::Application::Object().random().randAF();
-    velocity.rotate(hel::math::Vector3::BASIS_Z, 0.017453292f * angle);
+    angle += width * Application::Object().random().randAF();
+    velocity.rotate(Vector3::BASIS_Z, 0.017453292f * angle);
     velocity.x *= enemy->target().getSign();
     velocity *= 0.1f;
     enemy->move().setVelocity(velocity);

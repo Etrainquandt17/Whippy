@@ -34,6 +34,9 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/chara/ScriptTrigger.h"
 
+using hel::common::DynamicCastToRef;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace boss {
@@ -43,7 +46,7 @@ StateEtherJumpHold::StateEtherJumpHold(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mStartX(boss->location().pos().x), mGoalX(boss->location().pos().x) {
     obj().footState().setAir();
     obj().guard().setType(static_cast<GuardType>(2));
-    hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).bodyCollCtrl().setState(BodyCollCtrl::STATE_3);
     obj().move().resetVelocity();
     mGoalX = Utility::GetHatedHeroPos(obj()).x;
 }
@@ -59,7 +62,7 @@ void StateEtherJumpHold::procAnim() {
 
 void StateEtherJumpHold::procMove() {
     f32 t = static_cast<f32>(mCount) / static_cast<f32>(mFrame);
-    hel::math::Vector3 pos = obj().location().pos();
+    Vector3 pos = obj().location().pos();
     pos.x = t * (mGoalX - mStartX) + mStartX;
     obj().location().setPos(pos);
 }

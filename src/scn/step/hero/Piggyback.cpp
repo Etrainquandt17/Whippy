@@ -16,6 +16,8 @@
 #include "scn/step/hero/Squash.h"
 #include "scn/step/hero/StateChecker.h"
 
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace hero {
@@ -128,12 +130,12 @@ void Piggyback::resetConstraintInfo() {
     _38 = 1.0f;
     _3C = 1.0f;
     mIsParentSquat = isParentSquat();
-    _44 = hel::math::Vector3::ZERO;
+    _44 = Vector3::ZERO;
     mParentAbilityKind = getParentAbilityKind();
     _54 = false;
 }
 
-hel::math::Vector3 Piggyback::getRootPos() const {
+Vector3 Piggyback::getRootPos() const {
     if (isExistParent()) {
         return mParent->getRootPos();
     }
@@ -142,11 +144,11 @@ hel::math::Vector3 Piggyback::getRootPos() const {
 
 // TODO: three instructions short. The result is returned through the copy constructor where the original copies
 // it word by word.
-hel::math::Vector3 Piggyback::getParentCenter() const {
+Vector3 Piggyback::getParentCenter() const {
     if (mParent.wasSet()) {
-        hel::math::Vector3 pos = mParent->mHero.location().pos();
+        Vector3 pos = mParent->mHero.location().pos();
         f32 rate = isParentSquat() ? 0.5f : 1.0f;
-        hel::math::Vector3 center(mParent->mHero.location().toCenter() * rate);
+        Vector3 center(mParent->mHero.location().toCenter() * rate);
         if (mIsConstraintSquash) {
             center.x *= mHero.squash().getCurrentScale().x;
             center.y *= mHero.squash().getCurrentScale().y;
@@ -157,13 +159,13 @@ hel::math::Vector3 Piggyback::getParentCenter() const {
     return mHero.location().centerPos();
 }
 
-hel::math::Vector3 Piggyback::getConstraintPos() const {
-    hel::math::Vector3 pos;
+Vector3 Piggyback::getConstraintPos() const {
+    Vector3 pos;
     if (!mParent.wasSet()) {
         pos = mHero.location().pos();
     } else {
         pos = getParentCenter();
-        hel::math::Vector3 offset;
+        Vector3 offset;
         offset = mParent->getConstraintOffset();
         if (mIsConstraintSquash) {
             offset.x *= mHero.squash().getCurrentScale().x;
@@ -187,11 +189,11 @@ bool Piggyback::isParentSquat() const {
     return mParent->mHero.stateChecker().isSquat();
 }
 
-hel::math::Vector3 Piggyback::getParentVelocity() const {
+Vector3 Piggyback::getParentVelocity() const {
     if (isExistParent()) {
         return mParent->mHero.move().velocity();
     }
-    return hel::math::Vector3();
+    return Vector3();
 }
 
 AbilityKind Piggyback::getParentAbilityKind() const {
@@ -254,7 +256,7 @@ u32 Piggyback::getParentPadChan() const {
 }
 #undef MF_FUNCTION
 
-hel::math::Vector3 Piggyback::getRootSquashScale() const {
+Vector3 Piggyback::getRootSquashScale() const {
     if (isExistParent()) {
         return mParent->getRootSquashScale();
     }
@@ -381,7 +383,7 @@ void Piggyback::setChildHidDisable() {
 // TODO: Hero::location() const returns a Location that can be written to in the original.
 void Piggyback::constraintMapColl() {
     if (!isRootBackDir()) {
-        hel::math::Vector3 pos = mHero.location().pos();
+        Vector3 pos = mHero.location().pos();
         Hero& hero = mHero;
         const_cast<chara::Location&>(hero.location()).setPos(getRootPos());
         mHero.mapColl().setAfterMoveDetectForce(true);

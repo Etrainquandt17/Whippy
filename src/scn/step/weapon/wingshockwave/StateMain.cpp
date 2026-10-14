@@ -14,6 +14,10 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/wingshockwave/Param.h"
 
+using hel::math::Math;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -32,7 +36,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), mFrame(0), mEffectScal
         mEffectScale = param._28;
     }
     obj().objColl().setAttackType(attackType);
-    obj().objColl().addAttack(0, radius, hel::math::Vector2(0.0f, 0.3f), hel::math::Vector2(0.0f, length));
+    obj().objColl().addAttack(0, radius, Vector2(0.0f, 0.3f), Vector2(0.0f, length));
     obj().setValidAttackRumble(true);
 }
 
@@ -42,7 +46,7 @@ void StateMain::procAnim() {
     if (!mIsEffectRequested) {
         const Param& param = obj().param().wingShockWave();
         obj().effect().normal().requestN(
-            static_cast<effect::Kind>(0x59D), 0, hel::math::Vector3(0.0f, -0.2f, obj().variation() == 1 ? param._24 : param._14), mEffectScale
+            static_cast<effect::Kind>(0x59D), 0, Vector3(0.0f, -0.2f, obj().variation() == 1 ? param._24 : param._14), mEffectScale
         );
         mIsEffectRequested = true;
     }
@@ -64,7 +68,7 @@ void StateMain::procFixPos() {
 
 void StateMain::procObjCollReact() {
     if (!obj().objColl().attack().isCollide() && !obj().objColl().attack().isCollideGimmick() && obj().mapColl().isHit()) {
-        if (hel::math::Math::Abs(obj().mapColl().normal().x) > 0.75f) {
+        if (Math::Abs(obj().mapColl().normal().x) > 0.75f) {
             obj().dead();
         }
     }

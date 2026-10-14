@@ -26,6 +26,8 @@
 #include "scn/step/enemy/pacto/StateBack.h"
 #include "snd/SERequestor.h"
 
+using hel::common::DynamicCastToRef;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -36,7 +38,7 @@ StateSpit::StateSpit(Enemy* enemy) : StateBase(enemy), mFrame(0), mIsAnimEnd(fal
 }
 
 void StateSpit::procAnim() {
-    Custom& custom = hel::common::DynamicCastToRef<Custom, ICustom>(obj().custom());
+    Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (++mFrame == 8) {
         custom.setDamageCaptureHero(obj().param().pacto().mEatDamage, true);
         if (custom.chkDeadHero()) {

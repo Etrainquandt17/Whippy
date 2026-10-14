@@ -17,6 +17,8 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/airball/Param.h"
 
+using hel::math::Vector2;
+
 namespace scn {
 namespace step {
 namespace weapon {
@@ -27,7 +29,7 @@ StateMain::StateMain(Weapon* weapon) : StateBase(weapon), _8(0), _C(false) {
     obj().objColl().setAttackType(static_cast<ocoll::AttackType>(5));
     f32 sign = obj().target().getSign();
     obj().objColl().addAttack(
-        0, param._4, hel::math::Vector2(sign * param._C, param._10), hel::math::Vector2(sign * param._8, param._10));
+        0, param._4, Vector2(sign * param._C, param._10), Vector2(sign * param._8, param._10));
     obj().model().reqScript(0);
 }
 

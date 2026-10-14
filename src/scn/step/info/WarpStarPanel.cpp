@@ -22,6 +22,11 @@
 #include "scn/step/sfx/CinemaScope.h"
 #include "util/ObjList.h"
 
+using app::Message;
+using hel::math::Matrix34;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace info {
@@ -70,7 +75,7 @@ WarpStarPanel::WarpStarPanel(mem::IAllocator& allocator, const lyt::PaneAccessor
         lwz     r14, 0x8(r26)
         stw     r14, start
     }
-    mLayout.pane("WarpStarName").setText(app::Message::TextLvMap("WarpStar"));
+    mLayout.pane("WarpStarName").setText(Message::TextLvMap("WarpStar"));
     last = end;
     size = last - start;
     hash = 0xB5;
@@ -108,7 +113,7 @@ void WarpStarPanel::warpStarInit() {
 
 void WarpStarPanel::warpStarPosSet() {
     if (mComponent.gimmickManager().warpStarManager().isExist()) {
-        hel::math::Matrix34 mtx = mComponent.gimmickManager().warpStarManager().kirbyRideWorldMtx();
+        Matrix34 mtx = mComponent.gimmickManager().warpStarManager().kirbyRideWorldMtx();
         _194 = mtx.getT();
     }
 }
@@ -173,7 +178,7 @@ void WarpStarPanel::checkDisappear() {
 bool WarpStarPanel::isNearWarpStar() {
     const f32 range = 4.0f;
     for (u32 i = 0; i < mComponent.heroManager().getPlayerCount(); i++) {
-        hel::math::Vector3 pos = mComponent.heroManager().getPlayerByIndex(i).location().pos();
+        Vector3 pos = mComponent.heroManager().getPlayerByIndex(i).location().pos();
         if (pos.x >= _194.x - range && pos.x <= range + _194.x && pos.y >= _194.y - range && pos.y <= range + _194.y) {
             return true;
         }
@@ -191,7 +196,7 @@ void WarpStarPanel::panelDisappear() {
 }
 
 void WarpStarPanel::constraintPos() {
-    hel::math::Vector2 pos = mComponent.cameraAccessor().toLayoutPos(camera::KIND_0, _194);
+    Vector2 pos = mComponent.cameraAccessor().toLayoutPos(camera::KIND_0, _194);
     mLayout.rootPane().setTrans(pos.toVector3());
 }
 

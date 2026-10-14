@@ -23,6 +23,11 @@
 #include "scn/step/enemy/sisterbound/ParamData.h"
 #include "snd/SERequestor.h"
 
+using hel::common::RuntimeTypeInfo;
+using hel::common::RuntimeTypeInfoImpl;
+using hel::math::Vector2;
+using hel::math::Vector3;
+
 namespace scn {
 namespace step {
 namespace enemy {
@@ -44,8 +49,8 @@ bool Custom::onDamaged() {
 }
 
 bool Custom::isChangeDir() {
-    hel::math::Vector3 pos = obj().location().pos();
-    hel::math::Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
+    Vector3 pos = obj().location().pos();
+    Vector2 playerPos = Utility::GetNearestPlayerPos(obj());
     bool result = false;
     if ((pos.x - playerPos.x < 0.0f && !obj().target().isRightDir()) || (pos.x - playerPos.x > 0.0f && obj().target().isRightDir())) {
         result = true;
@@ -53,8 +58,8 @@ bool Custom::isChangeDir() {
     return result;
 }
 
-const hel::common::RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
-    return hel::common::RuntimeTypeInfoImpl<Custom>();
+const RuntimeTypeInfo& Custom::GetRuntimeTypeInfo() const {
+    return RuntimeTypeInfoImpl<Custom>();
 }
 
 Custom::~Custom() {}
