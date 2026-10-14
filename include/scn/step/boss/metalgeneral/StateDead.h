@@ -9,7 +9,6 @@ namespace step {
 namespace boss {
 namespace metalgeneral {
 
-// TODO: members.
 class StateDead : public StateBase {
 public:
     StateDead(Boss* boss);
@@ -17,6 +16,17 @@ public:
     virtual void procAnim();
     virtual void procMove();
     virtual void procFixPos();
+
+private:
+    void stagingBossDead();
+    void setCameraZoom();
+
+    bool mIsEnd;
+    bool mIsPanelShown;
+    bool mIsStaged;
+    u32 mFrame;
+    u32 mZoomHandle;
+    u32 _14;
 };
 
 }}}}  // namespace scn::step::boss::metalgeneral

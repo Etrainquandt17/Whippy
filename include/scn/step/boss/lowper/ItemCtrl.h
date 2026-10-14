@@ -1,8 +1,12 @@
 #ifndef SCN_STEP_BOSS_LOWPER_ITEMCTRL_H
 #define SCN_STEP_BOSS_LOWPER_ITEMCTRL_H
 
+#include "gobj/GearAnim.h"
+#include "gobj/GearModel.h"
 #include "hel/math/Vector3.h"
+#include "scn/step/item/Item.h"
 #include "types.h"
+#include "util/ObjRefHandle.h"
 
 namespace scn {
 namespace step {
@@ -28,8 +32,18 @@ public:
     void setupSRTTarget();
 
 private:
-    // TODO: members.
-    u32 _0[0xA0 / 4];
+    Boss& mBoss;
+    util::ObjRefHandle<item::Item> mItem;
+    util::ObjRefHandle<item::Item> mItemPair;
+    gobj::GearModelDesc mGearModelDesc;
+    gobj::GearAnimDesc mGearAnimDesc;
+    f32 mRot;
+    f32 mRotSpeed;
+    f32 mScale;
+    f32 mScaleTarget;
+    bool mIsGathered;
+    bool mIsInit;
+    bool mIsEnd;
 };
 
 }}}}  // namespace scn::step::boss::lowper

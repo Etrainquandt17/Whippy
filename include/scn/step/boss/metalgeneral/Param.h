@@ -151,9 +151,7 @@ struct Param {
     f32 _2AC;
     f32 _2B0;
     hel::math::Vec3 _2B4;
-    u32 _2C0;
-    u32 _2C4;
-    u32 _2C8;
+    hel::math::Vec3 _2C0;
     u32 _2CC;
     u32 _2D0;
     u32 _2D4;

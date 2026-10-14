@@ -21,6 +21,23 @@ struct CollParam {
 
 // TODO: the members are named after their offsets; the types are what the written states read.
 struct Param {
+    struct DynamicsNode {
+        f32 _0;
+        f32 _4;
+        f32 _8;
+        f32 _C;
+        f32 _10;
+        f32 _14;
+        f32 _18;
+        f32 _1C;
+        f32 _20;
+    };
+
+    struct Dynamics {
+        f32 _0;
+        DynamicsNode mNodes[3];
+    };
+
     u32 _0;
     u32 _4;
     u32 _8;
@@ -63,7 +80,7 @@ struct Param {
     CollParam _C0;
     CollParam _E8;
     CollParam _110;
-    f32 _138;
+    Dynamics _138;
 };
 
 }}}}  // namespace scn::step::boss::lowper

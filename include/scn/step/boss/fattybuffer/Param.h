@@ -3,6 +3,7 @@
 
 #include "gobj/MoveParam.h"
 #include "hel/math/Vec2.h"
+#include "hel/math/Vec3.h"
 #include "types.h"
 
 namespace scn {
@@ -106,6 +107,8 @@ struct Param {
     f32 _1A4;
     f32 mScaleAnger;
     u32 mAngerScaleTime;
+    u32 _1B0;
+    hel::math::Vec3 _1B4;
 };
 
 }}}}  // namespace scn::step::boss::fattybuffer

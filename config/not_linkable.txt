@@ -1,4 +1,3 @@
-scn/step/boss/lowper/StateSparkAttack.cpp
 scn/step/enemy/metalgeneralmissile/Custom.cpp
 scn/step/enemy/stareffect/StatePuff.cpp
 scn/step/hero/cutter/StateCutterDrop.cpp

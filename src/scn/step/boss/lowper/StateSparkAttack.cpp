@@ -111,7 +111,7 @@ void StateSparkAttack::procAnim() {
     if (mIsAttack) {
         obj().objColl().clearAttack(1);
         obj().objColl().addAttack(1, 0, 0.7f, Vector2(0.0f, 0.65f));
-        obj().objColl().addAttack(1, 0, 0.3f, Vector2(0.0f, 7.0f), Vector2(0.0f, -7.0f));
+        obj().objColl().addAttack(1, 0, 0.3f, Vector2(0.0f, -7.0f), Vector2(0.0f, 7.0f));
         obj().effect().state().release();
         obj().effect().state().requestN(static_cast<effect::Kind>(0x3A0), 3);
         obj().effect().state().requestN(static_cast<effect::Kind>(0x39F), 3);

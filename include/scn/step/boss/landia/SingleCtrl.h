@@ -23,6 +23,7 @@ public:
     bool flagActionEnd();
     void reqGrandCross(SignalKind kind);
     void setFireRainStarHitHeightSingleNum();
+    u32 fireRainStarHitHeightSingleNum() const;
     void onFinishFormationPass();
     void generate();
     void dead();

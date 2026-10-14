@@ -13734,7 +13734,7 @@ updateSRT__Q53scn4step4boss11fattybuffer14StateCannonEndFv = .text:0x8027B900; /
 __ct__Q53scn4step4boss11fattybuffer12StateDamageLFPQ43scn4step4boss4Boss = .text:0x8027B984; // type:function size:0x160 scope:global align:4
 __dt__Q53scn4step4boss11fattybuffer12StateDamageLFv = .text:0x8027BAE4; // type:function size:0x4 scope:global align:4
 procAnim__Q53scn4step4boss11fattybuffer12StateDamageLFv = .text:0x8027BAE8; // type:function size:0xB0 scope:global align:4
-procMove__Q53scn4step4boss11fattybuffer12StateDamageLFv = .text:0x8027BB98; // type:function size:0x88 scope:global align:4
+procMove__Q53scn4step4boss11fattybuffer12StateDamageLFv = .text:0x8027BB98; // type:function size:0x88 scope:global align:4 noexport
 procFixPos__Q53scn4step4boss11fattybuffer12StateDamageLFv = .text:0x8027BC20; // type:function size:0x4 scope:global align:4
 create__Q24util97StateFactoryArg1<Q24util6IState,Q53scn4step4boss11fattybuffer10StateAnger,PQ43scn4step4boss4Boss>Fv = .text:0x8027BC24; // type:function size:0x1C scope:global align:4
 __dt__Q24util97StateFactoryArg1<Q24util6IState,Q53scn4step4boss11fattybuffer10StateAnger,PQ43scn4step4boss4Boss>Fv = .text:0x8027BC40; // type:function size:0x4 scope:global align:4
@@ -18033,7 +18033,7 @@ __dt__Q24util101StateFactoryArg1<Q24util6IState,Q53scn4step4boss12metalgeneral13
 __ct__Q53scn4step4boss12metalgeneral12StateDamageLFPQ43scn4step4boss4Boss = .text:0x803067C8; // type:function size:0x16C scope:global align:4
 __dt__Q53scn4step4boss12metalgeneral12StateDamageLFv = .text:0x80306934; // type:function size:0x4 scope:global align:4
 procAnim__Q53scn4step4boss12metalgeneral12StateDamageLFv = .text:0x80306938; // type:function size:0xB0 scope:global align:4
-procMove__Q53scn4step4boss12metalgeneral12StateDamageLFv = .text:0x803069E8; // type:function size:0x88 scope:global align:4
+procMove__Q53scn4step4boss12metalgeneral12StateDamageLFv = .text:0x803069E8; // type:function size:0x88 scope:global align:4 noexport
 procFixPos__Q53scn4step4boss12metalgeneral12StateDamageLFv = .text:0x80306A70; // type:function size:0x4 scope:global align:4
 create__Q24util98StateFactoryArg1<Q24util6IState,Q53scn4step4boss12metalgeneral10StateAnger,PQ43scn4step4boss4Boss>Fv = .text:0x80306A74; // type:function size:0x1C scope:global align:4
 __dt__Q24util98StateFactoryArg1<Q24util6IState,Q53scn4step4boss12metalgeneral10StateAnger,PQ43scn4step4boss4Boss>Fv = .text:0x80306A90; // type:function size:0x4 scope:global align:4
