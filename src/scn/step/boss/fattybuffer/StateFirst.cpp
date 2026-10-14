@@ -80,7 +80,8 @@ void StateFirst::procFixPos() {
             canStart = Utility::CanStartAppearance(obj(), -param._5C, -param._60);
         }
         if (canStart) {
-            hel::geo::Rect rect(param._38, param._3C, param._40, param._44);
+            hel::geo::Rect rect(param.mAppearCameraLockTop, param.mAppearCameraLockBottom,
+                                param.mAppearCameraLockLeft, param.mAppearCameraLockRight);
             t_Trans(rect, obj().basePos().x, obj().basePos().y);
             obj().comp().cameraController().setLock(rect);
             obj().stateChanger().setNextState<StateAppear, Boss*>(objPtr());

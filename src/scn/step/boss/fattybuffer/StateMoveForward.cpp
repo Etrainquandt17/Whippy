@@ -56,7 +56,7 @@ void StateMoveForward::procAnim() {
         obj().brainCtrl().toValid();
     }
     if (obj().scriptTrigger().get(1)) {
-        f32 speed = 0.5f * (param._74 * (1.0f + mRate));
+        f32 speed = 0.5f * (param.mMoveForwardSpeed * (1.0f + mRate));
         obj().move().setSpeedH(speed * obj().target().getSign());
         obj().model().setFrameRate(mRate);
     }
