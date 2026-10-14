@@ -2,11 +2,8 @@
 
 #include "scn/step/carryitem/stepshoe/StateUse.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/Model.h"
-#include "gobj/NodeRepos.h"
 #include "ocoll/Owner.h"
 #include "scn/step/Component.h"
 #include "scn/step/carryitem/CarryItem.h"

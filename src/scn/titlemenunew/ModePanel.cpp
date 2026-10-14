@@ -7,7 +7,6 @@
 #include "hel/common/ExplicitSingleton.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "lyt/LayoutContext.h"
 #include "metafortress.h"
 #include "std/tr1/reference_wrapper.h"

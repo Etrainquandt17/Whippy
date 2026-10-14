@@ -3,7 +3,6 @@
 #include "mintvm/MintAssert.h"
 #include "mintvm/VMCore.h"
 #include "mintvm/VMKey.h"
-#include "mintvm/stdc.h"
 
 namespace mintvm {
 

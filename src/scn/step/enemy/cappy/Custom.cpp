@@ -2,11 +2,8 @@
 
 #include "scn/step/enemy/cappy/Custom.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/math/Vector2.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

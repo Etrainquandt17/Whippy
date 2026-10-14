@@ -4,7 +4,6 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/superhammerquake/StateMain.h"
 #include "scn/step/weapon/superhammerquake/Utility.h"
-#include "util/StateChanger.h"
 
 namespace scn {
 namespace step {

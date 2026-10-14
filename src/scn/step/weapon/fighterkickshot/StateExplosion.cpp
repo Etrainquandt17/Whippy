@@ -1,7 +1,6 @@
 #include "scn/step/weapon/fighterkickshot/StateExplosion.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Param.h"

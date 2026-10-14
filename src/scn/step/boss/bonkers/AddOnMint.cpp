@@ -1,7 +1,6 @@
 #include "scn/step/boss/bonkers/AddOnMint.h"
 
 #include "hel/common/RuntimeTypeInfoImpl.h"
-#include "hel/math/Vec2.h"
 #include "hel/math/Vector2.h"
 #include "mintglue/VectorInline.h"
 #include "mintglue/WrapNative.h"

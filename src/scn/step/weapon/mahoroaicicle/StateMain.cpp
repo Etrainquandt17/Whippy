@@ -1,10 +1,8 @@
 #include "scn/step/weapon/mahoroaicicle/StateMain.h"
 
 #include "app/Random.h"
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/math/Math.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
@@ -16,7 +14,6 @@
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/mahoroaicicle/StateFall.h"
-#include "util/StateChanger.h"
 
 using app::Random;
 using hel::math::Math;

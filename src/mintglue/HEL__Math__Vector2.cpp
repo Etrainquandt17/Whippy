@@ -2,7 +2,6 @@
 
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
-#include "mintglue/VectorInline.h"
 #include "mintglue/WrapNative.h"
 
 using hel::math::Vector2;

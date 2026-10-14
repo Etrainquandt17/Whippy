@@ -1,19 +1,14 @@
 #include "scn/step/hero/bomb/StatePutOnEnemy.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
-#include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/BombParam.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/Param.h"
 #include "scn/step/hero/RunChecker.h"
-#include "scn/step/hero/ScriptKind.h"
-#include "scn/step/hero/SubAnimControl.h"
 #include "scn/step/hero/Utility.h"
 #include "scn/step/hero/bomb/GearBombController.h"
-#include "util/StateChanger.h"
 
 namespace scn {
 namespace step {

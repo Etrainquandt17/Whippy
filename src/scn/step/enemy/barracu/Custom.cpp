@@ -1,9 +1,7 @@
 #include "scn/step/enemy/barracu/Custom.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
@@ -11,7 +9,6 @@
 #include "mcoll/LandManager.h"
 #include "mcoll/detail/DetectArg.h"
 #include "mcoll/detail/DetectResult.h"
-#include "revolution/gx/GXStruct.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

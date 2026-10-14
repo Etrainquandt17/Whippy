@@ -1,6 +1,5 @@
 #include "scn/step/carryitem/prismshield/Utility.h"
 
-#include "g3d/ModelAnimAccessor.h"
 #include "gobj/Anim.h"
 #include "hel/common/Color.h"
 #include "hel/math/Math.h"

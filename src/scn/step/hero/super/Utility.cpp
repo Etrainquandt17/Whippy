@@ -4,7 +4,6 @@
 #include "scn/step/Component.h"
 #include "scn/step/Context.h"
 #include "scn/step/StageKind.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Knockback.h"
 #include "scn/step/chara/LandConstraint.h"
 #include "scn/step/core/DrawLayerKind.h"

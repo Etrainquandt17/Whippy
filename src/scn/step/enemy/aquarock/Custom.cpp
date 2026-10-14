@@ -1,7 +1,6 @@
 #include "scn/step/enemy/aquarock/Custom.h"
 
 #include "hel/math/Matrix34.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/chara/CliffChecker.h"
 #include "scn/step/chara/Culling.h"
 #include "scn/step/chara/Location.h"

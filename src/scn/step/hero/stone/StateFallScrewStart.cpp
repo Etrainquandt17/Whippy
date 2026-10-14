@@ -1,7 +1,6 @@
 #include "scn/step/hero/stone/StateFallScrewStart.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/Param.h"

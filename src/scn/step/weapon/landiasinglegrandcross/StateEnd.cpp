@@ -1,7 +1,6 @@
 #include "scn/step/weapon/landiasinglegrandcross/StateEnd.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Anim.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"

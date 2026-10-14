@@ -8,7 +8,6 @@
 #include "gobj/GearModel.h"
 #include "gobj/Model.h"
 #include "metafortress.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/hero/Gear.h"
 #include "scn/step/hero/Heap.h"

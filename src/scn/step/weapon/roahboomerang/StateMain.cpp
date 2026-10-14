@@ -2,10 +2,8 @@
 
 #include "scn/step/weapon/roahboomerang/StateMain.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
 #include "ocoll/Hit.h"

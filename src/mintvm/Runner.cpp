@@ -8,7 +8,6 @@
 #include "mintvm/MintFuncProxy.h"
 #include "mintvm/VMCore.h"
 #include "mintvm/VMModule.h"
-#include "mintvm/stdc.h"
 
 namespace mintvm {
 

@@ -1,5 +1,4 @@
 #include "scn/step/hero/spark/StateAttack.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Effect.h"
 #include "scn/step/hero/Hero.h"

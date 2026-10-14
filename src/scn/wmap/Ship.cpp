@@ -1,7 +1,6 @@
 #include "scn/wmap/Ship.h"
 
 #include "g3d/CharaModelContext.h"
-#include "g3d/ModelBufferOption.h"
 #include "g3d/ModelContext.h"
 #include "g3d/ResFileRepository.h"
 #include "g3d/ResModelContext.h"

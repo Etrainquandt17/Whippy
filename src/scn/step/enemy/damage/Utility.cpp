@@ -4,7 +4,6 @@
 #include "app/Random.h"
 #include "gobj/Anim.h"
 #include "gobj/FootState.h"
-#include "gobj/GearModel.h"
 #include "gobj/Model.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"

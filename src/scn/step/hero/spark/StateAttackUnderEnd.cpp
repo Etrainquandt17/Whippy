@@ -1,5 +1,4 @@
 #include "scn/step/hero/spark/StateAttackUnderEnd.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"

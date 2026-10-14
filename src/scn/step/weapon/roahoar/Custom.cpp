@@ -1,6 +1,5 @@
 #include "scn/step/weapon/roahoar/Custom.h"
 
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Culling.h"
 #include "scn/step/chara/Location.h"

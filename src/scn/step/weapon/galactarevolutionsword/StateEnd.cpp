@@ -1,9 +1,7 @@
 #include "scn/step/weapon/galactarevolutionsword/StateEnd.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/weapon/Param.h"

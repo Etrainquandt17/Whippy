@@ -4,7 +4,6 @@
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
-#include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "pow.h"
 #include "scn/step/Component.h"

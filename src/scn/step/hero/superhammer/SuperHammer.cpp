@@ -9,7 +9,6 @@
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
-#include "scn/step/hero/SubAnimControl.h"
 #include "scn/step/hero/WearBack.h"
 #include "scn/step/hero/super/Utility.h"
 #include "scn/step/hero/superhammer/StateAttack.h"

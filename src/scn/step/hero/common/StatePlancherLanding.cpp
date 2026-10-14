@@ -9,7 +9,6 @@
 #include "scn/step/hero/Param.h"
 #include "scn/step/hero/RunChecker.h"
 #include "scn/step/hero/StateChecker.h"
-#include "scn/step/hero/Utility.h"
 #include "scn/step/hero/common/StateCarryItemCatch.h"
 #include "scn/step/hero/common/StateCarryItemPut.h"
 #include "scn/step/hero/common/StateCarryItemThrow.h"

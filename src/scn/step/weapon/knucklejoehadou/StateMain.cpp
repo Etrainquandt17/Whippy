@@ -1,7 +1,6 @@
 #include "scn/step/weapon/knucklejoehadou/StateMain.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "hel/math/Vector2.h"
 #include "ocoll/Attack.h"

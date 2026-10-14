@@ -4,8 +4,6 @@
 #include "hel/math/Direction3.h"
 
 #include "hel/math/Matrix34.h"
-#include "mintglue/VectorInline.h"
-#include "revolution/mtx.h"
 
 namespace hel {
 namespace math {

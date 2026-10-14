@@ -1,7 +1,6 @@
 #include "scn/step/chara/MintModel.h"
 
 #include "hel/common/PointerWrapper.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/chara/Model.h"
 
 using hel::common::PointerWrapper;

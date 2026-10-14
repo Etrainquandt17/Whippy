@@ -1,7 +1,5 @@
 #include "scn/step/hero/parasol/Custom.h"
-#include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/Component.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/ObjColl.h"
 

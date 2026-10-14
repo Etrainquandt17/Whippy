@@ -5,7 +5,6 @@
 #include "file/Utility.h"
 #include "g3d/CameraAccessor.h"
 #include "g3d/RootContext.h"
-#include "hel/common/ArrayUtil.h"
 #include "hel/common/ExplicitSingleton.h"
 #include "hel/common/FixedString.h"
 #include "hel/common/MutableArray.h"

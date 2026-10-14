@@ -1,7 +1,5 @@
 #include "scn/step/hero/leaf/StateSpread.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Knockback.h"
 #include "scn/step/hero/Effect.h"
 #include "scn/step/hero/Hero.h"

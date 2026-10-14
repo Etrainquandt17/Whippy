@@ -2,7 +2,6 @@
 
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "scn/step/chara/Lifetime.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/MapColl.h"

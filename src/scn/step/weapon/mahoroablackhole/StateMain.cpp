@@ -1,6 +1,5 @@
 #include "scn/step/weapon/mahoroablackhole/StateMain.h"
 
-#include "g3d/ModelAnimAccessor.h"
 #include "gobj/Anim.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Vector3.h"
@@ -12,7 +11,6 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/mahoroablackhole/Custom.h"
 #include "scn/step/weapon/mahoroablackhole/StateEnd.h"
-#include "util/StateChanger.h"
 
 using hel::common::DynamicCast;
 using hel::math::Vector3;

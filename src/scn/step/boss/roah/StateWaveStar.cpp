@@ -3,7 +3,6 @@
 #include "gobj/Move.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/BrainCtrl.h"
 #include "scn/step/boss/Effect.h"
@@ -12,11 +11,9 @@
 #include "scn/step/boss/Utility.h"
 #include "scn/step/boss/roah/Custom.h"
 #include "scn/step/boss/roah/Param.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
-#include "snd/SERequestor.h"
 
 using hel::common::DynamicCastToRef;
 using hel::math::Math;

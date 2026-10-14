@@ -1,10 +1,7 @@
 #include "scn/step/enemy/rocky/StateLanding.h"
 
-#include "gobj/Anim.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
-#include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Direction3.h"
 #include "hel/math/Math.h"

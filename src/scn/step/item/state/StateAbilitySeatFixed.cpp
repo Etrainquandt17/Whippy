@@ -3,7 +3,6 @@
 #include "g3d/ModelAccessor.h"
 #include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
-#include "gobj/GearModel.h"
 #include "hel/math/Matrix34.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/item/Item.h"

@@ -8,7 +8,6 @@
 #include "scn/step/boss/galactaknight/AttackDesc.h"
 #include "scn/step/boss/galactaknight/Custom.h"
 #include "scn/step/boss/galactaknight/JumpDesc.h"
-#include "scn/step/boss/galactaknight/LandCtrl.h"
 #include "scn/step/boss/galactaknight/ScriptKind.h"
 #include "scn/step/boss/galactaknight/StateAttack.h"
 #include "scn/step/boss/galactaknight/StateBlastShot.h"

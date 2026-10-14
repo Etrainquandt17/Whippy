@@ -7,7 +7,6 @@
 #include "scn/step/boss/MintBoss.h"
 #include "scn/step/boss/whispy/Custom.h"
 #include "scn/step/boss/whispy/EnemyReqBuff.h"
-#include "scn/step/boss/whispy/FaceRotCtrl.h"
 #include "scn/step/boss/whispy/ScriptKind.h"
 #include "scn/step/boss/whispy/StateFallEnemy.h"
 #include "scn/step/boss/whispy/StateRootAttack.h"

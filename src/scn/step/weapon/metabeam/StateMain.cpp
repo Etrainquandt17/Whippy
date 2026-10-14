@@ -1,7 +1,6 @@
 #include "scn/step/weapon/metabeam/StateMain.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "hel/math/Direction3.h"
 #include "hel/math/Vector2.h"

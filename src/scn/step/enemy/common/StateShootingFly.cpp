@@ -3,7 +3,6 @@
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Model.h"

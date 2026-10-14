@@ -1,8 +1,6 @@
 #include "scn/step/hero/leaf/StateUpper.h"
-#include "gobj/Script.h"
 #include "gobj/Target.h"
 #include "hel/math/Vector3.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Effect.h"

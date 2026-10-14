@@ -5,7 +5,6 @@
 #include "gobj/Target.h"
 #include "hel/math/Direction3.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Model.h"

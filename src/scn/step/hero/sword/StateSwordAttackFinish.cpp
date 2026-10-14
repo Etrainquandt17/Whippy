@@ -1,6 +1,5 @@
 #include "scn/step/hero/sword/StateSwordAttackFinish.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "gobj/Target.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "gobj/FootState.h"

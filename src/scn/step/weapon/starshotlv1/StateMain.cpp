@@ -1,11 +1,9 @@
 #include "scn/step/weapon/starshotlv1/StateMain.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Matrix34.h"

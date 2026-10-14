@@ -1,9 +1,7 @@
 #include "scn/step/boss/roah/StateOarEnd.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
@@ -14,7 +12,6 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/core/PermEffect.h"
-#include "util/ObjList.h"
 
 using hel::common::DynamicCastToRef;
 using hel::math::Vector3;

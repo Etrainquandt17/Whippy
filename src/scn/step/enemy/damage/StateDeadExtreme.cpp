@@ -15,7 +15,6 @@
 #include "scn/step/enemy/DamageFlash.h"
 #include "scn/step/enemy/Effect.h"
 #include "scn/step/enemy/Enemy.h"
-#include "scn/step/enemy/MapColl.h"
 #include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/damage/Utility.h"
 

@@ -2,7 +2,6 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Script.h"
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"

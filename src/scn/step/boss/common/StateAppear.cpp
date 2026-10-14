@@ -1,7 +1,6 @@
 #include "scn/step/boss/common/StateAppear.h"
 
 #include "gobj/Target.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
@@ -17,12 +16,10 @@
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/carryitem/Manager.h"
 #include "scn/step/chara/BodyColl.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/Manager.h"
-#include "snd/SERequestor.h"
 
 using hel::geo::Rect;
 using hel::math::Vector2;

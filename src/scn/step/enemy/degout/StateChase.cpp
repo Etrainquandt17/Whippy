@@ -8,7 +8,6 @@
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Random.h"
 #include "hel/math/Vector3.h"
-#include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/enemy/Enemy.h"
@@ -17,7 +16,6 @@
 #include "scn/step/enemy/degout/Custom.h"
 #include "scn/step/enemy/common/StateFly.h"
 #include "scn/step/enemy/degout/ParamData.h"
-#include "scn/step/hero/Manager.h"
 #include "snd/SERequestor.h"
 
 using app::Application;

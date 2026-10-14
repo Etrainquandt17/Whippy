@@ -1,18 +1,12 @@
 #include "scn/step/hero/cutter/StateCutterThrowLong.h"
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
-#include "gobj/FootState.h"
 #include "gobj/Model.h"
-#include "gobj/Move.h"
 #include "gobj/NodeRepos.h"
-#include "gobj/Script.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/CutterParam.h"
-#include "scn/step/hero/Gear.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
 #include "scn/step/hero/Model.h"
@@ -21,9 +15,7 @@
 #include "scn/step/hero/Utility.h"
 #include "scn/step/weapon/Desc.h"
 #include "scn/step/weapon/Manager.h"
-#include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
-#include "util/StateChanger.h"
 
 using hel::math::Vector2;
 using hel::math::Vector3;

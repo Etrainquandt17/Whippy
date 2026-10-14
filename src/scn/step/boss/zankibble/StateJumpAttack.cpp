@@ -6,7 +6,6 @@
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/MapColl.h"
@@ -19,7 +18,6 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
-#include "util/ObjList.h"
 
 using hel::common::DynamicCastToRef;
 using hel::math::Math;

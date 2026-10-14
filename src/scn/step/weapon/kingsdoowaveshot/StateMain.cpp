@@ -17,7 +17,6 @@
 #include "scn/step/weapon/Utility.h"
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/kingsdoowaveshot/Param.h"
-#include "std/cmath.h"
 
 using hel::math::Direction3;
 using hel::math::Vector2;

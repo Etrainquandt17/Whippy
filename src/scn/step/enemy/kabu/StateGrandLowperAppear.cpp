@@ -4,7 +4,6 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"

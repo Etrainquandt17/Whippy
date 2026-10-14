@@ -1,7 +1,6 @@
 #include "scn/step/weapon/landiastar/Custom.h"
 
 #include "gobj/Move.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/chara/Culling.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

@@ -3,7 +3,6 @@
 #include "metafortress.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "types.h"
 

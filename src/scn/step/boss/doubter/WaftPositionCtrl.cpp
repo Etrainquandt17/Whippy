@@ -1,7 +1,6 @@
 #include "scn/step/boss/doubter/WaftPositionCtrl.h"
 
 #include "hel/math/Math.h"
-#include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"

@@ -5,7 +5,6 @@
 #include "gobj/Target.h"
 #include "hel/geo/Rect.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Location.h"

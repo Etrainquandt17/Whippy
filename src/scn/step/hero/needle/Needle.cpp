@@ -2,7 +2,6 @@
 
 #include "g3d/ModelAccessor.h"
 #include "g3d/ResFileRepository.h"
-#include "gobj/GearModel.h"
 #include "metafortress.h"
 #include "scn/step/Component.h"
 #include "scn/step/hero/Hero.h"

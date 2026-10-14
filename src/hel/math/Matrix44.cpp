@@ -1,7 +1,6 @@
 #include "hel/math/Matrix44.h"
 
 #include "hel/math/Vector3.h"
-#include "revolution/mtx.h"
 
 namespace hel {
 namespace math {

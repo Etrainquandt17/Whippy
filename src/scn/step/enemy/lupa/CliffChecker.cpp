@@ -1,7 +1,6 @@
 #include "scn/step/enemy/lupa/CliffChecker.h"
 
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "mcoll/LandManager.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"

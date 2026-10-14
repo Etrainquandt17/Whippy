@@ -2,7 +2,6 @@
 
 // Ahead of the Mint headers: strings of inline functions go into .data in the reverse order of their headers.
 #include "hel/common/RuntimeTypeInfo.h"
-#include "mintglue/VectorInline.h"
 #include "mintglue/WrapNative.h"
 #include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Model.h"

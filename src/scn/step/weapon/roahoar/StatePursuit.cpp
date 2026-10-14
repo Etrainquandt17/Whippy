@@ -2,12 +2,10 @@
 
 #include "scn/step/weapon/roahoar/StatePursuit.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
 #include "hel/math/Matrix34.h"

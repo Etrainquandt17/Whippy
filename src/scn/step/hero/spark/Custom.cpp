@@ -1,5 +1,4 @@
 #include "scn/step/hero/spark/Custom.h"
-#include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/hero/Hero.h"
 
 using hel::common::RuntimeTypeInfo;

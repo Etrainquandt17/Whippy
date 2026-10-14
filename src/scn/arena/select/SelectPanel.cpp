@@ -2,7 +2,6 @@
 
 #include "app/Message.h"
 #include "lyt/LayoutContext.h"
-#include "mem/HeapExp.h"
 #include "metafortress.h"
 #include "scn/arena/select/ChoseData.h"
 #include "scn/arena/select/SelectSet.h"

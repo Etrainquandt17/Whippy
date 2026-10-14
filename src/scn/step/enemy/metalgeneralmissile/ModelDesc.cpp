@@ -1,6 +1,5 @@
 #include "scn/step/enemy/metalgeneralmissile/ModelDesc.h"
 
-#include "gobj/AnimScript.h"
 #include "hel/common/FixedString.h"
 #include "scn/step/enemy/ModelDescUtil.h"
 

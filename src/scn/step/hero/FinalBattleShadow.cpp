@@ -2,10 +2,7 @@
 
 #include "gobj/FootState.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
-#include "hel/math/Vector2.h"
 #include "metafortress.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/GroundChecker.h"
 #include "scn/step/chara/Location.h"

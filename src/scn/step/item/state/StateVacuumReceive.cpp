@@ -1,6 +1,5 @@
 #include "scn/step/item/state/StateVacuumReceive.h"
 
-#include "gobj/Location.h"
 #include "gobj/Move.h"
 #include "scn/step/chara/Lifetime.h"
 #include "scn/step/chara/Model.h"

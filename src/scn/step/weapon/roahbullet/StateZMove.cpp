@@ -2,14 +2,11 @@
 
 #include "scn/step/weapon/roahbullet/StateZMove.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
 #include "hel/math/Matrix34.h"
-#include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "pow.h"
 #include "scn/step/Component.h"

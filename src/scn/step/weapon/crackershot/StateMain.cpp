@@ -2,8 +2,6 @@
 
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "mcoll/LandManager.h"
 #include "ocoll/Attack.h"
 #include "scn/step/Component.h"

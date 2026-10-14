@@ -2,7 +2,6 @@
 
 #include "hel/math/Vector3.h"
 #include "metafortress.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/Context.h"
 #include "scn/step/StorageAccessor.h"

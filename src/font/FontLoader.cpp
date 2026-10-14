@@ -2,7 +2,6 @@
 
 #include "app/Application.h"
 #include "font/FontManager.h"
-#include "font/IFont.h"
 #include "metafortress.h"
 #include "types.h"
 

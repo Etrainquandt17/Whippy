@@ -6,7 +6,6 @@
 #include "hel/common/ColorF.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Flash.h"
 #include "scn/step/boss/Invincible.h"

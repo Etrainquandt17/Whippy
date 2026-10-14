@@ -1,6 +1,5 @@
 #include "scn/step/enemy/mahoroahammer/ModelDesc.h"
 
-#include "gobj/AnimScript.h"
 #include "scn/step/enemy/ModelDescUtil.h"
 
 namespace scn {

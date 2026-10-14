@@ -1,5 +1,4 @@
 #include "scn/step/hero/common/StateCopyPre.h"
-#include "scn/step/Component.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Invincible.h"

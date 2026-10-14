@@ -4,7 +4,6 @@
 #include "scn/step/boss/whispy/EnemyCtrl.h"
 
 #include "app/Random.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/chara/Location.h"

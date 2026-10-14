@@ -15,7 +15,6 @@
 #include "pause/Result.h"
 #include "pause/ResultSetter.h"
 #include "snd/SoundSystem.h"
-#include "snd/SystemSERequestor.h"
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjList.h"
 

@@ -1,7 +1,5 @@
 #include "scn/step/hero/highjump/Highjump.h"
-#include "dynamics/Desc.h"
 #include "g3d/ResFileRepository.h"
-#include "gobj/GearModel.h"
 #include "scn/step/Component.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"

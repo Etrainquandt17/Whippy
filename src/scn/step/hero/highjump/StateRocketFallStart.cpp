@@ -1,13 +1,11 @@
 #include "scn/step/hero/highjump/StateRocketFallStart.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/ButtonMask.h"
 #include "scn/step/hero/CommandManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
 #include "scn/step/hero/Model.h"
-#include "scn/step/hero/ScriptKind.h"
 #include "scn/step/hero/highjump/StateRocketFall.h"
 #include "util/StateChanger.h"
 

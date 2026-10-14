@@ -6,7 +6,6 @@
 #include "gobj/MoveParam.h"
 #include "hel/common/ColorF.h"
 #include "hel/math/Math.h"
-#include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/Effect.h"

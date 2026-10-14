@@ -1,9 +1,7 @@
 #include "scn/step/boss/whispy/TSCtrl.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/math/Matrix34.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/chara/Model.h"

@@ -3,7 +3,6 @@
 #include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

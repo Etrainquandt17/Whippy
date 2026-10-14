@@ -1,7 +1,6 @@
 #include "scn/step/hero/sword/StateSwordUnderThrust.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/CommonParam.h"
 #include "gobj/FootState.h"
 #include "scn/step/hero/Hero.h"

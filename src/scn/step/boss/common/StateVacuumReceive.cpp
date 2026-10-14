@@ -1,7 +1,6 @@
 #include "scn/step/boss/common/StateVacuumReceive.h"
 
 #include "gobj/Move.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/MapColl.h"
 #include "scn/step/boss/VacuumReceiver.h"

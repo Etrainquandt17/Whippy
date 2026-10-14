@@ -1,11 +1,9 @@
 #include "scn/step/boss/roah/StateStormEnd.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/Anim.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
@@ -18,9 +16,7 @@
 #include "scn/step/boss/roah/Custom.h"
 #include "scn/step/boss/roah/Param.h"
 #include "scn/step/boss/roah/StateWait.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Model.h"
-#include "util/ObjList.h"
 
 using hel::common::DynamicCastToRef;
 using hel::math::Math;

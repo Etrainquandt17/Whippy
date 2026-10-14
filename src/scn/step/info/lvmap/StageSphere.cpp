@@ -5,7 +5,6 @@
 #include "hid/HIDManager.h"
 #include "lyt/LayoutContext.h"
 #include "metafortress.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/Context.h"
 #include "scn/step/ContextSphere.h"

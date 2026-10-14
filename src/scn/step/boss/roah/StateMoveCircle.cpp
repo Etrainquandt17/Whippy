@@ -2,7 +2,6 @@
 
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/BrainCtrl.h"
 #include "scn/step/boss/roah/Custom.h"

@@ -3,7 +3,6 @@
 #include "gobj/Anim.h"
 #include "gobj/Move.h"
 #include "gobj/Target.h"
-#include "ocoll/Hit.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/DamageInfo.h"
 #include "scn/step/chara/HitPoint.h"

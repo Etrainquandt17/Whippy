@@ -1,6 +1,5 @@
 #include "scn/step/hero/cutter/StateCutterCatch.h"
 #include "gobj/FootState.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"

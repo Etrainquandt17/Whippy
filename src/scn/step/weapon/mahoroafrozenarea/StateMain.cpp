@@ -1,7 +1,6 @@
 #include "scn/step/weapon/mahoroafrozenarea/StateMain.h"
 
 #include "hel/geo/Rect.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

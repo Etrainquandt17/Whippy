@@ -1,6 +1,5 @@
 #include "scn/step/weapon/mahoroawarpneedle/StateMain.h"
 
-#include "g3d/ModelAnimAccessor.h"
 #include "gobj/Anim.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/chara/Model.h"
@@ -11,7 +10,6 @@
 #include "scn/step/weapon/mahoroawarpneedle/Custom.h"
 #include "scn/step/weapon/mahoroawarpneedle/StateEnd.h"
 #include "snd/SERequestor.h"
-#include "util/StateChanger.h"
 
 using hel::common::DynamicCast;
 

@@ -1,6 +1,5 @@
 #include "scn/step/boss/StagingCtrl.h"
 
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/camera/CameraController.h"

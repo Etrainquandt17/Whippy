@@ -5,7 +5,6 @@
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/SoundSE.h"
 #include "scn/step/item/Item.h"
-#include "scn/step/ostop/Manager.h"
 
 namespace scn {
 namespace step {

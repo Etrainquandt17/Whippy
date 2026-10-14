@@ -5,7 +5,6 @@
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/DamageInfo.h"
 #include "scn/step/chara/Location.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Guard.h"
 #include "scn/step/hero/Hero.h"

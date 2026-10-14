@@ -4,7 +4,6 @@
 #include "scn/step/Component.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjCollLite.h"
-#include "scn/step/ostop/Manager.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Weapon.h"
 #include "snd/SERequestor.h"

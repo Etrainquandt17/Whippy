@@ -2,7 +2,6 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/CommonParam.h"
 #include "scn/step/hero/Hero.h"

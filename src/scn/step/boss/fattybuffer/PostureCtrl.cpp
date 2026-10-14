@@ -3,7 +3,6 @@
 #include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/math/Math.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector3.h"

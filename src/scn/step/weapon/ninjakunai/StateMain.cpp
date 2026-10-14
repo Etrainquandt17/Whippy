@@ -11,7 +11,6 @@
 #include "ocoll/Attack.h"
 #include "ocoll/AttackResult.h"
 #include "scn/step/Component.h"
-#include "scn/step/chara/MapCollResult.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Manager.h"

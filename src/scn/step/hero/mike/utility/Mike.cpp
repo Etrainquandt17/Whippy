@@ -1,5 +1,4 @@
 #include "scn/step/hero/mike/utility/Mike.h"
-#include "gobj/GearAnim.h"
 #include "scn/step/hero/AbilityKind.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"

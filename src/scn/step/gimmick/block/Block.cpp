@@ -11,7 +11,6 @@
 #include "g3d/ModelBufferOption.h"
 #include "g3d/ModelContext.h"
 #include "g3d/ResModelContext.h"
-#include "g3d/StdModelContext.h"
 #include "hel/common/FixedStringIN.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Random.h"
@@ -95,7 +94,6 @@ inline bool Block::mfIsAnimBlock() const {
 inline bool Block::mfIsDefaultBufferOption() const {
     return isLandBlock() || mfIsAnimBlock();
 }
-
 
 Block::Block(Component& component, mem::IAllocator& allocator, mcoll::LandManager& landManager, BlockResFiles& resFiles,
              map::BinGmkBlockKind kind, const GridPos& pos, Effect& effect, ParamAccessor<Param>& param)

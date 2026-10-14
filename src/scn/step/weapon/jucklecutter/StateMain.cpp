@@ -1,11 +1,9 @@
 #include "scn/step/weapon/jucklecutter/StateMain.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector3.h"

@@ -1,6 +1,5 @@
 #include "scn/step/carryitem/Flash.h"
 
-#include "gobj/GearModel.h"
 #include "scn/step/carryitem/CarryItem.h"
 #include "scn/step/chara/Model.h"
 

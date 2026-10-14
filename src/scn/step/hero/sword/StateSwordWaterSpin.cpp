@@ -1,6 +1,5 @@
 #include "scn/step/hero/sword/StateSwordWaterSpin.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "gobj/FootState.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"

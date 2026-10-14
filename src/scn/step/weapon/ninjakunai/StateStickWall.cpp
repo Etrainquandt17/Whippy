@@ -3,7 +3,6 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Param.h"
 #include "scn/step/weapon/Weapon.h"
-#include "scn/step/weapon/ninjakunai/Param.h"
 #include "scn/step/weapon/ninjakunai/StateVanish.h"
 #include "scn/step/weapon/ninjakunai/Utility.h"
 

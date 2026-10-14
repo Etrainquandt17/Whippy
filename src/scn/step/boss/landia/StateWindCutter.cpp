@@ -1,13 +1,10 @@
 #include "scn/step/boss/landia/StateWindCutter.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"

@@ -8,7 +8,6 @@
 #include "file/FileManager.h"
 #include "hel/common/ExplicitSingleton.h"
 #include "hel/common/FixedString.h"
-#include "lyt/Layout.h"
 #include "lyt/LayoutContext.h"
 #include "mem/HeapCompaction.h"
 #include "mem/Memory.h"
@@ -25,7 +24,6 @@
 #include "pause/PageShip.h"
 #include "pause/PageSpecial.h"
 #include "pause/ResultSetter.h"
-#include "snd/SystemSERequestor.h"
 #include "std/tr1/reference_wrapper.h"
 #include "util/ObjList.h"
 

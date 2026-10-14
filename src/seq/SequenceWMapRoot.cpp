@@ -4,7 +4,6 @@
 #include "hel/common/ExplicitSingleton.h"
 #include "hel/common/RuntimeTypeInfo.h"
 #include "hid/HIDManager.h"
-#include "hid/SimpleWRHID.h"
 #include "metafortress.h"
 #include "scn/wmap/SceneWMap.h"
 #include "seq/SequenceLvMapRoot.h"

@@ -1,15 +1,11 @@
 #include "scn/step/enemy/tsukikage/StateWall.h"
 
 #include "gobj/FootState.h"
-#include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 #include "scn/step/enemy/BrainCtrl.h"
 #include "scn/step/enemy/Enemy.h"
-#include "scn/step/enemy/MapColl.h"
-#include "scn/step/enemy/Param.h"
 #include "scn/step/enemy/tsukikage/Custom.h"
 
 using hel::common::DynamicCastToRef;

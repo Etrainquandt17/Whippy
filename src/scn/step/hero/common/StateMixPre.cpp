@@ -1,5 +1,4 @@
 #include "scn/step/hero/common/StateMixPre.h"
-#include "scn/step/Component.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Invincible.h"
 #include "scn/step/hero/Model.h"

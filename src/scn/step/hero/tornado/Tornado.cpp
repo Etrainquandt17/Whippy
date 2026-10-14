@@ -1,8 +1,6 @@
 #include "scn/step/hero/tornado/Tornado.h"
 #include "g3d/ResFileRepository.h"
 #include "gobj/FootState.h"
-#include "gobj/GearAnim.h"
-#include "gobj/GearModel.h"
 #include "metafortress.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Effect.h"

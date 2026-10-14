@@ -1,6 +1,5 @@
 #include "scn/step/hero/MintStagingCtrl.h"
 
-#include "mintglue/VectorInline.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/MintHero.h"
 #include "scn/step/hero/StagingCtrl.h"

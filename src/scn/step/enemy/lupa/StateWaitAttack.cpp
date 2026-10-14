@@ -1,7 +1,6 @@
 #include "scn/step/enemy/lupa/StateWaitAttack.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/enemy/Enemy.h"

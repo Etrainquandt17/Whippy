@@ -2,7 +2,6 @@
 
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "hel/math/Vector3.h"
 #include "ocoll/Hit.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/ObjCollLite.h"

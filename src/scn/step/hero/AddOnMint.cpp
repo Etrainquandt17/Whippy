@@ -1,13 +1,9 @@
 #include "scn/step/hero/AddOnMint.h"
 
-#include "gobj/GearAnim.h"
-#include "gobj/MintGearAnim.h"
 #include "mintglue/WrapNative.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/MintEffect.h"
 #include "scn/step/effect/Kind.h"
 #include "scn/step/hero/Effect.h"
-#include "scn/step/hero/Gear.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/MintGear.h"
 #include "scn/step/hero/MintHero.h"

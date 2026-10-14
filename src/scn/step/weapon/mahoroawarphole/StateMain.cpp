@@ -1,6 +1,5 @@
 #include "scn/step/weapon/mahoroawarphole/StateMain.h"
 
-#include "g3d/ModelAnimAccessor.h"
 #include "gobj/Anim.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

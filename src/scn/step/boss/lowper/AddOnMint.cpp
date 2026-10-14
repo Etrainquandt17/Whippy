@@ -8,8 +8,6 @@
 #include "scn/step/boss/MintBoss.h"
 #include "scn/step/boss/lowper/Custom.h"
 #include "scn/step/boss/lowper/DataBuff.h"
-#include "scn/step/boss/lowper/EnemyCtrl.h"
-#include "scn/step/boss/lowper/MiniBlackHoleCtrl.h"
 #include "scn/step/boss/lowper/ScriptKind.h"
 #include "scn/step/boss/lowper/StateBarrierAttack.h"
 #include "scn/step/boss/lowper/StateBombFar.h"

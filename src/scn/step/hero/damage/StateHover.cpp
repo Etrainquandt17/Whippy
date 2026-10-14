@@ -3,7 +3,6 @@
 #include "gobj/Move.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/DamageInfo.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/CommonParam.h"
 #include "scn/step/hero/DamageFlash.h"
 #include "scn/step/hero/Hat.h"

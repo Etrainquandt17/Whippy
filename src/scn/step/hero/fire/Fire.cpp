@@ -1,7 +1,6 @@
 #include "scn/step/hero/fire/Fire.h"
 #include "g3d/ResFileRepository.h"
 #include "gobj/FootState.h"
-#include "gobj/GearModel.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Effect.h"

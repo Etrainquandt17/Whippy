@@ -1,7 +1,6 @@
 #include "scn/step/hero/highjump/StateRocketFallWallHit.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/chara/HitStop.h"
@@ -12,7 +11,6 @@
 #include "scn/step/hero/Landing.h"
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/Param.h"
-#include "scn/step/hero/ScriptKind.h"
 #include "scn/step/hero/common/StateFall.h"
 #include "util/StateChanger.h"
 

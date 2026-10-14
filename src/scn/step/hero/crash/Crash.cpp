@@ -1,7 +1,6 @@
 #include "scn/step/hero/crash/Crash.h"
 
 #include "g3d/ResFileRepository.h"
-#include "gobj/GearModel.h"
 #include "metafortress.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Effect.h"

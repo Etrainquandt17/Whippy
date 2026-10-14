@@ -3,7 +3,6 @@
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
 #include "gobj/Target.h"
-#include "hel/math/Direction3.h"
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
 #include "ocoll/Attack.h"

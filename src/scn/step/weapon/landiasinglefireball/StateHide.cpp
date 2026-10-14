@@ -1,7 +1,6 @@
 #include "scn/step/weapon/landiasinglefireball/StateHide.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "scn/step/weapon/Weapon.h"
 
 namespace scn {

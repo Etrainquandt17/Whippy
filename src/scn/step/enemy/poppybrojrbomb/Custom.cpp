@@ -2,15 +2,8 @@
 
 #include "scn/step/enemy/poppybrojrbomb/Custom.h"
 
-#include "gobj/Anim.h"
-#include "gobj/FootState.h"
-#include "gobj/Move.h"
-#include "gobj/MoveParam.h"
-#include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
-#include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/DamageInfo.h"
 #include "scn/step/chara/Effect.h"
@@ -20,12 +13,10 @@
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/core/PermSoundSE.h"
 #include "scn/step/effect/Kind.h"
-#include "scn/step/enemy/BrainCtrl.h"
 #include "scn/step/enemy/Effect.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/MapColl.h"
 #include "scn/step/enemy/Param.h"
-#include "scn/step/enemy/Utility.h"
 #include "scn/step/enemy/damage/StateDeadInWater.h"
 #include "scn/step/enemy/poppybrojrbomb/ParamData.h"
 #include "scn/step/ocoll/AttackType.h"
@@ -33,7 +24,6 @@
 #include "scn/step/weapon/Manager.h"
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/rollexp/Custom.h"
-#include "snd/SERequestor.h"
 
 using hel::common::DynamicCastToRef;
 using hel::common::RuntimeTypeInfo;

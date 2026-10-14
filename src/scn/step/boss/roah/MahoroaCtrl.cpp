@@ -16,7 +16,6 @@
 #include "scn/step/boss/mahoroaroah/Custom.h"
 #include "scn/step/boss/mahoroaroah/StateWait.h"
 #include "scn/step/boss/mahoroaroah/StateWarp.h"
-#include "scn/step/boss/mahoroaroah/WaftCtrl.h"
 #include "scn/step/boss/roah/Param.h"
 #include "scn/step/camera/MainCamera.h"
 #include "scn/step/chara/Location.h"

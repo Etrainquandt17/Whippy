@@ -1,7 +1,6 @@
 #include "scn/step/hero/stone/StateWait.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/ScriptKind.h"

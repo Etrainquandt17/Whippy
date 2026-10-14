@@ -1,10 +1,8 @@
 #include "scn/step/enemy/aquarock/StateMove.h"
 
 #include "app/Random.h"
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/geo/Rect.h"
 #include "hel/math/Math.h"

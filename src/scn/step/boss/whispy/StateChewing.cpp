@@ -3,7 +3,6 @@
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"
-#include "scn/step/boss/whispy/CaptureCtrl.h"
 #include "scn/step/boss/whispy/Custom.h"
 #include "scn/step/boss/whispy/Param.h"
 #include "scn/step/boss/whispy/StateVomit.h"

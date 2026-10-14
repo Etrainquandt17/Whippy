@@ -1,6 +1,5 @@
 #include "scn/step/boss/Effect.h"
 
-#include "gobj/GearModel.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/chara/Model.h"
 

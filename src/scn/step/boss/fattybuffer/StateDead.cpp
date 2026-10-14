@@ -1,12 +1,9 @@
 #include "scn/step/boss/fattybuffer/StateDead.h"
 
-#include "gobj/Anim.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
-#include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
@@ -26,7 +23,6 @@
 #include "scn/step/camera/QuakeKind.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/DamageInfo.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/HitStop.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/MapCollResult.h"
@@ -36,7 +32,6 @@
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/item/ShipPartKind.h"
 #include "scn/step/weapon/Manager.h"
-#include "snd/SERequestor.h"
 
 using hel::common::DynamicCastToRef;
 using hel::math::Vector2;

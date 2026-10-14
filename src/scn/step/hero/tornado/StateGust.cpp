@@ -3,12 +3,10 @@
 #include "scn/step/hero/tornado/StateGust.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
@@ -24,7 +22,6 @@
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
-#include "util/StateChanger.h"
 
 using hel::math::Vector2;
 using hel::math::Vector3;

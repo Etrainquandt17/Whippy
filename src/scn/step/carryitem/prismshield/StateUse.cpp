@@ -2,9 +2,7 @@
 
 #include "scn/step/carryitem/prismshield/StateUse.h"
 
-#include "gobj/Anim.h"
 #include "gobj/Location.h"
-#include "ocoll/Owner.h"
 #include "scn/step/Component.h"
 #include "scn/step/carryitem/CarryItem.h"
 #include "scn/step/carryitem/User.h"

@@ -1,11 +1,9 @@
 #include "scn/step/hero/parasol/StateParasolDrillEnd.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/AbilityKind.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/SoundSE.h"
-#include "scn/step/hero/SubAnimControl.h"
 #include "scn/step/hero/Utility.h"
 #include "scn/step/hero/parasol/Barrier.h"
 

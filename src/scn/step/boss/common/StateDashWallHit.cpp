@@ -4,13 +4,11 @@
 #include "gobj/Move.h"
 #include "gobj/Target.h"
 #include "hel/math/Direction3.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
 #include "scn/step/boss/MapColl.h"
 #include "scn/step/boss/Utility.h"
 #include "scn/step/boss/common/StateLanding.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 

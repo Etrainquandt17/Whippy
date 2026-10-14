@@ -1,13 +1,10 @@
 #include "scn/step/hero/leaf/StateDisorderShot.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "gobj/Target.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
@@ -21,7 +18,6 @@
 #include "scn/step/weapon/Manager.h"
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
-#include "util/StateChanger.h"
 
 using hel::math::Vector2;
 
@@ -35,7 +31,6 @@ namespace {
 inline const LeafParamDisorderShot& param(Hero& hero) {
     return hero.param().leaf()._54;
 }
-
 
 }
 

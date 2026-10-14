@@ -1,5 +1,4 @@
 #include "scn/step/hero/leaf/StateHideEnd.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/LeafParam.h"
 #include "scn/step/hero/Model.h"

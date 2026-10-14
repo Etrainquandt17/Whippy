@@ -2,7 +2,6 @@
 
 #include "gobj/FootState.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

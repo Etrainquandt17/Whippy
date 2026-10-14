@@ -1,7 +1,6 @@
 #include "scn/step/weapon/fattybufferwatercannon/StateMain.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Weapon.h"

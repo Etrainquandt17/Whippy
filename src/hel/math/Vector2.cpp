@@ -3,7 +3,6 @@
 
 #include "hel/math/Vector3.h"
 #include "nw4r/math/math_arithmetic.h"
-#include "std/cmath.h"
 
 namespace hel {
 namespace math {

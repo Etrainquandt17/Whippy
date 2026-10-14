@@ -5,7 +5,6 @@
 #include "gobj/Move.h"
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/MapColl.h"

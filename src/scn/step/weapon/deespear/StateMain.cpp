@@ -1,10 +1,8 @@
 #include "scn/step/weapon/deespear/StateMain.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "ocoll/Attack.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

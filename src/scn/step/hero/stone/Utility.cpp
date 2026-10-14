@@ -11,7 +11,6 @@
 #include "scn/step/Context.h"
 #include "scn/step/chara/LandConstraint.h"
 #include "scn/step/chara/ModelRotCtrl.h"
-#include "scn/step/hero/Gear.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
 #include "scn/step/hero/LogoutController.h"

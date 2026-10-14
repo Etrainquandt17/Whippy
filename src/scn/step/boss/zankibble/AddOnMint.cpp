@@ -3,8 +3,6 @@
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoImpl.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
-#include "mintglue/VectorInline.h"
 #include "mintglue/WrapNative.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"

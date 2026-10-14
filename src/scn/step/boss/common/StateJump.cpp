@@ -3,7 +3,6 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "gobj/Target.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
@@ -14,11 +13,9 @@
 #include "scn/step/boss/common/StateWait.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/chara/BodyColl.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ObjColl.h"
-#include "snd/SERequestor.h"
 
 using hel::math::Vector2;
 using hel::math::Vector3;

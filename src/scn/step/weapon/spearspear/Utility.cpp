@@ -3,7 +3,6 @@
 #include "gobj/Move.h"
 #include "gobj/Target.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 #include "scn/step/chara/ObjCollLite.h"

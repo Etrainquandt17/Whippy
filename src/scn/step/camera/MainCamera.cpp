@@ -3,7 +3,6 @@
 #include "gfx/Utility.h"
 #include "hel/math/Math.h"
 #include "metafortress.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/Context.h"
 #include "scn/step/DebugStepSettingProxy.h"

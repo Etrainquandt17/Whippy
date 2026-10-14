@@ -2,7 +2,6 @@
 
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"
 #include "scn/step/boss/galactaknight/Param.h"

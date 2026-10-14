@@ -1,6 +1,5 @@
 #include "scn/step/boss/Flash.h"
 
-#include "gobj/GearModel.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/ObjStop.h"
 #include "scn/step/chara/HitStop.h"

@@ -12,7 +12,6 @@
 #include "scn/step/boss/roah/Custom.h"
 #include "scn/step/boss/roah/Param.h"
 #include "scn/step/boss/roah/StateWait.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"

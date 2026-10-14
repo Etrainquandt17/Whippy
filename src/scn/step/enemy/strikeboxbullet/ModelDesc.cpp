@@ -1,6 +1,5 @@
 #include "scn/step/enemy/strikeboxbullet/ModelDesc.h"
 
-#include "gobj/AnimScript.h"
 #include "hel/common/FixedString.h"
 #include "scn/step/enemy/ModelDescUtil.h"
 
@@ -26,7 +25,6 @@ const gobj::ScriptDesc::Entry T_SCRIPT_ENTRIES[] = {
     { 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0 },
 };
-
 
 const gobj::G3DAnimDataReposDesc::Entry* T_ANIM_ENTRIES = 0;
 

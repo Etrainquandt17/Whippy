@@ -1,7 +1,6 @@
 #include "hel/mint/AddOnMathVector3.h"
 
 #include "hel/common/Array.h"
-#include "mintglue/VectorInline.h"
 
 using hel::common::Array;
 using hel::math::Vector3;

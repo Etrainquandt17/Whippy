@@ -1,7 +1,5 @@
 #include "scn/step/hero/fire/StateFireSpiral.h"
 #include "gobj/FootState.h"
-#include "gobj/Script.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Effect.h"
 #include "scn/step/hero/FireParam.h"

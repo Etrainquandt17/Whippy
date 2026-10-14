@@ -2,7 +2,6 @@
 
 #include "app/Random.h"
 // Ahead of WrapNative.h: the instances of a template that is declared earlier come later in the unit.
-#include "hel/common/RuntimeTypeInfo.h"
 #include "mintglue/WrapNative.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/ICustomInfo.h"

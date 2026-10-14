@@ -1,6 +1,5 @@
 #include "scn/step/weapon/missileexp/StateMain.h"
 
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/chara/Location.h"

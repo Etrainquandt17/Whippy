@@ -1,6 +1,5 @@
 #include "scn/step/weapon/landiasinglegrandcross/StateMain.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/Anim.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"

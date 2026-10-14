@@ -5,7 +5,6 @@
 #include "g3d/ModelContext.h"
 #include "g3d/ResModelContext.h"
 #include "hel/math/Matrix34.h"
-#include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "metafortress.h"
 #include "scn/step/Component.h"

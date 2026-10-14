@@ -1,6 +1,5 @@
 #include "mintvm/Regset.h"
 
-#include "mintvm/MintSystemCall.h"
 #include "mintvm/VMVariable.h"
 #include "mintvm/stdc.h"
 

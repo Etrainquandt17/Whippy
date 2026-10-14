@@ -3,7 +3,6 @@
 #include "gobj/MoveParam.h"
 #include "hel/common/RuntimeTypeInfoImpl.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
-#include "hel/math/Vector2.h"
 #include "mintglue/WrapNative.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/MintBoss.h"

@@ -3,7 +3,6 @@
 #include "hel/math/Matrix44.h"
 #include "hel/math/Vector3.h"
 #include "nw4r/math/math_types.h"
-#include "revolution/mtx.h"
 #include "std/cmath.h"
 
 namespace hel {

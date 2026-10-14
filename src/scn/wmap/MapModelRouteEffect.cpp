@@ -1,7 +1,6 @@
 #include "scn/wmap/MapModelRouteEffect.h"
 
 #include "g3d/CharaModelContext.h"
-#include "g3d/ModelAccessor.h"
 #include "g3d/NodeAccessor.h"
 #include "g3d/ResFileRepository.h"
 #include "g3d/StdModelContext.h"

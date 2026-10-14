@@ -4,7 +4,6 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Script.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/captured/StateCapturedBeam.h"
 #include "scn/step/hero/AbilityManager.h"
@@ -22,7 +21,6 @@
 #include "scn/step/hero/beam/StateBeamCaptureHold.h"
 #include "scn/step/sfx/DarknessLightSizeKind.h"
 #include "util/ObjList.h"
-#include "util/StateChanger.h"
 
 using util::ObjRefHandle;
 

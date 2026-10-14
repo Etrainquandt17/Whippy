@@ -2,7 +2,6 @@
 
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

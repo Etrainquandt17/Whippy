@@ -5,7 +5,6 @@
 #include "mintvm/TmpSymbol.h"
 #include "mintvm/VMModule.h"
 #include "mintvm/VMTmpKey.h"
-#include "mintvm/stdc.h"
 
 namespace mintvm {
 

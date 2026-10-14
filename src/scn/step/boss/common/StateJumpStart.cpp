@@ -2,7 +2,6 @@
 
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/common/StateFall.h"
 #include "scn/step/chara/Model.h"

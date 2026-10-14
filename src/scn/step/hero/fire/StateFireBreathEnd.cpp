@@ -1,10 +1,7 @@
 #include "scn/step/hero/fire/StateFireBreathEnd.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
-#include "scn/step/hero/ScriptKind.h"
 #include "scn/step/hero/Utility.h"
-#include "util/StateChanger.h"
 
 namespace scn {
 namespace step {

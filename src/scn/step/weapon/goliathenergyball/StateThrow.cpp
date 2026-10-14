@@ -2,7 +2,6 @@
 
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "hel/geo/Rect.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/camera/MainCamera.h"

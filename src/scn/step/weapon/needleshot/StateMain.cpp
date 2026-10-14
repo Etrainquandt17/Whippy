@@ -2,10 +2,8 @@
 
 #include "scn/step/weapon/needleshot/StateMain.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
@@ -15,7 +13,6 @@
 #include "ocoll/AttackResult.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
-#include "scn/step/chara/MapCollResult.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
 #include "scn/step/chara/ObjCollLite.h"

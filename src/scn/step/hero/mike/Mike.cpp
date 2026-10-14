@@ -1,7 +1,5 @@
 #include "scn/step/hero/mike/Mike.h"
 #include "g3d/ResFileRepository.h"
-#include "gobj/GearAnim.h"
-#include "gobj/GearModel.h"
 #include "scn/step/Component.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"

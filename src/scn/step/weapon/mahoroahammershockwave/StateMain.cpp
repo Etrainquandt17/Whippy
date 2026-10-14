@@ -4,7 +4,6 @@
 #include "gobj/MoveParam.h"
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
@@ -15,7 +14,6 @@
 #include "scn/step/weapon/Manager.h"
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"
-#include "util/ObjRefHandle.h"
 
 using hel::math::Math;
 using hel::math::Vector2;

@@ -1,7 +1,6 @@
 #include "scn/step/boss/dubior/StateHeightAdjust.h"
 
 #include "gobj/FootState.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"

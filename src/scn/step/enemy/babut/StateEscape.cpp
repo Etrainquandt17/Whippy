@@ -6,7 +6,6 @@
 #include "gobj/Target.h"
 #include "hel/math/Math.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/enemy/Enemy.h"

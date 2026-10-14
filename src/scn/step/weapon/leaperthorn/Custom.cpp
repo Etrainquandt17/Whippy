@@ -13,7 +13,6 @@
 #include "scn/step/weapon/Weapon.h"
 #include "scn/step/weapon/leaperthorn/Param.h"
 #include "scn/step/weapon/leaperthorn/StateMain.h"
-#include "std/cmath.h"
 
 using hel::common::RuntimeTypeInfo;
 using hel::common::RuntimeTypeInfoImpl;

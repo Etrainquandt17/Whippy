@@ -1,7 +1,5 @@
 #include "scn/step/boss/common/StateJumpAttackDesc.h"
 
-#include "mintglue/VectorInline.h"
-
 using hel::math::Vector2;
 
 namespace scn {

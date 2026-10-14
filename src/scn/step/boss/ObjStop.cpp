@@ -7,7 +7,6 @@
 #include "scn/step/boss/ICustom.h"
 #include "scn/step/boss/SoundSE.h"
 #include "scn/step/chara/Model.h"
-#include "scn/step/ostop/Manager.h"
 
 namespace scn {
 namespace step {

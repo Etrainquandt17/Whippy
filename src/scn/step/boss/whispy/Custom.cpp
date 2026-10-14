@@ -14,7 +14,6 @@
 #include "scn/step/boss/whispy/StateDead.h"
 #include "scn/step/boss/whispy/StateFirst.h"
 #include "scn/step/chara/BodyColl.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/HitPoint.h"
 #include "scn/step/chara/HitStop.h"
 #include "scn/step/chara/Model.h"

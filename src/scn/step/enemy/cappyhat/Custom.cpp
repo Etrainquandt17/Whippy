@@ -1,7 +1,6 @@
 #include "scn/step/enemy/cappyhat/Custom.h"
 
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "mcoll/LandManager.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/CameraController.h"

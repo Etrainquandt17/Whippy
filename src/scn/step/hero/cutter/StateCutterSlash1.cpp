@@ -1,8 +1,6 @@
 #include "scn/step/hero/cutter/StateCutterSlash1.h"
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"

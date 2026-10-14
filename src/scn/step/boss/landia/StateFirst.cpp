@@ -1,6 +1,5 @@
 #include "scn/step/boss/landia/StateFirst.h"
 
-#include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/geo/Rect.h"
 #include "hel/math/Vector2.h"

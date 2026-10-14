@@ -2,7 +2,6 @@
 
 #include "info/Util.h"
 #include "lyt/LayoutContext.h"
-#include "mem/HeapExp.h"
 #include "metafortress.h"
 #include "scn/step/info/HeroStatusIconSyncer.h"
 #include "util/ObjRefHandleInline.h"

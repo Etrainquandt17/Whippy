@@ -8,7 +8,6 @@
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/Param.h"
 #include "scn/step/hero/StateChecker.h"
-#include "scn/step/hero/Utility.h"
 #include "scn/step/hero/WearBack.h"
 #include "scn/step/hero/common/StateWaterFloat.h"
 #include "util/StateChanger.h"

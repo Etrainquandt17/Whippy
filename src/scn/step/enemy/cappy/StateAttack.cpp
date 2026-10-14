@@ -2,15 +2,12 @@
 
 #include "scn/step/enemy/cappy/StateAttack.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/Anim.h"
 #include "gobj/FootState.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Vector2.h"
-#include "mintglue/VectorInline.h"
 #include "ocoll/Owner.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Location.h"

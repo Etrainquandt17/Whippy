@@ -1,7 +1,6 @@
 #include "scn/step/boss/gigantedge/AddOnMint.h"
 
 #include "hel/common/RuntimeTypeInfoImpl.h"
-#include "hel/math/Vector2.h"
 #include "mintglue/WrapNative.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/ICustom.h"

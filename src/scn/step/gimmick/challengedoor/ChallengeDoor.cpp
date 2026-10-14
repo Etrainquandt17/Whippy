@@ -1,11 +1,8 @@
 #include "scn/step/gimmick/challengedoor/ChallengeDoor.h"
 
 #include "g3d/CharaModelContext.h"
-#include "g3d/ModelAccessor.h"
-#include "g3d/ModelAnimAccessor.h"
 #include "g3d/NodeAccessor.h"
 #include "g3d/ResFileRepository.h"
-#include "hel/common/Traits.h"
 #include "hel/math/Math.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector3.h"

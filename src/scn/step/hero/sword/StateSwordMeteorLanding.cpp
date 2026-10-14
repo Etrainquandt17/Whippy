@@ -1,6 +1,5 @@
 #include "scn/step/hero/sword/StateSwordMeteorLanding.h"
 #include "gobj/Move.h"
-#include "gobj/Script.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/Component.h"
 #include "gobj/FootState.h"

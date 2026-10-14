@@ -1,7 +1,6 @@
 #define UTIL_OBJREFHANDLE_ASSIGNMENT_IN_CLASS
 #include "scn/step/hero/leaf/StateShot.h"
 #include "app/Random.h"
-#include "gobj/Script.h"
 #include "gobj/Target.h"
 #include "hel/math/Matrix34.h"
 #include "hel/math/Vector2.h"
@@ -10,7 +9,6 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
@@ -23,7 +21,6 @@
 #include "scn/step/weapon/Manager.h"
 #include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
-#include "util/StateChanger.h"
 
 using app::Random;
 using hel::math::Matrix34;

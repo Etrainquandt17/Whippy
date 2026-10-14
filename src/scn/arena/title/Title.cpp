@@ -8,7 +8,6 @@
 #include "mem/IAllocator.h"
 #include "mem/Memory.h"
 #include "metafortress.h"
-#include "revolution/gx/GXStruct.h"
 #include "scn/arena/ArenaData.h"
 #include "scn/arena/Camera.h"
 #include "scn/arena/Component.h"

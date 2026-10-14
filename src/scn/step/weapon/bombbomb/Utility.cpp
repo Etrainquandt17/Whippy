@@ -4,7 +4,6 @@
 
 #include "ocoll/SearchHit.h"
 #include "scn/step/Component.h"
-#include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Manager.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/enemy/Enemy.h"

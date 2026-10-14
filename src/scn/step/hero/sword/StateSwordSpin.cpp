@@ -1,5 +1,4 @@
 #include "scn/step/hero/sword/StateSwordSpin.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/Effect.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Invincible.h"

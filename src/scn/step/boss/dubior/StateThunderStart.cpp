@@ -5,7 +5,6 @@
 #include "app/Random.h"
 #include "gobj/FootState.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Effect.h"
 #include "scn/step/boss/Param.h"
@@ -14,7 +13,6 @@
 #include "scn/step/boss/dubior/Custom.h"
 #include "scn/step/boss/dubior/Param.h"
 #include "scn/step/boss/dubior/StateThunder.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 

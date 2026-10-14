@@ -4,7 +4,6 @@
 #include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/GearModel.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
 #include "hel/math/Matrix34.h"
@@ -20,10 +19,8 @@
 #include "scn/step/boss/roah/Param.h"
 #include "scn/step/boss/roah/StateWait.h"
 #include "scn/step/camera/MainCamera.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
-#include "snd/SERequestor.h"
 
 using app::Random;
 using g3d::NodeAccessor;

@@ -1,9 +1,7 @@
 #include "scn/step/weapon/roahbullet/Custom.h"
 
-#include "g3d/ModelAnimAccessor.h"
 #include "gobj/Anim.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
-#include "hel/math/Vector3.h"
 #include "ocoll/Hit.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/Culling.h"

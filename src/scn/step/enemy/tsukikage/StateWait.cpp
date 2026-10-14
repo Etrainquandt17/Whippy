@@ -2,7 +2,6 @@
 
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/enemy/BrainCtrl.h"
 #include "scn/step/enemy/Enemy.h"

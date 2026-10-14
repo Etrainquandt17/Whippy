@@ -4,7 +4,6 @@
 #include "app/AppImpl.h"
 
 #include "app/System.h"
-#include "gfx/GXFifoMemoryManager.h"
 #include "hel/common/ExplicitSingleton.h"
 #include "mem/HeapCompaction.h"
 #include "mem/Memory.h"

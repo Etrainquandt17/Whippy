@@ -2,7 +2,6 @@
 
 #include "app/Random.h"
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/chara/Model.h"

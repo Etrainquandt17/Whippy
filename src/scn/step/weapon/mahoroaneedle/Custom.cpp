@@ -3,7 +3,6 @@
 #include "app/Random.h"
 #include "hel/math/Direction3.h"
 #include "hel/math/Matrix34.h"
-#include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"

@@ -3,7 +3,6 @@
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/Param.h"

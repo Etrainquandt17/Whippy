@@ -4,7 +4,6 @@
 #include "gobj/Move.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
-#include "mintglue/VectorInline.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/Param.h"
 #include "scn/step/boss/bonkers/Custom.h"

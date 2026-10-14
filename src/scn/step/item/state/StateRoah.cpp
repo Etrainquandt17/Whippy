@@ -1,7 +1,6 @@
 #include "scn/step/item/state/StateRoah.h"
 
 #include "app/Random.h"
-#include "gobj/Location.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
 #include "hel/math/Math.h"

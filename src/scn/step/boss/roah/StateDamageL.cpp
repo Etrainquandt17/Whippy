@@ -1,9 +1,7 @@
 #include "scn/step/boss/roah/StateDamageL.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
@@ -15,7 +13,6 @@
 #include "scn/step/boss/roah/Custom.h"
 #include "scn/step/boss/roah/Param.h"
 #include "scn/step/boss/roah/StateAnger.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/enemy/Manager.h"
 #include "scn/step/weapon/Manager.h"

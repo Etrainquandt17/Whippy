@@ -1,10 +1,8 @@
 #include "scn/step/enemy/cappy/StateSkinned.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/FootState.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/chara/Model.h"

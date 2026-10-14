@@ -3,7 +3,6 @@
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Direction3.h"
-#include "mintglue/VectorInline.h"
 #include "mintglue/WrapNative.h"
 #include "scn/step/chara/Effect.h"
 #include "scn/step/effect/Kind.h"

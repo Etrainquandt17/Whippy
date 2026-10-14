@@ -8,7 +8,6 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/core/PermSoundSE.h"
-#include "scn/step/ostop/Manager.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/MapColl.h"
 #include "scn/step/weapon/Weapon.h"

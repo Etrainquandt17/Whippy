@@ -2,9 +2,7 @@
 
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/boss/Boss.h"
-#include "scn/step/boss/whispy/CaptureCtrl.h"
 #include "scn/step/boss/whispy/Custom.h"
-#include "scn/step/boss/whispy/DamageEyeCtrl.h"
 #include "scn/step/boss/whispy/StateWait.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"

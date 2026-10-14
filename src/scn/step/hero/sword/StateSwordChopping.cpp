@@ -1,7 +1,5 @@
 #include "scn/step/hero/sword/StateSwordChopping.h"
 #include "gobj/FootState.h"
-#include "gobj/Script.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
 #include "scn/step/hero/Model.h"

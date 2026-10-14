@@ -1,6 +1,5 @@
 #include "scn/step/item/state/StateGather.h"
 
-#include "gobj/Location.h"
 #include "hel/math/Math.h"
 #include "scn/step/Component.h"
 #include "scn/step/core/PermEffect.h"

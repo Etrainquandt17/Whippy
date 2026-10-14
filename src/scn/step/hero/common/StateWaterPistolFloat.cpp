@@ -1,5 +1,4 @@
 #include "scn/step/hero/common/StateWaterPistolFloat.h"
-#include "gobj/Move.h"
 #include "hel/math/Vector2.h"
 #include "scn/step/hero/AbilityManager.h"
 #include "scn/step/hero/CommonParam.h"

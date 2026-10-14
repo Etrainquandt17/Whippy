@@ -6,7 +6,6 @@
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
 #include "ocoll/Attack.h"
-#include "scn/step/chara/MapCollResult.h"
 #include "scn/step/chara/ObjCollLite.h"
 #include "scn/step/weapon/Effect.h"
 #include "scn/step/weapon/MapColl.h"

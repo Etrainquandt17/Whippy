@@ -1,7 +1,6 @@
 #include "scn/step/enemy/scarfy/Custom.h"
 
 #include "hel/math/Vector2.h"
-#include "hel/math/Vector3.h"
 #include "scn/step/Component.h"
 #include "scn/step/chara/DamageInfo.h"
 #include "scn/step/chara/HitPoint.h"

@@ -1,12 +1,10 @@
 #include "scn/step/enemy/tsukikage/StateAttack.h"
 
 #include "gobj/FootState.h"
-#include "gobj/Move.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Model.h"
-#include "scn/step/chara/ModelRotCtrl.h"
 #include "scn/step/effect/Kind.h"
 #include "scn/step/enemy/BrainCtrl.h"
 #include "scn/step/enemy/Effect.h"

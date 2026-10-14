@@ -1,8 +1,6 @@
 #include "scn/step/weapon/watergalboroswater/StateMain.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
-#include "hel/math/Vector3.h"
 #include "ocoll/Attack.h"
 #include "ocoll/Hit.h"
 #include "scn/step/Component.h"

@@ -3,7 +3,6 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Script.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Hid.h"
 #include "scn/step/hero/Model.h"

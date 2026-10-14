@@ -1,8 +1,6 @@
 #include "scn/step/hero/cutter/Cutter.h"
 #include "g3d/ResFileRepository.h"
-#include "gobj/GearModel.h"
 #include "scn/step/Component.h"
-#include "scn/step/hero/Gear.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
 #include "scn/step/hero/StateChecker.h"

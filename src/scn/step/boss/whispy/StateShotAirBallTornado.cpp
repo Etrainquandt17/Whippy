@@ -9,13 +9,10 @@
 #include "scn/step/boss/Param.h"
 #include "scn/step/boss/SoundSE.h"
 #include "scn/step/boss/whispy/Param.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/ObjColl.h"
 #include "scn/step/weapon/Desc.h"
 #include "scn/step/weapon/Manager.h"
-#include "scn/step/weapon/Weapon.h"
-#include "snd/SERequestor.h"
 #include "util/ObjList.h"
 
 using hel::math::Direction3;

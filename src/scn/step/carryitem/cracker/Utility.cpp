@@ -2,7 +2,6 @@ extern "C" double fmod(double, double);
 
 #include "scn/step/carryitem/cracker/Utility.h"
 
-#include "g3d/ModelAnimAccessor.h"
 #include "gobj/Anim.h"
 #include "hel/common/Color.h"
 #include "hel/math/Math.h"

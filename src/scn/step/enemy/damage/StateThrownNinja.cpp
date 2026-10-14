@@ -8,7 +8,6 @@
 #include "scn/step/chara/BodyColl.h"
 #include "scn/step/chara/HitPoint.h"
 #include "scn/step/chara/Model.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/enemy/DamageFlash.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/Param.h"

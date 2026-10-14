@@ -2,7 +2,6 @@
 
 #include "hel/common/ExplicitSingleton.h"
 #include "mem/HeapExp.h"
-#include "mem/IAllocator.h"
 #include "mem/Memory.h"
 #include "revolution/os/OSCache.h"
 

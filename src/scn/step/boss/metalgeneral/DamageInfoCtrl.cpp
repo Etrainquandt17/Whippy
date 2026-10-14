@@ -2,7 +2,6 @@
 
 #include "app/Locale.h"
 #include "app/Random.h"
-#include "g3d/NodeAccessor.h"
 #include "gobj/GearModel.h"
 #include "hel/math/Vector2.h"
 #include "hel/math/Vector3.h"
@@ -10,7 +9,6 @@
 #include "scn/step/boss/Effect.h"
 #include "scn/step/boss/Param.h"
 #include "scn/step/boss/metalgeneral/Param.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/Model.h"
 #include "std/min.h"
 

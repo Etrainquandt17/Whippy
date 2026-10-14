@@ -4,7 +4,6 @@
 #include "hel/common/RuntimeTypeInfo.h"
 #include "hel/mint/AddOnMathVector3.h"
 #include "mintglue/WrapNative.h"
-#include "revolution/gx/GXStruct.h"
 #include "scn/step/chara/MintEffect.h"
 #include "scn/step/enemy/Effect.h"
 #include "scn/step/enemy/Enemy.h"

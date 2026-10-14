@@ -1,9 +1,7 @@
 #include "scn/step/weapon/airball/StateMain.h"
 
 #include "gobj/Move.h"
-#include "gobj/MoveParam.h"
 #include "gobj/Target.h"
-#include "hel/math/Direction3.h"
 #include "hel/math/Vector2.h"
 #include "ocoll/Attack.h"
 #include "scn/step/Component.h"

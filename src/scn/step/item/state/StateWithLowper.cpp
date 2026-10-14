@@ -1,6 +1,5 @@
 #include "scn/step/item/state/StateWithLowper.h"
 
-#include "gobj/Location.h"
 #include "gobj/Move.h"
 #include "hel/math/Math.h"
 #include "scn/step/chara/Culling.h"

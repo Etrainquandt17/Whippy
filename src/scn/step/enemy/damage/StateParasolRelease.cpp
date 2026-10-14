@@ -15,7 +15,6 @@
 #include "scn/step/chara/Location.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ModelRotCtrl.h"
-#include "scn/step/chara/ObjColl.h"
 #include "scn/step/effect/Kind.h"
 #include "scn/step/enemy/CharaParam.h"
 #include "scn/step/enemy/Effect.h"

@@ -1,6 +1,5 @@
 #include "scn/step/weapon/Flash.h"
 
-#include "gobj/GearModel.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/weapon/Weapon.h"
 

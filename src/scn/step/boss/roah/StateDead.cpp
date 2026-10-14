@@ -1,12 +1,10 @@
 #include "scn/step/boss/roah/StateDead.h"
 
-#include "g3d/NodeAccessor.h"
 #include "g3d/NodeLocalMtxAccessor.h"
 #include "gobj/Anim.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "hel/math/Math.h"
@@ -21,11 +19,9 @@
 #include "scn/step/boss/Param.h"
 #include "scn/step/boss/SoundSE.h"
 #include "scn/step/boss/Utility.h"
-#include "scn/step/boss/mahoroaroah/BodyEffectCtrl.h"
 #include "scn/step/boss/mahoroaroah/Custom.h"
 #include "scn/step/boss/roah/Custom.h"
 #include "scn/step/boss/roah/Param.h"
-#include "scn/step/chara/Effect.h"
 #include "scn/step/chara/HitStop.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/chara/ScriptTrigger.h"
@@ -34,8 +30,6 @@
 #include "scn/step/hero/Manager.h"
 #include "scn/step/hero/StateChecker.h"
 #include "scn/step/weapon/Manager.h"
-#include "snd/SERequestor.h"
-#include "std/cmath.h"
 #include "util/ObjRefHandle.h"
 
 using hel::common::DynamicCastToRef;

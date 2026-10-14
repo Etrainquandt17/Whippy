@@ -3,12 +3,9 @@
 #include "gobj/FootState.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/Target.h"
 #include "scn/step/chara/Model.h"
 #include "scn/step/enemy/Enemy.h"
 #include "scn/step/enemy/MapColl.h"
-#include "scn/step/enemy/Param.h"
-#include "scn/step/enemy/blipper/ParamData.h"
 #include "scn/step/enemy/blipper/StateLanding.h"
 
 namespace scn {

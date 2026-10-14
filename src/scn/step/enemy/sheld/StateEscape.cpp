@@ -1,11 +1,9 @@
 #include "scn/step/enemy/sheld/StateEscape.h"
 
-#include "g3d/NodeAccessor.h"
 #include "gobj/FootState.h"
 #include "gobj/GearModel.h"
 #include "gobj/Move.h"
 #include "gobj/MoveParam.h"
-#include "gobj/NodeRepos.h"
 #include "gobj/Target.h"
 #include "hel/common/RuntimeTypeInfoInline.h"
 #include "scn/step/chara/BodyColl.h"

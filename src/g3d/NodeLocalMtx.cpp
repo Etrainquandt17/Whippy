@@ -1,7 +1,5 @@
 #include "g3d/NodeLocalMtx.h"
 
-#include "revolution/mtx.h"
-
 using hel::math::Matrix34;
 using hel::math::Vector3;
 

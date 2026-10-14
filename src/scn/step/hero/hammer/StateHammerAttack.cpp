@@ -1,11 +1,9 @@
 #include "scn/step/hero/hammer/StateHammerAttack.h"
 #include "gobj/FootState.h"
-#include "gobj/Script.h"
 #include "scn/step/Component.h"
 #include "scn/step/camera/CameraController.h"
 #include "scn/step/hero/Hero.h"
 #include "scn/step/hero/Model.h"
-#include "scn/step/hero/SubAnimControl.h"
 #include "scn/step/hero/Utility.h"
 #include "scn/step/hero/hammer/Utility.h"
 

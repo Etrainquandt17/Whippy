@@ -1,6 +1,5 @@
 #include "scn/step/boss/whispy/StateRootAttack.h"
 
-#include "mintglue/VectorInline.h"
 #include "scn/step/Component.h"
 #include "scn/step/boss/Boss.h"
 #include "scn/step/boss/whispy/StateWait.h"
@@ -10,7 +9,6 @@
 #include "scn/step/chara/ScriptTrigger.h"
 #include "scn/step/weapon/Desc.h"
 #include "scn/step/weapon/Manager.h"
-#include "scn/step/weapon/Weapon.h"
 #include "util/ObjList.h"
 
 using hel::math::Vector2;
