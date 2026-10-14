@@ -65,7 +65,7 @@ namespace lowper {
 
 StateWarpIn::StateWarpIn(Boss* boss) : StateBase(boss), mCount(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().reqScript(0x18);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);

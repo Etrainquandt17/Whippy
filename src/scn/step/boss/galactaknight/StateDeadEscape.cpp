@@ -68,7 +68,7 @@ namespace galactaknight {
 
 StateDeadEscape::StateDeadEscape(Boss* boss)
     : StateBase(boss), mCount(0), mStartPos(boss->location().pos()), mVelocity(), mDir() {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_0);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().reqScript(0x2C);
     obj().model().rotCtrl().initRotH(0.0f);
     mDir.mFront = Vector3::BASIS_X * obj().target().getSign();

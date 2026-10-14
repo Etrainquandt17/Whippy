@@ -95,7 +95,7 @@ StateFirst::StateFirst(Boss* boss) : StateBase(boss) {
     const Param& param = obj().param().metalgeneral();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(5);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().invincible().setPermNoFlash();
     obj().guard().setType(static_cast<GuardType>(6));
     Rect rect(param._88, param._8C, param._90, param._94);

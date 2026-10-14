@@ -66,7 +66,7 @@ StateBombJoint::StateBombJoint(Boss* boss, JointKind kind) : StateBase(boss), mK
         obj().model().reqScript(0x21);
         break;
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
 }
 

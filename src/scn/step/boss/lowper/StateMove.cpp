@@ -80,7 +80,7 @@ StateMove::StateMove(Boss* boss, const Vector3& pos, u32 frame)
     }
     custom.waftMoveCtrl().setMoveIntpRate(param._20);
     custom.waftMoveCtrl().setWaveWidth(param._1C);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().model().reqScript(0);
 }
 

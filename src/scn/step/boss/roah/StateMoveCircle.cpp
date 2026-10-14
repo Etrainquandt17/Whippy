@@ -24,7 +24,7 @@ StateMoveCircle::StateMoveCircle(Boss* boss, Config config) : StateBase(boss), m
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     mBasePos = obj().location().pos().getXY();
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().brainCtrl().toValid();
 }
 

@@ -66,7 +66,7 @@ StateGiantTornado::StateGiantTornado(Boss* boss, u32 frame, f32 speed)
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x1D);
     obj().guard().setType(static_cast<GuardType>(2));
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateGiantTornado::~StateGiantTornado() {

@@ -74,7 +74,7 @@ StateNeedle::StateNeedle(Boss* boss, u32 index) : StateBase(boss) {
         obj().model().reqScript(0x15);
         break;
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().guard().setType(static_cast<GuardType>(2));
     obj().move().resetVelocity();
 }

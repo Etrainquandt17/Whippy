@@ -62,7 +62,7 @@ StateStorm::StateStorm(Boss* boss, Config config)
     mBasePos = obj().location().pos().getXY();
     obj().model().reqScript(15);
     custom.mahoroaCtrl().getCustom().reqMotionStorm();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().guard().setType(GUARD_TYPE_2);
     switch (mConfig._8) {
     case StormKind_UpDown:

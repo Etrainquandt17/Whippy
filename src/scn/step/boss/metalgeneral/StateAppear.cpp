@@ -98,7 +98,7 @@ StateAppear::StateAppear(Boss* boss) : StateBase(boss), mIsWaitDemo(true), mIsSt
     if (!Utility::IsArena(obj())) {
         obj().comp().bgmController().pause(core::BGM_CATEGORY_0);
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().invincible().setPermNoFlash();
     obj().guard().setType(static_cast<GuardType>(6));
     if (Utility::IsStagingFirstAppear(obj())) {

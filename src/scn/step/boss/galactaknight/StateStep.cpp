@@ -67,7 +67,7 @@ StateStep::StateStep(Boss* boss, ScriptKind kind, f32 distance, f32 height, u32 
     mGoalPos.x = distance * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     obj().model().reqScript(kind);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateStep::~StateStep() {}

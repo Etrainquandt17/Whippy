@@ -29,7 +29,7 @@ StateStar::StateStar(Boss* boss, Config config) : StateBase(boss) {
         obj().model().reqScript(9);
         break;
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateStar::~StateStar() {}

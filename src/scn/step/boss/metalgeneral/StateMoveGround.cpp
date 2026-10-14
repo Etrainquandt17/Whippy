@@ -64,7 +64,7 @@ StateMoveGround::StateMoveGround(Boss* boss, u32 scriptKind) : StateBase(boss), 
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(mScriptKind);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::TurnHatedHero(obj());
     obj().move().resetVelocity();
 }

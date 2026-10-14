@@ -25,9 +25,9 @@ StateMove::StateMove(Boss* boss, Config config) : StateBase(boss), mCount(0), mS
     mStartPos = obj().location().pos().getXY();
     mGoalPos = mConfig._4 + obj().comp().mainCamera().getCenter();
     if (mConfig._C) {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     } else {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     }
 }
 

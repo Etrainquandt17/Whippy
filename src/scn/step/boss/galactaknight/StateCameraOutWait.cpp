@@ -70,7 +70,7 @@ StateCameraOutWait::StateCameraOutWait(Boss* boss, u32 frame, f32 height) : Stat
     obj().location().setPos(pos);
     obj().target().invert();
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().worldCage().setIsValid(false);
 }
 

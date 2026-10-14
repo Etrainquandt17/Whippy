@@ -98,7 +98,7 @@ StatePatriotLaunch::StatePatriotLaunch(Boss* boss) : StateBase(boss), mCount(0),
     } else {
         obj().model().rotCtrl().setRotHTarget(90.0f);
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_PATRIOT);
     obj().guard().setType(static_cast<GuardType>(5));
 }
 
@@ -156,7 +156,7 @@ void StatePatriotLaunch::procFixPos() {
     const Param& param = obj().param().metalgeneral();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (obj().location().pos().y > param._1F8 + obj().basePos().y) {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
         custom.weaponCtrl().signalPatriot(enemy::metalgeneralpatriot::SIGNAL_KIND_4);
     }
     if (obj().location().pos().y > param._1F0 + obj().basePos().y) {

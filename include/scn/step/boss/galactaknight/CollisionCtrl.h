@@ -17,10 +17,10 @@ struct CollParam;
 class CollisionCtrl {
 public:
     enum State {
-        STATE_0,
-        STATE_1,
-        STATE_2,
-        STATE_3
+        STATE_NONE,
+        STATE_NORMAL,
+        STATE_GUARD,
+        STATE_REFLECT
     };
 
     CollisionCtrl(Boss& boss);

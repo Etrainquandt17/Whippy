@@ -66,7 +66,7 @@ namespace lowper {
 
 StateBarrierAttack::StateBarrierAttack(Boss* boss) : StateBase(boss), mCount(0), mIsStarted(false) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().model().reqScript(0x26);
     obj().model().rotCtrl().setRotHTarget(0.0f);
     custom.enemyCtrl().setBarrierAngle(0.0f);

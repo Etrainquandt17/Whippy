@@ -61,7 +61,7 @@ StateBeamSword::StateBeamSword(Boss* boss, u32 scriptKind) : StateBase(boss), mS
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(mScriptKind);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
 }
 

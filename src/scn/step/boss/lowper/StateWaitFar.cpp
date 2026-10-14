@@ -65,7 +65,7 @@ namespace lowper {
 StateWaitFar::StateWaitFar(Boss* boss) : StateBase(boss), mPos(), _10(0.0f), _14(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     mPos = obj().basePos();
     mPos.y += 4.0f;
     obj().brainCtrl().toValid();

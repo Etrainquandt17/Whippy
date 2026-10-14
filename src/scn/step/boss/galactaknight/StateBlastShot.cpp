@@ -64,7 +64,7 @@ StateBlastShot::StateBlastShot(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x16);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateBlastShot::~StateBlastShot() {}

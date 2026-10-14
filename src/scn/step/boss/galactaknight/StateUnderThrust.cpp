@@ -70,7 +70,7 @@ StateUnderThrust::StateUnderThrust(Boss* boss)
     mGoalPos.y = custom.landCtrl().getFloorY();
     mFrame = (obj().location().pos().y - mGoalPos.y) / 0.4f;
     obj().model().reqScript(0x1B);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateUnderThrust::~StateUnderThrust() {}

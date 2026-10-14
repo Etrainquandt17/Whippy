@@ -36,7 +36,7 @@ StateStormEnd::StateStormEnd(Boss* boss, Config config) : StateBase(boss), mConf
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(18);
     custom.mahoroaCtrl().getCustom().reqMotionStormEnd();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
 #ifdef VERSION_SUKK01
     obj().effect().state().requestN(static_cast<effect::Kind>(0x638), 4);

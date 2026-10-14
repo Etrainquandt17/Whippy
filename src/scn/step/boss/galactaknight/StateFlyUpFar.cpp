@@ -80,7 +80,7 @@ StateFlyUpFar::StateFlyUpFar(Boss* boss, f32 height, f32 arc)
     obj().model().reqScript(0xB);
     obj().soundSE().normal().start(0x39D);
     obj().model().rotCtrl().initRotH(0.0f);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().worldCage().setIsValid(false);
 }
 

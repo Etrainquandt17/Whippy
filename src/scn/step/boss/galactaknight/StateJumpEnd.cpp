@@ -71,7 +71,7 @@ StateJumpEnd::StateJumpEnd(Boss* boss, ScriptKind kind, f32 distance, u32 frame)
         obj().worldCage().setIsValid(false);
     }
     obj().model().reqScript(kind);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateJumpEnd::~StateJumpEnd() {

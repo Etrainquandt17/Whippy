@@ -88,7 +88,7 @@ StateRevolutionSword::StateRevolutionSword(Boss* boss) : StateBase(boss), mWeapo
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x20);
     obj().guard().setType(static_cast<GuardType>(1));
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateRevolutionSword::~StateRevolutionSword() {

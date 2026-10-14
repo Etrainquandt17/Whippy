@@ -64,7 +64,7 @@ StateDash::StateDash(Boss* boss, f32 speed, f32 distance)
     : StateBase(boss), mSpeed(speed), mDistance(distance), mIsMove(false) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0xA);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateDash::~StateDash() {}

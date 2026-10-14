@@ -17,7 +17,7 @@ namespace step {
 namespace boss {
 namespace galactaknight {
 
-CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_0), mIsAttack(false), mIsHit(false) {
+CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_NONE), mIsAttack(false), mIsHit(false) {
     boss.objColl().bodyColl().setStateHitOnly();
     setAttackType();
     setCollision();
@@ -87,9 +87,9 @@ const CollParam* CollisionCtrl::param() {
     const Param& param = mBoss.param().galactaknight();
     const CollParam* coll = 0;
     switch (mState) {
-    case STATE_1:
-    case STATE_2:
-    case STATE_3:
+    case STATE_NORMAL:
+    case STATE_GUARD:
+    case STATE_REFLECT:
         coll = &param.mColl;
         break;
     }
@@ -103,8 +103,8 @@ void CollisionCtrl::setAttackType() {
 void CollisionCtrl::setResistLv() {
     ocoll::HitResistLv lv = ocoll::HIT_RESIST_LV_2;
     switch (mState) {
-    case STATE_2:
-    case STATE_3:
+    case STATE_GUARD:
+    case STATE_REFLECT:
         lv = ocoll::HIT_RESIST_LV_6;
         break;
     }

@@ -73,7 +73,7 @@ namespace lowper {
 StateFireTackleStart::StateFireTackleStart(Boss* boss, u32 frame, u32 _3, bool isEx)
     : StateBase(boss), mFrame(frame), _C(_3), mCount(0), mStartPos(), mGoalPos(), mRotX(0.0f), mRotY(0.0f), mRotSpeed(0.0f),
       mIsEx(isEx) {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_5);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_FIRE_TACKLE);
     Utility::ControlHateOnAction(obj());
     Rect rect = obj().comp().mainCamera().getViewRect();
     f32 width = Math::AbsF32(rect._C - rect._8);

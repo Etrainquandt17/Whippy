@@ -35,7 +35,7 @@ StateBullet::StateBullet(Boss* boss, Config config)
     mBasePos = obj().location().pos().getXY();
     obj().model().reqScript(22);
     custom.mahoroaCtrl().getCustom().reqMotionBullet(mConfig._4);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Vector3 pos = obj().location().pos() + Vector2(param.mBulletEffectOffset).toVector3();
     Direction3 dir;
     dir.mUp = Vector3::BASIS_X;

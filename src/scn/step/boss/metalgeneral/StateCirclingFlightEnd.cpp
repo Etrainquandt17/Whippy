@@ -82,7 +82,7 @@ StateCirclingFlightEnd::StateCirclingFlightEnd(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1D);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateCirclingFlightEnd::~StateCirclingFlightEnd() {}

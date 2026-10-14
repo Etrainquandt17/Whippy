@@ -75,7 +75,7 @@ StateTornadoAttack::StateTornadoAttack(Boss* boss)
     mSign = Math::Sign(heroPos.x - pos.x);
     obj().model().reqScript(0x24);
     obj().guard().setType(static_cast<GuardType>(1));
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateTornadoAttack::~StateTornadoAttack() {}

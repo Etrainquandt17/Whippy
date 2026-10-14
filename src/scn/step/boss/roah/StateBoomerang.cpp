@@ -32,7 +32,7 @@ namespace roah {
 StateBoomerang::StateBoomerang(Boss* boss, Config config)
     : StateBase(boss), mCount(0), mIsThrown(false), mIsCaught(false), mConfig(config) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     switch (mConfig._0) {
     case 0:
         obj().model().reqScript(10);

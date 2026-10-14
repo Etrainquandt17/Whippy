@@ -27,7 +27,7 @@ namespace roah {
 StatePursuit::StatePursuit(Boss* boss, Config config) : StateBase(boss), mCount(0), mConfig(config) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().brainCtrl().toValid();
     Utility::ControlHateOnAction(obj());
 }

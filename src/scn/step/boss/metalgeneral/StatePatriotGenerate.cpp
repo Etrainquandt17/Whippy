@@ -90,7 +90,7 @@ StatePatriotGenerate::StatePatriotGenerate(Boss* boss, Config config) : StateBas
     } else {
         obj().model().reqScript(0x22);
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
     if (!Math::EqZero(obj().location().pos().z)) {
         obj().model().rotCtrl().setRotHTarget(param._1E0);

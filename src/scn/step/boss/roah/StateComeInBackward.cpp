@@ -25,7 +25,7 @@ StateComeInBackward::StateComeInBackward(Boss* boss, Config config)
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().target().setIsRightDir(true);
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     mStartPos = obj().location().pos().getXY();
     mGoalPos = mConfig._4 + obj().comp().mainCamera().getCenter();
 }

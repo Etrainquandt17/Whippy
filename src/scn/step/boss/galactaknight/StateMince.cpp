@@ -64,7 +64,7 @@ StateMince::StateMince(Boss* boss) : StateBase(boss) {
     const Param& param = obj().param().galactaknight();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x11);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     custom.captureCtrl().setCaptureKind(CaptureCtrl::CAPTURE_KIND_1);
     Vector3 pos = obj().location().centerPos();
     pos.x += param._C4 * obj().target().getSign();

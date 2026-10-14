@@ -18,12 +18,11 @@ namespace roah {
 
 class CollisionCtrl {
 public:
-    // TODO: the names of the enumerators.
     enum State {
-        STATE_0,
-        STATE_1,
-        STATE_2,
-        STATE_3,
+        STATE_NONE,
+        STATE_REFLECT,
+        STATE_NORMAL,
+        STATE_TACKLE,
     };
 
     CollisionCtrl(Boss& boss);

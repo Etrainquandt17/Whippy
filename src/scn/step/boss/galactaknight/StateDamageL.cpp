@@ -78,7 +78,7 @@ StateDamageL::StateDamageL(Boss* boss) : StateBase(boss), mCount(0), mStartPos(b
     obj().comp().enemyManager().reqDeadAllEnemyForBoss();
     obj().comp().weaponManager().reqDeadByTeamNo(static_cast<ocoll::TeamNo>(1));
     Utility::StagingBossDamageL(obj());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().invincible().setPermNoFlash();
     mGoalPos.x = param._128 * -obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();

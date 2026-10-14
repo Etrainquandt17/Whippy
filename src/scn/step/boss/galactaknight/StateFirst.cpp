@@ -82,7 +82,7 @@ StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(boss->param().galac
     pos.y += param._F8;
     obj().location().setPos(pos);
     obj().model().reqScript(0x28);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     Rect rect(param._40, param._44, param._48, param._4C);
     t_Trans(rect, obj().basePos().x, obj().basePos().y);
     obj().comp().cameraController().unsetLock();

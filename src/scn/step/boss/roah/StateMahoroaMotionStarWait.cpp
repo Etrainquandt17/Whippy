@@ -21,7 +21,7 @@ StateMahoroaMotionStarWait::StateMahoroaMotionStarWait(Boss* boss) : StateBase(b
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
     custom.mahoroaCtrl().getCustom().reqMotionStar();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().brainCtrl().toValid();
 }
 

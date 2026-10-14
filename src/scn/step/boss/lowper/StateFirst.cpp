@@ -66,7 +66,7 @@ namespace boss {
 namespace lowper {
 
 StateFirst::StateFirst(Boss* boss) : StateBase(boss) {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_0);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().setVisibility(false);
     obj().location().setPos(obj().location().pos() + Vector3::BASIS_Y * 2.5f);
 }

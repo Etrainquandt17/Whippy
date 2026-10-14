@@ -66,7 +66,7 @@ namespace lowper {
 
 StateBombFar::StateBombFar(Boss* boss) : StateBase(boss), mPos(), mCount(0), mIsStarted(false) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().reqScript(0x10);
     mPos = obj().basePos().toVector3();
     mPos.y += 2.0f;

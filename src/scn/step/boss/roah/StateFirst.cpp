@@ -40,7 +40,7 @@ StateFirst::StateFirst(Boss* boss) : StateBase(boss), mCount(0), mStartRect(), m
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(5);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().target().setIsRightDir(false);
     obj().location().setPos((obj().basePos() + Vector2(param.mFirstOffset)).toVector3());
     {

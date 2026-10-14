@@ -68,7 +68,7 @@ namespace lowper {
 
 StateMoveToFar::StateMoveToFar(Boss* boss, f32 y)
     : StateBase(boss), mStartPos(), mGoalPos(), mCount(0), mOffset(Vector3(0.0f, y, 0.0f)) {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     mStartPos = obj().location().pos();
     mGoalPos = obj().basePos().toVector3();
     mGoalPos.y += 4.0f;

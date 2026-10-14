@@ -37,7 +37,7 @@ StateZPassThrough::StateZPassThrough(Boss* boss) : StateBase(boss), mCount(0), m
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().target().setIsRightDir(true);
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     mStartPos = obj().comp().mainCamera().getCenter().toVector3() + Vector3(param.mZPassStartOffset);
     mGoalPos = obj().comp().mainCamera().getCenter().toVector3() + Vector3(param.mZPassGoalOffset);
     obj().location().setPos(mStartPos);

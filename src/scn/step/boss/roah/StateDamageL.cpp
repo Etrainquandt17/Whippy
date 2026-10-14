@@ -30,7 +30,7 @@ namespace roah {
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(23);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().guard().setType(GUARD_TYPE_6);
     obj().effect().state().releaseAndVanish();
     obj().effect().normal().releaseAndVanish();

@@ -78,9 +78,9 @@ StateJump::StateJump(Boss* boss, const JumpDesc& desc)
         obj().worldCage().setIsValid(false);
     }
     if (desc._13) {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     } else {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     }
     if (desc._14) {
         obj().guard().setType(static_cast<GuardType>(1));

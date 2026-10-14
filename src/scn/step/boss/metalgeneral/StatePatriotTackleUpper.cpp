@@ -95,7 +95,7 @@ StatePatriotTackleUpper::StatePatriotTackleUpper(Boss* boss, Direction3 dir)
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x25);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_PATRIOT);
     obj().model().rotCtrl().initRotH(0.0f);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();

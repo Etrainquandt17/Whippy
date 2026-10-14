@@ -27,7 +27,7 @@ enum CollId {
 
 }
 
-CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_0), mIsHit(false) {
+CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_NONE), mIsHit(false) {
     mBoss.objColl().bodyColl().setStateHitOnly();
 }
 
@@ -56,7 +56,7 @@ void CollisionCtrl::setHit() {
     if (mIsHit) {
         const CollParam* coll = param();
         if (coll != 0) {
-            CollId id = mState == STATE_4 ? COLL_ID_PATRIOT : COLL_ID_NORMAL;
+            CollId id = mState == STATE_PATRIOT ? COLL_ID_PATRIOT : COLL_ID_NORMAL;
             mBoss.objColl().addBodyColl(id, coll->mBodyRadius, coll->mBodyOffset, coll->mBodyOffsetEnd);
             setResistLv();
         }
@@ -68,7 +68,7 @@ void CollisionCtrl::setAttack() {
     if (mIsHit) {
         const CollParam* coll = param();
         if (coll != 0) {
-            CollId attack = mState == STATE_4 ? COLL_ID_PATRIOT : COLL_ID_NORMAL;
+            CollId attack = mState == STATE_PATRIOT ? COLL_ID_PATRIOT : COLL_ID_NORMAL;
             mBoss.objColl().addAttack(0, attack, coll->mAttackRadius, coll->mAttackOffset, coll->mAttackOffsetEnd);
             setAttackType();
         }
@@ -79,12 +79,12 @@ const CollParam* CollisionCtrl::param() {
     const Param& param = mBoss.param().metalgeneral();
     const CollParam* coll = 0;
     switch (mState) {
-    case STATE_1:
-    case STATE_2:
-    case STATE_3:
+    case STATE_REFLECT:
+    case STATE_NORMAL:
+    case STATE_CIRCLING_FLIGHT:
         coll = &param.mColl;
         break;
-    case STATE_4:
+    case STATE_PATRIOT:
     case STATE_5:
         coll = &param.mCollPatriot;
         break;
@@ -95,7 +95,7 @@ const CollParam* CollisionCtrl::param() {
 void CollisionCtrl::setAttackType() {
     ocoll::AttackType type = static_cast<ocoll::AttackType>(0x1DB);
     switch (mState) {
-    case STATE_3:
+    case STATE_CIRCLING_FLIGHT:
         type = static_cast<ocoll::AttackType>(0x1DD);
         break;
     case STATE_5:
@@ -107,7 +107,7 @@ void CollisionCtrl::setAttackType() {
 
 void CollisionCtrl::setResistLv() {
     ocoll::HitResistLv lv = ocoll::HIT_RESIST_LV_2;
-    if (mState == STATE_1) {
+    if (mState == STATE_REFLECT) {
         lv = ocoll::HIT_RESIST_LV_6;
     }
     mBoss.objColl().bodyColl().setResistLv(lv);

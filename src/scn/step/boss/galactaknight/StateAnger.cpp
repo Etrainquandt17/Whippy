@@ -78,7 +78,7 @@ StateAnger::StateAnger(Boss* boss)
     mGoalPos.x = param._134 * -obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     obj().model().reqScript(0x2A);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().invincible().setPermNoFlash();
 }
 

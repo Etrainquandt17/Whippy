@@ -42,7 +42,7 @@ StateZStar::StateZStar(Boss* boss, Config config) : StateBase(boss), mCount(0), 
     const Param& param = obj().param().roah();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     mBasePos = obj().comp().mainCamera().getCenter().toVector3();
     mBasePos.x += mConfig._10 ? -param.mZStarOffset.x : param.mZStarOffset.x;
     mBasePos.y += param.mZStarOffset.y;

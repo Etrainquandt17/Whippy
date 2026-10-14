@@ -68,7 +68,7 @@ StateTackleFar::StateTackleFar(Boss* boss)
     : StateBase(boss), mCount(0), mSwayCount(0), mStartY(0.0f), mGoalY(0.0f), mX(0.0f), mSway(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_TACKLE_FAR);
     mStartY = 4.0f + obj().basePos().y;
     mGoalY = param._44 + obj().basePos().y;
     mX = obj().location().pos().x;

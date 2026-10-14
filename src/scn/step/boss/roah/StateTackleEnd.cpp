@@ -31,7 +31,7 @@ StateTackleEnd::StateTackleEnd(Boss* boss) : StateBase(boss), mCount(0), mStartP
     obj().model().reqScript(0);
     custom.mahoroaCtrl().getCustom().reqMotionWarpOut();
     custom.mahoroaCtrl().setPhase(static_cast<MahoroaCtrl::Phase>(3));
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().location().setPos((obj().comp().mainCamera().getCenter() + Vector2(param.mTackleEndOffset)).toVector3());
     mStartPos = obj().location().pos().getXY();
     mGoalPos = obj().basePos();
@@ -66,7 +66,7 @@ void StateTackleEnd::procFixPos() {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     f32 x = obj().location().pos().x;
     if (obj().comp().mainCamera().getCenter().x + param.mTackleEndHitX > x) {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     }
 }
 

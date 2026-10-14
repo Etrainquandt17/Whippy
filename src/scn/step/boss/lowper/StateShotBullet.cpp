@@ -66,7 +66,7 @@ namespace lowper {
 StateShotBullet::StateShotBullet(Boss* boss, ScriptKind kind, f32 angle, enemy::lowperbullet::VariationKind variation, u32 _5)
     : StateBase(boss), mAngle(angle), mVariation(variation), _10(_5) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().model().reqScript(kind);
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);
     custom.waftMoveCtrl().setWaveWidth(0.0f);

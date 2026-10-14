@@ -97,7 +97,7 @@ StateMissile::StateMissile(Boss* boss, u32 index) : StateBase(boss) {
         obj().model().reqScript(0x1A);
         break;
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
     obj().move().resetVelocity();
 }

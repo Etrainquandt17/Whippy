@@ -75,7 +75,7 @@ StateAttack::StateAttack(Boss* boss, const AttackDesc& desc)
         obj().guard().setType(static_cast<GuardType>(1));
     }
     obj().model().reqScript(desc._0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateAttack::~StateAttack() {

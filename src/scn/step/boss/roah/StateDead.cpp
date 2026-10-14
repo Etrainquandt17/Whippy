@@ -54,7 +54,7 @@ StateDead::StateDead(Boss* boss) : StateBase(boss), _8(false), mIsStaged(false),
     const Param& param = obj().param().roah();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().hitStop().clear();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     stagingBossDead();
     Vector3 velocity = Vector3::BASIS_Y * -1.0f;
     velocity.rotate(static_cast<Vector3::AxisKind>(2), 0.017453292f * (param.mDeadAngle * obj().target().getSign()));

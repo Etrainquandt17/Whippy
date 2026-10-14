@@ -30,7 +30,7 @@ namespace roah {
 StateWaveStar::StateWaveStar(Boss* boss, Config config) : StateBase(boss), mCount(0), mBasePos(), mConfig(config) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().brainCtrl().toValid();
     obj().move().resetVelocity();
     obj().effect().state().requestN(static_cast<effect::Kind>(0x4CA), 3);

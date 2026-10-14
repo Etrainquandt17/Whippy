@@ -63,7 +63,7 @@ StateThunderSpine::StateThunderSpine(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0x1F);
     obj().guard().setType(static_cast<GuardType>(1));
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateThunderSpine::~StateThunderSpine() {}

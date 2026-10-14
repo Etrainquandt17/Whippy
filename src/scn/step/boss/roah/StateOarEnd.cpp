@@ -27,7 +27,7 @@ namespace roah {
 StateOarEnd::StateOarEnd(Boss* boss) : StateBase(boss), mIsTriggered(false) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(20);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     custom.resetSubAnimOar();
     obj().model().model().nodes().at(12).setVisibilityBelow(true);
 }

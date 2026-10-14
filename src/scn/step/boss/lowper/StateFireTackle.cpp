@@ -72,7 +72,7 @@ StateFireTackle::StateFireTackle(Boss* boss, u32 frame, bool isEx)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(), mGoalPos(), mRotY(0.0f), mIsEx(isEx) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_5);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_FIRE_TACKLE);
     Rect rect = obj().comp().mainCamera().getViewRect();
     f32 width = Math::AbsF32(rect._C - rect._8);
     f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);

@@ -87,7 +87,7 @@ const f32 T_SPINE_ANGLE_TABLE[] = { 65.0f, 115.0f, 245.0f, 295.0f };
 
 StateFreezeAttackSpine::StateFreezeAttackSpine(Boss* boss, u32 frame) : StateBase(boss), mFrame(frame), mCount(0), mWeapons() {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().model().reqScript(0x1F);
     custom.waftMoveCtrl().setWaveWidth(0.0f);
     obj().model().rotCtrl().setRotHTarget(0.0f);

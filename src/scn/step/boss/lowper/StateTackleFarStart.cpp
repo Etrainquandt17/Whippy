@@ -65,7 +65,7 @@ namespace lowper {
 
 StateTackleFarStart::StateTackleFarStart(Boss* boss) : StateBase(boss), _8(), _14(0), _18(0.0f), _1C(1.0f), _20(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_TACKLE_FAR);
     Utility::ControlHateOnAction(obj());
     Vector3 pos = obj().basePos().toVector3();
     Vector3 heroPos = Utility::GetHatedHeroPos(obj());

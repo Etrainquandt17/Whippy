@@ -62,7 +62,7 @@ namespace galactaknight {
 StateSwordBeamAttack::StateSwordBeamAttack(Boss* boss, ScriptKind kind) : StateBase(boss), mIsStart(false), mWait(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(kind);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateSwordBeamAttack::~StateSwordBeamAttack() {}

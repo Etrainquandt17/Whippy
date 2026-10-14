@@ -84,7 +84,7 @@ StateCircling::StateCircling(Boss* boss) : StateBase(boss), mCount(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1B);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();
 }

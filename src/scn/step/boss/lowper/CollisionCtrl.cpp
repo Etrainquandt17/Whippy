@@ -17,7 +17,7 @@ namespace step {
 namespace boss {
 namespace lowper {
 
-CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_0), mIsAttack(false), mIsHit(false) {
+CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_NONE), mIsAttack(false), mIsHit(false) {
     boss.objColl().bodyColl().setTeamXlu(static_cast<ocoll::TeamFlag>(6));
     mBoss.objColl().bodyColl().setStateHitOnly();
     setAttackType();
@@ -78,19 +78,19 @@ const CollParam* CollisionCtrl::param() {
     const Param& param = mBoss.param().lowper();
     const CollParam* coll = 0;
     switch (mState) {
-    case STATE_1:
+    case STATE_NORMAL:
         coll = &param._98;
         break;
-    case STATE_2:
+    case STATE_TACKLE:
         coll = &param._98;
         break;
-    case STATE_3:
+    case STATE_TACKLE_FAR:
         coll = &param._C0;
         break;
-    case STATE_4:
+    case STATE_TACKLE_FAR_ROLLING:
         coll = &param._E8;
         break;
-    case STATE_5:
+    case STATE_FIRE_TACKLE:
         coll = &param._110;
         break;
     }
@@ -100,12 +100,12 @@ const CollParam* CollisionCtrl::param() {
 void CollisionCtrl::setAttackType() {
     ocoll::AttackType type = static_cast<ocoll::AttackType>(0x1B7);
     switch (mState) {
-    case STATE_2:
-    case STATE_3:
-    case STATE_4:
+    case STATE_TACKLE:
+    case STATE_TACKLE_FAR:
+    case STATE_TACKLE_FAR_ROLLING:
         type = static_cast<ocoll::AttackType>(0x1B8);
         break;
-    case STATE_5:
+    case STATE_FIRE_TACKLE:
         type = static_cast<ocoll::AttackType>(0x1BD);
         break;
     }

@@ -95,7 +95,7 @@ StateDead::StateDead(Boss* boss)
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().hitStop().clear();
     obj().footState().setAir();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().move().resetVelocity();
     if (obj().objColl().bodyColl().hit().isCollide()) {
         Vector2 attackPos = obj().objColl().bodyColl().damageInfo().attackPos();

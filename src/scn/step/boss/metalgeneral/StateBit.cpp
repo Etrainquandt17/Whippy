@@ -84,7 +84,7 @@ StateBit::StateBit(Boss* boss, u32 num) : StateBase(boss), mNum(num) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x1E);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
     obj().move().resetVelocity();
 }

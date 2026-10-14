@@ -70,7 +70,7 @@ StateSpinAttack::StateSpinAttack(Boss* boss, f32 distance, u32 frame)
     Utility::ControlHateOnAction(obj());
     obj().guard().setType(static_cast<GuardType>(1));
     obj().model().reqScript(0x1A);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     custom.captureCtrl().setCaptureKind(CaptureCtrl::CAPTURE_KIND_0);
 }
 

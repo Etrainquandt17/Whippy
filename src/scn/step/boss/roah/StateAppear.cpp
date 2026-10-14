@@ -50,7 +50,7 @@ StateAppear::StateAppear(Boss* boss)
     const Param& param = obj().param().roah();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     custom.mahoroaCtrl().init();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().guard().setType(GUARD_TYPE_6);
     obj().model().setVisibility(false);
     if (Utility::IsStagingFirstAppear(obj())) {
@@ -192,7 +192,7 @@ void StateAppear::procFixPos() {
     const Param& param = obj().param().roah();
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     if (param.mAppearHitX + obj().comp().mainCamera().getCenter().x > obj().location().pos().x) {
-        custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+        custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     }
 }
 

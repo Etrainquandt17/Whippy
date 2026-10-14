@@ -69,7 +69,7 @@ StateGuard::StateGuard(Boss* boss, f32 distance, u32 frame, u32 guardFrame)
     mGoalPos.x = distance * obj().target().getSign() + mStartPos.x;
     mGoalPos.y = custom.landCtrl().getFloorY();
     obj().model().reqScript(0xC);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_GUARD);
     obj().flash().guard().setIsValid(true);
     obj().guard().setType(static_cast<GuardType>(6));
 }
@@ -88,7 +88,7 @@ void StateGuard::procAnim() {
             obj().model().reqScript(0xD);
             obj().flash().guard().setIsValid(false);
             obj().guard().setType(static_cast<GuardType>(0));
-            DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+            DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
         }
     }
     if (mGuardFrame == 0 && obj().model().isAllEnd()) {

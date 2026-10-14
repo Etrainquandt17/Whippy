@@ -65,7 +65,7 @@ StateBomb::StateBomb(Boss* boss, Config config) : StateBase(boss), mConfig(confi
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x20);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
 }
 

@@ -59,7 +59,7 @@ StateAnger::StateAnger(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0xE);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().invincible().setPermNoFlash();
     obj().guard().setType(static_cast<GuardType>(6));
     obj().infoBossPanel().transformStart();

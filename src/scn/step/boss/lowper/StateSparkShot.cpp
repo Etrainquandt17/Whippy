@@ -68,7 +68,7 @@ namespace lowper {
 
 StateSparkShot::StateSparkShot(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x25);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);

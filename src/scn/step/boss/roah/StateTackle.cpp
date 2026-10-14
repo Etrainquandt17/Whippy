@@ -44,7 +44,7 @@ StateTackle::StateTackle(Boss* boss, Config config)
     obj().model().reqScript(21);
     mStartPos = obj().location().pos();
     mGoalPos = mStartPos + Vector3::BASIS_X * mConfig._4 * -obj().target().getSign();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_TACKLE);
     obj().guard().setType(GUARD_TYPE_6);
     obj().move().resetVelocity();
 }

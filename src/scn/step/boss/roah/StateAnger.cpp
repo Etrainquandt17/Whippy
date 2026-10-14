@@ -37,7 +37,7 @@ StateAnger::StateAnger(Boss* boss) : StateBase(boss), mCount(0), mStartPos(), mG
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(24);
     custom.mahoroaCtrl().getCustom().reqMotionAnger();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().guard().setType(GUARD_TYPE_6);
     obj().infoBossPanel().transformStart();
     custom.rotCtrl().toInvalid();

@@ -69,7 +69,7 @@ namespace lowper {
 
 StateWarpOut::StateWarpOut(Boss* boss, const Vector3& pos) : StateBase(boss), mCount(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().reqScript(0x19);
     Rect rect = obj().comp().mainCamera().getViewRect();
     f32 width = Math::AbsF32(rect._C - rect._8);

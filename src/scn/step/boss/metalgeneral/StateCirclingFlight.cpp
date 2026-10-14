@@ -94,7 +94,7 @@ StateCirclingFlight::StateCirclingFlight(Boss* boss) : StateBase(boss), mDir(), 
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0x1C);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_CIRCLING_FLIGHT);
     mDir = Utility::GetHatedHeroPos(obj()) - obj().location().pos();
     Utility::ControlHateOnAction(obj());
     if (mDir.y > 0.0f) {

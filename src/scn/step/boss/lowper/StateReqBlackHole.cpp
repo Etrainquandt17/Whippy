@@ -64,7 +64,7 @@ namespace lowper {
 
 StateReqBlackHole::StateReqBlackHole(Boss* boss, u32 kind) : StateBase(boss), mKind(kind) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().model().reqScript(0x28);
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.1f);

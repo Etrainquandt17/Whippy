@@ -89,7 +89,7 @@ StateBeamSwordDash::StateBeamSwordDash(Boss* boss) : StateBase(boss), mPhase(PHA
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setGround();
     obj().model().reqScript(0x11);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
 }
 

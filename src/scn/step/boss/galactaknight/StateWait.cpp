@@ -63,7 +63,7 @@ StateWait::StateWait(Boss* boss) : StateBase(boss) {
     obj().brainCtrl().toValid();
     obj().model().reqScript(0);
     obj().hateCtrl().fix();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
 }
 
 StateWait::~StateWait() {}

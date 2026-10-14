@@ -67,7 +67,7 @@ namespace lowper {
 
 StateFreezeFallAttack::StateFreezeFallAttack(Boss* boss, u32 frame)
     : StateBase(boss), mFrame(frame), mCount(0), mStartPos(boss->location().pos()), mGoalPos() {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
     mGoalPos = mStartPos;
     mGoalPos.y = 0.5f + obj().basePos().y;

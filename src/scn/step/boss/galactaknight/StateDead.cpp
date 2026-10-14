@@ -83,7 +83,7 @@ StateDead::StateDead(Boss* boss)
     mFrame = param._138;
     obj().hitStop().clear();
     obj().footState().setAir();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     if (obj().objColl().bodyColl().hit().isCollide()) {
         Vector2 attackPos = obj().objColl().bodyColl().damageInfo().attackPos();
         bool isRight = attackPos.x > obj().location().pos().x;

@@ -40,7 +40,7 @@ StateTacklePursuit::StateTacklePursuit(Boss* boss, Config config, StateTackle::C
         custom.mahoroaCtrl().getCustom().reqMotionWarpIn();
         custom.mahoroaCtrl().setPhase(static_cast<MahoroaCtrl::Phase>(2));
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_3);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_TACKLE);
     obj().guard().setType(GUARD_TYPE_6);
 #ifdef VERSION_SUKK01
     obj().effect().normal().requestN(static_cast<effect::Kind>(0x635), 0);

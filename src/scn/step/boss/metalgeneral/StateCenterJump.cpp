@@ -86,7 +86,7 @@ StateCenterJump::StateCenterJump(Boss* boss) : StateBase(boss), mCount(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xB);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();
     mGoalPos = obj().basePos().toVector3();

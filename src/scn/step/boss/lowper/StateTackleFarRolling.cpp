@@ -70,7 +70,7 @@ namespace lowper {
 StateTackleFarRolling::StateTackleFarRolling(Boss* boss)
     : StateBase(boss), mCount(0), mStartY(0.0f), mGoalY(0.0f), mX(0.0f), mRotX(0.0f), mRotY(0.0f), mRotSpeed(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_TACKLE_FAR_ROLLING);
     mStartY = 4.0f + obj().basePos().y;
     mGoalY = 0.5f + obj().basePos().y;
     mX = obj().location().pos().x;

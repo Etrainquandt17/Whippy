@@ -66,7 +66,7 @@ namespace boss {
 namespace lowper {
 
 StateFreezeAttack::StateFreezeAttack(Boss* boss) : StateBase(boss), mDir(Vector3::BASIS_Y), mCount(0) {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Vector3 heroPos = Utility::GetHatedHeroPos(obj());
     Vector3 diff = heroPos - obj().location().pos();
     if (!diff.isZeroLoose(0.00001f)) {

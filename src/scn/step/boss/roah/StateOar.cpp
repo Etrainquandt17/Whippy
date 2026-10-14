@@ -36,7 +36,7 @@ StateOar::StateOar(Boss* boss) : StateBase(boss), mCount(0), mBasePos(), mIsMove
     custom.resetSubAnimOar();
     obj().model().reqScript(19);
     custom.mahoroaCtrl().getCustom().reqMotionOar();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
 }
 

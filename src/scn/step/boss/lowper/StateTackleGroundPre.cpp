@@ -68,7 +68,7 @@ StateTackleGroundPre::StateTackleGroundPre(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mY(0.0f), mStartX(0.0f), mGoalX(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     f32 baseX = obj().basePos().x;
     f32 sign = Math::SignF32(obj().location().pos().x - baseX);
     mY = param._38 + obj().basePos().y;

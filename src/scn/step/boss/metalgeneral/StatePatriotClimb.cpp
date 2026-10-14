@@ -97,7 +97,7 @@ StatePatriotClimb::StatePatriotClimb(Boss* boss) : StateBase(boss), mIsSignaled(
     if (custom.weaponCtrl().isHoldPatriot()) {
         mGoalPos = custom.weaponCtrl().patriotPos();
     }
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_4);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_PATRIOT);
     obj().guard().setType(static_cast<GuardType>(5));
     obj().mapColl().setValid(false);
     if (!Math::EqZero(obj().location().pos().z)) {

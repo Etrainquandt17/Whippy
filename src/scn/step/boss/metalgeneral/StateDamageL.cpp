@@ -81,7 +81,7 @@ namespace metalgeneral {
 StateDamageL::StateDamageL(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().model().reqScript(0xD);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_REFLECT);
     obj().invincible().setPermNoFlash();
     obj().guard().setType(static_cast<GuardType>(6));
     obj().comp().enemyManager().reqDeadAllEnemyForBoss();

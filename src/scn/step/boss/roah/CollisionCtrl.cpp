@@ -17,7 +17,7 @@ namespace step {
 namespace boss {
 namespace roah {
 
-CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_0), mIsHit(false) {}
+CollisionCtrl::CollisionCtrl(Boss& boss) : mBoss(boss), mState(STATE_NONE), mIsHit(false) {}
 
 CollisionCtrl::~CollisionCtrl() {}
 
@@ -42,7 +42,7 @@ void CollisionCtrl::setHit() {
     if (mIsHit) {
         const CollParam* coll = param();
         if (coll != 0) {
-            if (mState == STATE_3) {
+            if (mState == STATE_TACKLE) {
                 mBoss.objColl().addBodyColl(0, coll->mRadius0, coll->mOffset0, coll->mOffset0End);
             } else {
                 mBoss.objColl().addBodyColl(10, coll->mRadius0, coll->mOffset0, coll->mOffset0End);
@@ -59,11 +59,11 @@ const CollParam* CollisionCtrl::param() {
     const Param& param = mBoss.param().roah();
     const CollParam* coll = 0;
     switch (mState) {
-    case STATE_1:
-    case STATE_2:
+    case STATE_REFLECT:
+    case STATE_NORMAL:
         coll = &param.mColl;
         break;
-    case STATE_3:
+    case STATE_TACKLE:
         coll = &param.mCollTackle;
         break;
     }
@@ -72,7 +72,7 @@ const CollParam* CollisionCtrl::param() {
 
 void CollisionCtrl::setAttackType() {
     ocoll::AttackType type = static_cast<ocoll::AttackType>(0x1F4);
-    if (mState == STATE_3) {
+    if (mState == STATE_TACKLE) {
         type = static_cast<ocoll::AttackType>(0x1F9);
     }
     mBoss.objColl().bodyColl().changeAttackType(type);
@@ -80,7 +80,7 @@ void CollisionCtrl::setAttackType() {
 
 void CollisionCtrl::setResistLv() {
     ocoll::HitResistLv lv = ocoll::HIT_RESIST_LV_2;
-    if (mState == STATE_1 || mState == STATE_3) {
+    if (mState == STATE_REFLECT || mState == STATE_TACKLE) {
         lv = ocoll::HIT_RESIST_LV_6;
     }
     mBoss.objColl().bodyColl().setResistLv(lv);

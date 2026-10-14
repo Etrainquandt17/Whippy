@@ -73,7 +73,7 @@ StateShuttleLoop::StateShuttleLoop(Boss* boss, bool isAttack)
         mGoalPos.y = custom.landCtrl().getFloorY() + obj().param().galactaknight()._84;
     }
     obj().model().reqScript(0x26);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().worldCage().setIsValid(false);
 }
 

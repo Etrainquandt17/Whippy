@@ -70,7 +70,7 @@ StateGlideShot::StateGlideShot(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mShotCount(0), mStartY(0.0f), mGoalY(0.0f), mGoalX(0.0f), mStartX(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_TACKLE);
     Utility::ControlHateOnAction(obj());
     f32 baseX = obj().basePos().x;
     f32 sign = Math::SignF32(obj().location().pos().x - baseX);

@@ -80,7 +80,7 @@ StateFlyZ::StateFlyZ(Boss* boss, f32 margin)
     obj().model().reqScript(0xB);
     obj().soundSE().normal().start(0x39E);
     obj().model().rotCtrl().initRotH(0.0f);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().worldCage().setIsValid(false);
 }
 

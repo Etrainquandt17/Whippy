@@ -73,7 +73,7 @@ StateRainBomb::StateRainBomb(Boss* boss, const Vector3& pos, u32 frame, u32 inte
     mGoalPos = obj().basePos().toVector3() + pos;
     custom.waftMoveCtrl().setMoveIntpRate(0.1f);
     custom.waftMoveCtrl().setWaveWidth(0.4f);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().model().reqScript(0x12);
 }
 

@@ -70,7 +70,7 @@ namespace lowper {
 
 StateFireTackleRestart::StateFireTackleRestart(Boss* boss, u32 frame, u32 _3)
     : StateBase(boss), mFrame(frame), _C(_3), mCount(0), mStartPos(), mGoalPos(), mRotY(0.0f) {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_5);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_FIRE_TACKLE);
     f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);
     obj().target().setIsRightDir(sign < 0.0f);
     Vector3 heroPos = Utility::GetHatedHeroPos(obj());

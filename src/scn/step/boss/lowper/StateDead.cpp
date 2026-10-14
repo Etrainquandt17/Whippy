@@ -75,7 +75,7 @@ namespace lowper {
 
 StateDead::StateDead(Boss* boss) : StateBase(boss), mCount(0), mRotV(0.0f) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().reqScript(0x17);
     custom.waftMoveCtrl().setIsValid(false);
     obj().move().resetVelocity();

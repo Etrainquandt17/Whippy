@@ -65,7 +65,7 @@ namespace lowper {
 
 StateAppear::StateAppear(Boss* boss) : StateBase(boss), mZoomHandle(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_0);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NONE);
     obj().model().setVisibility(true);
     if (custom.itemCtrl().isItemExist()) {
         obj().location().setPos(custom.itemCtrl().getItemPos());

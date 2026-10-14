@@ -87,7 +87,7 @@ StatePatriotJump::StatePatriotJump(Boss* boss, StatePatriotGenerate::Config conf
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xB);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();
     f32 sign = isFar ? 1.0f : -1.0f;

@@ -77,7 +77,7 @@ namespace lowper {
 
 StateSparkAttack::StateSparkAttack(Boss* boss, u32 frame)
     : StateBase(boss), mCount(0), mFrame(frame), mStartPos(), mGoalPos(), mIsAttack(false), mInterval(0), mIntervalFrame(0) {
-    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_1);
+    DynamicCastToRef<Custom, ICustom>(obj().custom()).collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Rect rect = obj().comp().mainCamera().getViewRect();
     f32 width = Math::AbsF32(rect._C - rect._8);
     f32 sign = Math::SignF32(obj().location().pos().x - obj().basePos().x);

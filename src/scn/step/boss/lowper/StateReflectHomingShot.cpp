@@ -68,7 +68,7 @@ namespace lowper {
 
 StateReflectHomingShot::StateReflectHomingShot(Boss* boss) : StateBase(boss), mCount(0), mPhase(0), _10(0) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Utility::ControlHateOnAction(obj());
     obj().model().reqScript(0x27);
     custom.waftMoveCtrl().setMoveIntpRate(0.5f);

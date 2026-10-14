@@ -88,7 +88,7 @@ StatePatriotZJump::StatePatriotZJump(Boss* boss, StatePatriotGenerate::Config co
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     obj().footState().setAir();
     obj().model().reqScript(0xC);
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_2);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().mapColl().setValid(false);
     obj().move().resetVelocity();
     mStartPos = obj().location().pos();

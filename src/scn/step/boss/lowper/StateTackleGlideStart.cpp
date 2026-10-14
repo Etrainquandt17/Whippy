@@ -68,7 +68,7 @@ namespace lowper {
 StateTackleGlideStart::StateTackleGlideStart(Boss* boss) : StateBase(boss) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     Vector3 pos;
     f32 baseX = obj().basePos().x;
     f32 sign = Math::SignF32(obj().location().pos().x - baseX);

@@ -85,7 +85,7 @@ void StateWait::procFixPos() {
 void StateWait::commonInit(const Vector3& pos) {
     Custom& custom = DynamicCastToRef<Custom, ICustom>(obj().custom());
     const Param& param = obj().param().lowper();
-    custom.collisionCtrl().setState(CollisionCtrl::STATE_1);
+    custom.collisionCtrl().setState(CollisionCtrl::STATE_NORMAL);
     obj().brainCtrl().toValid();
     obj().model().reqScript(0);
     obj().hateCtrl().fix();
