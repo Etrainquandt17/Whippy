@@ -13127,7 +13127,7 @@ __ct__Q53scn4step4boss7doubter6CustomFRQ43scn4step4boss4Boss = .text:0x80269038;
 __dt__Q53scn4step4boss7doubter11CaptureCtrlFv = .text:0x802690D8; // type:function size:0x60 scope:global align:4
 __dt__Q53scn4step4boss7doubter12JugglingCtrlFv = .text:0x80269138; // type:function size:0x6C scope:global align:4
 __dt__Q33hel6common35Array<Q43scn4step5enemy8Accessor,3>Fv = .text:0x802691A4; // type:function size:0x68 scope:global align:4
-__dt__Q43scn4step5enemy8AccessorFv = .text:0x8026920C; // type:function size:0x5C scope:global align:4
+__dt__Q43scn4step5enemy8AccessorFv = .text:0x8026920C; // type:function size:0x5C scope:global align:4 noexport
 onInit__Q53scn4step4boss7doubter6CustomFv = .text:0x80269268; // type:function size:0x21C scope:global align:4
 onAppear__Q53scn4step4boss7doubter6CustomFv = .text:0x80269484; // type:function size:0x4 scope:global align:4
 onStart__Q53scn4step4boss7doubter6CustomFv = .text:0x80269488; // type:function size:0x4 scope:global align:4
@@ -14699,7 +14699,7 @@ create__Q24util107StateFactoryArg2<Q24util6IState,Q53scn4step4boss7goliath22Stat
 __dt__Q24util107StateFactoryArg2<Q24util6IState,Q53scn4step4boss7goliath22StateFallIcicleBigJump,PQ43scn4step4boss4Boss,Ul>Fv = .text:0x80298B00; // type:function size:0x4 scope:global align:4
 __ct__Q53scn4step4boss7goliath25StateFallIcicleBigLandingFPQ43scn4step4boss4Boss = .text:0x80298B04; // type:function size:0xDC scope:global align:4
 __dt__Q53scn4step4boss7goliath25StateFallIcicleBigLandingFv = .text:0x80298BE0; // type:function size:0x4 scope:global align:4
-procAnim__Q53scn4step4boss7goliath25StateFallIcicleBigLandingFv = .text:0x80298BE4; // type:function size:0x98 scope:global align:4
+procAnim__Q53scn4step4boss7goliath25StateFallIcicleBigLandingFv = .text:0x80298BE4; // type:function size:0x98 scope:global align:4 noexport
 procMove__Q53scn4step4boss7goliath25StateFallIcicleBigLandingFv = .text:0x80298C7C; // type:function size:0x4 scope:global align:4
 procFixPos__Q53scn4step4boss7goliath25StateFallIcicleBigLandingFv = .text:0x80298C80; // type:function size:0x4 scope:global align:4
 __ct__Q53scn4step4boss7goliath20StateFallIcicleJump1FPQ43scn4step4boss4BossUlUl = .text:0x80298C84; // type:function size:0x94 scope:global align:4
@@ -14746,7 +14746,7 @@ create__Q24util106StateFactoryArg1<Q24util6IState,Q53scn4step4boss7goliath24Stat
 __dt__Q24util106StateFactoryArg1<Q24util6IState,Q53scn4step4boss7goliath24StateGroundChangeLanding,PQ43scn4step4boss4Boss>Fv = .text:0x80299E28; // type:function size:0x4 scope:global align:4
 __ct__Q53scn4step4boss7goliath24StateGroundChangeLandingFPQ43scn4step4boss4Boss = .text:0x80299E2C; // type:function size:0xE4 scope:global align:4
 __dt__Q53scn4step4boss7goliath24StateGroundChangeLandingFv = .text:0x80299F10; // type:function size:0x4 scope:global align:4
-procAnim__Q53scn4step4boss7goliath24StateGroundChangeLandingFv = .text:0x80299F14; // type:function size:0xA4 scope:global align:4
+procAnim__Q53scn4step4boss7goliath24StateGroundChangeLandingFv = .text:0x80299F14; // type:function size:0xA4 scope:global align:4 noexport
 procMove__Q53scn4step4boss7goliath24StateGroundChangeLandingFv = .text:0x80299FB8; // type:function size:0x4 scope:global align:4
 procFixPos__Q53scn4step4boss7goliath24StateGroundChangeLandingFv = .text:0x80299FBC; // type:function size:0x4 scope:global align:4
 __ct__Q53scn4step4boss7goliath22StateGroundChangeStartFPQ43scn4step4boss4Boss = .text:0x80299FC0; // type:function size:0xE4 scope:global align:4

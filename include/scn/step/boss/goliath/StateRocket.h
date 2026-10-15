@@ -1,22 +1,28 @@
 #ifndef SCN_STEP_BOSS_GOLIATH_STATEROCKET_H
 #define SCN_STEP_BOSS_GOLIATH_STATEROCKET_H
 
-#include "scn/step/boss/IState.h"
+#include "hel/math/Vector3.h"
+#include "scn/step/boss/StateBase.h"
 #include "types.h"
 
 namespace scn {
 namespace step {
 namespace boss {
-
-class Boss;
-
 namespace goliath {
 
-// TODO: members.
-class StateRocket : public IState {
+class StateRocket : public StateBase {
 public:
-    StateRocket(Boss* boss, f32 _1, u32 _2, bool _3);
+    StateRocket(Boss* boss, f32 height, u32 time, bool isOpposite);
     virtual ~StateRocket();
+    virtual void procAnim();
+    virtual void procMove();
+    virtual void procFixPos();
+
+private:
+    u32 mTime;
+    u32 mFrame;
+    hel::math::Vector3 mStartPos;
+    hel::math::Vector3 mGoalPos;
 };
 
 }}}}  // namespace scn::step::boss::goliath
