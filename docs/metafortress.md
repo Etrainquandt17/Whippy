@@ -109,6 +109,14 @@ python tools/metafortress.py SUKE01 --seal modified.dol sealed.dol
 
 Changes that leave the layout alone are possible today. Replaced assets need nothing, and patches to code or read-only data need `--seal`.
 
+To see one check fail on its own, `--break` does it:
+
+```sh
+python tools/metafortress.py SUKE01 --break hero::AbilityKindUtil::IsKirbyAbility out.dol
+```
+
+It writes the original DOL to `out.dol` with that function's stored word changed (an inverted check gets the other kind of wrong word, the sum itself), and seals every other checksum around it, as the stored word sits inside the ranges of the checksums above it. Then it runs the result through the same analysis, and only writes the file if that function's checksum is the one failing. It takes about half a minute. The function is given the way [What a Failed Check Does](metafortress_effects.md) names it, as a part of its symbol, or as its address. A function that hangs in place instead of carrying on with a wrong value will hang the game, which is what its check is for.
+
 ## The Tool
 ```sh
 python tools/metafortress.py SUKE01                # summary
@@ -118,6 +126,7 @@ python tools/metafortress.py SUKE01 --source SYMBOL  # one function as inline as
 python tools/metafortress_c.py SUKE01 SYMBOL         # one function with its check as C, the starting point for its source
 python tools/metafortress_c.py SUKE01 --survey       # what that printer can do for each protected function
 python tools/metafortress.py SUKE01 --words out.h     # every inline word as a macro; the build runs this
+python tools/metafortress.py SUKE01 --break SYMBOL out.dol   # the original with only that function's check failed
 ```
 
 It finds protected functions by the one thing they share, which is a call that lands inside its own function, and it makes no assumptions about the shape of a check. Each function is run along every path with all values tagged by where they came from (inline data, memory read through an address taken from inline data, or outside the function). A checksum is then whatever compares a value of the second kind, gathered in a loop, with one of the first.

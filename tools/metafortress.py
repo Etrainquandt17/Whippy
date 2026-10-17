@@ -26,6 +26,7 @@
 #   python tools/metafortress.py SUKE01 --yaml            # block_relocations for config.yml
 #   python tools/metafortress.py SUKE01 --verify mod.dol  # which checksums fail in mod.dol
 #   python tools/metafortress.py SUKE01 --seal mod.dol out.dol
+#   python tools/metafortress.py SUKE01 --break FUNCTION out.dol   # the original with that one function's check failed
 #   python tools/metafortress.py SUKE01 --words out.h     # inline data as macros, for the build
 #   python tools/metafortress.py SUKE01 --source SYMBOL   # a protected function as a starting point for its source
 #
@@ -41,7 +42,7 @@ import re
 import struct
 import sys
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence, Set, Tuple
+from typing import Any, Collection, Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 # Largest run of inline data to accept. The biggest one in the retail game is 152 bytes.
 MAX_BLOB_SIZE = 0x100
@@ -850,8 +851,10 @@ def levels(results: List[Dict[str, Any]]) -> Dict[int, int]:
     return level
 
 
-def seal(target: Analysis, original: List[Dict[str, Any]], pristine: bytes) -> int:
-    """Rewrites the stored values of target's DOL so that every checksum holds again. Returns how many changed."""
+def seal(target: Analysis, original: List[Dict[str, Any]], pristine: bytes, keep: Collection[int] = ()) -> int:
+    """Rewrites the stored values of target's DOL so that every checksum holds again. Returns how many changed.
+
+    The stored words at the addresses in keep are left as they are, so those checks stay failed."""
     level = levels(original)
     relation = {c["stored_at"]: c["relation"] for r in original for c in r["checksums"]}
     by_name = {f[2]: f for f in target.protected}
@@ -871,7 +874,7 @@ def seal(target: Analysis, original: List[Dict[str, Any]], pristine: bytes) -> i
         for result in target.run(functions, patches):
             for check in result["checksums"]:
                 key = check["stored_at"]
-                if level.get(key) != current:
+                if level.get(key) != current or key in keep:
                     continue
                 value = check["computed"] if relation[key] == "equal" else ~check["computed"] & MASK
                 if value != check["stored"]:
@@ -879,6 +882,79 @@ def seal(target: Analysis, original: List[Dict[str, Any]], pristine: bytes) -> i
                     image.write32(key, value)
                     bisect.insort(changed, key)
     return len(patches)
+
+
+def names_function(name: str, address: int, wanted: str) -> bool:
+    """Whether wanted names a function: its exact symbol, its address, or `Class::method` (namespaces optional)."""
+    if wanted == name:
+        return True
+    if re.fullmatch(r"(0x)?[0-9A-Fa-f]{8}", wanted):
+        return address == int(wanted, 16)
+    parts = wanted.split("::")
+    if len(parts) < 2:
+        return False
+    last = parts[-1]
+    prefix = "__dt__" if last.startswith("~") else "__ct__" if last == parts[-2] else last + "__"
+    if not name.startswith(prefix):
+        return False
+    tail = name[len(prefix) :]
+    position = 0
+    for part in parts[:-1]:
+        found = tail.find(f"{len(part)}{part}", position)
+        if found < 0:
+            return False
+        position = found + len(part)
+    return True
+
+
+def break_function(wanted: str, out: Path, pristine: bytes, results: List[Dict[str, Any]], symbols_path: Path, jobs: Optional[int]) -> None:
+    """Writes the original DOL to out with the checksums of one function failed and every other one holding.
+
+    A checksum fails when its stored word is wrong, but the stored word is itself covered by the checksums above it,
+    so those have to be sealed again around it. The function's own checksum doesn't cover its stored word, so it
+    stays failed. Nothing is written unless a run over the result finds exactly that."""
+    candidates = [r for r in results if r["checksums"]]
+    found = [r for r in candidates if r["name"] == wanted] or [r for r in candidates if names_function(r["name"], r["address"], wanted)]
+    found = found or [r for r in candidates if wanted in r["name"]]
+    if len(found) != 1:
+        sys.exit(f"{len(found)} functions with a checksum match {wanted}" + "".join(f"\n  {r['address']:08X} {r['name']} ({response(r)})" for r in found[:20]))
+    function = found[0]
+    if any(c["relation"] not in ("equal", "inverse") for c in function["checksums"]):
+        sys.exit(f"{function['name']} has a checksum that doesn't hold in the original, so there is nothing to break")
+    dol = Dol(pristine)
+
+    # A check that must hold for the response to stay away fails with any other word; an inverted one fails when the
+    # stored word is the sum itself.
+    words = {c["stored_at"]: (c["stored"] ^ 1 if c["relation"] == "equal" else ~c["stored"] & MASK) for c in function["checksums"]}
+    for address, value in words.items():
+        dol.write32(address, value)
+    with Analysis(bytes(dol.data), symbols_path, jobs) as target:
+        rewritten = seal(target, results, pristine, keep=set(words))
+        sealed = bytes(target.dol.data)
+    with Analysis(sealed, symbols_path, jobs) as check:
+        after = check.run()
+
+    owner = {c["stored_at"]: r["name"] for r in results for c in r["checksums"]}
+    original = {c["stored_at"]: c["relation"] for r in results for c in r["checksums"]}
+    now = {c["stored_at"]: c["relation"] for r in after for c in r["checksums"]}
+    wrong = []
+    for key, relation in original.items():
+        if relation not in ("equal", "inverse"):
+            continue
+        got = now.get(key)
+        if key in words:
+            if (got == "equal") != (relation == "inverse"):
+                wrong.append(f"{key:08X} {owner[key]}: holds, and should fail")
+        elif got != relation:
+            wrong.append(f"{key:08X} {owner[key]}: fails, and shouldn't")
+    if wrong:
+        sys.exit("not written, the result doesn't have exactly the one failed check:\n  " + "\n  ".join(wrong[:20]))
+    out.write_bytes(sealed)
+    print(f"{function['address']:08X} {function['name']}: {response(function)}")
+    for check in function["checksums"]:
+        print(f"  checksum of {check['start']:08X}-{check['end']:08X}, stored word at {check['stored_at']:08X}: {check['stored']:08X} -> {words[check['stored_at']]:08X}")
+    print(f"{rewritten} other stored words rewritten, and a run over the result finds no other check failing")
+    print(f"wrote {out}")
 
 
 def response(result: Dict[str, Any]) -> str:
@@ -1037,6 +1113,7 @@ def main() -> None:
     parser.add_argument("--json", type=Path, metavar="FILE", help="write everything found to FILE")
     parser.add_argument("--verify", type=Path, metavar="DOL", help="report the checksums that fail in a modified DOL")
     parser.add_argument("--seal", type=Path, nargs=2, metavar=("IN", "OUT"), help="write IN to OUT with its stored checksums recomputed")
+    parser.add_argument("--break", dest="break_", nargs=2, metavar=("FUNCTION", "OUT"), help="write the original DOL to OUT with the checksum of one function failed and every other one holding")
     parser.add_argument("--words", type=Path, metavar="FILE", help="write the inline data of every protected function to FILE as macros")
     parser.add_argument("--source", metavar="SYMBOL", help="print a protected function in the compiler's inline assembly syntax")
     parser.add_argument("--jobs", type=int, help="worker processes (default: one per core)")
@@ -1066,6 +1143,10 @@ def main() -> None:
             return
         results = analysis.run()
         sections = analysis.dol.sections
+
+    if args.break_:
+        break_function(args.break_[0], Path(args.break_[1]), data, results, symbols_path, args.jobs)
+        return
 
     other = args.verify or (args.seal and args.seal[0])
     if other:

@@ -1,7 +1,7 @@
 # What a Failed Check Does
 Most of the game's [MetaFortress](metafortress.md) checks stop the game when the code they guard has been changed. 149 functions do something else. 26 of them hang where they stand, and the other 123 carry on with a wrong value, as the comparison between the computed checksum and the stored one sits where the source had a plain `true` or `false`. This page goes through them one by one.
 
-Each entry gives what the source had and what follows when the check fails. Nothing here has been tried in the game. It's all read from the code, and where an entry stops short of what a player would see, it says what's still open.
+Each entry gives what the source had and what follows when the check fails. Nothing here has been tried in the game. It's all read from the code, and where an entry stops short of what a player would see, it says what's still open. To try one on its own, `--break` makes a DOL where only that function's check fails ([Modified Builds](metafortress.md#modified-builds)).
 
 Names are shortened. `hero`, `gimmick`, `carryitem`, `camera` and the other stage namespaces are inside `scn::step`, and the scenes (`wmap`, `titlemenunew`, `arena`, `goalgame`, `subgame` and so on) are inside `scn`.
 
@@ -27,7 +27,7 @@ MetaFortress doesn't add logic of its own. It takes a constant the function alre
 ## Kirby and the Other Heroes
 | Function | The Source Had | When the Check Fails | Status |
 |---|---|---|---|
-| `hero::AbilityKindUtil::IsKirbyAbility` | `false` for Meta Knight, Dedede and Waddle Dee, `true` for every other kind. | The answer is inverted. | matched |
+| `hero::AbilityKindUtil::IsKirbyAbility` | `false` for Meta Knight, Dedede and Waddle Dee, `true` for every other kind. | The answer is inverted. Its one caller is `seq::SequenceLvMapRoot::onSceneEndForGameOver`, which sets each player's health to full and takes away the copy ability of whoever it says is a Kirby, when the game goes on after a game over. With the check failing, Kirby players keep their ability, and Meta Knight, Dedede and Waddle Dee lose theirs (it's set to 0, and we haven't followed what the hero setup makes of that). The stage's own death handling has already cleared the ability of player 1 outside challenge stages and of any other Kirby who isn't in play, so the one that shows is a second Kirby who is still in play when the game is over. Seen in the game that way. | matched |
 | `hero::AbilityManager::initAbilityCore` | Skip the setup if the hero has an ability and a flag is set. Later, clear the other heroes' super abilities if the new ability is a super ability. | *Inverted.* The skip no longer asks whether the hero has an ability, so no ability is built while the flag is set, and gaining any ability clears the other players' super abilities. | matched |
 | `hero::AbilityManager::initAbility` | `reserveChangeAbility(kind, false)` | Passes `true`, which means "forced". It's only read when the ability is being removed (kind 0), where a super ability then goes without releasing its effect, hiding its gauge, clearing the fade or dropping its music. For any other kind nothing changes. | matched |
 | `hero::AbilityManager::startAbilitySilent` | `startAbilityCore(true)` | Passes `false`. By the name, the ability no longer starts silently. | matched |
