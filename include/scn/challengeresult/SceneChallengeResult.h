@@ -48,6 +48,7 @@ private:
     u8 _3B4[sizeof(info::Manager)];
     util::FrameCounter mCounter;
     sfx::Fade mFade;
+    u32 _5B64[(0x5C80 - 0x5B64) / 4];
     bool _5C80;
     bool _5C81;
 };

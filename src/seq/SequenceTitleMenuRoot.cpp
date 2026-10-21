@@ -142,8 +142,8 @@ SequenceTitleMenuRoot::SequenceTitleMenuRoot()
             blr
         }
     }
-    mRecipe._0 = 0;
-    mRecipe._8 = true;
+    mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_FILE_SELECT;
+    mRecipe.mIsWhiteFadeIn = true;
     mRecipe.mEntryInfo = EntryInfo::Create();
 }
 #undef MF_FUNCTION
@@ -287,17 +287,17 @@ std::auto_ptr<ISequence> SequenceTitleMenuRoot::createChildSequence() const {
     hash += hash << 3;
     hash ^= hash >> 11;
     hash += hash << 15;
-    switch (mRecipe._4) {
+    switch (mRecipe.mMode) {
     case CHILD_OPENING_0:
     case CHILD_OPENING_1: {
         storage::StoryMode mode =
-            (hash - expected != 0 || mRecipe._4 == CHILD_OPENING_0) ? storage::STORY_MODE_0 : storage::STORY_MODE_1;
+            (hash - expected != 0 || mRecipe.mMode == CHILD_OPENING_0) ? storage::STORY_MODE_0 : storage::STORY_MODE_1;
         return std::auto_ptr<ISequence>(new SequenceOpeningRoot(mode, mRecipe.mEntryInfo));
     }
     case CHILD_SUBGAME_0:
     case CHILD_SUBGAME_1: {
         scn::subgame::Context context = scn::subgame::Context::Create();
-        switch (mRecipe._4) {
+        switch (mRecipe.mMode) {
         case CHILD_SUBGAME_0:
             context.mKind = scn::subgame::Context::KIND_SETSUNA;
             break;
@@ -317,7 +317,8 @@ std::auto_ptr<ISequence> SequenceTitleMenuRoot::createChildSequence() const {
     case CHILD_ARENA_0:
     case CHILD_ARENA_1: {
         storage::ArenaGameKind kind =
-            (hash - expected != 0 || mRecipe._4 == CHILD_ARENA_0) ? storage::ARENA_GAME_KIND_0 : storage::ARENA_GAME_KIND_1;
+            (hash - expected != 0 || mRecipe.mMode == CHILD_ARENA_0) ? storage::ARENA_GAME_KIND_0
+                                                                     : storage::ARENA_GAME_KIND_1;
         return std::auto_ptr<ISequence>(new SequenceArenaRoot(SequenceArenaRoot::Recipe::Create(kind, mRecipe.mEntryInfo)));
     }
     case CHILD_SOUND_ROOM:
@@ -394,8 +395,8 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
             case 0:
                 _4 = 2;
                 _8 = false;
-                mRecipe._0 = 1;
-                mRecipe._8 = false;
+                mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_MODE_SELECT;
+                mRecipe.mIsWhiteFadeIn = false;
                 break;
             case 1:
                 _4 = 0;
@@ -409,13 +410,13 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
                 if (option->result()) {
                     _4 = 2;
                     _8 = false;
-                    mRecipe._0 = 0;
-                    mRecipe._8 = false;
+                    mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_FILE_SELECT;
+                    mRecipe.mIsWhiteFadeIn = false;
                 } else {
                     _4 = 2;
                     _8 = false;
-                    mRecipe._0 = 1;
-                    mRecipe._8 = false;
+                    mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_MODE_SELECT;
+                    mRecipe.mIsWhiteFadeIn = false;
                 }
             } else {
                 SequenceSubgame* subgame = DynamicCast<SequenceSubgame*, ISequence>(&child);
@@ -425,21 +426,21 @@ void SequenceTitleMenuRoot::onChildSequenceEnd(ISequence& child) {
                     }
                     _4 = 2;
                     _8 = false;
-                    mRecipe._0 = 1;
-                    mRecipe._8 = false;
+                    mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_MODE_SELECT;
+                    mRecipe.mIsWhiteFadeIn = false;
                 } else {
                     SequenceArenaRoot* arena = DynamicCast<SequenceArenaRoot*, ISequence>(&child);
                     if (arena != 0) {
                         mRecipe.mEntryInfo = arena->result().mPlayer.getEntryInfo();
                         _4 = 2;
                         _8 = false;
-                        mRecipe._0 = 1;
-                        mRecipe._8 = false;
+                        mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_MODE_SELECT;
+                        mRecipe.mIsWhiteFadeIn = false;
                     } else {
                         _4 = 2;
                         _8 = false;
-                        mRecipe._0 = 1;
-                        mRecipe._8 = false;
+                        mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_MODE_SELECT;
+                        mRecipe.mIsWhiteFadeIn = false;
                     }
                 }
             }
@@ -556,21 +557,21 @@ void SequenceTitleMenuRoot::onSceneEnd(scn::IScene& scene) {
             if (menu.result()._C) {
                 mRecipe.mEntryInfo = EntryInfo::Create();
             }
-            switch (menu.result()._0) {
-            case 0:
+            switch (menu.result().mKind) {
+            case scn::titlemenunew::SceneTitleMenu::RESULT_KIND_CANCEL:
                 _4 = 0;
                 _28 = 0;
                 break;
-            case 1:
+            case scn::titlemenunew::SceneTitleMenu::RESULT_KIND_MODE_DECIDED:
                 _4 = 1;
-                mRecipe._4 = menu.result()._8;
+                mRecipe.mMode = menu.result().mMode;
                 break;
-            case 2:
+            case scn::titlemenunew::SceneTitleMenu::RESULT_KIND_ALL_COMPLETE_MOVIE:
                 _4 = 2;
                 _8 = true;
-                mRecipe._0 = 2;
-                mRecipe._4 = menu.result()._8;
-                mRecipe._8 = false;
+                mRecipe.mKind = scn::titlemenunew::SceneTitleMenu::START_KIND_THEATER_COMPLETE;
+                mRecipe.mMode = menu.result().mMode;
+                mRecipe.mIsWhiteFadeIn = false;
                 break;
             }
         } else {

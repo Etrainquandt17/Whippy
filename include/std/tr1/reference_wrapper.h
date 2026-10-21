@@ -21,6 +21,11 @@ inline reference_wrapper<T> ref(T& t) {
     return reference_wrapper<T>(t);
 }
 
+template <class T>
+inline reference_wrapper<const T> cref(const T& t) {
+    return reference_wrapper<const T>(t);
+}
+
 }}  // namespace std::tr1
 
 #endif

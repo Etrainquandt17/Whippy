@@ -25,6 +25,7 @@ public:
     };
 
     static void Save(SaveInfoLayoutKind kind);
+    static void SaveIfModified(SaveInfoLayoutKind kind);
 
     BackupFileAccessor();
     BackupFileAccessor(u32 file);
